@@ -53,7 +53,6 @@ DoriosAPI.register.blockComponent('mech_spawner', {
      * Handles mob spawning while active
      */
     onTick({ block }) {
-        block.dimension.runCommand('execute as @p run say hola')
         if (!globalThis.worldLoaded) return
         if (!block.getState('utilitycraft:isOn')) return
 
