@@ -29,6 +29,7 @@
 					"empty",
 					"minecraft:gravel",
 					"minecraft:dirt",
+					"minecraft:grass_block",
 					"minecraft:sand",
 					"minecraft:soul_sand",
 					"utilitycraft:compressed_gravel",
@@ -96,6 +97,25 @@
 						},
 						"block": {
 							"texture": "dirt",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:block') == 'minecraft:grass_block'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "utilitycraft_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "utilitycraft_wood_sieve_grass",
 							"render_method": "alpha_test"
 						}
 					}

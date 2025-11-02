@@ -4,6 +4,9 @@
 	"resource_pack_name": "UtilityCraft 3.0",
 	"texture_name": "atlas.terrain",
 	"texture_data": {
+		"utilitycraft_wood_sieve_grass": {
+			"textures": "textures/blocks/grass_carried"
+		},
 		"utilitycraft_wood_sieve": {
 			"textures": "textures/blocks/sieve/wood_sieve"
 		},

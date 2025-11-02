@@ -22,7 +22,7 @@ DoriosAPI.register.itemComponent('mesh', {})
 export const acceptedBlocks = [
     "minecraft:gravel",
     "minecraft:dirt",
-    "minecraft:grass",
+    "minecraft:grass_block",
     "minecraft:sand",
     "minecraft:soul_sand",
     "utilitycraft:crushed_netherrack",
@@ -71,7 +71,7 @@ export const sieveRecipes = {
         { item: 'minecraft:spruce_sapling', amount: 1, chance: 0.10 },
         { item: 'minecraft:cherry_sapling', amount: 1, chance: 0.10 }
     ],
-    'minecraft:grass': [
+    'minecraft:grass_block': [
         { item: 'minecraft:red_flower', amount: 1, chance: 0.20 },
         { item: 'minecraft:yellow_flower', amount: 1, chance: 0.20 },
         { item: 'minecraft:double_plant', amount: 1, chance: 0.20 },
