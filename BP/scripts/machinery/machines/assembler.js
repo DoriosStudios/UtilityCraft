@@ -1,5 +1,5 @@
 import { Machine, Energy } from '../managers.js';
-
+const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component
  * - Uses blueprints created by the Digitizer.
@@ -47,16 +47,20 @@ DoriosAPI.register.blockComponent('assembler', {
         const INPUT_START = size - 10;
         const INPUT_END = size - 2;
 
+        const speedFactor = machine.upgrades.speed <= 1
+            ? machine.upgrades.speed + 1
+            : machine.upgrades.speed ** 2;
+
         // --- 1) Validate blueprint ---
         const blueprint = inv.getItem(BLUEPRINT_SLOT);
         if (!blueprint || blueprint?.typeId !== 'utilitycraft:blueprint') {
-            machine.showWarning('No Blueprint');
+            showWarning(machine, speedFactor, 'No Blueprint');
             return; // label: No Blueprint
         }
 
         // --- 2) Validate energy ---
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', false);
+            showWarning(machine, speedFactor, 'No Energy', false);
             return; // label: No Energy
         }
 
@@ -69,7 +73,7 @@ DoriosAPI.register.blockComponent('assembler', {
             }
         }
         if (!hasMaterials) {
-            machine.showWarning('No Materials');
+            showWarning(machine, speedFactor, 'No Materials');
             return; // label: No Materials
         }
 
@@ -79,7 +83,7 @@ DoriosAPI.register.blockComponent('assembler', {
         const leftover = blueprint.getDynamicProperty('leftover') || false;
 
         if (!resultItem || !resultAmount) {
-            machine.showWarning('Invalid Blueprint');
+            showWarning(machine, speedFactor, 'Invalid Blueprint');
             return;
         }
 
@@ -91,7 +95,7 @@ DoriosAPI.register.blockComponent('assembler', {
             : 64;
 
         if (available < resultAmount) {
-            machine.showWarning('Output Full');
+            showWarning(machine, speedFactor, 'Output Full');
             return; // label: Output Full
         }
 
@@ -100,12 +104,14 @@ DoriosAPI.register.blockComponent('assembler', {
 
         // --- 5) Processing Logic ---
         if (progress >= energyCost) {
-
-            const maxCraftAmount = Math.min(Math.floor(available / resultAmount), machine.boosts.speed);
+            const maxCraftAmount = Math.min(
+                Math.floor(available / resultAmount),
+                speedFactor
+            );
 
             const craftCount = amountToCraft(blueprint, inv, maxCraftAmount);
             if (craftCount <= 0) {
-                machine.showWarning('Missing Materials', false);
+                showWarning(machine, speedFactor, 'Missing Materials', false);
                 return;
             }
             // Add crafted items to output
@@ -123,8 +129,8 @@ DoriosAPI.register.blockComponent('assembler', {
             // Consume progress
             machine.addProgress(-energyCost);
         } else {
-            // Consume energy progressively like autosieve
-            const energyToConsume = Math.min(machine.energy.get(), settings.machine.rate_speed_base);
+            // If not enough progress, continue charging with energy
+            const energyToConsume = Math.min(machine.energy.get(), machine.rate / machine.boosts.speed);
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
@@ -133,7 +139,7 @@ DoriosAPI.register.blockComponent('assembler', {
         machine.on();
         machine.displayEnergy();
         machine.displayProgress();
-        machine.showStatus('Running');
+        showStatus(machine, speedFactor, 'Running');
     },
 
     onPlayerBreak(e) {
@@ -198,4 +204,51 @@ function amountToCraft(blueprint, inventory, maxCraftAmount) {
     }
 
     return craftsToDo;
+}
+
+/**
+ * Displays a warning label in the machine.
+ *
+ * Optionally resets the machine progress to 0 and turns off the machine.
+ *
+ * @param {string} message The warning text to display.
+ * @param {boolean} [resetProgress=true] Whether to reset the machine progress to 0.
+ */
+function showWarning(machine, speed, message, resetProgress = true) {
+    if (resetProgress) {
+        machine.setProgress(0);
+    }
+
+    machine.displayEnergy();
+    machine.off()
+    machine.setLabel(`
+§r${COLORS.yellow}${message}!
+
+§r${COLORS.green}Speed x${speed}
+§r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
+§r${COLORS.green}Cost ---
+
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
+}
+
+/**
+ * Displays a normal status label in the machine (green).
+ *
+ * Does not reset the machine progress.
+ *
+ * @param {string} message The status text to display.
+ */
+function showStatus(machine, speed, message) {
+    machine.displayEnergy();
+
+    machine.setLabel(`
+§r${COLORS.darkGreen}${message}!
+
+§r${COLORS.green}Speed x${speed}
+§r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
+§r${COLORS.green}Cost ${Energy.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
 }
