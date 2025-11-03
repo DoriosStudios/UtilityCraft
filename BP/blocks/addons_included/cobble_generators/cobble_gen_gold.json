@@ -63,7 +63,8 @@
 					20,
 					20
 				]
-			}
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{
