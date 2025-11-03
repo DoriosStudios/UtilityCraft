@@ -8,12 +8,17 @@
 				"group": "itemGroup.name.pickaxe"
 			}
 		},
-		"components": {
-			"minecraft:icon": "utilitycraft_lucky_pickaxe_item",
-			"minecraft:glint": true,
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:damage": 6
-		}
+                "components": {
+                        "minecraft:icon": "utilitycraft_lucky_pickaxe_item",
+                        "minecraft:tags": {
+                                "tags": [
+                                        "minecraft:diamond_tier"
+                                ]
+                        },
+                        "minecraft:glint": true,
+                        "minecraft:max_stack_size": 1,
+                        "minecraft:hand_equipped": true,
+                        "minecraft:damage": 6
+                }
 	}
 }

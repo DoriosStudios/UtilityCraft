@@ -7,10 +7,15 @@
 				"category": "equipment"
 			}
 		},
-		"components": {
-			"utilitycraft:drill": {
-				"size": 5
-			},
+                "components": {
+                        "utilitycraft:drill": {
+                                "size": 5
+                        },
+                        "minecraft:tags": {
+                                "tags": [
+                                        "minecraft:diamond_tier"
+                                ]
+                        },
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {

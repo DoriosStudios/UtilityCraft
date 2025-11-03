@@ -13,8 +13,9 @@
 				"tags": [
 					"minecraft:is_axe",
 					"minecraft:is_pickaxe",
-					"minecraft:is_sword",
-					"utilitycraft:is_aiot"
+                                        "minecraft:is_sword",
+                                        "utilitycraft:is_aiot",
+                                        "minecraft:iron_tier"
 				]
 			},
 			"minecraft:icon": "utilitycraft_steel_aiot",

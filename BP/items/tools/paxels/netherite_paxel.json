@@ -5,12 +5,13 @@
 			"identifier": "utilitycraft:netherite_paxel"
 		},
 		"components": {
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_axe",
-					"minecraft:is_pickaxe"
-				]
-			},
+                        "minecraft:tags": {
+                                "tags": [
+                                        "minecraft:is_axe",
+                                        "minecraft:is_pickaxe",
+                                        "minecraft:netherite_tier"
+                                ]
+                        },
 			"minecraft:fire_resistant": {
 				"value": true
 			},
