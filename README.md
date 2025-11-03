@@ -1,7 +1,7 @@
 # UtilityCraft
 UtilityCraft Minecraft Bedrock Add-On
 
-###### See the changelog [here](./changelog.md)
+###### See the changelog [here](https://github.com/RealMilo504/UtilityCraft/releases)
 
 See also UtilityCraft Expansions:
 
