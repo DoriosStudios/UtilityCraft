@@ -9,7 +9,12 @@
 			}
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_lucky_pickaxe",
+                        "minecraft:icon": "utilitycraft_lucky_pickaxe",
+                        "minecraft:tags": {
+                                "tags": [
+                                        "minecraft:diamond_tier"
+                                ]
+                        },
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "pickaxe"

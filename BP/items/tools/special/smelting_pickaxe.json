@@ -14,8 +14,13 @@
 			"minecraft:durability": {
 				"max_durability": 3031
 			},
-			"minecraft:damage": 7,
-			"minecraft:icon": "utilitycraft_smelting_pickaxe",
+                        "minecraft:damage": 7,
+                        "minecraft:icon": "utilitycraft_smelting_pickaxe",
+                        "minecraft:tags": {
+                                "tags": [
+                                        "minecraft:netherite_tier"
+                                ]
+                        },
 			"minecraft:enchantable": {
 				"value": 15,
 				"slot": "pickaxe"

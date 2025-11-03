@@ -5,12 +5,13 @@
 			"identifier": "utilitycraft:copper_paxel"
 		},
 		"components": {
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_axe",
-					"minecraft:is_pickaxe"
-				]
-			},
+                        "minecraft:tags": {
+                                "tags": [
+                                        "minecraft:is_axe",
+                                        "minecraft:is_pickaxe",
+                                        "minecraft:copper_tier"
+                                ]
+                        },
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {

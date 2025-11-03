@@ -14,8 +14,9 @@
 					"minecraft:is_axe",
 					"minecraft:is_pickaxe",
 					"minecraft:is_sword",
-					"utilitycraft:is_aiot",
-					"minecraft:transformable_items"
+                                        "utilitycraft:is_aiot",
+                                        "minecraft:transformable_items",
+                                        "minecraft:diamond_tier"
 				]
 			},
 			"minecraft:icon": "utilitycraft_diamond_aiot",

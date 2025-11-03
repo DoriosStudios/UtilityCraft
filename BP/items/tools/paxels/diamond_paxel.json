@@ -8,8 +8,9 @@
 			"minecraft:tags": {
 				"tags": [
 					"minecraft:is_axe",
-					"minecraft:is_pickaxe",
-					"minecraft:transformable_items"
+                                        "minecraft:is_pickaxe",
+                                        "minecraft:transformable_items",
+                                        "minecraft:diamond_tier"
 				]
 			},
 			"minecraft:max_stack_size": 1,
