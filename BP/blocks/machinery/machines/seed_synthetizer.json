@@ -62,6 +62,7 @@
 				"seconds_to_destroy": 1
 			},
 			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:machine": {},
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}

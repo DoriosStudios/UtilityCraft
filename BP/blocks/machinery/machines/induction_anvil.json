@@ -49,8 +49,10 @@
 					2
 				]
 			},
+			"tag:dorios:machine": {},
 			"tag:dorios:energy": {},
-			"tag:dorios:item": {}
+			"tag:dorios:item": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

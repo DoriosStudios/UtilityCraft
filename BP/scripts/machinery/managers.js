@@ -527,7 +527,7 @@ export class Generator {
 
         // Drop item and cleanup
         system.run(() => {
-            if (player.isInSurvival()) {
+            if (player?.isInSurvival()) {
                 const oldItemEntity = dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() })
                     .find(item => item.getComponent('minecraft:item')?.itemStack?.typeId === blockItemId);
                 oldItemEntity?.remove()
@@ -826,7 +826,7 @@ export class Machine {
 
         // Drop item and cleanup
         system.run(() => {
-            if (player.isInSurvival()) {
+            if (player?.isInSurvival()) {
                 const oldItemEntity = dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() })
                     .find(item => item.getComponent('minecraft:item')?.itemStack?.typeId === blockItemId);
                 oldItemEntity?.remove()
@@ -2794,3 +2794,115 @@ export class FluidManager {
         return caps[typeId] ?? 8000;
     }
 }
+
+
+/**
+ * ScriptEvent handler to destroy a machine at given coordinates.
+ * Removes the machine entity, drops stored items, and replaces the block with air.
+ */
+system.afterEvents.scriptEventReceive.subscribe(e => {
+    const { id, message, sourceEntity } = e
+
+    if (id === 'dorios:destroyMachine') {
+        try {
+            const [x, y, z] = message.split(',').map(Number)
+            const dim = sourceEntity.dimension
+            const block = dim.getBlock({ x, y, z })
+            if (!block) return
+
+            const fakeEvent = {
+                block,
+                brokenBlockPermutation: block.permutation,
+                player: null,
+                dimension: dim
+            }
+
+            Machine.onDestroy(fakeEvent)
+
+            // Remove block after destruction
+            system.runTimeout(() => {
+                dim.setBlockType(block.location, 'minecraft:air')
+            }, 1)
+
+        } catch (err) {
+            console.warn(`[destroyMachine] Error: ${err}`)
+        }
+    }
+})
+
+/**
+ * ScriptEvent handler to destroy a generator at given coordinates.
+ * Removes the generator entity, drops stored items, and replaces the block with air.
+ */
+system.afterEvents.scriptEventReceive.subscribe(e => {
+    const { id, message, sourceEntity } = e
+
+    if (id === 'dorios:destroyGenerator') {
+        try {
+            const [x, y, z] = message.split(',').map(Number)
+            const dim = sourceEntity.dimension
+            const block = dim.getBlock({ x, y, z })
+            if (!block) return
+
+            const fakeEvent = {
+                block,
+                brokenBlockPermutation: block.permutation,
+                player: null,
+                dimension: dim
+            }
+
+            Generator.onDestroy(fakeEvent)
+
+            // Remove block after destruction
+            system.runTimeout(() => {
+                dim.setBlockType(block.location, 'minecraft:air')
+            }, 1)
+
+        } catch (err) {
+            console.warn(`[destroyGenerator] Error: ${err}`)
+        }
+    }
+})
+
+/**
+ * ScriptEvent handler to destroy a fluid tank at given coordinates.
+ * Builds the tank item with fluid lore, removes the entity, sets the block to air, and drops the item.
+ */
+system.afterEvents.scriptEventReceive.subscribe(e => {
+    const { id, message, sourceEntity } = e
+
+    if (id === 'dorios:destroyTank') {
+        try {
+            const [x, y, z] = message.split(',').map(Number)
+            const dim = sourceEntity.dimension
+            const block = dim.getBlock({ x, y, z })
+            if (!block) return
+
+            const entity = dim.getEntitiesAtBlockLocation(block.location)[0]
+            if (!entity) return
+
+            const fluid = new FluidManager(entity)
+            const blockItemId = block.typeId
+            const blockItem = new ItemStack(blockItemId)
+            const lore = []
+
+            // Fluid lore
+            if (fluid.type !== 'empty' && fluid.get() > 0) {
+                const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type)
+                lore.push(`§r§7  ${liquidName}: ${FluidManager.formatFluid(fluid.get())}/${FluidManager.formatFluid(fluid.cap)}`)
+            }
+            if (lore.length > 0) blockItem.setLore(lore)
+
+            const dropPos = block.center()
+
+            // Remove entity, clear block, then drop the item
+            system.run(() => {
+                entity.remove()
+                dim.setBlockType(block.location, 'minecraft:air')
+                dim.spawnItem(blockItem, dropPos)
+            })
+        } catch (err) {
+            console.warn(`[destroyTank] Error: ${err}`)
+        }
+    }
+})

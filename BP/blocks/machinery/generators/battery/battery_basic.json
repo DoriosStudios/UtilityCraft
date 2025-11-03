@@ -41,6 +41,7 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
+			"tag:dorios:generator": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [

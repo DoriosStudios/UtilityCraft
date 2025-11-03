@@ -59,7 +59,8 @@
 					500,
 					700
 				]
-			}
+			},
+			"tag:dorios:upgradeable": {}
 		},
 		"permutations": [
 			{

@@ -77,6 +77,8 @@
 				"seconds_to_destroy": 1
 			},
 			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:upgradeable": {},
+			"tag:dorios:container": {},
 			"tag:dorios:item": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},

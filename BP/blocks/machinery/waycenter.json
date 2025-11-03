@@ -40,7 +40,9 @@
 					"texture": "utilitycraft_waycenter",
 					"render_method": "alpha_test"
 				}
-			}
+			},
+			
+			"tag:dorios:upgradeable": {}
 		},
 		"permutations": [
 			{

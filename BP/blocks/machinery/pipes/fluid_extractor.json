@@ -100,6 +100,7 @@
 				"seconds_to_destroy": 1
 			},
 			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:upgradeable": {},
 			"tag:dorios:fluid": {},
 			"tag:dorios:isTube": {},
 			"tag:dorios:isExporter": {},

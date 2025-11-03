@@ -52,7 +52,8 @@
 				]
 			},
 			"minecraft:light_dampening": 0,
-			"tag:dorios:fluid": {}
+			"tag:dorios:fluid": {},
+			"tag:dorios:fluid_tank": {}
 		}
 	}
 }
