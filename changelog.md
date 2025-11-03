@@ -1,14 +1,11 @@
 # UtilityCraft 3.2.1 | Patch Notes
 ---
 
-## FIXES & ADJUSTMENTS
+## ADJUSTMENTS & IMPROVEMENTS
 
 ### Blocks & Generators
-- **Grass Block Sieve Recipe** corrected to yield proper drops.  
 - **Wind Turbine**
   - Adjusted energy cap for *Ultimate tier* (now 50 % lower).  
-- **Cobblestone Generators**
-  - Corrected mining type; now properly harvestable with pickaxes.
 
 ### Compatibility
 - **Dorios Excavate Integration**
@@ -18,8 +15,6 @@
   - Enables full Excavation support across UtilityCraft’s automation blocks.
 
 ### Machines
-- **Infuser**
-  - Fixed bug preventing operation unless input matched catalyst’s required amount exactly.  
 - **Assembler**
   - Updated production scaling:  
     - Speed 0 → 1 item  
@@ -30,8 +25,16 @@
   - Soils no longer increase yield amount.  
   - Instead, they now **reduce the energy cost** required for each synthesis process.
 
-### Sieving
-- Corrected several drop probabilities that were significantly higher than intended.
+---
+
+## BUG FIXES
+
+- Fixed **Grass Block** sieve drop not being detected due to a typo in its block ID (recipe was not working at all).  
+- Fixed **Infuser** not operating unless input matched catalyst’s required amount exactly.  
+- Fixed **Cobblestone Generators** having incorrect mining tool type (now properly pickaxe-mineable).  
+- Fixed **Sieve drops** with exaggerated drop probabilities.  
+- Fixed **Mechanical Hopper & Upper** not picking up dropped items from the ground near their input position (now correctly pulls from a 1-block radius).  
+- Fixed several **Integrated Storage** recipes that could not be crafted correctly.
 
 ---
 
