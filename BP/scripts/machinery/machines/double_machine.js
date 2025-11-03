@@ -108,7 +108,7 @@ DoriosAPI.register.blockComponent('double_machine', {
             return;
         }
 
-        const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, inputSlot.amount / required))
+        const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, catalystSlot.amount / required))
         // If there is enough progress accumulated to process
         if (progress >= energyCost) {
             const processCount = Math.min(
