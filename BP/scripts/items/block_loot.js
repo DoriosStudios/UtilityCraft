@@ -1,4 +1,4 @@
-import { ItemStack, system } from "@minecraft/server";
+import { ItemStack, system, world } from "@minecraft/server";
 
 DoriosAPI.register.itemComponent("block_loot", {
     onMineBlock({ minedBlockPermutation, block }, { params }) {
@@ -52,14 +52,14 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
             const block = dim.getBlock({ x, y, z })
             if (!block) return
 
-            const perm = block.permutation
-            const blockId = perm.getItemStack(1).typeId
+            const blockId = block.typeId
 
             // Get loot parameters from the item in main hand
             const eq = sourceEntity.getComponent('equippable')
             const main = eq?.getEquipment('Mainhand')
+
             const lootComp = main?.getComponent('utilitycraft:block_loot')
-            const params = lootComp?.customParams ?? []
+            const params = lootComp?.customComponentParameters.params ?? []
             const paramArray = Array.isArray(params) ? params : [params]
 
             for (const cfg of paramArray) {
@@ -72,24 +72,37 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
                 } = cfg
 
                 // Validate suffix
-                if (!blockId.endsWith(blockEndsWith)) continue
+                if (!blockId.endsWith(blockEndsWith)) {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                    continue
+                }
 
                 // Validate whitelist
-                if (blockTypes.length > 0 && !blockTypes.includes(blockId)) continue
+                if (blockTypes.length > 0 && !blockTypes.includes(blockId)) {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                    continue
+                }
 
                 // Roll chance
-                if (Math.random() > chance) continue
+                if (Math.random() > chance) {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                    continue
+                }
 
                 // Determine amount
                 const qty = Array.isArray(amount)
                     ? DoriosAPI.math.randomInterval(amount[0], amount[1])
                     : amount
 
-                if (qty <= 0) continue
+                if (qty <= 0) {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                    continue
+                }
 
                 const dropPos = { x: x + 0.5, y: y + 0.2, z: z + 0.5 }
 
                 system.run(() => {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
                     dim.spawnItem(new ItemStack(item, qty), dropPos)
                 })
             }
@@ -98,4 +111,3 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
         }
     }
 })
-

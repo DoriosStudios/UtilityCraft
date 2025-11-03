@@ -55,7 +55,7 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
             const eq = sourceEntity.getComponent('equippable')
             const main = eq?.getEquipment('Mainhand')
             const hammerComp = main?.getComponent('utilitycraft:hammer')
-            const hammerTier = hammerComp?.customParams?.params?.tier ?? 0
+            const hammerTier = hammerComp?.customComponentParameters?.params?.tier ?? 0
 
             // Check required tier
             if (hammerTier < (recipe.tier ?? 0)) return

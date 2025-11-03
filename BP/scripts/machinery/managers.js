@@ -503,7 +503,7 @@ export class Generator {
     static onDestroy(e) {
         const { block, brokenBlockPermutation, player, dimension: dim } = e;
         const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
-        if (!entity) return;
+        if (!entity) return false;
 
         const energy = new Energy(entity);
         const fluid = new FluidManager(entity)
@@ -536,6 +536,7 @@ export class Generator {
             entity.remove();
             dim.spawnItem(blockItem, block.center());
         });
+        return true
     }
 
     /**
@@ -802,7 +803,7 @@ export class Machine {
     static onDestroy(e) {
         const { block, brokenBlockPermutation, player, dimension: dim } = e;
         const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
-        if (!entity) return;
+        if (!entity) return false;
 
         const energy = new Energy(entity);
         const fluid = new FluidManager(entity)
@@ -835,6 +836,7 @@ export class Machine {
             entity.remove();
             dim.spawnItem(blockItem, block.center());
         });
+        return true
     }
 
     /**
@@ -2817,11 +2819,15 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
                 dimension: dim
             }
 
-            Machine.onDestroy(fakeEvent)
+            const broken = Machine.onDestroy(fakeEvent)
 
             // Remove block after destruction
             system.runTimeout(() => {
-                dim.setBlockType(block.location, 'minecraft:air')
+                if (broken) {
+                    dim.setBlockType(block.location, 'minecraft:air')
+                } else {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                }
             }, 1)
 
         } catch (err) {
@@ -2851,11 +2857,15 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
                 dimension: dim
             }
 
-            Generator.onDestroy(fakeEvent)
+            const broken = Generator.onDestroy(fakeEvent)
 
             // Remove block after destruction
             system.runTimeout(() => {
-                dim.setBlockType(block.location, 'minecraft:air')
+                if (broken) {
+                    dim.setBlockType(block.location, 'minecraft:air')
+                } else {
+                    dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                }
             }, 1)
 
         } catch (err) {
@@ -2878,8 +2888,13 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
             const block = dim.getBlock({ x, y, z })
             if (!block) return
 
-            const entity = dim.getEntitiesAtBlockLocation(block.location)[0]
-            if (!entity) return
+            const entity = dim.getEntitiesAtBlockLocation(block.location)
+                .find(e => e.typeId.includes("tank"));
+            if (!entity) {
+                dim.runCommand(`fill ${x} ${y} ${z} ${x} ${y} ${z} air destroy`)
+                return
+            };
+
 
             const fluid = new FluidManager(entity)
             const blockItemId = block.typeId

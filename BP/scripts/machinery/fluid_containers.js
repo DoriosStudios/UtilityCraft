@@ -1,5 +1,5 @@
 import { FluidManager, Rotation } from './managers.js'
-import { system, ItemStack } from '@minecraft/server'
+import { system, ItemStack, world } from '@minecraft/server'
 
 DoriosAPI.register.blockComponent("fluid_container", {
     onPlayerInteract({ block, player, face }) {
@@ -141,7 +141,8 @@ DoriosAPI.register.blockComponent("fluid_container", {
         if (params.type !== 'tank') return;
 
         const dim = block.dimension;
-        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+        const entity = dim.getEntitiesAtBlockLocation(block.location)
+            .find(e => e.typeId.includes("tank"));
         if (!entity) return;
 
         const fluid = new FluidManager(entity);
