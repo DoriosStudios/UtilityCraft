@@ -136,7 +136,7 @@ export const infuserRecipes = {
         required: 1
     },
     // Integrated Storage
-    "minecraft:blaze_powder|ae2be:cetuz_quartz_crystal": {
+    "minecraft:blaze_powder|ae2be:certus_quartz_crystal": {
         output: "ae2be:charged_certus_quartz_crystal",
         required: 1
     },
@@ -145,7 +145,7 @@ export const infuserRecipes = {
         required: 4
     },
     "ae2be:silicon|utilitycraft:chip": {
-        output: "ae2:silicon_press",
+        output: "ae2be:silicon_press",
         required: 4
     },
     "ae2be:silicon|utilitycraft:basic_chip": {
