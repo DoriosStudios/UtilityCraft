@@ -1,4 +1,4 @@
-import { ItemStack } from "@minecraft/server";
+import { ItemStack, system } from "@minecraft/server";
 import { crusherRecipes } from "../config/recipes/crusher.js";
 
 DoriosAPI.register.itemComponent("hammer", {
@@ -48,7 +48,7 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
             if (!block) return
 
             const perm = block.permutation
-            const recipe = hammerRecipes[perm.type.id]
+            const recipe = crusherRecipes[perm.type.id]
             if (!recipe) return
 
             // Get hammer tier from custom item component
