@@ -28,7 +28,7 @@
 					"type": "passive"
 				},
 				"generator": {
-					"energy_cap": 12800000,
+					"energy_cap": 6400000,
 					"rate_speed_base": 800
 				}
 			},
