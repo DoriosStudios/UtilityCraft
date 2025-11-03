@@ -53,10 +53,11 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
         } else if (isEnder) {
             targetLoc = { x, y: y - 1, z };
         }
-
         if (!isEnder) {
             // Pull items from the source container into the block
             const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dimension);
+            let pulled = false;
+
             if (sourceInv) {
                 const sourceEntity = dimension.getEntitiesAtBlockLocation(sourceLoc)[0];
                 const [start, end] = DoriosAPI.containers.getAllowedSlotRange(sourceEntity ?? sourceInv);
@@ -69,10 +70,35 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
                     if (hasFilter && whiteList != entity.hasTag(`${item.typeId}`)) continue;
 
                     DoriosAPI.containers.transferItemsBetween(sourceLoc, block.location, dimension, i);
+                    pulled = true;
                     break;
                 }
             }
-        } else {
+
+            if (!pulled) {
+                const items = dimension.getEntities({
+                    type: "item",
+                    location: sourceLoc,
+                    maxDistance: 0.8 // fixed radius for normal hopper suction
+                });
+
+                for (const drop of items) {
+                    const itemComp = drop.getComponent("minecraft:item");
+                    if (!itemComp) continue;
+
+                    const stack = itemComp.itemStack;
+
+                    // Check filter again before collecting
+                    if (inv.emptySlotsCount == 0) break;
+                    if (hasFilter && whiteList != entity.hasTag(`${stack.typeId}`)) continue;
+
+                    inv.addItem(stack);
+                    drop.remove();
+                    break;
+                }
+            }
+        }
+        else {
             // Ender Hopper: picks up dropped items within a radius
             const range = entity.getDynamicProperty('range_selected') ?? 3;
             const items = dimension.getEntities({
