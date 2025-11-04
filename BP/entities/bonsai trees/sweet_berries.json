@@ -1,100 +1,155 @@
 {
-	"format_version": "1.19.20",
-	"minecraft:entity": {
-		"description": {
-			"identifier": "utilitycraft:sweet_berries",
-			"is_spawnable": false,
-			"is_summonable": true,
-			"is_experimental": false
-		},
-		"component_groups": {
-			"despawn": {
-				"minecraft:instant_despawn": {
-					"remove_child_entities": false
-				}
-			},
-			"normal": {
-				"minecraft:scale": {
-					"value": 1.42069
-				}
-			},
-			"small": {
-				"minecraft:scale": {
-					"value": 0.25
-				}
-			}
-		},
-		"components": {
-			"minecraft:collision_box": {
-				"height": 0.8,
-				"width": 0
-			},
-			"minecraft:physics": {
-				"has_collision": false,
-				"has_gravity": false
-			},
-			"minecraft:damage_sensor": {
-				"triggers": [
-					{
-						"cause": "all",
-						"deals_damage": false
-					}
-				]
-			},
-			"minecraft:inside_block_notifier": {
-				"block_list": [
-					{
-						"exited_block_event": {
-							"event": "despawn"
-						},
-						"block": {
-							"name": "utilitycraft:bonsai"
-						}
-					}
-				]
-			},
-			"minecraft:environment_sensor": {
-				"triggers": [
-					{
-						"filters": {
-							"test": "has_tag",
-							"value": "despawn",
-							"operator": "==",
-							"subject": "self"
-						},
-						"event": "despawn"
-					}
-				]
-			},
-			"minecraft:knockback_resistance": {
-				"value": 10000
-			},
-			"minecraft:scale": {
-				"value": 0.25
-			}
-		},
-		"events": {
-			"despawn": {
-				"add": {
-					"component_groups": [
-						"despawn"
-					]
-				}
-			},
-			"normal": {
-				"add": {
-					"component_groups": [
-						"normal"
-					]
-				}
-			},
-			"small": {
-				"add": {
-					"component_groups": [
-						"small"
-					]
-				}
-			}
-		}
-	}
+    "format_version": "1.19.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "utilitycraft:sweet_berries",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false,
+            "animations": {
+                "grow_10": "animation.dorios_bonsai.grow_10",
+                "grow_30": "animation.dorios_bonsai.grow_30",
+                "grow_40": "animation.dorios_bonsai.grow_40",
+                "grow_45": "animation.dorios_bonsai.grow_45",
+                "grow_50": "animation.dorios_bonsai.grow_50",
+                "grow_60": "animation.dorios_bonsai.grow_60"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "grow_10": "q.property('dorios:time') == 10 && !q.property('dorios:is_slimed')"
+                    },
+                    {
+                        "grow_30": "q.property('dorios:time') == 30 && !q.property('dorios:is_slimed')"
+                    },
+                    {
+                        "grow_40": "q.property('dorios:time') == 40 && !q.property('dorios:is_slimed')"
+                    },
+                    {
+                        "grow_45": "q.property('dorios:time') == 45 && !q.property('dorios:is_slimed')"
+                    },
+                    {
+                        "grow_50": "q.property('dorios:time') == 50 && !q.property('dorios:is_slimed')"
+                    },
+                    {
+                        "grow_60": "q.property('dorios:time') == 60 && !q.property('dorios:is_slimed')"
+                    }
+                ]
+            },
+            "properties": {
+                "dorios:time": {
+                    "type": "int",
+                    "default": 60,
+                    "client_sync": true,
+                    "range": [
+                        0,
+                        60
+                    ]
+                },
+                "dorios:multi": {
+                    "type": "int",
+                    "default": 1,
+                    "client_sync": true,
+                    "range": [
+                        1,
+                        10
+                    ]
+                },
+                "dorios:is_slimed": {
+                    "type": "bool",
+                    "default": false,
+                    "client_sync": true
+                }
+            }
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {
+                    "remove_child_entities": false
+                }
+            },
+            "normal": {
+                "minecraft:scale": {
+                    "value": 1.42069
+                }
+            },
+            "small": {
+                "minecraft:scale": {
+                    "value": 0.25
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0.8,
+                "width": 0
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:inside_block_notifier": {
+                "block_list": [
+                    {
+                        "exited_block_event": {
+                            "event": "despawn"
+                        },
+                        "block": {
+                            "name": "utilitycraft:bonsai"
+                        }
+                    }
+                ]
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "despawn",
+                            "operator": "==",
+                            "subject": "self"
+                        },
+                        "event": "despawn"
+                    }
+                ]
+            },
+            "minecraft:knockback_resistance": {
+                "value": 10000
+            },
+            "minecraft:scale": {
+                "value": 0.25
+            }
+        },
+        "events": {
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawn"
+                    ]
+                }
+            },
+            "normal": {
+                "add": {
+                    "component_groups": [
+                        "normal"
+                    ]
+                }
+            },
+            "small": {
+                "add": {
+                    "component_groups": [
+                        "small"
+                    ]
+                }
+            }
+        }
+    }
 }

@@ -1,20 +1,34 @@
 {
-	"format_version": "1.10.0",
-	"minecraft:client_entity": {
-		"description": {
-			"identifier": "utilitycraft:cherry_tree",
-			"materials": {
-				"default": "entity_alphatest"
-			},
-			"textures": {
-				"default": "textures/entity/cherry_tree"
-			},
-			"geometry": {
-				"default": "geometry.utilitycraft_cherry_tree"
-			},
-			"render_controllers": [
-				"controller.render.default"
-			]
-		}
-	}
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "utilitycraft:cherry_tree",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/cherry_tree"
+            },
+            "geometry": {
+                "default": "geometry.utilitycraft_cherry_tree"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "controller": "controller.animation.dorios_bonsai",
+                "grow_10": "animation.grow_tree_10",
+                "grow_30": "animation.grow_tree_30",
+                "grow_40": "animation.grow_tree_40",
+                "grow_45": "animation.grow_tree_45",
+                "grow_50": "animation.grow_tree_50",
+                "grow_60": "animation.grow_tree_60"
+            },
+            "scripts": {
+                "animate": [
+                    "controller"
+                ]
+            }
+        }
+    }
 }
