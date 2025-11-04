@@ -1,5 +1,5 @@
 import { Machine, Energy } from '../managers.js'
-import { cropsDrops } from "../../config/recipes/plants.js";
+import { plantsData } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3
 const MESHSLOT = 6
@@ -71,7 +71,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         }
 
         // Validate recipe based on the input item
-        const recipe = cropsDrops[inputSlot?.typeId]
+        const recipe = plantsData[inputSlot?.typeId]
         if (!recipe) {
             machine.showWarning('Invalid Seed')
             return;

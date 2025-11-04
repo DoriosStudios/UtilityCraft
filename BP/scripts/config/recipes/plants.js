@@ -1,3 +1,5 @@
+import { system } from "@minecraft/server"
+
 /**
 * Crop data: defines seed item and loot table for each custom crop.
 */
@@ -36,8 +38,14 @@ export const data = {
 }
 
 /**
- * Sapling → Bonsai entity definitions
- * Each entry defines: sapling item, valid soils, entity spawned, and loot table.
+ * Bonsai definitions registry.
+ * Each entry defines sapling behavior and crop drop data.
+ *
+ * @constant
+ * @type {{
+ *   bonsaiItems: Array<{ sapling: string, allowed: string[], entity: string }>,
+ *   plantsData: Record<string, { cost: number, drops: Array<{ item: string, amount: number|number[], chance: number }> }>
+ * }}
  */
 export const bonsaiItems = [
     { sapling: 'minecraft:acacia_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:acacia_tree' },
@@ -69,12 +77,17 @@ export const bonsaiItems = [
     { sapling: 'minecraft:wheat_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:wheat' }
 ]
 
+
 /**
- * Registry of all crop drops definitions.
- * 
- * @type {Record<string, CropData>}
+ * Plant registry for UtilityCraft and Bountiful Crops.
+ *
+ * Each key represents a plant identifier, and its value specifies
+ * the seed item, loot table, and other properties.
+ *
+ * @constant
+ * @type {Record<string, { seed: string, loot: string }>}
  */
-export const cropsDrops = {
+export const plantsData = {
     'minecraft:acacia_sapling': {
         cost: 8000,
         drops: [
@@ -550,3 +563,193 @@ export const cropsDrops = {
         ]
     }
 }
+
+/**
+ * ScriptEvent receiver: "utilitycraft:register_plant"
+ *
+ * Allows other addons or scripts to dynamically add or replace plant definitions.
+ * If the item already exists in `plantsData`, it will be replaced.
+ *
+ * Expected payload format (JSON):
+ * ```json
+ * {
+ *   "utilitycraft:coal_crop": {
+ *     "cost": 64000,
+ *     "drops": [
+ *       { "item": "minecraft:coal", "amount": [2, 4], "chance": 1 },
+ *       { "item": "utilitycraft:coal_seeds", "amount": 1, "chance": 0.05 }
+ *     ]
+ *   },
+ *   "utilitycraft:gold_crop": {
+ *     "cost": 64000,
+ *     "drops": [
+ *       { "item": "minecraft:raw_gold", "amount": [1, 3], "chance": 1 },
+ *       { "item": "utilitycraft:gold_seeds", "amount": 1, "chance": 0.05 }
+ *     ]
+ *   }
+ * }
+ * ```
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:register_plant") return
+
+    try {
+        const payload = JSON.parse(message)
+        if (!payload || typeof payload !== "object") return
+
+        let added = 0
+        let replaced = 0
+
+        for (const [plantId, data] of Object.entries(payload)) {
+            if (!data.drops || !Array.isArray(data.drops)) continue
+
+            if (plantsData[plantId]) {
+                // console.warn(`[UtilityCraft] Replaced existing plant drop definition for '${plantId}'.`)
+                replaced++
+            } else {
+                added++
+            }
+
+            plantsData[plantId] = data
+        }
+
+        // console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} plant drop definitions.`)
+    } catch (err) {
+        // console.warn("[UtilityCraft] Failed to parse plant registration payload:", err)
+    }
+})
+
+// ==================================================
+// EXAMPLES – How to register custom plant drops
+// ==================================================
+/*
+import { system, world } from "@minecraft/server";
+
+world.afterEvents.worldLoad.subscribe(() => {
+    const newPlants = {
+        "utilitycraft:coal_crop": {
+            cost: 64000,
+            drops: [
+                { item: "minecraft:coal", amount: [2, 4], chance: 1 },
+                { item: "utilitycraft:coal_seeds", amount: 1, chance: 0.05 }
+            ]
+        },
+        "utilitycraft:gold_crop": {
+            cost: 64000,
+            drops: [
+                { item: "minecraft:raw_gold", amount: [1, 3], chance: 1 },
+                { item: "utilitycraft:gold_seeds", amount: 1, chance: 0.05 }
+            ]
+        }
+    }
+
+    system.sendScriptEvent("utilitycraft:register_plant", JSON.stringify(newPlants))
+
+    console.warn("[Addon] Custom plant drops registered via system event.")
+})
+
+// You can also do this directly with a command inside Minecraft:
+Command:
+/scriptevent utilitycraft:register_plant {"utilitycraft:coal_crop":{"cost":64000,"drops":[{"item":"minecraft:coal","amount":[2,4],"chance":1},{"item":"utilitycraft:coal_seeds","amount":1,"chance":0.05}]},"utilitycraft:gold_crop":{"cost":64000,"drops":[{"item":"minecraft:raw_gold","amount":[1,3],"chance":1},{"item":"utilitycraft:gold_seeds","amount":1,"chance":0.05}]}}
+*/
+
+/**
+ * ScriptEvent receiver: "utilitycraft:register_bonsai"
+ *
+ * Allows other addons or scripts to dynamically add or replace bonsai definitions.
+ * If an existing sapling is found, it will be replaced.
+ *
+ * Expected payload format (JSON):
+ * ```json
+ * {
+ *   "utilitycraft:example_bonsai": {
+ *     "sapling": "minecraft:cactus",
+ *     "allowed": ["sand", "red_sand"],
+ *     "entity": "utilitycraft:cactus",
+ *     "cost": 8000,
+ *     "drops": [
+ *       { "item": "minecraft:cactus", "amount": [2,4], "chance": 1 }
+ *     ]
+ *   }
+ * }
+ * ```
+ *
+ * Behavior:
+ * - Bonsai data (sapling, allowed, entity) are stored in `bonsaiItems`.
+ * - Cost and drops are stored in `plantsData` under the same identifier.
+ * - Missing "allowed" defaults to ["dirt", "grass_block"].
+ * - Existing entries are replaced and logged.
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:register_bonsai") return
+
+    try {
+        const payload = JSON.parse(message)
+        if (!payload || typeof payload !== "object") return
+
+        let added = 0
+        let replaced = 0
+
+        for (const [bonsaiId, data] of Object.entries(payload)) {
+            const { sapling, allowed = ["dirt", "grass_block"], entity, cost, drops } = data
+            if (!sapling || !entity || !drops || !Array.isArray(drops)) continue
+
+            // Update bonsaiItems
+            const existing = bonsaiItems.find(b => b.sapling === sapling)
+            const newBonsai = { sapling, allowed, entity }
+
+            if (existing) {
+                Object.assign(existing, newBonsai)
+                replaced++
+            } else {
+                bonsaiItems.push(newBonsai)
+                added++
+            }
+
+            // Update plantsData
+            plantsData[bonsaiId] = { cost, drops }
+        }
+
+        // console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} bonsai definitions.`)
+    } catch (err) {
+        // console.warn("[UtilityCraft] Failed to parse bonsai registration payload:", err)
+    }
+})
+
+// ==================================================
+// EXAMPLES – How to register custom bonsais
+// ==================================================
+/*
+import { system, world } from "@minecraft/server";
+
+world.afterEvents.worldLoad.subscribe(() => {
+    const newBonsais = {
+        "utilitycraft:cactus_bonsai": {
+            sapling: "minecraft:cactus",
+            allowed: ["sand", "red_sand"],
+            entity: "utilitycraft:cactus",
+            cost: 8000,
+            drops: [
+                { item: "minecraft:cactus", amount: [2, 4], chance: 1 }
+            ]
+        },
+        "utilitycraft:oak_bonsai": {
+            sapling: "minecraft:oak_sapling",
+            entity: "utilitycraft:oak_tree",
+            cost: 8000,
+            drops: [
+                { item: "minecraft:log", amount: [4, 8], chance: 1 },
+                { item: "minecraft:stick", amount: [2, 4], chance: 1 }
+            ]
+        }
+    }
+
+    system.sendScriptEvent("utilitycraft:register_bonsai", JSON.stringify(newBonsais))
+
+    console.warn("[Addon] Custom bonsai definitions registered via system event.")
+})
+
+// You can also do this directly with a command inside Minecraft:
+Command:
+/scriptevent utilitycraft:register_bonsai {"utilitycraft:cactus_bonsai":{"sapling":"minecraft:cactus","allowed":["sand","red_sand"],"entity":"utilitycraft:cactus","cost":8000,"drops":[{"item":"minecraft:cactus","amount":[2,4],"chance":1}]},"utilitycraft:oak_bonsai":{"sapling":"minecraft:oak_sapling","entity":"utilitycraft:oak_tree","cost":8000,"drops":[{"item":"minecraft:log","amount":[4,8],"chance":1},{"item":"minecraft:stick","amount":[2,4],"chance":1}]}}
+*/

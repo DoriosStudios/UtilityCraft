@@ -1,5 +1,5 @@
 import { ItemStack, system } from "@minecraft/server"
-import { cropsDrops, data } from "../config/recipes/plants.js"
+import { plantsData, data } from "../config/recipes/plants.js"
 
 DoriosAPI.register.blockComponent("crop", {
     onTick({ block }) {
@@ -26,7 +26,7 @@ DoriosAPI.register.blockComponent("crop", {
                 const { x, y, z } = block.location
                 block.dimension.runCommand(`loot spawn ${x} ${y} ${z} loot "${crop.loot}"`)
             } else {
-                const drops = cropsDrops[crop.seed]?.drops ?? []
+                const drops = plantsData[crop.seed]?.drops ?? []
                 const fortuneLevel = fortune.level
 
                 drops.forEach(drop => {

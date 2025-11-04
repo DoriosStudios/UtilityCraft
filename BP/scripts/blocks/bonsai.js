@@ -1,5 +1,5 @@
 import { ItemStack, world, system } from '@minecraft/server'
-import { cropsDrops, bonsaiItems } from '../config/recipes/plants.js'
+import { plantsData, bonsaiItems } from '../config/recipes/plants.js'
 
 /**
  * Bonsai Block Component
@@ -211,7 +211,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
 
     const multi = sourceEntity.getProperty("dorios:multi") ?? 1
     const bonsaiPlant = sourceEntity.getTags().find(tag => tag.startsWith('plant|'))?.split('|')[1]
-    const lootTable = cropsDrops[bonsaiPlant]
+    const lootTable = plantsData[bonsaiPlant]
     if (!lootTable) return
     const drops = lootTable.drops
 
@@ -220,7 +220,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
     drops.forEach(loot => {
         if (Math.random() <= loot.chance) {
             let qty = Array.isArray(loot.amount)
-                ? DoriosAPI.math.randomInterval(loot.amount[0] ?? loot.min, loot.amount[1] ?? loot.max)
+                ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
                 : loot.amount
 
             try {
