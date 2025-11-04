@@ -1,23 +1,35 @@
 {
-	"format_version": "1.8.0",
-	"minecraft:client_entity": {
-		"description": {
-			"identifier": "utilitycraft:kelp",
-			"materials": {
-				"default": "slime",
-				"outer": "slime_outer"
-			},
-			"textures": {
-				"default": "textures/entity/kelp"
-			},
-			"geometry": {
-				"default": "geometry.utilitycraft_kelp",
-				"armor": "geometry.utilitycraft_kelp_armor"
-			},
-			"render_controllers": [
-				"controller.render.slime",
-				"controller.render.slime_armor"
-			]
-		}
-	}
+    "format_version": "1.8.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "utilitycraft:kelp",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/kelp"
+            },
+            "geometry": {
+                "default": "geometry.utilitycraft_kelp",
+                "armor": "geometry.utilitycraft_kelp_armor"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "controller": "controller.animation.dorios_bonsai",
+                "grow_10": "animation.grow_tree_10",
+                "grow_30": "animation.grow_tree_30",
+                "grow_40": "animation.grow_tree_40",
+                "grow_45": "animation.grow_tree_45",
+                "grow_50": "animation.grow_tree_50",
+                "grow_60": "animation.grow_tree_60"
+            },
+            "scripts": {
+                "animate": [
+                    "controller"
+                ]
+            }
+        }
+    }
 }
