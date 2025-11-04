@@ -35,6 +35,39 @@ export const data = {
     'utilitycraft:wither_crop': { seed: 'utilitycraft:wither_seeds', loot: 'bountiful_crops/witherLoot/wither_crop' }
 }
 
+/**
+ * Sapling → Bonsai entity definitions
+ * Each entry defines: sapling item, valid soils, entity spawned, and loot table.
+ */
+export const bonsaiItems = [
+    { sapling: 'minecraft:acacia_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:acacia_tree' },
+    { sapling: 'utilitycraft:apple_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:apple_tree' },
+    { sapling: 'minecraft:bamboo', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:bamboo' },
+    { sapling: 'minecraft:beetroot_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:beetroot' },
+    { sapling: 'minecraft:birch_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:birch_tree' },
+    { sapling: 'minecraft:cactus', allowed: ['sand', 'red_sand'], entity: 'utilitycraft:cactus' },
+    { sapling: 'minecraft:carrot', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:carrot' },
+    { sapling: 'minecraft:cherry_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:cherry_tree' },
+    { sapling: 'minecraft:chorus_fruit', allowed: ['end_stone'], entity: 'utilitycraft:chorus_fruit' },
+    { sapling: 'minecraft:crimson_fungus', allowed: ['crimson_nylium'], entity: 'utilitycraft:crimson_tree' },
+    { sapling: 'minecraft:dark_oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:darkoak_tree' },
+    { sapling: 'minecraft:jungle_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:jungle_tree' },
+    { sapling: 'minecraft:kelp', allowed: ['sand', 'red_sand', 'dirt', 'grass_block'], entity: 'utilitycraft:kelp' },
+    { sapling: 'minecraft:mangrove_propagule', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:mangrove_tree' },
+    { sapling: 'minecraft:melon_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:melon' },
+    { sapling: 'minecraft:red_mushroom', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:mushroom' },
+    { sapling: 'minecraft:brown_mushroom', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:mushroom' },
+    { sapling: 'minecraft:nether_wart', allowed: ['soul_sand'], entity: 'utilitycraft:nether_wart' },
+    { sapling: 'minecraft:oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:oak_tree' },
+    { sapling: 'minecraft:pale_oak_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:pale_oak_tree' },
+    { sapling: 'minecraft:potato', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:potato' },
+    { sapling: 'minecraft:pumpkin_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:pumpkin' },
+    { sapling: 'minecraft:spruce_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:spruce_tree' },
+    { sapling: 'minecraft:sugar_cane', allowed: ['dirt', 'grass_block', 'sand', 'red_sand'], entity: 'utilitycraft:sugarcane' },
+    { sapling: 'minecraft:sweet_berries', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:sweet_berries' },
+    { sapling: 'minecraft:warped_fungus', allowed: ['warped_nylium'], entity: 'utilitycraft:warped_tree' },
+    { sapling: 'minecraft:wheat_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:wheat' }
+]
 
 /**
  * Registry of all crop drops definitions.

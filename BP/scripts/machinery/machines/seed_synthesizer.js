@@ -1,5 +1,5 @@
 import { Machine, Energy } from '../managers.js'
-import { cropsDrops } from "../../config/crops.js";
+import { cropsDrops } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3
 const MESHSLOT = 6

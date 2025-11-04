@@ -13,12 +13,8 @@
 				"default": "geometry.utilitycraft_bamboo"
 			},
 			"render_controllers": [
-				"controller.render.bamboo"
-			],
-			"spawn_egg": {
-				"base_color": "#000000",
-				"overlay_color": "#FFFFFF"
-			}
+				"controller.render.default"
+			]
 		}
 	}
 }

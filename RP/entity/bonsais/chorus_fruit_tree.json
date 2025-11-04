@@ -13,12 +13,8 @@
 				"default": "geometry.utilitycraft_block_bonsai"
 			},
 			"render_controllers": [
-				"controller.render.sugarcane"
-			],
-			"spawn_egg": {
-				"base_color": "#000000",
-				"overlay_color": "#FFFFFF"
-			}
+				"controller.render.default"
+			]
 		}
 	}
 }

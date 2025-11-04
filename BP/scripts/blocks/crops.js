@@ -1,5 +1,5 @@
 import { ItemStack, system } from "@minecraft/server"
-import { cropsDrops, data } from "../config/crops.js"
+import { cropsDrops, data } from "../config/recipes/plants.js"
 
 DoriosAPI.register.blockComponent("crop", {
     onTick({ block }) {

@@ -15,7 +15,7 @@
 //   │  ├─ melter.js
 //   │  ├─ press.js
 //   │  └─ sieve.js
-//   └─ crops.js
+//   └─ recipes/plants.js
 // ==================================================
 
 import './recipes/crafter.js';
@@ -26,4 +26,4 @@ import './recipes/infuser.js';
 import './recipes/melter.js';
 import './recipes/press.js';
 import './recipes/sieve.js';
-import './crops.js';
+import './recipes/plants.js';

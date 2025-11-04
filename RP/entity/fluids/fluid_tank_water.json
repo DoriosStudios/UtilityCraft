@@ -13,12 +13,8 @@
 				"default": "geometry.utilitycraft_fluid_tank_entity"
 			},
 			"render_controllers": [
-				"controller.render.oak_tree"
+				"controller.render.default"
 			],
-			"spawn_egg": {
-				"base_color": "#000000",
-				"overlay_color": "#FFFFFF"
-			},
 			"animations": {
 				"fill": "animation.utilitycraft_fluid_tank_entity.fill"
 			},

@@ -13,12 +13,8 @@
 				"default": "geometry.utilitycraft_cactus"
 			},
 			"render_controllers": [
-				"controller.render.cactus"
-			],
-			"spawn_egg": {
-				"base_color": "#000000",
-				"overlay_color": "#FFFFFF"
-			}
+				"controller.render.default"
+			]
 		}
 	}
 }

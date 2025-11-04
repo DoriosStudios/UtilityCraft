@@ -1,0 +1,44 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.dorios_bonsai": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "grow": "true"
+                        }
+                    ]
+                },
+                "grow": {
+                    "animations": [
+                        {
+                            "grow_10": "q.property('dorios:time') == 10 && !q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_30": "q.property('dorios:time') == 30 && !q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_40": "q.property('dorios:time') == 40 && !q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_45": "q.property('dorios:time') == 45 && !q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_50": "q.property('dorios:time') == 50 && !q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_60": "q.property('dorios:time') == 60 && !q.property('dorios:is_slimed')"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "query.all_animations_finished && q.property('dorios:is_slimed')"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

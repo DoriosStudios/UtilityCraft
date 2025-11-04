@@ -13,12 +13,8 @@
 				"default": "geometry.utilitycraft_nether_tree"
 			},
 			"render_controllers": [
-				"controller.render.crimson_tree"
-			],
-			"spawn_egg": {
-				"base_color": "#000000",
-				"overlay_color": "#FFFFFF"
-			}
+				"controller.render.default"
+			]
 		}
 	}
 }

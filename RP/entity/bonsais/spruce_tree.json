@@ -13,12 +13,8 @@
 				"default": "geometry.utilitycraft_spruce_tree"
 			},
 			"render_controllers": [
-				"controller.render.spruce_tree"
-			],
-			"spawn_egg": {
-				"base_color": "#000000",
-				"overlay_color": "#FFFFFF"
-			}
+				"controller.render.default"
+			]
 		}
 	}
 }

@@ -13,7 +13,7 @@
 				"default": "geometry.utilitycraft_spawner_type"
 			},
 			"render_controllers": [
-				"controller.render.oak_tree"
+				"controller.render.default"
 			],
 			"spawn_egg": {
 				"base_color": "#000000",

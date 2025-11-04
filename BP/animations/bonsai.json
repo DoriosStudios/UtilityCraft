@@ -1,0 +1,59 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.dorios_bonsai.grow_10": {
+            "timeline": {
+                "10.0": [
+                    "/scriptevent dorios:bonsai_loot"
+                ]
+            },
+            "animation_length": 10,
+            "loop": true
+        },
+        "animation.dorios_bonsai.grow_30": {
+            "timeline": {
+                "30.0": [
+                    "/scriptevent dorios:bonsai_loot"
+                ]
+            },
+            "animation_length": 30,
+            "loop": true
+        },
+        "animation.dorios_bonsai.grow_40": {
+            "timeline": {
+                "40.0": [
+                    "/scriptevent dorios:bonsai_loot"
+                ]
+            },
+            "animation_length": 40,
+            "loop": true
+        },
+        "animation.dorios_bonsai.grow_45": {
+            "timeline": {
+                "45.0": [
+                    "/scriptevent dorios:bonsai_loot"
+                ]
+            },
+            "animation_length": 45,
+            "loop": true
+        },
+        "animation.dorios_bonsai.grow_50": {
+            "timeline": {
+                "50.0": [
+                    "/scriptevent dorios:bonsai_loot"
+                ]
+            },
+            "animation_length": 50,
+            "loop": true
+        },
+        "animation.dorios_bonsai.grow_60": {
+            "timeline": {
+                "60.0": [
+                    "/scriptevent dorios:bonsai_loot"
+                ]
+            },
+            "animation_length": 60,
+            "loop": true
+        }
+    }
+}

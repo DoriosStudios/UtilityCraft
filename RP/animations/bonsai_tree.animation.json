@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"animation.grow_tree_60": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 60,
 			"bones": {
 				"tree": {
@@ -28,7 +28,7 @@
 			}
 		},
 		"animation.grow_tree_50": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 50,
 			"bones": {
 				"tree": {
@@ -54,7 +54,7 @@
 			}
 		},
 		"animation.grow_tree_45": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 45,
 			"bones": {
 				"tree": {
@@ -80,7 +80,7 @@
 			}
 		},
 		"animation.grow_tree_40": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 40,
 			"bones": {
 				"tree": {
@@ -106,7 +106,7 @@
 			}
 		},
 		"animation.grow_tree_30": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 30,
 			"bones": {
 				"tree": {
@@ -132,7 +132,7 @@
 			}
 		},
 		"animation.grow_tree_10": {
-			"loop": "hold_on_last_frame",
+			"loop": true,
 			"animation_length": 10,
 			"bones": {
 				"tree": {

@@ -5,7 +5,62 @@
 			"identifier": "utilitycraft:acacia_tree",
 			"is_spawnable": false,
 			"is_summonable": true,
-			"is_experimental": false
+			"is_experimental": false,
+			"animations": {
+				"grow_10": "animation.dorios_bonsai.grow_10",
+				"grow_30": "animation.dorios_bonsai.grow_30",
+				"grow_40": "animation.dorios_bonsai.grow_40",
+				"grow_45": "animation.dorios_bonsai.grow_45",
+				"grow_50": "animation.dorios_bonsai.grow_50",
+				"grow_60": "animation.dorios_bonsai.grow_60"
+			},
+			"scripts": {
+				"animate": [
+					{
+						"grow_10": "q.property('dorios:time') == 10 && !q.property('dorios:is_slimed')"
+					},
+					{
+						"grow_30": "q.property('dorios:time') == 30 && !q.property('dorios:is_slimed')"
+					},
+					{
+						"grow_40": "q.property('dorios:time') == 40 && !q.property('dorios:is_slimed')"
+					},
+					{
+						"grow_45": "q.property('dorios:time') == 45 && !q.property('dorios:is_slimed')"
+					},
+					{
+						"grow_50": "q.property('dorios:time') == 50 && !q.property('dorios:is_slimed')"
+					},
+					{
+						"grow_60": "q.property('dorios:time') == 60 && !q.property('dorios:is_slimed')"
+					}
+				]
+			},
+			"properties": {
+				"dorios:time": {
+					"type": "int",
+					"default": 60,
+					"client_sync": true,
+					"range": [
+						0,
+						60
+					]
+				},
+				"dorios:multi": {
+					"type": "int",
+					"default": 1,
+					"client_sync": true,
+					"range": [
+						1,
+						10
+					]
+				},
+				"dorios:is_slimed": {
+					"type": "bool",
+					"default": false,
+					"client_sync": true
+				}
+			}
 		},
 		"component_groups": {
 			"despawn": {
