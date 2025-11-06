@@ -4,7 +4,6 @@
 ## OPTIMIZATIONS & IMPROVEMENTS
 
 ### Bonsai System
-- **Optimized bonsai entity performance** to reduce unnecessary tick load and improve FPS.  
 - **Reworked and improved bonsais:**
   - Animation now starts instantly when placing them, instead of waiting a full cycle.  
   - Added `scriptevent` support to register **custom bonsais** (for use in *Bountiful Trees* and other addons).  
