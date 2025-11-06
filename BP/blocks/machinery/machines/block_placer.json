@@ -31,6 +31,7 @@
 			"utilitycraft:block_placer": {
 				"rotation": "facing",
 				"entity": {
+					"input_type": "simple",
 					"inventory_size": 6
 				},
 				"machine": {
