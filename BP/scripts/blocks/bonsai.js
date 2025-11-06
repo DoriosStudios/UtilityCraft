@@ -151,6 +151,7 @@ DoriosAPI.register.blockComponent('bonsai', {
          * Spawns a bonsai entity when a valid sapling is planted on allowed soil.
          * Applies soil time and yield bonuses unless disabled via
          * `disableTimeBonus` or `disableYieldBonus`.
+         * Supports growth debuffs via `growthDebuff` (multiplies total time).
          */
         const bonsai = bonsaiItems.find(item => item.sapling === itemId)
         if (bonsai) {
@@ -172,8 +173,13 @@ DoriosAPI.register.blockComponent('bonsai', {
                 const timeBonus = soil.bonus ?? 0
                 const yieldBase = soil.multi ?? 1
 
-                const growthTime = bonsai.disableTimeBonus ? baseTime : baseTime - timeBonus
+                let growthTime = bonsai.disableTimeBonus ? baseTime : baseTime - timeBonus
                 const yieldMultiplier = bonsai.disableYieldBonus ? 1 : yieldBase
+
+                // Apply optional debuff (e.g., bad soil, cursed bonsai, etc.)
+                if (bonsai.growthDebuff && bonsai.growthDebuff > 1) {
+                    growthTime *= bonsai.growthDebuff
+                }
 
                 bonsaiEntity.setProperty('dorios:time', growthTime)
                 bonsaiEntity.setProperty('dorios:multi', yieldMultiplier)
@@ -184,6 +190,7 @@ DoriosAPI.register.blockComponent('bonsai', {
             }
             return
         }
+
 
 
         /* --- Soil → apply to bonsai pot --- */
