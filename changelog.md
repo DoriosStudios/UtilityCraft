@@ -1,47 +1,33 @@
-# UtilityCraft 3.2.1 | Patch Notes
+# UtilityCraft 3.2.2 | Patch Notes
 ---
 
-## ADJUSTMENTS & IMPROVEMENTS
+## OPTIMIZATIONS & IMPROVEMENTS
 
-### Blocks & Generators
-- **Wind Turbine**
-  - Adjusted energy cap for *Ultimate tier* (now 50 % lower).  
-
-### Compatibility
-- **Dorios Excavate Integration**
-  - Added block tags for `Machines`, `Generators`, `Containers`, and `Upgradable Blocks`.  
-  - Added `scriptevent` support for breaking UtilityCraft structures (machines, generators, fluid tanks, etc.).  
-  - Excavation events now respect **hammer** and **flint knife** components for custom loot behavior.  
-  - Enables full Excavation support across UtilityCraft’s automation blocks.
-
-### Machines
-- **Assembler**
-  - Updated production scaling:  
-    - Speed 0 → 1 item  
-    - Speed 1 → 2 items  
-    - Speed 2–8 → `speed²` items per process  
-  - The Assembler now increases **items per process** instead of raw rate speed.  
-- **Seed Synthesizer**
-  - Soils no longer increase yield amount.  
-  - Instead, they now **reduce the energy cost** required for each synthesis process.
+### Bonsai System
+- **Optimized bonsai entity performance** to reduce unnecessary tick load and improve FPS.  
+- **Reworked and improved bonsais:**
+  - Animation now starts instantly when placing them, instead of waiting a full cycle.  
+  - Added `scriptevent` support to register **custom bonsais** (for use in *Bountiful Trees* and other addons).  
+  - Custom bonsais now support a new property that **disables time and yield bonuses**.
 
 ---
 
 ## BUG FIXES
 
-- Fixed **Grass Block** sieve drop not being detected due to a typo in its block ID (recipe was not working at all).  
-- Fixed **Infuser** not operating unless input matched catalyst’s required amount exactly.  
-- Fixed **Cobblestone Generators** having incorrect mining tool type (now properly pickaxe-mineable).  
-- Fixed **Sieve drops** with exaggerated drop probabilities.  
-- Fixed **Mechanical Hopper & Upper** not picking up dropped items from the ground near their input position (now correctly pulls from a 1-block radius).  
-- Fixed several **Integrated Storage** recipes that could not be crafted correctly.
+- Fixed **Endstone recipe** in the Crusher.  
+- Fixed **Steel tools** not working properly.  
+- Fixed **Assembler** filling output slots when receiving items from Mechanical Hoppers or Item Conduits.  
+- Fixed **Block Placer** not accepting input items.  
+- Fixed **Asphalt** giving speed to *any* mob instead of just players.  
+- Fixed **Mechanical Hopper and Uppers** item transfer inconsistencies near input zones.  
 
 ---
 
-## TECHNICAL
-- Minor internal script cleanup for better cross-addon compatibility.  
-- Improved Excavation-event routing for blocks using the `utilitycraft:hammer` and `utilitycraft:block_loot` components.
+## BALANCE CHANGES
+
+- Balanced **AIOTs**, **Paxels**, and **Hammers** to provide consistent damage scaling across all tiers.  
+- Improved **item transfer and extraction** logic for all container types (machines, chests, hoppers, etc.).  
 
 ---
 
-*UtilityCraft 3.2.1 focuses on bug fixing, balance adjustments, and improved compatibility with Dorios Excavate features.*
+*UtilityCraft 3.2.2 focuses on performance optimization, bonsai reworks, and important fixes for automation systems.*
