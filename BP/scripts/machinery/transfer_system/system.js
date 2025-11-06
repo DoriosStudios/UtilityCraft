@@ -588,7 +588,7 @@ DoriosAPI.register.blockComponent('exporter', {
         const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dimension)
         if (!sourceInv) return
 
-        const [startSlot, endSlot] = DoriosAPI.containers.getAllowedSlotRange(
+        const [startSlot, endSlot] = DoriosAPI.containers.getAllowedOutputRange(
             dimension.getEntitiesAtBlockLocation(sourceLoc)[0] ?? sourceInv
         )
 

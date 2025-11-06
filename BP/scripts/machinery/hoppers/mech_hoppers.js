@@ -60,7 +60,7 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
 
             if (sourceInv) {
                 const sourceEntity = dimension.getEntitiesAtBlockLocation(sourceLoc)[0];
-                const [start, end] = DoriosAPI.containers.getAllowedSlotRange(sourceEntity ?? sourceInv);
+                const [start, end] = DoriosAPI.containers.getAllowedOutputRange(sourceEntity ?? sourceInv);
 
                 for (let i = start; i <= end; i++) {
                     const item = sourceInv.getItem(i);

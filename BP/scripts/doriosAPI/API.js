@@ -221,7 +221,7 @@ globalThis.DoriosAPI = {
             // Complex Input (uses getAllowedSlots)
             // ───────────────────────────────
             if (tf.hasTypeFamily("dorios:complex_input")) {
-                const [start, end] = DoriosAPI.containers.getAllowedSlotRange(target);
+                const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
 
                 for (let i = start; i <= end; i++) {
                     const slotItem = targetInv.getItem(i);
@@ -610,12 +610,12 @@ globalThis.DoriosAPI = {
          * - dorios:complex_output    → Last 9 slots
          * - dorios:container         → All
          *
-         * @function getAllowedSlotRange
+         * @function getAllowedInputRange
          * @memberof DoriosAPI.containers
          * @param {Entity|Block} target Entity or block to analyze.
          * @returns {[number, number]} The [start, end] slot range allowed for transfers.
          */
-        getAllowedSlotRange(target) {
+        getAllowedInputRange(target) {
             if (!target) return [0, 0];
             if (target.size) return [0, target.size - 1];
 
@@ -648,6 +648,54 @@ globalThis.DoriosAPI = {
             } else if (isComplexInput && isComplexOutput) {
                 start = Math.max(0, size - 18);
                 end = Math.max(0, size - 10);
+            } else if (isContainer) {
+                start = 0;
+                end = size - 1;
+            }
+
+            return [start, end];
+        },
+        /**
+         * Returns the allowed output slot range for a container entity or block,
+         * based on its Dorios family classification.
+         *
+         * The function defines which slots can be extracted by pipes or hoppers.
+         *
+         * Combinaciones soportadas explícitamente:
+         * - dorios:simple_output     → Last slot
+         * - dorios:complex_output    → Last 9 slots
+         * - dorios:container         → All
+         *
+         * @function getAllowedOutputRange
+         * @memberof DoriosAPI.containers
+         * @param {Entity|Block} target Entity or block to analyze.
+         * @returns {[number, number]} The [start, end] slot range allowed for output.
+         */
+        getAllowedOutputRange(target) {
+            if (!target) return [0, 0];
+            if (target.size) return [0, target.size - 1];
+
+            const inv = target?.getComponent?.("minecraft:inventory")?.container;
+            if (!inv) return [0, 0];
+
+            const tf = target?.getComponent?.("minecraft:type_family");
+            const size = inv.size;
+
+            if (!tf) return [0, size - 1];
+
+            const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
+            const isComplexOutput = tf.hasTypeFamily("dorios:complex_output");
+            const isContainer = tf.hasTypeFamily("dorios:container");
+
+            let start = 0;
+            let end = size - 1;
+
+            if (isSimpleOutput) {
+                start = size - 1;
+                end = size - 1;
+            } else if (isComplexOutput) {
+                start = Math.max(0, size - 9);
+                end = size - 1;
             } else if (isContainer) {
                 start = 0;
                 end = size - 1;
