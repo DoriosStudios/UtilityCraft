@@ -691,12 +691,12 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
         let replaced = 0
 
         for (const [bonsaiId, data] of Object.entries(payload)) {
-            const { sapling, allowed = ["dirt", "grass_block"], entity, cost, drops } = data
+            const { sapling, allowed = ["dirt", "grass_block"], disableTimeBonus = false, disableYieldBonus = false, entity, cost, drops } = data
             if (!sapling || !entity || !drops || !Array.isArray(drops)) continue
 
             // Update bonsaiItems
             const existing = bonsaiItems.find(b => b.sapling === sapling)
-            const newBonsai = { sapling, allowed, entity }
+            const newBonsai = { sapling, allowed, entity, disableTimeBonus, disableYieldBonus }
 
             if (existing) {
                 Object.assign(existing, newBonsai)
@@ -707,12 +707,16 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             }
 
             // Update plantsData
-            plantsData[bonsaiId] = { cost, drops }
+            plantsData[sapling] = { cost, drops }
+
+            // console.warn(`${newBonsai.sapling}`)
+            // console.warn(`${JSON.stringify(plantsData[bonsaiId])}`)
+            // console.warn(`${JSON.stringify(newBonsai)}`)
         }
 
-        // console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} bonsai definitions.`)
+        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} bonsai definitions.`)
     } catch (err) {
-        // console.warn("[UtilityCraft] Failed to parse bonsai registration payload:", err)
+        console.warn("[UtilityCraft] Failed to parse bonsai registration payload:", err)
     }
 })
 

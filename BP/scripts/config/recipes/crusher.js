@@ -39,7 +39,7 @@ export const crusherRecipes = {
     "utilitycraft:compressed_netherrack_4": { output: "utilitycraft:compressed_crushed_netherrack_4", amount: 1, cost: 5248800, tier: 4 },
 
     // ========== ENDSTONE ========== 
-    "minecraft:endstone": { output: "utilitycraft:crushed_netherrack", amount: 1, tier: 0 },
+    "minecraft:end_stone": { output: "utilitycraft:crushed_endstone", amount: 1, tier: 0 },
     "utilitycraft:compressed_endstone": { output: "utilitycraft:compressed_crushed_endstone", amount: 1, cost: 7200, tier: 1 },
     "utilitycraft:compressed_endstone_2": { output: "utilitycraft:compressed_crushed_endstone_2", amount: 1, cost: 64800, tier: 2 },
     "utilitycraft:compressed_endstone_3": { output: "utilitycraft:compressed_crushed_endstone_3", amount: 1, cost: 583200, tier: 3 },
@@ -73,11 +73,11 @@ export const crusherRecipes = {
 
     // ========== RAW ORE BLOCKS (Bonus Dust Yield) ==========
     // Crushing raw ore blocks yields dusts with bonus recovery (~120% efficiency)
-    "minecraft:raw_copper_block": { output: "utilitycraft:copper_dust", amount: 12, cost: 1600  },
-    "minecraft:raw_iron_block": { output: "utilitycraft:iron_dust", amount: 12, cost: 1600  },
-    "utilitycraft:raw_energized_iron_block": { output: "utilitycraft:energized_iron_dust", amount: 12, cost: 1600  },
-    "minecraft:raw_gold_block": { output: "utilitycraft:gold_dust", amount: 12, cost: 1600  },
-    "utilitycraft:raw_steel_block": { output: "utilitycraft:steel_dust", amount: 12, cost: 1600  },
+    "minecraft:raw_copper_block": { output: "utilitycraft:copper_dust", amount: 12, cost: 1600 },
+    "minecraft:raw_iron_block": { output: "utilitycraft:iron_dust", amount: 12, cost: 1600 },
+    "utilitycraft:raw_energized_iron_block": { output: "utilitycraft:energized_iron_dust", amount: 12, cost: 1600 },
+    "minecraft:raw_gold_block": { output: "utilitycraft:gold_dust", amount: 12, cost: 1600 },
+    "utilitycraft:raw_steel_block": { output: "utilitycraft:steel_dust", amount: 12, cost: 1600 },
 
     // Normal Chunks
     "utilitycraft:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },

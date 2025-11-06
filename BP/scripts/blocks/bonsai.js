@@ -17,7 +17,6 @@ import { plantsData, bonsaiItems } from '../config/recipes/plants.js'
  * - utilitycraft:isSlimed    (boolean, slows growth when true)
  */
 
-
 /** Growth base time (in ticks) */
 const BASETIMEGROWTH = 60
 
@@ -132,9 +131,12 @@ DoriosAPI.register.blockComponent('bonsai', {
                 // If a bonsai entity exists, update its growth time for normal soils
                 const entity = block.dimension.getEntities({ tags: ['bonsai'], maxDistance: 0.1, location: pos })[0]
                 if (entity) {
+                    // Buscar su definición en bonsaiItems usando el typeId de la entidad
+                    const bonsaiData = bonsaiItems.find(b => b.entity === entity.typeId)
                     const soilId = block.getState('utilitycraft:soil')
                     const soil = soils[soilId]
-                    if (!specialSoils.includes(soilId)) {
+
+                    if (!specialSoils.includes(soilId) && !bonsaiData?.disableTimeBonus) {
                         let timeGrowth = BASETIMEGROWTH - (soil.bonus ?? 0)
                         timeGrowth -= 10 // Farming bonus
                         entity.setProperty('dorios:time', timeGrowth)
@@ -144,27 +146,37 @@ DoriosAPI.register.blockComponent('bonsai', {
             return
         }
 
-        /* --- Sapling → spawn bonsai entity --- */
+
+        /**
+         * Spawns a bonsai entity when a valid sapling is planted on allowed soil.
+         * Applies soil time and yield bonuses unless disabled via
+         * `disableTimeBonus` or `disableYieldBonus`.
+         */
         const bonsai = bonsaiItems.find(item => item.sapling === itemId)
         if (bonsai) {
             const soilId = block.getState('utilitycraft:soil')
-            if (
-                (specialSoils.includes(soilId) || bonsai.allowed.includes(soilId.split(':')[1])) &&
-                !block.getState('utilitycraft:hasBonsai')
-            ) {
+            const isValidSoil =
+                specialSoils.includes(soilId) ||
+                bonsai.allowed.includes(soilId.split(':')[1])
+
+            if (isValidSoil && !block.getState('utilitycraft:hasBonsai')) {
                 block.setState('utilitycraft:hasBonsai', true)
 
                 const bonsaiEntity = block.dimension.spawnEntity(bonsai.entity, pos)
                 bonsaiEntity.addTag('bonsai')
                 bonsaiEntity.addTag(`plant|${equipmentItem.typeId}`)
 
-                // Calculate and assign custom properties on spawn
+                // Growth & yield setup
                 const soil = soils[soilId]
-                const timeGrowth = BASETIMEGROWTH - (soil.bonus ?? 0)
-                const multi = soil.multi ?? 1
+                const baseTime = BASETIMEGROWTH
+                const timeBonus = soil.bonus ?? 0
+                const yieldBase = soil.multi ?? 1
 
-                bonsaiEntity.setProperty('dorios:time', timeGrowth)
-                bonsaiEntity.setProperty('dorios:multi', multi)
+                const growthTime = bonsai.disableTimeBonus ? baseTime : baseTime - timeBonus
+                const yieldMultiplier = bonsai.disableYieldBonus ? 1 : yieldBase
+
+                bonsaiEntity.setProperty('dorios:time', growthTime)
+                bonsaiEntity.setProperty('dorios:multi', yieldMultiplier)
 
                 if (player.getGameMode() !== 'creative') {
                     player.runCommand(`clear @s ${bonsai.sapling} 0 1`)
@@ -172,6 +184,7 @@ DoriosAPI.register.blockComponent('bonsai', {
             }
             return
         }
+
 
         /* --- Soil → apply to bonsai pot --- */
         if (soils[itemId] && block.getState('utilitycraft:soil') === 'empty') {
@@ -205,26 +218,55 @@ DoriosAPI.register.blockComponent('bonsai', {
     }
 })
 
+/**
+ * Handles the `dorios:bonsai_loot` script event.
+ * 
+ * Triggered when a bonsai tree finishes its growth cycle and generates drops.
+ * 
+ * ## Behavior:
+ * - Reads the plant type from the entity’s `plant|` tag.
+ * - Retrieves the plant’s loot data from `plantsData`.
+ * - Rolls each possible drop based on its chance.
+ * - Spawns the resulting items in the block directly below the bonsai entity.
+ * 
+ * ## Expected `plantsData` structure:
+ * ```js
+ * plantsData = {
+ *   "utilitycraft:oak_sapling": {
+ *     drops: [
+ *       { item: "minecraft:oak_log", amount: [1, 3], chance: 0.8 },
+ *       { item: "minecraft:oak_sapling", amount: 1, chance: 0.2 }
+ *     ]
+ *   }
+ * }
+ * ```
+ * 
+ * @event dorios:bonsai_loot
+ * @param {ScriptEventCommandMessageAfterEvent} event The script event context.
+ * @property {string} event.id The script event identifier.
+ * @property {Entity} event.sourceEntity The bonsai entity triggering the event.
+ */
 system.afterEvents.scriptEventReceive.subscribe(event => {
     const { id, sourceEntity } = event
     if (id !== "dorios:bonsai_loot") return
 
-    const multi = sourceEntity.getProperty("dorios:multi") ?? 1
-    const bonsaiPlant = sourceEntity.getTags().find(tag => tag.startsWith('plant|'))?.split('|')[1]
-    const lootTable = plantsData[bonsaiPlant]
-    if (!lootTable) return
-    const drops = lootTable.drops
+    const plantTag = sourceEntity.getTags().find(tag => tag.startsWith('plant|'))
+    const bonsaiPlant = plantTag?.split('|')[1]
+    const plantInfo = plantsData[bonsaiPlant]
+    if (!plantInfo) return
 
+    const drops = plantInfo.drops
     const { x, y, z } = sourceEntity.location
     const dropPos = { x, y: y - 1, z }
+
     drops.forEach(loot => {
         if (Math.random() <= loot.chance) {
-            let qty = Array.isArray(loot.amount)
+            let amount = Array.isArray(loot.amount)
                 ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
                 : loot.amount
 
             try {
-                DoriosAPI.containers.addItemAt(dropPos, sourceEntity.dimension, loot.item, qty * multi)
+                DoriosAPI.containers.addItemAt(dropPos, sourceEntity.dimension, loot.item, amount)
             } catch { }
         }
     })
