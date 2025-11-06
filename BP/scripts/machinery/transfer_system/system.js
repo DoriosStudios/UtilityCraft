@@ -11,6 +11,15 @@ const offsets = [
     { x: 0, y: 0, z: -1 },
 ];
 
+const blockFaceOffsets = {
+    down: [0, 1, 0],
+    up: [0, -1, 0],
+    south: [0, 0, -1],
+    north: [0, 0, 1],
+    east: [-1, 0, 0],
+    west: [1, 0, 0],
+}
+
 const types = {
     energy: startRescanEnergy,
     item: startRescanItem,
@@ -357,15 +366,6 @@ function searchEnergyContainers(startQueue, gen) {
 //#endregion
 
 //#region Items
-
-const blockFaceOffsets = {
-    down: [0, 1, 0],
-    up: [0, -1, 0],
-    south: [0, 0, -1],
-    north: [0, 0, 1],
-    east: [-1, 0, 0],
-    west: [1, 0, 0],
-}
 
 
 /**

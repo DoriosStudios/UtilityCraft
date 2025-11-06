@@ -152,19 +152,20 @@ globalThis.DoriosAPI = {
          * @param {Block | Entity | Container} target Target entity, block, or container.
          * @param {ItemStack | String} itemStack Item to insert. Can be an ItemStack or an item identifier string.
          * @param {number} [amount=1] Number of items to insert when `itemStack` is a string. Ignored if an ItemStack is provided.
-         * @returns {boolean} Whether the item was successfully added.
+         * @returns {boolean|number} Whether the item was successfully added or the amount inserted.
          */
         addItem(target, itemStack, amount = 1) {
             if (itemStack == undefined || target == undefined) return false;
 
-            // Resolve itemStack 
-            if (!(itemStack instanceof ItemStack) && typeof itemStack == 'string') itemStack = new ItemStack(itemStack, amount)
-            const itemId = itemStack.typeId
+            // Normalize itemStack
+            if (!(itemStack instanceof ItemStack) && typeof itemStack === 'string')
+                itemStack = new ItemStack(itemStack, amount);
+            const itemId = itemStack.typeId;
 
-            // Containers
+            // Direct container
             if (target.size) {
-                target.addItem(itemStack)
-                return true
+                target.addItem(itemStack);
+                return true;
             }
 
             // Resolve target inventory
@@ -172,12 +173,10 @@ globalThis.DoriosAPI = {
             const targetInv = target?.getComponent?.("minecraft:inventory")?.container;
             if (!targetInv || !target) return false;
 
-            // Blocks
-            if (target.permutation) {
-                if (DoriosAPI.constants.vanillaContainers.includes(target.typeId)) {
-                    targetInv.addItem(itemStack)
-                    return true
-                }
+            // Vanilla containers
+            if (target.permutation && DoriosAPI.constants.vanillaContainers.includes(target.typeId)) {
+                targetInv.addItem(itemStack);
+                return true;
             }
 
             // Storage Drawers by Dustveyn
@@ -197,10 +196,12 @@ globalThis.DoriosAPI = {
                 return false;
             }
 
-            const tf = target.getComponent("minecraft:type_family")
-            if (!tf) return false
+            const tf = target.getComponent("minecraft:type_family");
+            if (!tf) return false;
 
-            // Entity with logic
+            // ───────────────────────────────
+            // Simple Input
+            // ───────────────────────────────
             if (tf.hasTypeFamily("dorios:simple_input")) {
                 const slotNext = targetInv.getItem(3);
                 if (!slotNext) {
@@ -216,20 +217,44 @@ globalThis.DoriosAPI = {
                 return false;
             }
 
-            // Assemblers → require 2 empty slots
-            if (tf.hasTypeFamily("dorios:complex_input") && targetInv.emptySlotsCount >= 2) {
-                targetInv.addItem(itemStack)
-                return true
-            };
+            // ───────────────────────────────
+            // Complex Input (uses getAllowedSlots)
+            // ───────────────────────────────
+            if (tf.hasTypeFamily("dorios:complex_input")) {
+                const [start, end] = DoriosAPI.containers.getAllowedSlotRange(target);
 
-            // Dorios Containers
+                for (let i = start; i <= end; i++) {
+                    const slotItem = targetInv.getItem(i);
+
+                    // Empty slot → insert directly
+                    if (!slotItem) {
+                        targetInv.setItem(i, itemStack);
+                        return true;
+                    }
+
+                    // Same item → try to merge
+                    if (slotItem.typeId === itemId && slotItem.amount < slotItem.maxAmount) {
+                        const insertAmount = Math.min(itemStack.amount, slotItem.maxAmount - slotItem.amount);
+                        slotItem.amount += insertAmount;
+                        targetInv.setItem(i, slotItem);
+                        return insertAmount;
+                    }
+                }
+
+                return false;
+            }
+
+            // ───────────────────────────────
+            // Dorios Container fallback
+            // ───────────────────────────────
             if (tf.hasTypeFamily("dorios:container")) {
-                targetInv.addItem(itemStack)
-                return true
+                targetInv.addItem(itemStack);
+                return true;
             }
 
             return false;
         },
+
         /**
          * This function was created by **Dorios Studios** to handle
          * item insertions at a specific location with compatibility for
@@ -578,52 +603,57 @@ globalThis.DoriosAPI = {
          * The function ensures transfer systems do not touch UI-only,
          * energy, or progress slots of machines.
          *
-         * Supports the following keywords in slot rules:
-         * - `"all"` → all slots available.
-         * - `"last"` → only the last slot.
-         * - `"last9"` → last 9 slots.
-         * - `[start, end]` → explicit numeric range.
+         * Combinaciones soportadas explícitamente:
+         * - dorios:simple_input      → Only slot 3
+         * - dorios:simple_output     → Last slot
+         * - dorios:complex_input     → Last 9 slots before output slots
+         * - dorios:complex_output    → Last 9 slots
+         * - dorios:container         → All
          *
          * @function getAllowedSlotRange
          * @memberof DoriosAPI.containers
-         * @param {import('@minecraft/server').Entity|import('@minecraft/server').Block} target Entity or block to analyze.
+         * @param {Entity|Block} target Entity or block to analyze.
          * @returns {[number, number]} The [start, end] slot range allowed for transfers.
          */
         getAllowedSlotRange(target) {
             if (!target) return [0, 0];
-
-            if (target.size) return [0, target.size - 1]
+            if (target.size) return [0, target.size - 1];
 
             const inv = target?.getComponent?.("minecraft:inventory")?.container;
             if (!inv) return [0, 0];
 
             const tf = target?.getComponent?.("minecraft:type_family");
+            const size = inv.size;
 
-            if (!tf) return [0, inv.size - 1];
+            if (!tf) return [0, size - 1];
 
-            if (!tf.hasTypeFamily("dorios:container")) {
-                return [0, 0]
+            const isSimpleInput = tf.hasTypeFamily("dorios:simple_input");
+            const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
+            const isComplexInput = tf.hasTypeFamily("dorios:complex_input");
+            const isComplexOutput = tf.hasTypeFamily("dorios:complex_output");
+            const isContainer = tf.hasTypeFamily("dorios:container");
+
+            let start = 0;
+            let end = size - 1;
+
+            if (isSimpleInput && isSimpleOutput) {
+                start = 3;
+                end = 3;
+            } else if (isSimpleInput && isComplexOutput) {
+                start = 3;
+                end = Math.max(0, size - 9 - 1);
+            } else if (isComplexInput && isSimpleOutput) {
+                start = Math.max(0, size - 10);
+                end = Math.max(0, size - 2);
+            } else if (isComplexInput && isComplexOutput) {
+                start = Math.max(0, size - 18);
+                end = Math.max(0, size - 10);
+            } else if (isContainer) {
+                start = 0;
+                end = size - 1;
             }
-            const families = tf.getTypeFamilies?.() ?? [];
-            let rule = null;
 
-            for (const fam of families) {
-                if (DoriosAPI.constants.slotRules?.[fam]) {
-                    rule = DoriosAPI.constants.slotRules[fam];
-                    break;
-                }
-            }
-            if (!rule || rule === "all") return [0, inv.size - 1];
-
-            if (Array.isArray(rule)) {
-                if (rule.length === 2 && typeof rule[0] === "number") return rule;
-                if (rule.length === 1) return [rule[0], rule[0]];
-            }
-
-            if (rule === "last") return [inv.size - 1, inv.size - 1];
-            if (rule === "last9") return [Math.max(0, inv.size - 9), inv.size - 1];
-
-            return [0, inv.size - 1];
+            return [start, end];
         },
     },
 
@@ -1203,21 +1233,6 @@ globalThis.DoriosAPI = {
             "minecraft:shulker",
             "minecraft:dropper"
         ],
-
-        /**
-         * Slot access rules for specific Dorios container families.
-         * Used by transfer systems to avoid writing into UI or logic slots.
-         *
-         * @constant
-         */
-        slotRules: {
-            "dorios:simple_input": [3, 3],     // Only slot 3
-            "dorios:simple_output": "last",     // Only last slot
-            "dorios:complex_input": [0, 8],    // First 9 slots
-            "dorios:complex_output": "last9",   // Last 9 slots
-            "dorios:container": "all"       // No restriction
-        },
-
     }
 }
 
