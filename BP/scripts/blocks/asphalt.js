@@ -7,9 +7,7 @@ DoriosAPI.register.blockComponent('asphalt', {
             block.setPermutation(block.permutation.withState('utilitycraft:texture', hand.typeId))
         } catch { }
     },
-    onStepOn({ block }) {
-        let { x, y, z } = block.location
-        const player = block.dimension.getPlayers({ location: { x, y: y + 1, z } })[0]
-        if (player) player.runCommand('effect @s speed 2 3 true')
+    onStepOn({ entity }) {
+        if (entity) entity.runCommand('effect @s speed 2 3 true')
     }
 })
