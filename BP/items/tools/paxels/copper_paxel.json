@@ -17,7 +17,7 @@
 			"minecraft:durability": {
 				"max_durability": 573
 			},
-			"minecraft:damage": 6,
+			"minecraft:damage": 4,
 			"minecraft:icon": "utilitycraft_copper_paxel",
 			"minecraft:enchantable": {
 				"value": 14,

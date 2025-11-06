@@ -16,7 +16,7 @@
 			"minecraft:durability": {
 				"max_durability": 288
 			},
-			"minecraft:damage": 6,
+			"minecraft:damage": 3,
 			"minecraft:icon": "utilitycraft_gold_paxel",
 			"minecraft:enchantable": {
 				"value": 30,

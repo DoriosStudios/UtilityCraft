@@ -8,18 +8,18 @@
 			"utilitycraft:hammer": {
 				"tier": 1
 			},
-                        "utilitycraft:dig_pebble": {},
-                        "minecraft:tags": {
-                                "tags": [
-                                        "minecraft:copper_tier"
-                                ]
-                        },
+			"utilitycraft:dig_pebble": {},
+			"minecraft:tags": {
+				"tags": [
+					"minecraft:copper_tier"
+				]
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
 				"max_durability": 573
 			},
-			"minecraft:damage": 5,
+			"minecraft:damage": 4,
 			"minecraft:icon": "utilitycraft_copper_hammer",
 			"minecraft:enchantable": {
 				"value": 15,

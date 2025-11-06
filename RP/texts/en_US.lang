@@ -394,6 +394,7 @@ item.utilitycraft:stone_paxel=Stone Paxel
 item.utilitycraft:wooden_paxel=Wooden Paxel
 
 -- Hammers = ## Martelos
+item.utilitycraft:golden_hammer=Golden Hammer
 item.utilitycraft:netherite_hammer=Netherite Hammer
 item.utilitycraft:diamond_hammer=Diamond Hammer
 item.utilitycraft:steel_hammer=Steel Hammer

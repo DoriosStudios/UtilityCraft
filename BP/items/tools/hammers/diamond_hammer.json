@@ -24,7 +24,7 @@
 			"minecraft:durability": {
 				"max_durability": 1561
 			},
-			"minecraft:damage": 7,
+			"minecraft:damage": 6,
 			"minecraft:icon": "utilitycraft_diamond_hammer",
 			"minecraft:enchantable": {
 				"value": 12,
