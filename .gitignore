@@ -1,10 +1,15 @@
-Desktop.ini    
-.DS_Store 
-!.bridge/
-.bridge/*
+Desktop.ini
+.DS_Store
+
+# Ignorar carpetas de configuración
+.bridge/
+.vscode/
+.git/
+
+# Ignorar compilaciones y empaquetados
+builds/
+packs/
+
+# Excepciones específicas
 !.bridge/compiler/
 !.bridge/extensions
-builds
-/.bridge
-/.vscode
-/.packs
