@@ -32,8 +32,7 @@
 				"rotation": "facing",
 				"entity": {
 					"input_type": "simple",
-					"output_type": "simple",
-					"inventory_size": 7
+					"output_type": "simple"
 				},
 				"machine": {
 					"energy_cap": 64000,

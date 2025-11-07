@@ -765,7 +765,7 @@ export class Machine {
             } else if (entity.input_type === "complex" && entity.output_type === "complex") {
                 machineEvent = "utilitycraft:complex_machine";
                 inventorySize = 25
-            } if (entity.input_type === "simple") {
+            } else if (entity.input_type === "simple") {
                 machineEvent = "utilitycraft:simple_input_machine";
                 inventorySize = 6
             } else {
