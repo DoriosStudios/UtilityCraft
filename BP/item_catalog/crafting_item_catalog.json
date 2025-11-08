@@ -39,19 +39,19 @@
                             "name": "dorios:itemGroup.name.machines"
                         },
                         "items": [
-                            "utilitycraft:digitizer",
                             "utilitycraft:assembler",
-                            "utilitycraft:crusher",
                             "utilitycraft:autosieve",
+                            "utilitycraft:block_breaker",
+                            "utilitycraft:block_placer",
+                            "utilitycraft:crusher",
+                            "utilitycraft:digitizer",
                             "utilitycraft:electro_press",
                             "utilitycraft:harvester",
                             "utilitycraft:incinerator",
-                            "utilitycraft:infuser",
-                            "utilitycraft:block_breaker",
-                            "utilitycraft:block_placer",
-                            "utilitycraft:seed_synthesizer",
                             "utilitycraft:induction_anvil",
+                            "utilitycraft:infuser",
                             "utilitycraft:magmatic_chamber",
+                            "utilitycraft:seed_synthesizer",
                             "utilitycraft:waycenter",
                             "utilitycraft:xp_condenser"
                         ]
