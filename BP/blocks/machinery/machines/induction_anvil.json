@@ -31,8 +31,8 @@
 					"energy_cost": 1000,
 					"rate_speed_base": 25,
 					"upgrades": [
-						2,
-						3
+						4,
+						5
 					]
 				}
 			},
