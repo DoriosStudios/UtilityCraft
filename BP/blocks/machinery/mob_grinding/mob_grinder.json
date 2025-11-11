@@ -45,6 +45,10 @@
 					"render_method": "alpha_test"
 				}
 			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.5
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"utilitycraft:mob_grinder": {},
 			"utilitycraft:upgradeable": {},
 			"minecraft:collision_box": {
