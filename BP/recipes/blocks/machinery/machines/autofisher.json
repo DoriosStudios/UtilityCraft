@@ -1,0 +1,44 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:autofisher"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"R": {
+				"item": "minecraft:redstone"
+			},
+			"N": {
+				"item": "utilitycraft:diamond_fishing_net"
+			},
+			"M": {
+				"item": "utilitycraft:machine_case"
+			},
+			"C": {
+				"item": "utilitycraft:chip"
+			},
+			"F": {
+				"item": "minecraft:fishing_rod"
+			},
+			"W": {
+				"item": "minecraft:water_bucket"
+			}
+		},
+		"pattern": [
+			"RNR",
+			"MCF",
+			"RWR"
+		],
+		"result": {
+			"item": "utilitycraft:autofisher"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:machine_case"
+			}
+		]
+	}
+}
