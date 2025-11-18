@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:string_fishing_net",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_string_fishing_net",
+			"utilitycraft:fishing_net": {
+				"tier": 0,
+				"speed": 0.5,
+				"chance_multiplier": 1.0,
+				"amount_multiplier": 1.0,
+				"rolls": 1
+			}
+		}
+	}
+}

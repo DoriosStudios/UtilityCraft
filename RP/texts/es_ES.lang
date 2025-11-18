@@ -8,6 +8,7 @@ tile.utilitycraft:utility_table.name=Mesa Utility
 
 - Machines = #Máquinas
 tile.utilitycraft:autosieve.name=Tamiz Automático\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:autofisher.name=Pescador Automático\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:block_breaker.name=Rompebloques\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:ender_hopper.name=Tolva del Ender\n§7- Acepta mejoras:\n §9Alcance§7
 tile.utilitycraft:crusher.name=Triturador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
@@ -495,6 +496,7 @@ entity.utilitycraft:bomb.name=Bomba
 entity.utilitycraft:dynamite.name=Dinamita
 entity.utilitycraft:crusher.name=Triturador
 entity.utilitycraft:autosieve.name=Tamiz Automatico
+entity.utilitycraft:autofisher.name=Pescador Automático
 entity.utilitycraft:cherry_tree.name=Arbol de Cerezo
 entity.utilitycraft:mangrove_tree.name=Arbol de Manglar
 entity.utilitycraft:crimson_tree.name=Arbol de Escarlata
@@ -599,28 +601,28 @@ tile.utilitycraft:basic_magmator.name=§eMagmador Básico\n §7 Velocidad: 50 DE
 tile.utilitycraft:basic_thermo_generator.name=§eTermogenerador Básico\n §7 Velocidad: 20 DE/t
 tile.utilitycraft:basic_battery.name=§eBatería Básica\n §7 Velocidad: 100 DE/t
 tile.utilitycraft:basic_solar_panel.name=§ePanel Solar Básico\n §7 Velocidad: 12 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidad Base: 8 DE/t\n §7 Multiplicador de Altura Máximo: 360%\n §7 No funciona debajo de y20
+tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidad Base: 8 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20
 
 tile.utilitycraft:advanced_furnator.name=§cHorno Generador Avanzado\n §7 Velocidad: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cMagmador Avanzado\n §7 Velocidad: 200 DE/t
 tile.utilitycraft:advanced_thermo_generator.name=§cTermogenerador Avanzado\n §7 Velocidad: 80 DE/t
 tile.utilitycraft:advanced_battery.name=§cBatería Avanzada\n §7 Velocidad: 800 DE/t
 tile.utilitycraft:advanced_solar_panel.name=§cPanel Solar Avanzado\n §7 Velocidad: 48 DE/t
-tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avanzada\n §7 Velocidad Base: 32 DE/t\n §7 Multiplicador de Altura Máximo: 360%\n §7 No funciona debajo de y20
+tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avanzada\n §7 Velocidad Base: 32 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20
 
 tile.utilitycraft:expert_furnator.name=§3Horno Generador Experto\n §7 Velocidad: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§3Magmador Experto\n §7 Velocidad: 800 DE/t
 tile.utilitycraft:expert_thermo_generator.name=§3Termogenerador Experto\n §7 Velocidad: 320 DE/t
 tile.utilitycraft:expert_battery.name=§3Batería Experta\n §7 Velocidad: 1.6 kDE/t
 tile.utilitycraft:expert_solar_panel.name=§3Panel Solar Experto\n §7 Velocidad: 192 DE/t
-tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Experta\n §7 Velocidad Base: 128 DE/t\n §7 Multiplicador de Altura Máximo: 360%\n §7 No funciona debajo de y20
+tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Experta\n §7 Velocidad Base: 128 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20
 
 tile.utilitycraft:ultimate_furnator.name=§8Horno Generador Definitivo\n §7 Velocidad: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Definitivo\n §7 Velocidad: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Termogenerador Definitivo\n §7 Velocidad: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Batería Definitiva\n §7 Velocidad: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Panel Solar Definitivo\n §7 Velocidad: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 360%\n §7 No funciona debajo de y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20
 
 < Energy Generators = Geradores de Energía ##///////////////////////////////////////////////////////////////
 
@@ -691,6 +693,14 @@ dorios:itemGroup.name.generators=Generadores
 dorios:itemGroup.name.machines=Máquinas
 dorios:itemGroup.name.batteries=Baterías
 dorios:itemGroup.name.basics=Basicos
+dorios:itemGroup.name.fishing_nets=Redes de Pesca
+item.utilitycraft:string_fishing_net=Red de Pesca de Hilo\n§7- Nivel de Velocidad del Anzuelo: 1
+item.utilitycraft:copper_fishing_net=Red de Pesca de Cobre\n§7- Nivel de Velocidad del Anzuelo: 2
+item.utilitycraft:iron_fishing_net=Red de Pesca de Hierro\n§7- Nivel de Velocidad del Anzuelo: 3
+item.utilitycraft:golden_fishing_net=Red de Pesca Dorada\n§7- Nivel de Velocidad del Anzuelo: 4
+item.utilitycraft:emerald_fishing_net=Red de Pesca de Esmeralda\n§7- Nivel de Velocidad del Anzuelo: 5
+item.utilitycraft:diamond_fishing_net=Red de Pesca de Diamante\n§7- Nivel de Velocidad del Anzuelo: 6
+item.utilitycraft:netherite_fishing_net=Red de Pesca de Netherita\n§7- Nivel de Velocidad del Anzuelo: 7
 dorios:itemGroup.name.seeds=Semillas
 dorios:itemGroup.name.mob_grinding=Triturador de Mobs
 dorios:itemGroup.name.transportation=Transporte de Objetos
@@ -769,7 +779,10 @@ item.utilitycraft:tuff_pebble=Guijarro de Toba
 item.utilitycraft:wither_skull_shard=Fragmento de Calavera de Wither
 
 tile.utilitycraft:energy_cable.name=Cable de Energía
-tile.utilitycraft:item_conduit.name=Conducto de Ítems\n§7- Transporta ítems
+tile.utilitycraft:item_conduit.name=Conducto de Ítems (Verde)\n§7- Transporta ítems
+tile.utilitycraft:item_conduit_blue.name=Conducto de Ítems (Azul)\n§7- Transporta ítems
+tile.utilitycraft:item_conduit_yellow.name=Conducto de Ítems (Amarillo)\n§7- Transporta ítems
+tile.utilitycraft:item_conduit_red.name=Conducto de Ítems (Rojo)\n§7- Transporta ítems
 tile.utilitycraft:fluid_pipe.name=Tubería de Fluidos\n§7- Transporta líquidos
 dorios:itemGroup.name.pipes=Tuberías
 item.utilitycraft:flint_knife=Cuchillo de Pedernal

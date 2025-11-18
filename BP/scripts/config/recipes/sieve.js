@@ -98,8 +98,6 @@ export const sieveRecipes = {
         { item: 'minecraft:kelp', amount: 1, chance: 0.10 },
         { item: 'minecraft:clay_ball', amount: 1, chance: 0.10, tier: 2 },
         { item: 'minecraft:cocoa_beans', amount: 1, chance: 0.01 },
-        { item: 'minecraft:heart_of_the_sea', amount: 1, chance: 0.01, tier: 4 },
-        { item: 'minecraft:conduit', amount: 1, chance: 0.01, tier: 3 },
         // Integrated Storage
         { item: 'ae2be:certus_quartz_crystal', amount: 1, chance: 0.17, tier: 3 },
         { item: 'ae2be:charged_certus_quartz_crystal', amount: 1, chance: 0.01, tier: 3 }
@@ -171,8 +169,6 @@ export const sieveRecipes = {
         { item: 'minecraft:kelp', amount: 9, chance: 0.10 },
         { item: 'minecraft:clay_ball', amount: 9, chance: 0.10, tier: 2 },
         { item: 'minecraft:cocoa_beans', amount: 9, chance: 0.01 },
-        { item: 'minecraft:heart_of_the_sea', amount: 9, chance: 0.01, tier: 4 },
-        { item: 'minecraft:conduit', amount: 9, chance: 0.01, tier: 3 },
         // Integrated Storage
         { item: 'ae2be:certus_quartz_crystal', amount: 9, chance: 0.17, tier: 3 },
         { item: 'ae2be:charged_certus_quartz_crystal', amount: 9, chance: 0.01, tier: 3 }

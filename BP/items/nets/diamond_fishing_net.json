@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:diamond_fishing_net",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_diamond_fishing_net",
+			"utilitycraft:fishing_net": {
+				"tier": 5,
+				"speed": 2,
+				"chance_multiplier": 3,
+				"amount_multiplier": 1,
+				"rolls": 3
+			}
+		}
+	}
+}

@@ -26,4 +26,5 @@ import './recipes/infuser.js';
 import './recipes/melter.js';
 import './recipes/press.js';
 import './recipes/sieve.js';
+import './recipes/fisher.js';
 import './recipes/plants.js';

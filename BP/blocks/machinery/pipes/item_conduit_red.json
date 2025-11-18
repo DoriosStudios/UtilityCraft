@@ -1,0 +1,83 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "utilitycraft:item_conduit_red",
+            "menu_category": {
+                "category": "construction"
+            },
+            "states": {
+                "utilitycraft:up": [
+                    false,
+                    true
+                ],
+                "utilitycraft:down": [
+                    false,
+                    true
+                ],
+                "utilitycraft:north": [
+                    false,
+                    true
+                ],
+                "utilitycraft:south": [
+                    false,
+                    true
+                ],
+                "utilitycraft:east": [
+                    false,
+                    true
+                ],
+                "utilitycraft:west": [
+                    false,
+                    true
+                ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": {
+                "identifier": "geometry.utilitycraft_general_tube",
+                "bone_visibility": {
+                    "up": "q.block_state('utilitycraft:up')",
+                    "down": "q.block_state('utilitycraft:down')",
+                    "north": "q.block_state('utilitycraft:north')",
+                    "south": "q.block_state('utilitycraft:south')",
+                    "east": "q.block_state('utilitycraft:east')",
+                    "west": "q.block_state('utilitycraft:west')"
+                }
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "utilitycraft_item_conduit_red",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    0,
+                    0,
+                    0
+                ],
+                "size": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -4,
+                    4,
+                    -4
+                ],
+                "size": [
+                    8,
+                    8,
+                    8
+                ]
+            },
+            "minecraft:destructible_by_explosion": false,
+            "tag:dorios:item": {},
+            "tag:dorios:isTube": {}
+        }
+    }
+}

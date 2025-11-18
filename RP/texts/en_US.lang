@@ -8,6 +8,7 @@ tile.utilitycraft:utility_table.name=Utility Table\n§7- Use to craft superior t
 
 - Machines = ## Máquinas
 tile.utilitycraft:autosieve.name=Autosieve\n§7- Accepted upgrades:\n   §a§7 §b§7
+tile.utilitycraft:autofisher.name=Auto Fisher\n§7- Accepted upgrades:\n   §a§7 §b§7
 tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Accepted upgrades:\n   §a§7 §b§7
 tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Accepted upgrades:\n   §a§7 §9§7 §f§7
 tile.utilitycraft:crusher.name=Crusher\n§7- Accepted upgrades:\n   §a§7 §b§7
@@ -38,11 +39,11 @@ tile.utilitycraft:xp_drain.name=XP Drain
 tile.utilitycraft:xp_spout.name=XP Spout
 ## +
 tile.utilitycraft:cobble_gen_0.name=Cobblestone Generator (§vTier 1§r)\n§7- Produces 0.25 per second
-tile.utilitycraft:cobble_gen_1.name=Cobblestone Generator (Tier 2) \n§7- Produces 0.5 per second
-tile.utilitycraft:cobble_gen_2.name=Cobblestone Generator (§eTier 3§r) \n§7- Produces 1 per second
-tile.utilitycraft:cobble_gen_3.name=Cobblestone Generator (§aTier 4§r) \n§7- Produces 2 per second
-tile.utilitycraft:cobble_gen_4.name=Cobblestone Generator (§bTier 5§r) \n§7- Produces 4 per second
-tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§8Tier 6§r) \n§7- Produces 20 per second
+tile.utilitycraft:cobble_gen_1.name=Cobblestone Generator (§iTier 2§r) \n§7- Produces 0.5 per second
+tile.utilitycraft:cobble_gen_2.name=Cobblestone Generator (§gTier 3§r) \n§7- Produces 1 per second
+tile.utilitycraft:cobble_gen_3.name=Cobblestone Generator (§qTier 4§r) \n§7- Produces 2 per second
+tile.utilitycraft:cobble_gen_4.name=Cobblestone Generator (§sTier 5§r) \n§7- Produces 4 per second
+tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§jTier 6§r) \n§7- Produces 20 per second
 ## +
 tile.utilitycraft:conveyor_horizontal.name=Horizontal Conveyor
 tile.utilitycraft:conveyor_inclined.name=Inclined Conveyor
@@ -477,6 +478,15 @@ item.utilitycraft:emerald_mesh=§aEmerald§r Mesh\n§7- Max Drop Tier: Diamond
 item.utilitycraft:diamond_mesh=§bDiamond§r Mesh\n§7- Max Drop Tier: Diamond
 item.utilitycraft:netherite_mesh=§jNetherite§r Mesh\n§7- Max Drop Tier: Diamond\n- Does not drop flint
 
+- Fishing Nets = ## Fishing Nets
+item.utilitycraft:string_fishing_net=String Fishing Net\n§7- Hook Speed Tier: 1
+item.utilitycraft:copper_fishing_net=§nCopper§r Fishing Net\n§7- Hook Speed Tier: 2
+item.utilitycraft:iron_fishing_net=§iIron§r Fishing Net\n§7- Hook Speed Tier: 3
+item.utilitycraft:golden_fishing_net=§pGolden§r Fishing Net\n§7- Hook Speed Tier: 4
+item.utilitycraft:emerald_fishing_net=§aEmerald§r Fishing Net\n§7- Hook Speed Tier: 5
+item.utilitycraft:diamond_fishing_net=§bDiamond§r Fishing Net\n§7- Hook Speed Tier: 6
+item.utilitycraft:netherite_fishing_net=§jNetherite§r Fishing Net\n§7- Hook Speed Tier: 7
+
 - Essences = ## Essences
 item.utilitycraft:essence_vessel=Essence Vessel \n§7- Right click or interact with an entity\n- Kill mobs of that type to fill the essence
 item.utilitycraft:pig_essence=Pig Essence
@@ -497,8 +507,9 @@ item.utilitycraft:wither_skeleton_essence=Wither Skeleton Essence
 
 - Machines Upgrades = ## Machines Upgrades
 ## +
+item.utilitycraft:filter_upgrade=Filter Upgrade\n§7- Gives transportation blocks \n  a way to filter up items
 item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Increases energy efficiency in Machines
-item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Machines\n Increases energy consume
+item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Machines\n- Increases energy consumption
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Increases range for Machines
 item.utilitycraft:quantity_upgrade=§3Quantity Upgrade§r\n§7- Increases mob cap spawn for Mechanical Spawner
 item.utilitycraft:ultimate_upgrade=§8Ultimate Upgrade
@@ -571,28 +582,28 @@ tile.utilitycraft:basic_magmator.name=§eBasic Magmator \n §7 Rate: 50 DE/t
 tile.utilitycraft:basic_thermo_generator.name=§eBasic Thermo Generator \n §7 Rate: 20 DE/t
 tile.utilitycraft:basic_battery.name=§eBasic Battery \n §7 Rate: 100 DE/t
 tile.utilitycraft:basic_solar_panel.name=§eBasic Solar Panel \n §7 Rate: 12 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eBasic Wind Turbine \n §7 Base Rate: 8 DE/t\n §7 Max Height Multiplier: 360%\n §7 Does not work below y20
+tile.utilitycraft:basic_wind_turbine.name=§eBasic Wind Turbine \n §7 Base Rate: 8 DE/t\n §7 Max Height Multiplier: 300%\n §7 Does not work below y20
 
 tile.utilitycraft:advanced_furnator.name=§cAdvanced Furnator \n §7 Rate: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cAdvanced Magmator \n §7 Rate: 200 DE/t
 tile.utilitycraft:advanced_thermo_generator.name=§cAdvanced Thermo Generator \n §7 Rate: 80 DE/t
 tile.utilitycraft:advanced_battery.name=§cAdvanced Battery \n §7 Rate: 800 DE/t
 tile.utilitycraft:advanced_solar_panel.name=§cAdvanced Solar Panel \n §7 Rate: 48 DE/t
-tile.utilitycraft:advanced_wind_turbine.name=§cAdvanced Wind Turbine \n §7 Base Rate: 32 DE/t\n §7 Max Height Multiplier: 360%\n §7 Does not work below y20
+tile.utilitycraft:advanced_wind_turbine.name=§cAdvanced Wind Turbine \n §7 Base Rate: 32 DE/t\n §7 Max Height Multiplier: 300%\n §7 Does not work below y20
 
 tile.utilitycraft:expert_furnator.name=§bExpert Furnator \n §7 Rate: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§bExpert Magmator \n §7 Rate: 800 DE/t
 tile.utilitycraft:expert_thermo_generator.name=§bExpert Thermo Generator \n §7 Rate: 320 DE/t
 tile.utilitycraft:expert_battery.name=§bExpert Battery \n §7 Rate: 1.6 kDE/t
 tile.utilitycraft:expert_solar_panel.name=§bExpert Solar Panel \n §7 Rate: 192 DE/t
-tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Base Rate: 128 DE/t\n §7 Max Height Multiplier: 360%\n §7 Does not work below y20
+tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Base Rate: 128 DE/t\n §7 Max Height Multiplier: 300%\n §7 Does not work below y20
 
 tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator \n §7 Rate: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Rate: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Ultimate Thermo Generator \n §7 Rate: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Ultimate Battery \n §7 Rate: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Ultimate Solar Panel \n §7 Rate: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Base Rate: 800 DE/t\n §7 Max Height Multiplier: 360%\n §7 Does not work below y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Base Rate: 800 DE/t\n §7 Max Height Multiplier: 300%\n §7 Does not work below y20
 
 
 < Energy Generators = Geradores de Energy ##///////////////////////////////////////////////////////////////
@@ -618,7 +629,6 @@ item.utilitycraft:gold_dust=Gold Dust
 item.utilitycraft:iron_dust=Iron Dust
 item.utilitycraft:ender_pearl_dust=Ender Pearl Dust
 
-item.utilitycraft:filter_upgrade=Filter Upgrade\n§7- Gives Mechanic Hoppers a way to filter up items
 
 item.utilitycraft:chip=Chip
 item.utilitycraft:basic_chip=§eBasic Chip 
@@ -658,6 +668,7 @@ dorios:itemGroup.name.machines=Machines
 dorios:itemGroup.name.batteries=Batteries
 dorios:itemGroup.name.basics=Basics
 dorios:itemGroup.name.meshes=Meshes
+dorios:itemGroup.name.fishing_nets=Fishing Nets
 dorios:itemGroup.name.essences=Essences\n§7- Used in Mechanical Spawner
 dorios:itemGroup.name.upgrades=Machine Upgrades
 dorios:itemGroup.name.plates=Plates
@@ -730,7 +741,10 @@ item.utilitycraft:tuff_pebble=Tuff Pebble
 item.utilitycraft:wither_skull_shard=Wither Skull Shard
 
 tile.utilitycraft:energy_cable.name=Energy Cable
-tile.utilitycraft:item_conduit.name=Item Conduit\n§7- Transports items
+tile.utilitycraft:item_conduit.name=Item Conduit (Green)\n§7- Transports items
+tile.utilitycraft:item_conduit_blue.name=Item Conduit (Blue)\n§7- Transports items
+tile.utilitycraft:item_conduit_yellow.name=Item Conduit (Yellow)\n§7- Transports items
+tile.utilitycraft:item_conduit_red.name=Item Conduit (Red)\n§7- Transports items
 tile.utilitycraft:fluid_pipe.name=Fluid Pipe\n§7- Transports liquids
 dorios:itemGroup.name.pipes=Pipes
 item.utilitycraft:flint_knife=Flint Knife \n§7- Separates fiber from leaves
@@ -748,6 +762,7 @@ item.utilitycraft:blueprint=Blueprint
 ## Machines Entities
 entity.utilitycraft:assembler.name=Assembler
 entity.utilitycraft:autosieve.name=Autosieve
+entity.utilitycraft:autofisher.name=Auto Fisher
 entity.utilitycraft:block_breaker.name=Block Breaker
 entity.utilitycraft:block_placer.name=Block Placer
 entity.utilitycraft:crusher.name=Crusher

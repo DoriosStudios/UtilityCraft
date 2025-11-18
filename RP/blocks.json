@@ -162,6 +162,9 @@
 	"utilitycraft:autosieve": {
 		"sound": "stone"
 	},
+	"utilitycraft:autofisher": {
+		"sound": "stone"
+	},
 	"utilitycraft:sieve": {
 		"sound": "stone"
 	},
@@ -308,6 +311,15 @@
 		"sound": "metal"
 	},
 	"utilitycraft:item_conduit": {
+		"sound": "metal"
+	},
+	"utilitycraft:item_conduit_blue": {
+		"sound": "metal"
+	},
+	"utilitycraft:item_conduit_yellow": {
+		"sound": "metal"
+	},
+	"utilitycraft:item_conduit_red": {
 		"sound": "metal"
 	},
 	"utilitycraft:fluid_pipe": {

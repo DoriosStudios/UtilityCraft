@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:golden_fishing_net"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            "GGG",
+            "IGI",
+            "GGG"
+        ],
+        "key": {
+            "G": {
+                "item": "gold_ingot"
+            },
+            "I": {
+                "item": "utilitycraft:iron_fishing_net"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:golden_fishing_net"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:iron_fishing_net"
+            }
+        ]
+    }
+}

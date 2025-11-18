@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:netherite_fishing_net",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_netherite_fishing_net",
+			"utilitycraft:fishing_net": {
+				"tier": 6,
+				"speed": 4,
+				"chance_multiplier": 4,
+				"amount_multiplier": 1,
+				"rolls": 4
+			}
+		}
+	}
+}

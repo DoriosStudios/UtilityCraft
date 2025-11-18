@@ -19,6 +19,7 @@ tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §a§7
 
 - Machines = ## Máquinas
 tile.utilitycraft:autosieve.name=Peneirador\n§7- Aceita melhorias:\n §a§7, §b§7
+tile.utilitycraft:autofisher.name=Autopescador\n§7- Aceita melhorias:\n §a§7, §b§7
 tile.utilitycraft:assembler.name=Montador\n§7- Aceita melhorias:\n §a§7, §b§7
 tile.utilitycraft:block_breaker.name=Quebrador\n§7- Aceita melhorias:\n §a§7, §b§7
 tile.utilitycraft:block_placer.name=Colocador\n§7- Aceita melhorias:\n §a§7, §b§7
@@ -47,7 +48,10 @@ tile.utilitycraft:conveyor_inclined.name=Esteira Inclinada §7(Pra cima)
 tile.utilitycraft:conveyor_declined.name=Esteira inclinada §7(Pra baixo)
 tile.utilitycraft:energy_cable.name=Cabo de Energia
 tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias:\n §a§7, §f§7
-tile.utilitycraft:item_conduit.name=Tubo\n§7- Transporta itens
+tile.utilitycraft:item_conduit.name=Tubo Verde\n§7- Transporta itens
+tile.utilitycraft:item_conduit_blue.name=Tubo Azul\n§7- Transporta itens
+tile.utilitycraft:item_conduit_yellow.name=Tubo Amarelo\n§7- Transporta itens
+tile.utilitycraft:item_conduit_red.name=Tubo Vermelho\n§7- Transporta itens
 tile.utilitycraft:mechanic_dropper.name=Liberador Mecânico \n§7- Aceita melhorias:\n §a§7, §f§7
 tile.utilitycraft:mechanic_hopper.name=Funil Mecânico \n§7- Aceita melhorias:\n §a§7, §f§7
 tile.utilitycraft:mechanic_upper.name=Funil Mecânico Invertido \n§7- Aceita melhorias:\n §a§7, §f§7
@@ -130,7 +134,7 @@ item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=Invocador Mecâni
 item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=Invocador Mecânico de Ovelha
 item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=Invocador Mecânico de Esqueleto
 item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=Invocador Mecânico de Slime
-item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider=Invocador Mecânico de Aranha
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=Invocador Mecânico de Aranha
 item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=Invocador Mecânico de Bruxa
 item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=Invocador Mecânico de Zumbi
 
@@ -531,6 +535,15 @@ item.utilitycraft:emerald_mesh=Malha de §aEsmeralda§r\n§7- Tier Máx: Diamant
 item.utilitycraft:diamond_mesh=Malha de §bDiamante§r\n§7- Tier Máx: Diamante
 item.utilitycraft:netherite_mesh=Malha de §jNetherita§r\n§7- Tier Máx: Diamante\n- Não solta sílex
 
+- Fishing Nets = ## Redes de Pesca
+item.utilitycraft:string_fishing_net=Rede de Pesca de Linha\n§7- Nível de Velocidade: 1
+item.utilitycraft:copper_fishing_net=Rede de Pesca de §vCobre§r\n§7- Nível de Velocidade: 2
+item.utilitycraft:iron_fishing_net=Rede de Pesca de §iFerro§r\n§7- Nível de Velocidade: 3
+item.utilitycraft:golden_fishing_net=Rede de Pesca Dourada\n§7- Nível de Velocidade: 4
+item.utilitycraft:emerald_fishing_net=Rede de Pesca de §aEsmeralda§r\n§7- Nível de Velocidade: 5
+item.utilitycraft:diamond_fishing_net=Rede de Pesca de §bDiamante§r\n§7- Nível de Velocidade: 6
+item.utilitycraft:netherite_fishing_net=Rede de Pesca de §jNetherita§r\n§7- Nível de Velocidade: 7
+
 - Essences = ## Essências
 item.utilitycraft:essence_vessel=Garrafa de Essência \n§7- Interaja com um mob para escolher\n- Mate mobs do mesmo tipo para preencher\n- Precisa estar na segunda mão
 item.utilitycraft:pig_essence=Essência de Porco
@@ -701,28 +714,28 @@ tile.utilitycraft:basic_magmator.name=§eMagmador Básico\n §7 Velocidade: 50 D
 tile.utilitycraft:basic_thermo_generator.name=§eGerador Térmico Básico \n §7 Velocidade: 20 DE/t
 tile.utilitycraft:basic_battery.name=§eBateria Básica\n §7 Velocidade: 100 DE/t
 tile.utilitycraft:basic_solar_panel.name=§ePainel Solar Básico\n §7 Velocidade: 12 DE/t
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 8 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
+tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 8 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:advanced_furnator.name=§cForgerador Avançado\n §7 Velocidade: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cMagmador Avançado\n §7 Velocidade: 200 DE/t
 tile.utilitycraft:advanced_thermo_generator.name=§cGerador Térmico Avançado \n §7 Velocidade: 80 DE/t
 tile.utilitycraft:advanced_battery.name=§cBateria Avançada \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:advanced_solar_panel.name=§cPainel Solar Avançado\n §7 Velocidade: 48 DE/t
-tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avançada\n §7 Velocidade Base: 32 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
+tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avançada\n §7 Velocidade Base: 32 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:expert_furnator.name=§3Forgerador Expert \n §7 Velocidade: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§3Magmador Expert \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:expert_thermo_generator.name=§3Gerador Térmico Expert\n §7 Velocidade: 320 DE/t
 tile.utilitycraft:expert_battery.name=§3Bateria Expert \n §7 Velocidade: 1.6 kDE/t
 tile.utilitycraft:expert_solar_panel.name=§3Painel Solar Expert \n §7 Velocidade: 192 DE/t
-tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Expert\n §7 Velocidade Base: 128 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
+tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Expert\n §7 Velocidade Base: 128 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:ultimate_furnator.name=§8Forgerador Supremo \n §7 Velocidade: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Supremo\n §7 Velocidade: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Gerador Térmico Supremo \n §7 Velocidade: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Bateria Suprema\n §7 Velocidade: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Velocidade: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 360%\n  Não funciona abaixo de y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 < Energy Generators = Geradores de Energia 
 ##///////////////////////////////////////////////////////////////
 
@@ -797,6 +810,7 @@ dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
 dorios:itemGroup.name.hammers=Martelos
 dorios:itemGroup.name.paxels=Pacachados
 dorios:itemGroup.name.meshes=Malhas
+dorios:itemGroup.name.fishing_nets=Redes de Pesca
 dorios:itemGroup.name.essences=Essências\n§7- Usado no Invocador Mecânico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Módulos de Melhoria
@@ -807,6 +821,7 @@ dorios:itemGroup.name.upgrades=Módulos de Melhoria
 ## Machines Entities
 entity.utilitycraft:assembler.name=Montador
 entity.utilitycraft:autosieve.name=Peneirador
+entity.utilitycraft:autofisher.name=Autopescador
 entity.utilitycraft:block_breaker.name=Quebrador
 entity.utilitycraft:block_placer.name=Colocador
 entity.utilitycraft:crusher.name=Triturador

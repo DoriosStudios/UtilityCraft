@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:copper_fishing_net",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_copper_fishing_net",
+			"utilitycraft:fishing_net": {
+				"tier": 1,
+				"speed": 1,
+				"chance_multiplier": 1.25,
+				"amount_multiplier": 1.0,
+				"rolls": 1
+			}
+		}
+	}
+}

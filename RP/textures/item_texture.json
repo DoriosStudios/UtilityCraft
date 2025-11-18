@@ -257,6 +257,27 @@
 		"utilitycraft_netherite_mesh": {
 			"textures": "textures/items/meshes/netherite_mesh"
 		},
+		"utilitycraft_string_fishing_net": {
+			"textures": "textures/items/meshes/string_mesh"
+		},
+		"utilitycraft_copper_fishing_net": {
+			"textures": "textures/items/meshes/copper_mesh"
+		},
+		"utilitycraft_iron_fishing_net": {
+			"textures": "textures/items/meshes/iron_mesh"
+		},
+		"utilitycraft_golden_fishing_net": {
+			"textures": "textures/items/meshes/golden_mesh"
+		},
+		"utilitycraft_emerald_fishing_net": {
+			"textures": "textures/items/meshes/emerald_mesh"
+		},
+		"utilitycraft_diamond_fishing_net": {
+			"textures": "textures/items/meshes/diamond_mesh"
+		},
+		"utilitycraft_netherite_fishing_net": {
+			"textures": "textures/items/meshes/netherite_mesh"
+		},
 		"utilitycraft_copper_seeds": {
 			"textures": "textures/items/seeds/copper_seeds"
 		},
@@ -1825,6 +1846,9 @@
 		},
 		"utilitycraft_vase_of_spider_eye": {
 			"textures": "textures/items/compressed_items/vase_of_spider_eye"
+		},
+		"utilitycraft:container_filler": {
+			"textures": "textures/items/progress_bars/container_filler"
 		}
 	}
 }

@@ -41,6 +41,7 @@
                         "items": [
                             "utilitycraft:assembler",
                             "utilitycraft:autosieve",
+                            "utilitycraft:autofisher",
                             "utilitycraft:block_breaker",
                             "utilitycraft:block_placer",
                             "utilitycraft:crusher",
@@ -89,6 +90,9 @@
                         "items": [
                             "utilitycraft:energy_cable",
                             "utilitycraft:item_conduit",
+                            "utilitycraft:item_conduit_blue",
+                            "utilitycraft:item_conduit_red",
+                            "utilitycraft:item_conduit_yellow",
                             "utilitycraft:item_exporter",
                             "utilitycraft:fluid_pipe",
                             "utilitycraft:fluid_extractor"
@@ -135,6 +139,21 @@
                             "utilitycraft:copper_mesh",
                             "utilitycraft:flint_mesh",
                             "utilitycraft:string_mesh"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "utilitycraft:string_fishing_net",
+                            "name": "dorios:itemGroup.name.fishing_nets"
+                        },
+                        "items": [
+                            "utilitycraft:string_fishing_net",
+                            "utilitycraft:copper_fishing_net",
+                            "utilitycraft:iron_fishing_net",
+                            "utilitycraft:golden_fishing_net",
+                            "utilitycraft:emerald_fishing_net",
+                            "utilitycraft:diamond_fishing_net",
+                            "utilitycraft:netherite_fishing_net"
                         ]
                     },
                     {

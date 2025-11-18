@@ -67,7 +67,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
             // Si no existe la entidad, obtener el tipo del ítem antes de spawnearla
             if (!tankEntity) {
-                const insertData = FluidManager.itemFluidContainers?.[mainHand.typeId];
+                const insertData = FluidManager.getContainerData(mainHand.typeId);
                 const fluidType = insertData ? insertData.type : "empty";
                 if (fluidType == 'empty') return
                 tankEntity = FluidManager.addfluidToTank(block, fluidType, 0);

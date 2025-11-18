@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:copper_fishing_net"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            "CCC",
+            "CSC",
+            "CCC"
+        ],
+        "key": {
+            "C": {
+                "item": "copper_ingot"
+            },
+            "S": {
+                "item": "utilitycraft:string_fishing_net"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:copper_fishing_net"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:string_fishing_net"
+            }
+        ]
+    }
+}

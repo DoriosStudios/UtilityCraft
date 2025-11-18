@@ -1,4 +1,5 @@
 import './machines/autosieve.js'
+import './machines/autofisher.js'
 import './machines/seed_synthesizer.js'
 import './machines/simple_machine.js'
 import './machines/simple_machine_liquid.js'

@@ -97,7 +97,7 @@ export const plantsData = {
             { item: 'minecraft:acacia_sapling', amount: 1, chance: 0.05 }
         ]
     },
-    'utilitycraft:apple_tree_sapling': {
+    'utilitycraft:apple_sapling': {
         cost: 8000,
         drops: [
             { item: 'minecraft:log', amount: [6, 10], chance: 1 },

@@ -10,6 +10,7 @@
         "ui/magmatic_chamber.json",
         "ui/simple_machine.json",
         "ui/autosieve.json",
+        "ui/autofisher.json",
         "ui/assembler.json",
         "ui/power_condenser.json",
         "ui/machineryCommon.json",

@@ -1082,16 +1082,28 @@
 			"textures": "textures/blocks/Pump_txr"
 		},
 		"utilitycraft_energy_cable": {
-			"textures": "textures/blocks/energy_cable"
+			"textures": "textures/blocks/tubes/energy_cable"
 		},
 		"utilitycraft_fluid_pipe": {
-			"textures": "textures/blocks/fluid_pipe"
+			"textures": "textures/blocks/tubes/fluid_pipe"
 		},
 		"utilitycraft_item_conduit": {
-			"textures": "textures/blocks/item_conduit"
+			"textures": "textures/blocks/tubes/item_conduit"
+		},
+		"utilitycraft_item_conduit_green": {
+			"textures": "textures/blocks/tubes/item_conduit"
+		},
+		"utilitycraft_item_conduit_blue": {
+			"textures": "textures/blocks/tubes/item_conduit_blue"
+		},
+		"utilitycraft_item_conduit_yellow": {
+			"textures": "textures/blocks/tubes/item_conduit_yellow"
+		},
+		"utilitycraft_item_conduit_red": {
+			"textures": "textures/blocks/tubes/item_conduit_red"
 		},
 		"utilitycraft_item_exporter": {
-			"textures": "textures/blocks/item_exporter"
+			"textures": "textures/blocks/tubes/item_conduit_white"
 		},
 		"utilitycraft_compressed_amethyst_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_amethyst_block"
@@ -1583,7 +1595,7 @@
 			"textures": "textures/blocks/compressed_blocks/compressed_block"
 		},
 		"utilitycraft_fluid_extractor": {
-			"textures": "textures/blocks/fluid_extractor"
+			"textures": "textures/blocks/tubes/fluid_extractor"
 		},
 		"utilitycraft_assembler_on": {
 			"textures": "textures/blocks/assembler/assembler_on"

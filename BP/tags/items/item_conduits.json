@@ -1,0 +1,15 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:item_tag": {
+        "description": {
+            "identifier": "utilitycraft:item_conduits",
+            "category": "construction"
+        },
+        "values": [
+            "utilitycraft:item_conduit",
+            "utilitycraft:item_conduit_blue",
+            "utilitycraft:item_conduit_yellow",
+            "utilitycraft:item_conduit_red"
+        ]
+    }
+}

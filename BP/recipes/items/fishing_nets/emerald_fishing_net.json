@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:emerald_fishing_net"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            "EEE",
+            "GEG",
+            "EEE"
+        ],
+        "key": {
+            "E": {
+                "item": "emerald"
+            },
+            "G": {
+                "item": "utilitycraft:golden_fishing_net"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:emerald_fishing_net"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:golden_fishing_net"
+            }
+        ]
+    }
+}

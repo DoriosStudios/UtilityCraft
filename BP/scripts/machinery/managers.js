@@ -1,6 +1,14 @@
 import { system, world, ItemStack, BlockPermutation } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
+import {
+    getFluidContainerDefinition,
+    getFluidContainerRegistry,
+    getFluidOutputDefinition,
+    getFluidOutputRegistry,
+    registerFluidContainer as registerFluidContainerDefinition,
+    registerFluidOutput as registerFluidOutputDefinition
+} from '../config/fluids/containers.js'
 import { updatePipes } from './transfer_system/system.js'
 const COLORS = DoriosAPI.constants.textColors
 
@@ -729,6 +737,28 @@ export class Machine {
         this.rate = this.baseRate * tickSpeed
     }
 
+    getTransferCooldown() {
+        return Math.max(0, this.entity.getDynamicProperty("dorios:transfer_cooldown") ?? 0);
+    }
+
+    setTransferCooldown(ticks) {
+        this.entity.setDynamicProperty("dorios:transfer_cooldown", Math.max(0, Math.floor(ticks ?? 0)));
+    }
+
+    holdTransfers(ticks = 1) {
+        if (!ticks || ticks <= 0) return;
+        const current = this.getTransferCooldown();
+        const desired = Math.max(current, Math.floor(ticks));
+        this.setTransferCooldown(desired);
+    }
+
+    shouldDelayTransfers() {
+        const cooldown = this.getTransferCooldown();
+        if (cooldown <= 0) return false;
+        this.setTransferCooldown(cooldown - 1);
+        return true;
+    }
+
     /**
      * Spawns a UtilityCraft machine entity at the given block location,
      * triggers the correct type and inventory events, and assigns its name.
@@ -918,6 +948,7 @@ export class Machine {
      * @returns {boolean} True if the transfer was attempted, false otherwise.
      */
     transferItems(type = this.settings.entity.output_type ?? "simple") {
+        if (this.shouldDelayTransfers()) return false;
         const facing = this.block.getState("utilitycraft:axis");
         if (!facing) return false;
 
@@ -2087,28 +2118,55 @@ export class FluidManager {
     }
 
     /**
-     * Map of items that contain or provide fluids.
+     * Returns the current map of fluid container definitions.
      *
-     * Each key represents an item identifier, and its value
-     * defines the resulting fluid type, amount, and optional output item.
-     *
-     * Example:
-     * ```js
-     * FluidManager.itemFluidContainers["minecraft:lava_bucket"]
-     * // → { amount: 1000, type: "lava", output: "minecraft:bucket" }
-     * ```
-     *
-     * @constant
-     * @type {Record<string, { amount: number, type: string, output?: string }>}
+     * The registry is populated inside `config/fluids/containers.js`
+     * and can be extended either in code or via the
+     * `utilitycraft:register_fluid_container` ScriptEvent.
      */
-    static itemFluidContainers = {
-        'minecraft:lava_bucket': { amount: 1000, type: 'lava', output: 'minecraft:bucket' },
-        'utilitycraft:lava_ball': { amount: 1000, type: 'lava' },
-        'minecraft:water_bucket': { amount: 1000, type: 'water', output: 'minecraft:bucket' },
-        'utilitycraft:water_ball': { amount: 1000, type: 'water' },
-        'minecraft:experience_bottle': { amount: 8, type: 'xp', output: 'minecraft:glass_bottle' },
-        'minecraft:milk_bucket': { amount: 1000, type: 'milk', output: 'minecraft:bucket' },
-    };
+    static get itemFluidContainers() {
+        return getFluidContainerRegistry();
+    }
+
+    /**
+     * Registers or overrides a fluid container definition at runtime.
+     *
+     * @param {string} id Item identifier.
+     * @param {{ amount: number, type: string, output?: string }} definition Container data.
+     * @returns {boolean} True when the definition was stored.
+     */
+    static registerFluidContainer(id, definition) {
+        return registerFluidContainerDefinition(id, definition);
+    }
+
+    /**
+     * Returns the registry of fluid output containers (empty → filled mappings).
+     */
+    static get fluidOutputContainers() {
+        return getFluidOutputRegistry();
+    }
+
+    /**
+     * Retrieves output definition for an empty container identifier.
+     *
+     * @param {string} id Item identifier for the empty container.
+     * @returns {{ amount: number, fills: Record<string, string> } | null}
+     */
+    static getFluidFillDefinition(id) {
+        if (!id) return null;
+        return getFluidOutputDefinition(id);
+    }
+
+    /**
+     * Registers or overrides a fluid output definition at runtime.
+     *
+     * @param {string} id Item identifier.
+     * @param {{ amount: number, fills: Record<string, string> }} definition Data describing how the container is filled.
+     * @returns {boolean}
+     */
+    static registerFluidOutput(id, definition) {
+        return registerFluidOutputDefinition(id, definition);
+    }
 
 
     // --------------------------------------------------------------------------
@@ -2202,7 +2260,8 @@ export class FluidManager {
      * @returns {{ amount: number, type: string, output?: string }|null} Fluid data if found, otherwise null.
      */
     static getContainerData(id) {
-        return this.itemFluidContainers[id] ?? null;
+        if (!id) return null;
+        return getFluidContainerDefinition(id);
     }
 
     // --------------------------------------------------------------------------
@@ -2314,31 +2373,32 @@ export class FluidManager {
      */
     fluidItem(typeId) {
         // 1. Handle known container items (e.g., water bucket, lava bucket)
-        const insertData = FluidManager.itemFluidContainers[typeId];
+        const insertData = FluidManager.getContainerData(typeId);
         if (insertData) {
-            const { type, amount, output } = insertData;
+            const { type, output } = insertData;
+            const insertAmount = insertData.amountRange?.max ?? insertData.amount;
 
             // Ensure the tank can accept this fluid
-            const inserted = this.tryInsert(type, amount);
+            const inserted = this.tryInsert(type, insertAmount);
             if (!inserted) return false;
 
             return output; // Return resulting item (e.g., empty bucket)
         }
 
-        // 2. Handle empty bucket → attempt to fill with stored fluid
-        if (typeId === "minecraft:bucket") {
-            const validFillable = ["lava", "water", "milk"];
+        // 2. Handle empty containers that should be filled with the stored fluid
+        const fillDefinition = FluidManager.getFluidFillDefinition(typeId);
+        if (fillDefinition) {
             const storedType = this.getType();
+            if (!storedType || storedType === 'empty') return false;
 
-            // Only valid fluids can be bucketed
-            if (!validFillable.includes(storedType)) return false;
+            const filledItemId = fillDefinition.fills?.[storedType];
+            if (!filledItemId) return false;
+            const drainAmount = fillDefinition.amountRange?.max ?? fillDefinition.amount;
+            if (this.get() < drainAmount) return false;
 
-            // Require at least 1000 mB (1 bucket)
-            if (this.get() < 1000) return false;
-
-            // Drain and return filled bucket
-            this.add(-1000);
-            return `minecraft:${storedType}_bucket`;
+            this.add(-drainAmount);
+            if (this.get() <= 0) this.setType('empty');
+            return filledItemId;
         }
 
         // 3. Not a recognized container item

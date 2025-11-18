@@ -47,7 +47,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_item_conduit",
+					"texture": "utilitycraft_item_conduit_green",
 					"render_method": "alpha_test"
 				}
 			},

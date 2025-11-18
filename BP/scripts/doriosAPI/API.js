@@ -199,6 +199,11 @@ globalThis.DoriosAPI = {
             const tf = target.getComponent("minecraft:type_family");
             if (!tf) return false;
 
+            const isMachine = tf.hasTypeFamily("dorios:machine");
+            const blockedSlots = isMachine
+                ? DoriosAPI.containers.getMachineBlockedSlots(target)
+                : new Set();
+
             // ───────────────────────────────
             // Simple Input
             // ───────────────────────────────
@@ -224,6 +229,7 @@ globalThis.DoriosAPI = {
                 const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
 
                 for (let i = start; i <= end; i++) {
+                    if (blockedSlots.has(i)) continue;
                     const slotItem = targetInv.getItem(i);
 
                     // Empty slot → insert directly
@@ -248,6 +254,9 @@ globalThis.DoriosAPI = {
             // Dorios Container fallback
             // ───────────────────────────────
             if (tf.hasTypeFamily("dorios:container")) {
+                if (isMachine) {
+                    return DoriosAPI.containers.insertIntoInventory(targetInv, itemStack, blockedSlots);
+                }
                 targetInv.addItem(itemStack);
                 return true;
             }
@@ -339,10 +348,12 @@ globalThis.DoriosAPI = {
 
             /** @type {EntityTypeFamilyComponent} */
             const tf = target?.getComponent("minecraft:type_family");
+            const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
             const isDoriosContainer =
                 tf?.hasTypeFamily("dorios:container") &&
                 !tf?.hasTypeFamily("dorios:complex_input") &&
-                !tf?.hasTypeFamily("dorios:simple_input");
+                !tf?.hasTypeFamily("dorios:simple_input") &&
+                !isMachineTarget;
 
             for (let slot = start; slot <= end; slot++) {
                 let itemToTransfer = sourceInv.getItem(slot);
@@ -432,8 +443,9 @@ globalThis.DoriosAPI = {
             }
 
             /** @type {EntityTypeFamilyComponent} */
-            const tf = target?.getComponent("minecraft:type_family")
-            const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input")
+            const tf = target?.getComponent("minecraft:type_family");
+            const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
+            const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input") && !isMachineTarget
 
             for (let slot = start; slot <= end; slot++) {
                 let itemToTransfer = sourceInv.getItem(slot);
@@ -532,9 +544,11 @@ globalThis.DoriosAPI = {
 
             /** @type {EntityTypeFamilyComponent} */
             const tf = target?.getComponent("minecraft:type_family");
+            const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
             const isDoriosContainer = tf?.hasTypeFamily("dorios:container")
                 && !tf?.hasTypeFamily("dorios:complex_input")
-                && !tf?.hasTypeFamily("dorios:simple_input");
+                && !tf?.hasTypeFamily("dorios:simple_input")
+                && !isMachineTarget;
 
             for (let slot = start; slot <= end; slot++) {
                 const item = sourceInv.getItem(slot);
@@ -702,6 +716,85 @@ globalThis.DoriosAPI = {
             }
 
             return [start, end];
+        },
+
+        /**
+         * Builds the slot list that machines must protect from external insertions.
+         *
+         * Includes:
+         * - Upgrade slots (default [4,5])
+         * - Output slots (simple or complex) so inputs never clog outputs
+         *
+         * @param {Entity|Block} target
+         * @returns {Set<number>} Slots that cannot accept incoming items.
+         */
+        getMachineBlockedSlots(target) {
+            const blocked = new Set();
+            if (!target) return blocked;
+
+            const inv = target?.getComponent?.("minecraft:inventory")?.container;
+            if (!inv) return blocked;
+
+            const size = inv.size ?? 0;
+            const tf = target?.getComponent?.("minecraft:type_family");
+            if (!tf || !tf.hasTypeFamily("dorios:machine")) return blocked;
+
+            const upgradeSlots = DoriosAPI.constants.machineUpgradeSlots ?? [4, 5];
+            for (const slot of upgradeSlots) {
+                if (typeof slot !== "number") continue;
+                if (slot < 0 || slot >= size) continue;
+                blocked.add(slot);
+            }
+
+            if (tf.hasTypeFamily("dorios:simple_output") || tf.hasTypeFamily("dorios:complex_output")) {
+                const [start, end] = DoriosAPI.containers.getAllowedOutputRange(target);
+                for (let i = start; i <= end; i++) {
+                    if (i < 0 || i >= size) continue;
+                    blocked.add(i);
+                }
+            }
+
+            return blocked;
+        },
+
+        /**
+         * Inserts an item into the first available slot that is not blocked.
+         *
+         * Returns `true` for full insertions, `false` when no slot is free,
+         * or the amount merged when partially stacked.
+         *
+         * @param {Container} targetInv
+         * @param {ItemStack} itemStack
+         * @param {Set<number>} blockedSlots
+         * @returns {boolean|number}
+         */
+        insertIntoInventory(targetInv, itemStack, blockedSlots = new Set()) {
+            if (!targetInv || !itemStack) return false;
+            const slotsToSkip = blockedSlots ?? new Set();
+
+            for (let i = 0; i < targetInv.size; i++) {
+                if (slotsToSkip.has(i)) continue;
+                const slotItem = targetInv.getItem(i);
+                if (!slotItem) continue;
+                if (slotItem.typeId !== itemStack.typeId) continue;
+                const space = slotItem.maxAmount - slotItem.amount;
+                if (space <= 0) continue;
+
+                const insertAmount = Math.min(itemStack.amount, space);
+                slotItem.amount += insertAmount;
+                targetInv.setItem(i, slotItem);
+                return insertAmount;
+            }
+
+            for (let i = 0; i < targetInv.size; i++) {
+                if (slotsToSkip.has(i)) continue;
+                if (!targetInv.getItem(i)) {
+                    targetInv.setItem(i, itemStack);
+                    return true;
+                }
+            }
+
+            return false;
         },
     },
 
@@ -1137,6 +1230,10 @@ globalThis.DoriosAPI = {
             "minecraft:chain_command_block",
             "minecraft:repeating_command_block"
         ],
+        /**
+         * Default inventory slots reserved for UtilityCraft machine upgrades.
+         */
+        machineUpgradeSlots: [4, 5],
         /**
          * Permission map for custom command registration.
          * 

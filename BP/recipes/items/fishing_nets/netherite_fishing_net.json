@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:netherite_fishing_net"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            "NNN",
+            "DND",
+            "NNN"
+        ],
+        "key": {
+            "N": {
+                "item": "netherite_ingot"
+            },
+            "D": {
+                "item": "utilitycraft:diamond_fishing_net"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:netherite_fishing_net"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:diamond_fishing_net"
+            }
+        ]
+    }
+}

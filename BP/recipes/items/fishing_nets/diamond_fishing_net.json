@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:diamond_fishing_net"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            "DDD",
+            "DED",
+            "DDD"
+        ],
+        "key": {
+            "D": {
+                "item": "diamond"
+            },
+            "E": {
+                "item": "utilitycraft:emerald_fishing_net"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:diamond_fishing_net"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:emerald_fishing_net"
+            }
+        ]
+    }
+}
