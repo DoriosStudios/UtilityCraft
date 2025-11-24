@@ -30,6 +30,15 @@
 				"generator": {
 					"energy_cap": 256000,
 					"rate_speed_base": 32
+				},
+				"max_altitude_multiplier": 4,
+				"altitude": {
+					"min": 20,
+					"base": 63,
+					"bonus_step": 16,
+					"penalty_step": 8,
+					"step_ratio": 0.125,
+					"max_multiplier": 3
 				}
 			},
 			"minecraft:geometry": "geometry.utilitycraft_wind_turbine",

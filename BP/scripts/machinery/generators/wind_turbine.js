@@ -5,7 +5,27 @@ const ALTITUDE_BONUS_STEP = 16
 const ALTITUDE_PENALTY_STEP = 8
 const ALTITUDE_STEP_RATIO = 0.125
 const MIN_ALTITUDE = 20
-const MAX_ALTITUDE_MULTIPLIER = 4
+const DEFAULT_MAX_ALTITUDE_MULTIPLIER = 4
+/**
+ * @typedef {Object} AltitudeConfig
+ * @property {number} baseAltitude     // Altitude where penalties/bonuses start
+ * @property {number} minAltitude      // Minimum altitude required to run
+ * @property {number} bonusStep        // Height interval that grants bonuses
+ * @property {number} penaltyStep      // Height interval that applies penalties
+ * @property {number} stepRatio        // Portion of base rate applied each step
+ * @property {number} maxMultiplier    // Cap relative to base rate
+ */
+
+/** @type {AltitudeConfig} */
+const DEFAULT_ALTITUDE_CONFIG = {
+    baseAltitude: BASE_ALTITUDE,
+    minAltitude: MIN_ALTITUDE,
+    bonusStep: ALTITUDE_BONUS_STEP,
+    penaltyStep: ALTITUDE_PENALTY_STEP,
+    stepRatio: ALTITUDE_STEP_RATIO,
+    maxMultiplier: DEFAULT_MAX_ALTITUDE_MULTIPLIER
+}
+
 const WEATHER_MULTIPLIERS = {
     rain: 1.5,
     thunder: 2.25
@@ -42,10 +62,11 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         const altitude = block.location.y
         const weather = block.dimension.weather ?? 'clear'
         const baseRate = generator.rate
-        const altitudeRate = computeAltitudeRate(baseRate, altitude)
+        const altitudeConfig = resolveAltitudeConfig(settings)
+        const altitudeRate = computeAltitudeRate(baseRate, altitude, altitudeConfig)
         const effectiveRate = applyWeather(altitudeRate, weather)
         const efficiency = baseRate > 0 ? Math.max(0, Math.round((effectiveRate / baseRate) * 1000) / 10) : 0
-        const belowMinAltitude = altitude < MIN_ALTITUDE
+        const belowMinAltitude = altitude < altitudeConfig.minAltitude
 
         if (belowMinAltitude) {
             generator.off()
@@ -90,22 +111,38 @@ DoriosAPI.register.blockComponent('wind_turbine', {
  *
  * @param {number} baseRate
  * @param {number} altitude
+ * @param {AltitudeConfig} altitudeConfig
  * @returns {number}
  */
-function computeAltitudeRate(baseRate, altitude) {
-    if (baseRate <= 0 || altitude < MIN_ALTITUDE) return 0
+function computeAltitudeRate(baseRate, altitude, altitudeConfig = DEFAULT_ALTITUDE_CONFIG) {
+    if (baseRate <= 0) return 0
 
-    const bonusSteps = altitude > BASE_ALTITUDE
-        ? Math.max(0, Math.floor((altitude - BASE_ALTITUDE + ALTITUDE_BONUS_STEP) / ALTITUDE_BONUS_STEP) - 1)
+    const {
+        baseAltitude,
+        minAltitude,
+        bonusStep,
+        penaltyStep,
+        stepRatio,
+        maxMultiplier
+    } = altitudeConfig
+
+    if (altitude < minAltitude) return 0
+
+    const bonusInterval = Math.max(1, Math.round(bonusStep ?? ALTITUDE_BONUS_STEP))
+    const penaltyInterval = Math.max(1, Math.round(penaltyStep ?? ALTITUDE_PENALTY_STEP))
+
+    const bonusSteps = altitude > baseAltitude
+        ? Math.max(0, Math.floor((altitude - baseAltitude + bonusInterval) / bonusInterval) - 1)
         : 0
 
-    const penaltySteps = altitude < BASE_ALTITUDE
-        ? Math.floor((BASE_ALTITUDE - altitude) / ALTITUDE_PENALTY_STEP)
+    const penaltySteps = altitude < baseAltitude
+        ? Math.floor((baseAltitude - altitude) / penaltyInterval)
         : 0
 
-    const perStep = Math.max(1, Math.round(baseRate * ALTITUDE_STEP_RATIO))
+    const ratio = Math.max(0, stepRatio ?? ALTITUDE_STEP_RATIO)
+    const perStep = Math.max(1, Math.round(baseRate * ratio))
     const adjusted = baseRate + perStep * (bonusSteps - penaltySteps)
-    const capped = Math.min(baseRate * MAX_ALTITUDE_MULTIPLIER, adjusted)
+    const capped = Math.min(baseRate * Math.max(1, maxMultiplier ?? DEFAULT_MAX_ALTITUDE_MULTIPLIER), adjusted)
     return Math.max(0, Math.floor(capped))
 }
 
@@ -133,7 +170,7 @@ function applyWeather(rate, weather) {
  * @returns {string}
  */
 function buildStatusLabel(status, color, efficiency, percent, altitude, transferRate = 0) {
-    const clampedEfficiency = Math.max(0, Math.min(300, efficiency))
+    const clampedEfficiency = Math.max(0, efficiency)
     const formattedEfficiency = clampedEfficiency.toFixed(1).replace('.', ',')
     const transferText = transferRate > 0 ? Energy.formatEnergyToText(transferRate) : '0 DE'
 
@@ -147,5 +184,24 @@ function buildStatusLabel(status, color, efficiency, percent, altitude, transfer
 §r§bEnergy at ${Math.floor(percent)}%%
 §r§cRate ${transferText}/t
     `
+}
+
+/**
+ * Resolves altitude configuration using defaults plus block overrides.
+ *
+ * @param {GeneratorSettings} [settings]
+ * @returns {AltitudeConfig}
+ */
+function resolveAltitudeConfig(settings) {
+    const altitude = settings?.altitude ?? {}
+
+    return {
+        baseAltitude: altitude.base ?? BASE_ALTITUDE,
+        minAltitude: altitude.min ?? MIN_ALTITUDE,
+        bonusStep: altitude.bonus_step ?? ALTITUDE_BONUS_STEP,
+        penaltyStep: altitude.penalty_step ?? ALTITUDE_PENALTY_STEP,
+        stepRatio: altitude.step_ratio ?? ALTITUDE_STEP_RATIO,
+        maxMultiplier: altitude.max_multiplier ?? settings?.max_altitude_multiplier ?? DEFAULT_MAX_ALTITUDE_MULTIPLIER
+    }
 }
 
