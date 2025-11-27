@@ -713,28 +713,28 @@ tile.utilitycraft:basic_furnator.name=§eForgerador Básico\n §7 Velocidade: 40
 tile.utilitycraft:basic_magmator.name=§eMagmador Básico\n §7 Velocidade: 50 DE/t
 tile.utilitycraft:basic_thermo_generator.name=§eGerador Térmico Básico \n §7 Velocidade: 20 DE/t
 tile.utilitycraft:basic_battery.name=§eBateria Básica\n §7 Velocidade: 100 DE/t
-tile.utilitycraft:basic_solar_panel.name=§ePainel Solar Básico\n §7 Velocidade: 12 DE/t
+tile.utilitycraft:basic_solar_panel.name=§ePainel Solar Básico\n §7 Velocidade Máx: 12 DE/t
 tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 8 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:advanced_furnator.name=§cForgerador Avançado\n §7 Velocidade: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cMagmador Avançado\n §7 Velocidade: 200 DE/t
 tile.utilitycraft:advanced_thermo_generator.name=§cGerador Térmico Avançado \n §7 Velocidade: 80 DE/t
 tile.utilitycraft:advanced_battery.name=§cBateria Avançada \n §7 Velocidade: 800 DE/t
-tile.utilitycraft:advanced_solar_panel.name=§cPainel Solar Avançado\n §7 Velocidade: 48 DE/t
+tile.utilitycraft:advanced_solar_panel.name=§cPainel Solar Avançado\n §7 Velocidade Máx: 48 DE/t
 tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avançada\n §7 Velocidade Base: 32 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:expert_furnator.name=§3Forgerador Expert \n §7 Velocidade: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§3Magmador Expert \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:expert_thermo_generator.name=§3Gerador Térmico Expert\n §7 Velocidade: 320 DE/t
 tile.utilitycraft:expert_battery.name=§3Bateria Expert \n §7 Velocidade: 1.6 kDE/t
-tile.utilitycraft:expert_solar_panel.name=§3Painel Solar Expert \n §7 Velocidade: 192 DE/t
+tile.utilitycraft:expert_solar_panel.name=§3Painel Solar Expert \n §7 Velocidade Máx: 192 DE/t
 tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Expert\n §7 Velocidade Base: 128 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 tile.utilitycraft:ultimate_furnator.name=§8Forgerador Supremo \n §7 Velocidade: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Supremo\n §7 Velocidade: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Gerador Térmico Supremo \n §7 Velocidade: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Bateria Suprema\n §7 Velocidade: 10 kDE/t
-tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Velocidade: 1200 DE/t
+tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Velocidade Máx: 1200 DE/t
 tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 < Energy Generators = Geradores de Energia 
 ##///////////////////////////////////////////////////////////////
