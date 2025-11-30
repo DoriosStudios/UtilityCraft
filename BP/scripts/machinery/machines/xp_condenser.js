@@ -50,7 +50,7 @@ function fillTank(entity, pos, xpAmount) {
             return capacity;
         }
     } else {
-        let storedXp = parseInt(item.getLore()[1].split(': ')[1].split('mB')[0])
+        let storedXp = parseInt(item.getLore()[0].split(': ')[1].split('mB')[0])
         if (storedXp == capacity) {
             return 0;
         }
@@ -75,7 +75,7 @@ function emptyTank(entity, pos, xpAmount) {
     let item = entityInv.getItem(pos)
     if (!item || item.getLore().length == 0) return 0;
     let capacity = tankCaps[item.typeId];
-    let storedXp = parseInt(item.getLore()[1]?.split(': ')[1].split('mB')[0])
+    let storedXp = parseInt(item.getLore()[0]?.split(': ')[1].split('mB')[0])
     if (storedXp == 0) return 0;
     if (storedXp < xpAmount) {
         item.setLore([
