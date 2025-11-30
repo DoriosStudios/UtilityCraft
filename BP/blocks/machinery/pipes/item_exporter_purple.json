@@ -1,0 +1,233 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:item_exporter_purple",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"utilitycraft:up": [
+					false,
+					true
+				],
+				"utilitycraft:down": [
+					false,
+					true
+				],
+				"utilitycraft:south": [
+					false,
+					true
+				],
+				"utilitycraft:east": [
+					false,
+					true
+				],
+				"utilitycraft:west": [
+					false,
+					true
+				],
+				"utilitycraft:north": [
+					false,
+					true
+				],
+				"utilitycraft:speed": [
+					0,
+					1,
+					2,
+					3,
+					4
+				],
+				"utilitycraft:filter": [
+					0,
+					1
+				]
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			}
+		},
+		"components": {
+			"utilitycraft:exporter": {},
+			"utilitycraft:upgradeable": {},
+			"minecraft:geometry": {
+				"identifier": "geometry.item_exporter",
+				"bone_visibility": {
+					"up": "q.block_state('utilitycraft:up')",
+					"down": "q.block_state('utilitycraft:down')",
+					"south": "q.block_state('utilitycraft:south')",
+					"east": "q.block_state('utilitycraft:east')",
+					"west": "q.block_state('utilitycraft:west')"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_item_exporter_purple",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					0,
+					0,
+					0
+				],
+				"size": [
+					0,
+					0,
+					0
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-4,
+					4,
+					-4
+				],
+				"size": [
+					8,
+					8,
+					8
+				]
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					10,
+					10
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:upgradeable": {},
+			"tag:dorios:item": {},
+			"tag:dorios:isTube": {},
+			"tag:dorios:color.purple": {},
+			"tag:dorios:isExporter": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'down' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'north' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'east' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:speed') == 1",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							8,
+							8
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:speed') == 2",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							6,
+							6
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:speed') == 3",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							4,
+							4
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:speed') == 4",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							2,
+							2
+						]
+					}
+				}
+			}
+		]
+	}
+}

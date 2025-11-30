@@ -66,7 +66,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_item_exporter",
+					"texture": "utilitycraft_item_exporter_green",
 					"render_method": "alpha_test"
 				}
 			},
@@ -107,6 +107,7 @@
 			"tag:dorios:upgradeable": {},
 			"tag:dorios:item": {},
 			"tag:dorios:isTube": {},
+			"tag:dorios:color.default": {},
 			"tag:dorios:isExporter": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},

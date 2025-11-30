@@ -35,7 +35,7 @@
         },
         "components": {
             "minecraft:geometry": {
-                "identifier": "geometry.utilitycraft_general_tube",
+                "identifier": "geometry.utilitycraft_pipe",
                 "bone_visibility": {
                     "up": "q.block_state('utilitycraft:up')",
                     "down": "q.block_state('utilitycraft:down')",
@@ -77,7 +77,8 @@
             },
             "minecraft:destructible_by_explosion": false,
             "tag:dorios:item": {},
-            "tag:dorios:isTube": {}
+            "tag:dorios:isTube": {},
+            "tag:dorios:color.blue": {}
         }
     }
 }

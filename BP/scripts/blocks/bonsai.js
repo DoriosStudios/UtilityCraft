@@ -165,7 +165,7 @@ DoriosAPI.register.blockComponent('bonsai', {
 
                 const bonsaiEntity = block.dimension.spawnEntity(bonsai.entity, pos)
                 bonsaiEntity.addTag('bonsai')
-                bonsaiEntity.addTag(`plant|${equipmentItem.typeId}`)
+                bonsaiEntity.setDynamicProperty('plant', `${equipmentItem.typeId}`)
 
                 // Growth & yield setup
                 const soil = soils[soilId]
@@ -190,8 +190,6 @@ DoriosAPI.register.blockComponent('bonsai', {
             }
             return
         }
-
-
 
         /* --- Soil → apply to bonsai pot --- */
         if (soils[itemId] && block.getState('utilitycraft:soil') === 'empty') {
@@ -257,8 +255,8 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
     const { id, sourceEntity } = event
     if (id !== "dorios:bonsai_loot") return
 
-    const plantTag = sourceEntity.getTags().find(tag => tag.startsWith('plant|'))
-    const bonsaiPlant = plantTag?.split('|')[1]
+    // const plantTag = sourceEntity.getTags().find(tag => tag.startsWith('plant|'))
+    const bonsaiPlant = sourceEntity.getDynamicProperty('plant')
     const plantInfo = plantsData[bonsaiPlant]
     if (!plantInfo) return
 

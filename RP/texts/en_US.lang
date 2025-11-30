@@ -745,11 +745,16 @@ tile.utilitycraft:item_conduit.name=Item Conduit (Green)\n§7- Transports items
 tile.utilitycraft:item_conduit_blue.name=Item Conduit (Blue)\n§7- Transports items
 tile.utilitycraft:item_conduit_yellow.name=Item Conduit (Yellow)\n§7- Transports items
 tile.utilitycraft:item_conduit_red.name=Item Conduit (Red)\n§7- Transports items
+tile.utilitycraft:item_conduit_purple.name=Item Conduit (Purple)\n§7- Transports items
 tile.utilitycraft:fluid_pipe.name=Fluid Pipe\n§7- Transports liquids
 dorios:itemGroup.name.pipes=Pipes
 item.utilitycraft:flint_knife=Flint Knife \n§7- Separates fiber from leaves
 item.utilitycraft:fiber=Fiber
-tile.utilitycraft:item_exporter.name=Item Exporter \n§7- Accepted upgrades:\n   §a§7 §f§7
+tile.utilitycraft:item_exporter.name=Item Exporter (Green)\n§7- Accepted upgrades:\n   §a§7 §f§7
+tile.utilitycraft:item_exporter_blue.name=Item Exporter (Blue)\n§7- Accepted upgrades:\n   §a§7 §f§7
+tile.utilitycraft:item_exporter_red.name=Item Exporter (Red)\n§7- Accepted upgrades:\n   §a§7 §f§7
+tile.utilitycraft:item_exporter_yellow.name=Item Exporter (Yellow)\n§7- Accepted upgrades:\n   §a§7 §f§7
+tile.utilitycraft:item_exporter_purple.name=Item Exporter (Purple)\n§7- Accepted upgrades:\n   §a§7 §f§7
 item.utilitycraft:mortar=Mortar
 tile.utilitycraft:fluid_extractor.name=Fluid Extractor \n§7- Accepted upgrades:\n   §a§7
 

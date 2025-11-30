@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "utilitycraft:item_exporter_red_to_purple_convert"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "ingredients": [
+            {
+                "item": "utilitycraft:item_exporter_red"
+            },
+            {
+                "item": "purple_dye"
+            }
+        ],
+        "result": {
+            "item": "utilitycraft:item_exporter_purple"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:item_exporter_red"
+            }
+        ]
+    }
+}

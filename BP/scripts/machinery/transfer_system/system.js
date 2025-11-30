@@ -1,13 +1,6 @@
 import { world, system, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 import { FluidManager } from '../managers.js'
-import {
-    getItemConduitColorByTypeId,
-    getColorSpecificNodesKey,
-    getColorTagPrefix,
-    getUpdateNetworkTag,
-    isItemConduitType
-} from './conduit_colors.js'
 
 const offsets = [
     { x: 1, y: 0, z: 0 },
@@ -35,6 +28,7 @@ const types = {
 
 
 //#region Utils
+
 /**
  * Updates the block geometry states to visually connect with valid neighbors.
  *
@@ -63,8 +57,6 @@ export function updateGeometry(block, tag) {
 
     // Cache tag and container info for faster checks
     const isItemConduit = block.hasTag("dorios:item");
-    const blockColor = isItemConduit ? getItemConduitColorByTypeId(block.typeId) : null;
-    const isItemNetwork = tag === 'dorios:item';
 
     for (const [dir, loc] of Object.entries(offsets)) {
         const neighbor = dim.getBlock(loc);
@@ -74,20 +66,26 @@ export function updateGeometry(block, tag) {
         }
 
         // Connection logic
-        let sameNetwork = neighbor.hasTag(tag);
-        if (sameNetwork && isItemNetwork && blockColor) {
-            const neighborColor = getItemConduitColorByTypeId(neighbor.typeId);
-            const neighborIsExporter = neighbor.hasTag('dorios:isExporter');
-            if (neighborColor && neighborColor !== blockColor && !neighborIsExporter) {
-                sameNetwork = false;
-            }
-        }
+        const sameNetwork = neighbor.hasTag(tag);
         const validContainer = isItemConduit && (
             DoriosAPI.constants.vanillaContainers.includes(neighbor.typeId) ||
             neighbor.typeId.includes("dustveyn:storage_drawers")
         );
 
-        const shouldConnect = sameNetwork || validContainer;
+        let shouldConnect = false;
+
+        for (const tag of block.getTags()) {
+            if (tag.startsWith("dorios:color.") && neighbor.hasTag(tag)) {
+                shouldConnect = true;
+                break;
+            }
+        }
+
+        // Contenedores siempre se conectan si es item conduit
+        if (!shouldConnect && isItemConduit && validContainer) {
+            shouldConnect = true;
+        }
+
 
         // Apply state only if changed (avoid redundant permutations)
         if (block.getState(`utilitycraft:${dir}`) !== shouldConnect) {
@@ -152,21 +150,22 @@ export function updateGeometryExporter(block, tag) {
             continue;
         }
 
-        let connectsSameTag = neighbor.hasTag(tag);
-        const blockIsItemExporter = block.typeId === 'utilitycraft:item_exporter';
-        const neighborIsItemExporter = neighbor.typeId === 'utilitycraft:item_exporter';
-        if (connectsSameTag && blockIsItemExporter && neighborIsItemExporter) {
-            connectsSameTag = false;
+        let connectsSameTag = false;
+
+        for (const t of block.getTags()) {
+            if (t.startsWith("dorios:color.") && neighbor.hasTag(t)) {
+                connectsSameTag = true;
+                break;
+            }
         }
+
+
         const connectsContainer =
             isItemConduit &&
             (DoriosAPI.constants.vanillaContainers.includes(neighbor.typeId) ||
                 neighbor.typeId.includes("dustveyn:storage_drawers"));
 
-        let shouldConnect = connectsSameTag || connectsContainer;
-        if (blockIsItemExporter && neighborIsItemExporter) {
-            shouldConnect = connectsContainer;
-        }
+        const shouldConnect = connectsSameTag || connectsContainer;
         newPerm = newPerm.withState(`utilitycraft:${visualDir}`, shouldConnect);
     }
 
@@ -189,13 +188,6 @@ export function updateGeometryExporter(block, tag) {
  *        The function used to rebuild or retrieve the network map when a connection is detected.
  */
 export function updatePipes(block, tag) {
-    if (!block?.dimension) return;
-
-    if (tag === 'item') {
-        updateItemPipes(block);
-        return;
-    }
-
     const dim = block.dimension;
     const rescanFunction = types[tag]
     tag = 'dorios:' + tag
@@ -230,86 +222,6 @@ export function updatePipes(block, tag) {
             updateGeometry(neighbor, tag);
         }
     }
-}
-
-function updateItemPipes(block) {
-    const dim = block.dimension;
-    const itemTag = 'dorios:item';
-    const neighbors = [
-        block,
-        dim.getBlock({ x: block.location.x, y: block.location.y + 1, z: block.location.z }),
-        dim.getBlock({ x: block.location.x, y: block.location.y - 1, z: block.location.z }),
-        dim.getBlock({ x: block.location.x, y: block.location.y, z: block.location.z - 1 }),
-        dim.getBlock({ x: block.location.x, y: block.location.y, z: block.location.z + 1 }),
-        dim.getBlock({ x: block.location.x - 1, y: block.location.y, z: block.location.z }),
-        dim.getBlock({ x: block.location.x + 1, y: block.location.y, z: block.location.z })
-    ];
-
-    const colorOrigins = new Map();
-
-    const recordColorOrigin = (candidate) => {
-        if (!candidate) return;
-        const color = getItemConduitColorByTypeId(candidate.typeId);
-        if (!color || colorOrigins.has(color)) return;
-        colorOrigins.set(color, candidate.location);
-    };
-
-    const recordFromAdjacent = (candidate) => {
-        if (!candidate) return;
-        for (const offset of offsets) {
-            const neighbor = dim.getBlock({
-                x: candidate.location.x + offset.x,
-                y: candidate.location.y + offset.y,
-                z: candidate.location.z + offset.z
-            });
-            if (!neighbor?.hasTag(itemTag)) continue;
-            if (!neighbor.hasTag('dorios:isTube')) continue;
-            recordColorOrigin(neighbor);
-        }
-    };
-
-    for (const candidate of neighbors) {
-        if (!candidate?.hasTag(itemTag)) continue;
-
-        if (candidate.hasTag('dorios:isExporter')) {
-            const originCount = colorOrigins.size;
-            updateGeometryExporter(candidate, itemTag);
-            recordFromAdjacent(candidate);
-            if (colorOrigins.size === originCount) {
-                const exporterEntity = dim.getEntitiesAtBlockLocation(candidate.location)[0];
-                if (exporterEntity) {
-                    const colorTags = exporterEntity.getTags().filter(tag => tag.startsWith('itemColor:'));
-                    for (const tag of colorTags) {
-                        const savedColor = tag.slice('itemColor:'.length);
-                        if (savedColor && !colorOrigins.has(savedColor)) {
-                            colorOrigins.set(savedColor, candidate.location);
-                        }
-                    }
-                }
-            }
-        } else if (candidate.hasTag('dorios:isTube')) {
-            updateGeometry(candidate, itemTag);
-            recordColorOrigin(candidate);
-        }
-    }
-
-    for (const [color, origin] of colorOrigins) {
-        startRescanItem(origin, dim, color);
-    }
-}
-
-function getExporterNetworkColor(block, dimension) {
-    const face = block.permutation?.getState('minecraft:block_face');
-    const { x, y, z } = block.location;
-
-    for (const [dir, offset] of Object.entries(blockFaceOffsets)) {
-        if (dir === face) continue;
-        const neighbor = dimension.getBlock({ x: x + offset[0], y: y + offset[1], z: z + offset[2] });
-        const color = getItemConduitColorByTypeId(neighbor?.typeId);
-        if (color) return color;
-    }
-
-    return null;
 }
 //#endregion
 
@@ -706,60 +618,27 @@ DoriosAPI.register.blockComponent('exporter', {
         // Early out if source empty
         if (sourceInv.emptySlotsCount == sourceInv.size) return
 
-        let networkColor = getExporterNetworkColor(block, dimension)
-        if (!networkColor) {
-            const colorTag = exporter.getTags().find(tag => tag.startsWith('itemColor:'))
-            if (colorTag) {
-                networkColor = colorTag.slice('itemColor:'.length)
-            }
-        }
-        if (!networkColor) {
-            networkColor = exporter.getDynamicProperty('item_network_color') ?? null
-        }
-        if (networkColor) {
-            exporter.setDynamicProperty('item_network_color', networkColor)
-        }
-        const nodesKey = getColorSpecificNodesKey(networkColor)
-        const updateTag = getUpdateNetworkTag(networkColor)
-        const colorPrefix = networkColor ? getColorTagPrefix(networkColor) : ''
-
         // ─────────────────────────────────────────────────────────
         // 3) Load or rebuild cached network nodes (like Energy/Fluid)
         //    Cache key: dorios:item_nodes
         // ─────────────────────────────────────────────────────────
-        let cached = exporter.getDynamicProperty(nodesKey)
-        const needsUpdate = exporter.hasTag(updateTag) || (!networkColor && exporter.hasTag('updateNetwork'))
+        let cached = exporter.getDynamicProperty('dorios:item_nodes')
+        const needsUpdate = exporter.hasTag('updateNetwork')
 
         if (!cached || needsUpdate) {
             const pos = exporter.location
             // Build from tags: pos:[x,y,z] or van:[x,y,z]
-            const tags = exporter.getTags().filter(tag => {
-                if (!networkColor) {
-                    if (tag.startsWith('col:')) {
-                        const idx = tag.indexOf('|')
-                        if (idx === -1) return false
-                        const payload = tag.slice(idx + 1)
-                        return payload.startsWith('ent:[') || payload.startsWith('van:[') || payload.startsWith('dra:[')
-                    }
-                    return tag.startsWith('ent:[') || tag.startsWith('van:[') || tag.startsWith('dra:[')
-                }
-                return tag.startsWith(colorPrefix)
-            })
-
-            const positions = tags
+            const positions = exporter.getTags()
+                .filter(t => t.startsWith('ent:[') || t.startsWith('van:[') || t.startsWith('dra:['))
                 .map(tag => {
-                    const payload = networkColor
-                        ? tag.slice(colorPrefix.length)
-                        : (tag.startsWith('col:') ? tag.slice(tag.indexOf('|') + 1) : tag)
-                    const [x, y, z] = payload.slice(5, -1).split(',').map(Number)
+                    const [x, y, z] = tag.slice(5, -1).split(',').map(Number)
                     return { x, y, z }
                 })
                 .sort((a, b) =>
                     DoriosAPI.math.distanceBetween(pos, a) - DoriosAPI.math.distanceBetween(pos, b)
                 )
-            exporter.setDynamicProperty(nodesKey, JSON.stringify(positions))
-            exporter.removeTag(updateTag)
-            if (networkColor) exporter.removeTag('updateNetwork')
+            exporter.setDynamicProperty('dorios:item_nodes', JSON.stringify(positions))
+            exporter.removeTag('updateNetwork')
             cached = JSON.stringify(positions)
         }
 
@@ -840,47 +719,40 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
 }
 
 
-
-
 /**
- * Scans connected item conduits and containers to build an item transfer network.
+ * Rebuilds an item conduit network using BFS.
  *
- * This function performs a breadth-first search (BFS) starting from the provided position,
- * traversing through all connected **item conduits** (`utilitycraft:item_conduit`)
- * and **exporters** (`utilitycraft:item_exporter`), collecting all reachable containers.
+ * Traverses all connected item conduits and exporters starting from the given position.
+ * Supports color-based networks using tags:
+ * - "dorios:color.default" → connects with all conduits/exporters
+ * - "dorios:color:<X>" → connects only with blocks/entities that share the same color tag
  *
- * ## Behavior
- * - Identifies all connected conduits and exporter entities.
- * - Detects valid container targets:
- *   - Vanilla containers (chests, barrels, hoppers, etc.).
- *   - Storage Drawers (`dustveyn:storage_drawers`).
- *   - Dorios container entities (tagged as `dorios:container`).
- * - Automatically excludes containers facing extractors to avoid loops.
- * - Adds container position tags (`van:[x,y,z]`, `ent:[x,y,z]`, `dra:[x,y,z]`)
- *   to each extractor for item transfer logic.
+ * The function collects valid container targets (vanilla containers, drawers, Dorios containers)
+ * and assigns their location tags ("van:[x,y,z]", "ent:[x,y,z]", "dra:[x,y,z]") to each exporter
+ * so they know where to output items.
  *
- * @param {{x:number, y:number, z:number}} startPos The starting block position of the scan.
+ * Exporters facing a container block that container to prevent feedback loops.
+ *
+ * @param {{x:number, y:number, z:number}} startPos Starting position of the scan.
  * @param {import('@minecraft/server').Dimension} dimension The dimension where the scan takes place.
- * @returns {void}
- *
- * @example
- * // Rebuilds the item conduit network when a block is placed or removed
- * startRescanItem(block.location, block.dimension);
  */
-function startRescanItem(startPos, dimension, color) {
-    const initialBlock = dimension.getBlock(startPos);
-    const networkColor = color ?? getItemConduitColorByTypeId(initialBlock?.typeId) ?? null;
-    const colorPrefix = networkColor ? getColorTagPrefix(networkColor) : '';
-    const updateTag = getUpdateNetworkTag(networkColor);
-
+function startRescanItem(startPos, dimension) {
     const queue = [startPos];
     const visited = new Set();
     const inputs = [];
     const extractors = [];
-    let cablesUsed = 0
-    let foundMatchingConduit = false;
+    let cablesUsed = 0;
 
-
+    const initialBlock = dimension.getBlock(startPos);
+    let networkColorTag = "dorios:color.default";
+    if (initialBlock?.getTags) {
+        for (const t of initialBlock.getTags()) {
+            if (t.startsWith("dorios:color.")) {
+                networkColorTag = t;
+                break;
+            }
+        }
+    }
     const globalBlockedTags = new Set();
 
     while (queue.length > 0) {
@@ -890,57 +762,53 @@ function startRescanItem(startPos, dimension, color) {
         visited.add(key);
 
         const block = dimension.getBlock(pos);
-        const blockTypeId = block?.typeId;
-        const blockColor = getItemConduitColorByTypeId(blockTypeId);
+        if (!block) continue;
 
-        if (networkColor && blockColor && blockColor !== networkColor) {
-            continue;
-        }
 
-        const isConduit = isItemConduitType(blockTypeId);
-        const isExporterBlock = blockTypeId === 'utilitycraft:item_exporter';
 
-        if (isConduit || isExporterBlock) {
-            if (isConduit) {
-                foundMatchingConduit = true;
-            }
-            cablesUsed += 1
+        if (
+            block.typeId.includes("utilitycraft:item_conduit") ||
+            block.typeId.includes("utilitycraft:item_exporter")
+        ) {
+            cablesUsed++;
+            if (!block.hasTag(networkColorTag)) continue
             for (const offset of offsets) {
                 queue.push({
                     x: pos.x + offset.x,
                     y: pos.y + offset.y,
-                    z: pos.z + offset.z,
+                    z: pos.z + offset.z
                 });
             }
+
+            let ent = dimension.getEntitiesAtBlockLocation(pos)[0];
+            if (ent && ent.typeId === "utilitycraft:pipe") {
+                extractors.push(ent);
+            }
+
+            continue;
         }
 
-        if (DoriosAPI.constants.vanillaContainers.includes(block?.typeId)) {
+        if (DoriosAPI.constants.vanillaContainers.includes(block.typeId)) {
             inputs.push(`van:[${pos.x},${pos.y},${pos.z}]`);
             continue;
         }
 
-        if (block?.typeId.includes('dustveyn:storage_drawers')) {
+        if (block.typeId.includes("dustveyn:storage_drawers")) {
             inputs.push(`dra:[${pos.x},${pos.y},${pos.z}]`);
             continue;
         }
 
-        let entity = dimension.getEntitiesAtBlockLocation(pos)[0];
-        if (block.hasTag('dorios:port') && block.hasTag('dorios:item')) {
-            entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0]
-            if (!entity) continue
-            const loc = entity.location
-            inputs.push(`ent:[${loc.x},${loc.y},${loc.z}]`);
-            continue
-        }
-        if (entity) {
-            if (entity.typeId === "utilitycraft:pipe") {
-                if (networkColor) {
-                    entity.setDynamicProperty('item_network_color', networkColor);
-                }
-                extractors.push(entity);
-                continue;
+        if (block.hasTag("dorios:port") && block.hasTag("dorios:item")) {
+            let entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0];
+            if (entity) {
+                const loc = entity.location;
+                inputs.push(`ent:[${loc.x},${loc.y},${loc.z}]`);
             }
+            continue;
+        }
 
+        const entity = dimension.getEntitiesAtBlockLocation(pos)[0];
+        if (entity) {
             const tf = entity.getComponent("minecraft:type_family");
             if (tf?.hasTypeFamily("dorios:container")) {
                 inputs.push(`ent:[${pos.x},${pos.y},${pos.z}]`);
@@ -948,7 +816,8 @@ function startRescanItem(startPos, dimension, color) {
         }
     }
 
-    if (cablesUsed <= 0) return
+    if (cablesUsed <= 0) return;
+
     for (const ext of extractors) {
         const extLoc = ext.location;
         const extPos = {
@@ -959,12 +828,11 @@ function startRescanItem(startPos, dimension, color) {
 
         const block = dimension.getBlock(extPos);
         const face = block.permutation.getState("minecraft:block_face");
-        const faceOffset = blockFaceOffsets[face];
-
-        if (faceOffset) {
-            const bx = extPos.x + faceOffset[0];
-            const by = extPos.y + faceOffset[1];
-            const bz = extPos.z + faceOffset[2];
+        const off = blockFaceOffsets[face];
+        if (off) {
+            const bx = extPos.x + off[0];
+            const by = extPos.y + off[1];
+            const bz = extPos.z + off[2];
             globalBlockedTags.add(`van:[${bx},${by},${bz}]`);
             globalBlockedTags.add(`ent:[${bx},${by},${bz}]`);
             globalBlockedTags.add(`dra:[${bx},${by},${bz}]`);
@@ -972,40 +840,23 @@ function startRescanItem(startPos, dimension, color) {
     }
 
     for (const ext of extractors) {
-        const oldTags = ext.getTags().filter(tag => {
-            if (!networkColor) {
-                return tag.startsWith('van:') || tag.startsWith('ent:') || tag.startsWith('dra:');
-            }
-            return tag.startsWith(colorPrefix);
-        });
+        const oldTags = ext.getTags().filter(t =>
+            t.startsWith("van:") ||
+            t.startsWith("ent:") ||
+            t.startsWith("dra:")
+        );
         for (const tag of oldTags) ext.removeTag(tag);
 
         for (const tag of inputs) {
-            if (globalBlockedTags.has(tag)) continue;
-            const fullTag = networkColor ? `${colorPrefix}${tag}` : tag;
-            ext.addTag(fullTag);
-        }
-        if (networkColor) {
-            ext.removeTag('updateNetwork');
-        }
-        ext.removeTag(updateTag);
-        ext.addTag(updateTag);
-        if (networkColor) {
-            const colorTag = `itemColor:${networkColor}`;
-            if (foundMatchingConduit) {
-                if (!ext.hasTag(colorTag)) {
-                    ext.addTag(colorTag);
-                }
-            } else {
-                ext.removeTag(colorTag);
+            if (!globalBlockedTags.has(tag)) {
+                ext.addTag(tag);
             }
         }
+
+        ext.addTag("updateNetwork");
     }
-    // Log network creation
-    // const isNetwork = cablesUsed > 0 && extractors.length > 0
-    // if (isNetwork) console.warn(`[Item Network] Created a network with ${extractors.length} Exporter(s) and ${inputs.length} Container(s).`);
-    // return visited
 }
+
 
 
 

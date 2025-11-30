@@ -2,25 +2,25 @@
     "format_version": "1.20.80",
     "minecraft:recipe_shapeless": {
         "description": {
-            "identifier": "utilitycraft:item_conduit_blue_to_red_convert"
+            "identifier": "utilitycraft:item_conduit_red_to_purple_convert"
         },
         "tags": [
             "utilitycraft_workbench"
         ],
         "ingredients": [
             {
-                "item": "utilitycraft:item_conduit_blue"
+                "item": "utilitycraft:item_conduit_red"
             },
             {
-                "item": "red_dye"
+                "item": "purple_dye"
             }
         ],
         "result": {
-            "item": "utilitycraft:item_conduit_red"
+            "item": "utilitycraft:item_conduit_purple"
         },
         "unlock": [
             {
-                "item": "utilitycraft:item_conduit_blue"
+                "item": "utilitycraft:item_conduit_red"
             }
         ]
     }

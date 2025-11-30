@@ -1102,8 +1102,23 @@
 		"utilitycraft_item_conduit_red": {
 			"textures": "textures/blocks/tubes/item_conduit_red"
 		},
-		"utilitycraft_item_exporter": {
-			"textures": "textures/blocks/tubes/item_conduit_white"
+		"utilitycraft_item_conduit_purple": {
+			"textures": "textures/blocks/tubes/item_conduit_purple"
+		},
+		"utilitycraft_item_exporter_green": {
+			"textures": "textures/blocks/tubes/item_exporter"
+		},
+		"utilitycraft_item_exporter_red": {
+			"textures": "textures/blocks/tubes/item_exporter_red"
+		},
+		"utilitycraft_item_exporter_blue": {
+			"textures": "textures/blocks/tubes/item_exporter_blue"
+		},
+		"utilitycraft_item_exporter_yellow": {
+			"textures": "textures/blocks/tubes/item_exporter_yellow"
+		},
+		"utilitycraft_item_exporter_purple": {
+			"textures": "textures/blocks/tubes/item_exporter_purple"
 		},
 		"utilitycraft_compressed_amethyst_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_amethyst_block"
