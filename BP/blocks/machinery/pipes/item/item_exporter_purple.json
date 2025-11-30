@@ -66,7 +66,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_item_exporter_purple",
+					"texture": "utilitycraft_item_conduit_purple",
 					"render_method": "alpha_test"
 				}
 			},

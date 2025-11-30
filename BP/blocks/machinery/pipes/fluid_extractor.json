@@ -1,4 +1,4 @@
-	{
+{
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
@@ -62,7 +62,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_fluid_extractor",
+					"texture": "utilitycraft_fluid_pipe_default",
 					"render_method": "alpha_test"
 				}
 			},

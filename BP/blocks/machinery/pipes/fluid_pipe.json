@@ -35,7 +35,7 @@
 		},
 		"components": {
 			"minecraft:geometry": {
-				"identifier": "geometry.utilitycraft_pipe",
+				"identifier": "geometry.utilitycraft_fluid_pipe",
 				"bone_visibility": {
 					"up": "q.block_state('utilitycraft:up')",
 					"down": "q.block_state('utilitycraft:down')",
@@ -47,7 +47,7 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_fluid_pipe",
+					"texture": "utilitycraft_fluid_pipe_default",
 					"render_method": "alpha_test"
 				}
 			},

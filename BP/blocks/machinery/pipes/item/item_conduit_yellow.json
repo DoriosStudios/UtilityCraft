@@ -35,7 +35,7 @@
         },
         "components": {
             "minecraft:geometry": {
-                "identifier": "geometry.utilitycraft_pipe",
+                "identifier": "geometry.utilitycraft_item_conduit",
                 "bone_visibility": {
                     "up": "q.block_state('utilitycraft:up')",
                     "down": "q.block_state('utilitycraft:down')",

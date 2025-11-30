@@ -52,21 +52,6 @@
 		"utilitycraft_chunk_loader": {
 			"textures": "textures/blocks/cobblestone_generators/chunk_loader"
 		},
-		"utilitycraft_block_breaker": {
-			"textures": "textures/blocks/block_breaker/block_breaker"
-		},
-		"utilitycraft_block_breaker_speed1": {
-			"textures": "textures/blocks/block_breaker/block_breaker_speed1"
-		},
-		"utilitycraft_block_breaker_speed2": {
-			"textures": "textures/blocks/block_breaker/block_breaker_speed2"
-		},
-		"utilitycraft_block_breaker_speed3": {
-			"textures": "textures/blocks/block_breaker/block_breaker_speed3"
-		},
-		"utilitycraft_block_breaker_speed4": {
-			"textures": "textures/blocks/block_breaker/block_breaker_speed4"
-		},
 		"utilitycraft_sieve": {
 			"textures": "textures/blocks/sieve"
 		},
@@ -129,12 +114,6 @@
 		},
 		"utilitycraft_mob_grinder_aspas_still": {
 			"textures": "textures/blocks/mob_grinding_aspas_still"
-		},
-		"utilitycraft_mob_trap": {
-			"textures": "textures/blocks/mob_trap_1"
-		},
-		"utilitycraft_mob_trap_2": {
-			"textures": "textures/blocks/mob_trap_2"
 		},
 		"utilitycraft_mechanical_spawner_zombie": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_zombie"
@@ -264,111 +243,6 @@
 		},
 		"utilitycraft_infinite_block_water": {
 			"textures": "textures/blocks/infinite_water_block"
-		},
-		"utilitycraft_crusher": {
-			"textures": "textures/blocks/crusher/crusher"
-		},
-		"utilitycraft_crusher_speed1": {
-			"textures": "textures/blocks/crusher/crusher_speed1"
-		},
-		"utilitycraft_crusher_speed2": {
-			"textures": "textures/blocks/crusher/crusher_speed2"
-		},
-		"utilitycraft_crusher_speed3": {
-			"textures": "textures/blocks/crusher/crusher_speed3"
-		},
-		"utilitycraft_crusher_speed4": {
-			"textures": "textures/blocks/crusher/crusher_speed4"
-		},
-		"utilitycraft_harvester": {
-			"textures": "textures/blocks/harvester/harvester"
-		},
-		"utilitycraft_harvester_range1": {
-			"textures": "textures/blocks/harvester/harvester_range1"
-		},
-		"utilitycraft_harvester_range2": {
-			"textures": "textures/blocks/harvester/harvester_range2"
-		},
-		"utilitycraft_harvester_range3": {
-			"textures": "textures/blocks/harvester/harvester_range3"
-		},
-		"utilitycraft_harvester_range4": {
-			"textures": "textures/blocks/harvester/harvester_range4"
-		},
-		"utilitycraft_harvester_speed1_range1": {
-			"textures": "textures/blocks/harvester/harvester_speed1_range1"
-		},
-		"utilitycraft_harvester_speed1_range2": {
-			"textures": "textures/blocks/harvester/harvester_speed1_range2"
-		},
-		"utilitycraft_harvester_speed1_range3": {
-			"textures": "textures/blocks/harvester/harvester_speed1_range3"
-		},
-		"utilitycraft_harvester_speed1_range4": {
-			"textures": "textures/blocks/harvester/harvester_speed1_range4"
-		},
-		"utilitycraft_harvester_speed1": {
-			"textures": "textures/blocks/harvester/harvester_speed1"
-		},
-		"utilitycraft_harvester_speed2_range1": {
-			"textures": "textures/blocks/harvester/harvester_speed2_range1"
-		},
-		"utilitycraft_harvester_speed2_range2": {
-			"textures": "textures/blocks/harvester/harvester_speed2_range2"
-		},
-		"utilitycraft_harvester_speed2_range3": {
-			"textures": "textures/blocks/harvester/harvester_speed2_range3"
-		},
-		"utilitycraft_harvester_speed2_range4": {
-			"textures": "textures/blocks/harvester/harvester_speed2_range4"
-		},
-		"utilitycraft_harvester_speed2": {
-			"textures": "textures/blocks/harvester/harvester_speed2"
-		},
-		"utilitycraft_harvester_speed3_range1": {
-			"textures": "textures/blocks/harvester/harvester_speed3_range1"
-		},
-		"utilitycraft_harvester_speed3_range2": {
-			"textures": "textures/blocks/harvester/harvester_speed3_range2"
-		},
-		"utilitycraft_harvester_speed3_range3": {
-			"textures": "textures/blocks/harvester/harvester_speed3_range3"
-		},
-		"utilitycraft_harvester_speed3_range4": {
-			"textures": "textures/blocks/harvester/harvester_speed3_range4"
-		},
-		"utilitycraft_harvester_speed3": {
-			"textures": "textures/blocks/harvester/harvester_speed3"
-		},
-		"utilitycraft_harvester_speed4_range1": {
-			"textures": "textures/blocks/harvester/harvester_speed4_range1"
-		},
-		"utilitycraft_harvester_speed4_range2": {
-			"textures": "textures/blocks/harvester/harvester_speed4_range2"
-		},
-		"utilitycraft_harvester_speed4_range3": {
-			"textures": "textures/blocks/harvester/harvester_speed4_range3"
-		},
-		"utilitycraft_harvester_speed4_range4": {
-			"textures": "textures/blocks/harvester/harvester_speed4_range4"
-		},
-		"utilitycraft_harvester_speed4": {
-			"textures": "textures/blocks/harvester/harvester_speed4"
-		},
-		"utilitycraft_autosieve": {
-			"textures": "textures/blocks/autosieve/autosieve"
-		},
-		"utilitycraft_autosieve_speed1": {
-			"textures": "textures/blocks/autosieve/autosieve_speed1"
-		},
-		"utilitycraft_autosieve_speed2": {
-			"textures": "textures/blocks/autosieve/autosieve_speed2"
-		},
-		"utilitycraft_autosieve_speed3": {
-			"textures": "textures/blocks/autosieve/autosieve_speed3"
-		},
-		"utilitycraft_autosieve_speed4": {
-			"textures": "textures/blocks/autosieve/autosieve_speed4"
 		},
 		"utilitycraft_big_torch": {
 			"textures": "textures/blocks/big_torch"
@@ -1084,40 +958,34 @@
 		"utilitycraft_energy_cable": {
 			"textures": "textures/blocks/tubes/energy_cable"
 		},
-		"utilitycraft_fluid_pipe": {
-			"textures": "textures/blocks/tubes/fluid_pipe"
+		"utilitycraft_fluid_pipe_default": {
+			"textures": "textures/blocks/tubes/fluid_extractor"
 		},
-		"utilitycraft_item_conduit": {
-			"textures": "textures/blocks/tubes/item_conduit"
+		"utilitycraft_fluid_pipe_red": {
+			"textures": "textures/blocks/tubes/fluid_extractor_red"
 		},
-		"utilitycraft_item_conduit_green": {
-			"textures": "textures/blocks/tubes/item_conduit"
+		"utilitycraft_fluid_pipe_blue": {
+			"textures": "textures/blocks/tubes/fluid_extractor_blue"
 		},
-		"utilitycraft_item_conduit_blue": {
-			"textures": "textures/blocks/tubes/item_conduit_blue"
+		"utilitycraft_fluid_pipe_purple": {
+			"textures": "textures/blocks/tubes/fluid_extractor_purple"
 		},
-		"utilitycraft_item_conduit_yellow": {
-			"textures": "textures/blocks/tubes/item_conduit_yellow"
+		"utilitycraft_fluid_pipe_yellow": {
+			"textures": "textures/blocks/tubes/fluid_extractor_yellow"
 		},
-		"utilitycraft_item_conduit_red": {
-			"textures": "textures/blocks/tubes/item_conduit_red"
-		},
-		"utilitycraft_item_conduit_purple": {
-			"textures": "textures/blocks/tubes/item_conduit_purple"
-		},
-		"utilitycraft_item_exporter_green": {
+		"utilitycraft_item_conduit_default": {
 			"textures": "textures/blocks/tubes/item_exporter"
 		},
-		"utilitycraft_item_exporter_red": {
+		"utilitycraft_item_conduit_red": {
 			"textures": "textures/blocks/tubes/item_exporter_red"
 		},
-		"utilitycraft_item_exporter_blue": {
+		"utilitycraft_item_conduit_blue": {
 			"textures": "textures/blocks/tubes/item_exporter_blue"
 		},
-		"utilitycraft_item_exporter_yellow": {
+		"utilitycraft_item_conduit_yellow": {
 			"textures": "textures/blocks/tubes/item_exporter_yellow"
 		},
-		"utilitycraft_item_exporter_purple": {
+		"utilitycraft_item_conduit_purple": {
 			"textures": "textures/blocks/tubes/item_exporter_purple"
 		},
 		"utilitycraft_compressed_amethyst_block": {
@@ -1608,9 +1476,6 @@
 		},
 		"utilitycraft_compressed_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_block"
-		},
-		"utilitycraft_fluid_extractor": {
-			"textures": "textures/blocks/tubes/fluid_extractor"
 		},
 		"utilitycraft_assembler_on": {
 			"textures": "textures/blocks/assembler/assembler_on"
