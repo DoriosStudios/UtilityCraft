@@ -970,8 +970,8 @@
 		"utilitycraft_fluid_pipe_purple": {
 			"textures": "textures/blocks/tubes/fluid_extractor_purple"
 		},
-		"utilitycraft_fluid_pipe_yellow": {
-			"textures": "textures/blocks/tubes/fluid_extractor_yellow"
+		"utilitycraft_fluid_pipe_green": {
+			"textures": "textures/blocks/tubes/fluid_extractor_green"
 		},
 		"utilitycraft_item_conduit_default": {
 			"textures": "textures/blocks/tubes/item_exporter"

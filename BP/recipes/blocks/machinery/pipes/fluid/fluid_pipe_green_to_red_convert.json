@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "utilitycraft:fluid_pipe_green_to_red_convert"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "ingredients": [
+            {
+                "item": "utilitycraft:fluid_pipe_green"
+            },
+            {
+                "item": "red_dye"
+            }
+        ],
+        "result": {
+            "item": "utilitycraft:fluid_pipe_red"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:fluid_pipe_green"
+            }
+        ]
+    }
+}

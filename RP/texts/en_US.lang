@@ -741,23 +741,31 @@ item.utilitycraft:tuff_pebble=Tuff Pebble
 item.utilitycraft:wither_skull_shard=Wither Skull Shard
 
 tile.utilitycraft:energy_cable.name=Energy Cable
-tile.utilitycraft:item_conduit.name=Item Conduit\n§7- Transports items
+tile.utilitycraft:item_conduit.name=Item Conduit (Default)\n§7- Transports items
 tile.utilitycraft:item_conduit_blue.name=Item Conduit (Blue)\n§7- Transports items
 tile.utilitycraft:item_conduit_yellow.name=Item Conduit (Yellow)\n§7- Transports items
 tile.utilitycraft:item_conduit_red.name=Item Conduit (Red)\n§7- Transports items
 tile.utilitycraft:item_conduit_purple.name=Item Conduit (Purple)\n§7- Transports items
-tile.utilitycraft:fluid_pipe.name=Fluid Pipe\n§7- Transports liquids
+tile.utilitycraft:fluid_pipe.name=Fluid Pipe (Default)\n§7- Transports liquids
+tile.utilitycraft:fluid_pipe_blue.name=Fluid Pipe (Blue)\n§7- Transports liquids
+tile.utilitycraft:fluid_pipe_green.name=Fluid Pipe (Green)\n§7- Transports liquids
+tile.utilitycraft:fluid_pipe_red.name=Fluid Pipe (Red)\n§7- Transports liquids
+tile.utilitycraft:fluid_pipe_purple.name=Fluid Pipe (Purple)\n§7- Transports liquids
+
 dorios:itemGroup.name.pipes=Pipes
 item.utilitycraft:flint_knife=Flint Knife \n§7- Separates fiber from leaves
 item.utilitycraft:fiber=Fiber
-tile.utilitycraft:item_exporter.name=Item Exporter\n§7- Accepted upgrades:\n   §a§7 §f§7
+tile.utilitycraft:item_exporter.name=Item Exporter (Default)\n§7- Accepted upgrades:\n   §a§7 §f§7
 tile.utilitycraft:item_exporter_blue.name=Item Exporter (Blue)\n§7- Accepted upgrades:\n   §a§7 §f§7
 tile.utilitycraft:item_exporter_red.name=Item Exporter (Red)\n§7- Accepted upgrades:\n   §a§7 §f§7
 tile.utilitycraft:item_exporter_yellow.name=Item Exporter (Yellow)\n§7- Accepted upgrades:\n   §a§7 §f§7
 tile.utilitycraft:item_exporter_purple.name=Item Exporter (Purple)\n§7- Accepted upgrades:\n   §a§7 §f§7
 item.utilitycraft:mortar=Mortar
-tile.utilitycraft:fluid_extractor.name=Fluid Extractor \n§7- Accepted upgrades:\n   §a§7
-
+tile.utilitycraft:fluid_extractor.name=Fluid Extractor (Default)\n§7- Accepted upgrades:\n   §a§7
+tile.utilitycraft:fluid_extractor_blue.name=Fluid Extractor (Blue)\n§7- Accepted upgrades:\n   §a§7
+tile.utilitycraft:fluid_extractor_green.name=Fluid Extractor (Green)\n§7- Accepted upgrades:\n   §a§7
+tile.utilitycraft:fluid_extractor_red.name=Fluid Extractor (Red)\n§7- Accepted upgrades:\n   §a§7
+tile.utilitycraft:fluid_extractor_purple.name=Fluid Extractor (Purple)\n§7- Accepted upgrades:\n   §a§7
 
 ## All the same
 

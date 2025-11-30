@@ -1141,12 +1141,39 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
     },
 });
 
+/**
+ * Rebuilds a fluid pipe network using BFS.
+ *
+ * Traverses all connected fluid pipes and fluid extractors starting from the given position.
+ * Supports color-based networks using tags:
+ * - "dorios:color.default" → treated as its own independent color
+ * - "dorios:color:<X>" → connects only with blocks/entities that share the same color tag
+ *
+ * Collects valid fluid container targets and assigns their location tags ("tan:[x,y,z]", "ent:[x,y,z]")
+ * to each extractor. Containers are not color-filtered. Extractors block the container in front
+ * of their facing direction to prevent feedback loops.
+ *
+ * @param {{x:number, y:number, z:number}} startPos Starting position of the scan.
+ * @param {import('@minecraft/server').Dimension} dimension Dimension where the scan occurs.
+ */
 function startRescanFluid(startPos, dimension) {
     const queue = [startPos];
     const visited = new Set();
     const inputs = [];
     const extractors = [];
-    let cablesUsed = 0
+    let cablesUsed = 0;
+
+    const initialBlock = dimension.getBlock(startPos);
+
+    let networkColorTag = "dorios:color.default";
+    if (initialBlock?.getTags) {
+        for (const t of initialBlock.getTags()) {
+            if (t.startsWith("dorios:color.")) {
+                networkColorTag = t;
+                break;
+            }
+        }
+    }
 
     const globalBlockedTags = new Set();
 
@@ -1157,37 +1184,48 @@ function startRescanFluid(startPos, dimension) {
         visited.add(key);
 
         const block = dimension.getBlock(pos);
+        if (!block) continue;
 
-        if (block?.typeId === "utilitycraft:fluid_pipe" || block?.typeId === "utilitycraft:fluid_extractor") {
-            cablesUsed += 1
+        if (
+            block.typeId.includes("utilitycraft:fluid_pipe") ||
+            block.typeId.includes("utilitycraft:fluid_extractor")
+        ) {
+            if (!block.hasTag(networkColorTag)) continue;
+
+            cablesUsed++;
+
             for (const offset of offsets) {
                 queue.push({
                     x: pos.x + offset.x,
                     y: pos.y + offset.y,
-                    z: pos.z + offset.z,
+                    z: pos.z + offset.z
                 });
             }
+
+            let ent = dimension.getEntitiesAtBlockLocation(pos)[0];
+            if (ent && ent.typeId === "utilitycraft:pipe") {
+                extractors.push(ent);
+            }
+
+            continue;
         }
 
-        if (block?.typeId.includes('fluid_tank')) {
-            inputs.push(`ent:[${pos.x},${pos.y},${pos.z}]`);
+        if (block.typeId.includes("fluid_tank")) {
+            inputs.push(`tan:[${pos.x},${pos.y},${pos.z}]`);
             continue;
         }
 
         let entity = dimension.getEntitiesAtBlockLocation(pos)[0];
-        if (block.hasTag('dorios:port') && block.hasTag('dorios:fluid')) {
-            entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0]
-            if (!entity) continue
-            const loc = entity.location
-            inputs.push(`ent:[${loc.x},${loc.y},${loc.z}]`);
-            continue
-        }
-        if (entity) {
-            if (entity.typeId === "utilitycraft:pipe") {
-                extractors.push(entity);
-                continue;
-            }
 
+        if (block.hasTag("dorios:port") && block.hasTag("dorios:fluid")) {
+            entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0];
+            if (!entity) continue;
+            const loc = entity.location;
+            inputs.push(`ent:[${loc.x},${loc.y},${loc.z}]`);
+            continue;
+        }
+
+        if (entity) {
             const tf = entity.getComponent("minecraft:type_family");
             if (tf?.hasTypeFamily("dorios:fluid_container")) {
                 inputs.push(`ent:[${pos.x},${pos.y},${pos.z}]`);
@@ -1195,8 +1233,8 @@ function startRescanFluid(startPos, dimension) {
         }
     }
 
-    if (cablesUsed <= 0) return
-    // Taggear inputs válidos a cada extractor, excluyendo la cara hacia la que está orientado
+    if (cablesUsed <= 0) return;
+
     for (const ext of extractors) {
         const extLoc = ext.location;
         const extPos = {
@@ -1207,32 +1245,34 @@ function startRescanFluid(startPos, dimension) {
 
         const block = dimension.getBlock(extPos);
         const face = block.permutation.getState("minecraft:block_face");
-        const faceOffset = blockFaceOffsets[face];
+        const off = blockFaceOffsets[face];
 
-        if (faceOffset) {
-            const bx = extPos.x + faceOffset[0];
-            const by = extPos.y + faceOffset[1];
-            const bz = extPos.z + faceOffset[2];
+        if (off) {
+            const bx = extPos.x + off[0];
+            const by = extPos.y + off[1];
+            const bz = extPos.z + off[2];
             globalBlockedTags.add(`tan:[${bx},${by},${bz}]`);
             globalBlockedTags.add(`ent:[${bx},${by},${bz}]`);
         }
     }
 
     for (const ext of extractors) {
-        const oldTags = ext.getTags().filter(tag => tag.startsWith("tan:") || tag.startsWith("ent:"));
+        const oldTags = ext.getTags().filter(tag =>
+            tag.startsWith("tan:") ||
+            tag.startsWith("ent:")
+        );
         for (const tag of oldTags) ext.removeTag(tag);
 
         for (const tag of inputs) {
-            if (globalBlockedTags.has(tag)) continue;
-            ext.addTag(tag);
+            if (!globalBlockedTags.has(tag)) {
+                ext.addTag(tag);
+            }
         }
-        ext.addTag('updateNetwork')
+
+        ext.addTag("updateNetwork");
     }
-    // Log network creation
-    // const isNetwork = cablesUsed > 0 && extractors.length > 0
-    // if (isNetwork) console.warn(`[Fluid Network] Created a network with ${extractors.length} Extractor(s) and ${inputs.length} Fluid Container(s).`);
-    // return visited
 }
+
 
 //#endregion
 
