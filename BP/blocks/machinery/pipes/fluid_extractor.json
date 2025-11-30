@@ -1,4 +1,4 @@
-{
+	{
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
@@ -103,6 +103,7 @@
 			"tag:dorios:upgradeable": {},
 			"tag:dorios:fluid": {},
 			"tag:dorios:isTube": {},
+			"tag:dorios:color.default": {},
 			"tag:dorios:isExporter": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},

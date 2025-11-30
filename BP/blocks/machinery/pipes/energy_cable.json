@@ -81,7 +81,8 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:energy": {},
-			"tag:dorios:isTube": {}
+			"tag:dorios:isTube": {},
+			"tag:dorios:color.default": {}
 		}
 	}
 }

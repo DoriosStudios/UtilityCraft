@@ -76,7 +76,8 @@
 				]
 			},
 			"tag:dorios:fluid": {},
-			"tag:dorios:isTube": {}
+			"tag:dorios:isTube": {},
+			"tag:dorios:color.default": {}
 		}
 	}
 }
