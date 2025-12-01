@@ -101,7 +101,7 @@ const BlockHandler = {
      */
     getEntity() {
         const entity = this.dimension.getEntitiesAtBlockLocation(this.location)[0]
-        if (entity.isValid) return entity
+        if (entity) return entity
         return undefined
     },
 };

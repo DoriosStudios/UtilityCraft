@@ -152,7 +152,6 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
         const { block } = e
         let { x, y, z } = block.location
         x += 0.5, z += 0.5, y += 0.375
-
         system.run(() => {
             const entity = block.dimension.spawnEntity('utilitycraft:hopper', { x, y, z })
             entity.setDynamicProperty('utilitycraft:whitelistOn', true)

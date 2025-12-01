@@ -74,19 +74,28 @@ export function updateGeometry(block, tag) {
 
         let shouldConnect = false;
 
-        for (const tag of block.getTags()) {
-            if (tag.startsWith("dorios:color.") && neighbor.hasTag(tag)) {
-                shouldConnect = true;
-                break;
-            }
-        }
-
         // Contenedores siempre se conectan si es item conduit
         if (!shouldConnect && isItemConduit && validContainer) {
             shouldConnect = true;
         }
 
+        // Shared network tag check
+        if (!shouldConnect && neighbor.hasTag(tag)) {
+            const isNeighborPipe = neighbor.hasTag("dorios:isTube");
 
+            if (!isNeighborPipe) {
+                // Non-pipe neighbor: connect without color requirement
+                shouldConnect = true;
+            } else {
+                // Pipe neighbor: match color
+                for (const t of block.getTags()) {
+                    if (t.startsWith("dorios:color.") && neighbor.hasTag(t)) {
+                        shouldConnect = true;
+                        break;
+                    }
+                }
+            }
+        }
         // Apply state only if changed (avoid redundant permutations)
         if (block.getState(`utilitycraft:${dir}`) !== shouldConnect) {
             block.setState(`utilitycraft:${dir}`, shouldConnect);
@@ -150,22 +159,35 @@ export function updateGeometryExporter(block, tag) {
             continue;
         }
 
-        let connectsSameTag = false;
+        const validContainer = isItemConduit && (
+            DoriosAPI.constants.vanillaContainers.includes(neighbor.typeId) ||
+            neighbor.typeId.includes("dustveyn:storage_drawers")
+        );
 
-        for (const t of block.getTags()) {
-            if (t.startsWith("dorios:color.") && neighbor.hasTag(t)) {
-                connectsSameTag = true;
-                break;
-            }
+        let shouldConnect = false;
+
+        // Contenedores siempre se conectan si es item conduit
+        if (!shouldConnect && isItemConduit && validContainer) {
+            shouldConnect = true;
         }
 
+        // Shared network tag check
+        if (!shouldConnect && neighbor.hasTag(tag)) {
+            const isNeighborPipe = neighbor.hasTag("dorios:isTube");
 
-        const connectsContainer =
-            isItemConduit &&
-            (DoriosAPI.constants.vanillaContainers.includes(neighbor.typeId) ||
-                neighbor.typeId.includes("dustveyn:storage_drawers"));
-
-        const shouldConnect = connectsSameTag || connectsContainer;
+            if (!isNeighborPipe) {
+                // Non-pipe neighbor: connect without color requirement
+                shouldConnect = true;
+            } else {
+                // Pipe neighbor: match color
+                for (const t of block.getTags()) {
+                    if (t.startsWith("dorios:color.") && neighbor.hasTag(t)) {
+                        shouldConnect = true;
+                        break;
+                    }
+                }
+            }
+        }
         newPerm = newPerm.withState(`utilitycraft:${visualDir}`, shouldConnect);
     }
 

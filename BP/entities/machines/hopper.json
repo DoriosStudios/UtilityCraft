@@ -58,15 +58,6 @@
 					{
 						"filters": [
 							{
-								"test": "in_block",
-								"value": "air"
-							}
-						],
-						"event": "despawn"
-					},
-					{
-						"filters": [
-							{
 								"test": "has_tag",
 								"value": "despawn"
 							}
