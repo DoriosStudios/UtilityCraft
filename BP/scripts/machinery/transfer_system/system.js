@@ -238,7 +238,7 @@ export function updatePipes(block, tag) {
         }
 
         // Update geometry according to role
-        if (neighbor.hasTag("dorios:isExporter")) {
+        if (neighbor.hasTag("dorios:isExporter") || neighbor.hasTag("dorios:isImporter")) {
             updateGeometryExporter(neighbor, tag);
         } else if (neighbor.hasTag("dorios:isTube")) {
             updateGeometry(neighbor, tag);
@@ -410,8 +410,33 @@ function searchEnergyContainers(startQueue, gen) {
 }
 //#endregion
 
-//#region Items
 
+
+//#region UtilityCraft - Filter Viewer UI
+
+function showFilteredItems(player, mode, items) {
+    const form = new ActionFormData();
+    form.title("Filtered Items");
+
+    const header =
+        mode === "whitelist"
+            ? "§aWhitelist§r\nOnly these items are allowed.\n"
+            : "§cBlacklist§r\nThese items are blocked.\n";
+
+    const list =
+        items.length === 0
+            ? "§7(empty)"
+            : items.map(i => '- ' + DoriosAPI.utils.formatIdToText(i)).join("\n");
+
+    form.body(header + "\n" + list);
+    form.button("Close");
+
+    form.show(player);
+}
+
+//#endregion
+
+//#region Items
 
 /**
  * Opens the Exporter configuration menu.
@@ -432,7 +457,7 @@ function openExporterMenu(block, player) {
     const mode = entity.getDynamicProperty('transferMode') ?? 'nearest';
     const whitelist = entity.getDynamicProperty('utilitycraft:whitelistOn') ?? true;
     const acceptedItems = entity.getTags()
-        .filter(tag => !tag.startsWith('ent:') && !tag.startsWith('van:') && !tag.startsWith('dra:') && !tag.startsWith('update'));
+        .filter(tag => !tag.startsWith('ent:') && !tag.startsWith('van:') && !tag.startsWith('dra:') && !tag.startsWith('update') && !tag.startsWith('imp:'));
 
     // ──────────────────────────────────────────────
     // 1️⃣ Base menu
@@ -447,6 +472,11 @@ function openExporterMenu(block, player) {
     menu.button(`${whitelist ? 'Whitelist' : 'Blacklist'} Mode\n§8Click to toggle`, whitelist
         ? 'textures/items/misc/whitelist.png'
         : 'textures/items/misc/blacklist.png');
+    // View filter contents
+    menu.button(
+        "View Filter Contents\n§8List all filtered items",
+        "textures/ui/icon_book_writable.png"
+    );
     menu.button('Add Item\n§8(Add item from Mainhand)', 'textures/ui/icon_import.png');
     menu.button('Remove Item\n§8(Select to remove)', 'textures/ui/trash_default.png');
 
@@ -472,7 +502,13 @@ function openExporterMenu(block, player) {
                 player.onScreenDisplay.setActionBar(`§7Filter mode set to: §e${!whitelist ? 'Whitelist' : 'Blacklist'}`);
                 return;
 
-            case 3: { // Add item
+            // View list
+            case 3: {
+                showFilteredItems(player, `${whitelist ? 'whitelist' : 'blacklist'}`, acceptedItems);
+                break;
+            }
+
+            case 4: { // Add item
                 const hasFilter = block.permutation.getState('utilitycraft:filter')
                 if (!hasFilter) {
                     player.onScreenDisplay.setActionBar(`§cMissing filter upgrade.`);
@@ -488,7 +524,7 @@ function openExporterMenu(block, player) {
                 return;
             }
 
-            case 4: // Remove item
+            case 5: // Remove item
                 openRemoveItemMenu(block, player, entity, acceptedItems);
                 return;
         }
@@ -651,7 +687,7 @@ DoriosAPI.register.blockComponent('exporter', {
             const pos = exporter.location
             // Build from tags: pos:[x,y,z] or van:[x,y,z]
             const positions = exporter.getTags()
-                .filter(t => t.startsWith('ent:[') || t.startsWith('van:[') || t.startsWith('dra:['))
+                .filter(t => t.startsWith('ent:[') || t.startsWith('van:[') || t.startsWith('imp:['))
                 .map(tag => {
                     const [x, y, z] = tag.slice(5, -1).split(',').map(Number)
                     return { x, y, z }
@@ -718,9 +754,44 @@ DoriosAPI.register.blockComponent('exporter', {
  * @returns {boolean} true if a transfer occurred
  */
 function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, moved, LIMIT) {
-    for (const loc of targets) {
-        const targetBlock = dim.getBlock(loc)
-        const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
+    for (let loc of targets) {
+        let targetBlock = dim.getBlock(loc)
+        let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
+
+        if (targetBlock?.typeId.includes("utilitycraft:item_importer")) {
+            // Load importer config from WORLD dynamic property
+            const key = `imp:${loc.x},${loc.y},${loc.z}`;
+            const data = world.getDynamicProperty(key);
+
+            // Get current item in source
+            const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dim);
+            const item = sourceInv?.getItem(slotIndex);
+            if (!item) return false;
+
+            // Apply importer whitelist / blacklist
+            if (data) {
+                const cfg = JSON.parse(data);  // { mode, items }
+                const listed = cfg.items.includes(item.typeId);
+                if (cfg.mode === "whitelist" && !listed) continue;
+                if (cfg.mode === "blacklist" && listed) continue;
+            }
+
+            // Determine real container in front of importer
+            const face = targetBlock.permutation.getState("minecraft:block_face");
+            const off = blockFaceOffsets[face];
+
+            // Replace target with the REAL container location
+            loc = {
+                x: loc.x + off[0],
+                y: loc.y + off[1],
+                z: loc.z + off[2],
+            };
+
+            // Update block/entity for normal logic
+            targetBlock = dim.getBlock(loc);
+            targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+        }
+
         const targetHasFilter = targetBlock?.permutation?.getState?.('utilitycraft:filter') == 1
 
         if (targetHasFilter && targetEntity) {
@@ -758,7 +829,7 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
  * @param {{x:number, y:number, z:number}} startPos Starting position of the scan.
  * @param {import('@minecraft/server').Dimension} dimension The dimension where the scan takes place.
  */
-function startRescanItem(startPos, dimension) {
+async function startRescanItem(startPos, dimension) {
     const queue = [startPos];
     const visited = new Set();
     const inputs = [];
@@ -782,19 +853,43 @@ function startRescanItem(startPos, dimension) {
         const key = `${pos.x},${pos.y},${pos.z}`;
         if (visited.has(key)) continue;
         visited.add(key);
-
+        if (visited.size % 25 == 0) await system.waitTicks(1)
         const block = dimension.getBlock(pos);
         if (!block) continue;
 
-
-
         if (
             block.typeId.includes("utilitycraft:item_conduit") ||
-            block.typeId.includes("utilitycraft:item_exporter")
+            block.typeId.includes("utilitycraft:item_exporter") ||
+            block.typeId.includes("utilitycraft:item_importer")
         ) {
             cablesUsed++;
-            if (!block.hasTag(networkColorTag)) continue
+            if (!block.hasTag(networkColorTag)) continue;
+
+            const isImporter = block.typeId.includes("utilitycraft:item_importer");
+
+            let blockedOffset = null;
+
+            // Only importer blocks the front direction
+            if (isImporter) {
+                const face = block.permutation.getState("minecraft:block_face");
+                blockedOffset = blockFaceOffsets[face];
+                inputs.push(`imp:[${pos.x},${pos.y},${pos.z}]`);
+            }
+
+            // BFS scan (skip only importer front face)
             for (const offset of offsets) {
+
+                // Skip forward direction ONLY for importer
+                if (
+                    isImporter &&
+                    blockedOffset &&
+                    offset.x === blockedOffset[0] &&
+                    offset.y === blockedOffset[1] &&
+                    offset.z === blockedOffset[2]
+                ) {
+                    continue; // skip scanning into the container
+                }
+
                 queue.push({
                     x: pos.x + offset.x,
                     y: pos.y + offset.y,
@@ -802,13 +897,17 @@ function startRescanItem(startPos, dimension) {
                 });
             }
 
-            let ent = dimension.getEntitiesAtBlockLocation(pos)[0];
-            if (ent && ent.typeId === "utilitycraft:pipe") {
-                extractors.push(ent);
+            // Exporter logic unchanged
+            if (block.typeId.includes("utilitycraft:item_exporter")) {
+                let ent = dimension.getEntitiesAtBlockLocation(pos)[0];
+                if (ent && ent.typeId === "utilitycraft:pipe") {
+                    extractors.push(ent);
+                }
             }
 
             continue;
         }
+
 
         if (DoriosAPI.constants.vanillaContainers.includes(block.typeId)) {
             inputs.push(`van:[${pos.x},${pos.y},${pos.z}]`);
@@ -880,6 +979,209 @@ function startRescanItem(startPos, dimension) {
 }
 
 
+//#region UtilityCraft - ITEM IMPORTER (Filtered Input Node)
+
+/**
+ * UtilityCraft - Item Importer
+ * 
+ * Works as a filtered input entry for item conduits.
+ * - NO entity is spawned
+ * - Filter configuration stored in world dynamic properties
+ * - UI identical style to exporter filter settings
+ * - Exporter treats importer as if it were the real container behind it
+ */
+
+DoriosAPI.register.blockComponent("item_importer", {
+
+    /**
+     * Initialize importer configuration in world dynamic properties.
+     */
+    beforeOnPlayerPlace(e) {
+        const { block } = e;
+        const { x, y, z } = block.location;
+
+        const key = `imp:${x},${y},${z}`;
+
+        system.run(() => {
+            world.setDynamicProperty(
+                key,
+                JSON.stringify({
+                    mode: "whitelist", // or "blacklist"
+                    items: []          // array of allowed/blocked item IDs
+                })
+            );
+        });
+    },
+
+    /**
+     * Remove importer dynamic property on break.
+     */
+    onPlayerBreak(e) {
+        const { block } = e;
+        const { x, y, z } = block.location;
+
+        const key = `imp:${x},${y},${z}`;
+        world.setDynamicProperty(key, undefined);
+    },
+
+    /**
+     * Open UI menu for configuring importer filters.
+     */
+    onPlayerInteract(e) {
+        const { block, player } = e;
+        if (player.isSneaking) return;
+
+        openImporterMenu(block, player);
+    }
+});
+
+/**
+ * Opens the filter configuration menu for an Item Importer.
+ * 
+ * @param {Block} block 
+ * @param {Player} player 
+ */
+function openImporterMenu(block, player) {
+    const { x, y, z } = block.location;
+    const key = `imp:${x},${y},${z}`;
+
+    let cfg = { mode: "whitelist", items: [] };
+    const raw = world.getDynamicProperty(key);
+    if (raw) {
+        try { cfg = JSON.parse(raw); } catch { }
+    }
+
+    const modeText = cfg.mode === "whitelist" ? "Whitelist" : "Blacklist";
+
+    const menu = new ActionFormData()
+        .title("Item Importer Settings")
+        .body(`§7Configure importer filtering.\n\n§rCurrent Mode: §e${modeText}`);
+
+    // Toggle whitelist / blacklist
+    menu.button(
+        `${modeText}\n§8Click to toggle`,
+        cfg.mode === "whitelist"
+            ? "textures/items/misc/whitelist.png"
+            : "textures/items/misc/blacklist.png"
+    );
+
+    // View filter contents
+    menu.button(
+        "View Filter Contents\n§8List all filtered items",
+        "textures/ui/icon_book_writable.png"
+    );
+
+    // Add item (from main hand)
+    menu.button(
+        "Add Item\n§8(Add item from Mainhand)",
+        "textures/ui/icon_import.png"
+    );
+
+    // Remove item (opens another menu)
+    menu.button(
+        "Remove Item\n§8(Select item to remove)",
+        "textures/ui/trash_default.png"
+    );
+
+    // Close
+    menu.button("Close", "textures/ui/redX1.png");
+
+    menu.show(player).then(res => {
+        if (res.canceled) return;
+
+        switch (res.selection) {
+
+            // Toggle whitelist / blacklist
+            case 0: {
+                cfg.mode = cfg.mode === "whitelist" ? "blacklist" : "whitelist";
+                world.setDynamicProperty(key, JSON.stringify(cfg));
+                player.onScreenDisplay.setActionBar("§aFilter mode updated.");
+                // openImporterMenu(block, player);
+                break;
+            }
+
+            // View list
+            case 1: {
+                showFilteredItems(player, cfg.mode, cfg.items);
+                break;
+            }
+
+            // Add item (from main hand)
+            case 2: {
+                const mainhand = player.getComponent("equippable")?.getEquipment("Mainhand");
+                if (!mainhand) {
+                    player.onScreenDisplay.setActionBar("§cYou are not holding an item.");
+                    return openImporterMenu(block, player);
+                }
+                const id = mainhand.typeId;
+                if (!cfg.items.includes(id)) cfg.items.push(id);
+                world.setDynamicProperty(key, JSON.stringify(cfg));
+                player.onScreenDisplay.setActionBar(`§aAdded ${id} to filter.`);
+                // openImporterMenu(block, player);
+                break;
+            }
+
+            // Remove item
+            case 3: {
+                openImporterRemoveMenu(block, player, cfg, key);
+                break;
+            }
+        }
+    });
+}
+
+/**
+ * Opens a submenu to remove items from the Importer filter.
+ *
+ * @param {Block} block
+ * @param {Player} player
+ * @param {{mode:string, items:string[]}} cfg
+ * @param {string} key world dynamic property key (imp:x,y,z)
+ */
+function openImporterRemoveMenu(block, player, cfg, key) {
+    const items = cfg.items;
+
+    if (!items || items.length === 0) {
+        player.onScreenDisplay.setActionBar('§cNo items to remove.');
+        return openImporterMenu(block, player);
+    }
+
+    const menu = new ActionFormData()
+        .title('Remove Item')
+        .body('§7Select an item to remove from the filter.');
+
+    // Crear un botón por cada ítem
+    for (const id of items) {
+        menu.button(`${DoriosAPI.utils.formatIdToText(id)}`);
+    }
+
+    // Botón de cancelar
+    menu.button("Cancel");
+
+    menu.show(player).then(result => {
+        const selection = result.selection;
+
+        // Si canceló
+        if (selection === undefined || selection === items.length) {
+            return openImporterMenu(block, player);
+        }
+
+        const removedId = items[selection];
+
+        // Remover del array
+        items.splice(selection, 1);
+
+        // Guardar nueva config
+        world.setDynamicProperty(key, JSON.stringify(cfg));
+
+        player.onScreenDisplay.setActionBar(`§cRemoved: {"translate":"${removedId}"}`);
+
+        // Volver al menú principal
+        openImporterMenu(block, player);
+    });
+}
+
+//#endregion
 
 
 //#endregion

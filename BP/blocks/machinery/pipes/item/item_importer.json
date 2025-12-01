@@ -31,13 +31,6 @@
 					false,
 					true
 				],
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
 				"utilitycraft:filter": [
 					0,
 					1
@@ -52,7 +45,7 @@
 			}
 		},
 		"components": {
-			"utilitycraft:exporter": {},
+			"utilitycraft:item_importer": {},
 			"utilitycraft:upgradeable": {},
 			"minecraft:geometry": {
 				"identifier": "geometry.utilitycraft_item_importer",
@@ -94,12 +87,6 @@
 					8
 				]
 			},
-			"minecraft:tick": {
-				"interval_range": [
-					10,
-					10
-				]
-			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
@@ -108,7 +95,7 @@
 			"tag:dorios:item": {},
 			"tag:dorios:isTube": {},
 			"tag:dorios:color.default": {},
-			"tag:dorios:isExporter": {},
+			"tag:dorios:isImporter": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
@@ -180,50 +167,6 @@
 							0,
 							-90,
 							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 1",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							8,
-							8
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 2",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							6,
-							6
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 3",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							4,
-							4
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:speed') == 4",
-				"components": {
-					"minecraft:tick": {
-						"interval_range": [
-							2,
-							2
 						]
 					}
 				}
