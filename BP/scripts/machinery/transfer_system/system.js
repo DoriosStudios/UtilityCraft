@@ -771,9 +771,11 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
             // Apply importer whitelist / blacklist
             if (data) {
                 const cfg = JSON.parse(data);  // { mode, items }
-                const listed = cfg.items.includes(item.typeId);
-                if (cfg.mode === "whitelist" && !listed) continue;
-                if (cfg.mode === "blacklist" && listed) continue;
+                if (cfg.items.length > 0) {
+                    const listed = cfg.items.includes(item.typeId);
+                    if (cfg.mode === "whitelist" && !listed) continue;
+                    if (cfg.mode === "blacklist" && listed) continue;
+                }
             }
 
             // Determine real container in front of importer

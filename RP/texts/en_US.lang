@@ -766,6 +766,12 @@ tile.utilitycraft:fluid_extractor_blue.name=Fluid Extractor (Blue)\n§7- Accepte
 tile.utilitycraft:fluid_extractor_green.name=Fluid Extractor (Green)\n§7- Accepted upgrades:\n   §a§7
 tile.utilitycraft:fluid_extractor_red.name=Fluid Extractor (Red)\n§7- Accepted upgrades:\n   §a§7
 tile.utilitycraft:fluid_extractor_purple.name=Fluid Extractor (Purple)\n§7- Accepted upgrades:\n   §a§7
+tile.utilitycraft:item_importer.name=Item Importer (Default)\n§7- Accepted upgrades:\n   §f§7
+tile.utilitycraft:item_importer_blue.name=Item Importer (Blue)\n§7- Accepted upgrades:\n   §f§7
+tile.utilitycraft:item_importer_red.name=Item Importer (Red)\n§7- Accepted upgrades:\n   §f§7
+tile.utilitycraft:item_importer_yellow.name=Item Importer (Yellow)\n§7- Accepted upgrades:\n   §f§7
+tile.utilitycraft:item_importer_purple.name=Item Importer (Purple)\n§7- Accepted upgrades:\n   §f§7
+
 
 ## All the same
 

@@ -2,7 +2,7 @@
     "format_version": "1.20.80",
     "minecraft:block": {
         "description": {
-            "identifier": "utilitycraft:item_importer",
+            "identifier": "utilitycraft:item_importer_blue",
             "menu_category": {
                 "category": "construction"
             },
@@ -59,7 +59,7 @@
             },
             "minecraft:material_instances": {
                 "*": {
-                    "texture": "utilitycraft_item_conduit_default",
+                    "texture": "utilitycraft_item_conduit_blue",
                     "render_method": "alpha_test"
                 }
             },
@@ -96,7 +96,7 @@
             "tag:dorios:isTube": {},
             "tag:dorios:isImporter": {},
             "tag:minecraft:is_pickaxe_item_destructible": {},
-            "tag:dorios:color.default": {}
+            "tag:dorios:color.blue": {}
         },
         "permutations": [
             {

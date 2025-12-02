@@ -1,0 +1,32 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:item_importer"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "key": {
+            "H": {
+                "item": "hopper"
+            },
+            "S": {
+                "item": "utilitycraft:item_conduit"
+            }
+        },
+        "pattern": [
+            " S",
+            "SSS",
+            " H"
+        ],
+        "result": {
+            "item": "utilitycraft:item_importer"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:steel_ingot"
+            }
+        ]
+    }
+}
