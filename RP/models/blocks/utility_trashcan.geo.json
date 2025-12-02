@@ -1,0 +1,59 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.basic_trash_can",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "Trash_can",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-4.8, 0, -4.8],
+							"size": [9.6, 13.2, 9.6],
+							"uv": {
+								"north": {"uv": [11, 0], "uv_size": [8, 11]},
+								"east": {"uv": [11, 0], "uv_size": [8, 11]},
+								"south": {"uv": [11, 0], "uv_size": [8, 11]},
+								"west": {"uv": [11, 0], "uv_size": [8, 11]},
+								"up": {"uv": [0, 22], "uv_size": [8, 8]},
+								"down": {"uv": [0, 30], "uv_size": [8, -8]}
+							}
+						},
+						{
+							"origin": [-6, 12, -6],
+							"size": [12, 2.4, 12],
+							"uv": {
+								"north": {"uv": [29, 0], "uv_size": [10, 2]},
+								"east": {"uv": [29, 0], "uv_size": [10, 2]},
+								"south": {"uv": [29, 0], "uv_size": [10, 2]},
+								"west": {"uv": [29, 0], "uv_size": [10, 2]},
+								"up": {"uv": [0, 0], "uv_size": [10, 10]},
+								"down": {"uv": [0, 10], "uv_size": [10, -10]}
+							}
+						},
+						{
+							"origin": [-3.6, 12.7, -3.6],
+							"size": [7.2, 3.3, 7.2],
+							"uv": {
+								"north": {"uv": [29, 12], "uv_size": [6, 2]},
+								"east": {"uv": [29, 12], "uv_size": [6, 2]},
+								"south": {"uv": [29, 12], "uv_size": [6, 2]},
+								"west": {"uv": [29, 12], "uv_size": [6, 2]},
+								"up": {"uv": [18, 24], "uv_size": [12, 12]},
+								"down": {"uv": [18, 30], "uv_size": [6, -6]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

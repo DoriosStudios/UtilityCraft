@@ -966,7 +966,8 @@ async function startRescanItem(startPos, dimension) {
         const oldTags = ext.getTags().filter(t =>
             t.startsWith("van:") ||
             t.startsWith("ent:") ||
-            t.startsWith("dra:")
+            t.startsWith("dra:") ||
+            t.startsWith("imp:")
         );
         for (const tag of oldTags) ext.removeTag(tag);
 

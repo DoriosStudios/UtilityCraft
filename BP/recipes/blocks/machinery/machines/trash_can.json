@@ -1,0 +1,41 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:basic_trash_can"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "key": {
+            "S": {
+                "item": "utilitycraft:steel_ingot"
+            },
+            "B": {
+                "item": "minecraft:barrel"
+            },
+            "F": {
+                "item": "minecraft:flint_and_steel"
+            }
+        },
+        "pattern": [
+            "SSS",
+            "SBS",
+            "SFS"
+        ],
+        "result": {
+            "item": "utilitycraft:basic_trash_can"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:steel_ingot"
+            },
+            {
+                "item": "minecraft:barrel"
+            },
+            {
+                "item": "minecraft:flint_and_steel"
+            }
+        ]
+    }
+}

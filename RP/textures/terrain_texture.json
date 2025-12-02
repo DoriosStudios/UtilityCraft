@@ -1491,6 +1491,9 @@
 		},
 		"utilitycraft_blaze_block": {
 			"textures": "textures/blocks/blaze_block"
+		},
+		"utilitycraft_basic_trash_can": {
+			"textures": "textures/blocks/trash_can_utility"
 		}
 	}
 }

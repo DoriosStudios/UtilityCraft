@@ -11,6 +11,14 @@
 			"despawn": {
 				"minecraft:instant_despawn": {}
 			},
+			"utilitycraft:simple_container": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:container"
+					]
+				}
+			},
 			"utilitycraft:basic_machine": {
 				"minecraft:type_family": {
 					"family": [
@@ -253,6 +261,12 @@
 					"inventory_size": 20,
 					"container_type": "container"
 				}
+			},
+			"utilitycraft:inventory_27": {
+				"minecraft:inventory": {
+					"inventory_size": 27,
+					"container_type": "container"
+				}
 			}
 		},
 		"components": {
@@ -320,6 +334,13 @@
 				"add": {
 					"component_groups": [
 						"despawn"
+					]
+				}
+			},
+			"utilitycraft:simple_container": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:simple_container"
 					]
 				}
 			},
@@ -518,6 +539,13 @@
 				"add": {
 					"component_groups": [
 						"utilitycraft:inventory_20"
+					]
+				}
+			},
+			"utilitycraft:inventory_27": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:inventory_27"
 					]
 				}
 			},

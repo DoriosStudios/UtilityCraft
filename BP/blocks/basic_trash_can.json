@@ -1,0 +1,43 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:basic_trash_can",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"utilitycraft:trash_can": {
+				"entity": {
+					"name": "Basic Trash Can",
+					"inventory_size": 27
+				},
+				"machine": {
+					"energy_cap": 0,
+					"energy_cost": 0,
+					"rate_speed_base": 0
+				}
+			},
+			"minecraft:geometry": "geometry.basic_trash_can",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_basic_trash_can",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					10,
+					10
+				]
+			},
+			"tag:dorios:item": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			}
+		}
+	}
+}

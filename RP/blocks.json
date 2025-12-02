@@ -333,5 +333,8 @@
 	},
 	"utilitycraft:blaze_block": {
 		"sound": "metal"
+	},
+	"utilitycraft:basic_trash_can": {
+		"sound": "stone"
 	}
 }
