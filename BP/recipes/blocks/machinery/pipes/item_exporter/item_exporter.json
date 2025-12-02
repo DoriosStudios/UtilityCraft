@@ -27,6 +27,7 @@
 			{
 				"item": "utilitycraft:steel_ingot"
 			}
-		]
+		],
+		"priority": 0
 	}
 }

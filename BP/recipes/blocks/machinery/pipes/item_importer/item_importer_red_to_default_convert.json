@@ -19,6 +19,7 @@
             {
                 "item": "utilitycraft:item_importer_red"
             }
-        ]
+        ],
+        "priority": 1
     }
 }

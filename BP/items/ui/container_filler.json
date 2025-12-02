@@ -4,15 +4,15 @@
         "description": {
             "identifier": "utilitycraft:container_filler",
             "menu_category": {
-                "category": "items"
+                "category": "none"
             }
         },
         "components": {
             "minecraft:icon": "utilitycraft:container_filler",
-            
             "minecraft:max_stack_size": 64,
             "minecraft:tags": {
                 "tags": [
+                    "utilitycraft:ui_element",
                     "utilitycraft.ui",
                     "utilitycraft.container",
                     "utilitycraft.placeholder"

@@ -1323,7 +1323,6 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
             'minecraft:water': 'water',
             'minecraft:lava': 'lava',
         };
-
         if (sourceEntity) {
             // Dorios/UtilityCraft entity fluid container
             fluidSource = new FluidManager(sourceEntity, 0);
@@ -1364,7 +1363,7 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         if (!cached || needsUpdate) {
             const pos = extractor.location;
             const positions = extractor.getTags()
-                .filter(t => t.startsWith('ent:['))
+                .filter(t => t.startsWith('ent:[') || t.startsWith('tan:['))
                 .map(tag => {
                     const [x, y, z] = tag.slice(5, -1).split(',').map(Number);
                     return { x, y, z };
