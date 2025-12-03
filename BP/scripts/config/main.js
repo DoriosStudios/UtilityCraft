@@ -18,6 +18,8 @@
 //   └─ recipes/plants.js
 // ==================================================
 
+import './fluids/items.js';
+
 import './recipes/crafter.js';
 import './recipes/crusher.js';
 import './recipes/fuel.js';

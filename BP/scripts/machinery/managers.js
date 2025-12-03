@@ -1,16 +1,6 @@
 import { system, world, ItemStack, BlockPermutation } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
-import {
-    getFluidContainerDefinition,
-    getFluidContainerRegistry,
-    getFluidOutputDefinition,
-    getFluidOutputRegistry,
-    registerFluidContainer as registerFluidContainerDefinition,
-    registerFluidOutput as registerFluidOutputDefinition
-} from '../config/fluids/containers.js'
-
-import { updatePipes } from './transfer_system/system.js'
 const COLORS = DoriosAPI.constants.textColors
 
 globalThis.worldLoaded = false;
@@ -231,15 +221,15 @@ export class Rotation {
             dim.runCommand(`setblock ${x} ${y} ${z} ${perm.type.id} ["utilitycraft:axis"="${axis}"]`);
             system.run(() => {
                 if (perm.hasTag('dorios:energy')) {
-                    updatePipes(block, 'energy');
+                    system.sendScriptEvent('dorios:updatePipes', `energy|[${x},${y},${z}`)
                 }
 
-                if (perm.hasTag('dorios:item') || DoriosAPI.constants.vanillaContainers.includes(block.typeId)) {
-                    updatePipes(block, 'item');
+                if (perm.hasTag('dorios:item')) {
+                    system.sendScriptEvent('dorios:updatePipes', `item|[${x},${y},${z}`)
                 }
 
                 if (perm.hasTag('dorios:fluid')) {
-                    updatePipes(block, 'fluid');
+                    system.sendScriptEvent('dorios:updatePipes', `fluid|[${x},${y},${z}`)
                 }
             })
         })
@@ -559,15 +549,15 @@ export class Generator {
         const { block, player, permutationToPlace: perm } = e
         system.runTimeout(() => {
             if (perm.hasTag('dorios:energy')) {
-                updatePipes(block, 'energy');
+                system.sendScriptEvent('dorios:updatePipes', `energy|[${x},${y},${z}`)
             }
 
             if (perm.hasTag('dorios:item')) {
-                updatePipes(block, 'item');
+                system.sendScriptEvent('dorios:updatePipes', `item|[${x},${y},${z}`)
             }
 
             if (perm.hasTag('dorios:fluid')) {
-                updatePipes(block, 'fluid');
+                system.sendScriptEvent('dorios:updatePipes', `fluid|[${x},${y},${z}`)
             }
         }, 2)
 
@@ -2011,6 +2001,7 @@ export class Energy {
 
 
 
+//#region Fluid
 /**
  * Global map storing loaded fluid-related scoreboard objectives per index.
  * Each index represents an independent tank slot (e.g., 0, 1, 2).
@@ -2119,56 +2110,54 @@ export class FluidManager {
     }
 
     /**
-     * Returns the current map of fluid container definitions.
+     * Map of items that contain or provide fluids.
      *
-     * The registry is populated inside `config/fluids/containers.js`
-     * and can be extended either in code or via the
-     * `utilitycraft:register_fluid_container` ScriptEvent.
+     * Each key represents an item identifier, and its value
+     * defines the resulting fluid type, amount, and optional output item.
+     *
+     * Example:
+     * ```js
+     * FluidManager.itemFluidContainers["minecraft:lava_bucket"]
+     * // → { amount: 1000, type: "lava", output: "minecraft:bucket" }
+     * ```
+     *
+     * @constant
+     * @type {Record<string, { amount: number, type: string, output?: string }>}
      */
-    static get itemFluidContainers() {
-        return getFluidContainerRegistry();
-    }
+    static itemFluidContainers = {};
 
     /**
-     * Registers or overrides a fluid container definition at runtime.
+     * Definitions for items that can extract fluid from a tank.
      *
-     * @param {string} id Item identifier.
-     * @param {{ amount: number, type: string, output?: string }} definition Container data.
-     * @returns {boolean} True when the definition was stored.
-     */
-    static registerFluidContainer(id, definition) {
-        return registerFluidContainerDefinition(id, definition);
-    }
-
-    /**
-     * Returns the registry of fluid output containers (empty → filled mappings).
-     */
-    static get fluidOutputContainers() {
-        return getFluidOutputRegistry();
-    }
-
-    /**
-     * Retrieves output definition for an empty container identifier.
+     * Each key represents an item identifier (e.g. "minecraft:bucket"),
+     * and its value specifies:
+     * - which fluid types it can extract
+     * - how much fluid is required to produce the resulting filled item
      *
-     * @param {string} id Item identifier for the empty container.
-     * @returns {{ amount: number, fills: Record<string, string> } | null}
-     */
-    static getFluidFillDefinition(id) {
-        if (!id) return null;
-        return getFluidOutputDefinition(id);
-    }
-
-    /**
-     * Registers or overrides a fluid output definition at runtime.
+     * Structure:
+     * {
+     *   "itemId": {
+     *      types: { fluidType: outputItemId, ... },
+     *      required: <amount in mB>
+     *   }
+     * }
      *
-     * @param {string} id Item identifier.
-     * @param {{ amount: number, fills: Record<string, string> }} definition Data describing how the container is filled.
-     * @returns {boolean}
+     * Example:
+     * {
+     *   "minecraft:bucket": {
+     *      types: {
+     *         water: "minecraft:water_bucket",
+     *         lava: "minecraft:lava_bucket",
+     *         milk: "minecraft:milk_bucket"
+     *      },
+     *      required: 1000
+     *   }
+     * }
+     *
+     * @constant
+     * @type {Record<string, { types: Record<string, string>, required: number }>}
      */
-    static registerFluidOutput(id, definition) {
-        return registerFluidOutputDefinition(id, definition);
-    }
-
+    static itemFluidHolders = {};
 
     // --------------------------------------------------------------------------
     // Normalization utilities
@@ -2261,8 +2250,7 @@ export class FluidManager {
      * @returns {{ amount: number, type: string, output?: string }|null} Fluid data if found, otherwise null.
      */
     static getContainerData(id) {
-        if (!id) return null;
-        return getFluidContainerDefinition(id);
+        return this.itemFluidContainers[id] ?? null;
     }
 
     // --------------------------------------------------------------------------
@@ -2366,45 +2354,45 @@ export class FluidManager {
      * Handles item-to-fluid interactions for machines or fluid tanks.
      *
      * Supports:
-     * - Inserting fluid from known container items (defined in `itemFluidContainers`)
-     * - Filling empty buckets with available fluid (lava, water, milk)
+     * - Inserting fluid from known container items (`itemFluidContainers`)
+     * - Extracting fluid using fluid holders (`itemFluidHolders`)
+     * - Producing filled items based on stored fluid type
      *
-     * @param {string} typeId The item identifier being used (e.g., "minecraft:water_bucket" or "minecraft:bucket").
-     * @returns {string|false} Returns the output item ID (e.g., empty bucket) if successful, or false if the action failed.
+     * @param {string} typeId The item identifier being used (e.g., "minecraft:water_bucket", "minecraft:bucket", "fluidcells:empty_cell").
+     * @returns {string|false} Returns the output item ID if successful, or false if the action failed.
      */
     fluidItem(typeId) {
-        // 1. Handle known container items (e.g., water bucket, lava bucket)
-        const insertData = FluidManager.getContainerData(typeId);
+        // 1. INSERTION: item adds fluid into tank
+        const insertData = FluidManager.itemFluidContainers[typeId];
         if (insertData) {
-            const { type, output } = insertData;
-            const insertAmount = insertData.amountRange?.max ?? insertData.amount;
+            const { type, amount, output } = insertData;
 
-            // Ensure the tank can accept this fluid
-            const inserted = this.tryInsert(type, insertAmount);
-            if (!inserted) return false;
+            if (!this.tryInsert(type, amount)) return false;
 
-            return output; // Return resulting item (e.g., empty bucket)
+            return output ?? false;
         }
 
-        // 2. Handle empty containers that should be filled with the stored fluid
-        const fillDefinition = FluidManager.getFluidFillDefinition(typeId);
-        if (fillDefinition) {
+        // 2. EXTRACTION: item converts stored fluid into an output container
+        const holder = FluidManager.itemFluidHolders[typeId];
+        if (holder) {
             const storedType = this.getType();
-            if (!storedType || storedType === 'empty') return false;
+            const outputItem = holder.types?.[storedType];
 
-            const filledItemId = fillDefinition.fills?.[storedType];
-            if (!filledItemId) return false;
-            const drainAmount = fillDefinition.amountRange?.max ?? fillDefinition.amount;
-            if (this.get() < drainAmount) return false;
+            // This item cannot extract this fluid
+            if (!outputItem) return false;
 
-            this.add(-drainAmount);
-            if (this.get() <= 0) this.setType('empty');
-            return filledItemId;
+            // Not enough fluid for extraction
+            if (this.get() < holder.required) return false;
+
+            // Extract and return filled item
+            this.add(-holder.required);
+            return outputItem;
         }
 
-        // 3. Not a recognized container item
+        // 3. Not handled by this system
         return false;
     }
+
 
 
     /**
@@ -2861,7 +2849,6 @@ export class FluidManager {
     }
 }
 
-
 /**
  * ScriptEvent handler to destroy a machine at given coordinates.
  * Removes the machine entity, drops stored items, and replaces the block with air.
@@ -2985,3 +2972,167 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
         }
     }
 })
+
+/**
+ * ScriptEvent receiver: "utilitycraft:register_fluid_item"
+ *
+ * Allows other addons or scripts to dynamically add or replace
+ * fluid-item mappings used by LiquidManager.liquidItem().
+ *
+ * Expected payload format (JSON):
+ * ```json
+ * {
+ *   "minecraft:lava_bucket": { "amount": 1000, "type": "lava", "output": "minecraft:bucket" },
+ *   "custom:water_cell": { "amount": 4000, "type": "water", "output": "custom:empty_cell" }
+ * }
+ * ```
+ *
+ * Behavior:
+ * - New items are created automatically if missing.
+ * - Existing items are replaced and logged individually.
+ * - Only a summary log is printed when finished.
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:register_fluid_item") return;
+
+    try {
+        const payload = JSON.parse(message);
+        if (!payload || typeof payload !== "object") return;
+
+        let added = 0;
+        let replaced = 0;
+
+        for (const [itemId, data] of Object.entries(payload)) {
+            if (typeof data.amount !== "number" || typeof data.type !== "string") continue;
+
+            if (FluidManager.itemFluidContainers[itemId]) {
+                replaced++;
+            } else {
+                added++;
+            }
+
+            // Direct assignment; LiquidManager uses this data
+            FluidManager.itemFluidContainers[itemId] = data;
+        }
+    } catch (err) {
+        console.warn("[UtilityCraft] Failed to parse fluid-item registration payload:", err);
+    }
+});
+
+
+// ==================================================
+// EXAMPLES – How to register custom fluid items
+// ==================================================
+/*
+import { system, world } from "@minecraft/server";
+
+world.afterEvents.worldLoad.subscribe(() => {
+    // Add or replace fluid items dynamically
+    const newFluids = {
+        "custom:dark_water_bucket": { output: "minecraft:bucket", amount: 1000, type: "dark_water" },
+        "custom:mana_orb": { amount: 500, type: "mana" },
+        // This replaces the existing lava bucket entry
+        "minecraft:lava_bucket": { output: "minecraft:bucket", amount: 1200, type: "lava" }
+    };
+
+    // Send the event to the fluid item system
+    system.sendScriptEvent("utilitycraft:register_fluid_item", JSON.stringify(newFluids));
+
+    console.warn("[Addon] Custom fluid items registered via system event.");
+});
+
+// You can also do this directly with a command inside Minecraft:
+Command:
+/scriptevent utilitycraft:register_fluid_item {"custom:holy_water":{"amount":1500,"type":"water","output":"minecraft:glass_bottle"}}
+*/
+
+
+/**
+ * ScriptEvent receiver: "utilitycraft:register_fluid_holder"
+ *
+ * Allows other addons or scripts to dynamically add or replace
+ * item → fluid-extraction mappings used by LiquidManager.
+ *
+ * Expected payload format (JSON):
+ * ```json
+ * {
+ *   "minecraft:bucket": { 
+ *        "types": { 
+ *            "water": "minecraft:water_bucket",
+ *            "lava": "minecraft:lava_bucket"
+ *        },
+ *        "required": 1000
+ *   },
+ *   "custom:empty_cell": {
+ *        "types": { "lava": "custom:lava_cell" },
+ *        "required": 250
+ *   }
+ * }
+ * ```
+ *
+ * Behavior:
+ * - New items are created automatically if missing.
+ * - Existing items are replaced and logged individually.
+ * - Only a summary log is printed when finished.
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:register_fluid_holder") return;
+
+    try {
+        const payload = JSON.parse(message);
+        if (!payload || typeof payload !== "object") return;
+
+        let added = 0;
+        let replaced = 0;
+
+        for (const [itemId, data] of Object.entries(payload)) {
+            if (!data.types || typeof data.required !== "number") continue;
+
+            if (FluidManager.itemFluidHolders[itemId]) {
+                console.warn(`[UtilityCraft] Replaced existing fluid-holder for '${itemId}'.`);
+                replaced++;
+            } else {
+                added++;
+            }
+
+            // Assign holder definition
+            FluidManager.itemFluidHolders[itemId] = data;
+        }
+    } catch (err) {
+        console.warn("[UtilityCraft] Failed to parse fluid-holder registration payload:", err);
+    }
+});
+
+
+// ==================================================
+// EXAMPLES – How to register custom fluid holders
+// ==================================================
+/*
+import { system, world } from "@minecraft/server";
+
+world.afterEvents.worldLoad.subscribe(() => {
+    // Add or replace fluid holders dynamically
+    const holders = {
+        "minecraft:bucket": {
+            types: {
+                water: "minecraft:water_bucket",
+                lava: "minecraft:lava_bucket",
+                milk: "minecraft:milk_bucket"
+            },
+            required: 1000
+        },
+        "custom:empty_cell": {
+            types: { lava: "custom:lava_cell" },
+            required: 250
+        }
+    };
+
+    // Send event to register holders
+    system.sendScriptEvent("utilitycraft:register_fluid_holder", JSON.stringify(holders));
+
+    console.warn("[Addon] Custom fluid holders registered via system event.");
+});
+
+// Command example:
+/scriptevent utilitycraft:register_fluid_holder {"custom:glass_bottle":{"types":{"xp":"custom:xp_bottle"},"required":250}}
+*/
