@@ -9,7 +9,7 @@
 	},
 	"header": {
 		"name": "§aUtilityCraft§8",
-		"description": "3.2.4 §6Dorios Studios",
+		"description": "3.3.0 §6Dorios Studios",
 		"min_engine_version": [
 			1,
 			20,
@@ -18,8 +18,8 @@
 		"uuid": "9d61a8df-7d50-4624-8bff-d2c90c52a5a0",
 		"version": [
 			3,
-			2,
-			4
+			3,
+			0
 		]
 	},
 	"modules": [
@@ -49,8 +49,8 @@
 			"uuid": "b8bff6b0-417e-43fb-9451-d1d9d80c309f",
 			"version": [
 				3,
-				2,
-				3
+				3,
+				0
 			]
 		},
 		{
