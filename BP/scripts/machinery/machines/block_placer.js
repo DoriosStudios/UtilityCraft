@@ -1,4 +1,4 @@
-import { Machine } from '../managers.js'
+import { Machine } from '../DoriosMachinery/core.js'
 
 const INPUTSLOT = 3
 

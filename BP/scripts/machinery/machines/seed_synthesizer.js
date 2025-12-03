@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../managers.js'
+import { Machine, Energy } from '../DoriosMachinery/core.js'
 import { plantsData } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3

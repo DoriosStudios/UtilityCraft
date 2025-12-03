@@ -1,5 +1,5 @@
 import { system, ItemStack, world } from "@minecraft/server";
-import { FluidManager } from "../machinery/managers.js";
+import { FluidManager } from "../machinery/DoriosMachinery/core.js";
 
 
 DoriosAPI.register.blockComponent("xp", {

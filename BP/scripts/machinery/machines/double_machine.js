@@ -1,4 +1,4 @@
-import { Machine } from '../managers.js'
+import { Machine } from '../DoriosMachinery/core.js'
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
 const INPUTSLOT = 3

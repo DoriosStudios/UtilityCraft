@@ -1,4 +1,4 @@
-import { FluidManager, Rotation } from './managers.js'
+import { FluidManager, Rotation } from './DoriosMachinery/core.js'
 import { system, ItemStack, world } from '@minecraft/server'
 
 DoriosAPI.register.blockComponent("fluid_container", {

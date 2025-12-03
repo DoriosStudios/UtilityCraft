@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../managers.js';
+import { Machine, Energy } from '../DoriosMachinery/core.js';
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from '@minecraft/server'
 

@@ -1,5 +1,5 @@
 import { world, ItemStack, system, BlockType } from "@minecraft/server";
-import { Rotation, Generator } from './managers.js'
+import { Rotation, Generator } from './DoriosMachinery/core.js'
 
 
 // Nombres de entidades removibles

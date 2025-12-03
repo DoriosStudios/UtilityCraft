@@ -1,4 +1,4 @@
-import { Generator, Energy, FluidManager } from '../managers.js'
+import { Generator, Energy, FluidManager } from '../DoriosMachinery/core.js'
 
 const ENERGY_PER_LAVA_MB = 100
 

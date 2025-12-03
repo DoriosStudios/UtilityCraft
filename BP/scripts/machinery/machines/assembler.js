@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../managers.js';
+import { Machine, Energy } from '../DoriosMachinery/core.js';
 const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component

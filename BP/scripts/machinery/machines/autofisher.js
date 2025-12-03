@@ -1,4 +1,4 @@
-import { Machine } from '../managers.js';
+import { Machine } from '../DoriosMachinery/core.js';
 import { autoFisherLoot } from '../../config/recipes/fisher.js';
 
 const NET_SLOT = 6;

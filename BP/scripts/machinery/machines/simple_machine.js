@@ -1,4 +1,4 @@
-import { Machine } from '../managers.js'
+import { Machine } from '../DoriosMachinery/core.js'
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
 import { pressRecipes } from "../../config/recipes/press.js";

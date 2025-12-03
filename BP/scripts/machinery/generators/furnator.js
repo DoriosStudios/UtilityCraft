@@ -1,4 +1,4 @@
-import { Generator, Energy } from '../managers.js'
+import { Generator, Energy } from '../DoriosMachinery/core.js'
 import { solidFuels } from "../../config/recipes/fuel.js";
 const COLORS = DoriosAPI.constants.textColors
 

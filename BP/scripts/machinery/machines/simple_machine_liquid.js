@@ -1,4 +1,4 @@
-import { Machine, FluidManager } from '../managers.js'
+import { Machine, FluidManager } from '../DoriosMachinery/core.js'
 import { melterRecipes } from "../../config/recipes/melter.js";
 
 const INPUTSLOT = 3

@@ -1,4 +1,4 @@
-import { Generator, Energy } from '../managers.js'
+import { Generator, Energy } from '../DoriosMachinery/core.js'
 
 const BASE_ALTITUDE = 63
 const ALTITUDE_BONUS_STEP = 16

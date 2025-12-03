@@ -1,4 +1,4 @@
-import { Generator, Energy, FluidManager } from '../managers.js'
+import { Generator, Energy, FluidManager } from '../DoriosMachinery/core.js'
 export const heatSources = {
     'utilitycraft:blaze_block': 1.5,
     'minecraft:lava': 1,
