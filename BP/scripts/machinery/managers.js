@@ -1,10 +1,11 @@
 import { system, world, ItemStack, BlockPermutation } from '@minecraft/server'
-import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
+import { ModalFormData } from '@minecraft/server-ui'
 
 const COLORS = DoriosAPI.constants.textColors
 
 globalThis.worldLoaded = false;
 globalThis.tickCount = 0;
+globalThis.tickSpeed = 10;
 
 system.runInterval(() => {
     globalThis.tickCount += 2
@@ -221,15 +222,15 @@ export class Rotation {
             dim.runCommand(`setblock ${x} ${y} ${z} ${perm.type.id} ["utilitycraft:axis"="${axis}"]`);
             system.run(() => {
                 if (perm.hasTag('dorios:energy')) {
-                    system.sendScriptEvent('dorios:updatePipes', `energy|[${x},${y},${z}`)
+                    player.runCommand(`scriptevent dorios:updatePipes energy|[${x},${y},${z}]`);
                 }
 
                 if (perm.hasTag('dorios:item')) {
-                    system.sendScriptEvent('dorios:updatePipes', `item|[${x},${y},${z}`)
+                    player.runCommand(`scriptevent dorios:updatePipes item|[${x},${y},${z}]`);
                 }
 
                 if (perm.hasTag('dorios:fluid')) {
-                    system.sendScriptEvent('dorios:updatePipes', `fluid|[${x},${y},${z}`)
+                    player.runCommand(`scriptevent dorios:updatePipes fluid|[${x},${y},${z}]`);
                 }
             })
         })
@@ -547,17 +548,18 @@ export class Generator {
      */
     static spawnGeneratorEntity(e, settings, callback) {
         const { block, player, permutationToPlace: perm } = e
+        let { x, y, z } = block.location
         system.runTimeout(() => {
             if (perm.hasTag('dorios:energy')) {
-                system.sendScriptEvent('dorios:updatePipes', `energy|[${x},${y},${z}`)
+                player.runCommand(`scriptevent dorios:updatePipes energy|[${x},${y},${z}]`);
             }
 
             if (perm.hasTag('dorios:item')) {
-                system.sendScriptEvent('dorios:updatePipes', `item|[${x},${y},${z}`)
+                player.runCommand(`scriptevent dorios:updatePipes item|[${x},${y},${z}]`);
             }
 
             if (perm.hasTag('dorios:fluid')) {
-                system.sendScriptEvent('dorios:updatePipes', `fluid|[${x},${y},${z}`)
+                player.runCommand(`scriptevent dorios:updatePipes fluid|[${x},${y},${z}]`);
             }
         }, 2)
 
@@ -3136,3 +3138,30 @@ world.afterEvents.worldLoad.subscribe(() => {
 // Command example:
 /scriptevent utilitycraft:register_fluid_holder {"custom:glass_bottle":{"types":{"xp":"custom:xp_bottle"},"required":250}}
 */
+
+/**
+ * ScriptEvent: "utilitycraft:set_tick_speed"
+ *
+ * Updates the global tickSpeed value used by UtilityCraft machinery.
+ * The payload must be a JSON number (e.g., 1, 5, 10, 20).
+ *
+ * Behavior:
+ * - Replaces the tickSpeed value immediately.
+ * - Ignores invalid or non-numeric payloads.
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:set_tick_speed") return;
+
+    try {
+        const value = JSON.parse(message);
+
+        if (typeof value !== "number" || value <= 0) {
+            console.warn(`[UtilityCraft] Invalid tickSpeed received: ${message}`);
+            return;
+        }
+
+        globalThis.tickSpeed = value;
+    } catch {
+        console.warn("[UtilityCraft] Failed to parse tickSpeed payload.");
+    }
+});
