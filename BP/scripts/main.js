@@ -1,4 +1,4 @@
-import './DoriosAPI/main.js'
+import './doriosAPI/main.js'
 
 import './config/main.js'
 
