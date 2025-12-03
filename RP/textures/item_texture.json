@@ -258,25 +258,25 @@
 			"textures": "textures/items/meshes/netherite_mesh"
 		},
 		"utilitycraft_string_fishing_net": {
-			"textures": "textures/items/meshes/string_mesh"
+			"textures": "textures/items/nets/string_net"
 		},
 		"utilitycraft_copper_fishing_net": {
-			"textures": "textures/items/meshes/copper_mesh"
+			"textures": "textures/items/nets/copper_net"
 		},
 		"utilitycraft_iron_fishing_net": {
-			"textures": "textures/items/meshes/iron_mesh"
+			"textures": "textures/items/nets/iron_net"
 		},
 		"utilitycraft_golden_fishing_net": {
-			"textures": "textures/items/meshes/golden_mesh"
+			"textures": "textures/items/nets/golden_net"
 		},
 		"utilitycraft_emerald_fishing_net": {
-			"textures": "textures/items/meshes/emerald_mesh"
+			"textures": "textures/items/nets/emerald_net"
 		},
 		"utilitycraft_diamond_fishing_net": {
-			"textures": "textures/items/meshes/diamond_mesh"
+			"textures": "textures/items/nets/diamond_net"
 		},
 		"utilitycraft_netherite_fishing_net": {
-			"textures": "textures/items/meshes/netherite_mesh"
+			"textures": "textures/items/nets/netherite_net"
 		},
 		"utilitycraft_copper_seeds": {
 			"textures": "textures/items/seeds/copper_seeds"

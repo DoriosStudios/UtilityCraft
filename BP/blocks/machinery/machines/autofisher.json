@@ -48,7 +48,7 @@
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_autosieve_off",
+					"texture": "utilitycraft_autofisher_off",
 					"render_method": "alpha_test"
 				}
 			},
@@ -73,7 +73,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_autosieve_on",
+							"texture": "utilitycraft_autofisher_on",
 							"render_method": "alpha_test"
 						}
 					},

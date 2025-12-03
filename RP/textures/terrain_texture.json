@@ -865,6 +865,12 @@
 		"utilitycraft_autosieve_off": {
 			"textures": "textures/blocks/Machines/Autosieve_off"
 		},
+		"utilitycraft_autofisher_on": {
+			"textures": "textures/blocks/Machines/autofisher_on"
+		},
+		"utilitycraft_autofisher_off": {
+			"textures": "textures/blocks/Machines/autofisher_off"
+		},
 		"utilitycraft_block_breaker_on": {
 			"textures": "textures/blocks/Machines/Block_breaker_on"
 		},
