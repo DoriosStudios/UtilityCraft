@@ -89,13 +89,31 @@
                         },
                         "items": [
                             "utilitycraft:energy_cable",
+                            "utilitycraft:item_importer",
+                            "utilitycraft:item_importer_blue",
+                            "utilitycraft:item_importer_red",
+                            "utilitycraft:item_importer_yellow",
+                            "utilitycraft:item_importer_purple",
                             "utilitycraft:item_conduit",
                             "utilitycraft:item_conduit_blue",
                             "utilitycraft:item_conduit_red",
                             "utilitycraft:item_conduit_yellow",
+                            "utilitycraft:item_conduit_purple",
                             "utilitycraft:item_exporter",
+                            "utilitycraft:item_exporter_blue",
+                            "utilitycraft:item_exporter_red",
+                            "utilitycraft:item_exporter_yellow",
+                            "utilitycraft:item_exporter_purple",
                             "utilitycraft:fluid_pipe",
-                            "utilitycraft:fluid_extractor"
+                            "utilitycraft:fluid_pipe_green",
+                            "utilitycraft:fluid_pipe_blue",
+                            "utilitycraft:fluid_pipe_red",
+                            "utilitycraft:fluid_pipe_purple",
+                            "utilitycraft:fluid_extractor",
+                            "utilitycraft:fluid_extractor_green",
+                            "utilitycraft:fluid_extractor_blue",
+                            "utilitycraft:fluid_extractor_red",
+                            "utilitycraft:fluid_extractor_purple"
                         ]
                     },
                     {
