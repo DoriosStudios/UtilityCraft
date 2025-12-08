@@ -434,10 +434,13 @@ export class Generator {
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
-        if (!this.entity) return null
+        if (!this.entity) {
+            this.valid = false
+            return
+        }
         this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
-        this.baseRate = settings.generator.rate_speed_base
+        this.baseRate = settings?.generator?.rate_speed_base ?? 0
         this.rate = this.baseRate * tickSpeed
     }
 
@@ -658,6 +661,18 @@ export class Generator {
     }
 
     /**
+     * Sets a new base rate and updates the effective rate using tickSpeed.
+     *
+     * @param {number} baseRate New base processing rate
+     * @returns {number} Updated effective rate
+     */
+    setRate(baseRate) {
+        this.baseRate = baseRate;
+        this.rate = this.baseRate * tickSpeed;
+        return this.rate;
+    }
+
+    /**
      * Sets a label in the generator inventory using a fixed item as placeholder.
      *
      * The label is displayed by overriding the item's `nameTag` with custom text.
@@ -721,7 +736,10 @@ export class Machine {
         this.dim = block.dimension
         this.block = block
         this.entity = this.dim.getEntitiesAtBlockLocation(block.location)[0]
-        if (!this.entity) return null
+        if (!this.entity) {
+            this.valid = false
+            return
+        }
         this.inv = this.entity?.getComponent('inventory')?.container
         this.energy = new Energy(this.entity)
         this.upgrades = this.getUpgradeLevels(settings.machine.upgrades)
@@ -1480,6 +1498,25 @@ export class Energy {
     //#endregion
 
     //#region Caps
+
+    /**
+     * Normalizes and sets the energy capacity for a given entity.
+     *
+     * @static
+     * @param {Entity} entity Target entity whose capacity will be updated.
+     * @param {number} amount Raw energy capacity value.
+     * @returns {void}
+     */
+    static setCap(entity, amount) {
+        if (!entity?.scoreboardIdentity) return;
+
+        const scoreId = entity.scoreboardIdentity;
+        const { value, exp } = Energy.normalizeValue(amount);
+
+        objectives.energyCap.setScore(scoreId, value);
+        objectives.energyCapExp.setScore(scoreId, exp);
+    }
+
     /**
      * Sets the maximum energy capacity of the entity.
      * The value is automatically normalized into a mantissa and an exponent,
@@ -1669,8 +1706,7 @@ export class Energy {
 
         const energy = this.get();
         const energyCap = this.getCap();
-
-        const energyP = Math.floor((energy / energyCap) * 48);
+        const energyP = Math.floor((energy / energyCap) * 48) || 0
         const frame = Math.max(0, Math.min(48, energyP));
         const frameName = frame.toString().padStart(2, "0");
 
@@ -1695,6 +1731,7 @@ export class Energy {
      * if (used > 0) console.log(`Consumed ${used} energy`);
      */
     consume(amount) {
+        if (this.entity.hasTag('creative')) return amount
         if (amount <= 0) return 0;
 
         const current = this.get();
@@ -2039,6 +2076,12 @@ function initFluidObjectives(index = 0) {
     }
 }
 
+/** @type {.ScoreboardObjective} */
+let maxLiquidsData;
+world.afterEvents.worldLoad.subscribe(() => {
+    [0, 1, 2, 3].forEach(index => initFluidObjectives(index))
+    maxLiquidsData = getOrCreateObjective('maxLiquidsData')
+});
 
 /**
  * Manages scoreboard-based fluid values for entities or machines.
@@ -2060,9 +2103,6 @@ export class FluidManager {
         this.entity = entity;
         this.index = index;
         this.scoreId = entity?.scoreboardIdentity;
-
-        // Ensure fluid objectives exist for this tank index
-        initFluidObjectives(index);
 
         this.scores = {
             fluid: fluidObjectives.get(`fluid_${index}`),
@@ -2087,28 +2127,46 @@ export class FluidManager {
      * @returns {FluidManager} A FluidManager instance managing index 0.
      */
     static initializeSingle(entity) {
-        initFluidObjectives(0);
         return new FluidManager(entity, 0);
     }
 
     /**
-     * Initializes multiple fluid tanks for a machine entity.
+     * Initializes multiple fluid tanks for an entity and updates maxLiquids.
      *
-     * This should be used for machines capable of storing more than one fluid.
-     * It ensures all scoreboard objectives up to the specified maximum index exist
-     * and returns an array of FluidManager instances (one per index).
-     *
-     * @param {Entity} entity The machine entity to initialize.
-     * @param {number} maxIndex The maximum tank index (exclusive upper bound).
-     * @returns {FluidManager[]} An array of FluidManager instances from index 0 to maxIndex - 1.
+     * @param {Entity} entity Machine entity
+     * @param {number} count Amount of supported fluids
+     * @returns {FluidManager[]} Array of FluidManager instances
      */
-    static initializeMultiple(entity, maxIndex) {
+    static initializeMultiple(entity, count) {
+        // Set scoreboard maxLiquids for this entity
+
+        if (maxLiquidsData && entity.scoreboardIdentity) {
+            maxLiquidsData.setScore(entity.scoreboardIdentity, count);
+        }
+
+        // Initialize tanks
         const tanks = [];
-        for (let i = 0; i < maxIndex; i++) {
+        for (let i = 0; i < count; i++) {
             initFluidObjectives(i);
             tanks.push(new FluidManager(entity, i));
         }
+
         return tanks;
+    }
+    /**
+     * 
+     * Returns the max number of fluid tanks an entity supports.
+     * Reads the `maxLiquids` scoreboard; defaults to 1 if unset.
+     *
+     * @param {Entity} entity Entity with fluid tanks
+     * @returns {number}
+     */
+    static getMaxLiquids(entity) {
+        if (!maxLiquidsData || !entity?.scoreboardIdentity) return 1;
+
+        const score = maxLiquidsData.getScore(entity.scoreboardIdentity);
+        return score > 0 ? score : 1;
+
     }
 
     /**
@@ -2327,6 +2385,62 @@ export class FluidManager {
     }
 
     /**
+     * Finds the first fluid tank of the given type or an empty one.
+     *
+     * @param {Entity} entity Target entity with fluid tanks
+     * @param {string} type Fluid type to search for (e.g. "water", "lava")
+     * @returns {FluidManager|null} The matching tank or null if none found
+     */
+    static findType(entity, type) {
+        const max = FluidManager.getMaxLiquids(entity);
+        for (let i = 0; i < max; i++) {
+            const prefix = `fluid${i}Type:${type}`;
+            if (entity.hasTag(`${prefix}`) || entity.hasTag(`fluid${i}Type:empty`)) {
+                return new FluidManager(entity, i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Handles inserting a fluid into an entity's fluid tanks based on the held item.
+     * If mainHand is not provided, it is obtained from the player's main hand slot.
+     *
+     * @param {Player} player Player interacting
+     * @param {Entity} entity Target entity with fluid tanks
+     * @param {ItemStack} [mainHand] Optional item used for the interaction
+     */
+    static handleFluidItemInteraction(player, entity, mainHand) {
+        mainHand = mainHand ?? player.getEquipment('Mainhand');
+        if (!mainHand) return;
+
+        const containerData = FluidManager.getContainerData(mainHand.typeId);
+        if (!containerData || !containerData.type) return;
+
+        const tank = FluidManager.findType(entity, containerData.type);
+        if (!tank) return;
+
+        const insert = tank.fluidItem(mainHand.typeId);
+        if (insert === false) return;
+
+        const type = tank.getType();
+        const amount = tank.get();
+        const cap = tank.getCap();
+        const percent = ((amount / cap) * 100).toFixed(2);
+
+        player.onScreenDisplay.setActionBar(
+            `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
+        );
+
+        if (!player.isInCreative()) {
+            player.changeItemAmount(player.selectedSlotIndex, -1);
+            if (insert) player.giveItem(insert);
+        }
+    }
+
+
+
+    /**
      * Attempts to insert a given liquid type and amount into the tank.
      *
      * The insertion will only succeed if:
@@ -2387,7 +2501,7 @@ export class FluidManager {
             if (this.get() < holder.required) return false;
 
             // Extract and return filled item
-            this.add(-holder.required);
+            this.consume(holder.required);
             return outputItem;
         }
 
@@ -2507,6 +2621,7 @@ export class FluidManager {
      * @returns {number} The amount actually consumed (0 if insufficient).
      */
     consume(amount) {
+        if (this.entity.hasTag('creative')) return amount
         const current = this.get();
         if (current < amount) return 0;
         this.add(-amount);
@@ -2624,18 +2739,19 @@ export class FluidManager {
             }
             if (!targetEntity) return 0;
 
-            const target = new FluidManager(targetEntity, 0);
+            const target = FluidManager.findType(targetEntity, type);
+            if (!target) return 0;
+
             const targetType = target.getType();
             const space = target.getFreeSpace();
-
-            // Skip incompatible fluids
-            if (targetType !== "empty" && targetType !== type) return 0;
             if (space <= 0) return 0;
 
-            // Assign fluid type if empty
             if (targetType === "empty") target.setType(type);
 
-            const amount = share ? Math.min(share, space, available, speed) : Math.min(space, available, speed);
+            const amount = share
+                ? Math.min(share, space, available, speed)
+                : Math.min(space, available, speed);
+
             const added = target.add(amount);
 
             if (added > 0) {
@@ -2662,7 +2778,7 @@ export class FluidManager {
         }
 
         // Subtract total transferred
-        if (transferred > 0) this.add(-transferred);
+        if (transferred > 0) this.consume(transferred);
 
         return transferred;
     }
@@ -2710,7 +2826,7 @@ export class FluidManager {
         if (!targetBlock) return false;
 
         // Only proceed if the target block supports fluids
-        if (!targetBlock.hasTag("dorios:fluid")) return false;
+        if (!targetBlock.hasTag("dorios:fluid") || targetBlock.hasTag('dorios:isTube')) return false;
 
         let targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
 
@@ -2744,7 +2860,7 @@ export class FluidManager {
         const transferable = Math.min(amount, this.get(), other.getFreeSpace());
         if (transferable <= 0) return 0;
 
-        this.add(-transferable);
+        this.consume(transferable);
         other.add(transferable);
         if (other.getType() === "empty") other.setType(this.getType());
         return transferable;

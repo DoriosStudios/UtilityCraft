@@ -99,28 +99,9 @@ DoriosAPI.register.blockComponent("fluid_container", {
             return;
         }
 
-
-
         // ─── Interacción con máquinas ─────────────────────────
         if (!entity) return;
-
-        const fluid = new FluidManager(entity, 0);
-        const insert = fluid.fluidItem(mainHand.typeId);
-        if (insert === false) return;
-
-        const type = fluid.getType();
-        const amount = fluid.get();
-        const cap = fluid.getCap();
-        const percent = ((amount / cap) * 100).toFixed(2);
-
-        player.onScreenDisplay.setActionBar(
-            `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
-        );
-
-        if (!player.isInCreative()) {
-            player.changeItemAmount(player.selectedSlotIndex, -1);
-            if (insert) player.giveItem(insert);
-        }
+        FluidManager.handleFluidItemInteraction(player, entity, mainHand)
     },
     beforeOnPlayerPlace({ block, player }, { params }) {
         /** @type {ItemStack} */
