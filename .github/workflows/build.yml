@@ -1,0 +1,71 @@
+name: Build Addon
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-addon:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Obtain release title (example: "UtilityCraft Heavy Machinery v0.1.0")
+      - name: Get release title
+        run: echo "REL_TITLE=${RELEASE_TITLE}" >> $GITHUB_ENV
+        env:
+          RELEASE_TITLE: ${{ github.event.release.name }}
+
+      # Sanitize title for filenames (replace spaces with underscores)
+      - name: Sanitize title
+        run: echo "FILE_NAME=$(echo \"$REL_TITLE\" | tr ' ' '_')" >> $GITHUB_ENV
+
+      # Create MCADDON
+      - name: Create MCAddon
+        run: |
+          mkdir temp_mcaddon
+          cp -r BP temp_mcaddon/BP
+          cp -r RP temp_mcaddon/RP
+          cd temp_mcaddon
+          zip -r "../$FILE_NAME.mcaddon" .
+          cd ..
+          rm -rf temp_mcaddon
+
+      # Create BP.mcpack with EXACT naming
+      - name: Create BP mcpack
+        run: |
+          cd BP
+          zip -r "../${REL_TITLE} BP.mcpack" .
+          cd ..
+
+      # Create RP.mcpack with EXACT naming
+      - name: Create RP mcpack
+        run: |
+          cd RP
+          zip -r "../${REL_TITLE} RP.mcpack" .
+          cd ..
+
+      # Create packs.zip containing the two mcpack files
+      - name: Create packs ZIP
+        run: |
+          mkdir pack_folder
+          mv "${REL_TITLE} BP.mcpack" pack_folder/
+          mv "${REL_TITLE} RP.mcpack" pack_folder/
+          cd pack_folder
+          zip -r "../$FILE_NAME-packs.zip" .
+          cd ..
+          rm -rf pack_folder
+
+      # Upload assets to the GitHub Release
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ${{ env.FILE_NAME }}.mcaddon
+            ${{ env.FILE_NAME }}-packs.zip
+            ${{ env.REL_TITLE }} BP.mcpack
+            ${{ env.REL_TITLE }} RP.mcpack
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
