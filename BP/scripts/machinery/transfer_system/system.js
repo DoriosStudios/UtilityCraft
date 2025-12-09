@@ -259,7 +259,7 @@ export function updatePipes(block, tag) {
  * ## Behavior:
  * - Stops scanning when a block lacks the `dorios:energy` tag.
  * - Detects cables (`utilitycraft:energy_cable`) and follows all six directions recursively.
- * - Detects generator or port entities (`dorios:energy_source`, `dorios:port`) and
+ * - Detects generator or port entities (`dorios:energy_source`, `dorios:multiblock.port`) and
  *   triggers `searchEnergyContainers` for each one.
  * - Automatically adds connected blocks or entities to the appropriate generator’s tag list.
  *
@@ -298,7 +298,7 @@ export function startRescanEnergy(startPos, dimension) {
         }
         // Get the entity at this position (should only be one if it's a machine/gen)
         let entity = dimension.getEntitiesAtBlockLocation(pos)[0];
-        if (block.hasTag('dorios:port')) {
+        if (block.hasTag('dorios:multiblock.port')) {
             entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0]
             let queue = []
             if (!entity) continue
@@ -389,7 +389,7 @@ function searchEnergyContainers(startQueue, gen) {
         }
         let entity = dimension.getEntitiesAtBlockLocation(pos)[0];
 
-        if (block?.hasTag('dorios:energy') && block?.hasTag('dorios:port')) {
+        if (block?.hasTag('dorios:energy') && block?.hasTag('dorios:multiblock.port')) {
             entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0]
             if (entity) machines.push(entity.location);
             continue
@@ -921,7 +921,7 @@ async function startRescanItem(startPos, dimension) {
             continue;
         }
 
-        if (block.hasTag("dorios:port") && block.hasTag("dorios:item")) {
+        if (block.hasTag("dorios:multiblock.port") && block.hasTag("dorios:item")) {
             let entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0];
             if (entity) {
                 const loc = entity.location;
@@ -1543,7 +1543,7 @@ function startRescanFluid(startPos, dimension) {
 
         let entity = dimension.getEntitiesAtBlockLocation(pos)[0];
 
-        if (block.hasTag("dorios:port") && block.hasTag("dorios:fluid")) {
+        if (block.hasTag("dorios:multiblock.port") && block.hasTag("dorios:fluid")) {
             entity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0];
             if (!entity) continue;
             const loc = entity.location;
