@@ -2260,10 +2260,10 @@ export class FluidManager {
      */
     static formatFluid(value) {
         let unit = "mB";
-        if (value >= 1e9) {
+        if (value >= 1e7) {
             unit = "MB";
             value /= 1e6;
-        } else if (value >= 1e6) {
+        } else if (value >= 1e4) {
             unit = "kB";
             value /= 1e3;
         }
@@ -2521,6 +2521,7 @@ export class FluidManager {
         const { value, exp } = FluidManager.normalizeValue(amount);
         this.scores.fluidCap.setScore(this.scoreId, value);
         this.scores.fluidCapExp.setScore(this.scoreId, exp);
+        if (this.get() > amount) this.set(amount)
     }
 
     /**

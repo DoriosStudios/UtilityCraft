@@ -1,4 +1,4 @@
-import { FluidManager, Rotation } from './DoriosMachinery/core.js'
+import { FluidManager, Rotation, Generator } from './DoriosMachinery/core.js'
 import { system, ItemStack, world } from '@minecraft/server'
 
 DoriosAPI.register.blockComponent("fluid_container", {
@@ -6,14 +6,17 @@ DoriosAPI.register.blockComponent("fluid_container", {
         /** @type {ItemStack} */
         const mainHand = player.getEquipment('Mainhand');
 
+        const dim = block.dimension;
+        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
         if (mainHand?.typeId?.includes('wrench')) {
-            if (!player.isSneaking) return
+            if (!player.isSneaking) {
+                if (entity && block.hasTag('dorios:generator')) Generator.openGeneratorTransferModeMenu(entity, player)
+                return
+            }
             Rotation.handleRotation(block, face)
             return
         }
 
-        const dim = block.dimension;
-        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
         const isTank = block.typeId.includes('fluid_tank');
 
         // ─── Sin ítem en mano ───────────────────────────────
