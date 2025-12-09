@@ -1,105 +1,5 @@
 {
     "namespace": "machineryCommon",
-    "vertical": {
-        "type": "collection_panel",
-        "anchor_from": "center",
-        "anchor_to": "center",
-        "size": [
-            162,
-            72
-        ],
-        "collection_name": "container_items",
-        "$item_collection_name": "container_items",
-        "$is_energy|default": false,
-        "$is_liquid|default": false,
-        "$has_bg|default": false,
-        "$collection_index_third|default": 2,
-        "$collection_index_second|default": 1,
-        "$collection_index_first|default": 0,
-        "controls": [
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        10,
-                        46
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        10,
-                        30
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_third",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        10,
-                        14
-                    ]
-                }
-            },
-            {
-                "background_energy": {
-                    "type": "image",
-                    "texture": "textures/ui/energy_border",
-                    "size": [
-                        144,
-                        50
-                    ],
-                    "offset": [
-                        10,
-                        3
-                    ],
-                    "layer": 9,
-                    "visible": "$is_energy"
-                }
-            },
-            {
-                "background_liquid": {
-                    "type": "image",
-                    "texture": "textures/ui/liquid_border",
-                    "size": [
-                        144,
-                        50
-                    ],
-                    "offset": [
-                        10,
-                        3
-                    ],
-                    "layer": 9,
-                    "visible": "$is_liquid"
-                }
-            },
-            {
-                "background": {
-                    "type": "image",
-                    "texture": "textures/ui/bar_bg",
-                    "size": [
-                        28,
-                        64
-                    ],
-                    "offset": [
-                        10,
-                        3
-                    ],
-                    "layer": 0,
-                    "visible": "$has_bg"
-                }
-            }
-        ]
-    },
     "vertical_single": {
         "type": "collection_panel",
         "anchor_from": "center",
@@ -172,32 +72,6 @@
                     ],
                     "layer": 0,
                     "visible": "$has_bg"
-                }
-            }
-        ]
-    },
-    "bg_bar": {
-        "type": "collection_panel",
-        "anchor_from": "center",
-        "anchor_to": "center",
-        "size": [
-            162,
-            72
-        ],
-        "controls": [
-            {
-                "background": {
-                    "type": "image",
-                    "texture": "textures/ui/bar_bg",
-                    "size": [
-                        28,
-                        64
-                    ],
-                    "offset": [
-                        10,
-                        3
-                    ],
-                    "layer": 0
                 }
             }
         ]
@@ -276,7 +150,7 @@
             }
         ]
     },
-    "big_vertical": {
+    "big_vertical_single": {
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
@@ -288,35 +162,23 @@
         "$item_collection_name": "container_items",
         "$is_energy|default": false,
         "$is_liquid|default": false,
-        "$collection_index_third|default": 2,
-        "$collection_index_second|default": 1,
-        "$collection_index_first|default": 0,
+        "$has_bg|default": false,
+        "$collection_index|default": 0,
         "controls": [
             {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
+                "item_left@machineryCommon.container_item_3": {
+                    "collection_index": "$collection_index",
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        10,
-                        46
+                        -6,
+                        14
                     ]
                 }
             },
             {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        10,
-                        30
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_third",
+                "item_center@machineryCommon.container_item_3": {
+                    "collection_index": "$collection_index",
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
@@ -326,67 +188,12 @@
                 }
             },
             {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
+                "item_right@machineryCommon.container_item_3": {
+                    "collection_index": "$collection_index",
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
                         26,
-                        46
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        26,
-                        30
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_third",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        26,
-                        14
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        -6,
-                        46
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        -6,
-                        30
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_third",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        -6,
                         14
                     ]
                 }
@@ -425,174 +232,28 @@
             }
         ]
     },
-    "horizontal": {
+    "bg_bar": {
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
         "size": [
-            72,
-            162
-        ],
-        "offset": [
-            -18,
+            162,
             72
         ],
-        "collection_name": "container_items",
-        "$item_collection_name": "container_items",
-        "$collection_index_first|default": 0,
-        "$collection_index_second|default": 1,
-        "$collection_index_third|default": 2,
         "controls": [
             {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        11,
-                        0
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        27,
-                        0
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        43,
-                        0
+                "background": {
+                    "type": "image",
+                    "texture": "textures/ui/bar_bg",
+                    "size": [
+                        28,
+                        64
                     ],
-                    "collection_index": "$collection_index_third"
-                }
-            }
-        ]
-    },
-    "big_horizontal": {
-        "type": "collection_panel",
-        "anchor_from": "center",
-        "anchor_to": "center",
-        "size": [
-            72,
-            162
-        ],
-        "offset": [
-            -18,
-            72
-        ],
-        "collection_name": "container_items",
-        "$item_collection_name": "container_items",
-        "$collection_index_first|default": 0,
-        "$collection_index_second|default": 1,
-        "$collection_index_third|default": 2,
-        "controls": [
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
                     "offset": [
-                        11,
-                        0
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        27,
-                        0
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        43,
-                        0
+                        10,
+                        3
                     ],
-                    "collection_index": "$collection_index_third"
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        11,
-                        16
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        27,
-                        16
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        43,
-                        16
-                    ],
-                    "collection_index": "$collection_index_third"
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_first",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        11,
-                        32
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "collection_index": "$collection_index_second",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        27,
-                        32
-                    ]
-                }
-            },
-            {
-                "item@machineryCommon.container_item": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        43,
-                        32
-                    ],
-                    "collection_index": "$collection_index_third"
+                    "layer": 0
                 }
             }
         ]
@@ -1032,6 +693,44 @@
                             "binding_collection_name": "$item_collection_name"
                         }
                     ]
+                }
+            }
+        ]
+    },
+    "side_panel": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$is_energy|default": false,
+        "$is_liquid|default": false,
+        "$has_bg|default": false,
+        "$collection_index|default": 0,
+        "controls": [
+            {
+                "side_panel": {
+                    "type": "image",
+                    "texture": "textures/ui/side_panel",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "$cell_image_size": [
+                        88,
+                        166
+                    ],
+                    "size": [
+                        88,
+                        166
+                    ],
+                    "offset": [
+                        -8,
+                        57
+                    ],
+                    "layer": 0
                 }
             }
         ]
