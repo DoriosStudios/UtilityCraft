@@ -12,37 +12,32 @@
 - Fixed a bug where the hopper entity disappeared after being placed.
 - Fixed a bug where pipes were not connecting.
 - Elevator no longer sends a chat message when used.
-- Updated Wind Turbine description to correct wrong values.
+- Fixed Wind Turbine description displaying wrong values.
+- Fixed a bug where generators that support fluids didn't open the transfer mode menu to switch modes.
+- Fixed Bonsais & removed register logs when registering a recipe (console message removed).
 
 ## ADDITIONS & IMPROVEMENTS
 
 ### Autofisher
 - Added the **Autofisher** machine block.
 - Added a full set of **fishing nets**: String, Copper, Iron, Golden, Emerald, Diamond, and Netherite tiers.
-- Added a **custom Autofisher UI** (based on Autosieve).
 
 ### Item Transport
 - Added **colored item conduits** and **item exporters**:
   - Blue, Red, Yellow, Purple, and Green (default).
 - Added the **Item Importer**:
-  - Does not use entities.
   - Accepts filter upgrades.
   - Includes a new filter-settings button that displays all filtered items with colors, consistent with exporters and conduits.
-- Updated item catalog.
 
 ### Fluid System
 - Added **colored fluid pipes**:
-  - Yellow (default), Green, Red, Purple.
+  - Yellow (default), Blue, Green, Red, Purple.
 - Added **item extractors** for fluid/color pipe networks.
 - Added support for **multiple fluid types in a single container**, used for machines such as the Thermal Reactor.
+- Updated the machinery library to support multiple liquids inside a single container (generators, machines, tanks).
 
-**Note:** Colored cables/pipes do not connect to different colors. This is intentional.
+> **Note:** Colored cables/pipes do not connect to different colors. This is intentional to helps players organize cable networks more efficiently.
 
 ### Trash Can
 - Implemented the **Trash Can** block:
   - Items inserted via conduits, machines, or manually are destroyed instantly.
-
-### Internal Improvements
-- Added support for **custom liquid items and containers** in `managers.js`.
-- Moved pipe textures into a dedicated folder.
-- Updated scripts and language files to reflect new systems and items.
