@@ -6,36 +6,6 @@
             "is_spawnable": false,
             "is_summonable": true,
             "is_experimental": false,
-            "animations": {
-                "grow_10": "animation.dorios_bonsai.grow_10",
-                "grow_30": "animation.dorios_bonsai.grow_30",
-                "grow_40": "animation.dorios_bonsai.grow_40",
-                "grow_45": "animation.dorios_bonsai.grow_45",
-                "grow_50": "animation.dorios_bonsai.grow_50",
-                "grow_60": "animation.dorios_bonsai.grow_60"
-            },
-            "scripts": {
-                "animate": [
-                    {
-                        "grow_10": "q.property('dorios:time') == 10 && !q.property('dorios:is_slimed')"
-                    },
-                    {
-                        "grow_30": "q.property('dorios:time') == 30 && !q.property('dorios:is_slimed')"
-                    },
-                    {
-                        "grow_40": "q.property('dorios:time') == 40 && !q.property('dorios:is_slimed')"
-                    },
-                    {
-                        "grow_45": "q.property('dorios:time') == 45 && !q.property('dorios:is_slimed')"
-                    },
-                    {
-                        "grow_50": "q.property('dorios:time') == 50 && !q.property('dorios:is_slimed')"
-                    },
-                    {
-                        "grow_60": "q.property('dorios:time') == 60 && !q.property('dorios:is_slimed')"
-                    }
-                ]
-            },
             "properties": {
                 "dorios:time": {
                     "type": "int",
@@ -77,9 +47,91 @@
                 "minecraft:scale": {
                     "value": 0.25
                 }
+            },
+            "grow_10": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        10,
+                        10
+                    ],
+                    "time_down_event": {
+                        "event": "loot"
+                    }
+                }
+            },
+            "grow_30": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        30,
+                        30
+                    ],
+                    "time_down_event": {
+                        "event": "loot"
+                    }
+                }
+            },
+            "grow_40": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        40,
+                        40
+                    ],
+                    "time_down_event": {
+                        "event": "loot"
+                    }
+                }
+            },
+            "grow_45": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        45,
+                        45
+                    ],
+                    "time_down_event": {
+                        "event": "loot"
+                    }
+                }
+            },
+            "grow_50": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        50,
+                        50
+                    ],
+                    "time_down_event": {
+                        "event": "loot"
+                    }
+                }
+            },
+            "grow_60": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        60,
+                        60
+                    ],
+                    "time_down_event": {
+                        "event": "loot"
+                    }
+                }
             }
         },
         "components": {
+            "minecraft:timer": {
+                "looping": true,
+                "time": [
+                    60,
+                    60
+                ],
+                "time_down_event": {
+                    "event": "loot"
+                }
+            },
             "minecraft:collision_box": {
                 "height": 0.8,
                 "width": 0
@@ -129,6 +181,11 @@
             }
         },
         "events": {
+            "loot": {
+                "queue_command": {
+                    "command": "scriptevent dorios:bonsai_loot"
+                }
+            },
             "despawn": {
                 "add": {
                     "component_groups": [
@@ -147,6 +204,48 @@
                 "add": {
                     "component_groups": [
                         "small"
+                    ]
+                }
+            },
+            "grow_10": {
+                "add": {
+                    "component_groups": [
+                        "grow_10"
+                    ]
+                }
+            },
+            "grow_30": {
+                "add": {
+                    "component_groups": [
+                        "grow_30"
+                    ]
+                }
+            },
+            "grow_40": {
+                "add": {
+                    "component_groups": [
+                        "grow_40"
+                    ]
+                }
+            },
+            "grow_45": {
+                "add": {
+                    "component_groups": [
+                        "grow_45"
+                    ]
+                }
+            },
+            "grow_50": {
+                "add": {
+                    "component_groups": [
+                        "grow_50"
+                    ]
+                }
+            },
+            "grow_60": {
+                "add": {
+                    "component_groups": [
+                        "grow_60"
                     ]
                 }
             }

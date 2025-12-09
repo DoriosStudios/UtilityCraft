@@ -34,7 +34,7 @@
                     ],
                     "transitions": [
                         {
-                            "default": "query.all_animations_finished && q.property('dorios:is_slimed')"
+                            "default": "query.all_animations_finished || q.property('dorios:is_slimed') || q.property('dorios:time') == 0"
                         }
                     ]
                 }

@@ -87,15 +87,12 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             const existing = solidFuels.find(f => f.id === fuelId);
             if (existing) {
                 existing.de = de;
-                console.warn(`[UtilityCraft] Replaced existing fuel '${fuelId}' with ${de} DE.`);
                 replaced++;
             } else {
                 solidFuels.push({ id: fuelId, de });
                 added++;
             }
         }
-
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} fuels.`);
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse fuel registration payload:", err);
     }

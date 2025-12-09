@@ -139,6 +139,7 @@ DoriosAPI.register.blockComponent('bonsai', {
                     if (!specialSoils.includes(soilId) && !bonsaiData?.disableTimeBonus) {
                         let timeGrowth = BASETIMEGROWTH - (soil.bonus ?? 0)
                         timeGrowth -= 10 // Farming bonus
+                        entity.triggerEvent(`grow_${timeGrowth}`)
                         entity.setProperty('dorios:time', timeGrowth)
                     }
                 }
@@ -181,6 +182,7 @@ DoriosAPI.register.blockComponent('bonsai', {
                     growthTime *= bonsai.growthDebuff
                 }
 
+                bonsaiEntity.triggerEvent(`grow_${growthTime}`)
                 bonsaiEntity.setProperty('dorios:time', growthTime)
                 bonsaiEntity.setProperty('dorios:multi', yieldMultiplier)
 
@@ -275,4 +277,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             } catch { }
         }
     })
+    const time = sourceEntity.getProperty('dorios:time')
+    sourceEntity.setProperty('dorios:time', 0)
+    system.runTimeout(() => sourceEntity.setProperty('dorios:time', time), 2)
 })

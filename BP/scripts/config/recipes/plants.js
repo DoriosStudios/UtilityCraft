@@ -713,8 +713,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             // console.warn(`${JSON.stringify(plantsData[bonsaiId])}`)
             // console.warn(`${JSON.stringify(newBonsai)}`)
         }
-
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} bonsai definitions.`)
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse bonsai registration payload:", err)
     }

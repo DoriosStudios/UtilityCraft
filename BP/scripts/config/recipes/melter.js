@@ -60,7 +60,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             if (typeof data.amount !== "number") continue;
 
             if (melterRecipes[inputId]) {
-                console.warn(`[UtilityCraft] Replaced existing melter recipe for '${inputId}'.`);
                 replaced++;
             } else {
                 added++;
@@ -68,8 +67,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 
             melterRecipes[inputId] = data;
         }
-
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} melter recipes.`);
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse melter registration payload:", err);
     }

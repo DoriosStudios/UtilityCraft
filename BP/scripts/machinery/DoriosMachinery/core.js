@@ -3208,7 +3208,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             if (!data.types || typeof data.required !== "number") continue;
 
             if (FluidManager.itemFluidHolders[itemId]) {
-                console.warn(`[UtilityCraft] Replaced existing fluid-holder for '${itemId}'.`);
                 replaced++;
             } else {
                 added++;

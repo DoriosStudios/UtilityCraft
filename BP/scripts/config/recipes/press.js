@@ -82,7 +82,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             if (!data.output || typeof data.output !== "string") continue;
 
             if (pressRecipes[inputId]) {
-                console.warn(`[UtilityCraft] Replaced existing press recipe for '${inputId}'.`);
                 replaced++;
             } else {
                 added++;
@@ -90,8 +89,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 
             pressRecipes[inputId] = data;
         }
-
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} press recipes.`);
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse press registration payload:", err);
     }

@@ -200,7 +200,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             if (!data.output || typeof data.output !== "string") continue;
 
             if (crusherRecipes[inputId]) {
-                console.warn(`[UtilityCraft] Replaced existing crusher recipe for '${inputId}'.`);
                 replaced++;
             } else {
                 added++;
@@ -209,8 +208,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             // Directly assign; machine will handle defaults
             crusherRecipes[inputId] = data;
         }
-
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} crusher recipes.`);
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse crusher registration payload:", err);
     }

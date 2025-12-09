@@ -209,7 +209,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
             }
 
             if (infuserRecipes[recipeKey]) {
-                console.warn(`[UtilityCraft] Replaced existing infuser recipe for '${recipeKey}'.`);
                 replaced++;
             } else {
                 added++;
@@ -217,8 +216,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 
             infuserRecipes[recipeKey] = data;
         }
-
-        console.warn(`[UtilityCraft] Registered ${added} new and replaced ${replaced} infuser recipes.`);
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse infuser registration payload:", err);
     }
