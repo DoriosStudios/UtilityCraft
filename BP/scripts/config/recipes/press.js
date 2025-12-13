@@ -45,7 +45,7 @@ export const pressRecipes = {
     "minecraft:stone": { output: "minecraft:deepslate", required: 4 },
     "minecraft:bone_meal": { output: "minecraft:bone_block", required: 9 },
     "minecraft:blaze_powder": { output: "minecraft:blaze_rod", required: 2 },
-    "minecraft:kelp": { output: "minecraft:kelp_block", required: 9 },
+    "minecraft:dried_kelp": { output: "minecraft:dried_kelp_block", required: 9 },
     "minecraft:blue_ice": { output: "minecraft:packed_ice", required: 9 }
 }
 
