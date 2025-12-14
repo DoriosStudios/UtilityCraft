@@ -5,7 +5,8 @@ UtilityCraft Minecraft Bedrock Add-On
 
 See also UtilityCraft Expansions:
 
-- [Heavy Machinery](#)
+- [Ascendant Technology](https://github.com/DoriosStudios/Ascendant-Technology)
+- [Heavy Machinery](https://github.com/DoriosStudios/UtilityCraft-Heavy-Machinery)
 
 More Dorios Studios projects:
 
