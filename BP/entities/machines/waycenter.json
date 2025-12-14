@@ -1,4 +1,4 @@
-	{
+{
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
@@ -33,18 +33,6 @@
 			},
 			"minecraft:knockback_resistance": {
 				"value": 10000
-			},
-			"minecraft:inside_block_notifier": {
-				"block_list": [
-					{
-						"block": {
-							"name": "air"
-						},
-						"entered_block_event": {
-							"event": "despawn"
-						}
-					}
-				]
 			}
 		},
 		"events": {
