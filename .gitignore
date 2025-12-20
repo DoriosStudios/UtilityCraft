@@ -1,15 +1,19 @@
 Desktop.ini
 .DS_Store
 
-# Ignorar carpetas de configuración
+# Ignore editor configuration folders | Ignorar carpetas de configuración de editores
 .bridge/
 .vscode/
 .git/
 
-# Ignorar compilaciones y empaquetados
+# Ignore compilarions and packs | Ignorar compilaciones y empaquetados
 builds/
 packs/
 
-# Excepciones específicas
+# Specific Exceptions | Excepciones específicas
 !.bridge/compiler/
 !.bridge/extensions
+
+# Specific File Types | Tipos de archivo específicos
+*.log
+*.txt
