@@ -11,7 +11,6 @@ tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluidos §eBásico§7\n Capaci
 tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluidos §cAvançado§7\n Capacidade: 32000mB
 tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluidos §3Expert§7\n Capacidade: 128000mB
 tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluidos §8Supremo§7\n Capacidade: 512000mB
-tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos \n§7- Aceita melhorias:\n §a§7
 tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §a§7
 
 ### Machines and Similiar | Máquinas e Similares
@@ -51,20 +50,24 @@ tile.utilitycraft:cobble_gen_5.name=Gerador de Pedregulho (§8Tier VI§r)\n§7- 
 tile.utilitycraft:conveyor_horizontal.name=Esteira horizontal
 tile.utilitycraft:conveyor_inclined.name=Esteira Inclinada §7(Pra cima)
 tile.utilitycraft:conveyor_declined.name=Esteira inclinada §7(Pra baixo)
+
 ### Energy Cables | Cabos de Energia
 tile.utilitycraft:energy_cable.name=Cabo de Energia
+
 ### Item Importers and Exporters | Importadores e Exportadores de Itens
 tile.utilitycraft:item_importer.name=Importador de Itens (Padrão)\n§7- Aceita melhorias:\n   §f§7
 tile.utilitycraft:item_importer_blue.name=Importador de Itens (Azul)\n§7- Aceita melhorias:\n   §f§7
 tile.utilitycraft:item_importer_purple.name=Importador de Itens (Roxo)\n§7- Aceita melhorias:\n   §f§7
 tile.utilitycraft:item_importer_red.name=Importador de Itens (Vermelho)\n§7- Aceita melhorias:\n   §f§7
 tile.utilitycraft:item_importer_yellow.name=Importador de Itens (Amarelo)\n§7- Aceita melhorias:\n   §f§7
+
 tile.utilitycraft:item_conduit.name=Tubo Verde (Padrão)\n§7- Transporta itens
 tile.utilitycraft:item_conduit_blue.name=Tubo Azul\n§7- Transporta itens
 tile.utilitycraft:item_conduit_yellow.name=Tubo Amarelo\n§7- Transporta itens
 tile.utilitycraft:item_conduit_red.name=Tubo Vermelho\n§7- Transporta itens
 tile.utilitycraft:item_conduit_purple.name=Tubo de Itens (Roxo)\n§7- Transporta itens
-tile.utilitycraft:item_exporter.name=Exportador de Itens \n§7- Aceita melhorias:\n §a§7, §f§7
+
+tile.utilitycraft:item_exporter.name=Exportador de Itens (Padrão)\n§7- Aceita melhorias:\n §a§7, §f§7
 tile.utilitycraft:item_exporter_blue.name=Exportador de Itens (Azul)\n§7- Aceita melhorias:\n   §a§7 §f§7
 tile.utilitycraft:item_exporter_purple.name=Exportador de Itens (Roxo)\n§7- Aceita melhorias:\n   §a§7 §f§7
 tile.utilitycraft:item_exporter_red.name=Exportador de Itens (Vermelho)\n§7- Aceita melhorias:\n   §a§7 §f§7
@@ -100,6 +103,7 @@ tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Veloc
 tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
 
 ### Fluid Importers and Exporters | Importadores e Exportadores de Fluidos
+tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos (Padrão)\n§7- Aceita melhorias:\n §a§7
 tile.utilitycraft:fluid_extractor_blue.name=Extrator de Fluido (Azul)\n§7- Aceita melhorias:\n   §a§7
 tile.utilitycraft:fluid_extractor_green.name=Extrator de Fluido (Verde)\n§7- Aceita melhorias:\n   §a§7
 tile.utilitycraft:fluid_extractor_purple.name=Extrator de Fluido (Roxo)\n§7- Aceita melhorias:\n   §a§7
