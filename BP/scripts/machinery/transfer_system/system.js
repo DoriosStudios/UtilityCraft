@@ -286,7 +286,7 @@ export function startRescanEnergy(startPos, dimension) {
         const block = dimension.getBlock(pos);
         if (!block.hasTag('dorios:energy')) continue
 
-        if (block?.typeId === "utilitycraft:energy_cable") {
+        if (block?.hasTag('dorios:isTube')) {
             for (const offset of offsets) {
                 queue.push({
                     x: pos.x + offset.x,
