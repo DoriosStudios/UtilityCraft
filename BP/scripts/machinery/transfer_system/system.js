@@ -1653,3 +1653,65 @@ world.afterEvents.playerPlaceBlock.subscribe(e => {
         updatePipes(block, 'fluid');
     }
 });
+
+/**
+ * Converts piston facing direction to a vector.
+ *
+ * @param {number} dir
+ * @returns {{x:number,y:number,z:number}}
+ */
+function getDirectionVector(dir) {
+    switch (dir) {
+        case 0: return { x: 0, y: -1, z: 0 }; // down
+        case 1: return { x: 0, y: 1, z: 0 };  // up
+        case 2: return { x: 0, y: 0, z: -1 }; // north
+        case 3: return { x: 0, y: 0, z: 1 };  // south
+        case 4: return { x: -1, y: 0, z: 0 }; // west
+        case 5: return { x: 1, y: 0, z: 0 };  // east
+        default: return { x: 0, y: 0, z: 0 };
+    }
+}
+
+world.afterEvents.pistonActivate.subscribe(e => {
+    const { piston, isExpanding, dimension } = e;
+
+    // Locations affected (works even when getAttachedBlocks() is bugged)
+    const locations = piston.getAttachedBlocksLocations();
+    if (!locations || locations.length === 0) return;
+
+    // Facing direction -> vector
+    const facing = piston.block.permutation.getState("facing_direction");
+    const dirVec = getDirectionVector(facing);
+
+    // Expand: blocks move +dirVec
+    // Retract (sticky): blocks move -dirVec
+    const step = isExpanding ? -1 : 1;
+    system.runTimeout(() => {
+        for (const pos of locations) {
+            const block = dimension.getBlock(pos)
+            // world.sendMessage(`${block.typeId}`)
+            const nextBlockPos = DoriosAPI.utils.offsetPos(pos, dirVec, step);
+            // const nextBlock = block.offset(dirVec)
+            const nextBlock = dimension.getBlock(nextBlockPos)
+            // world.sendMessage(`${nextBlock.typeId}`)
+            if (block.hasTag('dorios:energy') || nextBlock.hasTag('dorios:energy')) {
+                updatePipes(block, 'energy');
+                updatePipes(nextBlock, 'energy');
+            }
+
+            if (
+                block.hasTag('dorios:item') || nextBlock.hasTag('dorios:item') ||
+                DoriosAPI.constants.vanillaContainers.includes(block.typeId) || DoriosAPI.constants.vanillaContainers.includes(nextBlock.typeId)
+            ) {
+                updatePipes(block, 'item');
+                updatePipes(nextBlock, 'item');
+            }
+
+            if (block.hasTag('dorios:fluid') || nextBlock.hasTag('dorios:fluid')) {
+                updatePipes(block, 'fluid');
+                updatePipes(nextBlock, 'fluid');
+            }
+        }
+    }, 2)
+
+});

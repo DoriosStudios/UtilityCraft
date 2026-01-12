@@ -807,6 +807,20 @@ globalThis.DoriosAPI = {
      */
     utils: {
         /**
+         * Offsets a position by a vector * amount.
+         *
+         * @param {{x:number,y:number,z:number}} pos
+         * @param {{x:number,y:number,z:number}} vec
+         * @param {number} amount
+         */
+        offsetPos(pos, vec, amount = 1) {
+            return {
+                x: pos.x + vec.x * amount,
+                y: pos.y + vec.y * amount,
+                z: pos.z + vec.z * amount
+            };
+        },
+        /**
          * Converts a number of seconds into a formatted time string (mm:ss or hh:mm:ss).
          *
          * - Displays hours only when greater than zero.
