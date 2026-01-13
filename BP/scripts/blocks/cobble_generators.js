@@ -1,6 +1,9 @@
 DoriosAPI.register.blockComponent("cobble_generators", {
-    onTick({ block, dimension }) {
+    onTick({ block, dimension }, { params }) {
         let { x, y, z } = block.location
+
+        const amount = Math.max(1, params?.amount ?? 1)
+        const material = params?.material ?? "minecraft:cobblestone"
 
         // Facing direction offset
         const facing = block.getState("minecraft:facing_direction")
@@ -14,29 +17,36 @@ DoriosAPI.register.blockComponent("cobble_generators", {
             x += dx; y += dy; z += dz
         }
 
-        // Progress stored in e0/e1
+        // Progress stored in e0 / e1
         const e0 = block.getState("utilitycraft:e0")
         const e1 = block.getState("utilitycraft:e1")
-        const quantity = e1 * 10 + e0
+        let quantity = e1 * 10 + e0
 
-        if (DoriosAPI.containers.addItemAt({ x, y, z }, dimension, "minecraft:cobblestone", 1 + quantity)) {
+        // Intentar insertar usando amount + progreso acumulado
+        const insertAmount = Math.min(64, amount + quantity)
+
+        if (DoriosAPI.containers.addItemAt({ x, y, z }, dimension, material, insertAmount)) {
             block.setState("utilitycraft:e0", 0)
             block.setState("utilitycraft:e1", 0)
             return
         }
 
-        if (quantity < 64) {
-            block.setState("utilitycraft:e0", e0 < 10 ? e0 + 1 : 0)
-            block.setState("utilitycraft:e1", e0 < 10 ? e1 : e1 + 1)
-        }
+        quantity = Math.min(64, quantity + amount)
+
+        const newE1 = Math.floor(quantity / 10)
+        const newE0 = quantity % 10
+
+        block.setState("utilitycraft:e0", newE0)
+        block.setState("utilitycraft:e1", newE1)
     },
-    onPlayerInteract({ block, player }) {
+    onPlayerInteract({ block, player }, { params }) {
         const e0 = block.getState("utilitycraft:e0")
         const e1 = block.getState("utilitycraft:e1")
         const quantity = e1 * 10 + e0
+        const material = params?.material ?? "minecraft:cobblestone"
 
         if (quantity > 0 && !player.getComponent("equippable")?.getEquipment("Mainhand")) {
-            player.giveItem("cobblestone", quantity)
+            player.giveItem(material, quantity)
             block.setState("utilitycraft:e0", 0)
             block.setState("utilitycraft:e1", 0)
         }
