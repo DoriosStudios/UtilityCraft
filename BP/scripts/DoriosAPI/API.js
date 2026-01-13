@@ -93,6 +93,87 @@ globalThis.DoriosAPI = {
                     handlers
                 );
             });
+        },
+
+        /**
+         * Registers a custom command.
+         *
+         * @param {Object} command Command definition
+         * @param {string} command.name Command name (without namespace)
+         * @param {string} command.description Command description
+         * @param {keyof DoriosAPI.constants.permissionMap} [command.permissionLevel="any"]
+         * @param {boolean} [command.cheatsRequired=false]
+         * @param {Array<Object>} [command.parameters]
+         * @param {string} command.parameters[].name Parameter name
+         * @param {keyof DoriosAPI.constants.typeMap} command.parameters[].type
+         * @param {boolean} [command.parameters[].optional=false]
+         * @param {string[]} [command.parameters[].enum]
+         * @param {Function} command.callback Command execution callback
+         */
+        command(command) {
+            system.beforeEvents.startup.subscribe(e => {
+                const {
+                    permissionMap,
+                    typeMap
+                } = DoriosAPI.constants;
+
+                const permission =
+                    permissionMap[command.permissionLevel?.toLowerCase()] ??
+                    CommandPermissionLevel.Any;
+
+                const definition = {
+                    name: `${NAMESPACE}:${command.name}`,
+                    description: command.description ?? "",
+                    permissionLevel: permission,
+                    cheatsRequired: command.cheatsRequired ?? false,
+                };
+
+                const mandatory = [];
+                const optional = [];
+
+                if (Array.isArray(command.parameters)) {
+                    for (const param of command.parameters) {
+
+                        // ENUM SUPPORT
+                        if (param.type === "enum" && Array.isArray(param.enum)) {
+                            const enumId = `${NAMESPACE}:${command.name}_${param.name}`;
+
+                            e.customCommandRegistry.registerEnum(enumId, param.enum);
+
+                            const def = {
+                                name: enumId,
+                                type: CustomCommandParamType.Enum
+                            };
+
+                            (param.optional ? optional : mandatory).push(def);
+                            continue;
+                        }
+
+                        const def = {
+                            name: param.name,
+                            type: typeMap[param.type] ?? CustomCommandParamType.String
+                        };
+
+                        (param.optional ? optional : mandatory).push(def);
+                    }
+                }
+
+                if (mandatory.length) definition.mandatoryParameters = mandatory;
+                if (optional.length) definition.optionalParameters = optional;
+
+                e.customCommandRegistry.registerCommand(definition, (origin, ...args) => {
+                    system.run(() => {
+                        try {
+                            command.callback(origin, ...args);
+                        } catch (err) {
+                            console.warn(
+                                `[${NAMESPACE}:command:${command.name}]`,
+                                err
+                            );
+                        }
+                    });
+                });
+            });
         }
     },
 

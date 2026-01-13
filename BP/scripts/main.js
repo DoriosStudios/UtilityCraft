@@ -33,4 +33,4 @@ import './stack_refill.js'
 
 import './machinery/main.js'
 
-import './speed.js'
+// import './speed.js'

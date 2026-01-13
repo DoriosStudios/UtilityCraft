@@ -55,43 +55,11 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "2.1.0"
+			"version": "2.4.0"
 		},
 		{
 			"module_name": "@minecraft/server-ui",
 			"version": "2.0.0"
-		}
-	],
-	"subpacks": [
-		{
-			"folder_name": "Super Fast",
-			"name": "Super Fast",
-			"memory_tier": 0
-		},
-		{
-			"folder_name": "Fast",
-			"name": "Fast",
-			"memory_tier": 1
-		},
-		{
-			"folder_name": "Normal",
-			"name": "Normal",
-			"memory_tier": 2
-		},
-		{
-			"folder_name": "Slow",
-			"name": "Slow",
-			"memory_tier": 3
-		},
-		{
-			"folder_name": "Super Slow",
-			"name": "Super Slow",
-			"memory_tier": 4
-		},
-		{
-			"folder_name": "Slow",
-			"name": "Default",
-			"memory_tier": 5
 		}
 	]
 }

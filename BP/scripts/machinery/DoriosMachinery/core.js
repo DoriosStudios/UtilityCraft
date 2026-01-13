@@ -2,6 +2,7 @@ import { system, world, ItemStack, BlockPermutation } from '@minecraft/server'
 import { ModalFormData } from '@minecraft/server-ui'
 
 const COLORS = DoriosAPI.constants.textColors
+const DEFAULT_TICK_SPEED = 20
 
 globalThis.worldLoaded = false;
 globalThis.tickCount = 0;
@@ -395,6 +396,10 @@ world.afterEvents.worldLoad.subscribe(() => {
         world.setDynamicProperty("loaded", true);
         worldLoaded = true;
     }
+
+    const configuredTickSpeed = world.getDynamicProperty("utilitycraft:tickSpeed") ?? DEFAULT_TICK_SPEED
+    globalThis.tickSpeed = configuredTickSpeed
+
 });
 
 // --- Al primer spawn del jugador ---
@@ -3281,3 +3286,5 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
         console.warn("[UtilityCraft] Failed to parse tickSpeed payload.");
     }
 });
+
+
