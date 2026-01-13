@@ -410,6 +410,7 @@
                             "utilitycraft:range_upgrade",
                             "utilitycraft:base_upgrade",
                             "utilitycraft:filter_upgrade",
+                            "utilitycraft:smart_filter_upgrade",
                             "utilitycraft:damage_upgrade"
                         ]
                     },

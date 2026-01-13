@@ -1,8 +1,9 @@
 import { world, system, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 import { FluidManager } from '../DoriosMachinery/core.js'
+import { openSmartImporterMenu } from './smart_importer.js'
 
-const offsets = [
+export const offsets = [
     { x: 1, y: 0, z: 0 },
     { x: -1, y: 0, z: 0 },
     { x: 0, y: 1, z: 0 },
@@ -11,7 +12,7 @@ const offsets = [
     { x: 0, y: 0, z: -1 },
 ];
 
-const blockFaceOffsets = {
+export const blockFaceOffsets = {
     down: [0, 1, 0],
     up: [0, -1, 0],
     south: [0, 0, -1],
@@ -25,7 +26,6 @@ const types = {
     item: startRescanItem,
     fluid: startRescanFluid
 }
-
 
 //#region Utils
 
@@ -410,8 +410,6 @@ function searchEnergyContainers(startQueue, gen) {
 }
 //#endregion
 
-
-
 //#region UtilityCraft - Filter Viewer UI
 
 function showFilteredItems(player, mode, items) {
@@ -734,7 +732,7 @@ DoriosAPI.register.blockComponent('exporter', {
 
             if (hasFilter && (exporter.hasTag(`${it.typeId}`) !== whiteList)) continue
 
-            const didMove = tryPushSlotToTargets(sourceLoc, i, orderedTargets, dimension, exporter, moved, LIMIT)
+            const didMove = tryPushSlotToTargets(sourceLoc, i, orderedTargets, dimension, exporter, moved, LIMIT, sourceInv)
             if (didMove && mode === 'round') {
                 let idx = Number(exporter.getDynamicProperty('dorios:item_round_idx') || 0)
                 exporter.setDynamicProperty('dorios:item_round_idx', (idx + 1) % targets.length)
@@ -753,7 +751,7 @@ DoriosAPI.register.blockComponent('exporter', {
  * @param {Entity} exporter
  * @returns {boolean} true if a transfer occurred
  */
-function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, moved, LIMIT) {
+function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, moved, LIMIT, sourceInv) {
     for (let loc of targets) {
         let targetBlock = dim.getBlock(loc)
         let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
@@ -764,19 +762,8 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
             const data = world.getDynamicProperty(key);
 
             // Get current item in source
-            const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dim);
             const item = sourceInv?.getItem(slotIndex);
             if (!item) return false;
-
-            // Apply importer whitelist / blacklist
-            if (data) {
-                const cfg = JSON.parse(data);  // { mode, items }
-                if (cfg.items.length > 0) {
-                    const listed = cfg.items.includes(item.typeId);
-                    if (cfg.mode === "whitelist" && !listed) continue;
-                    if (cfg.mode === "blacklist" && listed) continue;
-                }
-            }
 
             // Determine real container in front of importer
             const face = targetBlock.permutation.getState("minecraft:block_face");
@@ -789,6 +776,29 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
                 z: loc.z + off[2],
             };
 
+            // Apply importer whitelist / blacklist
+            if (data) {
+                const cfg = JSON.parse(data);  // { mode, items }
+                // Smart Importer
+                if (cfg.version == 1) {
+                    targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+                    if (!targetEntity) continue
+                    const targetInv = targetEntity.getComponent("inventory")?.container
+                    if (!targetInv) continue
+                    const targetSlots = cfg?.itemMap[item.typeId]
+                    if (targetSlots) {
+                        moved.total += DoriosAPI.containers.transferItemToSlots(sourceInv, slotIndex, targetInv, targetSlots) ?? 0
+                        if (moved.total >= LIMIT) return true
+                        continue
+                    }
+                    continue
+                }
+                if (cfg.items.length > 0) {
+                    const listed = cfg.items.includes(item.typeId);
+                    if (cfg.mode === "whitelist" && !listed) continue;
+                    if (cfg.mode === "blacklist" && listed) continue;
+                }
+            }
             // Update block/entity for normal logic
             targetBlock = dim.getBlock(loc);
             targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
@@ -981,7 +991,6 @@ async function startRescanItem(startPos, dimension) {
     }
 }
 
-
 //#region UtilityCraft - ITEM IMPORTER (Filtered Input Node)
 
 /**
@@ -1001,18 +1010,14 @@ DoriosAPI.register.blockComponent("item_importer", {
      */
     beforeOnPlayerPlace(e) {
         const { block } = e;
-        const { x, y, z } = block.location;
-
-        const key = `imp:${x},${y},${z}`;
+        const key = getImporterKey(block);
 
         system.run(() => {
-            world.setDynamicProperty(
-                key,
-                JSON.stringify({
-                    mode: "whitelist", // or "blacklist"
-                    items: []          // array of allowed/blocked item IDs
-                })
-            );
+            world.setDynamicProperty(key, JSON.stringify({
+                version: 0,            // 0 = normal filter
+                mode: "whitelist",
+                items: []
+            }));
         });
     },
 
@@ -1022,9 +1027,7 @@ DoriosAPI.register.blockComponent("item_importer", {
     onPlayerBreak(e) {
         const { block } = e;
         const { x, y, z } = block.location;
-
-        const key = `imp:${x},${y},${z}`;
-        world.setDynamicProperty(key, undefined);
+        world.setDynamicProperty(getImporterKey(block), undefined);
     },
 
     /**
@@ -1034,9 +1037,20 @@ DoriosAPI.register.blockComponent("item_importer", {
         const { block, player } = e;
         if (player.isSneaking) return;
 
-        openImporterMenu(block, player);
+        const hasFilter = block.permutation.getState('utilitycraft:filter') == 1
+        if (hasFilter) openImporterMenu(block, player);
+
+        const hasSmartFilter = block.permutation.getState('utilitycraft:smart_filter') == 1
+        if (hasSmartFilter) openSmartImporterMenu(block, player);
     }
 });
+DoriosAPI.register.blockComponent("special_container", {})
+
+
+function getImporterKey(block) {
+    const { x, y, z } = block.location;
+    return `imp:${x},${y},${z}`;
+}
 
 /**
  * Opens the filter configuration menu for an Item Importer.
@@ -1048,12 +1062,16 @@ function openImporterMenu(block, player) {
     const { x, y, z } = block.location;
     const key = `imp:${x},${y},${z}`;
 
-    let cfg = { mode: "whitelist", items: [] };
+    let cfg = { version: 0, mode: "whitelist", items: [] };
     const raw = world.getDynamicProperty(key);
     if (raw) {
         try { cfg = JSON.parse(raw); } catch { }
     }
-
+    if (cfg.version !== 0) {
+        cfg = {
+            version: 0, mode: "whitelist", items: []
+        };
+    }
     const modeText = cfg.mode === "whitelist" ? "Whitelist" : "Blacklist";
 
     const menu = new ActionFormData()

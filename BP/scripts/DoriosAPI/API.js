@@ -214,6 +214,80 @@ globalThis.DoriosAPI = {
 
     containers: {
         /**
+         * Transfers items from a specific source slot into one or more target slots.
+         *
+         * This is a low-level helper designed for precise inventory control.
+         * It assumes inventories and slot indices are already validated.
+         *
+         * Rules:
+         * - If a target slot is empty, the item is moved there and the operation ends.
+         * - If a target slot contains the same item, it fills up to max stack.
+         * - Different items are skipped.
+         * - Source slot is updated once at the end.
+         *
+         * @param {Container} sourceInv Source inventory container
+         * @param {number} sourceSlot Source slot index
+         * @param {Container} targetInv Target inventory container
+         * @param {number | number[]} targetSlots Target slot or list of slots
+         * @returns {number} Amount of items transferred
+         */
+        transferItemToSlots(sourceInv, sourceSlot, targetInv, targetSlots) {
+            if (!sourceInv || !targetInv) return 0;
+
+            const sourceItem = sourceInv.getItem(sourceSlot);
+            if (!sourceItem) return 0;
+
+            const slots = Array.isArray(targetSlots) ? targetSlots : [targetSlots];
+
+            let remaining = sourceItem.amount;
+            let transferred = 0;
+            const itemId = sourceItem.typeId;
+            const maxStack = sourceItem.maxAmount;
+
+            for (const slot of slots) {
+                if (remaining <= 0) break;
+
+                const targetItem = targetInv.getItem(slot);
+
+                // Empty slot → move all remaining and finish
+                if (!targetItem) {
+                    const moved = remaining;
+                    const newItem = sourceItem.clone();
+                    newItem.amount = moved;
+
+                    targetInv.setItem(slot, newItem);
+                    remaining = 0;
+                    transferred += moved;
+                    break;
+                }
+
+                // Different item → skip
+                if (targetItem.typeId !== itemId) continue;
+
+                // Same item → try to merge
+                const space = maxStack - targetItem.amount;
+                if (space <= 0) continue;
+
+                const moved = Math.min(space, remaining);
+                targetItem.amount += moved;
+                targetInv.setItem(slot, targetItem);
+
+                remaining -= moved;
+                transferred += moved;
+            }
+
+            // Update source slot once
+            if (remaining <= 0) {
+                sourceInv.setItem(sourceSlot, undefined);
+            } else if (remaining !== sourceItem.amount) {
+                const updated = sourceItem.clone();
+                updated.amount = remaining;
+                sourceInv.setItem(sourceSlot, updated);
+            }
+
+            return transferred;
+        },
+        /**
          * This function was created by **Dorios Studios** to handle
          * item insertions into inventories with compatibility for
          * custom addons and containers.
@@ -344,7 +418,6 @@ globalThis.DoriosAPI = {
 
             return false;
         },
-
         /**
          * This function was created by **Dorios Studios** to handle
          * item insertions at a specific location with compatibility for
@@ -466,7 +539,6 @@ globalThis.DoriosAPI = {
                 }
             }
         },
-
         /**
          * This function was created by **Dorios Studios** to handle
          * item transfers between inventories in Minecraft Bedrock.
@@ -798,7 +870,6 @@ globalThis.DoriosAPI = {
 
             return [start, end];
         },
-
         /**
          * Builds the slot list that machines must protect from external insertions.
          *
@@ -837,7 +908,6 @@ globalThis.DoriosAPI = {
 
             return blocked;
         },
-
         /**
          * Inserts an item into the first available slot that is not blocked.
          *
@@ -887,6 +957,10 @@ globalThis.DoriosAPI = {
      * @namespace DoriosAPI.utils
      */
     utils: {
+        toSlotArray(v) {
+            return Array.isArray(v) ? v : [v];
+        },
+
         /**
          * Offsets a position by a vector * amount.
          *

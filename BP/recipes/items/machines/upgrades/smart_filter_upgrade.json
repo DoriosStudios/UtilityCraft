@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:smart_filter_upgrade"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"B": {
+				"item": "utilitycraft:base_upgrade"
+			},
+			"C": {
+				"item": "gold_ingot"
+			},
+			"R": {
+				"item": "utilitycraft:basic_chip"
+			},
+			"S": {
+				"item": "utilitycraft:steel_ingot"
+			}
+		},
+		"pattern": [
+			"RCR",
+			"SBS",
+			"RCR"
+		],
+		"result": {
+			"item": "utilitycraft:smart_filter_upgrade"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:base_upgrade"
+			}
+		]
+	}
+}

@@ -48,6 +48,10 @@
 			"utilitycraft:machine_recipes": {
 				"type": "infuser"
 			},
+			"utilitycraft:special_container": {
+				"Input Slot": 3,
+				"Catalyst Slot": 4
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {

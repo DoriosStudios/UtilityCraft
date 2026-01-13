@@ -508,6 +508,7 @@ item.utilitycraft:wither_skeleton_essence=Wither Skeleton Essence
 - Machines Upgrades = ## Machines Upgrades
 ## +
 item.utilitycraft:filter_upgrade=Filter Upgrade\n§7- Gives transportation blocks \n  a way to filter up items
+item.utilitycraft:smart_filter_upgrade=Smart Filter Upgrade\n§7- Enables advanced item routing\n  using slot categories and\n  priority-based filters
 item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Increases energy efficiency in Machines
 item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Machines\n- Increases energy consumption
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Increases range for Machines

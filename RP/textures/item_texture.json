@@ -1849,6 +1849,9 @@
 		},
 		"utilitycraft:container_filler": {
 			"textures": "textures/items/progress_bars/container_filler"
+		},
+		"utilitycraft_smart_filter_upgrade": {
+			"textures": "textures/items/smart_filter_upgrade"
 		}
 	}
 }
