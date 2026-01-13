@@ -43,10 +43,7 @@
 			}
 		},
 		"components": {
-			"utilitycraft:cobble_generators": {
-				"amount": 10,
-				"material": "minecraft:netherite_block"
-			},
+			"utilitycraft:cobble_generators": {},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_cobble_gen_copper",
