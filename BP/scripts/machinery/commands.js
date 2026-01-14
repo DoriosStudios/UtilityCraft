@@ -1,7 +1,7 @@
 import { system, world } from '@minecraft/server'
 
 DoriosAPI.register.command({
-    name: "tickspeed",
+    name: "refreshspeed",
     description: "Sets the global UtilityCraft tick speed",
     permissionLevel: "admin",
     parameters: [
