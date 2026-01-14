@@ -44,6 +44,9 @@
 					]
 				}
 			},
+			"utilitycraft:special_container": {
+				"Input Slot": 3
+			},
 			"utilitycraft:machine_recipes": {
 				// Here you can define "type" to use Utility's Machines Recipes, or write them manually
 				"type": "crusher"

@@ -32,6 +32,9 @@
 					"rate_speed_base": 640
 				}
 			},
+			"utilitycraft:special_container": {
+				"Fuel Slot": 3
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {

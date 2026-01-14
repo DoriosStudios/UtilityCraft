@@ -45,6 +45,10 @@
 					]
 				}
 			},
+			"utilitycraft:special_container": {
+				"Seed Slot": 3,
+				"Soil Slot": 6
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {

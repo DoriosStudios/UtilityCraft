@@ -36,6 +36,9 @@
 					]
 				}
 			},
+			"utilitycraft:special_container": {
+				"Input Slot": 3
+			},
 			"minecraft:geometry": "geometry.induction_anvil",
 			"minecraft:material_instances": {
 				"*": {

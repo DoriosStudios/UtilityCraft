@@ -45,6 +45,9 @@
 					]
 				}
 			},
+			"utilitycraft:special_container": {
+				"Net Slot": 6
+			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {
 				"*": {

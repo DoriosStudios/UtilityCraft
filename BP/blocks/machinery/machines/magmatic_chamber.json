@@ -48,6 +48,9 @@
 					]
 				}
 			},
+			"utilitycraft:special_container": {
+				"Input Slot": 3
+			},
 			"utilitycraft:machine_recipes": {
 				"type": "melter"
 			},
