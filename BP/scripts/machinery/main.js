@@ -24,6 +24,7 @@ import './generators/thermo_generator.js'
 import './generators/battery.js'
 
 import './transfer_system/system.js'
+import './transfer_system/smart_importer.js'
 
 import './DoriosMachinery/core.js'
 import './wrench.js'

@@ -2,6 +2,25 @@ import { world, system, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 import { blockFaceOffsets } from './system.js'
 
+/**
+ * Slot definitions for special containers.
+ *
+ * Structure:
+ * {
+ *   "namespace:block_id": {
+ *      "Slot Name": number | number[]
+ *   }
+ * }
+ */
+const slotRegister = {};
+
+
+const DEFAULT_CONFIG = {
+    version: 1,
+    slots: {},
+    itemMap: {}
+}
+
 export function openSmartImporterMenu(block, player) {
     const key = getImporterKey(block);
     const raw = world.getDynamicProperty(key);
@@ -14,7 +33,12 @@ export function openSmartImporterMenu(block, player) {
     }
 
     const target = getFacingBlock(block);
-    cfg.blockName = DoriosAPI.utils.formatIdToText(target.typeId)
+    const targetId = target.typeId
+    if (cfg.blockId != targetId) {
+        cfg = DEFAULT_CONFIG
+        cfg.blockId = targetId
+        cfg.blockName = DoriosAPI.utils.formatIdToText(targetId)
+    }
 
     const menu = new ActionFormData()
         .title("Smart Importer")
@@ -51,13 +75,15 @@ function openSmartSlotSelectMenu(block, player, cfg, key) {
         return;
     }
 
-    const params =
-        target.getComponent("utilitycraft:special_container")
-            ?.customComponentParameters?.params;
+    let params = target.getComponent("utilitycraft:special_container")
+        ?.customComponentParameters?.params;
 
     if (!params) {
-        player.sendMessage("§cTarget block has no slot data.");
-        return;
+        params = slotRegister[block.typeId]
+        if (!params) {
+            player.sendMessage("§cTarget block has no slot data.");
+            return;
+        }
     }
 
     const slotKeys = Object.keys(params);
@@ -185,20 +211,12 @@ function getImporterKey(block) {
 function normalizeSmartImporterConfig(rawCfg) {
     // Caso 1: no hay config o está corrupto
     if (!rawCfg || typeof rawCfg !== "object") {
-        return {
-            version: 1,
-            slots: {},
-            itemMap: {}
-        };
+        return DEFAULT_CONFIG;
     }
 
     // Caso 2: config vieja (basic filter v0)
     if (rawCfg.version !== 1) {
-        return {
-            version: 1,
-            slots: {},
-            itemMap: {}
-        };
+        return DEFAULT_CONFIG;
     }
 
     // Caso 3: smart válido, solo asegurar estructura
@@ -236,3 +254,61 @@ function rebuildSmartItemMap(cfg) {
 
     cfg.itemMap = map;
 }
+
+/**
+ * ScriptEvent handler to register slot definitions for special containers.
+ *
+ * Payload format (JSON):
+ * {
+ *   "namespace:block_id": {
+ *     "Input Slot": 3,
+ *     "Catalyst Slot": [4, 5]
+ *   }
+ * }
+ */
+system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
+    if (id !== "utilitycraft:register_special_container_slots") return;
+
+    let payload;
+    try {
+        payload = JSON.parse(message);
+    } catch {
+        console.warn("[Utilicraft] Invalid JSON payload when registering custom special container.");
+        return;
+    }
+
+    if (!payload || typeof payload !== "object") return;
+
+    for (const [blockId, slots] of Object.entries(payload)) {
+        if (!slots || typeof slots !== "object") continue;
+
+        if (!slotRegister[blockId]) {
+            slotRegister[blockId] = {};
+        }
+
+        for (const [slotName, slotValue] of Object.entries(slots)) {
+            if (
+                typeof slotValue !== "number" &&
+                !Array.isArray(slotValue)
+            ) continue;
+
+            slotRegister[blockId][slotName] = slotValue;
+        }
+    }
+});
+
+/* Example
+system.sendScriptEvent(
+    "utilitycraft:register_special_container_slots",
+    JSON.stringify({
+        "utilitycraft:alchemy_table": {
+            "Input Slot": 3,
+            "Catalyst Slot": 4
+        },
+        "utilitycraft:infusion_altar": {
+            "Essence Slots": [5, 6, 7],
+            "Core Slot": 8
+        }
+    })
+);
+*/

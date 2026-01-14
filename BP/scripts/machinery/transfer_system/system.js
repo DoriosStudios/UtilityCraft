@@ -775,13 +775,15 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
                 y: loc.y + off[1],
                 z: loc.z + off[2],
             };
+            targetBlock = dim.getBlock(loc);
+            targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
 
             // Apply importer whitelist / blacklist
             if (data) {
                 const cfg = JSON.parse(data);  // { mode, items }
                 // Smart Importer
                 if (cfg.version == 1) {
-                    targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+                    if (!cfg.blockId || cfg.blockId != targetBlock.typeId) continue
                     if (!targetEntity) continue
                     const targetInv = targetEntity.getComponent("inventory")?.container
                     if (!targetInv) continue
@@ -799,9 +801,6 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
                     if (cfg.mode === "blacklist" && listed) continue;
                 }
             }
-            // Update block/entity for normal logic
-            targetBlock = dim.getBlock(loc);
-            targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
         }
 
         const targetHasFilter = targetBlock?.permutation?.getState?.('utilitycraft:filter') == 1
