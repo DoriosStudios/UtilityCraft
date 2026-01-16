@@ -235,7 +235,7 @@ DoriosAPI.register.blockComponent('xp_condenser', {
             let item = player.getComponent('equippable').getEquipment('Mainhand')
             let lores = item.getLore()
             const fluid = FluidManager.getFluidFromText(item?.getLore()?.[0] ?? "")
-            if (fluid.type == 'xp') {
+            if (fluid.type == 'xp' || fluid.type == 'empty') {
                 let newItem = player.getComponent('equippable').getEquipment('Mainhand')
                 newItem.amount = 1
                 for (let i = 0; i < entity.getComponent('inventory').container.size; i++) {
