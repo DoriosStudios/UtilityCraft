@@ -79,7 +79,7 @@ function openSmartSlotSelectMenu(block, player, cfg, key) {
         ?.customComponentParameters?.params;
 
     if (!params) {
-        params = slotRegister[block.typeId]
+        params = slotRegister[target.typeId]
         if (!params) {
             player.sendMessage("§cTarget block has no slot data.");
             return;
