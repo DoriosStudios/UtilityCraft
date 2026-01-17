@@ -1,6 +1,6 @@
 import { ItemStack, world } from "@minecraft/server"
 import { sieveRecipes, acceptedBlocks } from "../config/recipes/sieve.js"
-
+import { stackRefillUse } from "stack_refill.js"
 /**
  * Represents a single sieve block with utility methods.
  */
@@ -62,11 +62,13 @@ class Sieve {
     insertBlock(player, mainHand) {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
         if (!sieveRecipes[mainHand.typeId] || !acceptedBlocks.includes(mainHand.typeId)) return false
-
+        const id = mainHand.typeId
         this.block.setState("utilitycraft:block", mainHand.typeId)
         this.block.setState("utilitycraft:state", 4)
         if (!player.isInCreative()) {
             player.runCommand(`clear @s ${mainHand.typeId} 0 1`)
+            if (!mainHand || mainHand.amount == 1) stackRefillUse(player, id)
+
         }
         this.block.dimension.playSound("dig.gravel", this.block.location)
         return true
