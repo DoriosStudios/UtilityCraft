@@ -8,6 +8,11 @@ const BLUEPRINT_SLOT = 3;
 // Ajusta estos IDs si tu namespace difiere
 const BLUEPRINT_ITEM = 'utilitycraft:blueprint_paper';
 const OUTPUT_BLUEPRINT_ITEM = 'utilitycraft:blueprint';
+const MIN_Y_MAP = {
+    "minecraft:overworld": DoriosAPI.constants.dimensions.overworld.minY,
+    "minecraft:nether": DoriosAPI.constants.dimensions.nether.minY,
+    "minecraft:the_end": DoriosAPI.constants.dimensions.end.minY
+}
 
 DoriosAPI.register.blockComponent('digitizer', {
     /**
@@ -90,14 +95,15 @@ DoriosAPI.register.blockComponent('digitizer', {
             z += 0.5;
 
             const dimension = machine.dim;
-            const crafterBlockId = dimension.getBlock({ x: x, y: -64, z })?.typeId;
-            const redstoneBlockId = dimension.getBlock({ x: x, y: -63, z })?.typeId;
+            const minY = MIN_Y_MAP[dimension.id]
+            const crafterBlockId = dimension.getBlock({ x: x, y: minY, z })?.typeId;
+            const redstoneBlockId = dimension.getBlock({ x: x, y: minY + 1, z })?.typeId;
 
             // Estado: bloqueando para evitar dobles ejecuciones
             machine.entity.setDynamicProperty('crafting', true);
 
             // Colocar crafter y construir receta/materiales
-            dimension.setBlockType({ x: x, y: -64, z }, 'minecraft:crafter');
+            dimension.setBlockType({ x: x, y: minY, z }, 'minecraft:crafter');
 
             /** @type {Record<string, number>} */
             const materialMap = {};
@@ -111,7 +117,7 @@ DoriosAPI.register.blockComponent('digitizer', {
                     materialMap[id] = (materialMap[id] || 0) + 1;
                     // Misma fórmula de índice que el código antiguo: i - 5
                     // (INPUT_START = size-10 → slot.container = (size-10)-5 = size-15 ... hasta (size-2)-5 = size-7)
-                    dimension.runCommand(`replaceitem block ${x} -64 ${z} slot.container ${i - 6} ${id}`);
+                    dimension.runCommand(`replaceitem block ${x} ${minY} ${z} slot.container ${i - 6} ${id}`);
                     recipeArray.push(id.split(':')[1]);
                 } else {
                     recipeArray.push('air');
@@ -119,7 +125,7 @@ DoriosAPI.register.blockComponent('digitizer', {
             }
 
             // Activar crafter
-            dimension.setBlockType({ x, y: -63, z }, 'minecraft:redstone_block');
+            dimension.setBlockType({ x, y: minY + 1, z }, 'minecraft:redstone_block');
 
             // Clave de receta y datos de materiales
             const recipeString = recipeArray.join(',');
@@ -130,7 +136,7 @@ DoriosAPI.register.blockComponent('digitizer', {
 
             // Espera corta (como el original: 9 ticks) para leer drop del crafter
             system.runTimeout(() => {
-                const itemEntity = dimension.getEntitiesAtBlockLocation({ x, y: -65, z })[0];
+                const itemEntity = dimension.getEntitiesAtBlockLocation({ x, y: minY - 1, z })[0];
 
                 let recipeExists = false;
                 let outputAmount = 0;
@@ -188,7 +194,7 @@ DoriosAPI.register.blockComponent('digitizer', {
                 }
 
                 // Limpiar y restaurar mundo exactamente como antes
-                removeCrafter(dimension, { x, y, z }, machine.entity, crafterBlockId, redstoneBlockId);
+                removeCrafter(dimension, { x, y, z }, machine.entity, crafterBlockId, redstoneBlockId, minY);
             }, 9);
         } else {
             // Cargar energía y avanzar progreso como el autosieve
@@ -210,11 +216,11 @@ DoriosAPI.register.blockComponent('digitizer', {
 });
 
 /** Mantiene EXACTAMENTE la limpieza del crafter original */
-function removeCrafter(dimension, { x, y, z }, entity, crafterBlockId, redstoneBlockId) {
+function removeCrafter(dimension, { x, y, z }, entity, crafterBlockId, redstoneBlockId, minY) {
     for (let i = 0; i < 9; i++) {
-        dimension.runCommand(`replaceitem block ${x} -64 ${z} slot.container ${i} air`);
+        dimension.runCommand(`replaceitem block ${x} ${minY} ${z} slot.container ${i} air`);
     }
-    dimension.setBlockType({ x, y: -64, z }, crafterBlockId);
-    dimension.setBlockType({ x, y: -63, z }, redstoneBlockId);
-    entity.setDynamicProperty('crafting', false);
+    dimension.setBlockType({ x, y: minY, z }, crafterBlockId);
+    dimension.setBlockType({ x, y: minY + 1, z }, redstoneBlockId);
+    entity?.setDynamicProperty('crafting', false);
 }
