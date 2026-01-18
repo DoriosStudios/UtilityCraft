@@ -699,18 +699,8 @@
     },
     "side_panel": {
         "type": "collection_panel",
-        "anchor_from": "center",
-        "anchor_to": "center",
-        "size": [
-            162,
-            72
-        ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
-        "$is_energy|default": false,
-        "$is_liquid|default": false,
-        "$has_bg|default": false,
-        "$collection_index|default": 0,
         "controls": [
             {
                 "side_panel": {
@@ -718,17 +708,13 @@
                     "texture": "textures/ui/side_panel",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "$cell_image_size": [
-                        88,
-                        166
-                    ],
                     "size": [
-                        88,
+                        90,
                         166
                     ],
                     "offset": [
-                        -8,
-                        57
+                        -88,
+                        -8
                     ],
                     "layer": 0
                 }
