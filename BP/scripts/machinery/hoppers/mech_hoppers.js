@@ -55,12 +55,12 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
         }
         if (!isEnder) {
             // Pull items from the source container into the block
-            const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dimension);
+            const source = DoriosAPI.containers.getContainerAt(sourceLoc, dimension);
+            const sourceInv = source.container;
             let pulled = false;
 
             if (sourceInv) {
-                const sourceEntity = dimension.getEntitiesAtBlockLocation(sourceLoc)[0];
-                const [start, end] = DoriosAPI.containers.getAllowedOutputRange(sourceEntity ?? sourceInv);
+                const [start, end] = DoriosAPI.containers.getAllowedOutputRange(source.entity ?? sourceInv);
 
                 for (let i = start; i <= end; i++) {
                     const item = sourceInv.getItem(i);

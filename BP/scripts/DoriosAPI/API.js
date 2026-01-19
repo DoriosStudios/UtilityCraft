@@ -650,37 +650,15 @@ globalThis.DoriosAPI = {
             if (!fromLoc || !toLoc || !dim) return false;
 
             // --- Resolve source ---
-            let source = null;
-            try {
-                const fromBlock = dim.getBlock(fromLoc);
-                if (DoriosAPI.constants.vanillaContainers.includes(fromBlock?.typeId)) {
-                    source = fromBlock;
-                } else {
-                    const fromEntity = dim.getEntitiesAtBlockLocation(fromLoc)[0];
-                    if (fromEntity) source = fromEntity;
-                }
-            } catch {
-                return false;
-            }
-            if (!source) return false;
+            let source = this.getContainerAt(fromLoc, dim);
+            if (!source.container) return false;
 
             // --- Resolve target ---
-            let target = null;
-            try {
-                const toBlock = dim.getBlock(toLoc);
-                if (DoriosAPI.constants.vanillaContainers.includes(toBlock?.typeId)) {
-                    target = toBlock;
-                } else {
-                    const toEntity = dim.getEntitiesAtBlockLocation(toLoc)[0];
-                    if (toEntity) target = toEntity;
-                }
-            } catch {
-                return false;
-            }
-            if (!target) return false;
+            let target = this.getContainerAt(toLoc, dim);
+            if (!target.container) return false;
 
             /** @type {Container} */
-            const sourceInv = source?.getComponent?.("minecraft:inventory")?.container ?? source;
+            const sourceInv = source.container
             if (!sourceInv) return false;
 
             // Resolve range
@@ -696,7 +674,7 @@ globalThis.DoriosAPI = {
             let transferred = false;
 
             /** @type {EntityTypeFamilyComponent} */
-            const tf = target?.getComponent("minecraft:type_family");
+            const tf = target.entity?.getComponent("minecraft:type_family");
             const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
             const isDoriosContainer = tf?.hasTypeFamily("dorios:container")
                 && !tf?.hasTypeFamily("dorios:complex_input")
@@ -707,8 +685,8 @@ globalThis.DoriosAPI = {
                 const item = sourceInv.getItem(slot);
                 if (!item) continue;
 
-                if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
-                    const targetInv = target.getComponent("minecraft:inventory")?.container;
+                if (DoriosAPI.constants.vanillaContainers.includes(target.block?.typeId) || isDoriosContainer) {
+                    const targetInv = target.container
                     if (targetInv) {
                         const added = sourceInv.transferItem(slot, targetInv);
                         transferred = item.amount - (added?.amount ?? 0);
@@ -717,7 +695,7 @@ globalThis.DoriosAPI = {
                 }
 
                 // Fallback → use addItem for Dorios machines and others
-                const added = this.addItem(target, item);
+                const added = this.addItem(target.entity, item);
                 if (added === true) {
                     sourceInv.setItem(slot, undefined);
                     transferred = item.maxAmount;
@@ -735,34 +713,67 @@ globalThis.DoriosAPI = {
             return transferred;
         },
         /**
-         * Returns a valid container at a specific world location.
+         * Returns container-related data at a specific world location.
          *
-         * - Checks both blocks and entities at the given coordinates.
-         * - Works with vanilla containers, Dorios machines, and custom entities.
-         * - Returns the inventory container (`Container`) if found, otherwise `null`.
+         * - Checks block inventories first.
+         * - Supports Dorios multiblock ports backed by entities.
+         * - Falls back to entity-based containers.
          *
          * @function getContainerAt
          * @memberof DoriosAPI.containers
+         *
          * @param {Vector3} loc World coordinates to check.
          * @param {Dimension} dim Dimension where the location exists.
-         * @returns {import('@minecraft/server').Container|null} The container if found, or null.
+         *
+         * @returns {{
+         *   container: import('@minecraft/server').Container | null,
+         *   block: import('@minecraft/server').Block | undefined,
+         *   entity: import('@minecraft/server').Entity | null | undefined
+         * }}
+         * Object containing the resolved container and its source references.
          */
         getContainerAt(loc, dim) {
-            // Try block container
-            const block = dim.getBlock(loc);
-            const blockInv = block?.getComponent("minecraft:inventory")?.container;
-            if (blockInv) return blockInv;
+            // ── Try block container ─────────────────────────────
+            let container;
+            let block;
+            let entity;
 
-            // Try entity container
-            const ent = dim.getEntitiesAtBlockLocation(loc)[0];
-            const tf = ent?.getComponent?.("minecraft:type_family");
-            if (!tf?.hasTypeFamily("dorios:container")) return null
+            block = dim.getBlock(loc);
+            container = block?.getComponent("minecraft:inventory")?.container;
 
-            const entInv = ent?.getComponent("minecraft:inventory")?.container;
-            if (entInv) return entInv;
+            if (container) {
+                return { container, block, entity };
+            }
 
-            return null;
+            // ── Dorios multiblock port ──────────────────────────
+            if (block?.hasTag("dorios:multiblock.port") && block.hasTag("dorios:item")) {
+                entity = dim.getEntities({
+                    tags: [
+                        `input:[${Math.floor(loc.x)},${Math.floor(loc.y)},${Math.floor(loc.z)}]`
+                    ]
+                })[0];
+                container = entity?.getComponent("minecraft:inventory")?.container;
+                return { container, block, entity };
+            }
+
+            // ── Try entity container ────────────────────────────
+            entity = dim.getEntitiesAtBlockLocation(loc)[0];
+            const tf = entity?.getComponent?.("minecraft:type_family");
+
+            if (!tf?.hasTypeFamily("dorios:container")) {
+                return { container: null, block, entity };
+            }
+
+            container = entity?.getComponent("minecraft:inventory")?.container;
+
+            if (container) {
+                return { container, block, entity };
+            }
+
+            // ── Nothing found ───────────────────────────────────
+            return { container: null, block, entity: null };
         },
+
         /**
          * Returns the allowed slot range for a container entity or block,
          * based on its Dorios family classification.

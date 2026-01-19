@@ -32,7 +32,7 @@ export function openSmartImporterMenu(block, player) {
         cfg = normalizeSmartImporterConfig(null);
     }
 
-    const target = getFacingBlock(block);
+    let target = getFacingBlock(block);
     const targetId = target.typeId
     if (cfg.blockId != targetId) {
         cfg = DEFAULT_CONFIG
@@ -69,10 +69,23 @@ export function openSmartImporterMenu(block, player) {
     });
 }
 function openSmartSlotSelectMenu(block, player, cfg, key) {
-    const target = getFacingBlock(block);
+    let target = getFacingBlock(block);
+
     if (!target) {
         player.sendMessage("§cNo target block.");
         return;
+    }
+
+    const loc = target.location
+    if (target?.hasTag("dorios:multiblock.port") && target.hasTag("dorios:item")) {
+        const entity = block.dimension.getEntities({
+            tags: [
+                `input:[${Math.floor(loc.x)},${Math.floor(loc.y)},${Math.floor(loc.z)}]`
+            ]
+        })[0];
+        if (entity) {
+            target = block.dimension.getBlock(entity.location)
+        }
     }
 
     let params = target.getComponent("utilitycraft:special_container")

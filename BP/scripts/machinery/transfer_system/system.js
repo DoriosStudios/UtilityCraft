@@ -664,11 +664,12 @@ DoriosAPI.register.blockComponent('exporter', {
             z: block.location.z + off[2],
         }
 
-        const sourceInv = DoriosAPI.containers.getContainerAt(sourceLoc, dimension)
+        const source = DoriosAPI.containers.getContainerAt(sourceLoc, dimension)
+        const sourceInv = source.container
         if (!sourceInv) return
 
         const [startSlot, endSlot] = DoriosAPI.containers.getAllowedOutputRange(
-            dimension.getEntitiesAtBlockLocation(sourceLoc)[0] ?? sourceInv
+            source.entity ?? sourceInv
         )
 
         // Early out if source empty
@@ -775,21 +776,17 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
                 y: loc.y + off[1],
                 z: loc.z + off[2],
             };
-            targetBlock = dim.getBlock(loc);
-            targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
-
+            const target = DoriosAPI.containers.getContainerAt(loc, dim)
+            if (!target.container) continue
             // Apply importer whitelist / blacklist
             if (data) {
                 const cfg = JSON.parse(data);  // { mode, items }
                 // Smart Importer
                 if (cfg.version == 1) {
-                    if (!cfg.blockId || cfg.blockId != targetBlock.typeId) continue
-                    if (!targetEntity) continue
-                    const targetInv = targetEntity.getComponent("inventory")?.container
-                    if (!targetInv) continue
+                    if (!cfg.blockId || cfg.blockId != target.block.typeId) continue
                     const targetSlots = cfg?.itemMap[item.typeId]
                     if (targetSlots) {
-                        moved.total += DoriosAPI.containers.transferItemToSlots(sourceInv, slotIndex, targetInv, targetSlots) ?? 0
+                        moved.total += DoriosAPI.containers.transferItemToSlots(sourceInv, slotIndex, target.container, targetSlots) ?? 0
                         if (moved.total >= LIMIT) return true
                         continue
                     }
@@ -806,13 +803,11 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
         const targetHasFilter = targetBlock?.permutation?.getState?.('utilitycraft:filter') == 1
 
         if (targetHasFilter && targetEntity) {
-            const inv = DoriosAPI.containers.getContainerAt(sourceLoc, dim)
-            const item = inv?.getItem(slotIndex)
+            const item = sourceInv?.getItem(slotIndex)
             if (!item) return false
             const targetWhite = targetEntity.getDynamicProperty('utilitycraft:whitelistOn') ?? true
             if ((targetEntity.hasTag(`${item.typeId}`) !== targetWhite)) continue
         }
-
         const movedCount = DoriosAPI.containers.transferItemsBetween(sourceLoc, loc, dim, slotIndex)
         if (typeof movedCount === 'number' && movedCount > 0) {
             moved.total += movedCount
@@ -965,6 +960,14 @@ async function startRescanItem(startPos, dimension) {
             const bx = extPos.x + off[0];
             const by = extPos.y + off[1];
             const bz = extPos.z + off[2];
+            const offBlock = dimension.getBlock({ x: bx, y: by, z: bz })
+            if (offBlock || offBlock?.hasTag("dorios:multiblock.port") && offBlock.hasTag("dorios:item")) {
+                let entity = dimension.getEntities({ tags: [`input:[${bx},${by},${bz}]`] })[0];
+                if (entity) {
+                    const loc = entity.location;
+                    globalBlockedTags.add(`ent:[${loc.x},${loc.y},${loc.z}]`);
+                }
+            }
             globalBlockedTags.add(`van:[${bx},${by},${bz}]`);
             globalBlockedTags.add(`ent:[${bx},${by},${bz}]`);
             globalBlockedTags.add(`dra:[${bx},${by},${bz}]`);
