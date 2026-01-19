@@ -282,7 +282,7 @@ export class Rotation {
         );
         return;
       }
-    } catch {}
+    } catch { }
 
     // --- Handle cardinal_direction rotation ---
     try {
@@ -300,7 +300,7 @@ export class Rotation {
         );
         return;
       }
-    } catch {}
+    } catch { }
   }
 
   /**
@@ -446,7 +446,7 @@ world.afterEvents.playerSpawn.subscribe(({ initialSpawn }) => {
 system.beforeEvents.shutdown.subscribe(() => {
   try {
     world.setDynamicProperty("loaded", false);
-  } catch {}
+  } catch { }
 });
 
 //#endregion
@@ -814,13 +814,25 @@ export class Machine {
     }
     this.inv = this.entity?.getComponent("inventory")?.container;
     this.energy = new Energy(this.entity);
-    this.upgrades = this.getUpgradeLevels(settings.machine.upgrades);
-    this.boosts = this.calculateBoosts(this.upgrades);
-    this.baseRate =
-      settings.machine.rate_speed_base *
-      this.boosts.speed *
-      this.boosts.consumption;
+    this.baseRate = settings?.machine?.rate_speed_base ?? 0;
     this.rate = this.baseRate * tickSpeed;
+    if (settings?.machine?.upgrades) {
+      this.upgrades = this.getUpgradeLevels(settings.machine.upgrades);
+      this.boosts = this.calculateBoosts(this.upgrades);
+      this.baseRate *= this.boosts.speed * this.boosts.consumption;
+    }
+  }
+
+  /**
+   * Sets a new base rate and updates the effective rate using tickSpeed.
+   *
+   * @param {number} baseRate New base processing rate
+   * @returns {number} Updated effective rate
+   */
+  setRate(baseRate) {
+    this.baseRate = baseRate;
+    this.rate = this.baseRate * tickSpeed;
+    return this.rate;
   }
 
   getTransferCooldown() {
@@ -871,7 +883,8 @@ export class Machine {
 
     let { x, y, z } = block.center();
     y -= 0.25;
-    const machineEntity = dim.spawnEntity("utilitycraft:machine", { x, y, z });
+    let entityId = entity.identifier ?? "utilitycraft:machine"
+    const machineEntity = dim.spawnEntity(entityId, { x, y, z });
 
     let machineEvent;
     let inventorySize = 2;
@@ -920,7 +933,7 @@ export class Machine {
     machineEntity.triggerEvent(inventoryEvent);
 
     // 4. Assign name tag
-    const name = blockToPlace.type.id.split(":")[1] ?? entity.name;
+    const name = entity.name ?? blockToPlace.type.id.split(":")[1];
     machineEntity.nameTag = `entity.utilitycraft:${name}.name`;
 
     return machineEntity;
