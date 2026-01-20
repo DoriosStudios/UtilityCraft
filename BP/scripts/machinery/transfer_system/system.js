@@ -1437,17 +1437,15 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
                 }
                 if (!targetEntity) continue;
 
-                const targetFluid = new FluidManager(targetEntity, 0);
-                const targetType = targetFluid.getType();
-
+                const targetFluid = FluidManager.findType(targetEntity, liquidType);
                 // Skip incompatible fluids
-                if (targetType !== 'empty' && targetType !== liquidType) continue;
+                if (!targetFluid) continue;
 
                 const space = targetFluid.getFreeSpace();
                 if (space <= 0) continue;
 
                 // Assign fluid type if empty
-                if (targetType === 'empty') targetFluid.setType(liquidType);
+                if (targetFluid.type === 'empty') targetFluid.setType(liquidType);
 
                 const move = Math.min(space, speed, amount);
                 const added = targetFluid.add(move);
