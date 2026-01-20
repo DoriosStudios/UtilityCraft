@@ -9,7 +9,7 @@
 	},
 	"header": {
 		"name": "§aUtilityCraft§8",
-		"description": "3.3.2 §6Dorios Studios",
+		"description": "3.3.3 §6Dorios Studios",
 		"min_engine_version": [
 			1,
 			20,
@@ -19,7 +19,7 @@
 		"version": [
 			3,
 			3,
-			2
+			3
 		]
 	},
 	"modules": [
@@ -39,7 +39,7 @@
 			"version": [
 				3,
 				3,
-				2
+				3
 			]
 		}
 	]
