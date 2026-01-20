@@ -90,10 +90,16 @@ DoriosAPI.register.blockComponent('double_machine', {
             return;
         }
 
+        // Check if there are enough items in the catalyst slot
+        const requiredCatalyst = recipe.required ?? 1;
+        if (catalystSlot.amount < requiredCatalyst) {
+            machine.showWarning(`Needs ${requiredCatalyst} Items`);
+            return;
+        }
         // Check if there are enough items in the input slot
-        const required = recipe.required ?? 1;
-        if (catalystSlot.amount < required) {
-            machine.showWarning(`Needs ${required} Items`);
+        const requiredInput = recipe.input_required ?? 1;
+        if (inputSlot.amount < requiredInput) {
+            machine.showWarning(`Needs ${requiredInput} Items`);
             return;
         }
         //#endregion
@@ -108,7 +114,7 @@ DoriosAPI.register.blockComponent('double_machine', {
             return;
         }
 
-        const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, catalystSlot.amount / required))
+        const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, catalystSlot.amount / requiredCatalyst, inputSlot.amount / requiredInput))
         // If there is enough progress accumulated to process
         if (progress >= energyCost) {
             const processCount = Math.min(
@@ -125,8 +131,8 @@ DoriosAPI.register.blockComponent('double_machine', {
 
                 // Deduct progress and input items
                 machine.addProgress(-processCount * energyCost);
-                machine.entity.changeItemAmount(INPUTSLOT, -processCount);
-                machine.entity.changeItemAmount(CATALYSTSLOT, -processCount * required);
+                machine.entity.changeItemAmount(INPUTSLOT, -processCount * requiredInput);
+                machine.entity.changeItemAmount(CATALYSTSLOT, -processCount * requiredCatalyst);
             }
         } else {
             // If not enough progress, continue charging with energy

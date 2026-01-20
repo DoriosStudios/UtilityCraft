@@ -23,7 +23,7 @@ DoriosAPI.register.command({
       lowest: { ticks: 40, impact: "low" },
       low: { ticks: 20, impact: "Medlum" },
       normal: { ticks: 10, impact: "normal" },
-      fast: { ticks: 4, impact: "Higf" },
+      fast: { ticks: 4, impact: "High" },
       fastest: { ticks: 2, impact: "Very High" },
       default: { ticks: 20, impact: "Medlum" },
     };
@@ -62,7 +62,7 @@ DoriosAPI.register.command({
     if (finalValue <= 4) {
       source?.sendMessage(
         "§cWarning: This tick speed has a high performance impact. " +
-          "Only recommended for powerful devices.",
+        "Only recommended for powerful devices.",
       );
     }
   },
