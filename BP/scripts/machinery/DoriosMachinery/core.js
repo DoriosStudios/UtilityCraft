@@ -816,10 +816,11 @@ export class Machine {
     this.energy = new Energy(this.entity);
     this.baseRate = settings?.machine?.rate_speed_base ?? 0;
     this.rate = this.baseRate * tickSpeed;
-    if (settings?.machine?.upgrades) {
+    if (settings.machine && settings.machine.upgrades) {
       this.upgrades = this.getUpgradeLevels(settings.machine.upgrades);
       this.boosts = this.calculateBoosts(this.upgrades);
       this.baseRate *= this.boosts.speed * this.boosts.consumption;
+      this.rate = this.baseRate * tickSpeed;
     }
   }
 
