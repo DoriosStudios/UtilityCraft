@@ -1218,10 +1218,11 @@ export class Machine {
    * Adds progress to the machine.
    *
    * @param {number} amount Value to add to the current progress.
+   * @param {number} [index=0] Progress index.
    */
-  addProgress(amount) {
-    const key = "dorios:progress";
-    let current = this.entity.getDynamicProperty(key) ?? 0;
+  addProgress(amount, index = 0) {
+    const key = `dorios:progress_${index}`;
+    const current = this.entity.getDynamicProperty(key) ?? 0;
     this.entity.setDynamicProperty(key, current + amount);
   }
 
@@ -1230,39 +1231,24 @@ export class Machine {
    *
    * @param {number} value New progress value.
    * @param {number} [slot=2] Inventory slot to place the progress item.
-   * @param {string} [type='arrow_right_'] Item type suffix.
+   * @param {string} [type='arrow_right'] Item type suffix.
    * @param {boolean} [display=true] Display the progress.
+   * @param {number} [index=0] Progress index.
    */
-  setProgress(value, slot = 2, type = "arrow_right", display = true) {
-    this.entity.setDynamicProperty("dorios:progress", Math.max(0, value));
-    if (display) this.displayProgress(slot, type);
+  setProgress(value, slot = 2, type = "arrow_right", display = true, index = 0) {
+    const key = `dorios:progress_${index}`;
+    this.entity.setDynamicProperty(key, Math.max(0, value));
+    if (display) this.displayProgress(slot, type, index);
   }
 
   /**
-   * Gets the current progress of the machine.
-   *
-   * @returns {number} Current progress value.
-   */
-  getProgress() {
-    return this.entity.getDynamicProperty("dorios:progress") ?? 0;
-  }
-
-  /**
-   * Sets the machine's energy cost (maximum progress).
-   *
-   * @param {number} value Energy cost representing 100% progress.
-   */
-  setEnergyCost(value) {
-    this.entity.setDynamicProperty("dorios:energy_cost", Math.max(1, value));
-  }
-
-  /**
-   * Gets the energy cost (maximum progress).
-   *
-   * @returns {number} Energy cost value.
-   */
-  getEnergyCost() {
-    return this.entity.getDynamicProperty("dorios:energy_cost") ?? 800;
+ * Gets the current progress of the machine.
+ *
+ * @param {number} [index=0] Progress index.
+ * @returns {number} Current progress value.
+ */
+  getProgress(index = 0) {
+    return this.entity.getDynamicProperty(`dorios:progress_${index}`) ?? 0;
   }
 
   /**
@@ -1270,21 +1256,47 @@ export class Machine {
    * Progress is scaled between 0–16, where 16 = 100% (energy_cost).
    *
    * @param {number} [slot=2] Inventory slot to place the progress item.
-   * @param {string} [type='arrow_right_'] Item type suffix.
-   * Always assumes the `utilitycraft:` namespace, so pass only the suffix.
+   * @param {string} [type='arrow_right'] Item type suffix.
+   * @param {number} [index=0] Progress index.
    */
-  displayProgress(slot = 2, type = "arrow_right") {
+  displayProgress(slot = 2, type = "arrow_right", index = 0) {
     const inv = this.entity.getComponent("minecraft:inventory")?.container;
     if (!inv) return;
 
-    const progress = this.getProgress();
-    const max = this.getEnergyCost();
-    const normalized = Math.min(16, Math.floor((progress / max) * 16));
+    const progress = this.getProgress(index);
+    const max = this.getEnergyCost(index);
+    if (max <= 0) return;
 
+    const normalized = Math.min(16, Math.floor((progress / max) * 16));
     const itemId = `utilitycraft:${type}_${normalized}`;
+
     inv.setItem(slot, new ItemStack(itemId, 1));
   }
+
   //#endregion
+
+  /**
+   * Sets the machine's energy cost (maximum progress).
+   *
+   * @param {number} value Energy cost representing 100% progress.
+   * @param {number} [index=0] Cost index.
+   */
+  setEnergyCost(value, index = 0) {
+    this.entity.setDynamicProperty(
+      `dorios:energy_cost_${index}`,
+      Math.max(1, value)
+    );
+  }
+
+  /**
+   * Gets the energy cost (maximum progress).
+   *
+   * @param {number} [index=0] Cost index.
+   * @returns {number} Energy cost value.
+   */
+  getEnergyCost(index = 0) {
+    return this.entity.getDynamicProperty(`dorios:energy_cost_${index}`) ?? 800;
+  }
 
   /**
    * Displays the current energy of the machine in the specified inventory slot.
