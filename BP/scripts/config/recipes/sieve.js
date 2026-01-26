@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 DoriosAPI.register.itemComponent('mesh', {})
 
@@ -42,7 +42,9 @@ export const acceptedBlocks = [
  *
  * @type {Object.<string, SieveLoot[]>}
  */
-export const sieveRecipes = {
+export const sieveRecipes = {}
+
+const sieveRecipesRegister = {
     'minecraft:gravel': [
         { item: 'minecraft:flint', amount: 1, chance: 0.20, tier: 0 },
         { item: 'utilitycraft:iron_chunk', amount: 1, chance: 0.15, tier: 1 },
@@ -197,6 +199,9 @@ export const sieveRecipes = {
     ]
 }
 
+world.afterEvents.worldLoad.subscribe(() => {
+    system.sendScriptEvent("utilitycraft:register_sieve_drop", JSON.stringify(sieveRecipesRegister));
+});
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_sieve_drop"

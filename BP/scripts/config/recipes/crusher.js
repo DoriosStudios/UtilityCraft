@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 /**
  * Recipes for the Crusher machine.
@@ -9,7 +9,9 @@ import { system } from "@minecraft/server";
  * @constant
  * @type {SingleInputRecipes}
  */
-export const crusherRecipes = {
+export const crusherRecipes = {}
+
+const crusherRecipesRegister = {
     // ========== COBBLESTONE ==========
     "minecraft:cobblestone": { output: "minecraft:gravel", amount: 1, tier: 0 },
     "utilitycraft:compressed_cobblestone": { output: "utilitycraft:compressed_gravel", amount: 1, cost: 7200, tier: 1 },
@@ -169,6 +171,10 @@ export const crusherRecipes = {
     "ae2be:fluix_crystal": { output: "ae2be:fluix_dust", amount: 1 },
     "ae2be:sky_stone": { output: "ae2be:sky_stone_dust", amount: 1 }
 }
+
+world.afterEvents.worldLoad.subscribe(() => {
+    system.sendScriptEvent("utilitycraft:register_crusher_recipe", JSON.stringify(crusherRecipesRegister));
+});
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_crusher_recipe"

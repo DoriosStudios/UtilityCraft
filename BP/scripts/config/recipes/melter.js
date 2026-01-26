@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 /**
  * @typedef {Object} LiquidRecipe
@@ -15,7 +15,9 @@ import { system } from "@minecraft/server";
  * @constant
  * @type {Record<string, LiquidRecipe>}
  */
-export const melterRecipes = {
+export const melterRecipes = {}
+
+const melterRecipesRegister = {
     "minecraft:cobblestone": { liquid: "lava", amount: 250 },
     "minecraft:stone": { liquid: "lava", amount: 250 },
     "minecraft:diorite": { liquid: "lava", amount: 250 },
@@ -25,6 +27,10 @@ export const melterRecipes = {
     "minecraft:magma": { liquid: "lava", amount: 1000 },
     "minecraft:magma_cream": { liquid: "lava", amount: 250 }
 };
+
+world.afterEvents.worldLoad.subscribe(() => {
+    system.sendScriptEvent("utilitycraft:register_melter_recipe", JSON.stringify(melterRecipesRegister));
+});
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_melter_recipe"

@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 /**
  * Pressing and compression recipes for the Electro Press machine.
@@ -9,7 +9,9 @@ import { system } from "@minecraft/server";
  * @constant
  * @type {SingleInputRecipes}
  */
-export const pressRecipes = {
+export const pressRecipes = {}
+
+const pressRecipesRegister = {
     "minecraft:netherite_ingot": { output: "utilitycraft:netherite_plate", required: 1 },
     "minecraft:iron_ingot": { output: "utilitycraft:iron_plate", required: 1 },
     "minecraft:gold_ingot": { output: "utilitycraft:gold_plate", required: 1 },
@@ -48,6 +50,11 @@ export const pressRecipes = {
     "minecraft:dried_kelp": { output: "minecraft:dried_kelp_block", required: 9 },
     "minecraft:blue_ice": { output: "minecraft:packed_ice", required: 9 }
 }
+
+world.afterEvents.worldLoad.subscribe(() => {
+    system.sendScriptEvent("utilitycraft:register_press_recipe", JSON.stringify(pressRecipesRegister));
+});
+
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_press_recipe"

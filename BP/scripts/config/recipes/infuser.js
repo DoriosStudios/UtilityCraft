@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 /**
  * Infusing recipes for the Infuser machine.
@@ -9,7 +9,9 @@ import { system } from "@minecraft/server";
  * @constant
  * @type {InfuserRecipes}
  */
-export const infuserRecipes = {
+export const infuserRecipes = {}
+
+const infuserRecipesRegister = {
     "minecraft:redstone|minecraft:iron_ingot": {
         output: "utilitycraft:energized_iron_ingot",
         required: 4
@@ -171,6 +173,10 @@ export const infuserRecipes = {
     }
     // Cost multiplier needed
 };
+
+world.afterEvents.worldLoad.subscribe(() => {
+    system.sendScriptEvent("utilitycraft:register_infuser_recipe", JSON.stringify(infuserRecipesRegister));
+});
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_infuser_recipe"

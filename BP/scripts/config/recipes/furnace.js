@@ -1,4 +1,4 @@
-import { system } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 /**
  * Recipes for the Incinerator machine.
@@ -9,7 +9,9 @@ import { system } from "@minecraft/server";
  * @constant
  * @type {SingleInputRecipes}
  */
-export const furnaceRecipes = {
+export const furnaceRecipes = {}
+
+const furnaceRecipesRegister = {
     // UtilityCraft
     "utilitycraft:raw_steel": {
         output: "utilitycraft:steel_ingot"
@@ -490,6 +492,10 @@ export const furnaceRecipes = {
         output: "minecraft:lime_dye"
     },
 }
+
+world.afterEvents.worldLoad.subscribe(() => {
+    system.sendScriptEvent("utilitycraft:register_furnace_recipe", JSON.stringify(furnaceRecipesRegister));
+});
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_furnace_recipe"
