@@ -28,7 +28,7 @@
 			}
 		},
 		"components": {
-			"utilitycraft:upgradeable": {},"tag:dorios:upgradeable": {},
+			"utilitycraft:upgradeable": {},
 			"utilitycraft:mechanic_hopper": {
 				"type": "dropper"
 			},

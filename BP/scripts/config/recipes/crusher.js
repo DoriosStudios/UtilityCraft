@@ -79,6 +79,9 @@ export const crusherRecipes = {
     "minecraft:raw_gold_block": { output: "utilitycraft:gold_dust", amount: 12, cost: 1600 },
     "utilitycraft:raw_steel_block": { output: "utilitycraft:steel_dust", amount: 12, cost: 1600 },
 
+    // Pebbles
+    "minecraft:calcite": { output: "utilitycraft:calcite_pebble", amount: 4 },
+
     // Normal Chunks
     "utilitycraft:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
     "utilitycraft:gold_chunk": { output: "minecraft:raw_gold", amount: 1 },

@@ -65,6 +65,16 @@
 				}
 			},
 			// Normal Machines
+			"utilitycraft:special_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:special_container"
+					]
+				}
+			},
 			"utilitycraft:simple_input_machine": {
 				"minecraft:type_family": {
 					"family": [
@@ -352,6 +362,13 @@
 				}
 			},
 			// Normal Machines
+			"utilitycraft:special_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:special_machine"
+					]
+				}
+			},
 			"utilitycraft:simple_input_machine": {
 				"add": {
 					"component_groups": [

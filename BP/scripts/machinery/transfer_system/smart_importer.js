@@ -104,7 +104,7 @@ function openSmartSlotSelectMenu(block, player, cfg, key) {
         .title("Select Slot");
 
     slotKeys.forEach(k => {
-        menu.button(k);
+        if (!k.startsWith('#')) menu.button(k);
     });
 
     menu.button("Back");

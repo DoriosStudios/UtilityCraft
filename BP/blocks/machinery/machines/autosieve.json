@@ -47,7 +47,18 @@
 			},
 			"utilitycraft:special_container": {
 				"Input Slot": 3,
-				"Mesh Slot": 6
+				"Mesh Slot": 6,
+				"#output_slots": [
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
+				]
 			},
 			"minecraft:geometry": "geometry.utilitycraft_block_2",
 			"minecraft:material_instances": {

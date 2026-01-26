@@ -777,6 +777,7 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
                 z: loc.z + off[2],
             };
             const target = DoriosAPI.containers.getContainerAt(loc, dim)
+
             if (!target.container) continue
             // Apply importer whitelist / blacklist
             if (data) {

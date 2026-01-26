@@ -354,10 +354,37 @@ globalThis.DoriosAPI = {
             const tf = target.getComponent("minecraft:type_family");
             if (!tf) return false;
 
-            const isMachine = tf.hasTypeFamily("dorios:machine");
+            const isMachine = tf.hasTypeFamily("dorios:machine") && !tf.hasTypeFamily("dorios:multiblock");
             const blockedSlots = isMachine
                 ? DoriosAPI.containers.getMachineBlockedSlots(target)
                 : new Set();
+
+            // ───────────────────────────────
+            // Complex Input (uses getAllowedSlots)
+            // ───────────────────────────────
+            if (tf.hasTypeFamily("dorios:complex_input") || tf.hasTypeFamily("dorios:special_container")) {
+                const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
+
+                for (let i = start; i <= end; i++) {
+                    if (blockedSlots.has(i)) continue
+                    const slotItem = targetInv.getItem(i);
+                    // Empty slot → insert directly
+                    if (!slotItem) {
+                        targetInv.setItem(i, itemStack);
+                        return true;
+                    }
+
+                    // Same item → try to merge
+                    if (slotItem.typeId === itemId && slotItem.amount < slotItem.maxAmount) {
+                        const insertAmount = Math.min(itemStack.amount, slotItem.maxAmount - slotItem.amount);
+                        slotItem.amount += insertAmount;
+                        targetInv.setItem(i, slotItem);
+                        return insertAmount;
+                    }
+                }
+
+                return false;
+            }
 
             // ───────────────────────────────
             // Simple Input
@@ -374,34 +401,6 @@ globalThis.DoriosAPI = {
                     targetInv.setItem(3, slotNext);
                     return insertAmount;
                 }
-                return false;
-            }
-
-            // ───────────────────────────────
-            // Complex Input (uses getAllowedSlots)
-            // ───────────────────────────────
-            if (tf.hasTypeFamily("dorios:complex_input")) {
-                const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
-
-                for (let i = start; i <= end; i++) {
-                    if (blockedSlots.has(i)) continue;
-                    const slotItem = targetInv.getItem(i);
-
-                    // Empty slot → insert directly
-                    if (!slotItem) {
-                        targetInv.setItem(i, itemStack);
-                        return true;
-                    }
-
-                    // Same item → try to merge
-                    if (slotItem.typeId === itemId && slotItem.amount < slotItem.maxAmount) {
-                        const insertAmount = Math.min(itemStack.amount, slotItem.maxAmount - slotItem.amount);
-                        slotItem.amount += insertAmount;
-                        targetInv.setItem(i, slotItem);
-                        return insertAmount;
-                    }
-                }
-
                 return false;
             }
 
@@ -805,6 +804,16 @@ globalThis.DoriosAPI = {
 
             if (!tf) return [0, size - 1];
 
+            if (tf.hasTypeFamily("dorios:special_container")) {
+                const raw = target.getDynamicProperty("dorios:special_container")
+                let slotsRegister;
+                try {
+                    slotsRegister = JSON.parse(raw)
+                } catch { }
+
+                if (slotsRegister && slotsRegister.input) return slotsRegister.input
+            }
+
             const isSimpleInput = tf.hasTypeFamily("dorios:simple_input");
             const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
             const isComplexInput = tf.hasTypeFamily("dorios:complex_input");
@@ -860,6 +869,15 @@ globalThis.DoriosAPI = {
             const size = inv.size;
 
             if (!tf) return [0, size - 1];
+
+            if (tf.hasTypeFamily("dorios:special_container")) {
+                const raw = target.getDynamicProperty("dorios:special_container")
+                let slotsRegister;
+                try {
+                    slotsRegister = JSON.parse(raw)
+                } catch { }
+                if (slotsRegister && slotsRegister.output) return slotsRegister.output
+            }
 
             const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
             const isComplexOutput = tf.hasTypeFamily("dorios:complex_output");
