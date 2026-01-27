@@ -960,7 +960,7 @@ async function startRescanItem(startPos, dimension) {
             const by = extPos.y + off[1];
             const bz = extPos.z + off[2];
             const offBlock = dimension.getBlock({ x: bx, y: by, z: bz })
-            if (offBlock || offBlock?.hasTag("dorios:multiblock.port") && offBlock.hasTag("dorios:item")) {
+            if (offBlock && offBlock.hasTag("dorios:multiblock.port") && offBlock.hasTag("dorios:item")) {
                 let entity = dimension.getEntities({ tags: [`input:[${bx},${by},${bz}]`] })[0];
                 if (entity) {
                     const loc = entity.location;
@@ -1244,6 +1244,7 @@ function openFluidExtractorMenu(block, player) {
         "textures/ui/icon_book_writable.png"
     );
     menu.button('Add Fluid Type\n§8(Add fluid from Mainhand)', 'textures/ui/icon_import.png');
+    menu.button('Add Fluid Type\n§8(Add fluid from Source)', 'textures/ui/icon_import.png');
     menu.button(
         "Remove Fluid\n§8(Select a fluid to remove)",
         "textures/ui/trash_default.png"
@@ -1288,7 +1289,99 @@ function openFluidExtractorMenu(block, player) {
                 entity.addTag(`${fluid.type}`);
                 return;
             }
-            case 4: // Transfer Mode
+            case 4: { // Add Fluid Type from Source
+                const hasFilter = block.permutation.getState('utilitycraft:filter');
+                if (!hasFilter) {
+                    player.onScreenDisplay.setActionBar(`§cMissing filter upgrade.`);
+                    return;
+                }
+
+                const face = block.permutation.getState("minecraft:block_face");
+                const off = blockFaceOffsets[face];
+                if (!off) return;
+
+                const { x, y, z } = block.location;
+                const bx = x + off[0];
+                const by = y + off[1];
+                const bz = z + off[2];
+                const dim = block.dimension;
+
+                let sourceEntity = dim.getEntitiesAtBlockLocation({ x: bx, y: by, z: bz })[0];
+                const sourceBlock = dim.getBlock({ x: bx, y: by, z: bz });
+
+                if (!sourceEntity) {
+                    if (
+                        !sourceBlock?.hasTag("dorios:multiblock.port") ||
+                        !sourceBlock?.hasTag("dorios:fluid")
+                    ) {
+                        player.onScreenDisplay.setActionBar(`§cNo fluid source.`);
+                        return;
+                    }
+
+                    sourceEntity = dim.getEntities({
+                        tags: [`input:[${bx},${by},${bz}]`]
+                    })[0];
+
+                    if (!sourceEntity) {
+                        player.onScreenDisplay.setActionBar(`§cNo fluid source.`);
+                        return;
+                    }
+                }
+
+                // ──────────────────────────────────────────────
+                // Initialize & read fluid managers
+                // ──────────────────────────────────────────────
+                const maxLiquids = FluidManager.getMaxLiquids(sourceEntity);
+                const tanks = FluidManager.initializeMultiple(sourceEntity, maxLiquids);
+
+                /** @type {{ manager: FluidManager, type: string }[]} */
+                const validFluids = [];
+
+                tanks.forEach(manager => {
+                    const type = manager.getType();
+                    if (type && type !== "empty") {
+                        validFluids.push({ manager, type });
+                    }
+                });
+
+                if (validFluids.length === 0) {
+                    player.onScreenDisplay.setActionBar(`§cNo fluids found in source.`);
+                    return;
+                }
+
+                // ──────────────────────────────────────────────
+                // Build modal form
+                // ──────────────────────────────────────────────
+                const form = new ModalFormData()
+                    .title("Select Fluids");
+
+                validFluids.forEach(({ type }) => {
+                    form.toggle(
+                        DoriosAPI.utils.formatIdToText(type),
+                        { defaultValue: entity.hasTag(type) }
+                    );
+                });
+
+                form.show(player).then(res => {
+                    if (res.canceled) return;
+
+                    res.formValues.forEach((enabled, idx) => {
+                        if (enabled) {
+                            entity.addTag(validFluids[idx].type);
+                        } else {
+                            entity.removeTag(validFluids[idx].type);
+                        }
+                    });
+
+                    player.onScreenDisplay.setActionBar(
+                        `§aAdded ${res.formValues.filter(Boolean).length} fluid filter(s).`
+                    );
+                });
+
+                return;
+            }
+
+            case 5: // Transfer Mode
                 openRemoveTypeMenu(block, player, entity, acceptedFluids);
                 break;
 
@@ -1700,7 +1793,7 @@ function startRescanFluid(startPos, dimension) {
             const by = extPos.y + off[1];
             const bz = extPos.z + off[2];
             const offBlock = dimension.getBlock({ x: bx, y: by, z: bz })
-            if (offBlock || offBlock.hasTag("dorios:multiblock.port") && offBlock.hasTag("dorios:fluid")) {
+            if (offBlock && offBlock.hasTag("dorios:multiblock.port") && offBlock.hasTag("dorios:fluid")) {
                 let entity = dimension.getEntities({ tags: [`input:[${bx},${by},${bz}]`] })[0];
                 if (entity) {
                     const loc = entity.location;
