@@ -12,6 +12,14 @@ import { world, system } from "@minecraft/server";
 export const infuserRecipes = {}
 
 const infuserRecipesRegister = {
+    "utilitycraft:amethyst_dust|utilitycraft:obsidian_dust": {
+        output: "utilitycraft:refined_obsidian_dust",
+        required: 4
+    },
+    "utilitycraft:amethyst_dust|utilitycraft:crying_obsidian_dust": {
+        output: "utilitycraft:refined_obsidian_dust",
+        required: 1
+    },
     "minecraft:redstone|minecraft:iron_ingot": {
         output: "utilitycraft:energized_iron_ingot",
         required: 4

@@ -1526,6 +1526,7 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
 
         if (fluidSource) {
             transferred = fluidSource.transferToNetwork(speed, mode, orderedTargets);
+            // if (liquidType == "saline_coolant") world.sendMessage(`${transferred}`)
         } else {
             // For non-entity sources (vanilla/crucible/sink)
             for (const loc of orderedTargets) {
@@ -1698,6 +1699,14 @@ function startRescanFluid(startPos, dimension) {
             const bx = extPos.x + off[0];
             const by = extPos.y + off[1];
             const bz = extPos.z + off[2];
+            const offBlock = dimension.getBlock({ x: bx, y: by, z: bz })
+            if (offBlock || offBlock.hasTag("dorios:multiblock.port") && offBlock.hasTag("dorios:fluid")) {
+                let entity = dimension.getEntities({ tags: [`input:[${bx},${by},${bz}]`] })[0];
+                if (entity) {
+                    const loc = entity.location;
+                    globalBlockedTags.add(`ent:[${loc.x},${loc.y},${loc.z}]`);
+                }
+            }
             globalBlockedTags.add(`tan:[${bx},${by},${bz}]`);
             globalBlockedTags.add(`ent:[${bx},${by},${bz}]`);
         }
@@ -1713,6 +1722,7 @@ function startRescanFluid(startPos, dimension) {
         for (const tag of inputs) {
             if (!globalBlockedTags.has(tag)) {
                 ext.addTag(tag);
+
             }
         }
 
