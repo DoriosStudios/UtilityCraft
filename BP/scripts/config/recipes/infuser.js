@@ -170,8 +170,12 @@ const infuserRecipesRegister = {
     "minecraft:redstone|minecraft:raw_iron": {
         output: "utilitycraft:raw_energized_iron",
         required: 4
-    }
+    },
     // Cost multiplier needed
+    "minecraft:bone_meal|minecraft:cobblestone": {
+        output: "minecraft:calcite",
+        required: 4
+    }
 };
 
 world.afterEvents.worldLoad.subscribe(() => {

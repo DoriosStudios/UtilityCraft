@@ -627,11 +627,9 @@ DoriosAPI.register.blockComponent('exporter', {
     onPlayerInteract(e) {
         const { block, player } = e
         if (player.isSneaking) return
-        // const hasFilter = block.permutation.getState('utilitycraft:filter')
-        // if (!hasFilter) return
 
-        // const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand')
-        // if (!mainHand?.typeId?.includes('wrench')) return
+        const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand')
+        if (mainHand?.typeId?.includes('upgrade')) return
 
         openExporterMenu(block, player) // tu menú existente si lo deseas reutilizar
     },
@@ -1224,6 +1222,8 @@ function openImporterRemoveMenu(block, player, cfg, key) {
 function openFluidExtractorMenu(block, player) {
     const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
     if (!entity) return;
+    const acceptedFluids = entity.getTags()
+        .filter(tag => !tag.startsWith('ent:') && !tag.startsWith('tan:') && !tag.startsWith('update'));
 
     const isOff = entity.getDynamicProperty('isOff') ?? false;
     const mode = entity.getDynamicProperty('transferMode') ?? 'nearest';
@@ -1238,7 +1238,16 @@ function openFluidExtractorMenu(block, player) {
     // Buttons
     menu.button(`${isOff ? 'Turn ON' : 'Turn OFF'}\n§8Toggle extractor activity`, `textures/ui/toggle_${isOff ? 'on' : 'off'}`);
     menu.button(`Transfer Mode\n§8(${DoriosAPI.utils.capitalizeFirst(mode)})`, 'textures/items/compass_item.png');
-
+    // View filter contents
+    menu.button(
+        "View Filter Contents\n§8List all filtered fluids",
+        "textures/ui/icon_book_writable.png"
+    );
+    menu.button('Add Fluid Type\n§8(Add fluid from Mainhand)', 'textures/ui/icon_import.png');
+    menu.button(
+        "Remove Fluid\n§8(Select a fluid to remove)",
+        "textures/ui/trash_default.png"
+    );
     // ──────────────────────────────────────────────
     // 2️⃣ Handle menu actions
     // ──────────────────────────────────────────────
@@ -1256,7 +1265,88 @@ function openFluidExtractorMenu(block, player) {
             case 1: // Transfer Mode
                 openTransferModeMenu(entity, player);
                 break;
+            case 2: // list
+                showFilteredFluids(player, acceptedFluids);
+                break;
+
+            case 3: { // Add item
+                const hasFilter = block.permutation.getState('utilitycraft:filter')
+                if (!hasFilter) {
+                    player.onScreenDisplay.setActionBar(`§cMissing filter upgrade.`);
+                    return
+                }
+                const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand');
+                if (!mainHand) {
+                    player.onScreenDisplay.setActionBar(`§cYou must hold an item in your main hand.`);
+                    return
+                }
+                const fluid = FluidManager.itemFluidContainers[mainHand.typeId]
+                if (!fluid) {
+                    player.onScreenDisplay.setActionBar(`§cYou must hold an item that contains a fluid.`);
+                    return
+                }
+                entity.addTag(`${fluid.type}`);
+                return;
+            }
+            case 4: // Transfer Mode
+                openRemoveTypeMenu(block, player, entity, acceptedFluids);
+                break;
+
         }
+    });
+}
+
+function showFilteredFluids(player, items) {
+    const form = new ActionFormData();
+    form.title("Filtered Items");
+
+    const header = "§aWhitelist§r\nOnly these fluids types are allowed.\n"
+
+    const list =
+        items.length === 0
+            ? "§7(empty)"
+            : items.map(i => '- ' + DoriosAPI.utils.formatIdToText(i)).join("\n");
+
+    form.body(header + "\n" + list);
+    form.button("Close");
+
+    form.show(player);
+}
+
+/**
+ * Opens a submenu to remove types from the extractor filter.
+ *
+ * @param {Block} block The extractor block.
+ * @param {Player} player The player.
+ * @param {Entity} entity The extractor entity.
+ * @param {string[]} types List of filterable tags.
+ */
+function openRemoveTypeMenu(block, player, entity, types) {
+    if (!types || types.length === 0) {
+        player.onScreenDisplay.setActionBar('§cNo fluid types to remove.');
+        return;
+    }
+
+    const menu = new ActionFormData()
+        .title('Remove Fluid Type')
+        .body('§7Select a fluid type to remove from the filter.');
+
+    for (const tag of types) {
+        menu.button(DoriosAPI.utils.formatIdToText(tag));
+    }
+
+    menu.show(player).then(result => {
+        const selection = result.selection;
+        if (selection === undefined) {
+            openFluidExtractorMenu(block, player);
+            return;
+        }
+
+        const tagToRemove = types[selection];
+        entity.removeTag(tagToRemove);
+        player.onScreenDisplay.setActionBar(`§cRemoved: §r${tagToRemove}`);
+
+        openFluidExtractorMenu(block, player);
     });
 }
 
@@ -1296,11 +1386,9 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
     onPlayerInteract(e) {
         const { block, player } = e
         if (player.isSneaking) return
-        // const hasFilter = block.permutation.getState('utilitycraft:filter')
-        // if (!hasFilter) return
 
         const mainHand = player.getComponent('equippable')?.getEquipment('Mainhand')
-        if (!mainHand?.typeId?.includes('wrench')) return
+        if (mainHand?.typeId?.includes('upgrade')) return
 
         openFluidExtractorMenu(block, player) // tu menú existente si lo deseas reutilizar
     },
@@ -1314,7 +1402,7 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         const extractor = dimension.getEntitiesAtBlockLocation(block.location)[0];
         if (!extractor) return;
         if (extractor.getDynamicProperty('isOff')) return;
-
+        const hasFilter = block.permutation.getState('utilitycraft:filter')
         // ─────────────────────────────
         // 2. Locate source block
         // ─────────────────────────────
@@ -1333,6 +1421,12 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
             .getEntitiesAtBlockLocation(sourceLoc)
             .find(e => e.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:fluid_container"));
 
+        if (!sourceEntity && sourceBlock.hasTag("dorios:multiblock.port") && sourceBlock.hasTag("dorios:fluid")) {
+            const pos = sourceBlock.location
+            sourceEntity = dimension.getEntities({ tags: [`input:[${pos.x},${pos.y},${pos.z}]`] })[0];
+            if (!sourceEntity) return;
+        }
+
         let fluidSource = null;
         let liquidType = null;
         let amount = 0;
@@ -1347,7 +1441,15 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         };
         if (sourceEntity) {
             // Dorios/UtilityCraft entity fluid container
-            fluidSource = new FluidManager(sourceEntity, 0);
+            const fluidQty = FluidManager.getMaxLiquids(sourceEntity)
+            const fluidTypes = FluidManager.initializeMultiple(sourceEntity, fluidQty)
+            if (!fluidTypes) return
+            fluidSource = fluidTypes.find(type => {
+                if (type.get() <= 0 || type.type == "empty") return false
+                if (hasFilter && !extractor.hasTag(type.type)) return false
+                return true
+            })
+            if (!fluidSource) return
             liquidType = fluidSource.getType();
             amount = fluidSource.get();
         } else if (liquids[sourceBlock.typeId]) {

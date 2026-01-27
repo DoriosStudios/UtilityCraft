@@ -3315,57 +3315,56 @@ const scriptEventHandler = {
     }
   },
   /**
-   * ScriptEvent receiver: "utilitycraft:register_fluid_holder"
+   * ScriptEvent handler: "utilitycraft:register_fluid_holder"
    *
-   * Allows other addons or scripts to dynamically add or replace
-   * item → fluid-extraction mappings used by LiquidManager.
-   *
-   * Expected payload format (JSON):
-   * ```json
-   * {
-   *   "minecraft:bucket": {
-   *        "types": {
-   *            "water": "minecraft:water_bucket",
-   *            "lava": "minecraft:lava_bucket"
-   *        },
-   *        "required": 1000
-   *   },
-   *   "custom:empty_cell": {
-   *        "types": { "lava": "custom:lava_cell" },
-   *        "required": 250
-   *   }
-   * }
-   * ```
+   * Allows addons or scripts to register or extend fluid extraction holders.
    *
    * Behavior:
-   * - New items are created automatically if missing.
-   * - Existing items are replaced and logged individually.
-   * - Only a summary log is printed when finished.
+   * - If the holder does not exist, it is created.
+   * - If the holder already exists, its `types` map is merged.
+   * - Existing types are preserved.
+   * - `required` is only overwritten if explicitly provided.
+   *
+   * Expected payload format:
+   * {
+   *   "item:id": {
+   *     types: { fluidType: outputItemId, ... },
+   *     required?: number
+   *   }
+   * }
    */
   "utilitycraft:register_fluid_holder": ({ message }) => {
     try {
       const payload = JSON.parse(message);
       if (!payload || typeof payload !== "object") return;
 
-      let added = 0;
-      let replaced = 0;
-
       for (const [itemId, data] of Object.entries(payload)) {
-        if (!data.types || typeof data.required !== "number") continue;
+        if (!data.types || typeof data.types !== "object") continue;
 
-        if (FluidManager.itemFluidHolders[itemId]) {
-          replaced++;
+        const existing = FluidManager.itemFluidHolders[itemId];
+
+        if (existing) {
+          existing.types = {
+            ...existing.types,
+            ...data.types
+          };
+
+          if (typeof data.required === "number") {
+            existing.required = data.required;
+          }
         } else {
-          added++;
-        }
+          if (typeof data.required !== "number") continue;
 
-        // Assign holder definition
-        FluidManager.itemFluidHolders[itemId] = data;
+          FluidManager.itemFluidHolders[itemId] = {
+            types: { ...data.types },
+            required: data.required
+          };
+        }
       }
     } catch (err) {
       console.warn(
         "[UtilityCraft] Failed to parse fluid-holder registration payload:",
-        err,
+        err
       );
     }
   },

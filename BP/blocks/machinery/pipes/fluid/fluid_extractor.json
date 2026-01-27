@@ -37,6 +37,10 @@
 					2,
 					3,
 					4
+				],
+				"utilitycraft:filter": [
+					0,
+					1
 				]
 			},
 			"traits": {
