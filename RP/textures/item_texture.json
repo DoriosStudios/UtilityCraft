@@ -1490,8 +1490,8 @@
 		"utilitycraft_crying_obsidian_dust": {
 			"textures": "textures/items/dusts/crying_obsidian_dust"
 		},
-		"utilitycraft_refined_obsidian_dust": {
-			"textures": "textures/items/dusts/refined_obsidian_dust"
+		"utilitycraft_stabilized_obsidian_dust": {
+			"textures": "textures/items/dusts/stabilized_obsidian_dust"
 		},
 		"utilitycraft_filter_upgrade": {
 			"textures": "textures/items/machinery/filter_upgrade"
