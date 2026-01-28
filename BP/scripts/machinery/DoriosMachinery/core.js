@@ -1593,7 +1593,10 @@ export class Energy {
   static formatEnergyToText(value) {
     let unit = "DE";
 
-    if (value >= 1e12) {
+    if (value >= 1e15) {
+      unit = "PDE";
+      value /= 1e15;
+    } else if (value >= 1e12) {
       unit = "TDE";
       value /= 1e12;
     } else if (value >= 1e9) {
@@ -1647,6 +1650,9 @@ export class Energy {
         break;
       case "TDE":
         multiplier = 1e12;
+        break;
+      case "PDE":
+        multiplier = 1e15;
         break;
       case "DE":
         multiplier = 1;
