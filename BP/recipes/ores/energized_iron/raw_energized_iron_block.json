@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "utilitycraft:raw_energized_iron_block"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "utilitycraft:raw_energized_iron",
+				"count": 9
+			}
+		],
+		"result": {
+			"item": "utilitycraft:raw_energized_iron_block"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:raw_energized_iron"
+			}
+		]
+	}
+}

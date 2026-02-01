@@ -31,7 +31,7 @@ DoriosAPI.register.blockComponent('block_breaker', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy');
+            machine.showWarning('No Energy', true, false);
             return;
         }
 
@@ -60,7 +60,7 @@ DoriosAPI.register.blockComponent('block_breaker', {
                     })
                     machine.setProgress(0, undefined, undefined, false);
                 } else {
-                    machine.showWarning('Nothing to Break', false);
+                    machine.showWarning('Nothing to Break', false, false);
                     return;
                 }
             }

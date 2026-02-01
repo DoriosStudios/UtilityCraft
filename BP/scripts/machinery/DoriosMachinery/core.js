@@ -813,6 +813,10 @@ export class Machine {
       return;
     }
     this.inv = this.entity?.getComponent("inventory")?.container;
+    if (!this.inv) {
+      this.valid = false;
+      return;
+    }
     this.energy = new Energy(this.entity);
     this.baseRate = settings?.machine?.rate_speed_base ?? 0;
     this.rate = this.baseRate * tickSpeed;
@@ -1274,7 +1278,6 @@ export class Machine {
   displayProgress(slot = 2, type = "arrow_right", index = 0) {
     const inv = this.entity.getComponent("minecraft:inventory")?.container;
     if (!inv) return;
-
     const progress = this.getProgress(index);
     const max = this.getEnergyCost(index);
     if (max <= 0) return;
@@ -1329,9 +1332,9 @@ export class Machine {
    * @param {string} message The warning text to display.
    * @param {boolean} [resetProgress=true] Whether to reset the machine progress to 0.
    */
-  showWarning(message, resetProgress = true) {
+  showWarning(message, resetProgress = true, displayProgress = true, slotProgress = 2) {
     if (resetProgress) {
-      this.setProgress(0);
+      this.setProgress(0, slotProgress, undefined, displayProgress);
     }
 
     this.displayEnergy();
@@ -1523,6 +1526,10 @@ export class Energy {
   constructor(entity) {
     this.entity = entity;
     this.scoreId = entity?.scoreboardIdentity;
+    if (!this.scoreId) {
+      Energy.initialize(entity)
+      this.scoreId = entity?.scoreboardIdentity;
+    }
     this.cap = this.getCap();
   }
 

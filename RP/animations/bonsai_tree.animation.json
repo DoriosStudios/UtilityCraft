@@ -1,9 +1,9 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.grow_tree_60": {
+		"animation.grow_tree_5": {
 			"loop": true,
-			"animation_length": 60,
+			"animation_length": 5,
 			"bones": {
 				"tree": {
 					"scale": {
@@ -15,7 +15,7 @@
 							],
 							"lerp_mode": "catmullrom"
 						},
-						"60.0": {
+						"5.0": {
 							"post": [
 								7.5,
 								7.5,
@@ -27,9 +27,9 @@
 				}
 			}
 		},
-		"animation.grow_tree_50": {
+		"animation.grow_tree_10": {
 			"loop": true,
-			"animation_length": 50,
+			"animation_length": 10,
 			"bones": {
 				"tree": {
 					"scale": {
@@ -41,7 +41,7 @@
 							],
 							"lerp_mode": "catmullrom"
 						},
-						"50.0": {
+						"10.0": {
 							"post": [
 								7.5,
 								7.5,
@@ -53,9 +53,9 @@
 				}
 			}
 		},
-		"animation.grow_tree_45": {
+		"animation.grow_tree_15": {
 			"loop": true,
-			"animation_length": 45,
+			"animation_length": 15,
 			"bones": {
 				"tree": {
 					"scale": {
@@ -67,7 +67,7 @@
 							],
 							"lerp_mode": "catmullrom"
 						},
-						"45.0": {
+						"15.0": {
 							"post": [
 								7.5,
 								7.5,
@@ -79,9 +79,9 @@
 				}
 			}
 		},
-		"animation.grow_tree_40": {
+		"animation.grow_tree_20": {
 			"loop": true,
-			"animation_length": 40,
+			"animation_length": 20,
 			"bones": {
 				"tree": {
 					"scale": {
@@ -93,7 +93,33 @@
 							],
 							"lerp_mode": "catmullrom"
 						},
-						"40.0": {
+						"20.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_25": {
+			"loop": true,
+			"animation_length": 25,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"25.0": {
 							"post": [
 								7.5,
 								7.5,
@@ -131,9 +157,9 @@
 				}
 			}
 		},
-		"animation.grow_tree_10": {
+		"animation.grow_tree_35": {
 			"loop": true,
-			"animation_length": 10,
+			"animation_length": 35,
 			"bones": {
 				"tree": {
 					"scale": {
@@ -145,7 +171,1385 @@
 							],
 							"lerp_mode": "catmullrom"
 						},
-						"10.0": {
+						"35.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_40": {
+			"loop": true,
+			"animation_length": 40,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"40.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_45": {
+			"loop": true,
+			"animation_length": 45,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"45.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_50": {
+			"loop": true,
+			"animation_length": 50,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"50.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_55": {
+			"loop": true,
+			"animation_length": 55,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"55.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_60": {
+			"loop": true,
+			"animation_length": 60,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"60.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_65": {
+			"loop": true,
+			"animation_length": 65,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"65.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_70": {
+			"loop": true,
+			"animation_length": 70,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"70.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_75": {
+			"loop": true,
+			"animation_length": 75,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"75.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_80": {
+			"loop": true,
+			"animation_length": 80,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"80.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_85": {
+			"loop": true,
+			"animation_length": 85,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"85.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_90": {
+			"loop": true,
+			"animation_length": 90,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"90.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_95": {
+			"loop": true,
+			"animation_length": 95,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"95.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_100": {
+			"loop": true,
+			"animation_length": 100,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"100.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_105": {
+			"loop": true,
+			"animation_length": 105,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"105.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_110": {
+			"loop": true,
+			"animation_length": 110,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"110.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_115": {
+			"loop": true,
+			"animation_length": 115,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"115.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_120": {
+			"loop": true,
+			"animation_length": 120,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"120.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_125": {
+			"loop": true,
+			"animation_length": 125,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"125.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_130": {
+			"loop": true,
+			"animation_length": 130,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"130.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_135": {
+			"loop": true,
+			"animation_length": 135,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"135.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_140": {
+			"loop": true,
+			"animation_length": 140,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"140.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_145": {
+			"loop": true,
+			"animation_length": 145,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"145.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_150": {
+			"loop": true,
+			"animation_length": 150,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"150.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_155": {
+			"loop": true,
+			"animation_length": 155,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"155.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_160": {
+			"loop": true,
+			"animation_length": 160,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"160.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_165": {
+			"loop": true,
+			"animation_length": 165,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"165.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_170": {
+			"loop": true,
+			"animation_length": 170,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"170.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_175": {
+			"loop": true,
+			"animation_length": 175,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"175.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_180": {
+			"loop": true,
+			"animation_length": 180,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"180.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_185": {
+			"loop": true,
+			"animation_length": 185,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"185.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_190": {
+			"loop": true,
+			"animation_length": 190,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"190.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_195": {
+			"loop": true,
+			"animation_length": 195,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"195.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_200": {
+			"loop": true,
+			"animation_length": 200,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"200.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_205": {
+			"loop": true,
+			"animation_length": 205,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"205.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_210": {
+			"loop": true,
+			"animation_length": 210,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"210.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_215": {
+			"loop": true,
+			"animation_length": 215,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"215.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_220": {
+			"loop": true,
+			"animation_length": 220,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"220.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_225": {
+			"loop": true,
+			"animation_length": 225,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"225.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_230": {
+			"loop": true,
+			"animation_length": 230,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"230.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_235": {
+			"loop": true,
+			"animation_length": 235,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"235.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_240": {
+			"loop": true,
+			"animation_length": 240,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"240.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_245": {
+			"loop": true,
+			"animation_length": 245,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"245.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_250": {
+			"loop": true,
+			"animation_length": 250,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"250.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_255": {
+			"loop": true,
+			"animation_length": 255,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"255.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_260": {
+			"loop": true,
+			"animation_length": 260,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"260.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_265": {
+			"loop": true,
+			"animation_length": 265,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"265.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_270": {
+			"loop": true,
+			"animation_length": 270,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"270.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_275": {
+			"loop": true,
+			"animation_length": 275,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"275.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_280": {
+			"loop": true,
+			"animation_length": 280,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"280.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_285": {
+			"loop": true,
+			"animation_length": 285,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"285.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_290": {
+			"loop": true,
+			"animation_length": 290,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"290.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_295": {
+			"loop": true,
+			"animation_length": 295,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"295.0": {
+							"post": [
+								7.5,
+								7.5,
+								7.5
+							],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.grow_tree_300": {
+			"loop": true,
+			"animation_length": 300,
+			"bones": {
+				"tree": {
+					"scale": {
+						"0.0": {
+							"post": [
+								1,
+								1,
+								1
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"300.0": {
 							"post": [
 								7.5,
 								7.5,

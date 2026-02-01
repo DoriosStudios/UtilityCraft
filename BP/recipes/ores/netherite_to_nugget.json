@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "utilitycraft:netherite_to_nugget"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"ingredients": [
+			{
+				"item": "minecraft:netherite_ingot",
+				"count": 1
+			}
+		],
+		"result": {
+			"item": "utilitycraft:netherite_nugget",
+			"count": 9
+		},
+		"unlock": [
+			{
+				"item": "minecraft:netherite_ingot"
+			}
+		]
+	}
+}
