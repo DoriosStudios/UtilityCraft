@@ -9,9 +9,11 @@ tile.utilitycraft:utility_table.name=Mesa Utility
 - Machines = #Máquinas
 tile.utilitycraft:autosieve.name=Tamiz Automático\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:autofisher.name=Pescador Automático\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:assembler.name=Ensamblador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:block_breaker.name=Rompebloques\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:ender_hopper.name=Tolva del Ender\n§7- Acepta mejoras:\n §9Alcance§7
 tile.utilitycraft:crusher.name=Triturador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
+tile.utilitycraft:digitizer.name=Digitalizador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7
 tile.utilitycraft:harvester.name=Cosechador\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7, §9Alcance§7
 tile.utilitycraft:machine_case.name=Carcasa de Maquina
 tile.utilitycraft:sieve.name=Tamiz\n§7- Uso múltiple máximo: 5x5
@@ -96,6 +98,21 @@ tile.utilitycraft:yellow_soil.name=Suelo §eAmarillo
 - Mechanical Spawners = ## Generadores Mecánicos
 tile.utilitycraft:mechanical_spawner.name=Generador de Mobs Mecánico
 tile.utilitycraft:spawner_core.name=Núcleo Generador de Mobs
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=Generador Mecánico: Blaze
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_chicken.name=Generador Mecánico: Pollo
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_cow.name=Generador Mecánico: Vaca
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_creeper.name=Generador Mecánico: Creeper
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_enderman.name=Generador Mecánico: Enderman
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_hoglin.name=Generador Mecánico: Hoglin
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_magma_cube.name=Generador Mecánico: Cubo de Magma
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_mooshroom.name=Generador Mecánico: Vaca Champiñón
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=Generador Mecánico: Cerdo
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=Generador Mecánico: Oveja
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=Generador Mecánico: Esqueleto
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=Generador Mecánico: Slime
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=Generador Mecánico: Araña
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=Generador Mecánico: Bruja
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=Generador Mecánico: Zombi
 
 - Compressed Blocks = ## Bloques Comprimidos
 tile.utilitycraft:compressed_cobblestone.name=Adoquín Comprimido
@@ -298,6 +315,17 @@ item.utilitycraft:spool_of_strings=Carrete de Cuerdas
 item.utilitycraft:vase_of_fermented_spider_eyes=Jarron de Ojos de Arana Fermentados
 item.utilitycraft:vase_of_spider_eye=Jarron de Ojo de Arana
 
+item.utilitycraft:blaze_block=Núcleo de Blaze
+item.utilitycraft:charcoal_block=Bloque de Carbón Vegetal
+item.utilitycraft:compressed_charcoal_block=Bloque de Carbón Vegetal Comprimido
+item.utilitycraft:compressed_charcoal_block_2=Bloque de Carbón Vegetal Doblemente Comprimido
+item.utilitycraft:compressed_charcoal_block_3=Bloque de Carbón Vegetal Triplemente Comprimido
+item.utilitycraft:compressed_charcoal_block_4=Bloque de Carbón Vegetal Cuádruplemente Comprimido
+item.utilitycraft:compressed_coal_block=Bloque de Carbón Comprimido
+item.utilitycraft:compressed_coal_block_2=Bloque de Carbón Doblemente Comprimido
+item.utilitycraft:compressed_coal_block_3=Bloque de Carbón Triplemente Comprimido
+item.utilitycraft:compressed_coal_block_4=Bloque de Carbón Cuádruplemente Comprimido
+
 ## +
 tile.utilitycraft:compressed_sand.name=Arena Comprimida
 tile.utilitycraft:compressed_dirt.name=Tierra Comprimida
@@ -310,10 +338,12 @@ tile.utilitycraft:compressed_iron_block.name=Bloque de Hierro Comprimido
 - Utility Blocks = ##Bloques
 tile.utilitycraft:asphalt.name=Asfalto\n§7- Aumenta la velocidad de movimiento\n al caminar sobre él
 tile.utilitycraft:big_torch.name=Antorcha Grande
+tile.utilitycraft:blaze_block.name=Núcleo de Blaze
 tile.utilitycraft:elevator.name=Elevador
 tile.utilitycraft:flint_block.name=Bloque de Pedernal
 tile.utilitycraft:lantern.name=Lampara
 tile.utilitycraft:sink.name=Barril de Agua
+tile.utilitycraft:basic_trash_can.name=Basurero Básico
 
 ## + Vehicles
 tile.utilitycraft:drill_placer.name=Taladro
@@ -336,18 +366,29 @@ action.hint.exit.utilitycraft:drill=Bajarse del Taladro
 - Tools = ## Herramientas
 ## >>>>>>>> Grupo Abierto -------- ##
 
+-- Steel = ## Acero
+item.utilitycraft:steel_sword=Espada de Acero
+item.utilitycraft:steel_axe=Hacha de Acero
+item.utilitycraft:steel_pickaxe=Pico de Acero
+item.utilitycraft:steel_shovel=Pala de Acero
+item.utilitycraft:steel_hoe=Azada de Acero
+
 -- AIOTs = ## AIOTs
 item.utilitycraft:netherite_aiot=AIOT de Netherita
 item.utilitycraft:diamond_aiot=AIOT de Diamante
 item.utilitycraft:golden_aiot=AIOT de Oro
+item.utilitycraft:steel_aiot=AIOT de Acero
 item.utilitycraft:iron_aiot=AIOT de Hierro
+item.utilitycraft:copper_aiot=AIOT de Cobre
 item.utilitycraft:stone_aiot=AIOT de Piedra
 item.utilitycraft:wooden_aiot=AIOT de Madera
 
 -- Paxels = ## Paxels
 item.utilitycraft:netherite_paxel=Paxel de Netherita
 item.utilitycraft:diamond_paxel=Paxel de Diamante
+item.utilitycraft:steel_paxel=Paxel de Acero
 item.utilitycraft:iron_paxel=Paxel de Hierro
+item.utilitycraft:copper_paxel=Paxel de Cobre
 item.utilitycraft:golden_paxel=Paxel de Oro
 item.utilitycraft:stone_paxel=Paxel de Piedra
 item.utilitycraft:wooden_paxel=Paxel de Madera
@@ -355,7 +396,10 @@ item.utilitycraft:wooden_paxel=Paxel de Madera
 -- Hammers = ## Martillos
 item.utilitycraft:netherite_hammer=Martillo de Netherita
 item.utilitycraft:diamond_hammer=Martillo de Diamante
+item.utilitycraft:steel_hammer=Martillo de Acero
 item.utilitycraft:iron_hammer=Martillo de Hierro
+item.utilitycraft:golden_hammer=Martillo de Oro
+item.utilitycraft:copper_hammer=Martillo de Cobre
 item.utilitycraft:stone_hammer=Martillo de Piedra
 item.utilitycraft:wooden_hammer=Martillo de Madera
 
@@ -363,6 +407,7 @@ item.utilitycraft:wooden_hammer=Martillo de Madera
 item.utilitycraft:lucky_pickaxe=§aPico de la Suerte
 item.utilitycraft:lucky_sword=§aEspada de la Suerte
 item.utilitycraft:smelting_pickaxe=§6Pico Fundidor\n§7Los minerales soltarán lingotes
+item.utilitycraft:bionic_arm=Brazo Biónico (Prueba)
 item.utilitycraft:lucky_fishing_rod=§aCaña de Pescar de la Suerte
 
 item.utilitycraft:lucky_pickaxe_item=§aPico de la Suerte\n§7Fortuna V
@@ -428,6 +473,7 @@ item.utilitycraft:wither_seeds=Semillas de Calaveras de Wither §0Nivel IV
 - Mesh = ## Mallas
 item.utilitycraft:string_mesh=Malla de Hilo
 item.utilitycraft:flint_mesh=Malla de Pedernal
+item.utilitycraft:copper_mesh=Malla de Cobre\n§7- Nivel máximo de botín: Oro
 item.utilitycraft:iron_mesh=Malla de Hierro
 item.utilitycraft:golden_mesh=Malla de Oro
 item.utilitycraft:emerald_mesh=Malla de Esmeralda
@@ -460,6 +506,7 @@ item.utilitycraft:range_upgrade=§9Mejora de Rango§r\n§7- Incrementa el rango 
 item.utilitycraft:quantity_upgrade=§3Mejora de Cantidad§r\n§7- Incrementa la capacidad de generación para los Generadores Mecánicos
 item.utilitycraft:ultimate_upgrade=§8Mejora Definitiva
 item.utilitycraft:damage_upgrade=§cMejora de Daño§r\n§7- Incrementa lo daño infligido por Triturador de Mobs
+item.utilitycraft:smart_filter_upgrade=Mejora de Filtro Inteligente\n§7- Permite el enrutamiento avanzado\n  de objetos usando categorías de\n  ranuras y filtros con prioridad
 ## +
 item.utilitycraft:base_upgrade=Mejora Bae\n§7- Usada para craftear las mejoras de las Máquinas
 
@@ -522,6 +569,7 @@ item.utilitycraft:accelerator_clock=Reloj Acelerador\n§7- Acelera el juego
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Invocar Reloj Acelerador
 
 - Progress Bars = Barras de Progresión ##///////////////////////////////////////////////////////////////
+item.utilitycraft:empty_liquid_bar=Vacío
 item.utilitycraft:energy_bar_0=Energía:
 item.utilitycraft:energy_bar_1=Energía:
 item.utilitycraft:energy_bar_2=Energía:
@@ -717,6 +765,11 @@ dorios:itemGroup.name.indicators=Indicadores
 dorios:itemGroup.name.aiots=AIOTs
 dorios:itemGroup.name.paxels=Paxels
 dorios:itemGroup.name.hammers=Martillos
+dorios:itemGroup.name.meshes=Mallas
+dorios:itemGroup.name.essences=Esencias\n§7- Usadas en el Generador Mecánico
+dorios:itemGroup.name.plates=Placas
+dorios:itemGroup.name.upgrades=Mejoras de Máquinas
+dorios:itemGroup.name.removed=Eliminados
 
 ## < Categorias
 
@@ -739,6 +792,7 @@ item.utilitycraft:coal_chunk=Trozo de Carbón
 item.utilitycraft:copper_chunk=Trozo de Cobre
 item.utilitycraft:crushed_deepslate_handful=Puñado de Pizarra Profunda Triturada
 item.utilitycraft:crushed_endstone_handful=Puñado de Piedra de End Triturada
+item.utilitycraft:crushed_kelp=Alga Triturada
 item.utilitycraft:deepslate_coal_chunk=Trozo de Carbón de Pizarra Profunda
 item.utilitycraft:deepslate_diamond_chunk=Trozo de Diamante de Pizarra Profunda
 item.utilitycraft:deepslate_emerald_chunk=Trozo de Esmeralda de Pizarra Profunda
@@ -783,13 +837,31 @@ tile.utilitycraft:item_conduit.name=Conducto de Ítems (Verde)\n§7- Transporta 
 tile.utilitycraft:item_conduit_blue.name=Conducto de Ítems (Azul)\n§7- Transporta ítems
 tile.utilitycraft:item_conduit_yellow.name=Conducto de Ítems (Amarillo)\n§7- Transporta ítems
 tile.utilitycraft:item_conduit_red.name=Conducto de Ítems (Rojo)\n§7- Transporta ítems
+tile.utilitycraft:item_conduit_purple.name=Conducto de Ítems (Morado)\n§7- Transporta ítems
 tile.utilitycraft:fluid_pipe.name=Tubería de Fluidos\n§7- Transporta líquidos
+tile.utilitycraft:fluid_pipe_blue.name=Tubería de Fluidos (Azul)\n§7- Transporta líquidos
+tile.utilitycraft:fluid_pipe_green.name=Tubería de Fluidos (Verde)\n§7- Transporta líquidos
+tile.utilitycraft:fluid_pipe_red.name=Tubería de Fluidos (Rojo)\n§7- Transporta líquidos
+tile.utilitycraft:fluid_pipe_purple.name=Tubería de Fluidos (Morado)\n§7- Transporta líquidos
 dorios:itemGroup.name.pipes=Tuberías
 item.utilitycraft:flint_knife=Cuchillo de Pedernal
 item.utilitycraft:fiber=Fibra Vegetal
 tile.utilitycraft:item_exporter.name=Exportador de Objetos \n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
+tile.utilitycraft:item_exporter_blue.name=Exportador de Objetos (Azul)\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
+tile.utilitycraft:item_exporter_purple.name=Exportador de Objetos (Morado)\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
+tile.utilitycraft:item_exporter_red.name=Exportador de Objetos (Rojo)\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
+tile.utilitycraft:item_exporter_yellow.name=Exportador de Objetos (Amarillo)\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7
 item.utilitycraft:mortar=Mortero
 tile.utilitycraft:fluid_extractor.name=Extractor de Fluidos \n§7- Acepta mejoras:\n §aVelocidad§7
+tile.utilitycraft:fluid_extractor_blue.name=Extractor de Fluidos (Azul)\n§7- Acepta mejoras:\n §aVelocidad§7
+tile.utilitycraft:fluid_extractor_green.name=Extractor de Fluidos (Verde)\n§7- Acepta mejoras:\n §aVelocidad§7
+tile.utilitycraft:fluid_extractor_purple.name=Extractor de Fluidos (Morado)\n§7- Acepta mejoras:\n §aVelocidad§7
+tile.utilitycraft:fluid_extractor_red.name=Extractor de Fluidos (Rojo)\n§7- Acepta mejoras:\n §aVelocidad§7
+tile.utilitycraft:item_importer.name=Importador de Objetos (Predeterminado)\n§7- Acepta mejoras:\n §fFiltro§7
+tile.utilitycraft:item_importer_blue.name=Importador de Objetos (Azul)\n§7- Acepta mejoras:\n §fFiltro§7
+tile.utilitycraft:item_importer_purple.name=Importador de Objetos (Morado)\n§7- Acepta mejoras:\n §fFiltro§7
+tile.utilitycraft:item_importer_red.name=Importador de Objetos (Rojo)\n§7- Acepta mejoras:\n §fFiltro§7
+tile.utilitycraft:item_importer_yellow.name=Importador de Objetos (Amarillo)\n§7- Acepta mejoras:\n §fFiltro§7
 
 
 item.utilitycraft:blueprint_paper=Plano Vacío
@@ -809,6 +881,7 @@ entity.utilitycraft:induction_anvil.name=Yunque de Inducción
 entity.utilitycraft:infuser.name=Infusor  
 entity.utilitycraft:magmatic_chamber.name=Cámara Magmática  
 entity.utilitycraft:seed_synthesizer.name=Sintetizador de Semillas  
+entity.utilitycraft:power_condenser.name=Matriz Condensadora de Energía
 
 ## Generadores
 entity.utilitycraft:battery.name=Batería  

@@ -130,6 +130,7 @@ tile.utilitycraft:flint_block.name=Bloco de Sílex
 tile.utilitycraft:lantern.name=Lanterna Grande
 tile.utilitycraft:sieve.name=Peneira\n§7- Multi-uso máximo: 5x5
 tile.utilitycraft:sink.name=Pia Sem-Fim\n§7- Fornece água infinita
+tile.utilitycraft:basic_trash_can.name=Lixeira Básica
 tile.utilitycraft:drill_placer.name=Escavadeira
 tile.utilitycraft:tractor_placer.name=Trator
 tile.utilitycraft:mob_trap.name=Armadilha de Mobs
@@ -143,6 +144,7 @@ item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§7\n§7- Aumen
 item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta a saída de uma máquina\n- Aumenta a quantidade de mobs invocados 
 item.utilitycraft:ultimate_upgrade=Módulo de Melhoria §8Supremo§7\n§7- A Melhoria Suprema
 item.utilitycraft:filter_upgrade=Módulo de Melhoria de §fFiltro§7\n§7- Adiciona um filtro à máquina\n- Possui exclusão e inclusão
+item.utilitycraft:smart_filter_upgrade=Melhoria de Filtro Inteligente\n§7- Permite a filtragem avançada de itens\n  usando categorias de slots e\n  filtros baseados em prioridade
 item.utilitycraft:damage_upgrade=Módulo de Melhoria de §cDano§7\n§7- Aumenta o dano infligido pelo Abatedor de Mobs
 ## +
 item.utilitycraft:base_upgrade=Módulo de Melhoria\n§7- Usado para criar módulos de melhorias para máquinas
@@ -239,6 +241,11 @@ tile.utilitycraft:compressed_blackstone.name=Pedra Negra Comprimida
 tile.utilitycraft:compressed_blackstone_2.name=Pedra Negra Duplamente Comprimida
 tile.utilitycraft:compressed_blackstone_3.name=Pedra Negra Triplamente Comprimida
 tile.utilitycraft:compressed_blackstone_4.name=Pedra Negra Quadruplamente Comprimida
+tile.utilitycraft:compressed_block.name=Roxo Total\n§8- Não há razão para este bloco existir, eu só gosto da textura\n- Inobtível
+tile.utilitycraft:compressed_brute_energized_iron_block.name=Bloco de Ferro Energizado Bruto Comprimido
+tile.utilitycraft:compressed_brute_energized_iron_block_2.name=Bloco de Ferro Energizado Bruto Duplamente Comprimido
+tile.utilitycraft:compressed_brute_energized_iron_block_3.name=Bloco de Ferro Energizado Bruto Triplamente Comprimido
+tile.utilitycraft:compressed_brute_energized_iron_block_4.name=Bloco de Ferro Energizado Bruto Quadruplamente Comprimido
 tile.utilitycraft:compressed_brute_steel_block.name=Bloco de Aço Bruto Comprimido
 tile.utilitycraft:compressed_brute_steel_block_2.name=Bloco de Aço Bruto Duplamente Comprimido
 tile.utilitycraft:compressed_brute_steel_block_3.name=Bloco de Aço Bruto Triplamente Comprimido
@@ -480,6 +487,7 @@ item.utilitycraft:netherite_hammer=Martelo de Netherita
 item.utilitycraft:diamond_hammer=Martelo de Diamante
 item.utilitycraft:steel_hammer=Martelo de Aço
 item.utilitycraft:iron_hammer=Martelo de Ferro
+item.utilitycraft:golden_hammer=Martelo de Ouro
 item.utilitycraft:copper_hammer=Martelo de Cobre
 item.utilitycraft:stone_hammer=Martelo de Pedra
 
@@ -761,6 +769,7 @@ dorios:itemGroup.name.dusts=Pós
 dorios:itemGroup.name.seeds=Sementes
 dorios:itemGroup.name.basics=Básicos
 dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
+dorios:itemGroup.name.aiots=AIOTs
 dorios:itemGroup.name.hammers=Martelos
 dorios:itemGroup.name.paxels=Pacachados
 dorios:itemGroup.name.meshes=Malhas
@@ -768,6 +777,7 @@ dorios:itemGroup.name.fishing_nets=Redes de Pesca
 dorios:itemGroup.name.essences=Essências\n§7- Usado no Invocador Mecânico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Módulos de Melhoria
+dorios:itemGroup.name.removed=Removidos
 ## < Categories
 
 ## All the same
@@ -787,6 +797,7 @@ entity.utilitycraft:induction_anvil.name=Bigorna de Indução
 entity.utilitycraft:infuser.name=Infusor
 entity.utilitycraft:magmatic_chamber.name=Câmara Magmática
 entity.utilitycraft:seed_synthesizer.name=Sintetizador de Sementes
+entity.utilitycraft:power_condenser.name=Matriz Condensadora de Energia
 
 ## Generators Entities
 entity.utilitycraft:battery.name=Bateria
@@ -836,6 +847,7 @@ item.utilitycraft:arrow_indicator=Indicador
 item.utilitycraft:info=Informações:
 
 ### Progress Bars | Barras de Progresso
+item.utilitycraft:empty_liquid_bar=Vazio
 item.utilitycraft:energy_bar_0=Energia:
 item.utilitycraft:energy_bar_1=Energia:
 item.utilitycraft:energy_bar_2=Energia:
