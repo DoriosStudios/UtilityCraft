@@ -11,26 +11,23 @@
 			"R": {
 				"item": "minecraft:redstone"
 			},
-			"N": {
-				"item": "utilitycraft:diamond_fishing_net"
-			},
 			"M": {
 				"item": "utilitycraft:machine_case"
 			},
-			"C": {
-				"item": "utilitycraft:chip"
+			"B": {
+				"item": "utilitycraft:basic_chip"
 			},
 			"F": {
 				"item": "minecraft:fishing_rod"
 			},
-			"W": {
-				"item": "minecraft:water_bucket"
+			"S": {
+				"item": "utilitycraft:steel_block"
 			}
 		},
 		"pattern": [
-			"RNR",
-			"MCF",
-			"RWR"
+			"RFR",
+			"BMB",
+			"RSR"
 		],
 		"result": {
 			"item": "utilitycraft:autofisher"

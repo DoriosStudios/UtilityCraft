@@ -89,6 +89,10 @@ DoriosAPI.register.blockComponent('autofisher', {
             machine.displayProgress();
             machine.entity.setItem(1, UI_PLACEHOLDER_ITEM, 1, '');
             ensureHiddenInputSlot(machine);
+            const player = e.player;
+            if (player) {
+                player.sendMessage('§eAutoFisher placed! Ensure there is water nearby for it to function.§r');
+            }
         });
     },
 
@@ -110,7 +114,7 @@ DoriosAPI.register.blockComponent('autofisher', {
         }
 
         if (!hasWaterNearby(block)) {
-            machine.showWarning('Need Water');
+            machine.showWarning('Need Water Nearby!');
             return;
         }
 
