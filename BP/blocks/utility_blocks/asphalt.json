@@ -20,7 +20,10 @@
 		},
 		"components": {
 			"minecraft:geometry": "geometry.utilitycraft_block",
-			"utilitycraft:asphalt": {}
+			"utilitycraft:asphalt": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.5
+			}
 		},
 		"permutations": [
 			{

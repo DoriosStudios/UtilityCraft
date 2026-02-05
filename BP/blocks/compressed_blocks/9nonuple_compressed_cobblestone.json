@@ -17,7 +17,7 @@
       },
       "minecraft:light_emission": 15,
       "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 10.1
+  		"seconds_to_destroy": 4.1
       },
       "minecraft:destructible_by_explosion": false,
       "tag:minecraft:is_pickaxe_item_destructible": {},

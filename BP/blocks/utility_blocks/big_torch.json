@@ -39,8 +39,12 @@
 					4
 				]
 			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.2
+			},
 			"minecraft:light_emission": 15,
-			"minecraft:destructible_by_explosion": false
+			"minecraft:destructible_by_explosion": false,
+			"tag:minecraft:is_axe_item_destructible": {}
 		}
 	}
 }

@@ -14,6 +14,9 @@
 					"texture": "utilitycraft_spawner_core",
 					"render_method": "alpha_test"
 				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3.0
 			}
 		}
 	}

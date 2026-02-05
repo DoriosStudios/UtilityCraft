@@ -40,6 +40,9 @@
 					10
 				]
 			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.1
+			},
 			"minecraft:tick": {
 				"interval_range": [
 					1,

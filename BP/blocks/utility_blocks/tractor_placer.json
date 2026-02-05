@@ -22,7 +22,11 @@
 					"texture": "utilitycraft_tractor_placer",
 					"render_method": "alpha_test"
 				}
-			}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.0
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		},
 		"permutations": [
 			{

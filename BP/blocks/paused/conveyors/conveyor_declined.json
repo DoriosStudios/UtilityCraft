@@ -52,6 +52,9 @@
                     16
                 ]
             },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 0.4
+            },
             "minecraft:light_dampening": 0
         },
         "permutations": [

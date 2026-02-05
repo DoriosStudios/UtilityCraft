@@ -63,6 +63,9 @@
 					16
 				]
 			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.1
+			},
 			"tag:dorios:upgradeable": {}
 		},
 		"permutations": [

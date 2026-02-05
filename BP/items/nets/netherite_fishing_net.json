@@ -14,7 +14,8 @@
 				"speed": 4,
 				"chance_multiplier": 4,
 				"amount_multiplier": 1,
-				"rolls": 4
+				"rolls": 4,
+				"luck": 2
 			}
 		}
 	}

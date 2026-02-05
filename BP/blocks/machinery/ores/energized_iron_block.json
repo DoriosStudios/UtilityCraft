@@ -7,6 +7,10 @@
 				"category": "nature"
 			}
 		},
-		"components": {}
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3.0
+			}
+	}
 	}
 }

@@ -30,13 +30,50 @@ world.afterEvents.worldLoad.subscribe(() => {
  * @property {number} [chancePerTier=0]      Additional chance applied per fishing net tier.
  * @property {number} [levelBonusPerTier=0]  Extra maximum level unlocked per tier.
  *
+ * @typedef {Object} FisherRandomEnchant
+ * @property {number} chance                  Probability (0-1) to apply random enchantments.
+ * @property {number|[number,number]} count   Fixed count or min/max range of enchantments.
+ * @property {number} [chancePerLuck=0]       Extra chance applied per net luck point.
+ * @property {number} [countPerLuck=0]        Extra enchantments per luck point (floored).
+ * @property {number} [qualityPerLuck=0]      Quality factor per luck point (0-1) to bias higher levels.
+ *
  * @typedef {Object} FisherLoot
  * @property {string} item         Item identifier (namespace:item_name).
  * @property {number|[number,number]} amount Item count or min/max range.
  * @property {number} chance       Drop probability (0-1).
  * @property {number} tier         Minimum fishing net tier required.
  * @property {FisherEnchantment[]} [enchantments] Optional scripted enchantments applied when the item supports it.
+ * @property {FisherRandomEnchant} [randomEnchant] Optional random enchantments for this drop.
+ * @property {[number,number]} [durabilityDamageRange] Damage percent range (0-1) applied to the item.
  */
+
+/**
+ * Auto Fisher tuning parameters.
+ *
+ * - `luck` affects enchant chances and quality (higher levels) when nets provide a luck parameter.
+ * - `bookEnchant` controls enchanted book generation.
+ * - `equipment` defines defaults for bows/rods (durability + enchant chance).
+ */
+export const autoFisherConfig = {
+    luck: {
+        default: 0,
+        enchantChancePerLuck: 0.01,
+        enchantCountPerLuck: 0.15,
+        enchantQualityPerLuck: 0.08
+    },
+    bookEnchant: {
+        baseChance: 0.18,
+        chancePerTier: 0.02,
+        maxChance: 0.35,
+        minCount: 1,
+        maxCount: 3
+    },
+    equipment: {
+        durabilityDamageRange: [0.6, 0.95],
+        enchantChance: 0.08,
+        enchantCount: [1, 2]
+    }
+};
 
 /**
  * Loot table used by the Auto Fisher.
@@ -61,10 +98,48 @@ export const autoFisherLoot = [
     { item: 'minecraft:name_tag', amount: 1, chance: 0.02, tier: 4 },
     { item: 'minecraft:saddle', amount: 1, chance: 0.02, tier: 4 },
     { item: 'minecraft:emerald', amount: [1, 2], chance: 0.015, tier: 5 },
-    { item: 'minecraft:book', amount: 1, chance: 0.01, tier: 4 },
-    { item: 'minecraft:trident', amount: 1, chance: 0.001, tier: 6 },
-    { item: 'minecraft:heart_of_the_sea', amount: 1, chance: 0.005, tier: 6 },
-    { item: 'minecraft:stick', amount: [0, 2], chance: 0.10, tier: 0 }
+    { item: 'minecraft:water_bottle', amount: 1, chance: 0.005, tier: 2 },
+    { item: 'minecraft:book', amount: 1, chance: 0.005, tier: 4 },
+    {
+        item: 'minecraft:fishing_rod',
+        amount: 1,
+        chance: 0.004,
+        tier: 2,
+        durabilityDamageRange: autoFisherConfig.equipment.durabilityDamageRange,
+        randomEnchant: {
+            chance: autoFisherConfig.equipment.enchantChance,
+            count: autoFisherConfig.equipment.enchantCount
+        }
+    },
+    {
+        item: 'minecraft:bow',
+        amount: 1,
+        chance: 0.0008,
+        tier: 3,
+        durabilityDamageRange: autoFisherConfig.equipment.durabilityDamageRange,
+        randomEnchant: {
+            chance: autoFisherConfig.equipment.enchantChance,
+            count: autoFisherConfig.equipment.enchantCount
+        }
+    },
+    { item: 'minecraft:trident', amount: 1, chance: 0.0005, tier: 6 },
+    { item: 'minecraft:heart_of_the_sea', amount: 1, chance: 0.001, tier: 6 },
+    { item: 'minecraft:stick', amount: [0, 2], chance: 0.10, tier: 0 },
+    { 
+        item: 'minecraft:leather_boots',
+        amount: 1, 
+        chance: 0.0008, 
+        tier: 2, 
+        durabilityDamageRange: autoFisherConfig.equipment.durabilityDamageRange,
+        randomEnchant: {
+            chance: autoFisherConfig.equipment.enchantChance,
+            count: autoFisherConfig.equipment.enchantCount
+        }
+    },
+    { item: 'utilitycraft:empty_liquid_capsule', amount: 1, chance: 0.004, tier: 5 },
+    { item: 'utilitycraft:totem_shard', amount: 1, chance: 0.0002, tier: 7 },
+    { item: 'utilitycraft:sand_handful', amount: [1,6], chance: 0.02, tier: 0 }
+    
 ];
 
 /**
@@ -72,10 +147,10 @@ export const autoFisherLoot = [
  *
  * Expected payload (array or single object):
  *   {
- *     "item": "minecraft:apple",
- *     "amount": 1,
- *     "chance": 0.05,
- *     "tier": 0
+ *     "item": "minecraft:apple",            // The Item identifier
+ *     "amount": 1,                          // Optional, number or [min,max] range, default 1
+ *     "chance": 0.05,                       // Optional, drop chance between 0 and 1, default 0.1
+ *     "tier": 0                             // Optional, minimum fishing net tier required, default 0
  *   }
  */
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
