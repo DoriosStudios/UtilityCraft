@@ -446,363 +446,57 @@
 					]
 				}
 			},
-			"utilitycraft:inventory_1": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_1"
-					]
-				}
-			},
-			"utilitycraft:inventory_2": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_2"
-					]
-				}
-			},
-			"utilitycraft:inventory_3": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_3"
-					]
-				}
-			},
-			"utilitycraft:inventory_4": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_4"
-					]
-				}
-			},
-			"utilitycraft:inventory_5": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_5"
-					]
-				}
-			},
-			"utilitycraft:inventory_6": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_6"
-					]
-				}
-			},
-			"utilitycraft:inventory_7": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_7"
-					]
-				}
-			},
-			"utilitycraft:inventory_8": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_8"
-					]
-				}
-			},
-			"utilitycraft:inventory_9": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_9"
-					]
-				}
-			},
-			"utilitycraft:inventory_10": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_10"
-					]
-				}
-			},
-			"utilitycraft:inventory_11": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_11"
-					]
-				}
-			},
-			"utilitycraft:inventory_12": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_12"
-					]
-				}
-			},
-			"utilitycraft:inventory_13": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_13"
-					]
-				}
-			},
-			"utilitycraft:inventory_14": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_14"
-					]
-				}
-			},
-			"utilitycraft:inventory_15": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_15"
-					]
-				}
-			},
-			"utilitycraft:inventory_16": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_16"
-					]
-				}
-			},
-			"utilitycraft:inventory_17": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_17"
-					]
-				}
-			},
-			"utilitycraft:inventory_18": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_18"
-					]
-				}
-			},
-			"utilitycraft:inventory_19": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_19"
-					]
-				}
-			},
-			"utilitycraft:inventory_20": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_20"
-					]
-				}
-			},
-			"utilitycraft:inventory_21": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_21"
-					]
-				}
-			},
-			"utilitycraft:inventory_22": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_22"
-					]
-				}
-			},
-			"utilitycraft:inventory_23": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_23"
-					]
-				}
-			},
-			"utilitycraft:inventory_24": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_24"
-					]
-				}
-			},
-			"utilitycraft:inventory_25": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_25"
-					]
-				}
-			},
-			"utilitycraft:inventory_26": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_26"
-					]
-				}
-			},
-			"utilitycraft:inventory_27": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_27"
-					]
-				}
-			},
-			"utilitycraft:inventory_28": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_28"
-					]
-				}
-			},
-			"utilitycraft:inventory_29": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_29"
-					]
-				}
-			},
-			"utilitycraft:inventory_30": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_30"
-					]
-				}
-			},
-			"utilitycraft:inventory_31": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_31"
-					]
-				}
-			},
-			"utilitycraft:inventory_32": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_32"
-					]
-				}
-			},
-			"utilitycraft:inventory_33": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_33"
-					]
-				}
-			},
-			"utilitycraft:inventory_34": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_34"
-					]
-				}
-			},
-			"utilitycraft:inventory_35": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_35"
-					]
-				}
-			},
-			"utilitycraft:inventory_36": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_36"
-					]
-				}
-			},
-			"utilitycraft:inventory_37": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_37"
-					]
-				}
-			},
-			"utilitycraft:inventory_38": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_38"
-					]
-				}
-			},
-			"utilitycraft:inventory_39": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_39"
-					]
-				}
-			},
-			"utilitycraft:inventory_40": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_40"
-					]
-				}
-			},
-			"utilitycraft:inventory_41": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_41"
-					]
-				}
-			},
-			"utilitycraft:inventory_42": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_42"
-					]
-				}
-			},
-			"utilitycraft:inventory_43": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_43"
-					]
-				}
-			},
-			"utilitycraft:inventory_44": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_44"
-					]
-				}
-			},
-			"utilitycraft:inventory_45": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_45"
-					]
-				}
-			},
-			"utilitycraft:inventory_46": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_46"
-					]
-				}
-			},
-			"utilitycraft:inventory_47": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_47"
-					]
-				}
-			},
-			"utilitycraft:inventory_48": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_48"
-					]
-				}
-			},
-			"utilitycraft:inventory_173": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_173"
-					]
-				}
-			},
-			"utilitycraft:inventory_180": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_180"
-					]
-				}
-			},
-			"utilitycraft:inventory_194": {
-				"add": {
-					"component_groups": [
-						"utilitycraft:inventory_194"
-					]
-				}
-			},
+			"utilitycraft:inventory_1": { "add": { "component_groups": [ "utilitycraft:inventory_1" ] } },
+			"utilitycraft:inventory_2": { "add": { "component_groups": [ "utilitycraft:inventory_2" ] } },
+			"utilitycraft:inventory_3": { "add": { "component_groups": [ "utilitycraft:inventory_3" ] } },
+			"utilitycraft:inventory_4": { "add": { "component_groups": [ "utilitycraft:inventory_4" ] } },
+			"utilitycraft:inventory_5": { "add": { "component_groups": [ "utilitycraft:inventory_5" ] } },
+			"utilitycraft:inventory_6": { "add": { "component_groups": [ "utilitycraft:inventory_6" ] } },
+			"utilitycraft:inventory_7": { "add": { "component_groups": [ "utilitycraft:inventory_7" ] } },
+			"utilitycraft:inventory_8": { "add": { "component_groups": [ "utilitycraft:inventory_8" ] } },
+			"utilitycraft:inventory_9": { "add": { "component_groups": [ "utilitycraft:inventory_9" ] } },
+			"utilitycraft:inventory_10": { "add": { "component_groups": [ "utilitycraft:inventory_10" ] } },
+			"utilitycraft:inventory_11": { "add": { "component_groups": [ "utilitycraft:inventory_11" ] } },
+			"utilitycraft:inventory_12": { "add": { "component_groups": [ "utilitycraft:inventory_12" ] } },
+			"utilitycraft:inventory_13": { "add": { "component_groups": [ "utilitycraft:inventory_13" ] } },
+			"utilitycraft:inventory_14": { "add": { "component_groups": [ "utilitycraft:inventory_14" ] } },
+			"utilitycraft:inventory_15": { "add": { "component_groups": [ "utilitycraft:inventory_15" ] } },
+			"utilitycraft:inventory_16": { "add": { "component_groups": [ "utilitycraft:inventory_16" ] } },
+			"utilitycraft:inventory_17": { "add": { "component_groups": [ "utilitycraft:inventory_17" ] } },
+			"utilitycraft:inventory_18": { "add": { "component_groups": [ "utilitycraft:inventory_18" ] } },
+			"utilitycraft:inventory_19": { "add": { "component_groups": [ "utilitycraft:inventory_19" ] } },
+			"utilitycraft:inventory_20": { "add": { "component_groups": [ "utilitycraft:inventory_20" ] } },
+			"utilitycraft:inventory_21": { "add": { "component_groups": [ "utilitycraft:inventory_21" ] } },
+			"utilitycraft:inventory_22": { "add": { "component_groups": [ "utilitycraft:inventory_22" ] } },
+			"utilitycraft:inventory_23": { "add": { "component_groups": [ "utilitycraft:inventory_23" ] } },
+			"utilitycraft:inventory_24": { "add": { "component_groups": [ "utilitycraft:inventory_24" ] } },
+			"utilitycraft:inventory_25": { "add": { "component_groups": [ "utilitycraft:inventory_25" ] } },
+			"utilitycraft:inventory_26": { "add": { "component_groups": [ "utilitycraft:inventory_26" ] } },
+			"utilitycraft:inventory_27": { "add": { "component_groups": [ "utilitycraft:inventory_27" ] } },
+			"utilitycraft:inventory_28": { "add": { "component_groups": [ "utilitycraft:inventory_28" ] } },
+			"utilitycraft:inventory_29": { "add": { "component_groups": [ "utilitycraft:inventory_29" ] } },
+			"utilitycraft:inventory_30": { "add": { "component_groups": [ "utilitycraft:inventory_30" ] } },
+			"utilitycraft:inventory_31": { "add": { "component_groups": [ "utilitycraft:inventory_31" ] } },
+			"utilitycraft:inventory_32": { "add": { "component_groups": [ "utilitycraft:inventory_32" ] } },
+			"utilitycraft:inventory_33": { "add": { "component_groups": [ "utilitycraft:inventory_33" ] } },
+			"utilitycraft:inventory_34": { "add": { "component_groups": [ "utilitycraft:inventory_34" ] } },
+			"utilitycraft:inventory_35": { "add": { "component_groups": [ "utilitycraft:inventory_35" ] } },
+			"utilitycraft:inventory_36": { "add": { "component_groups": [ "utilitycraft:inventory_36" ] } },
+			"utilitycraft:inventory_37": { "add": { "component_groups": [ "utilitycraft:inventory_37" ] } },
+			"utilitycraft:inventory_38": { "add": { "component_groups": [ "utilitycraft:inventory_38" ] } },
+			"utilitycraft:inventory_39": { "add": { "component_groups": [ "utilitycraft:inventory_39" ] } },
+			"utilitycraft:inventory_40": { "add": { "component_groups": [ "utilitycraft:inventory_40" ] } },
+			"utilitycraft:inventory_41": { "add": { "component_groups": [ "utilitycraft:inventory_41" ] } },
+			"utilitycraft:inventory_42": { "add": { "component_groups": [ "utilitycraft:inventory_42" ] } },
+			"utilitycraft:inventory_43": { "add": { "component_groups": [ "utilitycraft:inventory_43" ] } },
+			"utilitycraft:inventory_44": { "add": { "component_groups": [ "utilitycraft:inventory_44" ] } },
+			"utilitycraft:inventory_45": { "add": { "component_groups": [ "utilitycraft:inventory_45" ] } },
+			"utilitycraft:inventory_46": { "add": { "component_groups": [ "utilitycraft:inventory_46" ] } },
+			"utilitycraft:inventory_47": { "add": { "component_groups": [ "utilitycraft:inventory_47" ] } },
+			"utilitycraft:inventory_48": { "add": { "component_groups": [ "utilitycraft:inventory_48" ] } },
+			"utilitycraft:inventory_173": { "add": { "component_groups": [ "utilitycraft:inventory_173" ] } },
+			"utilitycraft:inventory_180": { "add": { "component_groups": [ "utilitycraft:inventory_180" ] } },
+			"utilitycraft:inventory_194": { "add": { "component_groups": [ "utilitycraft:inventory_194" ] } },
 			"utilitycraft:simple_generator": {
 				"add": {
 					"component_groups": [
