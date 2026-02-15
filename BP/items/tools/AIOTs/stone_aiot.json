@@ -7,7 +7,12 @@
 		"components": {
 			"utilitycraft:hoe": {
 				"size": 1,
-				"runTractor": true
+				"runTractor": true,
+				"sneakingMode": false
+			},
+			"utilitycraft:shovel": {
+				"size": 1,
+				"sneakingMode": true
 			},
 			"minecraft:tags": {
 				"tags": [

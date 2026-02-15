@@ -26,6 +26,7 @@ import './items/dig_pebble.js'
 import './items/smelting.js'
 import './items/potion.js'
 import './items/hoe.js'
+import './items/shovel.js'
 import './items/essences.js'
 import './items/arm.js'
 
