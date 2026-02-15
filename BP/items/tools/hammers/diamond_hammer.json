@@ -8,18 +8,17 @@
 			"utilitycraft:hammer": {
 				"tier": 3
 			},
-                        "utilitycraft:dig_pebble": {},
-                        "minecraft:tags": {
-                                "tags": [
-                                        "minecraft:diamond_tier"
-                                ]
-                        },
-			"minecraft:max_stack_size": 1,
+			"utilitycraft:dig_pebble": { },
 			"minecraft:tags": {
 				"tags": [
+					"minecraft:is_pickaxe",
+					"minecraft:is_tool",
+					"utilitycraft:is_hammer",
+					"minecraft:diamond_tier",
 					"minecraft:transformable_items"
 				]
 			},
+			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
 				"max_durability": 1561

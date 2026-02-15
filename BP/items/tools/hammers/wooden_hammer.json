@@ -9,6 +9,13 @@
 				"tier": 0
 			},
 			"utilitycraft:dig_pebble": {},
+			"minecraft:tags": {
+				"tags": [
+					"minecraft:is_pickaxe",
+					"minecraft:is_tool",
+					"utilitycraft:is_hammer"
+				]
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {

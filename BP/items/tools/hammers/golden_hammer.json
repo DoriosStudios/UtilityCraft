@@ -9,12 +9,19 @@
 				"tier": 1
 			},
 			"utilitycraft:dig_pebble": {},
+			"minecraft:tags": {
+				"tags": [
+					"minecraft:is_pickaxe",
+					"minecraft:is_tool",
+					"utilitycraft:is_hammer"
+				]
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
 				"max_durability": 102
 			},
-			"minecraft:damage":3,
+			"minecraft:damage": 3,
 			"minecraft:icon": "utilitycraft_golden_hammer",
 			"minecraft:enchantable": {
 				"value": 16,

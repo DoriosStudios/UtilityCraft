@@ -11,6 +11,9 @@
 			"utilitycraft:dig_pebble": {},
 			"minecraft:tags": {
 				"tags": [
+					"minecraft:is_pickaxe",
+					"minecraft:is_tool",
+					"utilitycraft:is_hammer",
 					"minecraft:copper_tier"
 				]
 			},
