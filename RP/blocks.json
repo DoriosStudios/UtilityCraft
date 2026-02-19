@@ -336,5 +336,8 @@
 	},
 	"utilitycraft:basic_trash_can": {
 		"sound": "stone"
+	},
+	"utilitycraft:basic_energy_transmitter": {
+		"sound": "stone"
 	}
 }

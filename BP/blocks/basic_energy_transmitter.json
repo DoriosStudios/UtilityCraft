@@ -1,0 +1,64 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:basic_energy_transmitter",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"utilitycraft:on": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			// "utilitycraft:furnator": {
+			// 	"entity": {
+			// 		"name": "energy_transmitter",
+			// 		"type": "passive"
+			// 	},
+			// 	"generator": {
+			// 		"energy_cap": 128000,
+			// 		"rate_speed_base": 12800
+			// 	}
+			// },
+			"minecraft:geometry": "geometry.energy_transmitter",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_basic_energy_transmitter_off",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					2,
+					2
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:generator": {},
+			"tag:dorios:energy": {},
+			"tag:dorios:item": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('utilitycraft:on') == true ",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_basic_energy_transmitter_on",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 4
+				}
+			}
+		]
+	}
+}

@@ -1,4 +1,4 @@
-import './DoriosAPI/main.js'
+import './DoriosAPI/index.js'
 
 import './config/main.js'
 
@@ -33,5 +33,3 @@ import './items/arm.js'
 import './stack_refill.js'
 
 import './machinery/main.js'
-
-// import './speed.js'
