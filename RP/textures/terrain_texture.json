@@ -1500,6 +1500,30 @@
 		},
 		"utilitycraft_basic_trash_can": {
 			"textures": "textures/blocks/trash_can_utility"
+		},
+		"utilitycraft_basic_energy_transmitter_off": {
+			"textures": "textures/blocks/generators/basic_energy_transmitter_off"
+		},
+		"utilitycraft_basic_energy_transmitter_on": {
+			"textures": "textures/blocks/generators/basic_energy_transmitter_on"
+		},
+		"utilitycraft_advanced_energy_transmitter_off": {
+			"textures": "textures/blocks/generators/advanced_energy_transmitter_off"
+		},
+		"utilitycraft_advanced_energy_transmitter_on": {
+			"textures": "textures/blocks/generators/advanced_energy_transmitter_on"
+		},
+		"utilitycraft_expert_energy_transmitter_off": {
+			"textures": "textures/blocks/generators/expert_energy_transmitter_off"
+		},
+		"utilitycraft_expert_energy_transmitter_on": {
+			"textures": "textures/blocks/generators/expert_energy_transmitter_on"
+		},
+		"utilitycraft_ultimate_energy_transmitter_off": {
+			"textures": "textures/blocks/generators/ultimate_energy_transmitter_off"
+		},
+		"utilitycraft_ultimate_energy_transmitter_on": {
+			"textures": "textures/blocks/generators/ultimate_energy_transmitter_on"
 		}
 	}
 }

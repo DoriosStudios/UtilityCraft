@@ -809,3 +809,4 @@ item.utilitycraft:crushed_kelp=Crushed Kelp
 dorios:itemGroup.name.removed=Removed
 
 tile.utilitycraft:basic_trash_can.name=Basic Trash Can
+tile.utilitycraft:basic_energy_transmitter.name=Basic Energy Transmitter
