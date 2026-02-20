@@ -4,6 +4,9 @@ Desktop.ini
 # Ignore editor configuration folders | Ignorar carpetas de configuración de editores
 .bridge/
 .vscode/
+!.vscode/
+.vscode/*
+!.vscode/tasks.json
 .git/
 
 # Ignore compilarions and packs | Ignorar compilaciones y empaquetados
