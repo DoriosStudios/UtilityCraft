@@ -33,5 +33,6 @@ import './items/arm.js'
 import './stack_refill.js'
 
 import './machinery/main.js'
+import './insight_injectors.js'
 
 // import './speed.js'
