@@ -1118,14 +1118,7 @@ export class Machine {
     const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
 
     // Determine slot range based on type
-    let range;
-    if (type === "complex") {
-      const end = this.inv.size - 1;
-      const start = Math.max(0, end - 8);
-      range = [start, end];
-    } else {
-      range = this.inv.size - 1; // last slot only
-    }
+    const range = DoriosAPI.containers.getAllowedOutputRange(this.entity)
 
     // Execute transfer using DoriosAPI
     DoriosAPI.containers.transferItemsAt(this.inv, targetLoc, this.dim, range);

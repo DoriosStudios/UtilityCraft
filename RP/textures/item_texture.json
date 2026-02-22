@@ -431,60 +431,6 @@
 		"utilitycraft_steel_plate": {
 			"textures": "textures/items/plates/steel_plate"
 		},
-		"utilitycraft_info": {
-			"textures": "textures/items/progress_bars/info"
-		},
-		"utilitycraft_energy_bar_0": {
-			"textures": "textures/items/progress_bars/energy_bar_0"
-		},
-		"utilitycraft_energy_bar_1": {
-			"textures": "textures/items/progress_bars/energy_bar_1"
-		},
-		"utilitycraft_energy_bar_2": {
-			"textures": "textures/items/progress_bars/energy_bar_2"
-		},
-		"utilitycraft_energy_bar_3": {
-			"textures": "textures/items/progress_bars/energy_bar_3"
-		},
-		"utilitycraft_energy_bar_4": {
-			"textures": "textures/items/progress_bars/energy_bar_4"
-		},
-		"utilitycraft_energy_bar_5": {
-			"textures": "textures/items/progress_bars/energy_bar_5"
-		},
-		"utilitycraft_energy_bar_6": {
-			"textures": "textures/items/progress_bars/energy_bar_6"
-		},
-		"utilitycraft_energy_bar_7": {
-			"textures": "textures/items/progress_bars/energy_bar_7"
-		},
-		"utilitycraft_energy_bar_8": {
-			"textures": "textures/items/progress_bars/energy_bar_8"
-		},
-		"utilitycraft_energy_bar_9": {
-			"textures": "textures/items/progress_bars/energy_bar_9"
-		},
-		"utilitycraft_energy_bar_10": {
-			"textures": "textures/items/progress_bars/energy_bar_10"
-		},
-		"utilitycraft_energy_bar_11": {
-			"textures": "textures/items/progress_bars/energy_bar_11"
-		},
-		"utilitycraft_energy_bar_12": {
-			"textures": "textures/items/progress_bars/energy_bar_12"
-		},
-		"utilitycraft_energy_bar_13": {
-			"textures": "textures/items/progress_bars/energy_bar_13"
-		},
-		"utilitycraft_energy_bar_14": {
-			"textures": "textures/items/progress_bars/energy_bar_14"
-		},
-		"utilitycraft_energy_bar_15": {
-			"textures": "textures/items/progress_bars/energy_bar_15"
-		},
-		"utilitycraft_energy_bar_16": {
-			"textures": "textures/items/progress_bars/energy_bar_16"
-		},
 		"utilitycraft:energy_00": {
 			"textures": "textures/ui/energy_bar/energy_frame_00"
 		},
@@ -1266,118 +1212,67 @@
 			"textures": "textures/items/progress_bars/flame_13"
 		},
 		"utilitycraft_fuel_bar_14": {
-			"textures": "textures/items/progress_bars/fuel_bar_14"
+			"textures": "textures/items/progress_bars/flame_14"
 		},
 		"utilitycraft_fuel_bar_15": {
-			"textures": "textures/items/progress_bars/fuel_bar_15"
+			"textures": "textures/items/progress_bars/flame_15"
 		},
 		"utilitycraft_fuel_bar_16": {
-			"textures": "textures/items/progress_bars/fuel_bar_16"
-		},
-		"utilitycraft_lava_bar_0": {
-			"textures": "textures/items/progress_bars/lava_bar_0"
-		},
-		"utilitycraft_lava_bar_1": {
-			"textures": "textures/items/progress_bars/lava_bar_1"
-		},
-		"utilitycraft_lava_bar_2": {
-			"textures": "textures/items/progress_bars/lava_bar_2"
-		},
-		"utilitycraft_lava_bar_3": {
-			"textures": "textures/items/progress_bars/lava_bar_3"
-		},
-		"utilitycraft_lava_bar_4": {
-			"textures": "textures/items/progress_bars/lava_bar_4"
-		},
-		"utilitycraft_lava_bar_5": {
-			"textures": "textures/items/progress_bars/lava_bar_5"
-		},
-		"utilitycraft_lava_bar_6": {
-			"textures": "textures/items/progress_bars/lava_bar_6"
-		},
-		"utilitycraft_lava_bar_7": {
-			"textures": "textures/items/progress_bars/lava_bar_7"
-		},
-		"utilitycraft_lava_bar_8": {
-			"textures": "textures/items/progress_bars/lava_bar_8"
-		},
-		"utilitycraft_lava_bar_9": {
-			"textures": "textures/items/progress_bars/lava_bar_9"
-		},
-		"utilitycraft_lava_bar_10": {
-			"textures": "textures/items/progress_bars/lava_bar_10"
-		},
-		"utilitycraft_lava_bar_11": {
-			"textures": "textures/items/progress_bars/lava_bar_11"
-		},
-		"utilitycraft_lava_bar_12": {
-			"textures": "textures/items/progress_bars/lava_bar_12"
-		},
-		"utilitycraft_lava_bar_13": {
-			"textures": "textures/items/progress_bars/lava_bar_13"
-		},
-		"utilitycraft_lava_bar_14": {
-			"textures": "textures/items/progress_bars/lava_bar_14"
-		},
-		"utilitycraft_lava_bar_15": {
-			"textures": "textures/items/progress_bars/lava_bar_15"
-		},
-		"utilitycraft_lava_bar_16": {
-			"textures": "textures/items/progress_bars/lava_bar_16"
+			"textures": "textures/items/progress_bars/flame_16"
 		},
 		"utilitycraft_arrow_indicator": {
 			"textures": "textures/items/progress_bars/arrow_indicator"
 		},
-		"utilitycraft_water_bar_0": {
-			"textures": "textures/items/progress_bars/water_bar_0"
+		"utilitycraft_arrow_down_0": {
+			"textures": "textures/items/progress_bars/down/arrow_right_0"
 		},
-		"utilitycraft_water_bar_1": {
-			"textures": "textures/items/progress_bars/water_bar_1"
+		"utilitycraft_arrow_down_1": {
+			"textures": "textures/items/progress_bars/down/arrow_right_1"
 		},
-		"utilitycraft_water_bar_2": {
-			"textures": "textures/items/progress_bars/water_bar_2"
+		"utilitycraft_arrow_down_2": {
+			"textures": "textures/items/progress_bars/down/arrow_right_2"
 		},
-		"utilitycraft_water_bar_3": {
-			"textures": "textures/items/progress_bars/water_bar_3"
+		"utilitycraft_arrow_down_3": {
+			"textures": "textures/items/progress_bars/down/arrow_right_3"
 		},
-		"utilitycraft_water_bar_4": {
-			"textures": "textures/items/progress_bars/water_bar_4"
+		"utilitycraft_arrow_down_4": {
+			"textures": "textures/items/progress_bars/down/arrow_right_4"
 		},
-		"utilitycraft_water_bar_5": {
-			"textures": "textures/items/progress_bars/water_bar_5"
+		"utilitycraft_arrow_down_5": {
+			"textures": "textures/items/progress_bars/down/arrow_right_5"
 		},
-		"utilitycraft_water_bar_6": {
-			"textures": "textures/items/progress_bars/water_bar_6"
+		"utilitycraft_arrow_down_6": {
+			"textures": "textures/items/progress_bars/down/arrow_right_6"
 		},
-		"utilitycraft_water_bar_7": {
-			"textures": "textures/items/progress_bars/water_bar_7"
+		"utilitycraft_arrow_down_7": {
+			"textures": "textures/items/progress_bars/down/arrow_right_7"
 		},
-		"utilitycraft_water_bar_8": {
-			"textures": "textures/items/progress_bars/water_bar_8"
+		"utilitycraft_arrow_down_8": {
+			"textures": "textures/items/progress_bars/down/arrow_right_8"
 		},
-		"utilitycraft_water_bar_9": {
-			"textures": "textures/items/progress_bars/water_bar_9"
+		"utilitycraft_arrow_down_9": {
+			"textures": "textures/items/progress_bars/down/arrow_right_9"
 		},
-		"utilitycraft_water_bar_10": {
-			"textures": "textures/items/progress_bars/water_bar_10"
+		"utilitycraft_arrow_down_10": {
+			"textures": "textures/items/progress_bars/down/arrow_right_10"
 		},
-		"utilitycraft_water_bar_11": {
-			"textures": "textures/items/progress_bars/water_bar_11"
+		"utilitycraft_arrow_down_11": {
+			"textures": "textures/items/progress_bars/down/arrow_right_11"
 		},
-		"utilitycraft_water_bar_12": {
-			"textures": "textures/items/progress_bars/water_bar_12"
+		"utilitycraft_arrow_down_12": {
+			"textures": "textures/items/progress_bars/down/arrow_right_12"
 		},
-		"utilitycraft_water_bar_13": {
-			"textures": "textures/items/progress_bars/water_bar_13"
+		"utilitycraft_arrow_down_13": {
+			"textures": "textures/items/progress_bars/down/arrow_right_13"
 		},
-		"utilitycraft_water_bar_14": {
-			"textures": "textures/items/progress_bars/water_bar_14"
+		"utilitycraft_arrow_down_14": {
+			"textures": "textures/items/progress_bars/down/arrow_right_14"
 		},
-		"utilitycraft_water_bar_15": {
-			"textures": "textures/items/progress_bars/water_bar_15"
+		"utilitycraft_arrow_down_15": {
+			"textures": "textures/items/progress_bars/down/arrow_right_15"
 		},
-		"utilitycraft_water_bar_16": {
-			"textures": "textures/items/progress_bars/water_bar_16"
+		"utilitycraft_arrow_down_16": {
+			"textures": "textures/items/progress_bars/down/arrow_right_16"
 		},
 		"utilitycraft_arrow_right_0": {
 			"textures": "textures/items/progress_bars/arrow_right_0"

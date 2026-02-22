@@ -364,7 +364,6 @@ globalThis.DoriosAPI = {
       // ───────────────────────────────
       if (tf.hasTypeFamily("dorios:complex_input") || tf.hasTypeFamily("dorios:special_container")) {
         const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
-
         for (let i = start; i <= end; i++) {
           if (blockedSlots.has(i)) continue
           const slotItem = targetInv.getItem(i);
@@ -920,12 +919,12 @@ globalThis.DoriosAPI = {
       const tf = target?.getComponent?.("minecraft:type_family");
       if (!tf || !tf.hasTypeFamily("dorios:machine")) return blocked;
 
-      const upgradeSlots = DoriosAPI.constants.machineUpgradeSlots ?? [4, 5];
-      for (const slot of upgradeSlots) {
-        if (typeof slot !== "number") continue;
-        if (slot < 0 || slot >= size) continue;
-        blocked.add(slot);
-      }
+      // const upgradeSlots = DoriosAPI.constants.machineUpgradeSlots ?? [4, 5];
+      // for (const slot of upgradeSlots) {
+      //   if (typeof slot !== "number") continue;
+      //   if (slot < 0 || slot >= size) continue;
+      //   blocked.add(slot);
+      // }
 
       if (tf.hasTypeFamily("dorios:simple_output") || tf.hasTypeFamily("dorios:complex_output")) {
         const [start, end] = DoriosAPI.containers.getAllowedOutputRange(target);
