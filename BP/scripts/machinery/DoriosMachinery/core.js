@@ -1984,13 +1984,21 @@ export class Energy {
    * console.log(`Transferred ${transferred} energy`);
    */
   transferTo(other, amount) {
-    const consumed = this.consume(amount);
-    if (consumed <= 0) return 0;
+    if (!other || amount <= 0) return 0;
 
-    const added = other.add(consumed);
-    return added;
+    const freeSpace = other.getFreeSpace();
+    if (freeSpace <= 0) return 0;
+
+    const maxTransfer = Math.min(amount, this.get(), freeSpace);
+    if (maxTransfer <= 0) return 0;
+
+    const actuallyAdded = other.add(maxTransfer);
+    if (actuallyAdded <= 0) return 0;
+
+    this.consume(actuallyAdded);
+
+    return actuallyAdded;
   }
-
   /**
    * Transfers energy from this entity to another entity directly.
    * Creates a temporary Energy manager for the target entity.

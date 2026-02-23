@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "utilitycraft:basic_energy_receptor",
+			"identifier": "utilitycraft:advanced_energy_receiver",
 			"menu_category": {
 				"category": "construction"
 			},
@@ -15,13 +15,13 @@
 		},
 		"components": {
 			"utilitycraft:receiver": {
-				"energy_cap": 64000,
-				"rate_speed_base": 1000
+				"energy_cap": 256000,
+				"rate_speed_base": 4000
 			},
 			"minecraft:geometry": "geometry.energy_transmitter",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_basic_energy_receptor_off",
+					"texture": "utilitycraft_advanced_energy_receiver_off",
 					"render_method": "alpha_test"
 				}
 			},
@@ -46,7 +46,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_basic_energy_receptor_on",
+							"texture": "utilitycraft_advanced_energy_receiver_on",
 							"render_method": "alpha_test"
 						}
 					},

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:ultimate_energy_receptor"
+			"identifier": "utilitycraft:expert_energy_receiver"
 		},
 		"tags": [
 			"utilitycraft_workbench"
@@ -12,10 +12,10 @@
 				"item": "utilitycraft:ender_pearl_dust"
 			},
 			"C": {
-				"item": "utilitycraft:ultimate_chip"
+				"item": "utilitycraft:expert_chip"
 			},
 			"B": {
-				"item": "utilitycraft:ultimate_energy_receptor"
+				"item": "utilitycraft:expert_energy_receiver"
 			},
 			"R": {
 				"item": "redstone_block"
@@ -27,11 +27,11 @@
 			"ERE"
 		],
 		"result": {
-			"item": "utilitycraft:ultimate_energy_receptor"
+			"item": "utilitycraft:expert_energy_receiver"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:ultimate_chip"
+				"item": "utilitycraft:expert_chip"
 			}
 		]
 	}

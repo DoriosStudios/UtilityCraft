@@ -23,7 +23,7 @@ DoriosAPI.register.itemComponent("wrench", {
             Generator.openGeneratorTransferModeMenu(entity, source)
             return
         }
-        if (block.typeId.includes("receptor") || block.typeId.includes("transmitter")) {
+        if (block.typeId.includes("receiver") || block.typeId.includes("transmitter")) {
             toggleEnergyMode(block, source)
         }
         Rotation.handleRotation(block, blockFace)
@@ -66,15 +66,15 @@ function toggleEnergyMode(block, player) {
     const { dimension, location, typeId } = block;
 
     const [namespace, id] = typeId.split(":");
-    const parts = id.split("_"); // basic_energy_receptor
+    const parts = id.split("_"); // basic_energy_receiver
     if (parts.length < 3) return;
 
     const tier = parts[0];
-    const currentType = parts[2]; // "receptor" | "transmitter"
+    const currentType = parts[2]; // "receiver" | "transmitter"
 
-    const newType = currentType === "receptor"
+    const newType = currentType === "receiver"
         ? "transmitter"
-        : "receptor";
+        : "receiver";
 
     const newId = `${namespace}:${tier}_energy_${newType}`;
 
@@ -90,7 +90,7 @@ function toggleEnergyMode(block, player) {
             : "entity.utilitycraft:receiver.name";
 
         // Handle receiver tag
-        if (newType === "receptor") {
+        if (newType === "receiver") {
             if (!entity.hasTag("dorios:receiver")) {
                 entity.addTag("dorios:receiver");
             }

@@ -817,9 +817,9 @@ tile.utilitycraft:advanced_energy_transmitter.name=§cAdvanced Energy Transmitte
 tile.utilitycraft:expert_energy_transmitter.name=§bExpert Energy Transmitter \n §7 Rate: 16 kDE/t\n §7 Capacity: 1.024 MDE\n §7 Range: 128 Blocks
 tile.utilitycraft:ultimate_energy_transmitter.name=§8Ultimate Energy Transmitter \n §7 Rate: 100 kDE/t\n §7 Capacity: 6.4 MDE\n §7 Range: 512 Blocks
 
-tile.utilitycraft:basic_energy_receptor.name=§eBasic Energy Receptor \n §7 Rate: 1 kDE/t\n §7 Capacity: 64 kDE
-tile.utilitycraft:advanced_energy_receptor.name=§cAdvanced Energy Receptor \n §7 Rate: 4 kDE/t\n §7 Capacity: 256 kDE
-tile.utilitycraft:expert_energy_receptor.name=§bExpert Energy Receptor \n §7 Rate: 16 kDE/t\n §7 Capacity: 1.024 MDE
-tile.utilitycraft:ultimate_energy_receptor.name=§8Ultimate Energy Receptor \n §7 Rate: 100 kDE/t\n §7 Capacity: 6.4 MDE
+tile.utilitycraft:basic_energy_receiver.name=§eBasic Energy Receptor \n §7 Rate: 1 kDE/t\n §7 Capacity: 64 kDE
+tile.utilitycraft:advanced_energy_receiver.name=§cAdvanced Energy Receptor \n §7 Rate: 4 kDE/t\n §7 Capacity: 256 kDE
+tile.utilitycraft:expert_energy_receiver.name=§bExpert Energy Receptor \n §7 Rate: 16 kDE/t\n §7 Capacity: 1.024 MDE
+tile.utilitycraft:ultimate_energy_receiver.name=§8Ultimate Energy Receptor \n §7 Rate: 100 kDE/t\n §7 Capacity: 6.4 MDE
 
 item.utilitycraft:settings=Settings\n §7 Interact to open the UtilityCraft settings
