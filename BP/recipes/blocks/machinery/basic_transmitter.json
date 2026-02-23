@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:basic_energy_transmitter"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"E": {
+				"item": "utilitycraft:ender_pearl_dust"
+			},
+			"T": {
+				"item": "redstone_torch"
+			},
+			"C": {
+				"item": "utilitycraft:basic_chip"
+			},
+			"B": {
+				"item": "utilitycraft:basic_battery"
+			},
+			"R": {
+				"item": "redstone_block"
+			}
+		},
+		"pattern": [
+			"ETE",
+			"CBC",
+			"ERE"
+		],
+		"result": {
+			"item": "utilitycraft:basic_energy_transmitter"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:basic_chip"
+			}
+		]
+	}
+}

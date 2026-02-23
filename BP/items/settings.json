@@ -1,0 +1,15 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:settings",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_settings",
+			"utilitycraft:settings": {}
+		}
+	}
+}

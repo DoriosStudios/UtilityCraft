@@ -1747,6 +1747,9 @@
 		},
 		"utilitycraft_smart_filter_upgrade": {
 			"textures": "textures/items/smart_filter_upgrade"
+		},
+		"utilitycraft_settings": {
+			"textures": "textures/items/dev_glyph_color"
 		}
 	}
 }

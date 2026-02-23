@@ -23,6 +23,9 @@ DoriosAPI.register.itemComponent("wrench", {
             Generator.openGeneratorTransferModeMenu(entity, source)
             return
         }
+        if (block.typeId.includes("receptor") || block.typeId.includes("transmitter")) {
+            toggleEnergyMode(block, source)
+        }
         Rotation.handleRotation(block, blockFace)
     },
 });
@@ -46,3 +49,64 @@ world.afterEvents.playerInteractWithEntity.subscribe(({ player, target, itemStac
         return;
     }
 })
+
+/**
+ * Toggles an Energy block between Receiver and Transmitter mode.
+ * - Preserves tier (basic, advanced, expert, ultimate)
+ * - Preserves block states (rotation, etc.)
+ * - Updates linked entity nameTag
+ * - Sends action bar feedback to the player
+ *
+ * @param {Block} block
+ * @param {Player} player
+ */
+function toggleEnergyMode(block, player) {
+    if (!block?.typeId) return;
+
+    const { dimension, location, typeId } = block;
+
+    const [namespace, id] = typeId.split(":");
+    const parts = id.split("_"); // basic_energy_receptor
+    if (parts.length < 3) return;
+
+    const tier = parts[0];
+    const currentType = parts[2]; // "receptor" | "transmitter"
+
+    const newType = currentType === "receptor"
+        ? "transmitter"
+        : "receptor";
+
+    const newId = `${namespace}:${tier}_energy_${newType}`;
+
+    // Change block
+    block.setType(newId);
+
+    const entity = dimension.getEntitiesAtBlockLocation(location)[0];
+    if (entity) {
+
+        // Update name (no tier)
+        entity.nameTag = newType === "transmitter"
+            ? "entity.utilitycraft:transmitter.name"
+            : "entity.utilitycraft:receiver.name";
+
+        // Handle receiver tag
+        if (newType === "receptor") {
+            if (!entity.hasTag("dorios:receiver")) {
+                entity.addTag("dorios:receiver");
+            }
+        } else {
+            if (entity.hasTag("dorios:receiver")) {
+                entity.removeTag("dorios:receiver");
+            }
+        }
+    }
+
+    // Action bar feedback
+    if (player) {
+        const message = newType === "transmitter"
+            ? "§cMode: §fTransmitting Energy"
+            : "§aMode: §fReceiving Energy";
+
+        DoriosAPI.utils.actionBar(player, message);
+    }
+}

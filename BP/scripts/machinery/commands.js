@@ -1,4 +1,5 @@
 import { system, world } from "@minecraft/server";
+import { ModalFormData } from "@minecraft/server-ui";
 
 DoriosAPI.register.command({
   name: "refreshspeed",
@@ -67,3 +68,54 @@ DoriosAPI.register.command({
     }
   },
 });
+
+DoriosAPI.register.itemComponent("settings", {
+  async onUse(e) {
+    const player = e.source;
+    if (!player) return;
+
+    openUtilityCraftSettings(player);
+  }
+});
+
+/**
+ * Opens the UtilityCraft Refresh Speed menu.
+ *
+ * Controls how often UtilityCraft machines visually update.
+ * Does NOT affect processing speed.
+ *
+ * @param {import("@minecraft/server").Player} player
+ */
+async function openUtilityCraftSettings(player) {
+  const currentSpeed = world.getDynamicProperty("utilitycraft:tickSpeed") ?? 10;
+
+  const form = new ModalFormData()
+    .title("UtilityCraft Settings")
+
+    .label(
+      "§bRefresh Speed\n" +
+      "§7Controls how often machines visually update.\n" +
+      "§aLower§7 = smoother animation, higher performance cost.\n" +
+      "§aHigher§7 = less frequent updates, better performance.\n" +
+      "§7Does §bnot§7 affect machine processing speed."
+    )
+
+    .slider(
+      "Machine Refresh Speed",
+      2,
+      40,
+      {
+        defaultValue: currentSpeed,
+        valueStep: 2
+      }
+    );
+
+  const res = await form.show(player);
+  if (res.canceled) return;
+
+  const [, refreshSpeed] = res.formValues;
+
+  world.setDynamicProperty("utilitycraft:tickSpeed", refreshSpeed);
+
+  player.sendMessage(`§aRefresh speed set to §e${refreshSpeed} ticks`);
+}

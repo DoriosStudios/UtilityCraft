@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:ultimate_energy_receptor"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"E": {
+				"item": "utilitycraft:ender_pearl_dust"
+			},
+			"C": {
+				"item": "utilitycraft:ultimate_chip"
+			},
+			"B": {
+				"item": "utilitycraft:ultimate_energy_receptor"
+			},
+			"R": {
+				"item": "redstone_block"
+			}
+		},
+		"pattern": [
+			"ECE",
+			"CBC",
+			"ERE"
+		],
+		"result": {
+			"item": "utilitycraft:ultimate_energy_receptor"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:ultimate_chip"
+			}
+		]
+	}
+}

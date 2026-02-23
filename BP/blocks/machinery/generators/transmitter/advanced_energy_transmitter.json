@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "utilitycraft:basic_energy_transmitter",
+			"identifier": "utilitycraft:advanced_energy_transmitter",
 			"menu_category": {
 				"category": "construction"
 			},
@@ -14,20 +14,15 @@
 			}
 		},
 		"components": {
-			// "utilitycraft:furnator": {
-			// 	"entity": {
-			// 		"name": "energy_transmitter",
-			// 		"type": "passive"
-			// 	},
-			// 	"generator": {
-			// 		"energy_cap": 128000,
-			// 		"rate_speed_base": 12800
-			// 	}
-			// },
+			"utilitycraft:transmitter": {
+				"energy_cap": 256000,
+				"rate_speed_base": 4000,
+				"range": 64
+			},
 			"minecraft:geometry": "geometry.energy_transmitter",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_basic_energy_transmitter_off",
+					"texture": "utilitycraft_advanced_energy_transmitter_off",
 					"render_method": "alpha_test"
 				}
 			},
@@ -52,7 +47,7 @@
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
-							"texture": "utilitycraft_basic_energy_transmitter_on",
+							"texture": "utilitycraft_advanced_energy_transmitter_on",
 							"render_method": "alpha_test"
 						}
 					},

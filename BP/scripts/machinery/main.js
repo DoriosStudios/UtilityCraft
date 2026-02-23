@@ -22,6 +22,8 @@ import './generators/wind_turbine.js'
 import './generators/magmator.js'
 import './generators/thermo_generator.js'
 import './generators/battery.js'
+import './generators/transmitter.js'
+import './generators/receiver.js'
 
 import './transfer_system/system.js'
 import './transfer_system/smart_importer.js'
