@@ -50,7 +50,7 @@ export const addonData = {
     name: "UtilityCraft",
     author: "Dorios Studios",
     identifier: "utilitycraft",
-    version: "3.3.6"
+    version: "3.3.7"
 }
 
 /**

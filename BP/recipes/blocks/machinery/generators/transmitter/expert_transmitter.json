@@ -15,7 +15,7 @@
 				"item": "utilitycraft:expert_chip"
 			},
 			"B": {
-				"item": "utilitycraft:expert_energy_transmitter"
+				"item": "utilitycraft:advanced_energy_transmitter"
 			},
 			"R": {
 				"item": "redstone_block"
