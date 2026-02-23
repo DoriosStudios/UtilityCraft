@@ -25,60 +25,75 @@ DoriosAPI.register.blockComponent('induction_anvil', {
      */
     onTick(e, { params: settings }) {
         if (!worldLoaded) return;
+
         const { block } = e;
         const machine = new Machine(block, settings);
-        if (!machine.valid) return
+        if (!machine.valid) return;
 
-        const progress = machine.getProgress();
-        const energyCost = settings.machine.energy_cost;
         const inv = machine.inv;
+        const stack = inv.getItem(INPUTSLOT);
 
-        // Check energy availability
-        if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', false);
+        // No item
+        if (!stack) {
+            machine.showWarning("No Item", false);
             return;
         }
 
-        if (progress >= energyCost) {
-            const stack = inv.getItem(INPUTSLOT);
-            if (!stack) {
-                machine.showWarning('No Item', false);
-                return;
-            }
+        // Must be a durable item
+        let durability = stack.durability
 
-            const remaining = stack.durability.getRemaining()
-            // Si ya está full reparado
-            if (remaining === 0) {
-                machine.showWarning('Fully Repaired', false);
-                machine.setProgress(0, undefined, undefined, false);
-                return;
-            }
+        if (!durability) {
+            machine.showWarning("Invalid Item", false);
+            return;
+        }
 
-            try {
-                const repairAmount = Math.min(remaining, energyCost / 10)
-                stack.durability.repair(repairAmount);
-                inv.setItem(INPUTSLOT, stack);
-                machine.addProgress(-repairAmount * 10)
-            } catch {
-                machine.showWarning('Invalid Item', false);
-                return;
-            }
+        const remaining = durability.getRemaining();     // you already noticed: 0 = almost broken
+        const max = durability.getMax();            // full health is remaining == max
 
-        } else {
-            // Charge up progress
-            const energyToConsume = Math.min(
-                machine.energy.get(),
-                machine.rate,
-                energyCost - progress
-            );
+        // Fully repaired
+        if (remaining >= max) {
+            machine.showWarning("Fully Repaired", false);
+            return;
+        }
+
+        // No energy at all
+        if (machine.energy.get() <= 0) {
+            machine.showWarning("No Energy", false);
+            return;
+        }
+
+        // Repair continuously every tick (bounded by rate + available energy)
+        const energyAvailableThisTick = Math.min(machine.energy.get(), machine.rate);
+
+        // Your previous logic implied: 10 DE = 1 durability.
+        // Respect upgrades: consumption > 1 should make it cost more.
+        const ENERGY_PER_DURABILITY = 10 * (machine.boosts?.consumption ?? 1);
+
+        // How much durability we can repair this tick (integer)
+        const missing = max - remaining;
+        const canRepair = Math.floor(energyAvailableThisTick / ENERGY_PER_DURABILITY);
+
+        if (canRepair <= 0) {
+            machine.showWarning("No Energy", false);
+            return;
+        }
+
+        const repairAmount = Math.min(missing, canRepair);
+        const energyToConsume = repairAmount * ENERGY_PER_DURABILITY;
+
+        try {
+            durability.repair(repairAmount);
+            inv.setItem(INPUTSLOT, stack);
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
+        } catch {
+            machine.showWarning("Invalid Item", false);
+            return;
         }
 
         // Update visuals
         machine.on();
         machine.displayEnergy();
-        machine.showStatus('Running');
+        machine.showStatus("Running");
     },
 
     onPlayerBreak(e) {
