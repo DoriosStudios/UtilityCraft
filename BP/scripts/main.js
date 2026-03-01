@@ -36,3 +36,5 @@ import './machinery/main.js'
 import './insight_injectors.js'
 
 // import './speed.js'
+import './insight_registry_injector.generated.js'
+
