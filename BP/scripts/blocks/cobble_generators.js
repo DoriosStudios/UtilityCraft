@@ -1,4 +1,4 @@
-DoriosAPI.register.blockComponent("cobble_generators", {
+DoriosAPI.register.blockComponent("block_generator", {
     onTick({ block, dimension }, { params }) {
         let { x, y, z } = block.location
 
@@ -52,3 +52,4 @@ DoriosAPI.register.blockComponent("cobble_generators", {
         }
     }
 })
+

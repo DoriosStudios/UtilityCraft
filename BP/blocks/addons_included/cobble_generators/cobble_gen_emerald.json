@@ -43,7 +43,7 @@
 			}
 		},
 		"components": {
-			"utilitycraft:cobble_generators": {},
+			"utilitycraft:block_generator": {},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_cobble_gen_emerald",
