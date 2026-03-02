@@ -1,5 +1,5 @@
-import { system, world, ItemStack, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType, Dimension } from '@minecraft/server';
-const NAMESPACE = 'utilitycraft'
+import { system, world, ItemStack, Player, Block, Entity, Container, CommandPermissionLevel, CustomCommandParamType, Dimension } from "@minecraft/server";
+const NAMESPACE = "utilitycraft";
 
 /**
  * ==================================================
@@ -33,13 +33,13 @@ const NAMESPACE = 'utilitycraft'
  *
  * ----------------------------------------------------
  * @namespace DoriosAPI
- * @version 1.0.0
+ * @version 1.1.0
  * @author Milo504
  * @studio Dorios Studios
  * @license All Rights Reserved
- * @repository 
- * @docs 
- * @lastUpdate 2025-09-27
+ * @repository
+ * @docs
+ * @lastUpdate 2026-03-01
  * -----------------------------------------------------
  */
 globalThis.DoriosAPI = {
@@ -55,43 +55,37 @@ globalThis.DoriosAPI = {
   register: {
     /**
      * Registers a custom block component into the block component registry.
-     * 
+     *
      * Runs only after the world has loaded.
-     * 
+     *
      * Automatically prefixes the component identifier with the namespace `"utilitycraft"`.
      *
      * @param {string} id Identifier for the component (e.g., "machine" → "utilitycraft:machine").
      * @param {BlockCustomComponent} handlers Lifecycle callbacks for the block.
      */
     blockComponent(id, handlers) {
-      system.beforeEvents.startup.subscribe(e => {
+      system.beforeEvents.startup.subscribe((e) => {
         const { blockComponentRegistry } = e;
 
-        blockComponentRegistry.registerCustomComponent(
-          NAMESPACE + ':' + id,
-          handlers
-        );
+        blockComponentRegistry.registerCustomComponent(NAMESPACE + ":" + id, handlers);
       });
     },
 
     /**
      * Registers a custom item component into the item component registry.
-     * 
+     *
      * Runs only after the world has loaded.
-     * 
+     *
      * Automatically prefixes the component identifier with the namespace `"utilitycraft"`.
      *
      * @param {string} id Identifier for the component (e.g., "weapon" → "utilitycraft:weapon").
      * @param {ItemCustomComponent} handlers Lifecycle callbacks for the item.
      */
     itemComponent(id, handlers) {
-      system.beforeEvents.startup.subscribe(e => {
+      system.beforeEvents.startup.subscribe((e) => {
         const { itemComponentRegistry } = e;
 
-        itemComponentRegistry.registerCustomComponent(
-          NAMESPACE + ':' + id,
-          handlers
-        );
+        itemComponentRegistry.registerCustomComponent(NAMESPACE + ":" + id, handlers);
       });
     },
 
@@ -111,15 +105,10 @@ globalThis.DoriosAPI = {
      * @param {Function} command.callback Command execution callback
      */
     command(command) {
-      system.beforeEvents.startup.subscribe(e => {
-        const {
-          permissionMap,
-          typeMap
-        } = DoriosAPI.constants;
+      system.beforeEvents.startup.subscribe((e) => {
+        const { permissionMap, typeMap } = DoriosAPI.constants;
 
-        const permission =
-          permissionMap[command.permissionLevel?.toLowerCase()] ??
-          CommandPermissionLevel.Any;
+        const permission = permissionMap[command.permissionLevel?.toLowerCase()] ?? CommandPermissionLevel.Any;
 
         const definition = {
           name: `${NAMESPACE}:${command.name}`,
@@ -133,7 +122,6 @@ globalThis.DoriosAPI = {
 
         if (Array.isArray(command.parameters)) {
           for (const param of command.parameters) {
-
             // ENUM SUPPORT
             if (param.type === "enum" && Array.isArray(param.enum)) {
               const enumId = `${NAMESPACE}:${command.name}_${param.name}`;
@@ -142,7 +130,7 @@ globalThis.DoriosAPI = {
 
               const def = {
                 name: enumId,
-                type: CustomCommandParamType.Enum
+                type: CustomCommandParamType.Enum,
               };
 
               (param.optional ? optional : mandatory).push(def);
@@ -151,7 +139,7 @@ globalThis.DoriosAPI = {
 
             const def = {
               name: param.name,
-              type: typeMap[param.type] ?? CustomCommandParamType.String
+              type: typeMap[param.type] ?? CustomCommandParamType.String,
             };
 
             (param.optional ? optional : mandatory).push(def);
@@ -166,15 +154,12 @@ globalThis.DoriosAPI = {
             try {
               command.callback(origin, ...args);
             } catch (err) {
-              console.warn(
-                `[${NAMESPACE}:command:${command.name}]`,
-                err
-              );
+              console.warn(`[${NAMESPACE}:command:${command.name}]`, err);
             }
           });
         });
       });
-    }
+    },
   },
 
   /**
@@ -183,32 +168,32 @@ globalThis.DoriosAPI = {
    * ==================================================
    *
    * Category: Container & Inventory Compatibility System
-   * 
+   *
    * This namespace provides a unified interface for all
    * container and inventory interactions in Dorios addons.
-   * 
+   *
    * It ensures full cross-compatibility between:
    * - Vanilla containers (chests, barrels, furnaces, etc.)
    * - Dorios machines and generators
    * - Custom entities with inventories (e.g., UtilityCraft systems)
    * - Third-party containers (e.g., Dustveyn’s Storage Drawers)
-   * 
+   *
    * ## Core Responsibilities
    * - Add or insert items into compatible containers.
    * - Transfer items between entities, blocks, or world locations.
    * - Enforce slot restrictions based on type families (avoiding UI or logic slots).
    * - Detect valid inventories at any given world position.
-   * 
+   *
    * ## Design Notes
    * All inventory operations (transfer, add, range checking)
    * should go through this namespace to maintain consistency.
-   * 
+   *
    * Functions within this category automatically handle:
    * - Entity vs Block detection.
    * - Family-based slot access rules.
    * - Safe transfers respecting storage limits.
    * - Future integration with fluid or energy container types.
-   * 
+   *
    * @namespace DoriosAPI.containers
    */
 
@@ -313,8 +298,7 @@ globalThis.DoriosAPI = {
       if (itemStack == undefined || target == undefined) return false;
 
       // Normalize itemStack
-      if (!(itemStack instanceof ItemStack) && typeof itemStack === 'string')
-        itemStack = new ItemStack(itemStack, amount);
+      if (!(itemStack instanceof ItemStack) && typeof itemStack === "string") itemStack = new ItemStack(itemStack, amount);
       const itemId = itemStack.typeId;
 
       // Direct container
@@ -355,9 +339,7 @@ globalThis.DoriosAPI = {
       if (!tf) return false;
 
       const isMachine = tf.hasTypeFamily("dorios:machine") && !tf.hasTypeFamily("dorios:multiblock");
-      const blockedSlots = isMachine
-        ? DoriosAPI.containers.getMachineBlockedSlots(target)
-        : new Set();
+      const blockedSlots = isMachine ? DoriosAPI.containers.getMachineBlockedSlots(target) : new Set();
 
       // ───────────────────────────────
       // Complex Input (uses getAllowedSlots)
@@ -365,7 +347,7 @@ globalThis.DoriosAPI = {
       if (tf.hasTypeFamily("dorios:complex_input") || tf.hasTypeFamily("dorios:special_container")) {
         const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
         for (let i = start; i <= end; i++) {
-          if (blockedSlots.has(i)) continue
+          if (blockedSlots.has(i)) continue;
           const slotItem = targetInv.getItem(i);
           // Empty slot → insert directly
           if (!slotItem) {
@@ -440,23 +422,23 @@ globalThis.DoriosAPI = {
      * @returns {boolean} Whether the item was successfully added.
      */
     addItemAt(loc, dim, itemStack, amount = 1) {
-      if (!loc || !dim || !itemStack) return false
+      if (!loc || !dim || !itemStack) return false;
 
-      let target = null
+      let target = null;
       try {
-        const targetBlock = dim.getBlock(loc)
+        const targetBlock = dim.getBlock(loc);
         if (DoriosAPI.constants.vanillaContainers.includes(targetBlock?.typeId)) {
-          target = targetBlock
+          target = targetBlock;
         } else {
-          const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
-          if (targetEntity) target = targetEntity
+          const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+          if (targetEntity) target = targetEntity;
         }
       } catch {
-        return false
+        return false;
       }
 
-      if (!target) return false
-      return this.addItem(target, itemStack, amount)
+      if (!target) return false;
+      return this.addItem(target, itemStack, amount);
     },
     /**
      * This function was created by **Dorios Studios** to handle
@@ -502,10 +484,7 @@ globalThis.DoriosAPI = {
       const tf = target?.getComponent("minecraft:type_family");
       const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
       const isDoriosContainer =
-        tf?.hasTypeFamily("dorios:container") &&
-        !tf?.hasTypeFamily("dorios:complex_input") &&
-        !tf?.hasTypeFamily("dorios:simple_input") &&
-        !isMachineTarget;
+        tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input") && !isMachineTarget;
 
       for (let slot = start; slot <= end; slot++) {
         let itemToTransfer = sourceInv.getItem(slot);
@@ -568,20 +547,20 @@ globalThis.DoriosAPI = {
       const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
       if (!sourceInv) return;
 
-      let target = null
+      let target = null;
       try {
-        const targetBlock = dim.getBlock(loc)
+        const targetBlock = dim.getBlock(loc);
         if (DoriosAPI.constants.vanillaContainers.includes(targetBlock?.typeId)) {
-          target = targetBlock
+          target = targetBlock;
         } else {
-          const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
-          if (targetEntity) target = targetEntity
+          const targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
+          if (targetEntity) target = targetEntity;
         }
       } catch {
-        return false
+        return false;
       }
 
-      if (!target) return false
+      if (!target) return false;
 
       // Resolve range
       let start, end;
@@ -596,7 +575,8 @@ globalThis.DoriosAPI = {
       /** @type {EntityTypeFamilyComponent} */
       const tf = target?.getComponent("minecraft:type_family");
       const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
-      const isDoriosContainer = tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input") && !isMachineTarget
+      const isDoriosContainer =
+        tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input") && !isMachineTarget;
 
       for (let slot = start; slot <= end; slot++) {
         let itemToTransfer = sourceInv.getItem(slot);
@@ -604,7 +584,7 @@ globalThis.DoriosAPI = {
 
         if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
           /** @type {Container} */
-          const targetInv = target.getComponent('inventory').container;
+          const targetInv = target.getComponent("inventory").container;
           sourceInv.transferItem(slot, targetInv);
           continue;
         }
@@ -615,7 +595,7 @@ globalThis.DoriosAPI = {
         if (added === true) {
           // Fully transferred → clear the slot
           sourceInv.setItem(slot, undefined);
-        } else if (typeof added === 'number') {
+        } else if (typeof added === "number") {
           // Partially transferred → reduce stack amount
           const newAmount = itemToTransfer.amount - added;
           if (newAmount > 0) {
@@ -626,7 +606,6 @@ globalThis.DoriosAPI = {
           }
         }
       }
-
     },
     /**
      * Transfers items between two world locations.
@@ -656,7 +635,7 @@ globalThis.DoriosAPI = {
       if (!target.container) return false;
 
       /** @type {Container} */
-      const sourceInv = source.container
+      const sourceInv = source.container;
       if (!sourceInv) return false;
 
       // Resolve range
@@ -674,17 +653,15 @@ globalThis.DoriosAPI = {
       /** @type {EntityTypeFamilyComponent} */
       const tf = target.entity?.getComponent("minecraft:type_family");
       const isMachineTarget = tf?.hasTypeFamily("dorios:machine");
-      const isDoriosContainer = tf?.hasTypeFamily("dorios:container")
-        && !tf?.hasTypeFamily("dorios:complex_input")
-        && !tf?.hasTypeFamily("dorios:simple_input")
-        && !isMachineTarget;
+      const isDoriosContainer =
+        tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input") && !isMachineTarget;
 
       for (let slot = start; slot <= end; slot++) {
         const item = sourceInv.getItem(slot);
         if (!item) continue;
 
         if (DoriosAPI.constants.vanillaContainers.includes(target.block?.typeId) || isDoriosContainer) {
-          const targetInv = target.container
+          const targetInv = target.container;
           if (targetInv) {
             const added = sourceInv.transferItem(slot, targetInv);
             transferred = item.amount - (added?.amount ?? 0);
@@ -701,7 +678,7 @@ globalThis.DoriosAPI = {
           if (item.amount - added <= 0) {
             sourceInv.setItem(slot, undefined);
           } else {
-            item.amount -= added
+            item.amount -= added;
             sourceInv.setItem(slot, item);
           }
           transferred = added;
@@ -746,9 +723,7 @@ globalThis.DoriosAPI = {
       // ── Dorios multiblock port ──────────────────────────
       if (block?.hasTag("dorios:multiblock.port") && block.hasTag("dorios:item")) {
         entity = dim.getEntities({
-          tags: [
-            `input:[${Math.floor(loc.x)},${Math.floor(loc.y)},${Math.floor(loc.z)}]`
-          ]
+          tags: [`input:[${Math.floor(loc.x)},${Math.floor(loc.y)},${Math.floor(loc.z)}]`],
         })[0];
         container = entity?.getComponent("minecraft:inventory")?.container;
         return { container, block, entity };
@@ -804,13 +779,13 @@ globalThis.DoriosAPI = {
       if (!tf) return [0, size - 1];
 
       if (tf.hasTypeFamily("dorios:special_container")) {
-        const raw = target.getDynamicProperty("dorios:special_container")
+        const raw = target.getDynamicProperty("dorios:special_container");
         let slotsRegister;
         try {
-          slotsRegister = JSON.parse(raw)
-        } catch { }
+          slotsRegister = JSON.parse(raw);
+        } catch {}
 
-        if (slotsRegister && slotsRegister.input) return slotsRegister.input
+        if (slotsRegister && slotsRegister.input) return slotsRegister.input;
       }
 
       const isSimpleInput = tf.hasTypeFamily("dorios:simple_input");
@@ -870,12 +845,12 @@ globalThis.DoriosAPI = {
       if (!tf) return [0, size - 1];
 
       if (tf.hasTypeFamily("dorios:special_container")) {
-        const raw = target.getDynamicProperty("dorios:special_container")
+        const raw = target.getDynamicProperty("dorios:special_container");
         let slotsRegister;
         try {
-          slotsRegister = JSON.parse(raw)
-        } catch { }
-        if (slotsRegister && slotsRegister.output) return slotsRegister.output
+          slotsRegister = JSON.parse(raw);
+        } catch {}
+        if (slotsRegister && slotsRegister.output) return slotsRegister.output;
       }
 
       const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
@@ -977,7 +952,6 @@ globalThis.DoriosAPI = {
     },
   },
 
-
   /**
    * Utility functions provided by Dorios Studios
    * to simplify common development tasks within Minecraft addons.
@@ -1000,7 +974,7 @@ globalThis.DoriosAPI = {
       return {
         x: pos.x + vec.x * amount,
         y: pos.y + vec.y * amount,
-        z: pos.z + vec.z * amount
+        z: pos.z + vec.z * amount,
       };
     },
     /**
@@ -1022,9 +996,9 @@ globalThis.DoriosAPI = {
       const secs = Math.floor(seconds % 60);
 
       if (hours > 0) {
-        return `${hours}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        return `${hours}:${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
       }
-      return `${minutes}:${secs.toString().padStart(2, '0')}`;
+      return `${minutes}:${secs.toString().padStart(2, "0")}`;
     },
 
     /**
@@ -1048,27 +1022,27 @@ globalThis.DoriosAPI = {
       const s = Math.floor(seconds % 60);
 
       if (d > 0) {
-        return `${d} d${h > 0 ? ` ${h} h` : ''}`; // only days + hours
+        return `${d} d${h > 0 ? ` ${h} h` : ""}`; // only days + hours
       }
       if (h > 0) {
-        return `${h} h${m > 0 ? ` ${m} m` : ''}`; // only hours + minutes
+        return `${h} h${m > 0 ? ` ${m} m` : ""}`; // only hours + minutes
       }
       if (m > 0) {
-        return `${m} m${s > 0 ? ` ${s} s` : ''}`; // only minutes + seconds
+        return `${m} m${s > 0 ? ` ${s} s` : ""}`; // only minutes + seconds
       }
       return `${s} s`; // only seconds
     },
 
     /**
-    * Capitalizes the first letter of a string and lowers the rest.
-    * 
-    * Example:
-    *   capitalizeFirst("lava") → "Lava"
-    *   capitalizeFirst("LIQUID") → "Liquid"
-    * 
-    * @param {string} text The text to format.
-    * @returns {string} The formatted string with only the first letter capitalized.
-    */
+     * Capitalizes the first letter of a string and lowers the rest.
+     *
+     * Example:
+     *   capitalizeFirst("lava") → "Lava"
+     *   capitalizeFirst("LIQUID") → "Liquid"
+     *
+     * @param {string} text The text to format.
+     * @returns {string} The formatted string with only the first letter capitalized.
+     */
     capitalizeFirst(text) {
       return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
     },
@@ -1094,7 +1068,7 @@ globalThis.DoriosAPI = {
     },
     /**
      * Sends a message to all players in the world.
-     * 
+     *
      * @param {string} str The message to send.
      */
     msg(str) {
@@ -1103,28 +1077,28 @@ globalThis.DoriosAPI = {
 
     /**
      * Sends an action bar message to a player.
-     * 
+     *
      * @param {Player} player The player to show the message to.
      * @param {string} msg The message to display.
      */
     actionBar(player, msg) {
-      if (!player?.onScreenDisplay || typeof msg !== 'string') return;
+      if (!player?.onScreenDisplay || typeof msg !== "string") return;
       try {
         player.onScreenDisplay.setActionBar(msg);
       } catch {
         system.runTimeout(() => {
           player.onScreenDisplay.setActionBar(msg);
-        })
+        });
       }
     },
     /**
      * Sends a chat message directly to a player.
-     * 
+     *
      * @param {Player} player The player to send the message to.
      * @param {string} msg The message to display.
      */
     playerMessage(player, msg) {
-      if (!player || typeof msg !== 'string') return;
+      if (!player || typeof msg !== "string") return;
       try {
         player.sendMessage(msg);
       } catch {
@@ -1136,7 +1110,7 @@ globalThis.DoriosAPI = {
 
     /**
      * Returns a random integer between min and max, inclusive.
-     * 
+     *
      * @param {number} min The minimum value (inclusive).
      * @param {number} max The maximum value (inclusive).
      * @returns {number} A random integer between min and max.
@@ -1149,7 +1123,7 @@ globalThis.DoriosAPI = {
     /**
      * Checks if an itemStack is a placeable block by attempting to set it at a dummy location.
      * It uses y = -64 to avoid affecting real structures.
-     * 
+     *
      * @param {ItemStack} itemStack The item to test.
      * @param {BlockLocation} location Any location (x and z will be used).
      * @param {Dimension} dimension The dimension where the test happens.
@@ -1173,7 +1147,7 @@ globalThis.DoriosAPI = {
     /**
      * Checks if an itemStack is *not* a block (i.e., is a regular item).
      * It does this by trying to place the item at a dummy location (y = -64).
-     * 
+     *
      * @param {ItemStack} itemStack The item to test.
      * @param {BlockLocation} location Any location (x and z will be used).
      * @param {Dimension} dimension The dimension where the test happens.
@@ -1195,11 +1169,11 @@ globalThis.DoriosAPI = {
     },
     /**
      * Transforms a namespaced or snake_case identifier into a human-readable title.
-     * 
+     *
      * Examples:
      *   "minecraft:iron_sword" → "Iron Sword"
      *   "custom_item_name"     → "Custom Item Name"
-     * 
+     *
      * @param {string} text The identifier to format.
      * @returns {string} The formatted title string.
      */
@@ -1207,7 +1181,7 @@ globalThis.DoriosAPI = {
       const rawName = text.includes(":") ? text.split(":")[1] : text;
       return rawName
         .split("_")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
     },
     /**
@@ -1223,8 +1197,7 @@ globalThis.DoriosAPI = {
       for (const line of formatted) {
         player.sendMessage(`§7${line}`);
       }
-    }
-
+    },
   },
   /**
    * Mathematical helper functions provided by Dorios Studios.
@@ -1277,42 +1250,50 @@ globalThis.DoriosAPI = {
      * @param {'floor' | 'ceil' | 'normal'} [mode='floor'] Rounding mode to apply to the result.
      * @returns {number} A clamped number from 0 to `scale`, rounded according to mode.
      */
-    scaleToSetNumber(current, max, scale, mode = 'floor') {
+    scaleToSetNumber(current, max, scale, mode = "floor") {
       if (max <= 0) return 0;
 
       let value = (scale * current) / max;
-      if (mode === 'floor') value = Math.floor(value);
-      else if (mode === 'ceil') value = Math.ceil(value);
+      if (mode === "floor") value = Math.floor(value);
+      else if (mode === "ceil") value = Math.ceil(value);
 
       return Math.max(0, Math.min(scale, value));
     },
 
     /**
      * Returns a directional vector [x, y, z] based on the block's facing direction.
-     * @param {Block} block 
+     * @param {Block} block
      * @returns {[number, number, number] | null}
      */
     getFacingVector(block) {
-      const facing = block.permutation.getState('minecraft:facing_direction');
+      const facing = block.permutation.getState("minecraft:facing_direction");
       switch (facing) {
-        case 'up': return [0, 1, 0];
-        case 'down': return [0, -1, 0];
-        case 'north': return [0, 0, -1];
-        case 'south': return [0, 0, 1];
-        case 'west': return [-1, 0, 0];
-        case 'east': return [1, 0, 0];
-        default: return null;
+        case "up":
+          return [0, 1, 0];
+        case "down":
+          return [0, -1, 0];
+        case "north":
+          return [0, 0, -1];
+        case "south":
+          return [0, 0, 1];
+        case "west":
+          return [-1, 0, 0];
+        case "east":
+          return [1, 0, 0];
+        default:
+          return null;
       }
     },
     /**
-    * Converts a Roman numeral string to its integer equivalent.
-    * 
-    * @param {string} str The Roman numeral to convert (e.g., "XIV").
-    * @returns {number} The integer representation of the Roman numeral.
-    */
+     * Converts a Roman numeral string to its integer equivalent.
+     *
+     * @param {string} str The Roman numeral to convert (e.g., "XIV").
+     * @returns {number} The integer representation of the Roman numeral.
+     */
     romanToInteger(str) {
       const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
-      let total = 0, prev = 0;
+      let total = 0,
+        prev = 0;
       for (let i = str.length - 1; i >= 0; i--) {
         const val = map[str[i]];
         if (val < prev) total -= val;
@@ -1324,7 +1305,7 @@ globalThis.DoriosAPI = {
 
     /**
      * Converts an integer to its Roman numeral representation.
-     * 
+     *
      * @param {number} num The number to convert (must be between 1 and 3999).
      * @returns {string} The Roman numeral string, or an empty string if invalid input.
      */
@@ -1357,7 +1338,7 @@ globalThis.DoriosAPI = {
 
     /**
      * Calculates the distance between two vectors using the Pythagorean theorem.
-     * 
+     *
      * @param {{ x: number, y: number, z: number }} a First vector.
      * @param {{ x: number, y: number, z: number }} b Second vector.
      * @returns {number} The distance between the two vectors.
@@ -1371,15 +1352,15 @@ globalThis.DoriosAPI = {
 
     /**
      * Returns a random number between [min, max], inclusive if mode = "floor".
-    * 
-    * @param {number} min Minimum value.
-    * @param {number} max Maximum value.
-    * @param {string} [mode="floor"] How to handle decimals:
-    *   - "floor": round down (inclusive of max)
-    *   - "round": round to nearest
-    *   - "float": return raw decimal
-    * @returns {number} Random value
-    */
+     *
+     * @param {number} min Minimum value.
+     * @param {number} max Maximum value.
+     * @param {string} [mode="floor"] How to handle decimals:
+     *   - "floor": round down (inclusive of max)
+     *   - "round": round to nearest
+     *   - "float": return raw decimal
+     * @returns {number} Random value
+     */
     randomInterval(min, max, mode = "floor") {
       let value;
       if (mode === "floor") {
@@ -1389,9 +1370,12 @@ globalThis.DoriosAPI = {
 
       value = Math.random() * (max - min) + min; // [min, max)
       switch (mode) {
-        case "round": return Math.round(value);
-        case "float": return value;
-        default: return Math.floor(value);
+        case "round":
+          return Math.round(value);
+        case "float":
+          return value;
+        default:
+          return Math.floor(value);
       }
     },
   },
@@ -1405,14 +1389,14 @@ globalThis.DoriosAPI = {
    */
   constants: {
     /**
-        * List of blocks that cannot be broken or replaced by machines.
-        * 
-        * These blocks are considered unbreakable for safety reasons,
-        * game logic, or to avoid exploits. 
-        * 
-        * Use this array to check against when validating block-breaking
-        * operations (e.g., Block Breaker, custom mining systems).
-        */
+     * List of blocks that cannot be broken or replaced by machines.
+     *
+     * These blocks are considered unbreakable for safety reasons,
+     * game logic, or to avoid exploits.
+     *
+     * Use this array to check against when validating block-breaking
+     * operations (e.g., Block Breaker, custom mining systems).
+     */
     unbreakableBlocks: [
       "minecraft:allow",
       "minecraft:barrier",
@@ -1425,7 +1409,7 @@ globalThis.DoriosAPI = {
       "minecraft:reinforced_deepslate",
       "minecraft:command_block",
       "minecraft:chain_command_block",
-      "minecraft:repeating_command_block"
+      "minecraft:repeating_command_block",
     ],
     /**
      * Default inventory slots reserved for UtilityCraft machine upgrades.
@@ -1433,10 +1417,10 @@ globalThis.DoriosAPI = {
     machineUpgradeSlots: [4, 5],
     /**
      * Permission map for custom command registration.
-     * 
-     * Provides shortcuts for mapping string keys to 
+     *
+     * Provides shortcuts for mapping string keys to
      * CommandPermissionLevel values.
-     * 
+     *
      * @constant
      */
     permissionMap: {
@@ -1449,10 +1433,10 @@ globalThis.DoriosAPI = {
 
     /**
      * Type map for custom command parameter definitions.
-     * 
-     * Provides shortcuts for mapping string keys to 
+     *
+     * Provides shortcuts for mapping string keys to
      * CustomCommandParamType values.
-     * 
+     *
      * @constant
      */
     typeMap: {
@@ -1471,10 +1455,10 @@ globalThis.DoriosAPI = {
 
     /**
      * Minecraft text formatting codes.
-     * 
+     *
      * Includes all color codes and style modifiers
      * that can be used in chat, action bar, and UI text.
-     * 
+     *
      * @constant
      */
     textColors: {
@@ -1502,35 +1486,35 @@ globalThis.DoriosAPI = {
       strikethrough: "§m",
       underline: "§n",
       italic: "§o",
-      reset: "§r"
+      reset: "§r",
     },
 
     /**
      * Common dimension identifiers with metadata.
-     * 
+     *
      * @constant
      */
     dimensions: {
       overworld: {
         id: "minecraft:overworld",
         maxY: 320,
-        minY: -64
+        minY: -64,
       },
       nether: {
         id: "minecraft:nether",
         maxY: 128,
-        minY: 0
+        minY: 0,
       },
       end: {
         id: "minecraft:the_end",
         maxY: 256,
-        minY: 0
-      }
+        minY: 0,
+      },
     },
 
     /**
      * Time conversion constants in game ticks.
-     * 
+     *
      * @constant
      */
     time: {
@@ -1538,13 +1522,13 @@ globalThis.DoriosAPI = {
       second: 20,
       minute: 1200,
       hour: 72000,
-      day: 172800
+      day: 172800,
     },
 
     /**
      * Equipment slot identifiers for entities/players.
      * Useful with Equippable component.
-     * 
+     *
      * @constant
      */
     equipmentSlots: {
@@ -1553,15 +1537,15 @@ globalThis.DoriosAPI = {
       head: "Head",
       chest: "Chest",
       legs: "Legs",
-      feet: "Feet"
+      feet: "Feet",
     },
 
     /**
      * List of vanilla container block identifiers.
-     * 
+     *
      * These represent the default Minecraft blocks
      * that have inventories and can be used as containers.
-     * 
+     *
      * @constant
      */
     vanillaContainers: [
@@ -1573,8 +1557,7 @@ globalThis.DoriosAPI = {
       "minecraft:hopper",
       "minecraft:smoker",
       "minecraft:shulker",
-      "minecraft:dropper"
+      "minecraft:dropper",
     ],
-  }
-}
-
+  },
+};
