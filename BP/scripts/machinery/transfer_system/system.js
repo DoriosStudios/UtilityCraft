@@ -669,6 +669,7 @@ DoriosAPI.register.blockComponent('exporter', {
         const [startSlot, endSlot] = DoriosAPI.containers.getAllowedOutputRange(
             source.entity ?? sourceInv
         )
+        if (startSlot < 0) return false;
 
         // Early out if source empty
         if (sourceInv.emptySlotsCount == sourceInv.size) return

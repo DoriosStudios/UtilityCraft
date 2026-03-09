@@ -1,5 +1,6 @@
 import { world } from '@minecraft/server'
-import { Generator, Energy } from '../DoriosMachinery/core.js'
+// import * as DoriosCore from "DoriosCore/index.js"
+import { Generator, Energy } from "DoriosCore/machinery/index.js"
 
 DoriosAPI.register.blockComponent('solar_panel', {
     /**
@@ -9,7 +10,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Generator.spawnGeneratorEntity(e, settings);
+        Generator.spawnEntity(e, settings)
     },
 
     /**
@@ -19,7 +20,6 @@ DoriosAPI.register.blockComponent('solar_panel', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
         if (!generator.valid) return

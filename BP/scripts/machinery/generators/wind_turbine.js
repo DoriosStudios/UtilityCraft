@@ -1,5 +1,5 @@
 import { WeatherType, world } from '@minecraft/server'
-import { Generator, Energy } from '../DoriosMachinery/core.js'
+import { Generator, Energy } from "DoriosCore/machinery/index.js"
 
 const BASE_ALTITUDE = 63
 const ALTITUDE_BONUS_STEP = 16
@@ -69,7 +69,7 @@ DoriosAPI.register.blockComponent('wind_turbine', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Generator.spawnGeneratorEntity(e, settings)
+        Generator.spawnEntity(e, settings)
     },
 
     /**
@@ -79,8 +79,6 @@ DoriosAPI.register.blockComponent('wind_turbine', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return
-
         const { block } = e
         const generator = new Generator(block, settings)
         if (!generator.valid) return

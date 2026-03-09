@@ -25,7 +25,8 @@
 			"utilitycraft:wind_turbine": {
 				"entity": {
 					"name": "wind_turbine",
-					"type": "passive"
+					"type": "generator",
+					"inventory_size":2
 				},
 				"generator": {
 					"energy_cap": 64000,

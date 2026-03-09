@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server'
-import { Generator, Energy } from '../DoriosMachinery/core.js'
+import { Generator, Energy } from "DoriosCore/machinery/index.js"
 
 const entitySettings = {
     name: "transmitter",
@@ -18,7 +18,7 @@ DoriosAPI.register.blockComponent('transmitter', {
             entity: entitySettings,
             generator: params
         }
-        Generator.spawnGeneratorEntity(e, settings);
+        Generator.spawnEntity(e, settings);
     },
 
     /**
@@ -28,7 +28,6 @@ DoriosAPI.register.blockComponent('transmitter', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params }) {
-        if (!worldLoaded) return;
         const settings = {
             entity: entitySettings,
             generator: params

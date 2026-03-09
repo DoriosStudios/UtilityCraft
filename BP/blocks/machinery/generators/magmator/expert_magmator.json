@@ -26,7 +26,8 @@
 			"utilitycraft:magmator": {
 				"entity": {
 					"name": "magmator",
-					"type": "fluid"
+					"type": "fluid_generator",
+					"inventory_size": 3
 				},
 				"generator": {
 					"energy_cap": 1280000,

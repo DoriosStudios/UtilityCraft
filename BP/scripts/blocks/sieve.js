@@ -140,6 +140,7 @@ world.afterEvents.worldLoad.subscribe(() => {
         "utilitycraft:diamond_mesh": new ItemStack("utilitycraft:diamond_mesh"),
         "utilitycraft:netherite_mesh": new ItemStack("utilitycraft:netherite_mesh")
     }
+
 })
 
 DoriosAPI.register.blockComponent("sieve", {

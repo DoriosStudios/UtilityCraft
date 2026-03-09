@@ -346,6 +346,7 @@ globalThis.DoriosAPI = {
       // ───────────────────────────────
       if (tf.hasTypeFamily("dorios:complex_input") || tf.hasTypeFamily("dorios:special_container")) {
         const [start, end] = DoriosAPI.containers.getAllowedInputRange(target);
+        if (start < 0) return false;
         for (let i = start; i <= end; i++) {
           if (blockedSlots.has(i)) continue;
           const slotItem = targetInv.getItem(i);
@@ -767,11 +768,11 @@ globalThis.DoriosAPI = {
      * @returns {[number, number]} The [start, end] slot range allowed for transfers.
      */
     getAllowedInputRange(target) {
-      if (!target) return [0, 0];
+      if (!target) return [-1, -1];
       if (target.size) return [0, target.size - 1];
 
       const inv = target?.getComponent?.("minecraft:inventory")?.container;
-      if (!inv) return [0, 0];
+      if (!inv) return [-1, -1];
 
       const tf = target?.getComponent?.("minecraft:type_family");
       const size = inv.size;
@@ -783,11 +784,13 @@ globalThis.DoriosAPI = {
         let slotsRegister;
         try {
           slotsRegister = JSON.parse(raw);
-        } catch {}
+        } catch { return }
 
         if (slotsRegister && slotsRegister.input) return slotsRegister.input;
+        return [-1, -1];
       }
 
+      // #region Retrocompatibility
       const isSimpleInput = tf.hasTypeFamily("dorios:simple_input");
       const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
       const isComplexInput = tf.hasTypeFamily("dorios:complex_input");
@@ -813,6 +816,7 @@ globalThis.DoriosAPI = {
         start = 0;
         end = size - 1;
       }
+      // #endregion
 
       return [start, end];
     },
@@ -833,11 +837,11 @@ globalThis.DoriosAPI = {
      * @returns {[number, number]} The [start, end] slot range allowed for output.
      */
     getAllowedOutputRange(target) {
-      if (!target) return [0, 0];
+      if (!target) return [-1, -1];
       if (target.size) return [0, target.size - 1];
 
       const inv = target?.getComponent?.("minecraft:inventory")?.container;
-      if (!inv) return [0, 0];
+      if (!inv) return [-1, -1];
 
       const tf = target?.getComponent?.("minecraft:type_family");
       const size = inv.size;
@@ -849,10 +853,12 @@ globalThis.DoriosAPI = {
         let slotsRegister;
         try {
           slotsRegister = JSON.parse(raw);
-        } catch {}
+        } catch { }
         if (slotsRegister && slotsRegister.output) return slotsRegister.output;
+        return [-1, -1];
       }
 
+      // #region Retrocompatibility
       const isSimpleOutput = tf.hasTypeFamily("dorios:simple_output");
       const isComplexOutput = tf.hasTypeFamily("dorios:complex_output");
       const isContainer = tf.hasTypeFamily("dorios:container");
@@ -870,6 +876,7 @@ globalThis.DoriosAPI = {
         start = 0;
         end = size - 1;
       }
+      // #endregion
 
       return [start, end];
     },

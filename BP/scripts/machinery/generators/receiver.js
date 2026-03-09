@@ -1,9 +1,10 @@
 import { world } from '@minecraft/server'
-import { Generator, Energy } from '../DoriosMachinery/core.js'
+import { Generator, Energy } from "DoriosCore/machinery/index.js"
 
 const entitySettings = {
     name: "receiver",
-    type: "battery"
+    type: "battery",
+    inventory_size: 2
 }
 
 DoriosAPI.register.blockComponent('receiver', {
@@ -18,7 +19,7 @@ DoriosAPI.register.blockComponent('receiver', {
             entity: entitySettings,
             generator: params
         }
-        Generator.spawnGeneratorEntity(e, settings, (entity) => {
+        Generator.spawnEntity(e, settings, (entity) => {
             entity.addTag("dorios:receiver")
         });
     },
@@ -30,7 +31,6 @@ DoriosAPI.register.blockComponent('receiver', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params }) {
-        if (!worldLoaded) return;
         const settings = {
             entity: entitySettings,
             generator: params
