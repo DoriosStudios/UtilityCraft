@@ -1,5 +1,6 @@
 import { ItemStack, system, world } from "@minecraft/server";
 import { Energy } from "./energyManager";
+import { FluidManager } from "./fluidManager";
 import { BasicMachine } from "./basicMachine";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
