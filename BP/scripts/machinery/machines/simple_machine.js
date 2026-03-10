@@ -1,4 +1,3 @@
-
 import { Machine } from "DoriosCore/machinery/index.js"
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
@@ -100,7 +99,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', false);
+            machine.showWarning('No Energy', { resetProgress: false });
             return;
         }
 

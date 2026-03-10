@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../DoriosMachinery/core.js'
+import { Machine } from "DoriosCore/machinery/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3
@@ -26,12 +26,12 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "")
+            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
         });
     },
 
@@ -42,14 +42,13 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
         machine.transferItems()
 
-        const inv = machine.inv;
+        const inv = machine.container;
 
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INTPUTSLOT);
@@ -101,7 +100,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy')
+            machine.showWarning('No Energy', { resetProgress: false })
             return;
         }
 
@@ -145,7 +144,6 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
 
         // Update machine visuals and state
         machine.on();
-        machine.displayEnergy();
         machine.displayProgress();
         // Machine operating normally
         machine.showStatus('Running')

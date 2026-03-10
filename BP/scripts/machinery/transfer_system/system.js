@@ -1,6 +1,6 @@
 import { world, system, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
-import { FluidManager } from '../DoriosMachinery/core.js'
+import { FluidManager } from "DoriosCore/index.js"
 import { openSmartImporterMenu } from './smart_importer.js'
 
 export const offsets = [

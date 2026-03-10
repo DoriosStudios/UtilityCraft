@@ -117,9 +117,13 @@ export class Generator extends BasicMachine {
         }
       }
       this.addNearbyMachines(entity);
-      system.run(() => {
-        if (callback) callback(entity);
-      });
+      system.runTimeout(() => {
+        if (callback) try {
+          callback(entity);
+        } catch {
+          system.runTimeout(() => callback(entity), 2)
+        }
+      }, 2);
     })
 
     Utils.updateAdjacentNetwork(block, permutationToPlace)

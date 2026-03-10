@@ -1,4 +1,4 @@
-import { Machine } from '../DoriosMachinery/core.js'
+import { Machine } from "DoriosCore/machinery/index.js"
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
 const INPUTSLOT = 3
@@ -8,16 +8,15 @@ DoriosAPI.register.blockComponent('double_machine', {
     /**
      * Runs before the machine is placed by the player.
      * 
-     * @param {BlockComponentPlayerPlaceBeforeEvent} e
+     * @param {BlockComponentPlayerPlaceBeforeEvent} e 
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
-            machine.setEnergyCost(settings.machine.energy_cost);
+        Machine.spawnEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90', 1, "")
+            machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90', 1, " ")
         });
     },
 
@@ -28,7 +27,6 @@ DoriosAPI.register.blockComponent('double_machine', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
@@ -36,7 +34,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         machine.transferItems()
         machine.pullItemsFromAbove(CATALYSTSLOT)
 
-        const inv = machine.inv;
+        const inv = machine.container;
         const OUTPUTSLOT = inv.size - 1
 
         //#region Comprobations
@@ -110,7 +108,7 @@ DoriosAPI.register.blockComponent('double_machine', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', false);
+            machine.showWarning('No Energy', { resetProgress: false });
             return;
         }
 
@@ -144,9 +142,7 @@ DoriosAPI.register.blockComponent('double_machine', {
 
         // Update machine visuals and state
         machine.on();
-        machine.displayEnergy();
         machine.displayProgress();
-        // Machine operating normally
         machine.showStatus('Running');
     },
 

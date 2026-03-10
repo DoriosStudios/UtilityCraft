@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../DoriosMachinery/core.js';
+import { Machine, Energy } from "DoriosCore/machinery/index.js"
 const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component
@@ -17,12 +17,12 @@ DoriosAPI.register.blockComponent('assembler', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
             // Visual filler slot (optional, same as autosieve)
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "");
+            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ");
         });
     },
 
@@ -33,14 +33,12 @@ DoriosAPI.register.blockComponent('assembler', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
-
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
         machine.transferItems()
-        const inv = machine.inv;
+        const inv = machine.container;
 
         const size = inv.size;
         const OUTPUT_SLOT = size - 1;
@@ -137,7 +135,6 @@ DoriosAPI.register.blockComponent('assembler', {
 
         // --- 6) Visuals and status ---
         machine.on();
-        machine.displayEnergy();
         machine.displayProgress();
         showStatus(machine, speedFactor, 'Running');
     },

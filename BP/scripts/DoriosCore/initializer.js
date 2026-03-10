@@ -1,4 +1,5 @@
 import { system, world } from "@minecraft/server";
+import { scriptEventHandler } from "./scriptEvents.js";
 import { Energy } from "./machinery/energyManager.js"
 import { FluidManager } from "./machinery/fluidManager.js"
 import * as Constants from "./constants";
@@ -50,4 +51,9 @@ world.afterEvents.playerSpawn.subscribe(({ initialSpawn }) => {
     system.runTimeout(() => {
         worldLoaded = true;
     }, 50);
+});
+
+system.afterEvents.scriptEventReceive.subscribe((e) => {
+    const event = scriptEventHandler[e.id]
+    if (event) event(e)
 });

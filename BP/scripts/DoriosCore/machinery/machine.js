@@ -121,7 +121,6 @@ export class Machine extends BasicMachine {
 
     system.run(() => {
       const entity = Utils.spawnEntity(block, config);
-
       const energyManager = new Energy(entity);
       energyManager.setCap(config.machine.energy_cap);
       energyManager.set(energy);
@@ -138,9 +137,13 @@ export class Machine extends BasicMachine {
           fluidManager.set(fluid.amount);
         }
       }
-      system.run(() => {
-        if (callback) callback(entity);
-      });
+      system.runTimeout(() => {
+        if (callback) try {
+          callback(entity);
+        } catch {
+          system.runTimeout(() => callback(entity), 2)
+        }
+      }, 2);
     });
     Utils.updateAdjacentNetwork(block, permutationToPlace)
   }
@@ -258,19 +261,19 @@ export class Machine extends BasicMachine {
    * This method retrieves the energy cost for the given progress index
    * and delegates the rendering logic to {@link BasicMachine.displayProgress}.
    *
-   * It acts as a bridge between machine-specific processing logic
-   * (energy cost calculation) and the base visual progress system.
-   *
-   * @param {number} [slot=2] Inventory slot where the progress bar item will be placed.
-   * @param {string} [type="arrow_right"] Item type suffix used for the progress bar texture.
-   * @param {number} [index=0] Progress index (useful for multi-process machines).
-   * @param {number} [scale=16] Maximum visual scale of the progress bar (e.g., 16 → 0–16).
+   * @param {Object} [options]
+   * @param {number} [options.slot=2] Inventory slot where the progress bar item will be placed.
+   * @param {string} [options.type="arrow_right"] Item type suffix used for the progress bar texture.
+   * @param {number} [options.index=0] Progress index (useful for multi-process machines).
+   * @param {number} [options.scale=16] Maximum visual scale of the progress bar (e.g., 16 → 0–16).
    */
-  displayProgress(slot = 2, type = "arrow_right", index = 0, scale = 16) {
+  displayProgress(options = {}) {
+    const { slot = 2, type = "arrow_right", index = 0, scale = 16 } = options;
+
     const energyCost = this.getEnergyCost(index);
     if (!energyCost || energyCost <= 0) return;
 
-    super.displayProgress(energyCost, slot, type, index, scale);
+    super.displayProgress(energyCost, { slot, type, index, scale });
   }
   //#endregion
 

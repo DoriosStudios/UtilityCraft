@@ -74,8 +74,10 @@ const configExample = {
  * @param {string} [config.entity.identifier] Entity identifier.
  * @param {number} config.entity.inventory_size Inventory slot count.
  * @param {string} [config.entity.name] Optional name.
- * @param {number} [config.entity.input_range] Input slot range.
- * @param {number} [config.entity.output_range] Output slot range.
+ * @param {[number, number]} [config.entity.input_range] Input slot range.
+ * @param {[number, number]} [config.entity.output_range] Output slot range.
+ * @param {number} [config.entity.input_slot] Single input slot.
+ * @param {number} [config.entity.output_slot] Single output slot.
  * @param {{x:number,y:number,z:number}} [config.spawn_offset] Optional spawn offset.
  *
  * @returns {import("@minecraft/server").Entity} The spawned entity.
@@ -84,7 +86,6 @@ export function spawnEntity(block, config) {
   const { entity: entityData, spawn_offset = { x: 0, y: -0.25, z: 0 } } = config;
   const dimension = block.dimension;
 
-  // Base position
   const center = block.center();
   const location = {
     x: center.x + spawn_offset.x,
@@ -93,36 +94,39 @@ export function spawnEntity(block, config) {
   };
 
   const identifier = entityData.identifier ?? Constants.DEFAULT_ENTITY_ID;
-
   const entity = dimension.spawnEntity(identifier, location);
 
-  // Trigger inventory event
   const inventorySize = entityData.inventory_size ?? 1;
   entity.triggerEvent(`utilitycraft:inventory_${inventorySize}`);
 
-  // Assign name
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
 
-  // Register slots config
-  if (entityData.input_range || entityData.output_range) {
+  // Normalize slot config independently
+  const inputRange =
+    Array.isArray(entityData.input_range)
+      ? entityData.input_range
+      : typeof entityData.input_slot === "number"
+        ? [entityData.input_slot, entityData.input_slot]
+        : undefined;
+
+  const outputRange =
+    Array.isArray(entityData.output_range)
+      ? entityData.output_range
+      : typeof entityData.output_slot === "number"
+        ? [entityData.output_slot, entityData.output_slot]
+        : undefined;
+
+  if (inputRange || outputRange) {
     registerSlotConfig(entity, {
-      input_range: entityData.input_range,
-      output_range: entityData.output_range,
+      input_range: inputRange,
+      output_range: outputRange,
       block_id: block.typeId
-    })
-  } else if (entityData.input_slot || entityData.output_slot) {
-    registerSlotConfig(entity, {
-      input_range: [entityData.input_slot, entityData.input_slot],
-      output_range: [entityData.output_slot, entityData.output_slot],
-      block_id: block.typeId
-    })
+    });
   }
 
-  // Initialize Entity
-  initializeEntity(entity)
+  initializeEntity(entity);
 
-  // Machine type
   if (entityData.type) {
     entity.triggerEvent(`utilitycraft:${entityData.type}`);
   }

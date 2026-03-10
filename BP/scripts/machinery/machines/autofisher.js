@@ -1,5 +1,5 @@
 import { ItemStack, Enchantment, EnchantmentTypes } from '@minecraft/server';
-import { Machine } from '../DoriosMachinery/core.js';
+import { Machine } from "DoriosCore/machinery/index.js"
 import { autoFisherConfig, autoFisherLoot } from '../../config/recipes/fisher.js';
 
 const NET_SLOT = 6;
@@ -287,11 +287,11 @@ function createEquipmentDropStacks(loot, amount, netLuck = 0) {
 
 DoriosAPI.register.blockComponent('autofisher', {
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, (entity) => {
+            entity.setItem(3, UI_PLACEHOLDER_ITEM, 1, ' ');
+            const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
-            machine.entity.setItem(1, UI_PLACEHOLDER_ITEM, 1, '');
             ensureHiddenInputSlot(machine);
             const player = e.player;
             if (player) {
@@ -301,8 +301,6 @@ DoriosAPI.register.blockComponent('autofisher', {
     },
 
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
-
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return;
@@ -313,7 +311,7 @@ DoriosAPI.register.blockComponent('autofisher', {
             ensureHiddenInputSlot(machine);
         };
 
-        const inv = machine.inv;
+        const inv = machine.container;
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {
             machine.showWarning('No Net Item');
@@ -423,7 +421,6 @@ DoriosAPI.register.blockComponent('autofisher', {
         finalizeTick();
 
         machine.on();
-        machine.displayEnergy();
         machine.displayProgress();
         machine.showStatus('Fishing');
     },

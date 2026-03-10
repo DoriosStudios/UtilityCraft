@@ -1,4 +1,4 @@
-import { Machine } from '../DoriosMachinery/core.js'
+import { Machine } from "DoriosCore/machinery/index.js"
 
 const INPUTSLOT = 3
 
@@ -10,10 +10,10 @@ DoriosAPI.register.blockComponent('induction_anvil', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
-            machine.entity.setItem(2, 'utilitycraft:arrow_right_0', 1, "");
+            machine.entity.setItem(2, 'utilitycraft:arrow_right_0', 1, " ");
         });
     },
 
@@ -24,18 +24,16 @@ DoriosAPI.register.blockComponent('induction_anvil', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
-
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return;
 
-        const inv = machine.inv;
+        const inv = machine.container;
         const stack = inv.getItem(INPUTSLOT);
 
         // No item
         if (!stack) {
-            machine.showWarning("No Item", false);
+            machine.showWarning("No Item", { displayProgress: false });
             return;
         }
 
@@ -43,7 +41,7 @@ DoriosAPI.register.blockComponent('induction_anvil', {
         let durability = stack.durability
 
         if (!durability) {
-            machine.showWarning("Invalid Item", false);
+            machine.showWarning("Invalid Item", { displayProgress: false });
             return;
         }
 
@@ -52,13 +50,13 @@ DoriosAPI.register.blockComponent('induction_anvil', {
 
         // Fully repaired
         if (remaining >= max) {
-            machine.showWarning("Fully Repaired", false);
+            machine.showWarning("Fully Repaired", { displayProgress: false });
             return;
         }
 
         // No energy at all
         if (machine.energy.get() <= 0) {
-            machine.showWarning("No Energy", false);
+            machine.showWarning("No Energy", { displayProgress: false });
             return;
         }
 
@@ -74,7 +72,7 @@ DoriosAPI.register.blockComponent('induction_anvil', {
         const canRepair = Math.floor(energyAvailableThisTick / ENERGY_PER_DURABILITY);
 
         if (canRepair <= 0) {
-            machine.showWarning("No Energy", false);
+            machine.showWarning("No Energy", { displayProgress: false });
             return;
         }
 
@@ -86,13 +84,12 @@ DoriosAPI.register.blockComponent('induction_anvil', {
             inv.setItem(INPUTSLOT, stack);
             machine.energy.consume(energyToConsume);
         } catch {
-            machine.showWarning("Invalid Item", false);
+            machine.showWarning("Invalid Item", { displayProgress: false });
             return;
         }
 
         // Update visuals
         machine.on();
-        machine.displayEnergy();
         machine.showStatus("Running");
     },
 

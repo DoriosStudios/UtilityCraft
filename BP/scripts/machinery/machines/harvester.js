@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import { Machine } from "../DoriosMachinery/core.js";
+import { Machine } from "DoriosCore/machinery/index.js"
 
 /**
  * Harvester Machine Component
@@ -14,8 +14,8 @@ DoriosAPI.register.blockComponent("harvester", {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
             machine.displayEnergy();
         });
     },
@@ -28,7 +28,6 @@ DoriosAPI.register.blockComponent("harvester", {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block, dimension } = e;
 
         if (!block || block.typeId === "minecraft:air") return;
@@ -41,14 +40,16 @@ DoriosAPI.register.blockComponent("harvester", {
         const side = (range * 2) + 3;
         const area = side ** 2;
 
+
         const progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;
         const realEnergyCost = energyCost * machine.boosts.consumption;
 
+        machine.setRate(area)
         machine.setEnergyCost(energyCost * area)
         // --- Energy check ---
         if (machine.energy.get() <= 0) {
-            machine.showWarning("No Energy", false);
+            machine.showWarning("No Energy", { displayProgress: false });
             return;
         }
 
@@ -126,7 +127,7 @@ DoriosAPI.register.blockComponent("harvester", {
             }
 
             // Reset progress after operation
-            machine.setProgress(0, undefined, undefined, false);
+            machine.setProgress(0, { display: false });
         } else {
             // --- Charge energy & accumulate progress ---
             const energyToConsume = Math.min(
@@ -140,7 +141,6 @@ DoriosAPI.register.blockComponent("harvester", {
 
         // --- Visual updates ---
         machine.on();
-        machine.displayEnergy();
         machine.showStatus("Running");
     },
 

@@ -31,9 +31,10 @@
 			"utilitycraft:double_machine": {
 				"rotation": "facing",
 				"entity": {
-					"input_type": "simple",
-					"output_type": "simple",
-					"inventory_size": 8
+					"type": "machine",
+					"inventory_size": 8,
+					"input_slot": 3,
+					"output_slot": 7
 				},
 				"machine": {
 					"energy_cap": 128000,

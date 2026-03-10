@@ -1,5 +1,5 @@
 import { system, world } from "@minecraft/server";
-import { Energy } from "./machinery/DoriosMachinery/core.js";
+import { Energy } from "DoriosCore/index.js"
 
 const REGISTRATION_MARKER = "__insightInjectorsUtilityCraftRegistered";
 const REGISTRATION_RETRY_TICKS = 20;

@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../DoriosMachinery/core.js';
+import { Machine } from "DoriosCore/machinery/index.js"
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from '@minecraft/server'
 
@@ -21,7 +21,7 @@ DoriosAPI.register.blockComponent('digitizer', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
+        Machine.spawnEntity(e, settings, () => {
             const machine = new Machine(e.block, settings, true);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
@@ -37,13 +37,11 @@ DoriosAPI.register.blockComponent('digitizer', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
-
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        const inv = machine.inv;
+        const inv = machine.container;
 
         const size = inv.size;
         const OUTPUT_SLOT = size - 1;
@@ -94,7 +92,7 @@ DoriosAPI.register.blockComponent('digitizer', {
             x += 0.5;
             z += 0.5;
 
-            const dimension = machine.dim;
+            const dimension = machine.dimension;
             const minY = MIN_Y_MAP[dimension.id]
             const crafterBlockId = dimension.getBlock({ x: x, y: minY, z })?.typeId;
             const redstoneBlockId = dimension.getBlock({ x: x, y: minY + 1, z })?.typeId;
@@ -199,13 +197,12 @@ DoriosAPI.register.blockComponent('digitizer', {
         } else {
             // Cargar energía y avanzar progreso como el autosieve
             const energyToConsume = Math.min(machine.energy.get(), machine.rate);
-            const consumed = machine.energy.consume(energyToConsume);
+            consumed = machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 
         // Estado/visualización (mismo patrón del autosieve)
         machine.on();
-        machine.displayEnergy();
         machine.displayProgress();
         machine.showStatus('Running');
     },
