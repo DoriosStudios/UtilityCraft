@@ -10,16 +10,16 @@ const DEFAULT_MAX_ALTITUDE_MULTIPLIER = 4
 const DEFAULT_ALTITUDE_OFFSET = 0
 /**
  * @typedef {Object} AltitudeConfig
- * @property {number} baseAltitude     // Altitude where penalties/bonuses start
- * @property {number} minAltitude      // Minimum altitude required to run
- * @property {number | null} maxAltitude // Max altitude used for clamping (null = world max)
- * @property {number} offset           // Altitude offset applied before processing
- * @property {number} bonusStep        // Height interval that grants bonuses
- * @property {number} penaltyStep      // Height interval that applies penalties
- * @property {number} stepRatio        // Portion of base rate applied each step
- * @property {number} [bonusRatio]     // Optional ratio used for bonus steps
- * @property {number} [penaltyRatio]   // Optional ratio used for penalty steps
- * @property {number} maxMultiplier    // Cap relative to base rate
+ * @property {number} baseAltitude         // Altitude where penalties/bonuses start
+ * @property {number} minAltitude          // Minimum altitude required to run
+ * @property {number | null} maxAltitude   // Max altitude used for clamping (null = world max)
+ * @property {number} offset               // Altitude offset applied before processing
+ * @property {number} bonusStep            // Height interval that grants bonuses
+ * @property {number} penaltyStep          // Height interval that applies penalties
+ * @property {number} stepRatio            // Portion of base rate applied each step
+ * @property {number} [bonusRatio]         // Optional ratio used for bonus steps
+ * @property {number} [penaltyRatio]       // Optional ratio used for penalty steps
+ * @property {number} maxMultiplier        // Cap relative to base rate
  * @property {boolean} unlimitedMultiplier // Skip max multiplier cap when true
  */
 
