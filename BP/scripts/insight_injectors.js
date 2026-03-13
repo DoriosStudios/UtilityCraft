@@ -1,5 +1,5 @@
 import { system, world } from "@minecraft/server";
-import { EnergyStorage } from "DoriosCore/index.js"
+import { EnergyStorage, FluidContainer } from "DoriosCore/index.js"
 
 const REGISTRATION_MARKER = "__insightInjectorsUtilityCraftRegistered";
 const REGISTRATION_RETRY_TICKS = 20;
@@ -68,8 +68,8 @@ function formatPercent(current, max) {
 
 function formatFluid(value) {
     try {
-        if (typeof FluidManager?.formatFluid === "function") {
-            return FluidManager.formatFluid(value);
+        if (typeof FluidContainer?.formatFluid === "function") {
+            return FluidContainer.formatFluid(value);
         }
     } catch { /* fallback */ }
     return `${Math.max(0, Math.floor(Number(value) || 0))} mB`;
@@ -181,13 +181,13 @@ function getFluidLines(context, machineEntity) {
     const lines = [];
 
     try {
-        const maxTanks = typeof FluidManager?.getMaxLiquids === "function"
-            ? FluidManager.getMaxLiquids(machineEntity)
+        const maxTanks = typeof FluidContainer?.getMaxLiquids === "function"
+            ? FluidContainer.getMaxLiquids(machineEntity)
             : 1;
 
         for (let i = 0; i < maxTanks; i++) {
             try {
-                const fm = new FluidManager(machineEntity, i);
+                const fm = new FluidContainer(machineEntity, i);
                 const stored = fm.get();
                 const cap = fm.getCap();
                 const type = fm.getType();
@@ -203,7 +203,7 @@ function getFluidLines(context, machineEntity) {
             }
         }
     } catch {
-        // FluidManager unavailable or entity incompatible — skip silently.
+        // FluidContainer unavailable or entity incompatible — skip silently.
     }
 
     return lines;
