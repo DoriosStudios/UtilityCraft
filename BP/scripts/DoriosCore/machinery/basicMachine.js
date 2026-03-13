@@ -1,5 +1,5 @@
 import { ItemStack } from "@minecraft/server";
-import { Energy } from "./energyManager";
+import { EnergyStorage } from "./energyStorage";
 import * as Utils from "../utils/entity";
 
 export class BasicMachine {
@@ -16,7 +16,7 @@ export class BasicMachine {
     if (!Utils.shouldProcess()) return;
     this.entity = Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
-    this.energy = new Energy(this.entity);
+    this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
     this.container = this.entity.getComponent("inventory").container;
@@ -134,7 +134,7 @@ export class BasicMachine {
   /**
    * Displays the current energy of the machine in the specified inventory slot.
    *
-   * Delegates the call to the internal {@link Energy.display} method.
+   * Delegates the call to the internal {@link EnergyStorage.display} method.
    *
    * @param {number} [slot=0] The inventory slot index where the energy bar will be displayed.
    */

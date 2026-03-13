@@ -1,4 +1,4 @@
-import { FluidManager, Generator } from "DoriosCore/index.js"
+import { FluidStorage, Generator } from "DoriosCore/index.js"
 
 export const scriptEventHandler = {
     /**
@@ -96,7 +96,7 @@ export const scriptEventHandler = {
                 return;
             }
 
-            const fluid = new FluidManager(entity);
+            const fluid = new FluidStorage(entity);
             const blockItemId = block.typeId;
             const blockItem = new ItemStack(blockItemId);
             const lore = [];
@@ -105,7 +105,7 @@ export const scriptEventHandler = {
             if (fluid.type !== "empty" && fluid.get() > 0) {
                 const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
                 lore.push(
-                    `§r§7  ${liquidName}: ${FluidManager.formatFluid(fluid.get())}/${FluidManager.formatFluid(fluid.cap)}`,
+                    `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`,
                 );
             }
             if (lore.length > 0) blockItem.setLore(lore);
@@ -153,14 +153,14 @@ export const scriptEventHandler = {
                 if (typeof data.amount !== "number" || typeof data.type !== "string")
                     continue;
 
-                if (FluidManager.itemFluidContainers[itemId]) {
+                if (FluidStorage.itemFluidStorages[itemId]) {
                     replaced++;
                 } else {
                     added++;
                 }
 
                 // Direct assignment; LiquidManager uses this data
-                FluidManager.itemFluidContainers[itemId] = data;
+                FluidStorage.itemFluidStorages[itemId] = data;
             }
         } catch (err) {
             console.warn(
@@ -196,7 +196,7 @@ export const scriptEventHandler = {
             for (const [itemId, data] of Object.entries(payload)) {
                 if (!data.types || typeof data.types !== "object") continue;
 
-                const existing = FluidManager.itemFluidHolders[itemId];
+                const existing = FluidStorage.itemFluidHolders[itemId];
 
                 if (existing) {
                     existing.types = {
@@ -210,7 +210,7 @@ export const scriptEventHandler = {
                 } else {
                     if (typeof data.required !== "number") continue;
 
-                    FluidManager.itemFluidHolders[itemId] = {
+                    FluidStorage.itemFluidHolders[itemId] = {
                         types: { ...data.types },
                         required: data.required
                     };

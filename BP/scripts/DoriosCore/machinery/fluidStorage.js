@@ -2,7 +2,7 @@ import { world, ItemStack, system } from "@minecraft/server";
 import { loadObjectives } from "../utils/scoreboards.js"
 import { initializeEntity } from "../utils/entity.js"
 
-/** @type {.ScoreboardObjective} */
+/** @type {ScoreboardObjective} */
 let maxLiquidsData;
 
 /**
@@ -20,9 +20,9 @@ const objectives = new Map();
  * The system uses the same mantissa–exponent structure as the Energy system
  * to support large numbers efficiently while maintaining scoreboard safety.
  */
-export class FluidManager {
+export class FluidStorage {
   /**
-   * Creates a new FluidManager instance for a specific entity and tank index.
+   * Creates a new FluidStorage instance for a specific entity and tank index.
    *
    * @param {Entity} entity The entity representing the fluid container.
    * @param {number} [index=0] The index of the fluid tank managed by this instance.
@@ -49,13 +49,13 @@ export class FluidManager {
    *
    * This should be used for machines that only store one type of fluid.
    * It ensures the scoreboard objectives for index 0 exist and
-   * returns a ready-to-use FluidManager instance.
+   * returns a ready-to-use FluidStorage instance.
    *
    * @param {Entity} entity The machine entity to initialize.
-   * @returns {FluidManager} A FluidManager instance managing index 0.
+   * @returns {FluidStorage} A FluidStorage instance managing index 0.
    */
   static initializeSingle(entity) {
-    return new FluidManager(entity, 0);
+    return new FluidStorage(entity, 0);
   }
 
   /**
@@ -63,7 +63,7 @@ export class FluidManager {
    *
    * @param {Entity} entity Machine entity
    * @param {number} count Amount of supported fluids
-   * @returns {FluidManager[]} Array of FluidManager instances
+   * @returns {FluidStorage[]} Array of FluidStorage instances
    */
   static initializeMultiple(entity, count) {
     // Set scoreboard maxLiquids for this entity
@@ -76,7 +76,7 @@ export class FluidManager {
     const tanks = [];
     for (let i = 0; i < count; i++) {
       initializeObjectives(i);
-      tanks.push(new FluidManager(entity, i));
+      tanks.push(new FluidStorage(entity, i));
     }
 
     return tanks;
@@ -134,14 +134,14 @@ export class FluidManager {
    *
    * Example:
    * ```js
-   * FluidManager.itemFluidContainers["minecraft:lava_bucket"]
+   * FluidStorage.itemFluidStorages["minecraft:lava_bucket"]
    * // → { amount: 1000, type: "lava", output: "minecraft:bucket" }
    * ```
    *
    * @constant
    * @type {Record<string, { amount: number, type: string, output?: string }>}
    */
-  static itemFluidContainers = {};
+  static itemFluidStorages = {};
 
   /**
    * Definitions for items that can extract fluid from a tank.
@@ -267,7 +267,7 @@ export class FluidManager {
    * @returns {{ amount: number, type: string, output?: string }|null} Fluid data if found, otherwise null.
    */
   static getContainerData(id) {
-    return this.itemFluidContainers[id] ?? null;
+    return this.itemFluidStorages[id] ?? null;
   }
 
   // --------------------------------------------------------------------------
@@ -290,8 +290,8 @@ export class FluidManager {
    * ## Behavior
    * - Both source and target blocks must have the tag `"dorios:fluid"`.
    * - If the target is a fluid tank without an entity, one is spawned empty first.
-   * - Fluid is transferred between entities using {@link FluidManager.transferTo}.
-   * - The {@link FluidManager.add} method automatically handles visual updates.
+   * - Fluid is transferred between entities using {@link FluidStorage.transferTo}.
+   * - The {@link FluidStorage.add} method automatically handles visual updates.
    *
    * Works with:
    * - Fluid tanks (auto-spawns empty entity if missing)
@@ -317,7 +317,7 @@ export class FluidManager {
     const sourceEntity = dim.getEntitiesAtBlockLocation(sourceLoc)[0];
     if (!sourceEntity) return false;
 
-    const sourceFluid = new FluidManager(sourceEntity, 0);
+    const sourceFluid = new FluidStorage(sourceEntity, 0);
     if (!sourceFluid || sourceFluid.get() <= 0) return false;
 
     // ─── Target entity handling ───────────────────────────────
@@ -327,14 +327,14 @@ export class FluidManager {
     if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
       const type = sourceFluid.getType();
       if (type == "empty") return false;
-      targetEntity = FluidManager.addfluidToTank(targetBlock, type, 0);
+      targetEntity = FluidStorage.addfluidToTank(targetBlock, type, 0);
     }
 
     // If still no entity (non-tank machine), stop
     if (!targetEntity) return false;
 
     // ─── Perform fluid transfer ───────────────────────────────
-    const targetFluid = new FluidManager(targetEntity, 0);
+    const targetFluid = new FluidStorage(targetEntity, 0);
     if (!targetFluid || targetFluid.getCap() <= 0) return false;
 
     const transferred = sourceFluid.transferTo(targetFluid, amount);
@@ -346,14 +346,14 @@ export class FluidManager {
    *
    * @param {Entity} entity Target entity with fluid tanks
    * @param {string} type Fluid type to search for (e.g. "water", "lava")
-   * @returns {FluidManager|null} The matching tank or null if none found
+   * @returns {FluidStorage|null} The matching tank or null if none found
    */
   static findType(entity, type) {
-    const max = FluidManager.getMaxLiquids(entity);
+    const max = FluidStorage.getMaxLiquids(entity);
     for (let i = 0; i < max; i++) {
       const prefix = `fluid${i}Type:${type}`;
       if (entity.hasTag(`${prefix}`) || entity.hasTag(`fluid${i}Type:empty`)) {
-        return new FluidManager(entity, i);
+        return new FluidStorage(entity, i);
       }
     }
     return null;
@@ -371,10 +371,10 @@ export class FluidManager {
     mainHand = mainHand ?? player.getEquipment("Mainhand");
     if (!mainHand) return;
 
-    const containerData = FluidManager.getContainerData(mainHand.typeId);
+    const containerData = FluidStorage.getContainerData(mainHand.typeId);
     if (!containerData || !containerData.type) return;
 
-    const tank = FluidManager.findType(entity, containerData.type);
+    const tank = FluidStorage.findType(entity, containerData.type);
     if (!tank) return;
 
     const insert = tank.fluidItem(mainHand.typeId);
@@ -386,7 +386,7 @@ export class FluidManager {
     const percent = ((amount / cap) * 100).toFixed(2);
 
     player.onScreenDisplay.setActionBar(
-      `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`,
+      `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`,
     );
 
     if (!player.isInCreative()) {
@@ -425,7 +425,7 @@ export class FluidManager {
    * Handles item-to-fluid interactions for machines or fluid tanks.
    *
    * Supports:
-   * - Inserting fluid from known container items (`itemFluidContainers`)
+   * - Inserting fluid from known container items (`itemFluidStorages`)
    * - Extracting fluid using fluid holders (`itemFluidHolders`)
    * - Producing filled items based on stored fluid type
    *
@@ -434,7 +434,7 @@ export class FluidManager {
    */
   fluidItem(typeId) {
     // 1. INSERTION: item adds fluid into tank
-    const insertData = FluidManager.itemFluidContainers[typeId];
+    const insertData = FluidStorage.itemFluidStorages[typeId];
     if (insertData) {
       const { type, amount, output } = insertData;
 
@@ -444,7 +444,7 @@ export class FluidManager {
     }
 
     // 2. EXTRACTION: item converts stored fluid into an output container
-    const holder = FluidManager.itemFluidHolders[typeId];
+    const holder = FluidStorage.itemFluidHolders[typeId];
     if (holder) {
       const storedType = this.getType();
       const outputItem = holder.types?.[storedType];
@@ -471,7 +471,7 @@ export class FluidManager {
    * @returns {void}
    */
   setCap(amount) {
-    const { value, exp } = FluidManager.normalizeValue(amount);
+    const { value, exp } = FluidStorage.normalizeValue(amount);
     this.scores.fluidCap.setScore(this.scoreId, value);
     this.scores.fluidCapExp.setScore(this.scoreId, exp);
     if (this.get() > amount) this.set(amount);
@@ -485,7 +485,7 @@ export class FluidManager {
   getCap() {
     const v = this.scores.fluidCap.getScore(this.scoreId) || 0;
     const e = this.scores.fluidCapExp.getScore(this.scoreId) || 0;
-    this.cap = FluidManager.combineValue(v, e);
+    this.cap = FluidStorage.combineValue(v, e);
     return this.cap;
   }
 
@@ -498,7 +498,7 @@ export class FluidManager {
    * @returns {void}
    */
   set(amount) {
-    const { value, exp } = FluidManager.normalizeValue(amount);
+    const { value, exp } = FluidStorage.normalizeValue(amount);
     this.scores.fluid.setScore(this.scoreId, value);
     this.scores.fluidExp.setScore(this.scoreId, exp);
     if (this.entity?.typeId?.startsWith("utilitycraft:fluid_tank")) {
@@ -514,7 +514,7 @@ export class FluidManager {
   get() {
     const v = this.scores.fluid.getScore(this.scoreId) || 0;
     const e = this.scores.fluidExp.getScore(this.scoreId) || 0;
-    return FluidManager.combineValue(v, e);
+    return FluidStorage.combineValue(v, e);
   }
 
   /**
@@ -689,12 +689,12 @@ export class FluidManager {
       // If the target is a tank with no entity, create one to store the fluid
       let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
       if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
-        FluidManager.addfluidToTank(targetBlock, type, 0);
+        FluidStorage.addfluidToTank(targetBlock, type, 0);
         targetEntity = dim.getEntitiesAtBlockLocation(loc)[0];
       }
       if (!targetEntity) return 0;
 
-      const target = FluidManager.findType(targetEntity, type);
+      const target = FluidStorage.findType(targetEntity, type);
       if (!target) return 0;
 
       const targetType = target.getType();
@@ -746,7 +746,7 @@ export class FluidManager {
    * - Locates the target block in that opposite direction.
    * - If the target has the tag `"dorios:fluid"`, tries to transfer fluid to it.
    * - If the target is a fluid tank with no entity, one is spawned empty first.
-   * - Uses {@link FluidManager.transferTo} to handle transfer and visual updates.
+   * - Uses {@link FluidStorage.transferTo} to handle transfer and visual updates.
    *
    * @param {Block} block The source block associated with this fluid entity.
    * @param {number} [amount=100] Maximum amount to transfer (in mB).
@@ -786,13 +786,13 @@ export class FluidManager {
     if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
       const type = this.getType();
       if (type == "empty") return;
-      FluidManager.addfluidToTank(targetBlock, type, 0);
+      FluidStorage.addfluidToTank(targetBlock, type, 0);
       targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
     }
 
     if (!targetEntity) return false;
 
-    const targetFluid = new FluidManager(targetEntity, 0);
+    const targetFluid = new FluidStorage(targetEntity, 0);
     if (!targetFluid || targetFluid.getCap() <= 0) return false;
 
     const transferred = this.transferTo(targetFluid, amount);
@@ -802,7 +802,7 @@ export class FluidManager {
   /**
    * Transfers a specific amount of fluid from this tank to another.
    *
-   * @param {FluidManager} other The target tank to receive the fluid.
+   * @param {FluidStorage} other The target tank to receive the fluid.
    * @param {number} amount The amount to transfer in mB.
    * @returns {number} The actual amount transferred.
    */
@@ -819,9 +819,9 @@ export class FluidManager {
   }
 
   /**
-   * Receives fluid from another FluidManager.
+   * Receives fluid from another FluidStorage.
    *
-   * @param {FluidManager} other The source tank to pull from.
+   * @param {FluidStorage} other The source tank to pull from.
    * @param {number} amount The maximum amount to receive.
    * @returns {number} The actual amount received.
    */
@@ -862,7 +862,7 @@ export class FluidManager {
 
     const item = new ItemStack(`utilitycraft:${type}_${frameName}`, 1);
     item.nameTag = `§r${DoriosAPI.utils.formatIdToText(type)}
-§r§7  Stored: ${FluidManager.formatFluid(fluid)} / ${FluidManager.formatFluid(cap)}
+§r§7  Stored: ${FluidStorage.formatFluid(fluid)} / ${FluidStorage.formatFluid(cap)}
 §r§7  Percentage: ${((fluid / cap) * 100).toFixed(2)}%`;
 
     inv.setItem(slot, item);
@@ -895,12 +895,12 @@ export class FluidManager {
         z: z + 0.5,
       });
       if (!entity) return false;
-      FluidManager.initialize(entity);
+      FluidStorage.initialize(entity);
       entity.triggerEvent(`${block.typeId.split("_")[0]}`);
     }
 
-    const tank = new FluidManager(entity, 0);
-    tank.setCap(FluidManager.getTankCapacity(block.typeId));
+    const tank = new FluidStorage(entity, 0);
+    tank.setCap(FluidStorage.getTankCapacity(block.typeId));
     tank.setType(type);
     tank.add(amount);
     return entity;

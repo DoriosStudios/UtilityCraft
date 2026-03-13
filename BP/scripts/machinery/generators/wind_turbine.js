@@ -1,5 +1,5 @@
 import { WeatherType, world } from '@minecraft/server'
-import { Generator, Energy } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
 const BASE_ALTITUDE = 63
 const ALTITUDE_BONUS_STEP = 16
@@ -247,7 +247,7 @@ function buildStatusLabel(status, color, efficiency, realEfficiency, weatherMult
         .toFixed(1)
         .replace('.', ',')
     const formattedWeatherMultiplier = Math.max(0, weatherMultiplier ?? 1).toFixed(2).replace('.', ',')
-    const transferText = transferRate > 0 ? Energy.formatEnergyToText(transferRate) : '0 DE'
+    const transferText = transferRate > 0 ? EnergyStorage.formatEnergyToText(transferRate) : '0 DE'
 
     return `
 §r§${color ?? 'e'}${status}

@@ -1,4 +1,4 @@
-import { Generator, Energy } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 import { solidFuels } from "../../config/recipes/fuel.js";
 
 DoriosAPI.register.blockComponent('furnator', {
@@ -57,7 +57,7 @@ DoriosAPI.register.blockComponent('furnator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
                     generator.off()
                     generator.displayEnergy()
@@ -73,7 +73,7 @@ DoriosAPI.register.blockComponent('furnator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
                     generator.off()
                     generator.displayEnergy()
@@ -99,10 +99,10 @@ DoriosAPI.register.blockComponent('furnator', {
 
 §r§eFuel Information
  §eTime: §f${DoriosAPI.utils.formatTime((energyR / rate) / 10)}
- §eValue: §f${Energy.formatEnergyToText(energyF)}
+ §eValue: §f${EnergyStorage.formatEnergyToText(energyF)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -117,10 +117,10 @@ DoriosAPI.register.blockComponent('furnator', {
 
 §r§eFuel Information
  §eTime: §f${DoriosAPI.utils.formatTime((energyR / rate) / 10)}
- §eValue: §f${Energy.formatEnergyToText(energyF)}
+ §eValue: §f${EnergyStorage.formatEnergyToText(energyF)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
     },
 

@@ -1,4 +1,6 @@
 import { ItemStack, system } from "@minecraft/server";
+import { EnergyStorage } from "../machinery/energyStorage.js"
+import { FluidStorage } from "../machinery/fluidStorage.js"
 import * as Constants from "../constants";
 
 /**
@@ -244,7 +246,7 @@ export function updateAdjacentNetwork(block, permutationToPlace = block.permutat
  * Extracts stored energy and fluid information from an item's lore.
  *
  * The function reads the lore lines of an ItemStack and attempts to
- * parse energy and fluid values using the Energy and FluidManager helpers.
+ * parse energy and fluid values using the EnergyStorage and FluidStorage helpers.
  *
  * Expected lore format examples:
  *   "§eEnergy: 25,000 FE"
@@ -263,13 +265,13 @@ export function getEnergyAndFluidFromItem(item) {
   let fluid = undefined;
 
   if (lore[0] && lore[0].includes("Energy")) {
-    energy = Energy.getEnergyFromText(lore[0]);
+    energy = EnergyStorage.getEnergyFromText(lore[0]);
   }
 
   const nextLine = energy > 0 ? lore[1] : lore[0];
 
   if (nextLine) {
-    fluid = FluidManager.getFluidFromText(nextLine);
+    fluid = FluidStorage.getFluidFromText(nextLine);
   }
 
   return { energy, fluid };

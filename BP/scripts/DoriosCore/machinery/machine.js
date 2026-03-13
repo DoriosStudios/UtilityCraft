@@ -1,6 +1,6 @@
 import { ItemStack, system, world } from "@minecraft/server";
-import { Energy } from "./energyManager";
-import { FluidManager } from "./fluidManager";
+import { EnergyStorage } from "./energyStorage";
+import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
@@ -43,20 +43,20 @@ export class Machine extends BasicMachine {
     const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
     if (!entity) return false;
 
-    const energy = new Energy(entity);
-    const fluid = new FluidManager(entity);
+    const energy = new EnergyStorage(entity);
+    const fluid = new FluidStorage(entity);
     const blockItemId = brokenBlockPermutation.type.id;
     const blockItem = new ItemStack(blockItemId);
     const lore = [];
 
     // Energy lore
     if (energy.get() > 0) {
-      lore.push(`§r§7  Energy: ${Energy.formatEnergyToText(energy.get())}/${Energy.formatEnergyToText(energy.cap)}`);
+      lore.push(`§r§7  Energy: ${EnergyStorage.formatEnergyToText(energy.get())}/${EnergyStorage.formatEnergyToText(energy.cap)}`);
     }
 
     if (fluid.type != "empty") {
       const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
-      lore.push(`§r§7  ${liquidName}: ${FluidManager.formatFluid(fluid.get())}/${FluidManager.formatFluid(fluid.cap)}`);
+      lore.push(`§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`);
     }
 
     if (lore.length > 0) {
@@ -121,13 +121,13 @@ export class Machine extends BasicMachine {
 
     system.run(() => {
       const entity = Utils.spawnEntity(block, config);
-      const energyManager = new Energy(entity);
+      const energyManager = new EnergyStorage(entity);
       energyManager.setCap(config.machine.energy_cap);
       energyManager.set(energy);
       energyManager.display();
 
       if (config.machine.fluid_cap) {
-        const fluidManager = new FluidManager(entity);
+        const fluidManager = new FluidStorage(entity);
 
         fluidManager.setCap(config.machine.fluid_cap);
         fluidManager.display();
@@ -300,7 +300,7 @@ export class Machine extends BasicMachine {
   /**
    * Displays the current energy of the machine in the specified inventory slot.
    *
-   * Delegates the call to the internal {@link Energy.display} method.
+   * Delegates the call to the internal {@link EnergyStorage.display} method.
    *
    * @param {number} [slot=0] The inventory slot index where the energy bar will be displayed.
    */
@@ -342,7 +342,7 @@ export class Machine extends BasicMachine {
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ---
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.baseRate))}/t
+§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
 `);
   }
 
@@ -361,9 +361,9 @@ export class Machine extends BasicMachine {
 
 §r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
 §r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${Energy.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
+§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(this.baseRate))}/t
+§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
     `);
   }
   //#endregion

@@ -5,7 +5,7 @@ import { initializeEntity } from "../utils/entity.js"
 /**
  * Utility class to manage scoreboard-based energy values for entities.
  */
-export class Energy {
+export class EnergyStorage {
   /**
    * Creates a new Energy instance linked to the given entity.
    *
@@ -59,7 +59,7 @@ export class Energy {
       ["energyExp", "EnergyExp"],
       ["energyCap", "Energy Max Capacity"],
       ["energyCapExp", "Energy Max Capacity Exp"],
-    ], Energy.#objectives);
+    ], EnergyStorage.#objectives);
   }
 
   /**
@@ -70,7 +70,7 @@ export class Energy {
    * @returns {{ value: number, exp: number }} The normalized mantissa (value) and exponent.
    *
    * @example
-   * Energy.normalizeValue(25_600_000);
+   * EnergyStorage.normalizeValue(25_600_000);
    * // → { value: 25_600, exp: 3 }
    */
   static normalizeValue(amount) {
@@ -93,7 +93,7 @@ export class Energy {
    * @returns {number} The reconstructed full number.
    *
    * @example
-   * Energy.combineValue(25_600, 3);
+   * EnergyStorage.combineValue(25_600, 3);
    * // → 25_600_000
    */
   static combineValue(value, exp) {
@@ -197,10 +197,10 @@ export class Energy {
     if (!entity?.scoreboardIdentity) return;
 
     const scoreId = entity.scoreboardIdentity;
-    const { value, exp } = Energy.normalizeValue(amount);
+    const { value, exp } = EnergyStorage.normalizeValue(amount);
 
-    Energy.#objectives.energyCap.setScore(scoreId, value);
-    Energy.#objectives.energyCapExp.setScore(scoreId, exp);
+    EnergyStorage.#objectives.energyCap.setScore(scoreId, value);
+    EnergyStorage.#objectives.energyCapExp.setScore(scoreId, exp);
   }
 
   /**
@@ -215,9 +215,9 @@ export class Energy {
    * energy.setCap(25_600_000);
    */
   setCap(amount) {
-    const { value, exp } = Energy.normalizeValue(amount);
-    Energy.#objectives.energyCap.setScore(this.scoreId, value);
-    Energy.#objectives.energyCapExp.setScore(this.scoreId, exp);
+    const { value, exp } = EnergyStorage.normalizeValue(amount);
+    EnergyStorage.#objectives.energyCap.setScore(this.scoreId, value);
+    EnergyStorage.#objectives.energyCapExp.setScore(this.scoreId, exp);
   }
 
   /**
@@ -234,10 +234,10 @@ export class Energy {
    * console.log(cap); // → 25600000
    */
   getCap() {
-    const value = Energy.#objectives.energyCap.getScore(this.scoreId) || 0;
-    const exp = Energy.#objectives.energyCapExp.getScore(this.scoreId) || 0;
+    const value = EnergyStorage.#objectives.energyCap.getScore(this.scoreId) || 0;
+    const exp = EnergyStorage.#objectives.energyCapExp.getScore(this.scoreId) || 0;
 
-    this.cap = Energy.combineValue(value, exp);
+    this.cap = EnergyStorage.combineValue(value, exp);
     return this.cap;
   }
 
@@ -254,10 +254,10 @@ export class Energy {
    * console.log(value, exp); // → 25600 , 3
    */
   getCapNormalized() {
-    const value = Energy.#objectives.energyCap.getScore(this.scoreId) || 0;
-    const exp = Energy.#objectives.energyCapExp.getScore(this.scoreId) || 0;
+    const value = EnergyStorage.#objectives.energyCap.getScore(this.scoreId) || 0;
+    const exp = EnergyStorage.#objectives.energyCapExp.getScore(this.scoreId) || 0;
 
-    this.cap = Energy.combineValue(value, exp);
+    this.cap = EnergyStorage.combineValue(value, exp);
     return { value, exp };
   }
   //#endregion
@@ -274,10 +274,10 @@ export class Energy {
    * energy.set(1_250_000);
    */
   set(amount) {
-    const { value, exp } = Energy.normalizeValue(amount);
+    const { value, exp } = EnergyStorage.normalizeValue(amount);
 
-    Energy.#objectives.energy.setScore(this.scoreId, value);
-    Energy.#objectives.energyExp.setScore(this.scoreId, exp);
+    EnergyStorage.#objectives.energy.setScore(this.scoreId, value);
+    EnergyStorage.#objectives.energyExp.setScore(this.scoreId, exp);
   }
 
   /**
@@ -292,9 +292,9 @@ export class Energy {
    * console.log(current); // → 1250000
    */
   get() {
-    const value = Energy.#objectives.energy.getScore(this.scoreId) || 0;
-    const exp = Energy.#objectives.energyExp.getScore(this.scoreId) || 0;
-    return Energy.combineValue(value, exp);
+    const value = EnergyStorage.#objectives.energy.getScore(this.scoreId) || 0;
+    const exp = EnergyStorage.#objectives.energyExp.getScore(this.scoreId) || 0;
+    return EnergyStorage.combineValue(value, exp);
   }
 
   /**
@@ -309,8 +309,8 @@ export class Energy {
    */
   getNormalized() {
     return {
-      value: Energy.#objectives.energy.getScore(this.scoreId) || 0,
-      exp: Energy.#objectives.energyExp.getScore(this.scoreId) || 0,
+      value: EnergyStorage.#objectives.energy.getScore(this.scoreId) || 0,
+      exp: EnergyStorage.#objectives.energyExp.getScore(this.scoreId) || 0,
     };
   }
 
@@ -364,7 +364,7 @@ export class Energy {
     // Add directly if safe
     let newValue = value + normalizedAdd;
     if (newValue <= 1e9) {
-      Energy.#objectives.energy.addScore(this.scoreId, normalizedAdd);
+      EnergyStorage.#objectives.energy.addScore(this.scoreId, normalizedAdd);
 
       if (exp > 0 && value < 1e6) {
         this.set(this.get() + amount);
@@ -398,7 +398,7 @@ export class Energy {
 
     const item = new ItemStack(`utilitycraft:energy_${frameName}`, 1);
     item.nameTag = `§rEnergy
-§r§7  Stored: ${Energy.formatEnergyToText(this.get())} / ${Energy.formatEnergyToText(this.cap)}
+§r§7  Stored: ${EnergyStorage.formatEnergyToText(this.get())} / ${EnergyStorage.formatEnergyToText(this.cap)}
 §r§7  Percentage: ${this.getPercent().toFixed(2)}%%`;
 
     container.setItem(slot, item);

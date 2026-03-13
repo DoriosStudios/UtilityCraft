@@ -1,5 +1,5 @@
 import { system, world } from "@minecraft/server";
-import { Energy } from "DoriosCore/index.js"
+import { EnergyStorage } from "DoriosCore/index.js"
 
 const REGISTRATION_MARKER = "__insightInjectorsUtilityCraftRegistered";
 const REGISTRATION_RETRY_TICKS = 20;
@@ -44,8 +44,8 @@ function safeGetMachineEntity(block) {
 
 function formatEnergy(value) {
     try {
-        if (typeof Energy?.formatEnergyToText === "function") {
-            return Energy.formatEnergyToText(value);
+        if (typeof EnergyStorage?.formatEnergyToText === "function") {
+            return EnergyStorage.formatEnergyToText(value);
         }
     } catch {
         // Ignore formatter failures and fallback below.
@@ -116,7 +116,7 @@ function getEnergyLine(context) {
     }
 
     try {
-        const energy = new Energy(machineEntity);
+        const energy = new EnergyStorage(machineEntity);
         const stored = Number(energy.get?.() ?? 0);
         const cap = Number(energy.getCap?.() ?? 0);
 
@@ -131,11 +131,11 @@ function getEnergyLine(context) {
             return undefined;
         }
 
-        if (Number.isFinite(scoreboardEnergy.cap) && scoreboardEnergy.cap > 0) {
-            return `Energy: ${formatEnergy(scoreboardEnergy.stored)} / ${formatEnergy(scoreboardEnergy.cap)}`;
+        if (Number.isFinite(scoreboardEnergyStorage.cap) && scoreboardEnergyStorage.cap > 0) {
+            return `Energy: ${formatEnergy(scoreboardEnergyStorage.stored)} / ${formatEnergy(scoreboardEnergyStorage.cap)}`;
         }
 
-        return `Energy: ${formatEnergy(scoreboardEnergy.stored)}`;
+        return `Energy: ${formatEnergy(scoreboardEnergyStorage.stored)}`;
     }
 }
 

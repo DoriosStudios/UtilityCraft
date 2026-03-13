@@ -1,6 +1,6 @@
 import { world, system, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
-import { FluidManager } from "DoriosCore/index.js"
+import { FluidStorage } from "DoriosCore/index.js"
 import { openSmartImporterMenu } from './smart_importer.js'
 
 export const offsets = [
@@ -253,14 +253,14 @@ export function updatePipes(block, tag) {
  *
  * This function performs a breadth-first search (BFS) through all adjacent blocks
  * tagged with `dorios:energy`. It explores connected cables, ports, and energy sources,
- * and for each detected source or port, it delegates to {@link searchEnergyContainers}
+ * and for each detected source or port, it delegates to {@link searchEnergyStorages}
  * to locate all connected energy containers.
  *
  * ## Behavior:
  * - Stops scanning when a block lacks the `dorios:energy` tag.
  * - Detects cables (`utilitycraft:energy_cable`) and follows all six directions recursively.
  * - Detects generator or port entities (`dorios:energy_source`, `dorios:multiblock.port`) and
- *   triggers `searchEnergyContainers` for each one.
+ *   triggers `searchEnergyStorages` for each one.
  * - Automatically adds connected blocks or entities to the appropriate generator’s tag list.
  *
  * This function should be called when a cable, machine, or generator
@@ -308,13 +308,13 @@ export function startRescanEnergy(startPos, dimension) {
                     const [x, y, z] = tag.slice(7, -1).split(",").map(Number);
                     queue.push(dimension.getBlock({ x, y, z })?.location);
                 });
-            searchEnergyContainers(queue, entity)
+            searchEnergyStorages(queue, entity)
             continue
         }
         if (entity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:energy_source")) {
             let queue = []
             queue.push(pos)
-            searchEnergyContainers(queue, entity)
+            searchEnergyStorages(queue, entity)
         }
     }
 }
@@ -341,9 +341,9 @@ export function startRescanEnergy(startPos, dimension) {
  *
  * @example
  * // Called internally by startRescanEnergy
- * searchEnergyContainers([{x:10, y:65, z:20}], generatorEntity);
+ * searchEnergyStorages([{x:10, y:65, z:20}], generatorEntity);
  */
-function searchEnergyContainers(startQueue, gen) {
+function searchEnergyStorages(startQueue, gen) {
 
     const offsets = [
         { x: 1, y: 0, z: 0 },
@@ -1282,7 +1282,7 @@ function openFluidExtractorMenu(block, player) {
                     player.onScreenDisplay.setActionBar(`§cYou must hold an item in your main hand.`);
                     return
                 }
-                const fluid = FluidManager.itemFluidContainers[mainHand.typeId]
+                const fluid = FluidStorage.itemFluidStorages[mainHand.typeId]
                 if (!fluid) {
                     player.onScreenDisplay.setActionBar(`§cYou must hold an item that contains a fluid.`);
                     return
@@ -1332,10 +1332,10 @@ function openFluidExtractorMenu(block, player) {
                 // ──────────────────────────────────────────────
                 // Initialize & read fluid managers
                 // ──────────────────────────────────────────────
-                const maxLiquids = FluidManager.getMaxLiquids(sourceEntity);
-                const tanks = FluidManager.initializeMultiple(sourceEntity, maxLiquids);
+                const maxLiquids = FluidStorage.getMaxLiquids(sourceEntity);
+                const tanks = FluidStorage.initializeMultiple(sourceEntity, maxLiquids);
 
-                /** @type {{ manager: FluidManager, type: string }[]} */
+                /** @type {{ manager: FluidStorage, type: string }[]} */
                 const validFluids = [];
 
                 tanks.forEach(manager => {
@@ -1535,8 +1535,8 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
         };
         if (sourceEntity) {
             // Dorios/UtilityCraft entity fluid container
-            const fluidQty = FluidManager.getMaxLiquids(sourceEntity)
-            const fluidTypes = FluidManager.initializeMultiple(sourceEntity, fluidQty)
+            const fluidQty = FluidStorage.getMaxLiquids(sourceEntity)
+            const fluidTypes = FluidStorage.initializeMultiple(sourceEntity, fluidQty)
             if (!fluidTypes) return
             fluidSource = fluidTypes.find(type => {
                 if (type.get() <= 0 || type.type == "empty") return false
@@ -1630,12 +1630,12 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
                 // Create tank entity if block is an empty tank
                 let targetEntity = dimension.getEntitiesAtBlockLocation(loc)[0];
                 if (!targetEntity && targetBlock.typeId.includes('fluid_tank')) {
-                    FluidManager.addfluidToTank(targetBlock, liquidType, 0);
+                    FluidStorage.addfluidToTank(targetBlock, liquidType, 0);
                     targetEntity = dimension.getEntitiesAtBlockLocation(loc)[0];
                 }
                 if (!targetEntity) continue;
 
-                const targetFluid = FluidManager.findType(targetEntity, liquidType);
+                const targetFluid = FluidStorage.findType(targetEntity, liquidType);
                 // Skip incompatible fluids
                 if (!targetFluid) continue;
 

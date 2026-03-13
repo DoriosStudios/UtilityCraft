@@ -1,6 +1,5 @@
 import { world } from '@minecraft/server'
-// import * as DoriosCore from "DoriosCore/index.js"
-import { Generator, Energy } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
 DoriosAPI.register.blockComponent('solar_panel', {
     /**
@@ -49,7 +48,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
  §r§aEfficiency §f${Math.floor(efficiency * 100)}%% 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate * efficiency)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate * efficiency)}/t
                     `)
             return
         }
@@ -65,7 +64,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
  §r§aEfficiency §f${Math.floor(efficiency * 100)}%% 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate * efficiency)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate * efficiency)}/t
                     `)
             return
         }
@@ -85,7 +84,7 @@ DoriosAPI.register.blockComponent('solar_panel', {
  §r§aEfficiency §f${Math.floor(efficiency * 100)}%% 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate * efficiency)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate * efficiency)}/t
                     `)
     },
 

@@ -1,4 +1,4 @@
-import { Machine, FluidManager } from "DoriosCore/machinery/index.js"
+import { Machine, FluidStorage } from "DoriosCore/machinery/index.js"
 import { melterRecipes } from "../../config/recipes/melter.js";
 
 const INPUTSLOT = 3
@@ -31,8 +31,8 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        /** @type {FluidManager} */
-        const liquid = FluidManager.initializeSingle(machine.entity);
+        /** @type {FluidStorage} */
+        const liquid = FluidStorage.initializeSingle(machine.entity);
         liquid.transferFluids(block)
 
         const inv = machine.container;

@@ -1,4 +1,4 @@
-import { Machine, Energy } from "DoriosCore/machinery/index.js"
+import { Machine, EnergyStorage } from "DoriosCore/machinery/index.js"
 const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component
@@ -225,7 +225,7 @@ function showWarning(machine, speed, message, resetProgress = true) {
 §r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ---
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(machine.baseRate))}/t
+§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
     `);
 }
 
@@ -244,8 +244,8 @@ function showStatus(machine, speed, message) {
 
 §r${COLORS.green}Speed x${speed}
 §r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${Energy.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(machine.baseRate))}/t
+§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
     `);
 }

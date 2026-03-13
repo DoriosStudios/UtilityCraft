@@ -1,5 +1,5 @@
 import { system, ItemStack, world } from "@minecraft/server";
-import { FluidManager } from "DoriosCore/index.js"
+import { FluidStorage } from "DoriosCore/index.js"
 
 DoriosAPI.register.blockComponent("xp", {
     onPlayerInteract({ block }) {
@@ -26,11 +26,11 @@ DoriosAPI.register.blockComponent("xp", {
             // Obtener o crear entidad del tanque si el jugador tiene XP
             let tankEntity = dim.getEntitiesAtBlockLocation(tankBlock.location)[0];
             if (!tankEntity && player.getTotalXp() > 0) {
-                tankEntity = FluidManager.addfluidToTank(tankBlock, "xp", 0);
+                tankEntity = FluidStorage.addfluidToTank(tankBlock, "xp", 0);
             }
             if (!tankEntity) return;
 
-            const tank = new FluidManager(tankEntity, 0);
+            const tank = new FluidStorage(tankEntity, 0);
             if (tank.isFull()) return;
 
             // Valor base por tick
@@ -85,7 +85,7 @@ DoriosAPI.register.blockComponent("xp", {
             const tankEntity = dim.getEntitiesAtBlockLocation(targetBlock.location)[0];
             if (!tankEntity) return;
 
-            const tank = new FluidManager(tankEntity, 0);
+            const tank = new FluidStorage(tankEntity, 0);
 
             // Solo emitir XP si el tanque contiene líquido tipo xp
             if (tank.getType() !== "xp" || tank.get() <= 0) return;

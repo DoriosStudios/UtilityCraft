@@ -1,7 +1,7 @@
 import { system, world } from "@minecraft/server";
 import { scriptEventHandler } from "./scriptEvents.js";
-import { Energy } from "./machinery/energyManager.js"
-import { FluidManager } from "./machinery/fluidManager.js"
+import { EnergyStorage } from "./machinery/energyStorage.js"
+import { FluidStorage } from "./machinery/fluidStorage.js"
 import * as Constants from "./constants";
 
 globalThis.worldLoaded = false;
@@ -27,10 +27,10 @@ system.runInterval(() => {
 world.afterEvents.worldLoad.subscribe(() => {
 
     // Initialize energy system scoreboard objectives
-    Energy.initializeObjectives()
+    EnergyStorage.initializeObjectives()
 
     // Initialize fluid objectives
-    FluidManager.initializeObjectives()
+    FluidStorage.initializeObjectives()
 
     // Mark world as ready
     if (world.getDimension("overworld").getEntities()[0]) {

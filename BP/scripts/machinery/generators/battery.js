@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server'
-import { Generator, Energy } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
 const entitySettings = {
     name: "battery",
@@ -70,10 +70,10 @@ DoriosAPI.register.blockComponent('battery', {
 §r§eEnergy Information
 
 §r§bCapacity §f${Math.floor(energy.getPercent())}%%
-§r§bStored §f${Energy.formatEnergyToText(current)} / ${Energy.formatEnergyToText(energy.cap)}
+§r§bStored §f${EnergyStorage.formatEnergyToText(current)} / ${EnergyStorage.formatEnergyToText(energy.cap)}
 
-§r§aInput §f${Energy.formatEnergyToText(input)}/t
-§r§cOutput §f${Energy.formatEnergyToText(output)}/t
+§r§aInput §f${EnergyStorage.formatEnergyToText(input)}/t
+§r§cOutput §f${EnergyStorage.formatEnergyToText(output)}/t
         `);
 
         entity.setDynamicProperty('lastEnergy', afterTransfer);
