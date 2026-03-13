@@ -9,6 +9,8 @@ const INSIGHT_CUSTOM_COMPONENT_KEYS = Object.freeze([
     "customEnergyInfo",
     "customRotationInfo",
     "customMachineProgress",
+    "customFluidInfo",
+    "customCobblestoneCount",
     "customVariantPreview"
 ]);
 
@@ -25,6 +27,10 @@ const ENERGY_SCOREBOARD_OBJECTIVES = Object.freeze({
         "max_energy"
     ])
 });
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
 
 function safeGetBlockStates(block) {
     try {
@@ -52,6 +58,26 @@ function formatEnergy(value) {
     }
 
     return `${Math.max(0, Math.floor(Number(value) || 0))}`;
+}
+
+function formatPercent(current, max) {
+    if (!Number.isFinite(current) || !Number.isFinite(max) || max <= 0) return "";
+    const ratio = Math.max(0, Math.min(1, current / max));
+    return ` (${(ratio * 100).toFixed(1)}%)`;
+}
+
+function formatFluid(value) {
+    try {
+        if (typeof FluidManager?.formatFluid === "function") {
+            return FluidManager.formatFluid(value);
+        }
+    } catch { /* fallback */ }
+    return `${Math.max(0, Math.floor(Number(value) || 0))} mB`;
+}
+
+function capitalize(str) {
+    if (!str) return str;
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function getObjectiveScoreFromCandidates(scoreboardIdentity, objectiveIds) {
@@ -101,6 +127,10 @@ function getScoreboardEnergyData(machineEntity) {
     };
 }
 
+// ---------------------------------------------------------------------------
+// Field producers
+// ---------------------------------------------------------------------------
+
 function getEnergyLine(context) {
     if (!context.playerSettings?.showCustomEnergyInfo) {
         return undefined;
@@ -124,19 +154,59 @@ function getEnergyLine(context) {
             throw new Error("Invalid machine energy values");
         }
 
-        return `Energy: ${formatEnergy(stored)} / ${formatEnergy(cap)}`;
+        return `Energy: ${formatEnergy(stored)} / ${formatEnergy(cap)}${formatPercent(stored, cap)}`;
     } catch {
         const scoreboardEnergy = getScoreboardEnergyData(machineEntity);
         if (!scoreboardEnergy) {
             return undefined;
         }
 
-        if (Number.isFinite(scoreboardEnergyStorage.cap) && scoreboardEnergyStorage.cap > 0) {
-            return `Energy: ${formatEnergy(scoreboardEnergyStorage.stored)} / ${formatEnergy(scoreboardEnergyStorage.cap)}`;
+        if (Number.isFinite(scoreboardEnergy.cap) && scoreboardEnergy.cap > 0) {
+            return `Energy: ${formatEnergy(scoreboardEnergy.stored)} / ${formatEnergy(scoreboardEnergy.cap)}${formatPercent(scoreboardEnergy.stored, scoreboardEnergy.cap)}`;
         }
 
         return `Energy: ${formatEnergy(scoreboardEnergyStorage.stored)}`;
     }
+}
+
+function getFluidLines(context, machineEntity) {
+    if (!context.playerSettings?.showCustomFluidInfo || !machineEntity) {
+        return [];
+    }
+
+    if (!context.block?.hasTag?.("dorios:fluid")) {
+        return [];
+    }
+
+    const lines = [];
+
+    try {
+        const maxTanks = typeof FluidManager?.getMaxLiquids === "function"
+            ? FluidManager.getMaxLiquids(machineEntity)
+            : 1;
+
+        for (let i = 0; i < maxTanks; i++) {
+            try {
+                const fm = new FluidManager(machineEntity, i);
+                const stored = fm.get();
+                const cap = fm.getCap();
+                const type = fm.getType();
+
+                if (cap <= 0) continue;
+
+                const typeLabel = (!type || type === "empty") ? "Empty" : capitalize(type);
+                const prefix = maxTanks > 1 ? `Fluid [${i}]` : "Fluid";
+
+                lines.push(`${prefix} (${typeLabel}): ${formatFluid(stored)} / ${formatFluid(cap)}${formatPercent(stored, cap)}`);
+            } catch {
+                continue;
+            }
+        }
+    } catch {
+        // FluidManager unavailable or entity incompatible — skip silently.
+    }
+
+    return lines;
 }
 
 function getRotationLine(context, states) {
@@ -189,6 +259,22 @@ function getMachineProgressLine(context, machineEntity) {
     return `Progress: ${percent}%`;
 }
 
+function getCobblestoneCountLine(context, states) {
+    if (!context.playerSettings?.showCustomCobblestoneCount) {
+        return undefined;
+    }
+
+    const e0 = Number(states["utilitycraft:e0"]);
+    const e1 = Number(states["utilitycraft:e1"]);
+
+    if (!Number.isFinite(e0) || !Number.isFinite(e1)) {
+        return undefined;
+    }
+
+    const quantity = e1 * 10 + e0;
+    return `Cobblestone: ${quantity}`;
+}
+
 function getVariantLine(context, states) {
     if (!context.playerSettings?.showCustomVariantPreview) {
         return undefined;
@@ -232,6 +318,10 @@ function getVariantLine(context, states) {
     return `Variant: ${Math.max(0, currentVariant)}`;
 }
 
+// ---------------------------------------------------------------------------
+// Collector
+// ---------------------------------------------------------------------------
+
 function collectUtilityCraftBlockFields(context) {
     if (!context?.playerSettings?.showCustomFields || !context.block) {
         return undefined;
@@ -245,17 +335,27 @@ function collectUtilityCraftBlockFields(context) {
     const energyLine = getEnergyLine(context);
     if (energyLine) lines.push(energyLine);
 
+    const fluidLines = getFluidLines(context, machineEntity);
+    for (const fl of fluidLines) lines.push(fl);
+
     const rotationLine = getRotationLine(context, states);
     if (rotationLine) lines.push(rotationLine);
 
     const progressLine = getMachineProgressLine(context, machineEntity);
     if (progressLine) lines.push(progressLine);
 
+    const cobbleLine = getCobblestoneCountLine(context, states);
+    if (cobbleLine) lines.push(cobbleLine);
+
     const variantLine = getVariantLine(context, states);
     if (variantLine) lines.push(variantLine);
 
     return lines.length ? lines : undefined;
 }
+
+// ---------------------------------------------------------------------------
+// Registration
+// ---------------------------------------------------------------------------
 
 function tryRegisterInjectors() {
     if (globalThis[REGISTRATION_MARKER]) {
@@ -271,6 +371,26 @@ function tryRegisterInjectors() {
         provider: INSIGHT_PROVIDER_NAME,
         components: INSIGHT_CUSTOM_COMPONENT_KEYS
     });
+
+    // State merge: combine E0 (units) + E1 (tens) into a single "Cobblestone" row
+    const stateApi = globalThis.InsightStateTraits;
+    if (stateApi && typeof stateApi.registerStateMerge === "function") {
+        stateApi.registerStateMerge({
+            key: "utilitycraft:cobblestone_count",
+            label: "Cobblestone",
+            stateKeys: ["utilitycraft:e1", "utilitycraft:e0"],
+            formatter(values) {
+                const e1 = Number(values[0]) || 0;
+                const e0 = Number(values[1]) || 0;
+                return `${e1 * 10 + e0}`;
+            },
+            hideOriginal: true,
+            options: {
+                namespaces: ["utilitycraft"]
+            }
+        });
+    }
+
     globalThis[REGISTRATION_MARKER] = true;
     return true;
 }
