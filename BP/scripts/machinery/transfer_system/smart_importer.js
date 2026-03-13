@@ -21,6 +21,16 @@ const DEFAULT_CONFIG = {
     itemMap: {}
 }
 
+function createDefaultSmartImporterConfig() {
+    return {
+        version: 1,
+        blockId: null,
+        blockName: null,
+        slots: {},
+        itemMap: {}
+    };
+}
+
 export function openSmartImporterMenu(block, player) {
     const key = getImporterKey(block);
     const raw = world.getDynamicProperty(key);
@@ -35,7 +45,7 @@ export function openSmartImporterMenu(block, player) {
     let target = getFacingBlock(block);
     const targetId = target.typeId
     if (cfg.blockId != targetId) {
-        cfg = DEFAULT_CONFIG
+        cfg = createDefaultSmartImporterConfig();
         cfg.blockId = targetId
         cfg.blockName = DoriosAPI.utils.formatIdToText(targetId)
     }
@@ -222,19 +232,18 @@ function getImporterKey(block) {
 }
 
 function normalizeSmartImporterConfig(rawCfg) {
-    // Caso 1: no hay config o está corrupto
     if (!rawCfg || typeof rawCfg !== "object") {
-        return DEFAULT_CONFIG;
+        return createDefaultSmartImporterConfig();
     }
 
-    // Caso 2: config vieja (basic filter v0)
     if (rawCfg.version !== 1) {
-        return DEFAULT_CONFIG;
+        return createDefaultSmartImporterConfig();
     }
 
-    // Caso 3: smart válido, solo asegurar estructura
     return {
         version: 1,
+        blockId: rawCfg.blockId ?? null,
+        blockName: rawCfg.blockName ?? null,
         slots: rawCfg.slots && typeof rawCfg.slots === "object" ? rawCfg.slots : {},
         itemMap: rawCfg.itemMap && typeof rawCfg.itemMap === "object" ? rawCfg.itemMap : {}
     };
