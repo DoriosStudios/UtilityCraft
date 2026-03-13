@@ -75,7 +75,7 @@ export class FluidStorage {
     // Initialize tanks
     const tanks = [];
     for (let i = 0; i < count; i++) {
-      initializeObjectives(i);
+      FluidStorage.initializeObjectives(i);
       tanks.push(new FluidStorage(entity, i));
     }
 

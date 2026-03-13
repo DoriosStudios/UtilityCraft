@@ -7,7 +7,7 @@ import { initializeEntity } from "../utils/entity.js"
  */
 export class EnergyStorage {
   /**
-   * Creates a new Energy instance linked to the given entity.
+   * Creates a new EnergyStorage instance linked to the given entity.
    *
    * @param {Entity} entity The entity this manager is attached to.
    */
@@ -530,7 +530,7 @@ export class EnergyStorage {
    * console.log(`Transferred ${transferred} energy`);
    */
   transferToEntity(entity, amount) {
-    const other = new Energy(entity);
+    const other = new EnergyStorage(entity);
     return this.transferTo(other, amount);
   }
 
@@ -566,7 +566,7 @@ export class EnergyStorage {
    * console.log(`Received ${received} energy`);
    */
   receiveFromEntity(entity, amount) {
-    const other = new Energy(entity);
+    const other = new EnergyStorage(entity);
     return this.receiveFrom(other, amount);
   }
   //#endregion
@@ -642,7 +642,7 @@ export class EnergyStorage {
         if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
         if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
 
-        const energy = new Energy(target);
+        const energy = new EnergyStorage(target);
         if (energy.getFreeSpace() > 0) validEntities.push(energy);
       }
 
@@ -685,7 +685,7 @@ export class EnergyStorage {
         if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
         if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
 
-        const energy = new Energy(target);
+        const energy = new EnergyStorage(target);
         const space = energy.getFreeSpace();
         if (space <= 0) continue;
 
