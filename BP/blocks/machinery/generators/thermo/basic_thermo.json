@@ -26,7 +26,8 @@
 			"utilitycraft:thermo_generator": {
 				"entity": {
 					"name": "thermo_generator",
-					"type": "fluid"
+					"type": "fluid_generator",
+					"inventory_size": 3
 				},
 				"generator": {
 					"energy_cap": 32000,

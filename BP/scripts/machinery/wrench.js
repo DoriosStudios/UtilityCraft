@@ -1,6 +1,5 @@
 import { world, ItemStack, system, BlockType } from "@minecraft/server";
-import { Rotation, Generator } from './DoriosMachinery/core.js'
-
+import { Rotation, Generator } from "DoriosCore/index.js"
 
 // Nombres de entidades removibles
 const REMOVABLE_ENTITIES = [

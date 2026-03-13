@@ -1,4 +1,4 @@
-import { Machine } from '../DoriosMachinery/core.js'
+import { Machine } from "DoriosCore/machinery/index.js"
 
 DoriosAPI.register.blockComponent('block_breaker', {
     /**
@@ -8,8 +8,8 @@ DoriosAPI.register.blockComponent('block_breaker', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, (entity) => {
+            const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
         });
     },
@@ -21,7 +21,6 @@ DoriosAPI.register.blockComponent('block_breaker', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block, dimension } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
@@ -31,7 +30,7 @@ DoriosAPI.register.blockComponent('block_breaker', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', true, false);
+            machine.showWarning('No Energy', { resetProgress: true, displayProgress: false });
             return;
         }
 
@@ -58,9 +57,9 @@ DoriosAPI.register.blockComponent('block_breaker', {
                     DoriosAPI.utils.waitSeconds(1, () => {
                         machine.off()
                     })
-                    machine.setProgress(0, undefined, undefined, false);
+                    machine.setProgress(0, { display: false });
                 } else {
-                    machine.showWarning('Nothing to Break', false, false);
+                    machine.showWarning('Nothing to Break', { resetProgress: false, displayProgress: false });
                     return;
                 }
             }
@@ -74,8 +73,6 @@ DoriosAPI.register.blockComponent('block_breaker', {
         }
 
         // Update visuals
-
-        machine.displayEnergy();
         machine.showStatus('Running');
     },
 

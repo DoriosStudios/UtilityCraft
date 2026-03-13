@@ -1,4 +1,4 @@
-import { Machine, Energy } from '../DoriosMachinery/core.js';
+import { Machine, EnergyStorage } from "DoriosCore/machinery/index.js"
 const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component
@@ -17,12 +17,12 @@ DoriosAPI.register.blockComponent('assembler', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+        Machine.spawnEntity(e, settings, () => {
+            const machine = new Machine(e.block, settings);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
             // Visual filler slot (optional, same as autosieve)
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "");
+            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ");
         });
     },
 
@@ -33,14 +33,12 @@ DoriosAPI.register.blockComponent('assembler', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
-
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
         machine.transferItems()
-        const inv = machine.inv;
+        const inv = machine.container;
 
         const size = inv.size;
         const OUTPUT_SLOT = size - 1;
@@ -137,7 +135,6 @@ DoriosAPI.register.blockComponent('assembler', {
 
         // --- 6) Visuals and status ---
         machine.on();
-        machine.displayEnergy();
         machine.displayProgress();
         showStatus(machine, speedFactor, 'Running');
     },
@@ -228,7 +225,7 @@ function showWarning(machine, speed, message, resetProgress = true) {
 §r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
 §r${COLORS.green}Cost ---
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(machine.baseRate))}/t
+§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
     `);
 }
 
@@ -247,8 +244,8 @@ function showStatus(machine, speed, message) {
 
 §r${COLORS.green}Speed x${speed}
 §r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${Energy.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
 
-§r${COLORS.red}Rate ${Energy.formatEnergyToText(Math.floor(machine.baseRate))}/t
+§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
     `);
 }

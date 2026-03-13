@@ -1,4 +1,4 @@
-import { Machine } from '../DoriosMachinery/core.js'
+import { Machine } from "DoriosCore/machinery/index.js"
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
 import { pressRecipes } from "../../config/recipes/press.js";
@@ -20,12 +20,8 @@ DoriosAPI.register.blockComponent('simple_machine', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnMachineEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
-            machine.setEnergyCost(settings.machine.energy_cost);
-            machine.displayProgress()
-            // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "")
+        Machine.spawnEntity(e, settings, (entity) => {
+            entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
         });
     },
 
@@ -36,14 +32,13 @@ DoriosAPI.register.blockComponent('simple_machine', {
      * @param {{ params: MachineSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
         machine.transferItems()
 
-        const inv = machine.inv;
+        const inv = machine.container;
 
         //#region Comprobations
         // Get the input slot (slot 3 in this case)
@@ -104,7 +99,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', false);
+            machine.showWarning('No Energy', { resetProgress: false });
             return;
         }
 

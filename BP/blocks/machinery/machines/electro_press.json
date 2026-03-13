@@ -31,8 +31,10 @@
 			"utilitycraft:simple_machine": {
 				"rotation": "facing",
 				"entity": {
-					"input_type": "simple",
-					"output_type": "simple"
+					"type": "machine",
+					"inventory_size": 7,
+					"input_slot": 3,
+					"output_slot": 6
 				},
 				"machine": {
 					"energy_cap": 64000,

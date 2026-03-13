@@ -1,9 +1,9 @@
-import { world } from '@minecraft/server'
-import { Generator, Energy } from '../DoriosMachinery/core.js'
+import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
 const entitySettings = {
     name: "receiver",
-    type: "battery"
+    type: "battery",
+    inventory_size: 2
 }
 
 DoriosAPI.register.blockComponent('receiver', {
@@ -18,7 +18,7 @@ DoriosAPI.register.blockComponent('receiver', {
             entity: entitySettings,
             generator: params
         }
-        Generator.spawnGeneratorEntity(e, settings, (entity) => {
+        Generator.spawnEntity(e, settings, (entity) => {
             entity.addTag("dorios:receiver")
         });
     },
@@ -30,7 +30,6 @@ DoriosAPI.register.blockComponent('receiver', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params }) {
-        if (!worldLoaded) return;
         const settings = {
             entity: entitySettings,
             generator: params
@@ -50,9 +49,9 @@ DoriosAPI.register.blockComponent('receiver', {
 §r§eEnergy Information
 
 §r§bCapacity §f${Math.floor(energy.getPercent())}%%
-§r§bStored §f${Energy.formatEnergyToText(energy.get())} / ${Energy.formatEnergyToText(energy.cap)}
+§r§bStored §f${EnergyStorage.formatEnergyToText(energy.get())} / ${EnergyStorage.formatEnergyToText(energy.cap)}
 
-§r§aReceiving §f${Energy.formatEnergyToText(received)}/t
+§r§aReceiving §f${EnergyStorage.formatEnergyToText(received)}/t
         `);
     },
 

@@ -25,7 +25,9 @@
 			"utilitycraft:furnator": {
 				"entity": {
 					"name": "furnator",
-					"type": "simple"
+					"type": "generator",
+					"inventory_size": 4,
+					"input_slot": 3
 				},
 				"generator": {
 					"energy_cap": 6400000,

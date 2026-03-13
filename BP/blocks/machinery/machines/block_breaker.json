@@ -31,6 +31,7 @@
 			"utilitycraft:block_breaker": {
 				"rotation": "facing",
 				"entity": {
+					"type": "machine",
 					"inventory_size": 4
 				},
 				"machine": {

@@ -1,4 +1,4 @@
-import { Generator, Energy, FluidManager } from '../DoriosMachinery/core.js'
+import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
 
@@ -10,7 +10,7 @@ DoriosAPI.register.blockComponent('magmator', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Generator.spawnGeneratorEntity(e, settings, (entity) => {
+        Generator.spawnEntity(e, settings, (entity) => {
             entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "")
         });
     },
@@ -22,15 +22,14 @@ DoriosAPI.register.blockComponent('magmator', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
         if (!generator.valid) return
         const { entity, energy, rate } = generator
         generator.energy.transferToNetwork(rate * 4)
 
-        /** @type {FluidManager} */
-        const fluid = FluidManager.initializeSingle(entity);
+        /** @type {FluidStorage} */
+        const fluid = FluidStorage.initializeSingle(entity);
 
         if (fluid.type == 'empty') {
             generator.displayEnergy();
@@ -44,7 +43,7 @@ DoriosAPI.register.blockComponent('magmator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -61,7 +60,7 @@ DoriosAPI.register.blockComponent('magmator', {
  §eValue: §f---
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -76,10 +75,10 @@ DoriosAPI.register.blockComponent('magmator', {
 
 §r§eFuel Information
  §eTime: §f${DoriosAPI.utils.formatTime((fluid.get() / (rate / 50)) / 10)}
- §eValue: §f${Energy.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
+ §eValue: §f${EnergyStorage.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -102,10 +101,10 @@ DoriosAPI.register.blockComponent('magmator', {
 
 §r§eFuel Information
  §eTime: §f${DoriosAPI.utils.formatTime((fluid.get() / (rate / 50)) / 10)}
- §eValue: §f${Energy.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
+ §eValue: §f${EnergyStorage.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
     },
 

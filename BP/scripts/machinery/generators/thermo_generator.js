@@ -1,4 +1,5 @@
-import { Generator, Energy, FluidManager } from '../DoriosMachinery/core.js'
+import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/index.js"
+
 export const heatSources = {
     'utilitycraft:blaze_block': 1.5,
     'minecraft:lava': 1,
@@ -21,8 +22,8 @@ DoriosAPI.register.blockComponent('thermo_generator', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Generator.spawnGeneratorEntity(e, settings, (entity) => {
-            entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "")
+        Generator.spawnEntity(e, settings, (entity) => {
+            entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
         });
     },
 
@@ -33,7 +34,6 @@ DoriosAPI.register.blockComponent('thermo_generator', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        if (!worldLoaded) return;
         const { block } = e;
         const generator = new Generator(block, settings);
         if (!generator.valid) return
@@ -41,8 +41,8 @@ DoriosAPI.register.blockComponent('thermo_generator', {
         const { entity, energy, rate } = generator
         generator.energy.transferToNetwork(rate * 4)
 
-        /** @type {FluidManager} */
-        const fluid = FluidManager.initializeSingle(entity);
+        /** @type {FluidStorage} */
+        const fluid = FluidStorage.initializeSingle(entity);
         const heatMultiplier = heatSources[block.below(1)?.typeId]
         if (!heatMultiplier) {
             generator.displayEnergy();
@@ -56,7 +56,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
             return
         }
@@ -75,7 +75,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate * heatMultiplier)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate * heatMultiplier)}/t
                     `)
             return
         }
@@ -92,7 +92,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate * heatMultiplier)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate * heatMultiplier)}/t
                     `)
             return
         }
@@ -110,7 +110,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate * heatMultiplier)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate * heatMultiplier)}/t
                     `)
             return
         }
@@ -136,7 +136,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
  
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
-§r§cRate ${Energy.formatEnergyToText(generator.baseRate)}/t
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
                     `)
     },
 

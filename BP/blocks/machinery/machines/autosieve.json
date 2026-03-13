@@ -31,9 +31,13 @@
 			"utilitycraft:autosieve": {
 				"rotation": "facing",
 				"entity": {
-					"input_type": "simple",
-					"output_type": "complex",
-					"inventory_size": 16
+					"type": "machine",
+					"inventory_size": 16,
+					"input_slot": 3,
+					"output_range": [
+						7,
+						15
+					]
 				},
 				"machine": {
 					"energy_cap": 512000,

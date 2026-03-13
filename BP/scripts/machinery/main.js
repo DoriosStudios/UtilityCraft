@@ -28,7 +28,6 @@ import './generators/receiver.js'
 import './transfer_system/system.js'
 import './transfer_system/smart_importer.js'
 
-import './DoriosMachinery/core.js'
 import './wrench.js'
 import './upgradeable.js'
 import './fluid_containers.js'

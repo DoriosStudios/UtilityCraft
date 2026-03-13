@@ -30,7 +30,15 @@
                             "utilitycraft:basic_wind_turbine",
                             "utilitycraft:advanced_wind_turbine",
                             "utilitycraft:expert_wind_turbine",
-                            "utilitycraft:ultimate_wind_turbine"
+                            "utilitycraft:ultimate_wind_turbine",
+                            "utilitycraft:basic_energy_transmitter",
+                            "utilitycraft:advanced_energy_transmitter",
+                            "utilitycraft:expert_energy_transmitter",
+                            "utilitycraft:ultimate_energy_transmitter",
+                            "utilitycraft:basic_energy_receiver",
+                            "utilitycraft:advanced_energy_receiver",
+                            "utilitycraft:expert_energy_receiver",
+                            "utilitycraft:ultimate_energy_receiver"
                         ]
                     },
                     {

@@ -31,9 +31,13 @@
 			"utilitycraft:assembler": {
 				"rotation": "facing",
 				"entity": {
-					"input_type": "complex",
-					"output_type": "simple",
-					"inventory_size": 16
+					"type": "machine",
+					"inventory_size": 16,
+					"input_range": [
+						6,
+						14
+					],
+					"output_slot": 15
 				},
 				"machine": {
 					"energy_cap": 256000,
@@ -47,6 +51,7 @@
 			},
 			"utilitycraft:special_container": {
 				"Materials Slot": [
+					6,
 					7,
 					8,
 					9,
@@ -54,8 +59,7 @@
 					11,
 					12,
 					13,
-					15,
-					16
+					14
 				],
 				"Blueprint Slot": 3
 			},

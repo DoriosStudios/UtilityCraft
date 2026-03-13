@@ -8,7 +8,7 @@ import { system, world } from "@minecraft/server";
  *
  * These mappings are delivered to the listener associated with
  * "utilitycraft:register_fluid_item", which then populates
- * `FluidManager.itemFluidContainers`.
+ * `FluidStorage.itemFluidStorages`.
  *
  * Purpose:
  * - Initializes the addon’s built-in fluid containers.
@@ -59,7 +59,7 @@ world.afterEvents.worldLoad.subscribe(() => {
  *
  * The payload is consumed by the listener for
  * "utilitycraft:register_fluid_holder", which updates
- * `FluidManager.itemFluidHolders`.
+ * `FluidStorage.itemFluidHolders`.
  *
  * Purpose:
  * - Defines all default items that can draw fluid from machines or tanks.

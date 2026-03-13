@@ -1,4 +1,4 @@
-import { FluidManager, Rotation, Generator } from './DoriosMachinery/core.js'
+import { FluidStorage, Generator, Rotation } from "DoriosCore/index.js"
 import { system, ItemStack, world } from '@minecraft/server'
 
 DoriosAPI.register.blockComponent("fluid_container", {
@@ -28,7 +28,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                     return;
                 }
 
-                const tank = new FluidManager(tankEntity, 0);
+                const tank = new FluidStorage(tankEntity, 0);
                 const type = tank.getType();
                 const amount = tank.get();
                 const cap = tank.getCap();
@@ -40,13 +40,13 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
+                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
                 );
                 return;
             }
 
             if (entity) {
-                const fluid = new FluidManager(entity, 0);
+                const fluid = new FluidStorage(entity, 0);
                 const type = fluid.getType();
                 const amount = fluid.get();
                 const cap = fluid.getCap();
@@ -58,7 +58,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
+                    `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
                 );
             }
             return;
@@ -70,13 +70,13 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
             // Si no existe la entidad, obtener el tipo del ítem antes de spawnearla
             if (!tankEntity) {
-                const insertData = FluidManager.getContainerData(mainHand.typeId);
+                const insertData = FluidStorage.getContainerData(mainHand.typeId);
                 const fluidType = insertData ? insertData.type : "empty";
                 if (fluidType == 'empty') return
-                tankEntity = FluidManager.addfluidToTank(block, fluidType, 0);
+                tankEntity = FluidStorage.addfluidToTank(block, fluidType, 0);
             }
 
-            const fluid = new FluidManager(tankEntity, 0);
+            const fluid = new FluidStorage(tankEntity, 0);
             const result = fluid.fluidItem(mainHand.typeId);
             if (result === false) return;
 
@@ -86,7 +86,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
             const percent = ((amount / cap) * 100).toFixed(2);
 
             player.onScreenDisplay.setActionBar(
-                `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidManager.formatFluid(amount)}§7 / §f${FluidManager.formatFluid(cap)} §7(${percent}%)`
+                `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
             );
 
             if (!player.isInCreative()) {
@@ -104,7 +104,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
         // ─── Interacción con máquinas ─────────────────────────
         if (!entity) return;
-        FluidManager.handleFluidItemInteraction(player, entity, mainHand)
+        FluidStorage.handleFluidItemInteraction(player, entity, mainHand)
     },
     beforeOnPlayerPlace({ block, player }, { params }) {
         /** @type {ItemStack} */
@@ -114,9 +114,9 @@ DoriosAPI.register.blockComponent("fluid_container", {
             const itemInfo = mainHand.getLore()
             const fluidLine = (itemInfo.includes('Energy')) ? itemInfo[1] : itemInfo[0]
             if (fluidLine) {
-                const { type, amount } = FluidManager.getFluidFromText(fluidLine)
+                const { type, amount } = FluidStorage.getFluidFromText(fluidLine)
                 system.run(() => {
-                    FluidManager.addfluidToTank(block, type, amount)
+                    FluidStorage.addfluidToTank(block, type, amount)
                 })
             }
         }
@@ -129,7 +129,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
             .find(e => e.typeId.includes("tank"));
         if (!entity) return;
 
-        const fluid = new FluidManager(entity);
+        const fluid = new FluidStorage(entity);
         const blockItemId = brokenBlockPermutation.type.id;
         const blockItem = new ItemStack(blockItemId);
         const lore = [];
@@ -138,7 +138,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
         if (fluid.type !== 'empty' && fluid.get() > 0) {
             const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
             lore.push(
-                `§r§7  ${liquidName}: ${FluidManager.formatFluid(fluid.get())}/${FluidManager.formatFluid(fluid.cap)}`
+                `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`
             );
         }
 

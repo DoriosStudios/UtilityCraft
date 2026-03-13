@@ -17,11 +17,12 @@
 			"utilitycraft:solar_panel": {
 				"entity": {
 					"name": "solar_panel",
-					"type": "passive"
+					"type": "generator",
+					"inventory_size": 2
 				},
 				"generator": {
 					"energy_cap": 128000,
-					"rate_speed_base":48
+					"rate_speed_base": 48
 				}
 			},
 			"minecraft:geometry": "geometry.utilitycraft_solar_panel",

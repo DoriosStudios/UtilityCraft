@@ -24,6 +24,7 @@
 		"components": {
 			"utilitycraft:induction_anvil": {
 				"entity": {
+					"type": "machine",
 					"inventory_size": 6
 				},
 				"machine": {

@@ -32,9 +32,9 @@
 			"utilitycraft:simple_machine_liquid": {
 				"rotation": "facing",
 				"entity": {
-					"fluid": true,
-					"input_type": "simple",
-					"inventory_size": 7
+					"type": "fluid_machine",
+					"inventory_size": 7,
+					"input_slot": 3
 				},
 				"machine": {
 					"energy_cap": 640000,
