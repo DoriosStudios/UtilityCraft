@@ -2,7 +2,7 @@ import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
 const entitySettings = {
     name: "receiver",
-    type: "battery",
+    type: "generator",
     inventory_size: 2
 }
 
@@ -20,6 +20,7 @@ DoriosAPI.register.blockComponent('receiver', {
         }
         Generator.spawnEntity(e, settings, (entity) => {
             entity.addTag("dorios:receiver")
+            entity.addTag("bn:white|white|white")
         });
     },
 

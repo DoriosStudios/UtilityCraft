@@ -1,4 +1,5 @@
 import { world, ItemStack, system, BlockType } from "@minecraft/server";
+import { ModalFormData, ActionFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
 
 // Nombres de entidades removibles
@@ -16,6 +17,14 @@ DoriosAPI.register.itemComponent("wrench", {
     onUseOn(e) {
         const { source, block, blockFace } = e;
         if (!source.isSneaking) {
+            if (block.typeId.includes("receiver")) {
+                openEnergyNodeMenu(block, source)
+                return
+            }
+            if (block.typeId.includes("transmitter")) {
+                toggleEnergyMode(block, source)
+                return
+            }
             if (!block.hasTag('dorios:energy')) return
             const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
             if (!entity || !entity.getComponent('type_family').hasTypeFamily('dorios:energy_source')) return
@@ -23,7 +32,10 @@ DoriosAPI.register.itemComponent("wrench", {
             return
         }
         if (block.typeId.includes("receiver") || block.typeId.includes("transmitter")) {
-            toggleEnergyMode(block, source)
+            const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
+            if (entity) openBasicNetworkMenu(entity, source)
+            // toggleEnergyMode(block, source)
+            return
         }
         Rotation.handleRotation(block, blockFace)
     },
@@ -49,6 +61,73 @@ world.afterEvents.playerInteractWithEntity.subscribe(({ player, target, itemStac
     }
 })
 
+/**
+ * Opens the Energy Node configuration menu.
+ *
+ * Allows:
+ * - Switching Receiver ↔ Transmitter
+ * - Selecting transfer mode
+ *
+ * @param {Block} block Energy block
+ * @param {Player} player Interacting player
+ */
+export function openEnergyNodeMenu(block, player) {
+    if (!block || !player) return;
+
+    const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
+    if (!entity) return;
+
+    const isReceiver = block.typeId.includes("receiver");
+
+    const nodeModes = ["Receiver", "Transmitter"];
+    const nodeDefault = isReceiver ? 0 : 1;
+
+    const mode = entity.getDynamicProperty("transferMode") ?? "nearest";
+    const modes = ["Nearest", "Farthest", "Round"];
+
+    const currentIndex = modes.findIndex((m) => m.toLowerCase() === mode);
+    const defaultIndex = currentIndex >= 0 ? currentIndex : 0;
+
+    const modal = new ModalFormData()
+        .title(`${nodeModes[nodeDefault]} Transfer Mode`)
+
+        // Receiver / Transmitter dropdown
+        .dropdown(
+            "Node Mode",
+            nodeModes,
+            { defaultValueIndex: nodeDefault }
+        )
+
+        // EXACT same transfer dropdown as generator
+        .dropdown(
+            "Select how this node distributes its output:",
+            modes,
+            { defaultValueIndex: defaultIndex }
+        );
+
+    modal.show(player).then((result) => {
+        if (result.canceled) return;
+
+        const [nodeSelection, transferSelection] = result.formValues;
+
+        const selectedNodeMode = nodeModes[nodeSelection];
+        const shouldBeReceiver = selectedNodeMode === "Receiver";
+
+        // Toggle if different
+        if (shouldBeReceiver !== isReceiver) {
+            toggleEnergyMode(block, player);
+        }
+
+        // EXACT same transfer logic as generator
+        const newMode = modes[transferSelection]?.toLowerCase() ?? "nearest";
+
+        entity.setDynamicProperty("transferMode", newMode);
+
+        player.onScreenDisplay.setActionBar(
+            `§7Transfer mode set to: §e${DoriosAPI.utils.capitalizeFirst(newMode)}`
+        );
+    });
+}
 /**
  * Toggles an Energy block between Receiver and Transmitter mode.
  * - Preserves tier (basic, advanced, expert, ultimate)
@@ -108,4 +187,96 @@ function toggleEnergyMode(block, player) {
 
         DoriosAPI.utils.actionBar(player, message);
     }
+}
+
+/**
+ * Opens the Basic Network configuration menu.
+ *
+ * Allows selecting 3 color channels used for machine networking.
+ * The result is stored as:
+ *
+ *   bn:color1|color2|color3
+ *
+ * Example:
+ *   bn:red|blue|dark_green
+ *
+ * @param {Entity} entity
+ * @param {Player} player
+ */
+export function openBasicNetworkMenu(entity, player) {
+    if (!entity || !player) return;
+
+    const COLORS = [
+        { id: "black", code: "§0" },
+        { id: "dark_blue", code: "§1" },
+        { id: "dark_green", code: "§2" },
+        { id: "dark_aqua", code: "§3" },
+        { id: "dark_red", code: "§4" },
+        { id: "dark_purple", code: "§5" },
+        { id: "gold", code: "§6" },
+        { id: "gray", code: "§7" },
+        { id: "dark_gray", code: "§8" },
+        { id: "blue", code: "§9" },
+        { id: "green", code: "§a" },
+        { id: "aqua", code: "§b" },
+        { id: "red", code: "§c" },
+        { id: "light_purple", code: "§d" },
+        { id: "yellow", code: "§e" },
+        { id: "white", code: "§f" }
+    ];
+
+    const colorNames = COLORS.map(c => `${c.code}${DoriosAPI.utils.formatIdToText(c.id)}`);
+
+    // --- Detect existing network ---
+    const existing = entity.getTags().find(t => t.startsWith("bn:"));
+
+    let defaults = [15, 15, 15];
+
+    if (existing) {
+        const parts = existing.replace("bn:", "").split("|");
+
+        defaults = parts.map(p => {
+            const index = COLORS.findIndex(c => c.id === p);
+            return index >= 0 ? index : 0;
+        });
+
+        while (defaults.length < 3) defaults.push(0);
+    }
+
+    const form = new ModalFormData()
+        .title("Basic Network")
+
+        .dropdown("Primary Channel", colorNames, {
+            defaultValueIndex: defaults[0]
+        })
+
+        .dropdown("Secondary Channel", colorNames, {
+            defaultValueIndex: defaults[1]
+        })
+
+        .dropdown("Tertiary Channel", colorNames, {
+            defaultValueIndex: defaults[2]
+        });
+
+    form.show(player).then(res => {
+        if (res.canceled) return;
+
+        const [c1, c2, c3] = res.formValues;
+
+        const network =
+            `${COLORS[c1].id}|${COLORS[c2].id}|${COLORS[c3].id}`;
+
+        const tag = `bn:${network}`;
+
+        // Remove previous network
+        entity.getTags().forEach(t => {
+            if (t.startsWith("bn:")) entity.removeTag(t);
+        });
+
+        entity.addTag(tag);
+
+        player.onScreenDisplay.setActionBar(
+            `§7Network set: ${COLORS[c1].code}■ §r${COLORS[c2].code}■ §r${COLORS[c3].code}■`
+        );
+    });
 }

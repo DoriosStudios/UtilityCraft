@@ -1,4 +1,5 @@
 import { ItemStack, system } from "@minecraft/server";
+import { ModalFormData } from '@minecraft/server-ui'
 import { BasicMachine } from "./basicMachine";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";

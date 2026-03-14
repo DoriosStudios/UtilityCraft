@@ -3,7 +3,8 @@ import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
 const entitySettings = {
     name: "transmitter",
-    type: "battery"
+    type: "machine",
+    inventory_size: 2
 }
 
 DoriosAPI.register.blockComponent('transmitter', {
@@ -18,7 +19,9 @@ DoriosAPI.register.blockComponent('transmitter', {
             entity: entitySettings,
             generator: params
         }
-        Generator.spawnEntity(e, settings);
+        Generator.spawnEntity(e, settings, (entity) => {
+            entity.addTag("bn:white|white|white")
+        });
     },
 
     /**
@@ -39,8 +42,11 @@ DoriosAPI.register.blockComponent('transmitter', {
         const { energy, rate, entity } = generator;
         const range = settings.generator.range
 
+        const networkTag = entity.getTags().find(tag => tag.startsWith("bn"))
+        if (!networkTag) return
+
         // Transfer energy out (output)
-        const receivers = entity.dimension.getEntities({ tags: ["dorios:receiver"], maxDistance: range, location: entity.location })
+        const receivers = entity.dimension.getEntities({ tags: ["dorios:receiver", networkTag], maxDistance: range, location: entity.location })
 
         let transferedTotal = 0;
 
