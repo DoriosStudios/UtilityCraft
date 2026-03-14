@@ -197,7 +197,7 @@ DoriosAPI.register.blockComponent('digitizer', {
         } else {
             // Cargar energía y avanzar progreso como el autosieve
             const energyToConsume = Math.min(machine.energy.get(), machine.rate);
-            consumed = machine.energy.consume(energyToConsume);
+            machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume / machine.boosts.consumption);
         }
 
