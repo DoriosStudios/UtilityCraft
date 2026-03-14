@@ -96,6 +96,14 @@ world.afterEvents.worldLoad.subscribe(() => {
             required: 1000
         },
 
+        // Bottle
+        "minecraft:glass_bottle": {
+            types: {
+                xp: "minecraft:experience_bottle"
+            },
+            required: 8
+        },
+
         // Water cells chain
         "fluidcells:water_cell": { types: { water: "fluidcells:water_cell_2" }, required: 3000 },
         "fluidcells:water_cell_2": { types: { water: "fluidcells:water_cell_3" }, required: 2000 },
