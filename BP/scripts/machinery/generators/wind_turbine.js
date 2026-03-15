@@ -1,13 +1,22 @@
 import { WeatherType, world } from '@minecraft/server'
 import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
 
-const BASE_ALTITUDE = 63
-const ALTITUDE_BONUS_STEP = 16
-const ALTITUDE_PENALTY_STEP = 8
-const ALTITUDE_STEP_RATIO = 0.125
-const MIN_ALTITUDE = 20
-const DEFAULT_MAX_ALTITUDE_MULTIPLIER = 4
-const DEFAULT_ALTITUDE_OFFSET = 0
+const wind = {
+    altitude: {
+        base: 63,
+        bonus_step: 16,
+        penalty_step: 8,
+        step_ratio: 0.125,
+        min: 20,
+        default_max_multiplier: 4,
+        default_offset: 0
+    },
+    weather_multiplier: {
+        [WeatherType.Clear]: 1,
+        [WeatherType.Rain]: 1.5,
+        [WeatherType.Thunder]: 2.25
+    }
+}
 /**
  * @typedef {Object} AltitudeConfig
  * @property {number} baseAltitude         // Altitude where penalties/bonuses start
@@ -23,23 +32,23 @@ const DEFAULT_ALTITUDE_OFFSET = 0
  * @property {boolean} unlimitedMultiplier // Skip max multiplier cap when true
  */
 
-/** @type {AltitudeConfig} */
-const DEFAULT_ALTITUDE_CONFIG = {
-    baseAltitude: BASE_ALTITUDE,
-    minAltitude: MIN_ALTITUDE,
-    maxAltitude: null,
-    offset: DEFAULT_ALTITUDE_OFFSET,
-    bonusStep: ALTITUDE_BONUS_STEP,
-    penaltyStep: ALTITUDE_PENALTY_STEP,
-    stepRatio: ALTITUDE_STEP_RATIO,
-    maxMultiplier: DEFAULT_MAX_ALTITUDE_MULTIPLIER,
-    unlimitedMultiplier: false
-}
-
-const WEATHER_MULTIPLIERS = {
-    [WeatherType.Clear]: 1,
-    [WeatherType.Rain]: 1.5,
-    [WeatherType.Thunder]: 2.25
+/**
+ * Creates the default altitude config from the wind object.
+ *
+ * @returns {AltitudeConfig}
+ */
+function getDefaultAltitudeConfig() {
+    return {
+        baseAltitude: wind.altitude.base,
+        minAltitude: wind.altitude.min,
+        maxAltitude: null,
+        offset: wind.altitude.default_offset,
+        bonusStep: wind.altitude.bonus_step,
+        penaltyStep: wind.altitude.penalty_step,
+        stepRatio: wind.altitude.step_ratio,
+        maxMultiplier: wind.altitude.default_max_multiplier,
+        unlimitedMultiplier: false
+    }
 }
 
 const WEATHER_BY_DIMENSION = new Map()
@@ -144,14 +153,13 @@ DoriosAPI.register.blockComponent('wind_turbine', {
  * @param {AltitudeConfig} altitudeConfig
  * @returns {number}
  */
-function computeAltitudeRate(baseRate, altitude, altitudeConfig = DEFAULT_ALTITUDE_CONFIG) {
+function computeAltitudeRate(baseRate, altitude, altitudeConfig = getDefaultAltitudeConfig()) {
     if (baseRate <= 0) return 0
 
     const {
         baseAltitude,
         minAltitude,
         maxAltitude,
-        offset,
         bonusStep,
         penaltyStep,
         stepRatio,
@@ -164,8 +172,8 @@ function computeAltitudeRate(baseRate, altitude, altitudeConfig = DEFAULT_ALTITU
 
     if (altitude < minAltitude) return 0
 
-    const bonusInterval = Math.max(1, Math.round(bonusStep ?? ALTITUDE_BONUS_STEP))
-    const penaltyInterval = Math.max(1, Math.round(penaltyStep ?? ALTITUDE_PENALTY_STEP))
+    const bonusInterval = Math.max(1, Math.round(bonusStep ?? wind.altitude.bonus_step))
+    const penaltyInterval = Math.max(1, Math.round(penaltyStep ?? wind.altitude.penalty_step))
 
     const effectiveAltitude = typeof maxAltitude === 'number'
         ? Math.min(altitude, maxAltitude)
@@ -179,7 +187,7 @@ function computeAltitudeRate(baseRate, altitude, altitudeConfig = DEFAULT_ALTITU
         ? Math.floor((baseAltitude - effectiveAltitude) / penaltyInterval)
         : 0
 
-    const ratio = Math.max(0, stepRatio ?? ALTITUDE_STEP_RATIO)
+    const ratio = Math.max(0, stepRatio ?? wind.altitude.step_ratio)
     const resolvedBonusRatio = Math.max(0, bonusRatio ?? ratio)
     const resolvedPenaltyRatio = Math.max(0, penaltyRatio ?? ratio)
     const bonusPerStep = Math.max(1, Math.round(baseRate * resolvedBonusRatio))
@@ -190,7 +198,7 @@ function computeAltitudeRate(baseRate, altitude, altitudeConfig = DEFAULT_ALTITU
         return Math.max(0, Math.floor(adjusted))
     }
 
-    const capped = Math.min(baseRate * Math.max(1, maxMultiplier ?? DEFAULT_MAX_ALTITUDE_MULTIPLIER), adjusted)
+    const capped = Math.min(baseRate * Math.max(1, maxMultiplier ?? wind.altitude.default_max_multiplier), adjusted)
     return Math.max(0, Math.floor(capped))
 }
 
@@ -203,22 +211,18 @@ function computeAltitudeRate(baseRate, altitude, altitudeConfig = DEFAULT_ALTITU
  */
 function getWeatherMultiplier(weather) {
     const key = typeof weather === 'string' ? weather : WeatherType.Clear
-    return WEATHER_MULTIPLIERS[key] ?? 1
+    return wind.weather_multiplier[key] ?? 1
 }
 
-function resolveAltitude(block, altitudeConfig = DEFAULT_ALTITUDE_CONFIG) {
+function resolveAltitude(block, altitudeConfig = getDefaultAltitudeConfig()) {
     const rawAltitude = Math.floor(block.location.y)
-    const offset = altitudeConfig.offset ?? DEFAULT_ALTITUDE_OFFSET
+    const offset = altitudeConfig.offset ?? wind.altitude.default_offset
     let altitude = rawAltitude + offset
 
-    const minAltitude = altitudeConfig.minAltitude ?? MIN_ALTITUDE
     const maxAltitude = altitudeConfig.maxAltitude
 
     if (typeof maxAltitude === 'number') {
-        const minClamp = Math.min(minAltitude, maxAltitude)
-        altitude = Math.min(maxAltitude, Math.max(minClamp, altitude))
-    } else {
-        altitude = Math.max(minAltitude, altitude)
+        altitude = Math.min(maxAltitude, altitude)
     }
 
     return altitude
@@ -268,9 +272,10 @@ function buildStatusLabel(status, color, efficiency, realEfficiency, weatherMult
  * @returns {AltitudeConfig}
  */
 function resolveAltitudeConfig(settings, dimension) {
+    const defaults = getDefaultAltitudeConfig()
     const altitude = settings?.altitude ?? {}
     const heightRange = getDimensionHeightRange(dimension)
-    const heightMin = heightRange?.min ?? MIN_ALTITUDE
+    const heightMin = heightRange?.min ?? defaults.minAltitude
     const heightMax = heightRange?.max
 
     const maxAltitudeRaw = altitude.max ?? altitude.max_altitude ?? altitude.maxAltitude
@@ -279,16 +284,16 @@ function resolveAltitudeConfig(settings, dimension) {
         : maxAltitudeRaw
 
     return {
-        baseAltitude: altitude.base ?? altitude.base_altitude ?? altitude.baseAltitude ?? BASE_ALTITUDE,
-        minAltitude: Math.max(heightMin, altitude.min ?? altitude.min_altitude ?? altitude.minAltitude ?? MIN_ALTITUDE),
+        baseAltitude: altitude.base ?? altitude.base_altitude ?? altitude.baseAltitude ?? defaults.baseAltitude,
+        minAltitude: Math.max(heightMin, altitude.min ?? altitude.min_altitude ?? altitude.minAltitude ?? defaults.minAltitude),
         maxAltitude: resolvedMaxAltitude,
-        offset: altitude.offset ?? altitude.altitude_offset ?? DEFAULT_ALTITUDE_OFFSET,
-        bonusStep: altitude.bonus_step ?? altitude.bonusStep ?? altitude.step_bonus ?? ALTITUDE_BONUS_STEP,
-        penaltyStep: altitude.penalty_step ?? altitude.penaltyStep ?? altitude.step_penalty ?? ALTITUDE_PENALTY_STEP,
-        stepRatio: altitude.step_ratio ?? altitude.stepRatio ?? ALTITUDE_STEP_RATIO,
+        offset: altitude.offset ?? altitude.altitude_offset ?? defaults.offset,
+        bonusStep: altitude.bonus_step ?? altitude.bonusStep ?? altitude.step_bonus ?? defaults.bonusStep,
+        penaltyStep: altitude.penalty_step ?? altitude.penaltyStep ?? altitude.step_penalty ?? defaults.penaltyStep,
+        stepRatio: altitude.step_ratio ?? altitude.stepRatio ?? defaults.stepRatio,
         bonusRatio: altitude.bonus_ratio ?? altitude.bonusRatio,
         penaltyRatio: altitude.penalty_ratio ?? altitude.penaltyRatio,
-        maxMultiplier: altitude.max_multiplier ?? altitude.maxMultiplier ?? settings?.max_altitude_multiplier ?? DEFAULT_MAX_ALTITUDE_MULTIPLIER,
+        maxMultiplier: altitude.max_multiplier ?? altitude.maxMultiplier ?? settings?.max_altitude_multiplier ?? defaults.maxMultiplier,
         unlimitedMultiplier: altitude.unlimited_multiplier ?? altitude.no_max_multiplier ?? false
     }
 }
