@@ -1,57 +1,144 @@
-import { world } from '@minecraft/server'
+import { system, world } from '@minecraft/server'
+
+const RELOAD_INTERVAL_TICKS = 30
+const PLACE_FUNCTION = 'ilumination/big_torch'
+const BREAK_FUNCTION = 'ilumination/big_torch_break'
 
 /**
- * Handles illumination blocks (big_torch and lantern) when placed or broken.
- * 
- * - When a block is placed, the corresponding illumination function is executed.
- * - When a block is broken, the corresponding break function is executed.
- * - Lanterns trigger multiple functions around them (±19 blocks on X/Z).
+ * Tracked light sources registered from placement events.
+ * Key format: dimension|x|y|z
  *
- * This avoids using custom block components and relies purely on
- * `playerPlaceBlock` and `playerBreakBlock` events.
+ * @type {Map<string, {dimensionId: string, x: number, y: number, z: number, typeId: string}>}
  */
+const trackedLights = new Map()
 
 /**
- * Event handler for block placement.
- * Runs a function depending on the placed block type.
+ * Lighting projection anchors by source block type.
  */
-world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
-    const { typeId, location, dimension } = block
+const LIGHT_CONFIG = {
+    'utilitycraft:big_torch': {
+        anchors: [{ x: 0, z: 0 }]
+    },
+    'utilitycraft:lantern': {
+        anchors: [
+            { x: 19, z: 0 },
+            { x: -19, z: 0 },
+            { x: 0, z: 19 },
+            { x: 0, z: -19 }
+        ]
+    }
+}
+
+/**
+ * Builds a stable key for a tracked light source.
+ */
+function makeKey(dimensionId, x, y, z) {
+    return `${dimensionId}|${x}|${y}|${z}`
+}
+
+/**
+ * Resolves a dimension safely from its ID.
+ */
+function getDimensionSafe(dimensionId) {
+    try {
+        return world.getDimension(dimensionId)
+    } catch {
+        const plainId = String(dimensionId).replace('minecraft:', '')
+        try {
+            return world.getDimension(plainId)
+        } catch {
+            return undefined
+        }
+    }
+}
+
+/**
+ * Executes the illumination function for one source location.
+ */
+function runLightFunction(dimension, typeId, location, mode = 'place') {
+    const config = LIGHT_CONFIG[typeId]
+    if (!config) return
+
+    const functionId = mode === 'break' ? BREAK_FUNCTION : PLACE_FUNCTION
     const { x, y, z } = location
 
-    // Handle Big Torch placement
-    if (typeId === 'utilitycraft:big_torch') {
-        dimension.runCommand(`execute positioned ${x} ${y} ${z} run function ilumination/big_torch`)
-    }
+    for (const anchor of config.anchors) {
+        const px = x + anchor.x
+        const pz = z + anchor.z
 
-    // Handle Lantern placement (fires in 4 directions ±19 on X/Z)
-    if (typeId === 'utilitycraft:lantern') {
-        dimension.runCommand(`execute positioned ${x + 19} ${y} ${z} run function ilumination/big_torch`)
-        dimension.runCommand(`execute positioned ${x - 19} ${y} ${z} run function ilumination/big_torch`)
-        dimension.runCommand(`execute positioned ${x} ${y} ${z + 19} run function ilumination/big_torch`)
-        dimension.runCommand(`execute positioned ${x} ${y} ${z - 19} run function ilumination/big_torch`)
+        try {
+            dimension.runCommand(`execute positioned ${px} ${y} ${pz} run function ${functionId}`)
+        } catch { }
     }
+}
+
+/**
+ * Registers a placed light source for future periodic reloads.
+ */
+function trackLight(block, typeId = block.typeId) {
+    const { x, y, z } = block.location
+    const key = makeKey(block.dimension.id, x, y, z)
+
+    trackedLights.set(key, {
+        dimensionId: block.dimension.id,
+        x,
+        y,
+        z,
+        typeId
+    })
+}
+
+/**
+ * Removes one tracked light source.
+ */
+function untrackLight(dimensionId, x, y, z) {
+    trackedLights.delete(makeKey(dimensionId, x, y, z))
+}
+
+/**
+ * Handle placement and seed initial illumination.
+ */
+world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
+    const config = LIGHT_CONFIG[block.typeId]
+    if (!config) return
+
+    runLightFunction(block.dimension, block.typeId, block.location, 'place')
+    trackLight(block)
 })
 
 /**
- * Event handler for block breaking.
- * Runs a break function depending on the destroyed block type.
+ * Handle player break and cleanup tracked illumination.
  */
 world.afterEvents.playerBreakBlock.subscribe(({ brokenBlockPermutation, block }) => {
     const typeId = brokenBlockPermutation.type.id
+    const config = LIGHT_CONFIG[typeId]
+    if (!config) return
+
     const { x, y, z } = block.location
-    const { dimension } = block
-
-    // Handle Big Torch destruction
-    if (typeId === 'utilitycraft:big_torch') {
-        dimension.runCommand(`execute positioned ${x} ${y} ${z} run function ilumination/big_torch_break`)
-    }
-
-    // Handle Lantern destruction (fires in 4 directions ±19 on X/Z)
-    if (typeId === 'utilitycraft:lantern') {
-        dimension.runCommand(`execute positioned ${x + 19} ${y} ${z} run function ilumination/big_torch_break`)
-        dimension.runCommand(`execute positioned ${x - 19} ${y} ${z} run function ilumination/big_torch_break`)
-        dimension.runCommand(`execute positioned ${x} ${y} ${z + 19} run function ilumination/big_torch_break`)
-        dimension.runCommand(`execute positioned ${x} ${y} ${z - 19} run function ilumination/big_torch_break`)
-    }
+    runLightFunction(block.dimension, typeId, { x, y, z }, 'break')
+    untrackLight(block.dimension.id, x, y, z)
 })
+
+/**
+ * Periodically re-applies illumination for tracked sources.
+ */
+system.runInterval(() => {
+    for (const [key, entry] of trackedLights) {
+        const dimension = getDimensionSafe(entry.dimensionId)
+        if (!dimension) {
+            trackedLights.delete(key)
+            continue
+        }
+
+        const block = dimension.getBlock({ x: entry.x, y: entry.y, z: entry.z })
+        if (!block) continue
+
+        if (block.typeId !== entry.typeId) {
+            runLightFunction(dimension, entry.typeId, entry, 'break')
+            trackedLights.delete(key)
+            continue
+        }
+
+        runLightFunction(dimension, entry.typeId, entry, 'place')
+    }
+}, RELOAD_INTERVAL_TICKS)
