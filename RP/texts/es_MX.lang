@@ -670,7 +670,7 @@ tile.utilitycraft:ultimate_magmator.name=§8Magmador Definitivo\n §7 Velocidad:
 tile.utilitycraft:ultimate_thermo_generator.name=§8Termogenerador Definitivo\n §7 Velocidad: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Batería Definitiva\n §7 Velocidad: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Panel Solar Definitivo\n §7 Velocidad: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y16
 
 
 < Energy Generators = Geradores de Energía ##///////////////////////////////////////////////////////////////

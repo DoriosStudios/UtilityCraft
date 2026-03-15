@@ -26,7 +26,7 @@
 				"entity": {
 					"name": "wind_turbine",
 					"type": "generator",
-					"inventory_size":2
+					"inventory_size": 2
 				},
 				"generator": {
 					"energy_cap": 6400000,

@@ -604,7 +604,7 @@ tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Rate: 5 kDE
 tile.utilitycraft:ultimate_thermo_generator.name=§8Ultimate Thermo Generator \n §7 Rate: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Ultimate Battery \n §7 Rate: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Ultimate Solar Panel \n §7 Rate: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Base Rate: 800 DE/t\n §7 Max Height Multiplier: 300%\n §7 Does not work below y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Base Rate: 800 DE/t\n §7 Max Height Multiplier: 300%\n §7 Does not work below y16
 
 
 < Energy Generators = Geradores de Energy ##///////////////////////////////////////////////////////////////

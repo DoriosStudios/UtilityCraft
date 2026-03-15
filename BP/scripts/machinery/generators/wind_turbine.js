@@ -19,17 +19,17 @@ const wind = {
 }
 /**
  * @typedef {Object} AltitudeConfig
- * @property {number} baseAltitude         // Altitude where penalties/bonuses start
- * @property {number} minAltitude          // Minimum altitude required to run
- * @property {number | null} maxAltitude   // Max altitude used for clamping (null = world max)
- * @property {number} offset               // Altitude offset applied before processing
- * @property {number} bonusStep            // Height interval that grants bonuses
- * @property {number} penaltyStep          // Height interval that applies penalties
- * @property {number} stepRatio            // Portion of base rate applied each step
- * @property {number} [bonusRatio]         // Optional ratio used for bonus steps
- * @property {number} [penaltyRatio]       // Optional ratio used for penalty steps
- * @property {number} maxMultiplier        // Cap relative to base rate
- * @property {boolean} unlimitedMultiplier // Skip max multiplier cap when true
+ * @property {number} baseAltitude          Altitude where penalties/bonuses start
+ * @property {number} minAltitude           Minimum altitude required to run
+ * @property {number | null} maxAltitude    Max altitude used for clamping (null = world max)
+ * @property {number} offset                Altitude offset applied before processing
+ * @property {number} bonusStep             Height interval that grants bonuses
+ * @property {number} penaltyStep           Height interval that applies penalties
+ * @property {number} stepRatio             Portion of base rate applied each step
+ * @property {number} [bonusRatio]          Optional ratio used for bonus steps
+ * @property {number} [penaltyRatio]        Optional ratio used for penalty steps
+ * @property {number} maxMultiplier         Cap relative to base rate
+ * @property {boolean} unlimitedMultiplier  Skip max multiplier cap when true
  */
 
 /**
@@ -92,8 +92,6 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         const generator = new Generator(block, settings)
         if (!generator.valid) return
 
-        generator.energy.transferToNetwork(generator.rate * 4)
-
         const { energy } = generator
 
         const baseRate = generator.rate
@@ -133,11 +131,11 @@ DoriosAPI.register.blockComponent('wind_turbine', {
 
         const produced = Math.min(effectiveRate, energy.getFreeSpace())
         energy.add(produced)
-        generator.energy.transferToNetwork(produced * 4)
+        generator.energy.transferToNetwork(effectiveRate * 4)
 
         generator.on()
         generator.displayEnergy()
-        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, generator.baseRate * efficiency / 100))
+        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, effectiveRate))
     },
 
     onPlayerBreak(e) {
