@@ -103,7 +103,6 @@ export class Machine extends BasicMachine {
    */
   static spawnEntity(e, config, callback) {
     const { block, player, permutationToPlace } = e;
-
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand");
     const { energy, fluid } = Utils.getEnergyAndFluidFromItem(mainHand);
 
@@ -111,7 +110,7 @@ export class Machine extends BasicMachine {
     if (config.rotation) {
       if (player.isInSurvival()) {
         system.run(() => {
-          player.runCommand(`clear @s ${permutationToPlace.typeId} 0 1`);
+          player.runCommand(`clear @s ${permutationToPlace.type.id} 0 1`);
         });
       }
 
