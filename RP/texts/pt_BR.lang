@@ -80,6 +80,8 @@ tile.utilitycraft:basic_thermo_generator.name=§eGerador Térmico Básico \n §7
 tile.utilitycraft:basic_battery.name=§eBateria Básica\n §7 Velocidade: 100 DE/t
 tile.utilitycraft:basic_solar_panel.name=§ePainel Solar Básico\n §7 Velocidade Máx: 12 DE/t
 tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidade Base: 8 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
+tile.utilitycraft:basic_energy_transmitter.name=§eTransmissor de Energia Básico\n §7 Velocidade: 1 kDE/t\n §7 Capacidade: 64 kDE\n §7 Alcance: 32 Blocos
+tile.utilitycraft:basic_energy_receiver.name=§eReceptor de Energia Básico\n §7 Velocidade: 1 kDE/t\n §7 Capacidade: 64 kDE
 
 tile.utilitycraft:advanced_furnator.name=§cForgerador Avançado\n §7 Velocidade: 160 DE/t
 tile.utilitycraft:advanced_magmator.name=§cMagmador Avançado\n §7 Velocidade: 200 DE/t
@@ -87,6 +89,8 @@ tile.utilitycraft:advanced_thermo_generator.name=§cGerador Térmico Avançado \
 tile.utilitycraft:advanced_battery.name=§cBateria Avançada \n §7 Velocidade: 800 DE/t
 tile.utilitycraft:advanced_solar_panel.name=§cPainel Solar Avançado\n §7 Velocidade Máx: 48 DE/t
 tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avançada\n §7 Velocidade Base: 32 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
+tile.utilitycraft:advanced_energy_transmitter.name=§cTransmissor de Energia Avançado\n §7 Velocidade: 4 kDE/t\n §7 Capacidade: 256 kDE\n §7 Alcance: 64 Blocos
+tile.utilitycraft:advanced_energy_receiver.name=§cReceptor de Energia Avançado\n §7 Velocidade: 4 kDE/t\n §7 Capacidade: 256 kDE
 
 tile.utilitycraft:expert_furnator.name=§3Forgerador Expert \n §7 Velocidade: 640 DE/t
 tile.utilitycraft:expert_magmator.name=§3Magmador Expert \n §7 Velocidade: 800 DE/t
@@ -94,13 +98,17 @@ tile.utilitycraft:expert_thermo_generator.name=§3Gerador Térmico Expert\n §7 
 tile.utilitycraft:expert_battery.name=§3Bateria Expert \n §7 Velocidade: 1.6 kDE/t
 tile.utilitycraft:expert_solar_panel.name=§3Painel Solar Expert \n §7 Velocidade Máx: 192 DE/t
 tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Expert\n §7 Velocidade Base: 128 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
+tile.utilitycraft:expert_energy_transmitter.name=§3Transmissor de Energia Expert\n §7 Velocidade: 16 kDE/t\n §7 Capacidade: 1.024 MDE\n §7 Alcance: 128 Blocos
+tile.utilitycraft:expert_energy_receiver.name=§3Receptor de Energia Expert\n §7 Velocidade: 16 kDE/t\n §7 Capacidade: 1.024 MDE
 
 tile.utilitycraft:ultimate_furnator.name=§8Forgerador Supremo \n §7 Velocidade: 4 kDE/t
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Supremo\n §7 Velocidade: 5 kDE/t
 tile.utilitycraft:ultimate_thermo_generator.name=§8Gerador Térmico Supremo \n §7 Velocidade: 2 kDE/t
 tile.utilitycraft:ultimate_battery.name=§8Bateria Suprema\n §7 Velocidade: 10 kDE/t
 tile.utilitycraft:ultimate_solar_panel.name=§8Painel Solar Supremo \n §7 Velocidade Máx: 1200 DE/t
-tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Básica\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Suprema\n §7 Velocidade Base: 800 DE/t\n  Multiplicador de Altura Máximo: 300%\n  Não funciona abaixo de y20
+tile.utilitycraft:ultimate_energy_transmitter.name=§8Transmissor de Energia Supremo\n §7 Velocidade: 100 kDE/t\n §7 Capacidade: 6.4 MDE\n §7 Alcance: 512 Blocos
+tile.utilitycraft:ultimate_energy_receiver.name=§8Receptor de Energia Supremo\n §7 Velocidade: 100 kDE/t\n §7 Capacidade: 6.4 MDE
 
 ### Fluid Importers and Exporters | Importadores e Exportadores de Fluidos
 tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos (Padrão)\n§7- Aceita melhorias:\n §a§7
@@ -801,6 +809,8 @@ entity.utilitycraft:power_condenser.name=Matriz Condensadora de Energia
 
 ## Generators Entities
 entity.utilitycraft:battery.name=Bateria
+entity.utilitycraft:transmitter.name=Transmissor
+entity.utilitycraft:receiver.name=Receptor
 entity.utilitycraft:furnator.name=Forgerador
 entity.utilitycraft:magmator.name=Magmador
 entity.utilitycraft:solar_panel.name=Painel Solar
@@ -839,6 +849,7 @@ item.utilitycraft:utility_book_20=Manual do UtilityCraft
 item.utilitycraft:utility_book_21=Manual do UtilityCraft
 item.utilitycraft:utility_book_22=Manual do UtilityCraft
 item.utilitycraft:utility_book_23=Manual do UtilityCraft
+item.utilitycraft:settings=Configurações\n §7 Interaja para abrir as configurações do UtilityCraft
 
 ## Indicators & Progress Bars | Indicadores e Barras de Progresso
 ### Indicators | Indicadores
