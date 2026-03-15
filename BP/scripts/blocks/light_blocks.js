@@ -1,9 +1,5 @@
 import { system, world } from '@minecraft/server'
 
-const RELOAD_INTERVAL_TICKS = 30
-const PLACE_FUNCTION = 'ilumination/big_torch'
-const BREAK_FUNCTION = 'ilumination/big_torch_break'
-
 /**
  * Tracked light sources registered from placement events.
  * Key format: dimension|x|y|z
@@ -59,7 +55,7 @@ function runLightFunction(dimension, typeId, location, mode = 'place') {
     const config = LIGHT_CONFIG[typeId]
     if (!config) return
 
-    const functionId = mode === 'break' ? BREAK_FUNCTION : PLACE_FUNCTION
+    const functionId = mode === 'break' ? 'ilumination/big_torch_break' : 'ilumination/big_torch'
     const { x, y, z } = location
 
     for (const anchor of config.anchors) {
@@ -121,6 +117,7 @@ world.afterEvents.playerBreakBlock.subscribe(({ brokenBlockPermutation, block })
 
 /**
  * Periodically re-applies illumination for tracked sources.
+ * Current interval: every 30 ticks (1.5 seconds) - can be adjusted as needed.
  */
 system.runInterval(() => {
     for (const [key, entry] of trackedLights) {
@@ -141,4 +138,4 @@ system.runInterval(() => {
 
         runLightFunction(dimension, entry.typeId, entry, 'place')
     }
-}, RELOAD_INTERVAL_TICKS)
+}, 30)
