@@ -118,7 +118,7 @@ DoriosAPI.register.blockComponent("harvester", {
             }
 
             // Collect items back to machine center after delay
-            if (machine.upgrades.range == 4) {
+            if (machine.upgrades.range >= 4) {
                 system.runTimeout(() => {
                     dimension.runCommand(
                         `tp @e[x=${x},y=${y - 1},z=${z},dx=${adjustedSide},dz=${adjustedSide},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`
