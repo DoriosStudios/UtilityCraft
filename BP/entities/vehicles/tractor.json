@@ -59,11 +59,11 @@
 					"tractor"
 				]
 			},
-			"minecraft:fire_immune": true,
+			"minecraft:fire_immune": {},
 			"minecraft:damage_sensor": {
 				"triggers": {
 					"cause": "all",
-					"deals_damage": false
+					"deals_damage": "no"
 				}
 			},
 			"minecraft:health": {

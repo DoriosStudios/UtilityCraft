@@ -85,11 +85,11 @@
 					"drill"
 				]
 			},
-			"minecraft:fire_immune": true,
+			"minecraft:fire_immune": {},
 			"minecraft:damage_sensor": {
 				"triggers": {
 					"cause": "all",
-					"deals_damage": false
+					"deals_damage": "no"
 				}
 			},
 			"minecraft:health": {
@@ -127,7 +127,37 @@
 					"dripstone_block",
 					"lit_redstone_ore",
 					"lit_deepslate_redstone_ore",
-					"netherrack"
+					"netherrack",
+					"grass_block",
+					"utilitycraft:deepslate_titanium_ore",
+					"utilitycraft:deepslate_aetherium_ore",
+					"short_grass",
+					"short_dry_grass",
+					"tall_grass",
+					"tall_dry_grass",
+					"fern",
+					"large_fern",
+					"bush",
+					"pink_tulip",
+					"red_tulip",
+					"white_tulip",
+					"orange_tulip",
+					"azure_bluet",
+					"oxeye_daisy",
+					"cornflower",
+					"lily_of_the_valley",
+					"sunflower",
+					"rose_bush",
+					"peony",
+					"lilac",
+					"allium",
+					"blue_orchid",
+					"red_mushroom",
+					"brown_mushroom",
+					"crimson_fungus",
+					"warped_fungus",
+					"crimson_roots",
+					"warped_roots"
 				]
 			},
 			"minecraft:collision_box": {
