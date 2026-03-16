@@ -31,28 +31,91 @@ function getRandomPosition(x, y, z, radius) {
 }
 
 /**
+ * Tries to get an add-on's namespace from a crop block.
+ */
+function getCropNamespace(block) {
+    if (!block) return null;   
+    const namespace = block.typeId.split(":")[0];
+    return namespace
+}
+
+
+/**
  * Attempts to grow a crop based on its type, tier, and chance.
  */
+function getMaxState(block, key, maxTry = 16) {
+    const perm = block.permutation;
+    const current = perm.getState(key);
+    if (current === undefined) return 0;
+
+    let lastValid = current;
+    for (let i = current + 1; i <= maxTry; i++) {
+        try {
+            perm.withState(key, i);
+            lastValid = i;
+        } catch {
+            break;
+        }
+    }
+    return lastValid;
+}
+
 function tryGrowCrop(block, baseChance, globalMultiplier) {
     if (!block) return;
 
-    const modded = block.permutation.getState("utilitycraft:age");
-    const vanilla = block.permutation.getState("growth");
+    const perm = block.permutation;
+    const utilitycrop = perm.getState("utilitycraft:age"); // Age for UtilityCraft crops
+    const vanilla = perm.getState("growth");               // Age for vanilla crops
 
-    const tier = block.permutation.getState("utilitycraft:tier") ?? 0;
+    const tier = perm.getState("utilitycraft:tier") ?? 0;
     const tierMult = cropTierChances[tier] ?? 1;
 
     const finalChance = baseChance * globalMultiplier * tierMult;
 
-    if (modded !== undefined && modded < 5) {
+    // UtilityCraft-specific crops
+    if (typeof utilitycrop === "number" && utilitycrop < 5) {
         if (Math.random() < finalChance) {
-            block.setPermutation(block.permutation.withState("utilitycraft:age", modded + 1));
-            if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center())
+            block.setPermutation(perm.withState("utilitycraft:age", utilitycrop + 1));
+            if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center());
         }
-    } else if (vanilla !== undefined && vanilla < 7) {
+        return;
+    }
+
+    // Vanilla crops
+    if (typeof vanilla === "number" && vanilla < 7) {
         if (Math.random() < finalChance) {
-            block.setPermutation(block.permutation.withState("growth", vanilla + 1));
-            if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center())
+            block.setPermutation(perm.withState("growth", vanilla + 1));
+            if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center());
+        }
+        return;
+    }
+
+    // Generic namespace-aware attempt: try common state names with/without namespace
+    const namespace = getCropNamespace(block);
+    const candidates = [
+        // Prioritize namespaced forms if we have a namespace
+        ...(namespace ? [
+            `${namespace}:growth`,
+            `${namespace}:crop`,
+            `${namespace}:age`
+        ] : []),
+        // Fallback / common property names
+        'growth',
+        'crop',
+        'age'
+    ];
+
+    for (const key of candidates) {
+        const value = perm.getState(key);
+        if (typeof value !== 'number') continue;
+
+        const max = getMaxState(block, key);
+        if (value < max) {
+            if (Math.random() < finalChance) {
+                block.setPermutation(perm.withState(key, value + 1));
+                if (Math.random() <= 0.25) block.dimension.spawnParticle('minecraft:crop_growth_emitter', block.center());
+            }
+            break; // only grow one recognized state per tick
         }
     }
 }
