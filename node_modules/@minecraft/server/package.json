@@ -1,0 +1,20 @@
+{
+  "name": "@minecraft/server",
+  "version": "2.5.0",
+  "description": "",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jake@xbox.com"
+    },
+    {
+      "name": "Mike Ammerlaan",
+      "email": "mikeam@microsoft.com"
+    }
+  ],
+  "peerDependencies": {
+    "@minecraft/common": "^1.2.0",
+    "@minecraft/vanilla-data": ">=1.20.70"
+  },
+  "license": "MIT"
+}
