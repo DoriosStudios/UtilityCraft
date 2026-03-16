@@ -184,10 +184,122 @@ const infuserRecipesRegister = {
         output: "minecraft:calcite",
         required: 4
     }
+    // Color pattern templates (placeholders will be expanded at load time)
+    ,"minecraft:{x}_dye|minecraft:{y}_terracotta": { output: "minecraft:{x}_terracotta", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_glazed_terracotta": { output: "minecraft:{x}_glazed_terracotta", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_concrete": { output: "minecraft:{x}_concrete", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_concrete_powder": { output: "minecraft:{x}_concrete_powder", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_stained_glass": { output: "minecraft:{x}_stained_glass", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_stained_glass_pane": { output: "minecraft:{x}_stained_glass_pane", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_wool": { output: "minecraft:{x}_wool", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_candle": { output: "minecraft:{x}_candle", required: 1 }
+    ,"minecraft:{x}_dye|minecraft:{y}_harness": { output: "minecraft:{x}_harness", required: 1 }
+    // Note: bundles and shulker_boxes are intentionally NOT added because they are prone to data loss
 };
 
+/**
+ * Families that must not be auto-expanded due to NBT/data risks.
+ */
+const BLOCKED_SUFFIXES = ['_bundle', '_shulker_box'];
+
+/**
+ * Colors used for expansion. Order matches Minecraft color names.
+ */
+const COLORS = [
+    'white','orange','magenta','light_blue','yellow','lime','pink','gray','light_gray','cyan','purple','blue','brown','green','red','black'
+];
+
+/**
+ * Expand pattern-based recipes that contain placeholders like {x} and {y}.
+ * Example key: "minecraft:{x}_dye|minecraft:{y}_terracotta" with output "minecraft:{x}_terracotta"
+ * will expand into 256 explicit entries (16x16 combinations).
+ *
+ * Rules:
+ * - Placeholders are expressed as {name} in the key and/or output.
+ * - Each placeholder will be substituted with every value in COLORS.
+ * - Existing explicit keys in the original register are preserved and won't be overridden.
+ */
+function expandColorPatterns(register) {
+    const expanded = {};
+
+    const patternRegex = /{([^}]+)}/g;
+
+    // First pass: copy explicit (non-pattern) entries
+    for (const [key, data] of Object.entries(register)) {
+        if (!patternRegex.test(key) && !(data.output && patternRegex.test(data.output))) {
+            expanded[key] = data;
+        }
+        // Reset regex state
+        patternRegex.lastIndex = 0;
+    }
+
+    // Second pass: expand pattern entries
+    for (const [key, data] of Object.entries(register)) {
+        // Check if this key or its output contains a placeholder
+        if (!patternRegex.test(key) && !(data.output && patternRegex.test(data.output))) {
+            patternRegex.lastIndex = 0;
+            continue;
+        }
+
+        // Collect unique token names from key + output
+        const combined = key + '|' + (data.output ?? '');
+        const tokens = [];
+        let m;
+        while ((m = patternRegex.exec(combined)) !== null) {
+            if (!tokens.includes(m[1])) tokens.push(m[1]);
+        }
+        patternRegex.lastIndex = 0;
+
+        // Generate all combinations of colors for the tokens
+        const combos = [];
+        function gen(idx, current) {
+            if (idx >= tokens.length) {
+                combos.push(Object.assign({}, current));
+                return;
+            }
+            const token = tokens[idx];
+            for (const color of COLORS) {
+                current[token] = color;
+                gen(idx + 1, current);
+            }
+        }
+        gen(0, {});
+
+        // Expand each combination into a concrete recipe
+        for (const combo of combos) {
+            const expandedKey = key.replace(/\{([^}]+)\}/g, (_,t) => combo[t] ?? _);
+            const newData = Object.assign({}, data);
+            if (typeof newData.output === 'string') {
+                newData.output = newData.output.replace(/\{([^}]+)\}/g, (_,t) => combo[t] ?? _);
+            }
+
+            // Skip blocked families to avoid data loss (bundles/shulker boxes etc.)
+            const blocked = (s) => {
+                if (!s || typeof s !== 'string') return false;
+                return BLOCKED_SUFFIXES.some(suf => s.includes(suf));
+            };
+
+            if (blocked(expandedKey) || blocked(newData.output)) {
+                continue;
+            }
+
+            // Don't override explicit entries
+            if (!expanded[expandedKey]) {
+                expanded[expandedKey] = newData;
+            }
+        }
+    }
+
+    return expanded;
+}
+
 world.afterEvents.worldLoad.subscribe(() => {
-    system.sendScriptEvent("utilitycraft:register_infuser_recipe", JSON.stringify(infuserRecipesRegister));
+    const expanded = expandColorPatterns(infuserRecipesRegister);
+    try {
+        system.sendScriptEvent("utilitycraft:register_infuser_recipe", JSON.stringify(expanded));
+    } catch (err) {
+        console.warn('[UtilityCraft] Failed to send expanded infuser recipes:', err);
+    }
 });
 
 /**

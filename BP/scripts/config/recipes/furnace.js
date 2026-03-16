@@ -53,9 +53,125 @@ const furnaceRecipesRegister = {
         output: "minecraft:slime_ball"
     },
     // Compressed    
-    "utilitycraft:compressed_sand": {
-        output: "utilitycraft:compressed_glass"
+    'utilitycraft:compressed_cobblestone': {
+        output: "utilitycraft:compressed_stone",
+        cost: 7200
     },
+    'utilitycraft:double_compressed_cobblestone': {
+        output: "utilitycraft:compressed_stone_2",
+        cost: 64800
+    },
+    'utilitycraft:triple_compressed_cobblestone': {
+        output: "utilitycraft:compressed_stone_3",
+        cost: 583200
+    },
+    'utilitycraft:quadruple_compressed_cobblestone': {
+        output: "utilitycraft:compressed_stone_4",
+        cost: 5248800
+    },
+    "utilitycraft:compressed_sand": {
+        output: "utilitycraft:compressed_glass",
+        cost: 7200
+    },
+    "utilitycraft:compressed_sand_2": {
+        output: "utilitycraft:compressed_glass_2",
+        cost: 64800
+    },
+    "utilitycraft:compressed_sand_3": {
+        output: "utilitycraft:compressed_glass_3",
+        cost: 583200
+    },
+    "utilitycraft:compressed_sand_4": {
+        output: "utilitycraft:compressed_glass_4",
+        cost: 5248800
+    },
+    "utilitycraft:compressed_cobbled_deepslate": {
+        output: "utilitycraft:compressed_deepslate",
+        cost: 7200
+    },
+    "utilitycraft:compressed_cobbled_deepslate_2": {
+        output: "utilitycraft:compressed_deepslate_2",
+        cost: 64800
+    },
+    "utilitycraft:compressed_cobbled_deepslate_3": {
+        output: "utilitycraft:compressed_deepslate_3",
+        cost: 583200
+    },
+    "utilitycraft:compressed_cobbled_deepslate_4": {
+        output: "utilitycraft:compressed_deepslate_4",
+        cost: 5248800
+    },
+    "utilitycraft:compressed_raw_iron_block": {
+        output: "utilitycraft:compressed_iron_block",
+        cost: 7200
+    },
+    "utilitycraft:compressed_raw_iron_block_2": {
+        output: "utilitycraft:compressed_iron_block_2",
+        cost: 64800
+    },
+    "utilitycraft:compressed_raw_iron_block_3": {
+        output: "utilitycraft:compressed_iron_block_3",
+        cost: 583200
+    },
+    "utilitycraft:compressed_raw_iron_block_4": {
+        output: "utilitycraft:compressed_iron_block_4",
+        cost: 5248800
+    },
+    "utilitycraft:compressed_raw_gold_block": {
+        output: "utilitycraft:compressed_gold_block",
+        cost: 7200
+    },
+    "utilitycraft:compressed_raw_gold_block_2": {
+        output: "utilitycraft:compressed_gold_block_2",
+        cost: 64800
+    },
+    "utilitycraft:compressed_raw_gold_block_3": {
+        output: "utilitycraft:compressed_gold_block_3",
+        cost: 583200
+    },
+    "utilitycraft:compressed_raw_gold_block_4": {
+        output: "utilitycraft:compressed_gold_block_4",
+        cost: 5248800
+    },
+    "utilitycraft:compressed_raw_copper_block": {
+        output: "utilitycraft:compressed_copper_block",
+        cost: 7200
+    },
+    "utilitycraft:compressed_raw_copper_block_2": {
+        output: "utilitycraft:compressed_copper_block_2",
+        cost: 64800
+    },
+    "utilitycraft:compressed_raw_copper_block_3": {
+        output: "utilitycraft:compressed_copper_block_3",
+        cost: 583200
+    },
+    "utilitycraft:compressed_raw_copper_block_4": {
+        output: "utilitycraft:compressed_copper_block_4",
+        cost: 5248800
+    },
+    "utilitycraft:brute_steel_block": {
+        output: "utilitycraft:steel_block"
+    },
+    "utilitycraft:compressed_brute_steel_block": {
+        output: "utilitycraft:compressed_steel_block",
+        cost: 7200
+    },
+    "utilitycraft:compressed_brute_steel_block_2": {
+        output: "utilitycraft:compressed_steel_block_2",
+        cost: 64800
+    },
+    "utilitycraft:compressed_brute_steel_block_3": {
+        output: "utilitycraft:compressed_steel_block_3",
+        cost: 583200
+    },
+    "utilitycraft:compressed_brute_steel_block_4": {
+        output: "utilitycraft:compressed_steel_block_4",
+        cost: 5248800
+    },
+    "utilitycraft:brute_energized_iron_block": {
+        output: "utilitycraft:energized_iron_block"
+    },
+
     // Utility Useful Recipes
     "minecraft:raw_iron_block": {
         output: "minecraft:iron_block"
@@ -66,8 +182,14 @@ const furnaceRecipesRegister = {
     "minecraft:raw_copper_block": {
         output: "minecraft:copper_block"
     },
-    // IS
+    "minecraft:wet_sponge": {
+        output: "minecraft:sponge"
+    },
+    // Integrated Storage
     "ae2be:certus_quartz_dust": {
+        output: "ae2be:silicon"
+    },
+    "utilitycraft:quartz_dust": {
         output: "ae2be:silicon"
     },
     // Minecraft Vanilla
@@ -101,6 +223,7 @@ const furnaceRecipesRegister = {
     "minecraft:rotten_flesh": {
         output: "strat:coagulated_blood"
     },
+    // Other Mods
     "artifacts:everlasting_beef": {
         output: "artifacts:eternal_steak"
     },
@@ -496,6 +619,19 @@ const furnaceRecipesRegister = {
 world.afterEvents.worldLoad.subscribe(() => {
     system.sendScriptEvent("utilitycraft:register_furnace_recipe", JSON.stringify(furnaceRecipesRegister));
 });
+
+// Auto-map terracotta -> glazed terracotta for all colors
+// This avoids manually listing 16 entries and keeps the register compact.
+{
+    const COLORS = ['white','orange','magenta','light_blue','yellow','lime','pink','gray','cyan','purple','blue','brown','green','red','black'];
+    for (const col of COLORS) {
+        const input = `minecraft:${col}_terracotta`;
+        const output = `minecraft:${col}_glazed_terracotta`;
+        if (!furnaceRecipesRegister[input]) {
+            furnaceRecipesRegister[input] = { output };
+        }
+    }
+}
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_furnace_recipe"
