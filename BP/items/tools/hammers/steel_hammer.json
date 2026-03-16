@@ -31,15 +31,11 @@
 			"minecraft:repairable": {
 				"repair_items": [
 					{
-						"items": [
-							"utilitycraft:steel_ingot"
-						],
+						"items": ["utilitycraft:steel_ingot"],
 						"repair_amount": 188
 					},
 					{
-						"items": [
-							"utilitycraft:steel_hammer"
-						],
+						"items": ["utilitycraft:steel_hammer"],
 						"repair_amount": 750
 					}
 				]
@@ -52,6 +48,18 @@
 						"block": {
 							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible')"
 						}
+					},
+					{
+						"speed": 10,
+						"block": "minecraft:dirt"
+					},
+					{
+						"speed": 10,
+						"block": "minecraft:gravel"
+					},
+					{
+						"speed": 10,
+						"block": "minecraft:sand"
 					}
 				]
 			}

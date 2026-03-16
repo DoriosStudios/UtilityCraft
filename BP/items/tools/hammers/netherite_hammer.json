@@ -34,15 +34,11 @@
 			"minecraft:repairable": {
 				"repair_items": [
 					{
-						"items": [
-							"minecraft:netherite_ingot"
-						],
+						"items": ["minecraft:netherite_ingot"],
 						"repair_amount": 800
 					},
 					{
-						"items": [
-							"utilitycraft:netherite_hammer"
-						],
+						"items": ["utilitycraft:netherite_hammer"],
 						"repair_amount": 2031
 					}
 				]
@@ -53,8 +49,21 @@
 					{
 						"speed": 20,
 						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'stone' )"
 						}
+					},
+
+					{
+						"speed": 12,
+						"block": "minecraft:dirt"
+					},
+					{
+						"speed": 12,
+						"block": "minecraft:gravel"
+					},
+					{
+						"speed": 12,
+						"block": "minecraft:sand"
 					}
 				]
 			}

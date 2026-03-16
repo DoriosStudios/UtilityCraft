@@ -31,15 +31,11 @@
 			"minecraft:repairable": {
 				"repair_items": [
 					{
-						"items": [
-							"minecraft:cobblestone"
-						],
+						"items": ["minecraft:cobblestone"],
 						"repair_amount": 83
 					},
 					{
-						"items": [
-							"utilitycraft:stone_hammer"
-						],
+						"items": ["utilitycraft:stone_hammer"],
 						"repair_amount": 251
 					}
 				]
@@ -52,6 +48,18 @@
 						"block": {
 							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible')"
 						}
+					},
+					{
+						"speed": 6,
+						"block": "minecraft:dirt"
+					},
+					{
+						"speed": 6,
+						"block": "minecraft:gravel"
+					},
+					{
+						"speed": 6,
+						"block": "minecraft:sand"
 					}
 				]
 			}

@@ -53,6 +53,18 @@
 						"block": {
 							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
 						}
+					},
+					{
+						"block": "minecraft:dirt",
+						"speed": 11
+					},
+					{
+						"block": "minecraft:gravel",
+						"speed": 11
+					},
+					{
+						"block": "minecraft:sand",
+						"speed": 11
 					}
 				]
 			}

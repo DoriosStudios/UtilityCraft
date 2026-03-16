@@ -30,15 +30,11 @@
 			"minecraft:repairable": {
 				"repair_items": [
 					{
-						"items": [
-							"minecraft:gold_ingot"
-						],
+						"items": ["minecraft:gold_ingot"],
 						"repair_amount": 26
 					},
 					{
-						"items": [
-							"utilitycraft:golden_hammer"
-						],
+						"items": ["utilitycraft:golden_hammer"],
 						"repair_amount": 102
 					}
 				]
@@ -49,8 +45,20 @@
 					{
 						"speed": 40,
 						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible')"
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible', 'minecraft:stone_tier_destructible')"
 						}
+					},
+					{
+						"speed": 24,
+						"block": "minecraft:dirt"
+					},
+					{
+						"speed": 24,
+						"block": "minecraft:gravel"
+					},
+					{
+						"speed": 24,
+						"block": "minecraft:sand"
 					}
 				]
 			}

@@ -30,15 +30,11 @@
 			"minecraft:repairable": {
 				"repair_items": [
 					{
-						"items": [
-							"planks"
-						],
+						"items": ["planks"],
 						"repair_amount": 83
 					},
 					{
-						"items": [
-							"utilitycraft:wooden_hammer"
-						],
+						"items": ["utilitycraft:wooden_hammer"],
 						"repair_amount": 251
 					}
 				]
@@ -51,6 +47,18 @@
 						"block": {
 							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible', 'minecraft:stone_tier_destructible')"
 						}
+					},
+					{
+						"speed": 4,
+						"block": "minecraft:dirt"
+					},
+					{
+						"speed": 4,
+						"block": "minecraft:gravel"
+					},
+					{
+						"speed": 4,
+						"block": "minecraft:sand"
 					}
 				]
 			}
