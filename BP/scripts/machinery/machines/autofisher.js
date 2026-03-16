@@ -320,7 +320,7 @@ DoriosAPI.register.blockComponent('autofisher', {
         }
 
         if (!hasWaterNearby(block)) {
-            machine.showWarning('Need Water Nearby!');
+            machine.showWarning('Need Water!');
             finalizeTick();
             return;
         }
