@@ -15,7 +15,7 @@
 				"chance_multiplier": 1.25,
 				"amount_multiplier": 1.0,
 				"rolls": 1,
-				"luck": 0
+				"luck": 3
 			}
 		}
 	}
