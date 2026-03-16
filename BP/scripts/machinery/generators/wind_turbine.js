@@ -101,14 +101,18 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         const altitudeRate = computeAltitudeRate(baseRate, altitude, altitudeConfig)
         const weatherMultiplier = getWeatherMultiplier(weather)
         const effectiveRate = altitudeRate * weatherMultiplier
+        const effectiveRateInt = Math.max(0, Math.floor(effectiveRate))
         const efficiency = baseRate > 0 ? Math.max(0, Math.round((altitudeRate / baseRate) * 1000) / 10) : 0
         const realEfficiency = baseRate > 0 ? Math.max(0, Math.round((effectiveRate / baseRate) * 1000) / 10) : 0
         const belowMinAltitude = altitude < altitudeConfig.minAltitude
 
+        if (effectiveRateInt > 0) {
+            generator.energy.transferToNetwork(effectiveRateInt * 4)
+        }
+
         if (belowMinAltitude) {
             generator.off()
             generator.displayEnergy()
-            generator.energy.transferToNetwork(0)
             generator.setLabel(buildStatusLabel('Low Altitude', 'e', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, 0))
             return
         }
@@ -116,7 +120,6 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         if (effectiveRate <= 0) {
             generator.off()
             generator.displayEnergy()
-            generator.energy.transferToNetwork(0)
             generator.setLabel(buildStatusLabel('Calm Winds', 'e', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, 0))
             return
         }
@@ -124,18 +127,16 @@ DoriosAPI.register.blockComponent('wind_turbine', {
         if (energy.get() >= energy.cap) {
             generator.off()
             generator.displayEnergy()
-            generator.energy.transferToNetwork(0)
             generator.setLabel(buildStatusLabel('Energy Full', 'e', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, 0))
             return
         }
 
-        const produced = Math.min(effectiveRate, energy.getFreeSpace())
+        const produced = Math.min(effectiveRateInt, energy.getFreeSpace())
         energy.add(produced)
-        generator.energy.transferToNetwork(effectiveRate * 4)
 
         generator.on()
         generator.displayEnergy()
-        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, effectiveRate))
+        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, effectiveRateInt))
     },
 
     onPlayerBreak(e) {
