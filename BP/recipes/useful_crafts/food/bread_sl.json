@@ -16,6 +16,11 @@
         "result": {
             "item": "minecraft:bread",
             "count": 1
-        }
+        },
+        "unlock":[
+            {
+                "item": "minecraft:wheat"
+            }
+        ]
     }
 }
