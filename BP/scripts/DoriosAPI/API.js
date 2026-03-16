@@ -1417,6 +1417,9 @@ globalThis.DoriosAPI = {
       "minecraft:command_block",
       "minecraft:chain_command_block",
       "minecraft:repeating_command_block",
+      "minecraft:structure_block",
+      "minecraft:structure_void",
+      "minecraft:jigsaw"
     ],
     /**
      * Default inventory slots reserved for UtilityCraft machine upgrades.

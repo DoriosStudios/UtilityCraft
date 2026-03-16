@@ -19,30 +19,8 @@ DoriosAPI.register.itemComponent("shovel", {
         const sneakingMode = params?.sneakingMode ?? true;
         const isSneaking = source.isSneaking ?? false;
 
-        // Mutual exclusion logic:
-        // - sneakingMode false: only process when NOT sneaking
-        // - sneakingMode true: only process when sneaking
-        if (sneakingMode !== isSneaking) return;
-
         const { x, y, z } = block.location;
         const size = params?.size ?? 1;
-
-        const pathableBlocks = [
-            "minecraft:dirt",
-            "minecraft:grass",
-            "minecraft:grass_block",
-            "minecraft:podzol",
-            "minecraft:mycelium",
-            "minecraft:dirt_with_roots"
-        ];
-
-        // Convert pathable blocks to grass paths in area
-        for (const blockId of pathableBlocks) {
-            block.dimension.runCommand(
-                `fill ${x - size} ${y} ${z - size} ${x + size} ${y} ${z + size} grass_path replace ${blockId}`
-            );
-        }
-
         // Break snow blocks in area (drops items)
         for (let dx = -size; dx <= size; dx++) {
             for (let dz = -size; dz <= size; dz++) {
@@ -60,6 +38,26 @@ DoriosAPI.register.itemComponent("shovel", {
                     );
                 }
             }
+        }
+        // Mutual exclusion logic:
+        // - sneakingMode false: only process when NOT sneaking
+        // - sneakingMode true: only process when sneaking
+        if (sneakingMode !== isSneaking) return;
+
+        const pathableBlocks = [
+            "minecraft:dirt",
+            "minecraft:grass",
+            "minecraft:grass_block",
+            "minecraft:podzol",
+            "minecraft:mycelium",
+            "minecraft:dirt_with_roots"
+        ];
+
+        // Convert pathable blocks to grass paths in area
+        for (const blockId of pathableBlocks) {
+            block.dimension.runCommand(
+                `fill ${x - size} ${y} ${z - size} ${x + size} ${y} ${z + size} grass_path replace ${blockId}`
+            );
         }
     }
 });
