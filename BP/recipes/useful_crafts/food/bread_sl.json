@@ -1,0 +1,21 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shapeless": {
+        "tags": [
+            "crafting_table"
+        ],
+        "description": {
+            "identifier": "utilitycraft:bread_shapeless"
+        },
+        "ingredients": [
+            {
+                "item": "minecraft:wheat",
+                "count": 3
+            }
+        ],
+        "result": {
+            "item": "minecraft:bread",
+            "count": 1
+        }
+    }
+}
