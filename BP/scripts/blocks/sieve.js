@@ -104,6 +104,7 @@ class Sieve {
         if (!meshData) return false
         const multi = meshData.multiplier
         const tier = meshData.tier
+        const amountMultiplier = Number(meshData.amount_multiplier ?? 1)
         const sievableBlock = sieveRecipes[this.blockType]
         if (!sievableBlock) return false
         sievableBlock.forEach(loot => {
@@ -112,9 +113,14 @@ class Sieve {
             if (Math.random() <= loot.chance * multi) {
                 let qty = Array.isArray(loot.amount)
                     ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
-                    : loot.amount;
+                    : (typeof loot.amount === 'number' ? loot.amount : 1)
 
-                if (meshData.amount_multiplier) qty * meshData.amount_multiplier
+                if (Number.isFinite(amountMultiplier) && amountMultiplier > 0) {
+                    qty *= amountMultiplier
+                }
+
+                qty = Math.max(1, Math.floor(qty))
+
                 try {
                     this.block.dimension.spawnItem(new ItemStack(loot.item, qty), {
                         x: x + 0.25 + Math.random() / 2,
