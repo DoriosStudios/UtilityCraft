@@ -1,6 +1,59 @@
 import { world, ItemStack, system } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
+const MINECART_PULL_PROPERTY = 'utilitycraft:minecartPullEnabled'
+
+function isMinecartPullEnabled(entity) {
+    const value = entity?.getDynamicProperty?.(MINECART_PULL_PROPERTY);
+    return typeof value === 'boolean' ? value : true;
+}
+
+function findChestMinecartForHopper(dimension, blockLocation, pullFromAbove) {
+    const hopperCenter = {
+        x: blockLocation.x + 0.5,
+        y: blockLocation.y + 0.5,
+        z: blockLocation.z + 0.5
+    }
+
+    const scanCenter = {
+        x: hopperCenter.x,
+        y: hopperCenter.y + (pullFromAbove ? 0.375 : -0.375),
+        z: hopperCenter.z
+    }
+
+    const carts = [dimension.getEntities({
+        type: 'minecraft:chest_minecart',
+        location: scanCenter,
+        maxDistance: 1.75
+    }),
+    dimension.getEntities({
+        type: 'minecraft:hopper_minecart',
+        location: scanCenter,
+        maxDistance: 1.75
+    })].flat()
+
+    const minY = pullFromAbove
+        ? hopperCenter.y
+        : hopperCenter.y - 0.75
+
+    const maxY = pullFromAbove
+        ? hopperCenter.y + 0.75
+        : hopperCenter.y
+
+    return carts.find((cart) => {
+        const { x, y, z } = cart.location
+
+        const inVerticalRange = y >= minY && y <= maxY
+        if (!inVerticalRange) return false
+
+        const inHorizontalRange =
+            Math.abs(x - hopperCenter.x) <= 0.75
+            && Math.abs(z - hopperCenter.z) <= 0.75
+
+        return inHorizontalRange
+    })
+}
+
 DoriosAPI.register.blockComponent('mechanic_hopper', {
     onTick({ block, dimension }, { params }) {
         if (!worldLoaded) return;
@@ -24,6 +77,7 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
 
         const hasFilter = block.getState("utilitycraft:filter") == 1;
         const whiteList = entity.getDynamicProperty("utilitycraft:whitelistOn");
+        const minecartPullEnabled = isMinecartPullEnabled(entity)
 
         // Define source and target positions depending on block type and direction
         let sourceLoc = { x, y, z };
@@ -72,6 +126,35 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
                     DoriosAPI.containers.transferItemsBetween(sourceLoc, block.location, dimension, i);
                     pulled = true;
                     break;
+                }
+            }
+
+            if (!pulled && minecartPullEnabled && (isHopper || isUpper)) {
+                const minecart = findChestMinecartForHopper(dimension, block.location, isHopper)
+                const minecartInv = minecart?.getComponent('minecraft:inventory')?.container
+
+                if (minecartInv) {
+                    for (let i = 0; i < minecartInv.size; i++) {
+                        const item = minecartInv.getItem(i)
+                        if (!item) continue
+
+                        if (hasFilter && whiteList != entity.hasTag(`${item.typeId}`)) continue
+
+                        const originalAmount = item.amount
+                        const remainder = inv.addItem(item.clone())
+
+                        if (!remainder) {
+                            minecartInv.setItem(i, undefined)
+                            pulled = true
+                            break
+                        }
+
+                        if (remainder.amount < originalAmount) {
+                            minecartInv.setItem(i, remainder)
+                            pulled = true
+                            break
+                        }
+                    }
                 }
             }
 
@@ -155,6 +238,7 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
         system.run(() => {
             const entity = block.dimension.spawnEntity('utilitycraft:hopper', { x, y, z })
             entity.setDynamicProperty('utilitycraft:whitelistOn', true)
+            entity.setDynamicProperty(MINECART_PULL_PROPERTY, true)
             entity.nameTag = "Hopper"
         })
     },
@@ -194,7 +278,10 @@ DoriosAPI.register.blockComponent('mechanic_hopper', {
 function openMenu(block, player) {
     let menu = new ActionFormData()
     const hopper = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
+    if (!hopper) return
+
     let state = hopper.getDynamicProperty('utilitycraft:whitelistOn')
+    const minecartPullEnabled = isMinecartPullEnabled(hopper)
     menu.title('Filter')
 
     if (state) {
@@ -203,6 +290,8 @@ function openMenu(block, player) {
         menu.button(`Blacklist Mode \n(Click to Change)`, 'textures/items/misc/blacklist.png')
 
     }
+
+    menu.button(`Minecart Pull: ${minecartPullEnabled ? 'Enabled' : 'Disabled'}\n(Click to Change)`)
 
     menu.button(`Add item \n(Adds the item in your Mainhand)`)
 
@@ -225,13 +314,18 @@ function openMenu(block, player) {
             }
 
             if (selection == 1) {
+                hopper.setDynamicProperty(MINECART_PULL_PROPERTY, !minecartPullEnabled)
+                return
+            }
+
+            if (selection == 2) {
                 const mainHand = player.getComponent('equippable').getEquipment('Mainhand')
                 if (mainHand) {
                     hopper.addTag(`${mainHand.typeId}`)
                 }
                 return
             }
-            hopper.removeTag(`${acceptedItems[selection - 2]}`)
+            hopper.removeTag(`${acceptedItems[selection - 3]}`)
             openMenu(block, player)
         })
 }
