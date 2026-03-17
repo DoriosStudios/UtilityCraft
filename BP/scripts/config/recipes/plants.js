@@ -49,6 +49,8 @@ export const data = {
  */
 export const bonsaiItems = [
     { sapling: 'minecraft:acacia_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:acacia_tree' },
+    { sapling: 'minecraft:azalea', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:azalea_tree' },
+    { sapling: 'minecraft:flowering_azalea', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:flowering_azalea_tree' },
     { sapling: 'utilitycraft:apple_sapling', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:apple_tree' },
     { sapling: 'minecraft:bamboo', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:bamboo' },
     { sapling: 'minecraft:beetroot_seeds', allowed: ['dirt', 'grass_block'], entity: 'utilitycraft:beetroot' },
@@ -97,6 +99,27 @@ export const plantsData = {
             { item: 'minecraft:acacia_sapling', amount: 1, chance: 0.05 }
         ]
     },
+    'minecraft:azalea': {
+        cost: 8000,
+        drops: [
+            { item: 'minecraft:oak_log', amount: [4, 9], chance: 1 },
+            { item: 'minecraft:azalea_leaves', amount: [2, 5], chance: 1 },
+            { item: 'minecraft:stick', amount: [6, 8], chance: 1 },
+            { item: 'minecraft:azalea', amount: [1, 2], chance: 0.1 },
+            { item: 'minecraft:flowering_azalea', amount: 1, chance: 0.02 }
+        ]
+    },
+    'minecraft:flowering_azalea': {
+        cost: 8000,
+        drops: [
+            { item: 'minecraft:oak_log', amount: [4, 9], chance: 1 },
+            { item: 'minecraft:flowering_azalea_leaves', amount: [2, 5], chance: 1 },
+            { item: 'minecraft:stick', amount: [6, 8], chance: 1 },
+            { item: 'minecraft:flowering_azalea', amount: [1, 2], chance: 0.2 },
+            { item: 'minecraft:spore_flower', amount: 1, chance: 0.05 }
+        ]
+    },
+
     'utilitycraft:apple_sapling': {
         cost: 8000,
         drops: [
