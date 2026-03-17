@@ -117,7 +117,7 @@ world.afterEvents.playerBreakBlock.subscribe(({ brokenBlockPermutation, block })
 
 /**
  * Periodically re-applies illumination for tracked sources.
- * Current interval: every 30 ticks (1.5 seconds) - can be adjusted as needed.
+ * Current interval: every 100 ticks (5 seconds) - can be adjusted as needed.
  */
 system.runInterval(() => {
     for (const [key, entry] of trackedLights) {
@@ -138,4 +138,4 @@ system.runInterval(() => {
 
         runLightFunction(dimension, entry.typeId, entry, 'place')
     }
-}, 30)
+}, 100)
