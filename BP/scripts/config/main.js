@@ -20,6 +20,7 @@
 
 import './fluids/items.js';
 
+import './recipes/containers.js';
 import './recipes/crafter.js';
 import './recipes/crusher.js';
 import './recipes/fuel.js';

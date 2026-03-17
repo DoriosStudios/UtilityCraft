@@ -30,10 +30,11 @@ import './items/hoe.js'
 import './items/shovel.js'
 import './items/essences.js'
 import './items/arm.js'
+import './items/debug_stick.js'
+import './machinery/main.js'
 
 import './stack_refill.js'
 
-import './machinery/main.js'
 import './insight_injectors.js'
 
 // import './speed.js'

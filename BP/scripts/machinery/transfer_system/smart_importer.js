@@ -14,7 +14,9 @@ import { blockFaceOffsets } from './system.js'
  */
 const slotRegister = {};
 
-
+/**
+ * Vanilla blocks registration
+ */
 const DEFAULT_CONFIG = {
     version: 1,
     slots: {},
@@ -318,7 +320,6 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
         }
     }
 });
-
 /* Example
 system.sendScriptEvent(
     "utilitycraft:register_special_container_slots",
