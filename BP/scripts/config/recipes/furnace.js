@@ -645,24 +645,26 @@ world.afterEvents.worldLoad.subscribe(() => {
     const tools = ['sword', 'pickaxe', 'axe', 'shovel', 'hoe'];
 
     for (const ingot of ingots) {
+        const isCustomMetal = ingot === 'titanium' || ingot === 'aetherium';
+        const namespace = isCustomMetal ? 'utilitycraft' : 'minecraft';
+        const outputMaterialId = isCustomMetal ? ingot : `${ingot}_ingot`;
+
         for (const piece of armor) {
-            const namespace = (ingot === 'titanium' || ingot === 'aetherium') ? 'utilitycraft' : 'minecraft';
             // Armor items use 'golden_' prefix while the ingot item is 'gold_ingot'
             const armorPrefix = ingot === 'gold' ? 'golden' : ingot;
             const input = `${namespace}:${armorPrefix}_${piece}`;
-            const outputIngot = ingot === 'gold' ? 'gold_ingot' : `${ingot}_ingot` || ingot === ('titanium' || 'aetherium') ? ('titanium' || 'aetherium') : `${ingot}_ingot`;
-            const output = `${namespace}:${outputIngot}`;
+            const output = `${namespace}:${outputMaterialId}`;
 
             if (!furnaceRecipesRegister[input]) {
                 furnaceRecipesRegister[input] = { output };
             }
         }
+
         for (const tool of tools) {
-            const namespace = (ingot === 'titanium' || ingot === 'aetherium') ? 'utilitycraft' : 'minecraft';
             const toolPrefix = ingot === 'gold' ? 'golden' : ingot;
             const input = `${namespace}:${toolPrefix}_${tool}`;
-            const outputIngot = ingot === 'gold' ? 'gold_ingot' : `${ingot}_ingot`;
-            const output = `${namespace}:${outputIngot}`;
+            const output = `${namespace}:${outputMaterialId}`;
+
             if (!furnaceRecipesRegister[input]) {
                 furnaceRecipesRegister[input] = { output };
             }
