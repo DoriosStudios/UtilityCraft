@@ -1,7 +1,7 @@
 Desktop.ini
 .DS_Store
 
-# Ignore editor configuration folders | Ignorar carpetas de configuración de editores
+# Ignore editor configuration folders | Ignorar carpetas de configuración de editores | Ignorar pastas de configuração de editores
 .bridge/
 .vscode/
 !.vscode/
@@ -9,14 +9,18 @@ Desktop.ini
 !.vscode/tasks.json
 .git/
 
-# Ignore compilarions and packs | Ignorar compilaciones y empaquetados
+# Ignore compilarions and packs | Ignorar compilaciones y empaquetados | Ignorar compilações e pacotes
 builds/
 packs/
 
-# Specific Exceptions | Excepciones específicas
+# Bridge | Excepciones específicas | Exceções específicas
 !.bridge/compiler/
 !.bridge/extensions
 
-# Specific File Types | Tipos de archivo específicos
+# Specific File Types | Tipos de archivo específicos | Tipos de arquivo específicos
 *.log
 *.txt
+
+# Specific Exceptions | Excepciones específicas | Exceções específicas
+BP/items/utility_items/debug_stick.json
+BP/scripts/items/debug_stick.js
