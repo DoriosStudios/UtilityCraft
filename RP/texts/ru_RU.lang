@@ -1,0 +1,871 @@
+## Translated by Milo
+
+message.utilitycraft.invalid_mesh=§eПользовательские сетки можно использовать только в Автосите!
+
+- Bloques =## Блоки
+
+- Tables =## Месас
+tile.utilitycraft:workbench.name=Верстак\n§7 — используйте для изготовления всего, что связано с машинами.
+tile.utilitycraft:utility_table.name=Таблица утилит\n§7 — используйте для создания превосходных инструментов.
+
+- Machines =## Макинас
+tile.utilitycraft:autosieve.name=Autosieve\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:autofisher.name=Auto Fisher\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Принимаемые обновления:\n §a§7 §9§7 §f§7
+tile.utilitycraft:crusher.name=Дробилка\n§7- Принятые улучшения:\n §a§7 §b§7
+tile.utilitycraft:harvester.name=Харвестер\n§7- Принимаемые обновления:\n §a§7 §b§7 §9§7
+tile.utilitycraft:electro_press.name=Электро Пресс\n§7- Принятые обновления:\n §a§7 §b§7
+tile.utilitycraft:block_placer.name=Block Placer\n§7- Принятые обновления:\n §a§7 §b§7
+tile.utilitycraft:seed_synthesizer.name=Синтезатор семян\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:incinerator.name=Мусоросжигатель\n§7- Принятые обновления:\n §a§7 §b§7
+tile.utilitycraft:infuser.name=Инфузер\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:assembler.name=Ассемблер\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:digitizer.name=Дигитайзер\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:induction_anvil.name=Индукционная наковальня\n§7- Принимаемые обновления:\n §a§7 §b§7
+tile.utilitycraft:magmatic_chamber.name=Магматическая камера\n§7- Принимаемые улучшения:\n §a§7 §b§7
+tile.utilitycraft:mechanic_dropper.name=Механическая капельница\n§7- Принимаемые обновления:\n §a§7 §f§7
+
+tile.utilitycraft:fluid_pump.name=Жидкостный насос\n§7- Допустимые обновления:\n §a§7
+
+tile.utilitycraft:machine_case.name=Корпус машины
+tile.utilitycraft:xp_condenser.name=Конденсатор опыта
+tile.utilitycraft:sieve.name=Сито\n§7- Макс. многоразовое использование: 5x5
+tile.utilitycraft:crucible.name=тигель
+## +
+tile.utilitycraft:fan.name=Fan\n§7- Принятые обновления:\n §9§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Принимаемые улучшения:\n §9§7 §c§7
+tile.utilitycraft:mob_trap.name=Ловушка для мобов
+tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Принимаемые обновления:\n §9§7
+tile.utilitycraft:xp_drain.name=Слив опыта
+tile.utilitycraft:xp_spout.name=Носик опыта
+## +
+tile.utilitycraft:cobble_gen_0.name=Генератор булыжника (§vTier 1§r)\n§7 — производит 0,25 в секунду
+tile.utilitycraft:cobble_gen_1.name=Генератор булыжника (§iTier 2§r) \n§7 — производит 0,5 в секунду
+tile.utilitycraft:cobble_gen_2.name=Генератор булыжника (§gTier 3§r) \n§7 — производит 1 шт. в секунду
+tile.utilitycraft:cobble_gen_3.name=Генератор булыжника (§qTier 4§r) \n§7 — производит 2 штуки в секунду
+tile.utilitycraft:cobble_gen_4.name=Генератор булыжника (§sTier 5§r) \n§7 — производит 4 штуки в секунду
+tile.utilitycraft:cobble_gen_5.name=Генератор булыжника (§jTier 6§r) \n§7 — производит 20 единиц в секунду.
+## +
+tile.utilitycraft:conveyor_horizontal.name=Горизонтальный конвейер
+tile.utilitycraft:conveyor_inclined.name=Наклонный конвейер
+tile.utilitycraft:conveyor_declined.name=Отклоненный конвейер
+tile.utilitycraft:mechanic_hopper.name=Механический бункер\n§7- Принимаемые обновления:\n §7, §fFilter§7
+tile.utilitycraft:mechanic_upper.name=Механический верхний\n§7- Принимаемые обновления:\n §7, §fFilter§7
+##+
+tile.utilitycraft:basic_fluid_tank.name=§eБазовый бак для жидкости
+tile.utilitycraft:advanced_fluid_tank.name=§cУсовершенствованный бак для жидкости
+tile.utilitycraft:expert_fluid_tank.name=§bБачок для экспертной жидкости
+tile.utilitycraft:ultimate_fluid_tank.name=§8Идеальный бак для жидкости
+- Bountiful Bonsais =## Бонсаис Обильные
+tile.utilitycraft:bonsai.name=Бонсай
+
+- Bountiful Crops =## Колейтас Обильная
+## >>>>>>>> Open Group -------- ##
+
+-- Tier 1 =## Уровень (Урожай) 1
+tile.utilitycraft:coal_crop.name=Урожай угля
+tile.utilitycraft:copper_crop.name=Медный урожай
+tile.utilitycraft:dyes_crop.name=Красители Кроп
+tile.utilitycraft:glass_crop.name=Стеклянный урожай
+tile.utilitycraft:gunpowder_crop.name=Пороховой урожай
+tile.utilitycraft:iron_crop.name=Железный урожай
+tile.utilitycraft:leather_crop.name=Кожаный кроп
+tile.utilitycraft:prismarine_crystal_crop.name=Призмариновый кристалл
+tile.utilitycraft:prismarine_shards_crop.name=Призмариновые осколки
+tile.utilitycraft:water_crop.name=Водный урожай
+tile.utilitycraft:wool_crop.name=Шерсть
+
+-- Tier 2 =## Уровень (Урожай) 2
+tile.utilitycraft:ghast_crop.name=Ужасный урожай
+tile.utilitycraft:glowstone_crop.name=Урожай светящегося камня
+tile.utilitycraft:gold_crop.name=Золотой урожай
+tile.utilitycraft:honey_crop.name=Медовый урожай
+tile.utilitycraft:lapis_crop.name=Ляпис-урожай
+tile.utilitycraft:lava_crop.name=Урожай лавы
+tile.utilitycraft:quartz_crop.name=Кварцевый урожай
+tile.utilitycraft:redstone_crop.name=Редстоун Урожай
+tile.utilitycraft:slime_crop.name=Урожай слизи
+
+-- Tier 3 =## Уровень (Урожай) 3
+tile.utilitycraft:amethyst_crop.name=Аметист Урожай
+tile.utilitycraft:blaze_crop.name=Пылающий урожай
+tile.utilitycraft:diamond_crop.name=Алмазный урожай
+tile.utilitycraft:emerald_crop.name=Изумрудный урожай
+tile.utilitycraft:enderpearl_crop.name=Урожай жемчуга Эндера
+tile.utilitycraft:obsidian_crop.name=Обсидиановый урожай
+
+-- Tier 4 =## Уровень (Урожай) 4
+tile.utilitycraft:netherite_crop.name=Незеритовый урожай
+tile.utilitycraft:netherstar_crop.name=Урожай Звезды Пустоты
+tile.utilitycraft:shulker_crop.name=Шалкеровый урожай
+tile.utilitycraft:totem_crop.name=Тотемный урожай
+tile.utilitycraft:wither_crop.name=Увядший урожай
+## -------- Close Group <<<<<<<< ##
+
+- Soils =## Почвы
+tile.utilitycraft:blue_soil.name=§bГолубая почва
+tile.utilitycraft:black_soil.name=§8Черная почва
+tile.utilitycraft:red_soil.name=§cКрасная почва
+tile.utilitycraft:yellow_soil.name=§eЖелтая почва
+
+- Mechanical Spawners =## Invocadores Mecânicos
+tile.utilitycraft:mechanical_spawner.name=Механический генератор\n§7- Принимаемые улучшения:\n §a§7 §3§7
+tile.utilitycraft:spawner_core.name=Ядро спавнера
+
+-- =## Создающий предмет
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=Механический спаунер: Blaze
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_chicken.name=Механический спаунер: Курица
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_cow.name=Механический спаунер: Корова
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_creeper.name=Механический спаунер: Крипер
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_enderman.name=Механический спаунер: Эндермен
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_hoglin.name=Механический генератор: Хоглин
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_magma_cube.name=Механический генератор: Магмовый куб
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_mooshroom.name=Механический спаунер: Грибной гриб
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=Механический спаунер: Свинья
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=Механический спаунер: Овца
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=Механический спаунер: Скелет
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=Механический спаунер: Слизь
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=Механический спаунер: Паук
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=Механический генератор: Ведьма
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=Механический спаунер: Зомби
+
+- Compressed Blocks =## Блоки Компримидос
+tile.utilitycraft:compressed_cobblestone.name=Сжатый булыжник
+tile.utilitycraft:double_compressed_cobblestone.name=Двойной сжатый булыжник
+tile.utilitycraft:triple_compressed_cobblestone.name=Тройной сжатый булыжник
+tile.utilitycraft:quadruple_compressed_cobblestone.name=Четверной сжатый булыжник
+tile.utilitycraft:quintuple_compressed_cobblestone.name=Пятикратный сжатый булыжник
+tile.utilitycraft:sextuple_compressed_cobblestone.name=Шестиместный сжатый булыжник
+tile.utilitycraft:septuple_compressed_cobblestone.name=Семиместный сжатый булыжник
+tile.utilitycraft:octuple_compressed_cobblestone.name=Восьмеричный сжатый булыжник
+tile.utilitycraft:nonuple_compressed_cobblestone.name=Недвойной сжатый булыжник
+## +
+tile.utilitycraft:compressed_amethyst_block.name=Сжатый блок аметиста
+tile.utilitycraft:compressed_amethyst_block_2.name=Двойной сжатый блок аметиста
+tile.utilitycraft:compressed_amethyst_block_3.name=Тройной сжатый блок аметиста
+tile.utilitycraft:compressed_amethyst_block_4.name=Четырехкратный сжатый блок аметиста
+tile.utilitycraft:compressed_blackstone.name=Сжатый Блэкстоун
+tile.utilitycraft:compressed_blackstone_2.name=Двойной сжатый черный камень
+tile.utilitycraft:compressed_blackstone_3.name=Тройной сжатый Blackstone
+tile.utilitycraft:compressed_blackstone_4.name=Четырехкратный сжатый Blackstone
+tile.utilitycraft:compressed_block.name=Full Purple\n§8- Нет причин для существования этого блока, мне просто нравится текстура\n- Невозможно получить
+tile.utilitycraft:compressed_brute_energized_iron_block.name=Сжатый блок грубого заряженного железа
+tile.utilitycraft:compressed_brute_energized_iron_block_2.name=Двойной сжатый блок из грубого заряженного железа
+tile.utilitycraft:compressed_brute_energized_iron_block_3.name=Тройной сжатый блок из грубого заряженного железа
+tile.utilitycraft:compressed_brute_energized_iron_block_4.name=Четырехкратный сжатый блок грубого заряженного железа
+tile.utilitycraft:compressed_brute_steel_block.name=Сжатый блок из грубой стали
+tile.utilitycraft:compressed_brute_steel_block_2.name=Блок из грубой стали с двойным сжатием
+tile.utilitycraft:compressed_brute_steel_block_3.name=Тройной сжатый блок из грубой стали
+tile.utilitycraft:compressed_brute_steel_block_4.name=Четырехкратный сжатый блок из грубой стали
+tile.utilitycraft:compressed_coal_block.name=Блок сжатого угля
+tile.utilitycraft:compressed_coal_block_2.name=Блок двойного сжатого угля
+tile.utilitycraft:compressed_coal_block_3.name=Тройной блок сжатого угля
+tile.utilitycraft:compressed_coal_block_4.name=Четырехместный блок сжатого угля
+tile.utilitycraft:compressed_cobbled_deepslate.name=Сжатый булыжник Deepslate
+tile.utilitycraft:compressed_cobbled_deepslate_2.name=Двойная сжатая брусчатка Deepslate
+tile.utilitycraft:compressed_cobbled_deepslate_3.name=Тройной сжатый мощеный сланец
+tile.utilitycraft:compressed_cobbled_deepslate_4.name=Четырехкратный сжатый мощеный сланец
+tile.utilitycraft:compressed_copper_block.name=Сжатый медный блок
+tile.utilitycraft:compressed_copper_block_2.name=Двойной сжатый медный блок
+tile.utilitycraft:compressed_copper_block_3.name=Тройной сжатый медный блок
+tile.utilitycraft:compressed_copper_block_4.name=Четырехкратный сжатый медный блок
+tile.utilitycraft:compressed_crushed_cobbled_deepslate.name=Сжатый щебень из булыжника
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name=Двойно сжатый щебень из булыжника
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name=Тройной сжатый щебень из булыжника
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name=Четырехкратно сжатый щебень из булыжника
+tile.utilitycraft:compressed_crushed_endstone.name=Сжатый дробленый камень
+tile.utilitycraft:compressed_crushed_endstone_2.name=Двойно сжатый дробленый камень
+tile.utilitycraft:compressed_crushed_endstone_3.name=Тройной сжатый дробленый камень
+tile.utilitycraft:compressed_crushed_endstone_4.name=Четырехкратно сжатый дробленый камень
+tile.utilitycraft:compressed_crushed_netherrack.name=Сжатый раздавленный Пустоты
+tile.utilitycraft:compressed_crushed_netherrack_2.name=Двойно сжатый измельченный адский рак
+tile.utilitycraft:compressed_crushed_netherrack_3.name=Тройной сжатый измельченный адский рак
+tile.utilitycraft:compressed_crushed_netherrack_4.name=Четырехкратный сжатый раздавленный Пустоты
+tile.utilitycraft:compressed_cry_obsidian.name=Сжатый плачущий обсидиан
+tile.utilitycraft:compressed_cry_obsidian_2.name=Двойной сжатый плачущий обсидиан
+tile.utilitycraft:compressed_cry_obsidian_3.name=Тройной сжатый плачущий обсидиан
+tile.utilitycraft:compressed_cry_obsidian_4.name=Четверной сжатый плачущий обсидиан
+tile.utilitycraft:compressed_deepslate.name=Сжатый дипслейт
+tile.utilitycraft:compressed_deepslate_2.name=Двойное сжатие Deepslate
+tile.utilitycraft:compressed_deepslate_3.name=Тройной сжатый Deepslate
+tile.utilitycraft:compressed_deepslate_4.name=Четырехкратно сжатый Deepslate
+tile.utilitycraft:compressed_diamond_block.name=Сжатый алмазный блок
+tile.utilitycraft:compressed_diamond_block_2.name=Алмазный блок с двойным сжатием
+tile.utilitycraft:compressed_diamond_block_3.name=Тройной сжатый алмазный блок
+tile.utilitycraft:compressed_diamond_block_4.name=Четырехкратный сжатый алмазный блок
+tile.utilitycraft:compressed_dirt.name=Сжатая грязь
+tile.utilitycraft:compressed_dirt_2.name=Двойная сжатая грязь
+tile.utilitycraft:compressed_dirt_3.name=Тройная сжатая грязь
+tile.utilitycraft:compressed_dirt_4.name=Четырехкратное сжатие грязи
+tile.utilitycraft:compressed_emerald_block.name=Сжатый изумрудный блок
+tile.utilitycraft:compressed_emerald_block_2.name=Блок двойного сжатого изумруда
+tile.utilitycraft:compressed_emerald_block_3.name=Блок тройного сжатого изумруда
+tile.utilitycraft:compressed_emerald_block_4.name=Четырехкратный сжатый изумрудный блок
+tile.utilitycraft:compressed_endstone.name=Сжатый камень
+tile.utilitycraft:compressed_endstone_2.name=Двойной сжатый камень
+tile.utilitycraft:compressed_endstone_3.name=Тройной сжатый камень
+tile.utilitycraft:compressed_endstone_4.name=Четырехкратное сжатие Endstone
+tile.utilitycraft:compressed_energized_iron_block.name=Сжатый заряженный железный блок
+tile.utilitycraft:compressed_energized_iron_block_2.name=Железный блок с двойным сжатием под напряжением
+tile.utilitycraft:compressed_energized_iron_block_3.name=Тройной сжатый блок из заряженного железа
+tile.utilitycraft:compressed_energized_iron_block_4.name=Четырехкратный сжатый блок из заряженного железа
+tile.utilitycraft:compressed_exposed_copper_block.name=Сжатый оголенный медный блок
+tile.utilitycraft:compressed_exposed_copper_block_2.name=Открытый медный блок с двойным сжатием
+tile.utilitycraft:compressed_exposed_copper_block_3.name=Тройной сжатый медный блок
+tile.utilitycraft:compressed_exposed_copper_block_4.name=Четырехкратный сжатый оголенный медный блок
+tile.utilitycraft:compressed_flint_block.name=Сжатый кремневый блок
+tile.utilitycraft:compressed_flint_block_2.name=Двойной сжатый кремневый блок
+tile.utilitycraft:compressed_flint_block_3.name=Тройной сжатый кремневый блок
+tile.utilitycraft:compressed_flint_block_4.name=Четырехкратный сжатый кремневый блок
+tile.utilitycraft:compressed_glass.name=Сжатое стекло
+tile.utilitycraft:compressed_glass_2.name=Двойное сжатое стекло
+tile.utilitycraft:compressed_glass_3.name=Тройное сжатое стекло
+tile.utilitycraft:compressed_glass_4.name=Четырехместное сжатое стекло
+tile.utilitycraft:compressed_gold_block.name=Сжатый золотой блок
+tile.utilitycraft:compressed_gold_block_2.name=Двойной сжатый золотой блок
+tile.utilitycraft:compressed_gold_block_3.name=Тройной сжатый золотой блок
+tile.utilitycraft:compressed_gold_block_4.name=Четырехкратный сжатый золотой блок
+tile.utilitycraft:compressed_gravel.name=Сжатый Гравий
+tile.utilitycraft:compressed_gravel_2.name=Двойной сжатый гравий
+tile.utilitycraft:compressed_gravel_3.name=Тройной сжатый гравий
+tile.utilitycraft:compressed_gravel_4.name=Четырехкратный сжатый гравий
+tile.utilitycraft:compressed_iron_block.name=Сжатый железный блок
+tile.utilitycraft:compressed_iron_block_2.name=Двойной сжатый железный блок
+tile.utilitycraft:compressed_iron_block_3.name=Тройной сжатый железный блок
+tile.utilitycraft:compressed_iron_block_4.name=Четырехместный блок из прессованного железа
+tile.utilitycraft:compressed_lapislazuli_block.name=Сжатый блок лапислазуля
+tile.utilitycraft:compressed_lapislazuli_block_2.name=Блок двойного сжатия лапислазуля
+tile.utilitycraft:compressed_lapislazuli_block_3.name=Тройной сжатый блок лапислазуля
+tile.utilitycraft:compressed_lapislazuli_block_4.name=Четырехкратно сжатый блок лапислазуля
+tile.utilitycraft:compressed_netherite_block.name=Сжатый блок незерита
+tile.utilitycraft:compressed_netherite_block_2.name=Двойной сжатый блок незерита
+tile.utilitycraft:compressed_netherite_block_3.name=Тройной сжатый блок незерита
+tile.utilitycraft:compressed_netherite_block_4.name=Четырехкратный сжатый блок незерита
+tile.utilitycraft:compressed_netherrack.name=Сжатый Пустоты
+tile.utilitycraft:compressed_netherrack_2.name=Двойной сжатый Netherrack
+tile.utilitycraft:compressed_netherrack_3.name=Тройной сжатый Netherrack
+tile.utilitycraft:compressed_netherrack_4.name=Четверной сжатый Netherrack
+tile.utilitycraft:compressed_obsidian.name=Сжатый обсидиан
+tile.utilitycraft:compressed_obsidian_2.name=Двойной сжатый обсидиан
+tile.utilitycraft:compressed_obsidian_3.name=Тройной сжатый обсидиан
+tile.utilitycraft:compressed_obsidian_4.name=Четверной сжатый обсидиан
+tile.utilitycraft:compressed_oxidized_copper_block.name=Сжатый блок окисленной меди
+tile.utilitycraft:compressed_oxidized_copper_block_2.name=Двойной сжатый окисленный медный блок
+tile.utilitycraft:compressed_oxidized_copper_block_3.name=Тройной сжатый окисленный медный блок
+tile.utilitycraft:compressed_oxidized_copper_block_4.name=Четырехкратный сжатый блок окисленной меди
+tile.utilitycraft:compressed_quartz_block.name=Сжатый кварцевый блок
+tile.utilitycraft:compressed_quartz_block_2.name=Двойной сжатый кварцевый блок
+tile.utilitycraft:compressed_quartz_block_3.name=Тройной сжатый кварцевый блок
+tile.utilitycraft:compressed_quartz_block_4.name=Четырехкратный сжатый кварцевый блок
+tile.utilitycraft:compressed_raw_copper_block.name=Сжатый медный блок
+tile.utilitycraft:compressed_raw_copper_block_2.name=Блок необработанной меди двойного сжатия
+tile.utilitycraft:compressed_raw_copper_block_3.name=Тройной сжатый медный блок
+tile.utilitycraft:compressed_raw_copper_block_4.name=Четырехкратно сжатый медный блок
+tile.utilitycraft:compressed_raw_gold_block.name=Сжатый блок необработанного золота
+tile.utilitycraft:compressed_raw_gold_block_2.name=Блок двойного прессования необработанного золота
+tile.utilitycraft:compressed_raw_gold_block_3.name=Блок тройного прессования необработанного золота
+tile.utilitycraft:compressed_raw_gold_block_4.name=Четырехкратно сжатый блок необработанного золота
+tile.utilitycraft:compressed_raw_iron_block.name=Сжатый блок необработанного железа
+tile.utilitycraft:compressed_raw_iron_block_2.name=Блок необработанного железа двойного сжатия
+tile.utilitycraft:compressed_raw_iron_block_3.name=Тройной сжатый блок необработанного железа
+tile.utilitycraft:compressed_raw_iron_block_4.name=Четырехкратный прессованный блок из необработанного железа
+tile.utilitycraft:compressed_redstone_block.name=Сжатый блок красного камня
+tile.utilitycraft:compressed_redstone_block_2.name=Двойной сжатый блок красного камня
+tile.utilitycraft:compressed_redstone_block_3.name=Тройной сжатый блок красного камня
+tile.utilitycraft:compressed_redstone_block_4.name=Четырехкратный сжатый блок красного камня
+tile.utilitycraft:compressed_sand.name=Сжатый песок
+tile.utilitycraft:compressed_sand_2.name=Двойной сжатый песок
+tile.utilitycraft:compressed_sand_3.name=Тройной сжатый песок
+tile.utilitycraft:compressed_sand_4.name=Четырехкратный спрессованный песок
+tile.utilitycraft:compressed_steel_block.name=Сжатый стальной блок
+tile.utilitycraft:compressed_steel_block_2.name=Двойной сжатый стальной блок
+tile.utilitycraft:compressed_steel_block_3.name=Тройной сжатый стальной блок
+tile.utilitycraft:compressed_steel_block_4.name=Четырехместный блок из сжатой стали
+tile.utilitycraft:compressed_stone.name=Сжатый камень
+tile.utilitycraft:compressed_stone_2.name=Двойной сжатый камень
+tile.utilitycraft:compressed_stone_3.name=Тройной сжатый камень
+tile.utilitycraft:compressed_stone_4.name=Четверной сжатый камень
+tile.utilitycraft:compressed_weathered_copper_block.name=Сжатый выветрившийся медный блок
+tile.utilitycraft:compressed_weathered_copper_block_2.name=Двойной сжатый выдержанный медный блок
+tile.utilitycraft:compressed_weathered_copper_block_3.name=Тройной сжатый выдержанный медный блок
+tile.utilitycraft:compressed_weathered_copper_block_4.name=Четырехместный сжатый выветренный медный блок
+tile.utilitycraft:compressed_acacia_wood.name=Сжатая древесина акации
+tile.utilitycraft:compressed_acacia_wood_2.name=Двойная сжатая древесина акации
+tile.utilitycraft:compressed_acacia_wood_3.name=Тройная сжатая древесина акации
+tile.utilitycraft:compressed_acacia_wood_4.name=Четверная сжатая древесина акации
+tile.utilitycraft:compressed_birch_wood.name=Сжатая березовая древесина
+tile.utilitycraft:compressed_birch_wood_2.name=Двойная сжатая березовая древесина
+tile.utilitycraft:compressed_birch_wood_3.name=Тройная сжатая березовая древесина
+tile.utilitycraft:compressed_birch_wood_4.name=Четверная сжатая березовая древесина
+tile.utilitycraft:compressed_cherry_wood.name=Сжатая древесина вишни
+tile.utilitycraft:compressed_cherry_wood_2.name=Двойная сжатая древесина вишни
+tile.utilitycraft:compressed_cherry_wood_3.name=Тройная сжатая древесина вишни
+tile.utilitycraft:compressed_cherry_wood_4.name=Четверная сжатая древесина вишни
+tile.utilitycraft:compressed_crimson_wood.name=Сжатая багровая древесина
+tile.utilitycraft:compressed_crimson_wood_2.name=Двойная сжатая багровая древесина
+tile.utilitycraft:compressed_crimson_wood_3.name=Тройная сжатая багровая древесина
+tile.utilitycraft:compressed_crimson_wood_4.name=Четверная сжатая багровая древесина
+tile.utilitycraft:compressed_dark_oak_wood.name=Сжатая древесина темного дуба
+tile.utilitycraft:compressed_dark_oak_wood_2.name=Двойная сжатая древесина темного дуба
+tile.utilitycraft:compressed_dark_oak_wood_3.name=Тройная сжатая древесина темного дуба
+tile.utilitycraft:compressed_dark_oak_wood_4.name=Четверная сжатая древесина темного дуба
+tile.utilitycraft:compressed_jungle_wood.name=Сжатая древесина джунглей
+tile.utilitycraft:compressed_jungle_wood_2.name=Двойная сжатая древесина джунглей
+tile.utilitycraft:compressed_jungle_wood_3.name=Тройная сжатая древесина джунглей
+tile.utilitycraft:compressed_jungle_wood_4.name=Четверная сжатая древесина джунглей
+tile.utilitycraft:compressed_mangrove_wood.name=Сжатая мангровая древесина
+tile.utilitycraft:compressed_mangrove_wood_2.name=Двойная сжатая мангровая древесина
+tile.utilitycraft:compressed_mangrove_wood_3.name=Тройная сжатая мангровая древесина
+tile.utilitycraft:compressed_mangrove_wood_4.name=Четверная сжатая мангровая древесина
+tile.utilitycraft:compressed_oak_wood.name=Сжатая дубовая древесина
+tile.utilitycraft:compressed_oak_wood_2.name=Двойная сжатая дубовая древесина
+tile.utilitycraft:compressed_oak_wood_3.name=Тройная сжатая дубовая древесина
+tile.utilitycraft:compressed_oak_wood_4.name=Четверная сжатая дубовая древесина
+tile.utilitycraft:compressed_pale_oak_wood.name=Сжатая древесина бледного дуба
+tile.utilitycraft:compressed_pale_oak_wood_2.name=Двойная сжатая древесина бледного дуба
+tile.utilitycraft:compressed_pale_oak_wood_3.name=Тройная сжатая древесина бледного дуба
+tile.utilitycraft:compressed_pale_oak_wood_4.name=Четверная сжатая древесина бледного дуба
+tile.utilitycraft:compressed_spruce_wood.name=Сжатая еловая древесина
+tile.utilitycraft:compressed_spruce_wood_2.name=Двойная сжатая еловая древесина
+tile.utilitycraft:compressed_spruce_wood_3.name=Тройная сжатая еловая древесина
+tile.utilitycraft:compressed_spruce_wood_4.name=Четверная сжатая еловая древесина
+tile.utilitycraft:compressed_warped_wood.name=Сжатая искаженная древесина
+tile.utilitycraft:compressed_warped_wood_2.name=Двойная сжатая искаженная древесина
+tile.utilitycraft:compressed_warped_wood_3.name=Тройная сжатая искаженная древесина
+tile.utilitycraft:compressed_warped_wood_4.name=Четверная сжатая искаженная древесина
+## Compressed Items
+item.utilitycraft:bag_of_beetroot_seeds=Пакетик семян свеклы
+item.utilitycraft:bag_of_black_dye=Мешочек с черной краской
+item.utilitycraft:bag_of_blaze_powder=Мешочек с огненным порошком
+item.utilitycraft:bag_of_blue_dye=Мешочек с синей краской
+item.utilitycraft:bag_of_brown_dye=Мешочек с коричневой краской
+item.utilitycraft:bag_of_cocoa_beans=Мешок какао-бобов
+item.utilitycraft:bag_of_cyan_dye=Мешочек с голубой краской
+item.utilitycraft:bag_of_feathers=Мешок перьев
+item.utilitycraft:bag_of_glowstone_dust=Мешок со светящейся пылью
+item.utilitycraft:bag_of_gray_dye=Мешочек с серой краской
+item.utilitycraft:bag_of_green_dye=Мешочек с зеленой краской
+item.utilitycraft:bag_of_gunpowder=Мешок с порохом
+item.utilitycraft:bag_of_light_blue_dye=Пакетик с голубой краской
+item.utilitycraft:bag_of_light_gray_dye=Пакетик со светло-серой краской
+item.utilitycraft:bag_of_lime_dye=Мешочек с лаймовым красителем
+item.utilitycraft:bag_of_magenta_dye=Мешочек с пурпурной краской
+item.utilitycraft:bag_of_melon_seeds=Мешочек с семенами дыни
+item.utilitycraft:bag_of_orange_dye=Пакетик с оранжевой краской
+item.utilitycraft:bag_of_pink_dye=Мешочек с розовой краской
+item.utilitycraft:bag_of_pitcher_pod=Мешок с кувшином
+item.utilitycraft:bag_of_pumpkin_seeds=Пакетик тыквенных семечек
+item.utilitycraft:bag_of_purple_dye=Мешочек с фиолетовой краской
+item.utilitycraft:bag_of_red_dye=Мешочек с красной краской
+item.utilitycraft:bag_of_sugar=Мешок сахара
+item.utilitycraft:bag_of_torchflower_seeds=Мешочек с семенами факельного цветка
+item.utilitycraft:bag_of_wheat_seeds=Мешок семян пшеницы
+item.utilitycraft:bag_of_white_dye=Мешочек с белой краской
+item.utilitycraft:bag_of_yellow_dye=Мешочек с желтой краской
+item.utilitycraft:bundle_of_blaze_rods=Связка пылающих жезлов
+item.utilitycraft:bundle_of_breeze_rods=Связка бризовых удочек
+item.utilitycraft:bundle_of_sticks=Связка палочек
+item.utilitycraft:jar_of_cookies=Банка печенья
+item.utilitycraft:jar_of_ghast_tears=Банка слез Гаста
+item.utilitycraft:jar_of_glow_ink=Банка светящихся чернил
+item.utilitycraft:jar_of_ink=Банка с чернилами
+item.utilitycraft:ream_of_paper=Пачка бумаги
+item.utilitycraft:spool_of_strings=Катушка струн
+item.utilitycraft:vase_of_fermented_spider_eyes=Ваза с ферментированными паучьими глазами
+item.utilitycraft:vase_of_spider_eye=Ваза Паучьего Глаза
+## Block Placer Items
+item.utilitycraft:blaze_block=Пылающее ядро
+item.utilitycraft:charcoal_block=Угольный блок
+item.utilitycraft:compressed_charcoal_block=Блок прессованного угля
+item.utilitycraft:compressed_charcoal_block_2=Двойной прессованный угольный блок
+item.utilitycraft:compressed_charcoal_block_3=Тройной блок прессованного угля
+item.utilitycraft:compressed_charcoal_block_4=Четырехместный блок прессованного угля
+item.utilitycraft:compressed_coal_block=Блок сжатого угля
+item.utilitycraft:compressed_coal_block_2=Блок двойного сжатого угля
+item.utilitycraft:compressed_coal_block_3=Тройной блок сжатого угля
+item.utilitycraft:compressed_coal_block_4=Четырехместный блок сжатого угля
+
+- Utility Blocks =## Блоки
+tile.utilitycraft:asphalt.name=Асфальт\n§7- Увеличивает скорость передвижения\n при ходьбе по нему.
+tile.utilitycraft:big_torch.name=Большой Факел
+tile.utilitycraft:elevator.name=Лифт
+tile.utilitycraft:flint_block.name=Кремневый блок
+tile.utilitycraft:lantern.name=Фонарь
+tile.utilitycraft:sink.name=Раковина
+
+## + Vehicles
+tile.utilitycraft:drill_placer.name=Сверлить
+tile.utilitycraft:tractor_placer.name=Трактор
+
+## + Crushed Blocks
+tile.utilitycraft:crushed_netherrack.name=Раздавленный Пустоты
+tile.utilitycraft:crushed_endstone.name=Дробленый Крайний Камень
+tile.utilitycraft:crushed_cobbled_deepslate.name=Измельченный булыжник Deepslate
+
+
+- Actions =## Действия/Интерактивы
+action.hint.exit.utilitycraft:tractor=Выход из трактора
+action.hint.exit.utilitycraft:drill=Выход из тренировки
+
+- Placeholder Items =## Элементы предварительного просмотра
+item.utilitycraft:lucky_fishing_rod_item=§aУдочка на удачу\n§7Морская удача V\nПриманка V
+item.utilitycraft:lucky_pickaxe_item=§aКирка везения\n§7Фортуна V
+item.utilitycraft:lucky_sword_item=§aСчастливый меч\n§7Добыча V
+
+- Items =## Итенс
+
+## to be updated.
+
+- Tools =## Ферментас
+## >>>>>>>> Open Group -------- ##
+
+-- AIOTs =## AIOT
+item.utilitycraft:netherite_aiot=Незеритовый АИОТ
+item.utilitycraft:diamond_aiot=Алмазный АИОТ
+item.utilitycraft:golden_aiot=Золотой АИОТ
+item.utilitycraft:steel_aiot=Сталь АИОТ
+item.utilitycraft:iron_aiot=Железный АИОТ
+item.utilitycraft:copper_aiot=Медь АИОТ
+item.utilitycraft:stone_aiot=Каменный АИОТ
+item.utilitycraft:wooden_aiot=Деревянный АИОТ
+
+-- Paxels =## Пакачадо
+item.utilitycraft:netherite_paxel=Незерит Паксел
+item.utilitycraft:diamond_paxel=Даймонд Паксел
+item.utilitycraft:steel_paxel=Сталь Паксел
+item.utilitycraft:iron_paxel=Железный Паксель
+item.utilitycraft:copper_paxel=Медный Паксель
+item.utilitycraft:golden_paxel=Золотой Паксель
+item.utilitycraft:stone_paxel=Каменный Паксель
+item.utilitycraft:wooden_paxel=Деревянный Паксел
+
+-- Hammers =## Мартелос
+item.utilitycraft:golden_hammer=Золотой Молот
+item.utilitycraft:netherite_hammer=Незеритовый молот
+item.utilitycraft:diamond_hammer=Алмазный молот
+item.utilitycraft:steel_hammer=Стальной молот
+item.utilitycraft:iron_hammer=Железный молот
+item.utilitycraft:copper_hammer=Медный молот
+item.utilitycraft:stone_hammer=Каменный молот
+item.utilitycraft:wooden_hammer=Деревянный молоток
+
+-- Steel =## Асо
+item.utilitycraft:steel_sword=Стальной меч
+item.utilitycraft:steel_axe=Стальной топор
+item.utilitycraft:steel_pickaxe=Стальная кирка
+item.utilitycraft:steel_shovel=Стальная лопата
+item.utilitycraft:steel_hoe=Стальная мотыга
+
+-- Special Tools =## Особые Ферменты
+item.utilitycraft:lucky_pickaxe=§aСчастливая кирка
+item.utilitycraft:lucky_sword=§aСчастливый меч
+item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7 — плавит руду при ее разрушении.
+item.utilitycraft:bionic_arm=Бионическая рука (тест)
+item.utilitycraft:lucky_fishing_rod=§aСчастливая удочка
+
+-- Drills =## Брокас
+item.utilitycraft:drill=Drill\n§7- Мины на площади 3x3
+item.utilitycraft:heavy_drill=Heavy Drill\n§7- Мины на площади 5х5.
+## -------- Close Group <<<<<<<< ##
+
+- Seeds =## Семена
+## >>>>>>>> Open Group -------- ##
+
+item.utilitycraft:base_seeds=Базовое семя
+
+-- Tier 1 =## Уровень (Семена) 1
+item.utilitycraft:coal_seeds=Угольные семена \n§eУровень 1
+item.utilitycraft:copper_seeds=Медные семена \n§eУровень 1
+item.utilitycraft:dyes_seeds=Красители Семена \n§eTier 1
+item.utilitycraft:glass_seeds=Стеклянные семена \n§eУровень 1
+item.utilitycraft:gunpowder_seeds=Семена пороха \n§eУровень 1
+item.utilitycraft:iron_seeds=Железные семена \n§eУровень 1
+item.utilitycraft:leather_seeds=Кожаные семена \n§eУровень 1
+item.utilitycraft:prismarine_crystals_seeds=Семена призмариновых кристаллов \n§eУровень 1
+item.utilitycraft:prismarine_shards_seeds=Семена призмариновых осколков \n§eУровень 1
+item.utilitycraft:water_seeds=Водные семена \n§eУровень 1
+item.utilitycraft:wool_seeds=Семена шерсти \n§eTier 1
+
+-- Tier 2 =## Уровень (Семена) 2
+item.utilitycraft:ghast_seeds=Семена гаста \n§cУровень 2
+item.utilitycraft:glowstone_seeds=Семена светящегося камня \n§cУровень 2
+item.utilitycraft:gold_seeds=Золотые семена \n§cУровень 2
+item.utilitycraft:honey_seeds=Семена меда \n§cУровень 2
+item.utilitycraft:lapis_seeds=Семена ляписа \n§cУровень 2
+item.utilitycraft:lava_seeds=Семена лавы \n§cУровень 2
+item.utilitycraft:quartz_seeds=Кварцевые семена \n§cУровень 2
+item.utilitycraft:redstone_seeds=Семена красного камня \n§cУровень 2
+item.utilitycraft:slime_seeds=Семена слизи \n§cУровень 2
+
+-- Tier 3 =## Уровень (Семена) 3
+item.utilitycraft:amethyst_seeds=Семена аметиста \n§bУровень 3
+item.utilitycraft:blaze_seeds=Семена пламени \n§bУровень 3
+item.utilitycraft:diamond_seeds=Алмазные семена \n§bУровень 3
+item.utilitycraft:emerald_seeds=Изумрудные семена \n§bУровень 3
+item.utilitycraft:enderpearl_seeds=Семена жемчуга Края \n§bУровень 3
+item.utilitycraft:obsidian_seeds=Семена обсидиана \n§bУровень 3
+
+-- Tier 4 =## Уровень (Семена) 4
+item.utilitycraft:nether_star_seeds=Семена звезд Пустоты \n§8Tier 4
+item.utilitycraft:netherite_seeds=Незеритовые семена \n§8Уровень 4
+item.utilitycraft:shulker_seeds=Семена шалкера \n§8Уровень 4
+item.utilitycraft:totem_seeds=Семена тотема \n§8Уровень 4
+item.utilitycraft:wither_seeds=Семена увядания \n§8Уровень 4
+## -------- Close Group <<<<<<<< ##
+
+- Mesh =## Меши
+item.utilitycraft:string_mesh=String Mesh\n§7 — Максимальный уровень выпадения: уголь
+item.utilitycraft:flint_mesh=§7Flint§r Mesh\n§7- Максимальный уровень выпадения: железо
+item.utilitycraft:copper_mesh=§nCopper§r Mesh\n§7 — Максимальный уровень выпадания: золото
+item.utilitycraft:iron_mesh=§iIron§r Mesh\n§7- Максимальный уровень выпадения: алмаз
+item.utilitycraft:golden_mesh=§pGolden§r Mesh\n§7 — Максимальный уровень выпадения: алмаз
+item.utilitycraft:emerald_mesh=§aEmerald§r Mesh\n§7- Максимальный уровень выпадения: алмаз
+item.utilitycraft:diamond_mesh=§bDiamond§r Mesh\n§7- Максимальный уровень выпадения: алмаз
+item.utilitycraft:netherite_mesh=§jНезерит§r Сетка\n§7- Максимальный уровень выпадения: Алмаз\n- Не выпадает кремень
+
+- Fishing Nets =## Рыболовные сети
+item.utilitycraft:string_fishing_net=Струнная рыболовная сеть\n§7- Уровень скорости крючка: 1
+item.utilitycraft:copper_fishing_net=§nCopper§r Рыболовная сеть\n§7- Уровень скорости крючка: 2
+item.utilitycraft:iron_fishing_net=§iIron§r Рыболовная сеть\n§7- Уровень скорости крючка: 3
+item.utilitycraft:golden_fishing_net=§pGolden§r Рыболовная сеть\n§7- Уровень скорости крючка: 4
+item.utilitycraft:emerald_fishing_net=§aEmerald§r Рыболовная сеть\n§7- Уровень скорости крючка: 5
+item.utilitycraft:diamond_fishing_net=§bDiamond§r Рыболовная сеть\n§7- Уровень скорости крючка: 6
+item.utilitycraft:netherite_fishing_net=§jНезерит§r Рыболовная сеть\n§7- Уровень скорости крюка: 7
+
+- Essences =## Эссенции
+item.utilitycraft:essence_vessel=Сосуд сущности \n§7- Щелкните правой кнопкой мыши или взаимодействуйте с сущностью\n- Убивайте мобов этого типа, чтобы наполнить сущность
+item.utilitycraft:pig_essence=Свиная эссенция
+item.utilitycraft:cow_essence=Коровья эссенция
+item.utilitycraft:zombie_essence=Эссенция зомби
+item.utilitycraft:skeleton_essence=Скелетная эссенция
+item.utilitycraft:slime_essence=Эссенция слизи
+item.utilitycraft:sheep_essence=Овечья эссенция
+item.utilitycraft:spider_essence=Эссенция паука
+item.utilitycraft:creeper_essence=Эссенция крипера
+item.utilitycraft:blaze_essence=Пламенная эссенция
+item.utilitycraft:chicken_essence=Куриная эссенция
+item.utilitycraft:enderman_essence=Эссенция Эндермана
+item.utilitycraft:hoglin_essence=Сущность Хоглина
+item.utilitycraft:magma_cube_essence=Сущность магмового куба
+item.utilitycraft:mooshroom_essence=Грибная эссенция
+item.utilitycraft:wither_skeleton_essence=Сущность скелета-иссушителя
+
+- Machines Upgrades =## Обновления машин
+## +
+item.utilitycraft:filter_upgrade=Обновление фильтра\n§7 – дает транспортным блокам \n возможность фильтровать предметы.
+item.utilitycraft:smart_filter_upgrade=Обновление интеллектуального фильтра\n§7 — обеспечивает расширенную маршрутизацию элементов\n с использованием категорий слотов и фильтров на основе приоритета\n.
+item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Повышает энергоэффективность машин.
+item.utilitycraft:speed_upgrade=§aУлучшение скорости§r\n§7- Увеличивает скорость работы машин\n- Увеличивает потребление энергии
+item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7 — увеличивает дальность действия машин.
+item.utilitycraft:quantity_upgrade=§3Quantity Upgrade§r\n§7- Увеличивает количество мобов, появляющихся для механического спавнера.
+item.utilitycraft:ultimate_upgrade=§8Окончательное обновление
+item.utilitycraft:damage_upgrade=§cDamage Upgrade§r\n§7 — увеличивает урон, наносимый Mob Grinder.
+## +
+item.utilitycraft:base_upgrade=Базовое обновление\n§7 – используется для создания улучшений машин.
+
+- Utility Items =## Утилиты
+item.utilitycraft:honey_ball=Медовый шарик
+item.utilitycraft:lava_ball=Лавовый шар
+item.utilitycraft:water_ball=Водяной шар
+item.utilitycraft:grenade=Граната
+item.utilitycraft:bomb=Бомбить
+item.utilitycraft:dynamite=Динамит
+## +
+item.utilitycraft:smeltflare=Корюшка
+item.utilitycraft:infinite_enderpearl=Бесконечная жемчужина Края
+item.utilitycraft:raw_leather=Необработанная кожа
+item.utilitycraft:antidote_potion=Зелье-противоядие
+item.utilitycraft:antidote_potion_splash=Всплеск зелья противоядия
+item.utilitycraft:wrench=Гаечный ключ §r\n§7- Вращает машину при подкрадывании §r\n§7- Убирает транспортные средства
+
+- Saplings =## Мудас
+item.utilitycraft:apple_sapling=Саженец яблони
+
+- Entities =## Энтидадес
+## -------- Open Group -------- ##
+entity.utilitycraft:tractor.name=Трактор
+entity.utilitycraft:oak_tree.name=Дуб
+entity.utilitycraft:birch_tree.name=Береза
+entity.utilitycraft:darkoak_tree.name=Темный дуб
+entity.utilitycraft:acacia_tree.name=Акация Дерево
+entity.utilitycraft:jungle_tree.name=Дерево Джунглей
+entity.utilitycraft:spruce_tree.name=Ель
+entity.utilitycraft:drill.name=Сверлить
+entity.utilitycraft:grenade.name=Граната
+entity.utilitycraft:bomb.name=Бомбить
+entity.utilitycraft:dynamite.name=Динамит
+entity.utilitycraft:crusher.name=Дробилка
+entity.utilitycraft:autosieve.name=Автосито
+entity.utilitycraft:cherry_tree.name=Вишневое дерево
+entity.utilitycraft:mangrove_tree.name=Мангровое дерево
+entity.utilitycraft:crimson_tree.name=Багровое дерево
+entity.utilitycraft:warped_tree.name=Искаженное дерево
+entity.utilitycraft:kelp.name=Келп
+entity.utilitycraft:sugarcane.name=Сахарный тростник
+entity.utilitycraft:bamboo.name=Бамбук
+entity.utilitycraft:mushroom.name=Гриб
+entity.utilitycraft:cactus.name=кактус
+entity.utilitycraft:apple_tree.name=Яблоня
+
+## -------- Close Group <<<<<<<< ##
+
+- Items 2 =##| Форматирование
+
+tile.utilitycraft:pedestal.name=Пьедестал\n§7 — используется в качестве основы для часов-ускорителя.
+entity.utilitycraft:accelerator_clock.name=Accelerator Clock\n§7 - ускоряет игру.
+item.utilitycraft:accelerator_clock=Accelerator Clock\n§7 - ускоряет игру.
+item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Призвать часы-ускоритель
+
+- Progress Bars =Barras de Progressão ##////////////////////////////////////////////////////////////////
+item.utilitycraft:empty_liquid_bar=Пустой
+item.utilitycraft:arrow_indicator=Стрелочный индикатор
+item.utilitycraft:info=Информация:
+< Progress Bars =Barras de Progressão ##////////////////////////////////////////////////////////////////
+
+- Energy Generators =Geradores de Energy ##////////////////////////////////////////////////////////////////
+tile.utilitycraft:basic_furnator.name=§eБазовая печь \n §7 Скорость: 40 DE/т
+tile.utilitycraft:basic_magmator.name=§eБазовый Магматор \n §7 Скорость: 50 DE/т
+tile.utilitycraft:basic_thermo_generator.name=§eБазовый термогенератор \n §7 Производительность: 20 DE/t
+tile.utilitycraft:basic_battery.name=§eБазовая батарея \n §7 Скорость: 100 DE/т
+tile.utilitycraft:basic_solar_panel.name=§eБазовая солнечная панель \n §7 Скорость: 12 DE/t
+tile.utilitycraft:basic_wind_turbine.name=§eБазовая ветряная турбина \n §7 Базовая скорость: 8 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y20
+
+tile.utilitycraft:advanced_furnator.name=§cУсовершенствованная печь \n §7 Скорость: 160 DE/t
+tile.utilitycraft:advanced_magmator.name=§cУсовершенствованный Магматор \n §7 Скорость: 200 DE/t
+tile.utilitycraft:advanced_thermo_generator.name=§cУсовершенствованный термогенератор \n §7 Производительность: 80 DE/t
+tile.utilitycraft:advanced_battery.name=§cУсовершенствованная батарея \n §7 Скорость: 800 DE/т
+tile.utilitycraft:advanced_solar_panel.name=§cУсовершенствованная солнечная панель \n §7 Скорость: 48 DE/t
+tile.utilitycraft:advanced_wind_turbine.name=§cУсовершенствованная ветряная турбина \n §7 Базовая скорость: 32 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y20
+
+tile.utilitycraft:expert_furnator.name=§bExpert Furnator \n §7 Скорость: 640 DE/т
+tile.utilitycraft:expert_magmator.name=§bЭксперт Магматор \n §7 Скорость: 800 DE/т
+tile.utilitycraft:expert_thermo_generator.name=§bЭкспертный термогенератор \n §7 Производительность: 320 DE/т
+tile.utilitycraft:expert_battery.name=§bExpert Battery \n §7 Скорость: 1,6 кДЭ/т
+tile.utilitycraft:expert_solar_panel.name=§bСолнечная панель Expert \n §7 Скорость: 192 DE/t
+tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Базовая скорость: 128 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y20
+
+tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator \n §7 Скорость: 4 kDE/t
+tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Скорость: 5 kDE/t
+tile.utilitycraft:ultimate_thermo_generator.name=§8Ультимативный термогенератор \n §7 Производительность: 2 кДЭ/т
+tile.utilitycraft:ultimate_battery.name=§8Ultimate Battery \n §7 Скорость: 10 кДЭ/т
+tile.utilitycraft:ultimate_solar_panel.name=§8Солнечная панель Ultimate \n §7 Скорость: 1200 DE/t
+tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Базовая скорость: 800 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y16
+
+
+< Energy Generators =Geradores de Energy ##////////////////////////////////////////////////////////////////
+
+- Stuff =## Койсас Não-Categorizadas
+tile.utilitycraft:waycenter.name=Центр пути
+tile.utilitycraft:waycarpet.name=Путь Ковер
+item.utilitycraft:way_chip=Путь чипа
+
+item.utilitycraft:amethyst_dust=Аметистовая пыль
+item.utilitycraft:diamond_dust=Алмазная пыль
+item.utilitycraft:emerald_dust=Изумрудная пыль
+item.utilitycraft:obsidian_dust=Обсидиановая пыль
+item.utilitycraft:quartz_dust=Кварцевая пыль
+item.utilitycraft:netherite_dust=Незеритовая пыль
+item.utilitycraft:netherite_scrap_dust=Незеритовая пыль
+item.utilitycraft:charcoal_dust=Угольная пыль
+item.utilitycraft:coal_dust=Угольная пыль
+item.utilitycraft:crying_obsidian_dust=Плачущая обсидиановая пыль
+item.utilitycraft:stabilized_obsidian_dust=Стабилизированная обсидиановая пыль
+item.utilitycraft:copper_dust=Медная пыль
+item.utilitycraft:gold_dust=Золотая пыль
+item.utilitycraft:iron_dust=Железная пыль
+item.utilitycraft:ender_pearl_dust=Жемчужная пыль Эндера
+
+
+item.utilitycraft:chip=Чип
+item.utilitycraft:basic_chip=§eБазовый чип
+item.utilitycraft:advanced_chip=§cРасширенный чип
+item.utilitycraft:expert_chip=§bЭкспертный чип
+item.utilitycraft:ultimate_chip=§8Абсолютный чип
+
+item.utilitycraft:energized_iron_ingot=Заряженный железный слиток
+item.utilitycraft:energized_iron_nugget=Заряженный железный самородок
+item.utilitycraft:energized_iron_dust=Заряженная железная пыль
+item.utilitycraft:energized_iron_plate=Заряженная железная пластина
+item.utilitycraft:raw_energized_iron=Грубое заряженное железо
+item.utilitycraft:energized_iron_block=Заряженный железный блок
+tile.utilitycraft:energized_iron_block.name=Заряженный железный блок
+tile.utilitycraft:raw_energized_iron_block.name=Грубый заряженный железный блок
+
+item.utilitycraft:steel_ingot=Стальной слиток
+tile.utilitycraft:raw_steel_block.name=Грубый стальной блок
+item.utilitycraft:raw_steel=Грубая сталь
+tile.utilitycraft:steel_block.name=Стальной блок
+item.utilitycraft:steel_dust=Стальная пыль
+item.utilitycraft:steel_nugget=Стальной самородок
+item.utilitycraft:steel_plate=Стальная пластина
+
+item.utilitycraft:copper_plate=Медная пластина
+item.utilitycraft:gold_plate=Золотая пластина
+item.utilitycraft:iron_plate=Железная пластина
+item.utilitycraft:netherite_plate=Незеритовая пластина
+item.utilitycraft:netherite_nugget=Незеритовый самородок
+
+item.utilitycraft:arrow_indicator_90=Стрелочный индикатор
+< Stuff =## Койсас Não-Categorizadas
+
+## - Categories
+dorios:itemGroup.name.generators=Генераторы
+dorios:itemGroup.name.machines=Машины
+dorios:itemGroup.name.batteries=Батареи
+dorios:itemGroup.name.basics=Основы
+dorios:itemGroup.name.meshes=Сетки
+dorios:itemGroup.name.fishing_nets=Рыболовные сети
+dorios:itemGroup.name.essences=Эссенции\n§7 — используются в механическом спавнере.
+dorios:itemGroup.name.upgrades=Модернизация машины
+dorios:itemGroup.name.plates=Тарелки
+dorios:itemGroup.name.seeds=Семена
+dorios:itemGroup.name.mob_grinding=Измельчение мобов
+dorios:itemGroup.name.transportation=Транспортировка предметов
+dorios:itemGroup.name.compressed=Сжатые блоки
+dorios:itemGroup.name.bags=Сумки
+dorios:itemGroup.name.bundles=Пакеты
+dorios:itemGroup.name.vases=Вазы
+dorios:itemGroup.name.jars=Банки
+dorios:itemGroup.name.tanks=Танки
+dorios:itemGroup.name.cobble_gens=Генераторы булыжника
+dorios:itemGroup.name.soils=Почвы
+dorios:itemGroup.name.dusts=Пыль
+dorios:itemGroup.name.indicators=Индикаторы
+dorios:itemGroup.name.aiots=AIOT
+dorios:itemGroup.name.paxels=Паксели
+dorios:itemGroup.name.hammers=Молотки
+
+## < Categories
+
+dorios:itemGroup.name.pebbles=Галька
+item.utilitycraft:ancient_debris_chunk=Кусок древних обломков
+item.utilitycraft:blackstone_pebble=Блэкстоун Галька
+item.utilitycraft:basalt_pebble=Базальтовая галька
+item.utilitycraft:crushed_netherrack_handful=Раздавленная Пустота: горсть
+item.utilitycraft:calcite_pebble=Кальцитовая галька
+item.utilitycraft:coal_chunk=Кусок угля
+item.utilitycraft:copper_chunk=Медный кусок
+item.utilitycraft:crushed_deepslate_handful=Горсть измельченной глубокой плиты
+item.utilitycraft:crushed_endstone_handful=Горсть дробленого Краевого Камня
+item.utilitycraft:deepslate_coal_chunk=Угольный кусок Deepslate
+item.utilitycraft:deepslate_diamond_chunk=Кусок алмаза Deepslate
+item.utilitycraft:deepslate_emerald_chunk=Изумрудный кусок глубокой плиты
+item.utilitycraft:deepslate_gold_chunk=Кусок золота из глубинной сланца
+item.utilitycraft:deepslate_iron_chunk=Железный кусок глубокосланцевой плиты
+item.utilitycraft:deepslate_lapislazuli_chunk=Кусок глубокого сланца лапислазули
+item.utilitycraft:deepslate_pebble=Галька из глубокой сланца
+item.utilitycraft:deepslate_redstone_chunk=Кусок красного камня Deepslate
+item.utilitycraft:diamond_chunk=Алмазный кусок
+item.utilitycraft:diamond_shard=Алмазный осколок
+item.utilitycraft:diorite_pebble=Диоритовая галька
+item.utilitycraft:andesite_pebble=Андезитовая галька
+item.utilitycraft:dirt_handful=Горсть грязи
+item.utilitycraft:dripstone_pebble=Капельный камешек
+item.utilitycraft:emerald_chunk=Изумрудный кусок
+item.utilitycraft:emerald_shard=Изумрудный осколок
+item.utilitycraft:endstone_pebble=Крайний камень галька
+item.utilitycraft:geode=Жеода
+item.utilitycraft:gilded_blackstone_pebble=Позолоченный каменный камешек
+item.utilitycraft:gold_chunk=Золотой кусок
+item.utilitycraft:granite_pebble=Гранитная галька
+item.utilitycraft:gravel_fragments=Фрагменты гравия
+item.utilitycraft:iron_chunk=Железный кусок
+item.utilitycraft:lapislazuli_chunk=Лапислазуля кусок
+item.utilitycraft:mud_ball=Грязевой шар
+item.utilitycraft:nether_gold_chunk=Кусок золота Пустоты
+item.utilitycraft:nether_quartz_chunk=Кусок кварца Пустоты
+item.utilitycraft:nether_star_fragment=Фрагмент звезды Пустоты
+item.utilitycraft:netherrack_pebble=Галька Пустоты
+item.utilitycraft:red_sand_handful=Горсть красного песка
+item.utilitycraft:redstone_chunk=Редстоун кусок
+item.utilitycraft:sand_handful=Горсть песка
+item.utilitycraft:shulker_shell_shard=Осколок шалкера
+item.utilitycraft:souls_handful=Горстка душ
+item.utilitycraft:stone_pebble=Каменная галька
+item.utilitycraft:totem_shard=Тотемный осколок
+item.utilitycraft:tuff_pebble=Туф Галька
+item.utilitycraft:wither_skull_shard=Осколок черепа-иссушителя
+
+tile.utilitycraft:energy_cable.name=Энергетический кабель
+tile.utilitycraft:item_conduit.name=Канал для предметов (по умолчанию)\n§7 — транспортирует предметы.
+tile.utilitycraft:item_conduit_blue.name=Проводник для предметов (синий)\n§7 — транспортирует предметы.
+tile.utilitycraft:item_conduit_yellow.name=Канал для предметов (желтый)\n§7 — транспортирует предметы
+tile.utilitycraft:item_conduit_red.name=Проводник для предметов (красный)\n§7 — транспортирует предметы.
+tile.utilitycraft:item_conduit_purple.name=Проводник для предметов (фиолетовый)\n§7 — транспортирует предметы.
+tile.utilitycraft:fluid_pipe.name=Трубопровод для жидкости (по умолчанию)\n§7 — транспортирует жидкости
+tile.utilitycraft:fluid_pipe_blue.name=Трубка для жидкости (синяя)\n§7- Транспортирует жидкости
+tile.utilitycraft:fluid_pipe_green.name=Трубка для жидкости (зеленая)\n§7- Транспортирует жидкости
+tile.utilitycraft:fluid_pipe_red.name=Трубка для жидкости (красная)\n§7- Транспортирует жидкости
+tile.utilitycraft:fluid_pipe_purple.name=Трубка для жидкости (фиолетовая)\n§7- транспортирует жидкости
+
+dorios:itemGroup.name.pipes=Трубы
+item.utilitycraft:flint_knife=Кремневый нож \n§7- Отделяет волокна от листьев.
+item.utilitycraft:fiber=Волокно
+tile.utilitycraft:item_exporter.name=Экспортер предметов (по умолчанию)\n§7- Принимаемые обновления:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_blue.name=Экспортер предметов (синий)\n§7- Принимаемые обновления:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_red.name=Экспортер предметов (красный)\n§7- Принимаемые обновления:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_yellow.name=Экспортер предметов (желтый)\n§7- Принимаемые обновления:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_purple.name=Экспортер предметов (фиолетовый)\n§7- Принимаемые обновления:\n §a§7 §f§7
+item.utilitycraft:mortar=миномет
+tile.utilitycraft:fluid_extractor.name=Экстрактор жидкости (по умолчанию)\n§7- Допустимые обновления:\n §a§7
+tile.utilitycraft:fluid_extractor_blue.name=Экстрактор жидкости (синий)\n§7- Допустимые обновления:\n §a§7
+tile.utilitycraft:fluid_extractor_green.name=Экстрактор жидкости (зеленый)\n§7- Допустимые обновления:\n §a§7
+tile.utilitycraft:fluid_extractor_red.name=Экстрактор жидкости (красный)\n§7- Допустимые обновления:\n §a§7
+tile.utilitycraft:fluid_extractor_purple.name=Экстрактор жидкости (фиолетовый)\n§7- Допустимые обновления:\n §a§7
+tile.utilitycraft:item_importer.name=Импортер предметов (по умолчанию)\n§7- Принимаемые обновления:\n §f§7
+tile.utilitycraft:item_importer_blue.name=Импортер предметов (синий)\n§7- Принимаемые обновления:\n §f§7
+tile.utilitycraft:item_importer_red.name=Импортер предметов (красный)\n§7- Принимаемые обновления:\n §f§7
+tile.utilitycraft:item_importer_yellow.name=Импортер предметов (желтый)\n§7- Принимаемые обновления:\n §f§7
+tile.utilitycraft:item_importer_purple.name=Импортер предметов (фиолетовый)\n§7- Принимаемые обновления:\n §f§7
+
+
+## All the same
+
+item.utilitycraft:blueprint_paper=Пустой чертеж
+item.utilitycraft:blueprint=План
+
+## Machines Entities
+entity.utilitycraft:assembler.name=Ассемблер
+entity.utilitycraft:autosieve.name=Автосито
+entity.utilitycraft:autofisher.name=Авто Фишер
+entity.utilitycraft:block_breaker.name=Блок-брейкер
+entity.utilitycraft:block_placer.name=Блок-разметчик
+entity.utilitycraft:crusher.name=Дробилка
+entity.utilitycraft:digitizer.name=Дигитайзер
+entity.utilitycraft:electro_press.name=Электро Пресс
+entity.utilitycraft:harvester.name=Комбайн
+entity.utilitycraft:incinerator.name=Мусоросжигательный завод
+entity.utilitycraft:induction_anvil.name=Индукционная наковальня
+entity.utilitycraft:infuser.name=Инфузор
+entity.utilitycraft:magmatic_chamber.name=Магматическая камера
+entity.utilitycraft:seed_synthesizer.name=Синтезатор семян
+entity.utilitycraft:power_condenser.name=Матрица силового конденсатора
+
+## Generators Entities
+entity.utilitycraft:battery.name=Батарея
+entity.utilitycraft:transmitter.name=Передатчик
+entity.utilitycraft:receiver.name=Получатель
+entity.utilitycraft:furnator.name=фурнатор
+entity.utilitycraft:magmator.name=Магматор
+entity.utilitycraft:solar_panel.name=Солнечная панель
+entity.utilitycraft:thermo_generator.name=Термогенератор
+entity.utilitycraft:wind_turbine.name=Ветряная турбина
+tile.utilitycraft:blaze_block.name=Пылающее ядро
+item.utilitycraft:crushed_kelp=Измельченная водоросль
+
+dorios:itemGroup.name.removed=Удаленный
+
+tile.utilitycraft:basic_trash_can.name=Базовый мусорный бак
+
+tile.utilitycraft:basic_energy_transmitter.name=§eБазовый передатчик энергии \n §7 Скорость: 1 kDE/t\n §7 Емкость: 64 kDE\n §7 Диапазон: 32 блока
+tile.utilitycraft:advanced_energy_transmitter.name=§cУсовершенствованный передатчик энергии \n §7 Скорость: 4 kDE/t\n §7 Емкость: 256 kDE\n §7 Диапазон: 64 блока
+tile.utilitycraft:expert_energy_transmitter.name=§bExpert Energy Transmitter \n §7 Скорость: 16 kDE/t\n §7 Емкость: 1,024 MDE\n §7 Дальность: 128 блоков
+tile.utilitycraft:ultimate_energy_transmitter.name=§8Передатчик максимальной энергии \n §7 Скорость: 100 кДЭ/т\n §7 Емкость: 6,4 MDE\n §7 Дальность: 512 блоков
+
+tile.utilitycraft:basic_energy_receiver.name=§eОсновной энергетический рецептор \n §7 Скорость: 1 кДЭ/т\n §7 Емкость: 64 кДЭ
+tile.utilitycraft:advanced_energy_receiver.name=§cУсовершенствованный энергетический рецептор \n §7 Скорость: 4 кДЭ/т\n §7 Емкость: 256 кДЭ
+tile.utilitycraft:expert_energy_receiver.name=§bЭкспертный энергетический рецептор \n §7 Скорость: 16 kDE/t\n §7 Емкость: 1,024 MDE
+tile.utilitycraft:ultimate_energy_receiver.name=§8Рецептор предельной энергии \n §7 Скорость: 100 кДЭ/т\n §7 Емкость: 6,4 MDE
+
+item.utilitycraft:settings=Настройки\n §7 Взаимодействуйте, чтобы открыть настройки UtilityCraft.

@@ -1,0 +1,871 @@
+## Translated by Milo
+
+message.utilitycraft.invalid_mesh=§eカスタムメッシュは自動ふるい機でのみ使用できます！
+
+- Bloques =## ブロック
+
+- Tables =## メサ
+tile.utilitycraft:workbench.name=ワークベンチ\n§7- 機械に関連するあらゆるものを作成するために使用します
+tile.utilitycraft:utility_table.name=ユーティリティテーブル\n§7- 優れたツールを作成するために使用します
+
+- Machines =## マキナス
+tile.utilitycraft:autosieve.name=Autosieve\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:autofisher.name=Auto Fisher\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:block_breaker.name=ブロック ブレーカー\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:ender_hopper.name=エンダーホッパー\n§7- 受け入れられたアップグレード:\n §a§7 §9§7 §f§7
+tile.utilitycraft:crusher.name=クラッシャー\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:harvester.name=ハーベスター\n§7- 受け入れられたアップグレード:\n §a§7 §b§7 §9§7
+tile.utilitycraft:electro_press.name=Electro Press\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:block_placer.name=ブロック配置者\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:seed_synthesizer.name=シード シンセサイザー\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:incinerator.name=焼却炉\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:infuser.name=Infuser\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:assembler.name=アセンブラ\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:digitizer.name=デジタイザー\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:induction_anvil.name=誘導アンビル\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:magmatic_chamber.name=マグマ室\n§7- 受け入れられたアップグレード:\n §a§7 §b§7
+tile.utilitycraft:mechanic_dropper.name=機械式ドロッパー\n§7- 受け入れられたアップグレード:\n §a§7 §f§7
+
+tile.utilitycraft:fluid_pump.name=液体ポンプ\n§7- 受け入れられたアップグレード:\n §a§7
+
+tile.utilitycraft:machine_case.name=マシンケース
+tile.utilitycraft:xp_condenser.name=XPコンデンサー
+tile.utilitycraft:sieve.name=ふるい\n§7- 最大複数回使用: 5x5
+tile.utilitycraft:crucible.name=坩堝
+## +
+tile.utilitycraft:fan.name=ファン\n§7- 受け入れられたアップグレード:\n §9§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- 受け入れられたアップグレード:\n §9§7 §c§7
+tile.utilitycraft:mob_trap.name=モブトラップ
+tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- 受け入れられたアップグレード:\n §9§7
+tile.utilitycraft:xp_drain.name=XPドレイン
+tile.utilitycraft:xp_spout.name=XPスパウト
+## +
+tile.utilitycraft:cobble_gen_0.name=丸石ジェネレーター (§vTier 1§r)\n§7- 1 秒あたり 0.25 を生成します
+tile.utilitycraft:cobble_gen_1.name=丸石ジェネレーター (§iTier 2§r) \n§7- 毎秒 0.5 個生成
+tile.utilitycraft:cobble_gen_2.name=丸石ジェネレーター (§gTier 3§r) \n§7- 1 秒あたり 1 個生成します
+tile.utilitycraft:cobble_gen_3.name=丸石ジェネレーター (§qTier 4§r) \n§7- 1 秒あたり 2 個生成します
+tile.utilitycraft:cobble_gen_4.name=丸石ジェネレーター (§sTier 5§r) \n§7- 1 秒あたり 4 個生成します
+tile.utilitycraft:cobble_gen_5.name=丸石ジェネレーター (§jTier 6§r) \n§7- 1 秒あたり 20 個生成します
+## +
+tile.utilitycraft:conveyor_horizontal.name=水平コンベヤ
+tile.utilitycraft:conveyor_inclined.name=傾斜コンベヤ
+tile.utilitycraft:conveyor_declined.name=辞退したコンベヤ
+tile.utilitycraft:mechanic_hopper.name=メカニック ホッパー\n§7- 受け入れられたアップグレード:\n §7、§fFilter§7
+tile.utilitycraft:mechanic_upper.name=メカニックアッパー\n§7- 受け入れられたアップグレード:\n §7、§fFilter§7
+##+
+tile.utilitycraft:basic_fluid_tank.name=§eベーシック液体タンク
+tile.utilitycraft:advanced_fluid_tank.name=§c高度な液体タンク
+tile.utilitycraft:expert_fluid_tank.name=§bエキスパート液体タンク
+tile.utilitycraft:ultimate_fluid_tank.name=§8究極の液体タンク
+- Bountiful Bonsais =## 盆栽が豊富
+tile.utilitycraft:bonsai.name=盆栽
+
+- Bountiful Crops =## コルヘイタス・アバンダンテス
+## >>>>>>>> Open Group -------- ##
+
+-- Tier 1 =## ティア (作物) 1
+tile.utilitycraft:coal_crop.name=石炭作物
+tile.utilitycraft:copper_crop.name=銅の作物
+tile.utilitycraft:dyes_crop.name=染料作物
+tile.utilitycraft:glass_crop.name=ガラスの作物
+tile.utilitycraft:gunpowder_crop.name=火薬作物
+tile.utilitycraft:iron_crop.name=鉄作物
+tile.utilitycraft:leather_crop.name=レザークロップ
+tile.utilitycraft:prismarine_crystal_crop.name=プリズマリンクリスタルクロップ
+tile.utilitycraft:prismarine_shards_crop.name=プリズマリンの破片の作物
+tile.utilitycraft:water_crop.name=水作物
+tile.utilitycraft:wool_crop.name=羊毛作物
+
+-- Tier 2 =## ティア (作物) 2
+tile.utilitycraft:ghast_crop.name=ガストクロップ
+tile.utilitycraft:glowstone_crop.name=グロウストーン作物
+tile.utilitycraft:gold_crop.name=ゴールドクロップ
+tile.utilitycraft:honey_crop.name=ハニークロップ
+tile.utilitycraft:lapis_crop.name=ラピスクロップ
+tile.utilitycraft:lava_crop.name=溶岩作物
+tile.utilitycraft:quartz_crop.name=水晶作物
+tile.utilitycraft:redstone_crop.name=レッドストーン作物
+tile.utilitycraft:slime_crop.name=スライムクロップ
+
+-- Tier 3 =## ティア (作物) 3
+tile.utilitycraft:amethyst_crop.name=アメジストクロップ
+tile.utilitycraft:blaze_crop.name=ブレイズクロップ
+tile.utilitycraft:diamond_crop.name=ダイヤモンドクロップ
+tile.utilitycraft:emerald_crop.name=エメラルドクロップ
+tile.utilitycraft:enderpearl_crop.name=エンダーパールクロップ
+tile.utilitycraft:obsidian_crop.name=黒曜石作物
+
+-- Tier 4 =## ティア (作物) 4
+tile.utilitycraft:netherite_crop.name=ネザライト作物
+tile.utilitycraft:netherstar_crop.name=ネザースター作物
+tile.utilitycraft:shulker_crop.name=シュルカークロップ
+tile.utilitycraft:totem_crop.name=トーテム作物
+tile.utilitycraft:wither_crop.name=ウィザークロップ
+## -------- Close Group <<<<<<<< ##
+
+- Soils =## 土壌
+tile.utilitycraft:blue_soil.name=§b青い土
+tile.utilitycraft:black_soil.name=§8黒土
+tile.utilitycraft:red_soil.name=§c赤土
+tile.utilitycraft:yellow_soil.name=§e黄土
+
+- Mechanical Spawners =## インボカドール メカニコス
+tile.utilitycraft:mechanical_spawner.name=機械式スポナー\n§7- 受け入れられたアップグレード:\n §a§7 §3§7
+tile.utilitycraft:spawner_core.name=スポナーコア
+
+-- =## スポナーアイテム
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=機械式スポナー: ブレイズ
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_chicken.name=機械式スポナー: チキン
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_cow.name=機械式スポナー: 牛
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_creeper.name=機械式スポナー: クリーパー
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_enderman.name=機械式スポナー: エンダーマン
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_hoglin.name=機械式スポナー: ホグリン
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_magma_cube.name=メカニカルスポナー: マグマキューブ
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_mooshroom.name=機械式スポナー: ムーシュルーム
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=機械式スポナー: ブタ
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=機械式スポナー: 羊
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=機械スポナー: スケルトン
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=機械式スポナー: スライム
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=機械式スポナー: スパイダー
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=機械スポナー: ウィッチ
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=機械式スポナー: ゾンビ
+
+- Compressed Blocks =## ブロコス・コンプリミドス
+tile.utilitycraft:compressed_cobblestone.name=圧縮丸石
+tile.utilitycraft:double_compressed_cobblestone.name=二重圧縮丸石
+tile.utilitycraft:triple_compressed_cobblestone.name=三重圧縮丸石
+tile.utilitycraft:quadruple_compressed_cobblestone.name=四重圧縮丸石
+tile.utilitycraft:quintuple_compressed_cobblestone.name=五重圧縮丸石
+tile.utilitycraft:sextuple_compressed_cobblestone.name=6重圧縮丸石
+tile.utilitycraft:septuple_compressed_cobblestone.name=七重圧縮丸石
+tile.utilitycraft:octuple_compressed_cobblestone.name=八重圧縮丸石
+tile.utilitycraft:nonuple_compressed_cobblestone.name=非圧縮丸石
+## +
+tile.utilitycraft:compressed_amethyst_block.name=圧縮アメジストブロック
+tile.utilitycraft:compressed_amethyst_block_2.name=二重圧縮アメジストブロック
+tile.utilitycraft:compressed_amethyst_block_3.name=三重圧縮アメジストブロック
+tile.utilitycraft:compressed_amethyst_block_4.name=4重圧縮アメジストブロック
+tile.utilitycraft:compressed_blackstone.name=圧縮ブラックストーン
+tile.utilitycraft:compressed_blackstone_2.name=二重圧縮ブラックストーン
+tile.utilitycraft:compressed_blackstone_3.name=三重圧縮ブラックストーン
+tile.utilitycraft:compressed_blackstone_4.name=四重圧縮ブラックストーン
+tile.utilitycraft:compressed_block.name=完全な紫\n§8- このブロックが存在する理由はない、ただテクスチャが気に入っているだけ\n- 入手不可
+tile.utilitycraft:compressed_brute_energized_iron_block.name=圧縮されたブルートエネルギーを与えられた鉄のブロック
+tile.utilitycraft:compressed_brute_energized_iron_block_2.name=二重圧縮されたブルート通電鉄ブロック
+tile.utilitycraft:compressed_brute_energized_iron_block_3.name=トリプル圧縮ブルート通電鉄ブロック
+tile.utilitycraft:compressed_brute_energized_iron_block_4.name=四重圧縮ブルート通電鉄ブロック
+tile.utilitycraft:compressed_brute_steel_block.name=圧縮ブルートスチールブロック
+tile.utilitycraft:compressed_brute_steel_block_2.name=二重圧縮ブルートスチールブロック
+tile.utilitycraft:compressed_brute_steel_block_3.name=トリプル圧縮ブルートスチールブロック
+tile.utilitycraft:compressed_brute_steel_block_4.name=四重圧縮ブルートスチールブロック
+tile.utilitycraft:compressed_coal_block.name=圧縮石炭ブロック
+tile.utilitycraft:compressed_coal_block_2.name=二重圧縮石炭ブロック
+tile.utilitycraft:compressed_coal_block_3.name=三重圧縮石炭ブロック
+tile.utilitycraft:compressed_coal_block_4.name=四重圧縮石炭ブロック
+tile.utilitycraft:compressed_cobbled_deepslate.name=圧縮された石畳のディープスレート
+tile.utilitycraft:compressed_cobbled_deepslate_2.name=二重圧縮石畳ディープスレート
+tile.utilitycraft:compressed_cobbled_deepslate_3.name=三重圧縮石畳ディープスレート
+tile.utilitycraft:compressed_cobbled_deepslate_4.name=四重圧縮石畳ディープスレート
+tile.utilitycraft:compressed_copper_block.name=圧縮銅ブロック
+tile.utilitycraft:compressed_copper_block_2.name=二重圧縮銅ブロック
+tile.utilitycraft:compressed_copper_block_3.name=三重圧縮銅ブロック
+tile.utilitycraft:compressed_copper_block_4.name=四重圧縮銅ブロック
+tile.utilitycraft:compressed_crushed_cobbled_deepslate.name=圧縮砕石石畳ディープスレート
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name=二重圧縮砕石石畳ディープスレート
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name=三重圧縮砕石石畳ディープスレート
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name=四重圧縮粉砕石畳ディープスレート
+tile.utilitycraft:compressed_crushed_endstone.name=圧縮粉砕エンドストーン
+tile.utilitycraft:compressed_crushed_endstone_2.name=二重圧縮粉砕エンドストーン
+tile.utilitycraft:compressed_crushed_endstone_3.name=三重圧縮粉砕エンドストーン
+tile.utilitycraft:compressed_crushed_endstone_4.name=四重圧縮粉砕エンドストーン
+tile.utilitycraft:compressed_crushed_netherrack.name=圧縮粉砕ネザーラック
+tile.utilitycraft:compressed_crushed_netherrack_2.name=二重圧縮粉砕ネザーラック
+tile.utilitycraft:compressed_crushed_netherrack_3.name=三重圧縮粉砕ネザーラック
+tile.utilitycraft:compressed_crushed_netherrack_4.name=四重圧縮粉砕ネザーラック
+tile.utilitycraft:compressed_cry_obsidian.name=圧縮された泣く黒曜石
+tile.utilitycraft:compressed_cry_obsidian_2.name=二重圧縮クライングオブシディアン
+tile.utilitycraft:compressed_cry_obsidian_3.name=トリプル圧縮クライングオブシディアン
+tile.utilitycraft:compressed_cry_obsidian_4.name=四重圧縮泣き黒曜石
+tile.utilitycraft:compressed_deepslate.name=圧縮ディープスレート
+tile.utilitycraft:compressed_deepslate_2.name=二重圧縮ディープスレート
+tile.utilitycraft:compressed_deepslate_3.name=三重圧縮ディープスレート
+tile.utilitycraft:compressed_deepslate_4.name=四重圧縮ディープスレート
+tile.utilitycraft:compressed_diamond_block.name=圧縮ダイヤモンドブロック
+tile.utilitycraft:compressed_diamond_block_2.name=二重圧縮ダイヤモンドブロック
+tile.utilitycraft:compressed_diamond_block_3.name=三重圧縮ダイヤモンドブロック
+tile.utilitycraft:compressed_diamond_block_4.name=4重圧縮ダイヤモンドブロック
+tile.utilitycraft:compressed_dirt.name=圧縮された汚れ
+tile.utilitycraft:compressed_dirt_2.name=二重圧縮ダート
+tile.utilitycraft:compressed_dirt_3.name=トリプル圧縮ダート
+tile.utilitycraft:compressed_dirt_4.name=四重圧縮ダート
+tile.utilitycraft:compressed_emerald_block.name=圧縮されたエメラルドブロック
+tile.utilitycraft:compressed_emerald_block_2.name=二重圧縮エメラルドブロック
+tile.utilitycraft:compressed_emerald_block_3.name=三重圧縮エメラルドブロック
+tile.utilitycraft:compressed_emerald_block_4.name=4重圧縮エメラルドブロック
+tile.utilitycraft:compressed_endstone.name=圧縮されたエンドストーン
+tile.utilitycraft:compressed_endstone_2.name=二重圧縮エンドストーン
+tile.utilitycraft:compressed_endstone_3.name=三重圧縮エンドストーン
+tile.utilitycraft:compressed_endstone_4.name=四重圧縮エンドストーン
+tile.utilitycraft:compressed_energized_iron_block.name=圧縮通電鉄ブロック
+tile.utilitycraft:compressed_energized_iron_block_2.name=二重圧縮通電鉄ブロック
+tile.utilitycraft:compressed_energized_iron_block_3.name=三重圧縮通電鉄ブロック
+tile.utilitycraft:compressed_energized_iron_block_4.name=四重圧縮通電鉄ブロック
+tile.utilitycraft:compressed_exposed_copper_block.name=圧縮露出銅ブロック
+tile.utilitycraft:compressed_exposed_copper_block_2.name=二重圧縮露出銅ブロック
+tile.utilitycraft:compressed_exposed_copper_block_3.name=三重圧縮露出銅ブロック
+tile.utilitycraft:compressed_exposed_copper_block_4.name=四重圧縮露出銅ブロック
+tile.utilitycraft:compressed_flint_block.name=圧縮フリントブロック
+tile.utilitycraft:compressed_flint_block_2.name=二重圧縮フリントブロック
+tile.utilitycraft:compressed_flint_block_3.name=三重圧縮フリントブロック
+tile.utilitycraft:compressed_flint_block_4.name=四重圧縮フリントブロック
+tile.utilitycraft:compressed_glass.name=圧縮ガラス
+tile.utilitycraft:compressed_glass_2.name=二重圧縮ガラス
+tile.utilitycraft:compressed_glass_3.name=三重圧縮ガラス
+tile.utilitycraft:compressed_glass_4.name=四重圧縮ガラス
+tile.utilitycraft:compressed_gold_block.name=圧縮ゴールドブロック
+tile.utilitycraft:compressed_gold_block_2.name=二重圧縮ゴールドブロック
+tile.utilitycraft:compressed_gold_block_3.name=三重圧縮ゴールドブロック
+tile.utilitycraft:compressed_gold_block_4.name=4重圧縮ゴールドブロック
+tile.utilitycraft:compressed_gravel.name=圧縮砂利
+tile.utilitycraft:compressed_gravel_2.name=二重圧縮砂利
+tile.utilitycraft:compressed_gravel_3.name=三重圧縮砂利
+tile.utilitycraft:compressed_gravel_4.name=四重圧縮砂利
+tile.utilitycraft:compressed_iron_block.name=圧縮鉄ブロック
+tile.utilitycraft:compressed_iron_block_2.name=二重圧縮鉄ブロック
+tile.utilitycraft:compressed_iron_block_3.name=三重圧縮鉄ブロック
+tile.utilitycraft:compressed_iron_block_4.name=四重圧縮鉄ブロック
+tile.utilitycraft:compressed_lapislazuli_block.name=圧縮されたラピスラズリのブロック
+tile.utilitycraft:compressed_lapislazuli_block_2.name=二重圧縮ラピスラズリブロック
+tile.utilitycraft:compressed_lapislazuli_block_3.name=三重圧縮ラピスラズリブロック
+tile.utilitycraft:compressed_lapislazuli_block_4.name=四重圧縮ラピスラズリブロック
+tile.utilitycraft:compressed_netherite_block.name=圧縮されたネザライトブロック
+tile.utilitycraft:compressed_netherite_block_2.name=二重圧縮ネザライトブロック
+tile.utilitycraft:compressed_netherite_block_3.name=三重圧縮ネザライトブロック
+tile.utilitycraft:compressed_netherite_block_4.name=四重圧縮ネザライトブロック
+tile.utilitycraft:compressed_netherrack.name=圧縮されたネザーラック
+tile.utilitycraft:compressed_netherrack_2.name=二重圧縮ネザーラック
+tile.utilitycraft:compressed_netherrack_3.name=三重圧縮ネザーラック
+tile.utilitycraft:compressed_netherrack_4.name=4重圧縮ネザーラック
+tile.utilitycraft:compressed_obsidian.name=圧縮された黒曜石
+tile.utilitycraft:compressed_obsidian_2.name=二重圧縮黒曜石
+tile.utilitycraft:compressed_obsidian_3.name=三重圧縮黒曜石
+tile.utilitycraft:compressed_obsidian_4.name=四重圧縮黒曜石
+tile.utilitycraft:compressed_oxidized_copper_block.name=圧縮酸化銅ブロック
+tile.utilitycraft:compressed_oxidized_copper_block_2.name=二重圧縮酸化銅ブロック
+tile.utilitycraft:compressed_oxidized_copper_block_3.name=三重圧縮酸化銅ブロック
+tile.utilitycraft:compressed_oxidized_copper_block_4.name=四重圧縮酸化銅ブロック
+tile.utilitycraft:compressed_quartz_block.name=圧縮石英ブロック
+tile.utilitycraft:compressed_quartz_block_2.name=二重圧縮石英ブロック
+tile.utilitycraft:compressed_quartz_block_3.name=三重圧縮石英ブロック
+tile.utilitycraft:compressed_quartz_block_4.name=4重圧縮石英ブロック
+tile.utilitycraft:compressed_raw_copper_block.name=圧縮生銅ブロック
+tile.utilitycraft:compressed_raw_copper_block_2.name=二重圧縮された生銅ブロック
+tile.utilitycraft:compressed_raw_copper_block_3.name=三重圧縮された生銅ブロック
+tile.utilitycraft:compressed_raw_copper_block_4.name=四重圧縮原銅ブロック
+tile.utilitycraft:compressed_raw_gold_block.name=圧縮原金ブロック
+tile.utilitycraft:compressed_raw_gold_block_2.name=二重圧縮原金ブロック
+tile.utilitycraft:compressed_raw_gold_block_3.name=三重圧縮原金ブロック
+tile.utilitycraft:compressed_raw_gold_block_4.name=四重圧縮原金ブロック
+tile.utilitycraft:compressed_raw_iron_block.name=圧縮生鉄ブロック
+tile.utilitycraft:compressed_raw_iron_block_2.name=二重圧縮生鉄ブロック
+tile.utilitycraft:compressed_raw_iron_block_3.name=三重圧縮生鉄ブロック
+tile.utilitycraft:compressed_raw_iron_block_4.name=四重圧縮生鉄ブロック
+tile.utilitycraft:compressed_redstone_block.name=圧縮されたレッドストーン ブロック
+tile.utilitycraft:compressed_redstone_block_2.name=二重圧縮レッドストーンブロック
+tile.utilitycraft:compressed_redstone_block_3.name=三重圧縮レッドストーンブロック
+tile.utilitycraft:compressed_redstone_block_4.name=4重圧縮レッドストーンブロック
+tile.utilitycraft:compressed_sand.name=圧縮砂
+tile.utilitycraft:compressed_sand_2.name=二重圧縮砂
+tile.utilitycraft:compressed_sand_3.name=三重圧縮砂
+tile.utilitycraft:compressed_sand_4.name=四重圧縮砂
+tile.utilitycraft:compressed_steel_block.name=圧縮鋼ブロック
+tile.utilitycraft:compressed_steel_block_2.name=二重圧縮鋼ブロック
+tile.utilitycraft:compressed_steel_block_3.name=三重圧縮鋼ブロック
+tile.utilitycraft:compressed_steel_block_4.name=四重圧縮鋼ブロック
+tile.utilitycraft:compressed_stone.name=圧縮石
+tile.utilitycraft:compressed_stone_2.name=二重圧縮石
+tile.utilitycraft:compressed_stone_3.name=三重圧縮石
+tile.utilitycraft:compressed_stone_4.name=四重圧縮石
+tile.utilitycraft:compressed_weathered_copper_block.name=圧縮風化銅ブロック
+tile.utilitycraft:compressed_weathered_copper_block_2.name=二重圧縮風化銅ブロック
+tile.utilitycraft:compressed_weathered_copper_block_3.name=三重圧縮風化銅ブロック
+tile.utilitycraft:compressed_weathered_copper_block_4.name=四重圧縮風化銅ブロック
+tile.utilitycraft:compressed_acacia_wood.name=圧縮アカシア木材
+tile.utilitycraft:compressed_acacia_wood_2.name=二重圧縮アカシア木材
+tile.utilitycraft:compressed_acacia_wood_3.name=三重圧縮アカシア木材
+tile.utilitycraft:compressed_acacia_wood_4.name=四重圧縮アカシア木材
+tile.utilitycraft:compressed_birch_wood.name=圧縮白樺木材
+tile.utilitycraft:compressed_birch_wood_2.name=二重圧縮白樺木材
+tile.utilitycraft:compressed_birch_wood_3.name=三重圧縮白樺木材
+tile.utilitycraft:compressed_birch_wood_4.name=四重圧縮白樺木材
+tile.utilitycraft:compressed_cherry_wood.name=圧縮桜木材
+tile.utilitycraft:compressed_cherry_wood_2.name=二重圧縮桜木材
+tile.utilitycraft:compressed_cherry_wood_3.name=三重圧縮桜木材
+tile.utilitycraft:compressed_cherry_wood_4.name=四重圧縮桜木材
+tile.utilitycraft:compressed_crimson_wood.name=圧縮クリムゾン木材
+tile.utilitycraft:compressed_crimson_wood_2.name=二重圧縮クリムゾン木材
+tile.utilitycraft:compressed_crimson_wood_3.name=三重圧縮クリムゾン木材
+tile.utilitycraft:compressed_crimson_wood_4.name=四重圧縮クリムゾン木材
+tile.utilitycraft:compressed_dark_oak_wood.name=圧縮ダークオーク木材
+tile.utilitycraft:compressed_dark_oak_wood_2.name=二重圧縮ダークオーク木材
+tile.utilitycraft:compressed_dark_oak_wood_3.name=三重圧縮ダークオーク木材
+tile.utilitycraft:compressed_dark_oak_wood_4.name=四重圧縮ダークオーク木材
+tile.utilitycraft:compressed_jungle_wood.name=圧縮ジャングル木材
+tile.utilitycraft:compressed_jungle_wood_2.name=二重圧縮ジャングル木材
+tile.utilitycraft:compressed_jungle_wood_3.name=三重圧縮ジャングル木材
+tile.utilitycraft:compressed_jungle_wood_4.name=四重圧縮ジャングル木材
+tile.utilitycraft:compressed_mangrove_wood.name=圧縮マングローブ木材
+tile.utilitycraft:compressed_mangrove_wood_2.name=二重圧縮マングローブ木材
+tile.utilitycraft:compressed_mangrove_wood_3.name=三重圧縮マングローブ木材
+tile.utilitycraft:compressed_mangrove_wood_4.name=四重圧縮マングローブ木材
+tile.utilitycraft:compressed_oak_wood.name=圧縮オーク木材
+tile.utilitycraft:compressed_oak_wood_2.name=二重圧縮オーク木材
+tile.utilitycraft:compressed_oak_wood_3.name=三重圧縮オーク木材
+tile.utilitycraft:compressed_oak_wood_4.name=四重圧縮オーク木材
+tile.utilitycraft:compressed_pale_oak_wood.name=圧縮ペールオーク木材
+tile.utilitycraft:compressed_pale_oak_wood_2.name=二重圧縮ペールオーク木材
+tile.utilitycraft:compressed_pale_oak_wood_3.name=三重圧縮ペールオーク木材
+tile.utilitycraft:compressed_pale_oak_wood_4.name=四重圧縮ペールオーク木材
+tile.utilitycraft:compressed_spruce_wood.name=圧縮トウヒ木材
+tile.utilitycraft:compressed_spruce_wood_2.name=二重圧縮トウヒ木材
+tile.utilitycraft:compressed_spruce_wood_3.name=三重圧縮トウヒ木材
+tile.utilitycraft:compressed_spruce_wood_4.name=四重圧縮トウヒ木材
+tile.utilitycraft:compressed_warped_wood.name=圧縮歪んだ木材
+tile.utilitycraft:compressed_warped_wood_2.name=二重圧縮歪んだ木材
+tile.utilitycraft:compressed_warped_wood_3.name=三重圧縮歪んだ木材
+tile.utilitycraft:compressed_warped_wood_4.name=四重圧縮歪んだ木材
+## Compressed Items
+item.utilitycraft:bag_of_beetroot_seeds=ビーツの種の袋
+item.utilitycraft:bag_of_black_dye=黒染料の袋
+item.utilitycraft:bag_of_blaze_powder=ブレイズパウダーの袋
+item.utilitycraft:bag_of_blue_dye=青い染料の袋
+item.utilitycraft:bag_of_brown_dye=茶色の染料の袋
+item.utilitycraft:bag_of_cocoa_beans=カカオ豆の袋
+item.utilitycraft:bag_of_cyan_dye=シアン染料の袋
+item.utilitycraft:bag_of_feathers=羽根の入った袋
+item.utilitycraft:bag_of_glowstone_dust=グロウストーンダストの袋
+item.utilitycraft:bag_of_gray_dye=灰色の染料の袋
+item.utilitycraft:bag_of_green_dye=緑色の染料の袋
+item.utilitycraft:bag_of_gunpowder=火薬の入った袋
+item.utilitycraft:bag_of_light_blue_dye=水色の染料の袋
+item.utilitycraft:bag_of_light_gray_dye=ライトグレー染料の袋
+item.utilitycraft:bag_of_lime_dye=ライム染料の袋
+item.utilitycraft:bag_of_magenta_dye=マゼンタ染料の袋
+item.utilitycraft:bag_of_melon_seeds=メロンの種の袋
+item.utilitycraft:bag_of_orange_dye=オレンジ染料の袋
+item.utilitycraft:bag_of_pink_dye=ピンクの染料の袋
+item.utilitycraft:bag_of_pitcher_pod=ピッチャーポッドのバッグ
+item.utilitycraft:bag_of_pumpkin_seeds=カボチャの種の袋
+item.utilitycraft:bag_of_purple_dye=紫色の染料の袋
+item.utilitycraft:bag_of_red_dye=赤い染料の袋
+item.utilitycraft:bag_of_sugar=砂糖の袋
+item.utilitycraft:bag_of_torchflower_seeds=トーチフラワーの種の袋
+item.utilitycraft:bag_of_wheat_seeds=小麦の種子の袋
+item.utilitycraft:bag_of_white_dye=白い染料の袋
+item.utilitycraft:bag_of_yellow_dye=黄色の染料の袋
+item.utilitycraft:bundle_of_blaze_rods=ブレイズロッドのバンドル
+item.utilitycraft:bundle_of_breeze_rods=ブリーズロッドのバンドル
+item.utilitycraft:bundle_of_sticks=スティックの束
+item.utilitycraft:jar_of_cookies=クッキーの瓶
+item.utilitycraft:jar_of_ghast_tears=ガストの涙の壺
+item.utilitycraft:jar_of_glow_ink=グローインクの瓶
+item.utilitycraft:jar_of_ink=インクの瓶
+item.utilitycraft:ream_of_paper=紙の束
+item.utilitycraft:spool_of_strings=弦のスプール
+item.utilitycraft:vase_of_fermented_spider_eyes=発酵した蜘蛛の目の花瓶
+item.utilitycraft:vase_of_spider_eye=蜘蛛の目の花瓶
+## Block Placer Items
+item.utilitycraft:blaze_block=ブレイズコア
+item.utilitycraft:charcoal_block=木炭ブロック
+item.utilitycraft:compressed_charcoal_block=圧縮木炭ブロック
+item.utilitycraft:compressed_charcoal_block_2=二重圧縮木炭ブロック
+item.utilitycraft:compressed_charcoal_block_3=三重圧縮木炭ブロック
+item.utilitycraft:compressed_charcoal_block_4=四重圧縮木炭ブロック
+item.utilitycraft:compressed_coal_block=圧縮石炭ブロック
+item.utilitycraft:compressed_coal_block_2=二重圧縮石炭ブロック
+item.utilitycraft:compressed_coal_block_3=三重圧縮石炭ブロック
+item.utilitycraft:compressed_coal_block_4=四重圧縮石炭ブロック
+
+- Utility Blocks =## ブロック
+tile.utilitycraft:asphalt.name=アスファルト\n§7- 上を歩くと移動速度\nが増加します
+tile.utilitycraft:big_torch.name=ビッグトーチ
+tile.utilitycraft:elevator.name=エレベーター
+tile.utilitycraft:flint_block.name=フリントブロック
+tile.utilitycraft:lantern.name=ランタン
+tile.utilitycraft:sink.name=シンク
+
+## + Vehicles
+tile.utilitycraft:drill_placer.name=ドリル
+tile.utilitycraft:tractor_placer.name=トラクター
+
+## + Crushed Blocks
+tile.utilitycraft:crushed_netherrack.name=砕かれたネザーラック
+tile.utilitycraft:crushed_endstone.name=砕かれたエンドストーン
+tile.utilitycraft:crushed_cobbled_deepslate.name=砕かれた石畳の深スレート
+
+
+- Actions =## アクション/インターアクション
+action.hint.exit.utilitycraft:tractor=出口トラクター
+action.hint.exit.utilitycraft:drill=出口ドリル
+
+- Placeholder Items =## アイテムをプレビューする
+item.utilitycraft:lucky_fishing_rod_item=§a幸運の釣り竿\n§7海の幸運 V\nルアー V
+item.utilitycraft:lucky_pickaxe_item=§a幸運のつるはし\n§7フォーチュン V
+item.utilitycraft:lucky_sword_item=§a幸運の剣\n§7略奪V
+
+- Items =## イテンス
+
+## to be updated.
+
+- Tools =## フェラメンタス
+## >>>>>>>> Open Group -------- ##
+
+-- AIOTs =## AIOT
+item.utilitycraft:netherite_aiot=ネザライト AIOT
+item.utilitycraft:diamond_aiot=ダイヤモンドAIOT
+item.utilitycraft:golden_aiot=ゴールデンAIOT
+item.utilitycraft:steel_aiot=スチールAIOT
+item.utilitycraft:iron_aiot=鉄AIOT
+item.utilitycraft:copper_aiot=銅AIOT
+item.utilitycraft:stone_aiot=ストーン AIOT
+item.utilitycraft:wooden_aiot=木製AIOT
+
+-- Paxels =## パカチャドス
+item.utilitycraft:netherite_paxel=ネザライト・パクセル
+item.utilitycraft:diamond_paxel=ダイヤモンド パクセル
+item.utilitycraft:steel_paxel=スチールパクセル
+item.utilitycraft:iron_paxel=アイアンパクセル
+item.utilitycraft:copper_paxel=銅のパクセル
+item.utilitycraft:golden_paxel=ゴールデンパクセル
+item.utilitycraft:stone_paxel=ストーン・パクセル
+item.utilitycraft:wooden_paxel=木製パクセル
+
+-- Hammers =## マルテロス
+item.utilitycraft:golden_hammer=ゴールデンハンマー
+item.utilitycraft:netherite_hammer=ネザライトハンマー
+item.utilitycraft:diamond_hammer=ダイヤモンドハンマー
+item.utilitycraft:steel_hammer=スチールハンマー
+item.utilitycraft:iron_hammer=アイアンハンマー
+item.utilitycraft:copper_hammer=銅ハンマー
+item.utilitycraft:stone_hammer=ストーンハンマー
+item.utilitycraft:wooden_hammer=木製ハンマー
+
+-- Steel =## アソ
+item.utilitycraft:steel_sword=鋼の剣
+item.utilitycraft:steel_axe=スチールアックス
+item.utilitycraft:steel_pickaxe=鋼鉄のつるはし
+item.utilitycraft:steel_shovel=スチールシャベル
+item.utilitycraft:steel_hoe=スチールクワ
+
+-- Special Tools =## 特別なフェラメンタス
+item.utilitycraft:lucky_pickaxe=§a幸運のつるはし
+item.utilitycraft:lucky_sword=§a幸運の剣
+item.utilitycraft:smelting_pickaxe=§6精錬つるはし\n§7- 鉱石を壊すときに精錬します
+item.utilitycraft:bionic_arm=バイオニック アーム (テスト)
+item.utilitycraft:lucky_fishing_rod=§aラッキーフィッシングロッド
+
+-- Drills =## ブロカス
+item.utilitycraft:drill=ドリル\n§7- 3x3 エリアで地雷を掘る
+item.utilitycraft:heavy_drill=ヘビードリル\n§7- 5x5 エリアの地雷
+## -------- Close Group <<<<<<<< ##
+
+- Seeds =## 種子
+## >>>>>>>> Open Group -------- ##
+
+item.utilitycraft:base_seeds=ベースシード
+
+-- Tier 1 =## ティア (シード) 1
+item.utilitycraft:coal_seeds=石炭種子 \n§eTier 1
+item.utilitycraft:copper_seeds=銅の種子 \n§eTier 1
+item.utilitycraft:dyes_seeds=染料の種子 \n§eTier 1
+item.utilitycraft:glass_seeds=グラスシード \n§eTier 1
+item.utilitycraft:gunpowder_seeds=火薬の種 \n§eTier 1
+item.utilitycraft:iron_seeds=鉄の種 \n§eTier 1
+item.utilitycraft:leather_seeds=レザーシード \n§eTier 1
+item.utilitycraft:prismarine_crystals_seeds=プリズマリン クリスタルの種 \n§eTier 1
+item.utilitycraft:prismarine_shards_seeds=プリズマリンシャードシード \n§eTier 1
+item.utilitycraft:water_seeds=ウォーターシード \n§eTier 1
+item.utilitycraft:wool_seeds=羊毛の種 \n§eTier 1
+
+-- Tier 2 =## ティア (シード) 2
+item.utilitycraft:ghast_seeds=ガストの種 \n§cTier 2
+item.utilitycraft:glowstone_seeds=グロウストーンの種 \n§cTier 2
+item.utilitycraft:gold_seeds=ゴールドシード \n§cTier 2
+item.utilitycraft:honey_seeds=ハニーシード \n§cTier 2
+item.utilitycraft:lapis_seeds=ラピスの種 \n§cTier 2
+item.utilitycraft:lava_seeds=溶岩の種 \n§cTier 2
+item.utilitycraft:quartz_seeds=クォーツシード \n§cTier 2
+item.utilitycraft:redstone_seeds=レッドストーンの種 \n§cTier 2
+item.utilitycraft:slime_seeds=スライムの種 \n§cTier 2
+
+-- Tier 3 =## ティア (シード) 3
+item.utilitycraft:amethyst_seeds=アメジストの種 \n§bTier 3
+item.utilitycraft:blaze_seeds=ブレイズシード \n§bTier 3
+item.utilitycraft:diamond_seeds=ダイヤモンドの種 \n§bTier 3
+item.utilitycraft:emerald_seeds=エメラルドの種 \n§bTier 3
+item.utilitycraft:enderpearl_seeds=エンダーパールの種 \n§bTier 3
+item.utilitycraft:obsidian_seeds=黒曜石の種 \n§bTier 3
+
+-- Tier 4 =## ティア (シード) 4
+item.utilitycraft:nether_star_seeds=ネザースターシード \n§8Tier 4
+item.utilitycraft:netherite_seeds=ネザライトの種 \n§8Tier 4
+item.utilitycraft:shulker_seeds=シュルカーの種 \n§8Tier 4
+item.utilitycraft:totem_seeds=トーテムシード \n§8Tier 4
+item.utilitycraft:wither_seeds=ウィザーシード \n§8Tier 4
+## -------- Close Group <<<<<<<< ##
+
+- Mesh =## メッシュ
+item.utilitycraft:string_mesh=文字列メッシュ\n§7- 最大ドロップ層: 石炭
+item.utilitycraft:flint_mesh=§7フリント§r メッシュ\n§7- 最大ドロップ層: 鉄
+item.utilitycraft:copper_mesh=§n銅§r メッシュ\n§7- 最大ドロップ層: ゴールド
+item.utilitycraft:iron_mesh=§i鉄§r メッシュ\n§7- 最大ドロップ層: ダイヤモンド
+item.utilitycraft:golden_mesh=§pGolden§r メッシュ\n§7- 最大ドロップ層: ダイヤモンド
+item.utilitycraft:emerald_mesh=§aエメラルド§r メッシュ\n§7- 最大ドロップ層: ダイヤモンド
+item.utilitycraft:diamond_mesh=§bダイヤモンド§r メッシュ\n§7- 最大ドロップ層: ダイヤモンド
+item.utilitycraft:netherite_mesh=§jネザライト§r メッシュ\n§7- 最大ドロップ層: ダイヤモンド\n- フリントはドロップしません
+
+- Fishing Nets =## 漁網
+item.utilitycraft:string_fishing_net=糸釣りネット\n§7- フック速度階層: 1
+item.utilitycraft:copper_fishing_net=§n銅§r 漁網\n§7- フック速度層: 2
+item.utilitycraft:iron_fishing_net=§i鉄§r 漁網\n§7- フック速度層: 3
+item.utilitycraft:golden_fishing_net=§pGolden§r 漁網\n§7- フック速度層: 4
+item.utilitycraft:emerald_fishing_net=§aエメラルド§r 漁網\n§7- フック速度層: 5
+item.utilitycraft:diamond_fishing_net=§bダイヤモンド§r 漁網\n§7- フック速度層: 6
+item.utilitycraft:netherite_fishing_net=§jネザライト§r 漁網\n§7- フック速度層: 7
+
+- Essences =## エッセンス
+item.utilitycraft:essence_vessel=エッセンスの容器 \n§7- エンティティを右クリックするか操作します\n- そのタイプのMob を倒してエッセンスを満たします
+item.utilitycraft:pig_essence=ピッグエッセンス
+item.utilitycraft:cow_essence=カウエッセンス
+item.utilitycraft:zombie_essence=ゾンビエッセンス
+item.utilitycraft:skeleton_essence=スケルトンエッセンス
+item.utilitycraft:slime_essence=スライムエッセンス
+item.utilitycraft:sheep_essence=羊のエッセンス
+item.utilitycraft:spider_essence=スパイダーエッセンス
+item.utilitycraft:creeper_essence=クリーパーエッセンス
+item.utilitycraft:blaze_essence=ブレイズエッセンス
+item.utilitycraft:chicken_essence=チキンエッセンス
+item.utilitycraft:enderman_essence=エンダーマンエッセンス
+item.utilitycraft:hoglin_essence=ホグリンエッセンス
+item.utilitycraft:magma_cube_essence=マグマキューブエッセンス
+item.utilitycraft:mooshroom_essence=ムーシュルームエッセンス
+item.utilitycraft:wither_skeleton_essence=ウィザースケルトンエッセンス
+
+- Machines Upgrades =## マシンのアップグレード
+## +
+item.utilitycraft:filter_upgrade=フィルターのアップグレード\n§7- 輸送ブロック \n にアイテムをフィルター処理する方法を提供します
+item.utilitycraft:smart_filter_upgrade=スマート フィルター アップグレード\n§7- スロット カテゴリと\n 優先順位ベースのフィルターを使用して、高度なアイテム ルーティング\n を有効にします
+item.utilitycraft:energy_upgrade=§bエネルギー アップグレード§r\n§7- 機械のエネルギー効率を向上させます
+item.utilitycraft:speed_upgrade=§a速度アップグレード§r\n§7- マシンの速度が向上します\n- エネルギー消費量が増加します
+item.utilitycraft:range_upgrade=§9射程アップグレード§r\n§7- マシンの射程を増加します
+item.utilitycraft:quantity_upgrade=§3数量アップグレード§r\n§7- メカニカルスポナーのモブキャップスポーンを増加します
+item.utilitycraft:ultimate_upgrade=§8究極のアップグレード
+item.utilitycraft:damage_upgrade=§cダメージアップグレード§r\n§7- モブグラインダーが与えるダメージを増加させます
+## +
+item.utilitycraft:base_upgrade=基本アップグレード\n§7- マシンのアップグレードを作成するために使用されます
+
+- Utility Items =## ユーティリティの使用
+item.utilitycraft:honey_ball=ハニーボール
+item.utilitycraft:lava_ball=溶岩ボール
+item.utilitycraft:water_ball=ウォーターボール
+item.utilitycraft:grenade=手榴弾
+item.utilitycraft:bomb=爆弾
+item.utilitycraft:dynamite=ダイナマイト
+## +
+item.utilitycraft:smeltflare=ワカサギフレア
+item.utilitycraft:infinite_enderpearl=インフィニットエンダーパール
+item.utilitycraft:raw_leather=原皮
+item.utilitycraft:antidote_potion=解毒ポーション
+item.utilitycraft:antidote_potion_splash=解毒ポーション スプラッシュ
+item.utilitycraft:wrench=レンチ §r\n§7- スニーク時にマシンを回転させます §r\n§7- 車両を取り外します
+
+- Saplings =## ムダス
+item.utilitycraft:apple_sapling=リンゴの苗木
+
+- Entities =## エンティダデス
+## -------- Open Group -------- ##
+entity.utilitycraft:tractor.name=トラクター
+entity.utilitycraft:oak_tree.name=オークの木
+entity.utilitycraft:birch_tree.name=白樺の木
+entity.utilitycraft:darkoak_tree.name=ダークオークの木
+entity.utilitycraft:acacia_tree.name=アカシアの木
+entity.utilitycraft:jungle_tree.name=ジャングルツリー
+entity.utilitycraft:spruce_tree.name=トウヒの木
+entity.utilitycraft:drill.name=ドリル
+entity.utilitycraft:grenade.name=手榴弾
+entity.utilitycraft:bomb.name=爆弾
+entity.utilitycraft:dynamite.name=ダイナマイト
+entity.utilitycraft:crusher.name=クラッシャー
+entity.utilitycraft:autosieve.name=オートシーブ
+entity.utilitycraft:cherry_tree.name=桜
+entity.utilitycraft:mangrove_tree.name=マングローブの木
+entity.utilitycraft:crimson_tree.name=クリムゾンツリー
+entity.utilitycraft:warped_tree.name=歪んだ木
+entity.utilitycraft:kelp.name=昆布
+entity.utilitycraft:sugarcane.name=サトウキビ
+entity.utilitycraft:bamboo.name=竹
+entity.utilitycraft:mushroom.name=キノコ
+entity.utilitycraft:cactus.name=カクタス
+entity.utilitycraft:apple_tree.name=リンゴの木
+
+## -------- Close Group <<<<<<<< ##
+
+- Items 2 =##|フォーマットするには
+
+tile.utilitycraft:pedestal.name=台座\n§7- アクセラレータ クロックのベースとして使用されます
+entity.utilitycraft:accelerator_clock.name=アクセラレータ クロック\n§7- ゲームをスピードアップします
+item.utilitycraft:accelerator_clock=アクセラレータ クロック\n§7- ゲームをスピードアップします
+item.spawn_egg.entity.utilitycraft:accelerator_clock.name=サモンアクセラレータークロック
+
+- Progress Bars =進捗状況 ##////////////////////////////////////////////////////////////
+item.utilitycraft:empty_liquid_bar=空の
+item.utilitycraft:arrow_indicator=矢印インジケーター
+item.utilitycraft:info=情報:
+< Progress Bars =進捗状況 ##////////////////////////////////////////////////////////////
+
+- Energy Generators =ジェラドレス デ エネルギー ##////////////////////////////////////////////////////////////
+tile.utilitycraft:basic_furnator.name=§eベーシックファーネーター \n §7 レート: 40 DE/t
+tile.utilitycraft:basic_magmator.name=§eベーシックマグメーター \n §7 レート: 50 DE/t
+tile.utilitycraft:basic_thermo_generator.name=§eベーシックサーモジェネレーター \n §7 レート: 20 DE/t
+tile.utilitycraft:basic_battery.name=§e基本バッテリー \n §7 レート: 100 DE/t
+tile.utilitycraft:basic_solar_panel.name=§eベーシックソーラーパネル \n §7 レート: 12 DE/t
+tile.utilitycraft:basic_wind_turbine.name=§e基本風車 \n §7 基本レート: 8 DE/t\n §7 最大高さ倍率: 300%\n §7 y20 以下では機能しません
+
+tile.utilitycraft:advanced_furnator.name=§cアドバンストファーネーター \n §7 レート: 160 DE/t
+tile.utilitycraft:advanced_magmator.name=§cアドバンスマグメーター \n §7 レート: 200 DE/t
+tile.utilitycraft:advanced_thermo_generator.name=§cアドバンストサーモジェネレーター \n §7 レート: 80 DE/t
+tile.utilitycraft:advanced_battery.name=§cアドバンストバッテリー \n §7 レート: 800 DE/t
+tile.utilitycraft:advanced_solar_panel.name=§c先進的なソーラーパネル \n §7 レート: 48 DE/t
+tile.utilitycraft:advanced_wind_turbine.name=§c高度な風力タービン \n §7 基本レート: 32 DE/t\n §7 最大高さ倍率: 300%\n §7 y20 以下では機能しません
+
+tile.utilitycraft:expert_furnator.name=§bエキスパートファーネーター \n §7 レート: 640 DE/t
+tile.utilitycraft:expert_magmator.name=§bエキスパートマグメーター \n §7 レート: 800 DE/t
+tile.utilitycraft:expert_thermo_generator.name=§bエキスパートサーモジェネレーター \n §7 レート: 320 DE/t
+tile.utilitycraft:expert_battery.name=§bエキスパートバッテリー \n §7 レート: 1.6 kDE/t
+tile.utilitycraft:expert_solar_panel.name=§bExpert ソーラーパネル \n §7 レート: 192 DE/t
+tile.utilitycraft:expert_wind_turbine.name=§bエキスパート風力タービン \n §7 基本レート: 128 DE/t\n §7 最大高さ倍率: 300%\n §7 y20 未満では機能しません
+
+tile.utilitycraft:ultimate_furnator.name=§8究極の炉 \n §7 速度: 4 kDE/t
+tile.utilitycraft:ultimate_magmator.name=§8究極のマグメーター \n §7 速度: 5 kDE/t
+tile.utilitycraft:ultimate_thermo_generator.name=§8究極のサーモジェネレーター \n §7 レート: 2 kDE/t
+tile.utilitycraft:ultimate_battery.name=§8究極のバッテリー \n §7 レート: 10 kDE/t
+tile.utilitycraft:ultimate_solar_panel.name=§8究極のソーラーパネル \n §7 レート: 1200 DE/t
+tile.utilitycraft:ultimate_wind_turbine.name=§8究極の風車 \n §7 基本レート: 800 DE/t\n §7 最大高さ倍率: 300%\n §7 y16 未満では機能しません
+
+
+< Energy Generators =ジェラドレス デ エネルギー ##////////////////////////////////////////////////////////////
+
+- Stuff =## コワサス・ナオ・カテゴリサダス
+tile.utilitycraft:waycenter.name=ウェイセンター
+tile.utilitycraft:waycarpet.name=ウェイカーペット
+item.utilitycraft:way_chip=ウェイチップ
+
+item.utilitycraft:amethyst_dust=アメジストダスト
+item.utilitycraft:diamond_dust=ダイヤモンドダスト
+item.utilitycraft:emerald_dust=エメラルドダスト
+item.utilitycraft:obsidian_dust=オブシディアンダスト
+item.utilitycraft:quartz_dust=石英粉
+item.utilitycraft:netherite_dust=ネザライトダスト
+item.utilitycraft:netherite_scrap_dust=ネザライトのスクラップダスト
+item.utilitycraft:charcoal_dust=炭粉
+item.utilitycraft:coal_dust=石炭粉塵
+item.utilitycraft:crying_obsidian_dust=泣く黒曜石の粉
+item.utilitycraft:stabilized_obsidian_dust=安定化された黒曜石ダスト
+item.utilitycraft:copper_dust=銅粉
+item.utilitycraft:gold_dust=砂金
+item.utilitycraft:iron_dust=鉄粉
+item.utilitycraft:ender_pearl_dust=エンダーパールダスト
+
+
+item.utilitycraft:chip=チップ
+item.utilitycraft:basic_chip=§e基本チップ
+item.utilitycraft:advanced_chip=§c高度なチップ
+item.utilitycraft:expert_chip=§bエキスパートチップ
+item.utilitycraft:ultimate_chip=§8究極のチップ
+
+item.utilitycraft:energized_iron_ingot=通電した鉄のインゴット
+item.utilitycraft:energized_iron_nugget=エネルギーを帯びた鉄塊
+item.utilitycraft:energized_iron_dust=エネルギーを帯びた鉄粉
+item.utilitycraft:energized_iron_plate=元気の出る鉄板
+item.utilitycraft:raw_energized_iron=ブルート・エナジード・アイアン
+item.utilitycraft:energized_iron_block=通電した鉄のブロック
+tile.utilitycraft:energized_iron_block.name=通電した鉄のブロック
+tile.utilitycraft:raw_energized_iron_block.name=野蛮なエネルギーを与えられた鉄のブロック
+
+item.utilitycraft:steel_ingot=スチールインゴット
+tile.utilitycraft:raw_steel_block.name=ブルートスチールブロック
+item.utilitycraft:raw_steel=ブルートスティール
+tile.utilitycraft:steel_block.name=スチールブロック
+item.utilitycraft:steel_dust=スチールダスト
+item.utilitycraft:steel_nugget=スチールナゲット
+item.utilitycraft:steel_plate=鋼板
+
+item.utilitycraft:copper_plate=銅板
+item.utilitycraft:gold_plate=ゴールドプレート
+item.utilitycraft:iron_plate=鉄板
+item.utilitycraft:netherite_plate=ネザライトプレート
+item.utilitycraft:netherite_nugget=ネザライトナゲット
+
+item.utilitycraft:arrow_indicator_90=矢印インジケーター
+< Stuff =## コワサス・ナオ・カテゴリサダス
+
+## - Categories
+dorios:itemGroup.name.generators=発電機
+dorios:itemGroup.name.machines=機械
+dorios:itemGroup.name.batteries=電池
+dorios:itemGroup.name.basics=基本
+dorios:itemGroup.name.meshes=メッシュ
+dorios:itemGroup.name.fishing_nets=漁網
+dorios:itemGroup.name.essences=エッセンス\n§7- メカニカルスポナーで使用
+dorios:itemGroup.name.upgrades=マシンのアップグレード
+dorios:itemGroup.name.plates=プレート
+dorios:itemGroup.name.seeds=種子
+dorios:itemGroup.name.mob_grinding=モブグラインディング
+dorios:itemGroup.name.transportation=アイテムの輸送
+dorios:itemGroup.name.compressed=圧縮ブロック
+dorios:itemGroup.name.bags=バッグ
+dorios:itemGroup.name.bundles=バンドル
+dorios:itemGroup.name.vases=花瓶
+dorios:itemGroup.name.jars=瓶
+dorios:itemGroup.name.tanks=タンク
+dorios:itemGroup.name.cobble_gens=丸石発電機
+dorios:itemGroup.name.soils=土壌
+dorios:itemGroup.name.dusts=粉塵
+dorios:itemGroup.name.indicators=指標
+dorios:itemGroup.name.aiots=AIOT
+dorios:itemGroup.name.paxels=パクセル
+dorios:itemGroup.name.hammers=ハンマー
+
+## < Categories
+
+dorios:itemGroup.name.pebbles=小石
+item.utilitycraft:ancient_debris_chunk=古代の破片の塊
+item.utilitycraft:blackstone_pebble=ブラックストーンペブル
+item.utilitycraft:basalt_pebble=玄武岩の小石
+item.utilitycraft:crushed_netherrack_handful=砕かれたネザーラック 一握り
+item.utilitycraft:calcite_pebble=方解石の小石
+item.utilitycraft:coal_chunk=石炭塊
+item.utilitycraft:copper_chunk=銅の塊
+item.utilitycraft:crushed_deepslate_handful=砕かれたディープスレート 一握り
+item.utilitycraft:crushed_endstone_handful=砕いたエンドストーン 一握り
+item.utilitycraft:deepslate_coal_chunk=ディープスレート石炭塊
+item.utilitycraft:deepslate_diamond_chunk=ディープスレート ダイヤモンドチャンク
+item.utilitycraft:deepslate_emerald_chunk=ディープスレートのエメラルドチャンク
+item.utilitycraft:deepslate_gold_chunk=ディープスレート ゴールドチャンク
+item.utilitycraft:deepslate_iron_chunk=ディープスレートの鉄の塊
+item.utilitycraft:deepslate_lapislazuli_chunk=ディープスレート ラピスラズリ チャンク
+item.utilitycraft:deepslate_pebble=ディープスレートペブル
+item.utilitycraft:deepslate_redstone_chunk=ディープスレート レッドストーン チャンク
+item.utilitycraft:diamond_chunk=ダイヤモンドチャンク
+item.utilitycraft:diamond_shard=ダイヤモンドの欠片
+item.utilitycraft:diorite_pebble=閃緑岩の小石
+item.utilitycraft:andesite_pebble=安山岩の小石
+item.utilitycraft:dirt_handful=ダートハンドフル
+item.utilitycraft:dripstone_pebble=点滴石の小石
+item.utilitycraft:emerald_chunk=エメラルドチャンク
+item.utilitycraft:emerald_shard=エメラルドの欠片
+item.utilitycraft:endstone_pebble=エンドストーンペブル
+item.utilitycraft:geode=ジオード
+item.utilitycraft:gilded_blackstone_pebble=金メッキのブラックストーンの小石
+item.utilitycraft:gold_chunk=ゴールドチャンク
+item.utilitycraft:granite_pebble=花崗岩の小石
+item.utilitycraft:gravel_fragments=砂利の破片
+item.utilitycraft:iron_chunk=鉄の塊
+item.utilitycraft:lapislazuli_chunk=ラピスラズリの塊
+item.utilitycraft:mud_ball=マッドボール
+item.utilitycraft:nether_gold_chunk=ネザーゴールドチャンク
+item.utilitycraft:nether_quartz_chunk=ネザークォーツチャンク
+item.utilitycraft:nether_star_fragment=ネザースターの欠片
+item.utilitycraft:netherrack_pebble=ネザーラックペブル
+item.utilitycraft:red_sand_handful=赤い砂 一握り
+item.utilitycraft:redstone_chunk=レッドストーンチャンク
+item.utilitycraft:sand_handful=砂ひと握り
+item.utilitycraft:shulker_shell_shard=シュルカーシェルの破片
+item.utilitycraft:souls_handful=ソウルズ・ハンドフル
+item.utilitycraft:stone_pebble=石の小石
+item.utilitycraft:totem_shard=トーテムシャード
+item.utilitycraft:tuff_pebble=凝灰岩の小石
+item.utilitycraft:wither_skull_shard=ウィザースカルの破片
+
+tile.utilitycraft:energy_cable.name=エネルギーケーブル
+tile.utilitycraft:item_conduit.name=アイテムコンジット (デフォルト)\n§7- アイテムを輸送します
+tile.utilitycraft:item_conduit_blue.name=アイテムコンジット (青)\n§7- アイテムを輸送します
+tile.utilitycraft:item_conduit_yellow.name=アイテムコンジット (黄色)\n§7- アイテムを輸送します
+tile.utilitycraft:item_conduit_red.name=アイテムコンジット (赤)\n§7- アイテムを輸送します
+tile.utilitycraft:item_conduit_purple.name=アイテムコンジット (紫)\n§7- アイテムを輸送します
+tile.utilitycraft:fluid_pipe.name=流体パイプ (デフォルト)\n§7- 液体を輸送します
+tile.utilitycraft:fluid_pipe_blue.name=液体パイプ (青)\n§7- 液体を輸送します
+tile.utilitycraft:fluid_pipe_green.name=液体パイプ (緑色)\n§7- 液体を輸送します
+tile.utilitycraft:fluid_pipe_red.name=液体パイプ (赤)\n§7- 液体を輸送します
+tile.utilitycraft:fluid_pipe_purple.name=液体パイプ (紫)\n§7- 液体を輸送します
+
+dorios:itemGroup.name.pipes=パイプ
+item.utilitycraft:flint_knife=フリントナイフ \n§7- 葉から繊維を分離します
+item.utilitycraft:fiber=ファイバ
+tile.utilitycraft:item_exporter.name=アイテムエクスポーター (デフォルト)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_blue.name=アイテムエクスポーター (青)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_red.name=アイテムエクスポーター (赤)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_yellow.name=アイテムエクスポーター (黄色)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7
+tile.utilitycraft:item_exporter_purple.name=アイテムエクスポーター (紫)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7
+item.utilitycraft:mortar=モルタル
+tile.utilitycraft:fluid_extractor.name=液体抽出器 (デフォルト)\n§7- 受け入れられたアップグレード:\n §a§7
+tile.utilitycraft:fluid_extractor_blue.name=液体抽出器 (青)\n§7- 受け入れられたアップグレード:\n §a§7
+tile.utilitycraft:fluid_extractor_green.name=液体抽出器 (緑)\n§7- 受け入れられたアップグレード:\n §a§7
+tile.utilitycraft:fluid_extractor_red.name=液体抽出器 (赤)\n§7- 受け入れられたアップグレード:\n §a§7
+tile.utilitycraft:fluid_extractor_purple.name=液体抽出器 (紫)\n§7- 受け入れられたアップグレード:\n §a§7
+tile.utilitycraft:item_importer.name=アイテム インポーター (デフォルト)\n§7- 受け入れられたアップグレード:\n §f§7
+tile.utilitycraft:item_importer_blue.name=アイテムインポーター (青)\n§7- 受け入れられたアップグレード:\n §f§7
+tile.utilitycraft:item_importer_red.name=アイテムインポーター (赤)\n§7- 受け入れられたアップグレード:\n §f§7
+tile.utilitycraft:item_importer_yellow.name=アイテムインポーター (黄色)\n§7- 受け入れられたアップグレード:\n §f§7
+tile.utilitycraft:item_importer_purple.name=アイテムインポーター (紫)\n§7- 受け入れられたアップグレード:\n §f§7
+
+
+## All the same
+
+item.utilitycraft:blueprint_paper=空のブループリント
+item.utilitycraft:blueprint=青写真
+
+## Machines Entities
+entity.utilitycraft:assembler.name=アセンブラ
+entity.utilitycraft:autosieve.name=オートシーブ
+entity.utilitycraft:autofisher.name=オートフィッシャー
+entity.utilitycraft:block_breaker.name=ブロックブレイカー
+entity.utilitycraft:block_placer.name=ブロックプレーサー
+entity.utilitycraft:crusher.name=クラッシャー
+entity.utilitycraft:digitizer.name=デジタイザー
+entity.utilitycraft:electro_press.name=エレクトロプレス
+entity.utilitycraft:harvester.name=ハーベスター
+entity.utilitycraft:incinerator.name=焼却炉
+entity.utilitycraft:induction_anvil.name=誘導アンビル
+entity.utilitycraft:infuser.name=インフューザー
+entity.utilitycraft:magmatic_chamber.name=マグマ室
+entity.utilitycraft:seed_synthesizer.name=シードシンセサイザー
+entity.utilitycraft:power_condenser.name=パワーコンデンサーマトリックス
+
+## Generators Entities
+entity.utilitycraft:battery.name=バッテリー
+entity.utilitycraft:transmitter.name=送信機
+entity.utilitycraft:receiver.name=受信機
+entity.utilitycraft:furnator.name=ファーネーター
+entity.utilitycraft:magmator.name=マグマメーター
+entity.utilitycraft:solar_panel.name=ソーラーパネル
+entity.utilitycraft:thermo_generator.name=サーモジェネレーター
+entity.utilitycraft:wind_turbine.name=風力タービン
+tile.utilitycraft:blaze_block.name=ブレイズコア
+item.utilitycraft:crushed_kelp=クラッシュ昆布
+
+dorios:itemGroup.name.removed=削除されました
+
+tile.utilitycraft:basic_trash_can.name=基本的なゴミ箱
+
+tile.utilitycraft:basic_energy_transmitter.name=§e基本エネルギー送信機 \n §7 レート: 1 kDE/t\n §7 容量: 64 kDE\n §7 範囲: 32 ブロック
+tile.utilitycraft:advanced_energy_transmitter.name=§c高度なエネルギー送信機 \n §7 レート: 4 kDE/t\n §7 容量: 256 kDE\n §7 範囲: 64 ブロック
+tile.utilitycraft:expert_energy_transmitter.name=§bエキスパート エネルギー トランスミッター \n §7 レート: 16 kDE/t\n §7 容量: 1.024 MDE\n §7 範囲: 128 ブロック
+tile.utilitycraft:ultimate_energy_transmitter.name=§8究極エネルギー送信機 \n §7 レート: 100 kDE/t\n §7 容量: 6.4 MDE\n §7 範囲: 512 ブロック
+
+tile.utilitycraft:basic_energy_receiver.name=§e基本エネルギー受容体 \n §7 レート: 1 kDE/t\n §7 容量: 64 kDE
+tile.utilitycraft:advanced_energy_receiver.name=§c高度なエネルギー受容体 \n §7 レート: 4 kDE/t\n §7 容量: 256 kDE
+tile.utilitycraft:expert_energy_receiver.name=§bエキスパートエネルギーレセプター \n §7 レート: 16 kDE/t\n §7 容量: 1.024 MDE
+tile.utilitycraft:ultimate_energy_receiver.name=§8究極エネルギー受容体 \n §7 レート: 100 kDE/t\n §7 容量: 6.4 MDE
+
+item.utilitycraft:settings=設定\n §7 対話して UtilityCraft 設定を開きます

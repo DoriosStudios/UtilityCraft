@@ -1,0 +1,871 @@
+## Translated by Milo
+
+message.utilitycraft.invalid_mesh=§eLes maillages personnalisés ne peuvent être utilisés que dans Autosieve !
+
+- Bloques =## Blocs
+
+- Tables =## Mesas
+tile.utilitycraft:workbench.name=Workbench\n§7- À utiliser pour fabriquer tout ce qui concerne les machines
+tile.utilitycraft:utility_table.name=Table utilitaire\n§7- À utiliser pour fabriquer des outils de qualité supérieure
+
+- Machines =## Machines
+tile.utilitycraft:autosieve.name=Autosieve\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:autofisher.name=Auto Fisher\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:block_breaker.name=Block Breaker\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Mises à niveau acceptées :\n §a§7 §9§7 §f§7
+tile.utilitycraft:crusher.name=Crusher\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:harvester.name=Moissonneuse\n§7- Mises à niveau acceptées :\n §a§7 §b§7 §9§7
+tile.utilitycraft:electro_press.name=Electro Press\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:block_placer.name=Block Placer\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:seed_synthesizer.name=Synthétiseur de graines\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:incinerator.name=Incinérateur\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:infuser.name=Infuseur\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:assembler.name=Assembleur\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:digitizer.name=Numériseur\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:induction_anvil.name=Enclume à induction\n§7- Mises à niveau acceptées :\n §a§7 §b§7
+tile.utilitycraft:magmatic_chamber.name=Chambre Magmatique\n§7- Améliorations acceptées :\n §a§7 §b§7
+tile.utilitycraft:mechanic_dropper.name=Compte-gouttes mécanique\n§7- Mises à niveau acceptées :\n §a§7 §f§7
+
+tile.utilitycraft:fluid_pump.name=Pompe à fluide\n§7- Mises à niveau acceptées :\n §a§7
+
+tile.utilitycraft:machine_case.name=Boîtier de machine
+tile.utilitycraft:xp_condenser.name=Condensateur XP
+tile.utilitycraft:sieve.name=Tamis\n§7- Multi-usage maximum : 5x5
+tile.utilitycraft:crucible.name=Creuset
+## +
+tile.utilitycraft:fan.name=Fan\n§7- Mises à niveau acceptées :\n §9§7
+tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Mises à niveau acceptées :\n §9§7 §c§7
+tile.utilitycraft:mob_trap.name=Piège à la foule
+tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Mises à niveau acceptées :\n §9§7
+tile.utilitycraft:xp_drain.name=Drain d'XP
+tile.utilitycraft:xp_spout.name=Bec XP
+## +
+tile.utilitycraft:cobble_gen_0.name=Générateur de pavés (§vTier 1§r)\n§7- Produit 0,25 par seconde
+tile.utilitycraft:cobble_gen_1.name=Générateur de pavés (§iTier 2§r) \n§7- Produit 0,5 par seconde
+tile.utilitycraft:cobble_gen_2.name=Générateur de pavés (§gTier 3§r) \n§7- Produit 1 par seconde
+tile.utilitycraft:cobble_gen_3.name=Générateur de pavés (§qTier 4§r) \n§7- Produit 2 par seconde
+tile.utilitycraft:cobble_gen_4.name=Générateur de pavés (§sTier 5§r) \n§7- Produit 4 par seconde
+tile.utilitycraft:cobble_gen_5.name=Générateur de pavés (§jTier 6§r) \n§7- Produit 20 par seconde
+## +
+tile.utilitycraft:conveyor_horizontal.name=Convoyeur horizontal
+tile.utilitycraft:conveyor_inclined.name=Convoyeur incliné
+tile.utilitycraft:conveyor_declined.name=Convoyeur refusé
+tile.utilitycraft:mechanic_hopper.name=Trémie mécanique\n§7- Mises à niveau acceptées :\n §7, §fFilter§7
+tile.utilitycraft:mechanic_upper.name=Mécanicien supérieur\n§7- Mises à niveau acceptées :\n §7, §fFilter§7
+##+
+tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de fluide de base
+tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de fluide avancé
+tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de fluide expert
+tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de fluide ultime
+- Bountiful Bonsais =## Bonsaïs abondants
+tile.utilitycraft:bonsai.name=Bonsaï
+
+- Bountiful Crops =## Colheitas abondantes
+## >>>>>>>> Open Group -------- ##
+
+-- Tier 1 =## Niveau (Recadrage) 1
+tile.utilitycraft:coal_crop.name=Récolte de charbon
+tile.utilitycraft:copper_crop.name=Récolte de cuivre
+tile.utilitycraft:dyes_crop.name=Culture de colorants
+tile.utilitycraft:glass_crop.name=Récolte de verre
+tile.utilitycraft:gunpowder_crop.name=Récolte de poudre à canon
+tile.utilitycraft:iron_crop.name=Récolte de fer
+tile.utilitycraft:leather_crop.name=Récolte en cuir
+tile.utilitycraft:prismarine_crystal_crop.name=Récolte de cristal prismarine
+tile.utilitycraft:prismarine_shards_crop.name=Récolte d'éclats de prismarine
+tile.utilitycraft:water_crop.name=Culture d'eau
+tile.utilitycraft:wool_crop.name=Récolte de laine
+
+-- Tier 2 =## Niveau (Recadrage) 2
+tile.utilitycraft:ghast_crop.name=Récolte épouvantable
+tile.utilitycraft:glowstone_crop.name=Récolte de pierre lumineuse
+tile.utilitycraft:gold_crop.name=Récolte d'or
+tile.utilitycraft:honey_crop.name=Récolte de miel
+tile.utilitycraft:lapis_crop.name=Récolte de lapis
+tile.utilitycraft:lava_crop.name=Récolte de lave
+tile.utilitycraft:quartz_crop.name=Récolte de quartz
+tile.utilitycraft:redstone_crop.name=Récolte de pierre rouge
+tile.utilitycraft:slime_crop.name=Récolte visqueuse
+
+-- Tier 3 =## Niveau (Recadrage) 3
+tile.utilitycraft:amethyst_crop.name=Récolte d'améthyste
+tile.utilitycraft:blaze_crop.name=Récolte flamboyante
+tile.utilitycraft:diamond_crop.name=Récolte de diamants
+tile.utilitycraft:emerald_crop.name=Récolte d'émeraude
+tile.utilitycraft:enderpearl_crop.name=Récolte de perles Ender
+tile.utilitycraft:obsidian_crop.name=Récolte d'obsidienne
+
+-- Tier 4 =## Niveau (Recadrage) 4
+tile.utilitycraft:netherite_crop.name=Récolte de Netherite
+tile.utilitycraft:netherstar_crop.name=Récolte Étoile du Néant
+tile.utilitycraft:shulker_crop.name=Récolte Shulker
+tile.utilitycraft:totem_crop.name=Culture totémique
+tile.utilitycraft:wither_crop.name=Flétrissement des cultures
+## -------- Close Group <<<<<<<< ##
+
+- Soils =## Sols
+tile.utilitycraft:blue_soil.name=§bSol bleu
+tile.utilitycraft:black_soil.name=§8Terre noire
+tile.utilitycraft:red_soil.name=§cTerre rouge
+tile.utilitycraft:yellow_soil.name=§eTerre jaune
+
+- Mechanical Spawners =## Invocateurs Mécaniques
+tile.utilitycraft:mechanical_spawner.name=Générateur mécanique\n§7- Mises à niveau acceptées :\n §a§7 §3§7
+tile.utilitycraft:spawner_core.name=Noyau de générateur
+
+-- =## Élément générateur
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=Générateur mécanique : Blaze
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_chicken.name=Générateur mécanique : Poulet
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_cow.name=Générateur mécanique : Vache
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_creeper.name=Générateur mécanique : Creeper
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_enderman.name=Générateur mécanique : Enderman
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_hoglin.name=Générateur mécanique : Hoglin
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_magma_cube.name=Générateur mécanique : Magma Cube
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_mooshroom.name=Générateur mécanique : Mooshroom
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=Générateur mécanique : Cochon
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=Générateur mécanique : Mouton
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=Générateur mécanique : Squelette
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=Générateur mécanique : Slime
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=Générateur mécanique : Araignée
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=Générateur mécanique : Sorcière
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=Générateur mécanique : Zombie
+
+- Compressed Blocks =## Blocs comprimés
+tile.utilitycraft:compressed_cobblestone.name=Pavé compressé
+tile.utilitycraft:double_compressed_cobblestone.name=Pavé double compressé
+tile.utilitycraft:triple_compressed_cobblestone.name=Pavé triple compressé
+tile.utilitycraft:quadruple_compressed_cobblestone.name=Pavé quadruple compressé
+tile.utilitycraft:quintuple_compressed_cobblestone.name=Pavé compressé quintuple
+tile.utilitycraft:sextuple_compressed_cobblestone.name=Pavé compressé sextuple
+tile.utilitycraft:septuple_compressed_cobblestone.name=Pavé compressé septuple
+tile.utilitycraft:octuple_compressed_cobblestone.name=Pavé Octuple Comprimé
+tile.utilitycraft:nonuple_compressed_cobblestone.name=Pavé compressé nonuple
+## +
+tile.utilitycraft:compressed_amethyst_block.name=Bloc d'améthyste compressé
+tile.utilitycraft:compressed_amethyst_block_2.name=Bloc d'améthyste double compressé
+tile.utilitycraft:compressed_amethyst_block_3.name=Bloc d'améthyste triple compressé
+tile.utilitycraft:compressed_amethyst_block_4.name=Bloc d'améthyste quadruple compressé
+tile.utilitycraft:compressed_blackstone.name=Pierre noire compressée
+tile.utilitycraft:compressed_blackstone_2.name=Pierre noire doublement compressée
+tile.utilitycraft:compressed_blackstone_3.name=Pierre noire triple compressée
+tile.utilitycraft:compressed_blackstone_4.name=Pierre noire compressée quadruple
+tile.utilitycraft:compressed_block.name=Full Purple\n§8- Il n'y a aucune raison pour que ce bloc existe, j'aime juste la texture\n- Impossible à obtenir
+tile.utilitycraft:compressed_brute_energized_iron_block.name=Bloc de fer énergisé brut comprimé
+tile.utilitycraft:compressed_brute_energized_iron_block_2.name=Bloc de fer énergisé brut double compressé
+tile.utilitycraft:compressed_brute_energized_iron_block_3.name=Bloc de fer énergisé brut triple compressé
+tile.utilitycraft:compressed_brute_energized_iron_block_4.name=Bloc de fer énergisé brut quadruple comprimé
+tile.utilitycraft:compressed_brute_steel_block.name=Bloc d'acier brut comprimé
+tile.utilitycraft:compressed_brute_steel_block_2.name=Bloc en acier brut à double compression
+tile.utilitycraft:compressed_brute_steel_block_3.name=Bloc en acier brut triple compressé
+tile.utilitycraft:compressed_brute_steel_block_4.name=Bloc en acier brut quadruple comprimé
+tile.utilitycraft:compressed_coal_block.name=Bloc de charbon comprimé
+tile.utilitycraft:compressed_coal_block_2.name=Bloc de charbon double comprimé
+tile.utilitycraft:compressed_coal_block_3.name=Bloc de charbon triple comprimé
+tile.utilitycraft:compressed_coal_block_4.name=Bloc de charbon comprimé quadruple
+tile.utilitycraft:compressed_cobbled_deepslate.name=Ardoise profonde pavée compressée
+tile.utilitycraft:compressed_cobbled_deepslate_2.name=Ardoise profonde pavée double compressée
+tile.utilitycraft:compressed_cobbled_deepslate_3.name=Ardoise profonde pavée triple compressée
+tile.utilitycraft:compressed_cobbled_deepslate_4.name=Ardoise profonde pavée quadruple compressée
+tile.utilitycraft:compressed_copper_block.name=Bloc de cuivre comprimé
+tile.utilitycraft:compressed_copper_block_2.name=Bloc de cuivre double compressé
+tile.utilitycraft:compressed_copper_block_3.name=Bloc de cuivre triple compressé
+tile.utilitycraft:compressed_copper_block_4.name=Bloc de cuivre quadruple comprimé
+tile.utilitycraft:compressed_crushed_cobbled_deepslate.name=Ardoise profonde pavée concassée compressée
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name=Ardoise profonde pavée concassée double compressée
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name=Ardoise profonde pavée concassée triple compressée
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name=Ardoise profonde pavée concassée quadruple compressée
+tile.utilitycraft:compressed_crushed_endstone.name=Pierre d'extrémité concassée compressée
+tile.utilitycraft:compressed_crushed_endstone_2.name=Pierre d'extrémité concassée doublement compressée
+tile.utilitycraft:compressed_crushed_endstone_3.name=Pierre d'extrémité concassée triple compressée
+tile.utilitycraft:compressed_crushed_endstone_4.name=Pierre d'extrémité concassée quadruple compressée
+tile.utilitycraft:compressed_crushed_netherrack.name=Netherrack écrasé compressé
+tile.utilitycraft:compressed_crushed_netherrack_2.name=Netherrack écrasé doublement compressé
+tile.utilitycraft:compressed_crushed_netherrack_3.name=Netherrack écrasé triple compressé
+tile.utilitycraft:compressed_crushed_netherrack_4.name=Netherrack écrasé quadruple compressé
+tile.utilitycraft:compressed_cry_obsidian.name=Obsidienne pleurante compressée
+tile.utilitycraft:compressed_cry_obsidian_2.name=Obsidienne pleurante double compressée
+tile.utilitycraft:compressed_cry_obsidian_3.name=Obsidienne qui pleure triple compressée
+tile.utilitycraft:compressed_cry_obsidian_4.name=Obsidienne qui pleure quadruple compressée
+tile.utilitycraft:compressed_deepslate.name=Ardoise profonde compressée
+tile.utilitycraft:compressed_deepslate_2.name=Deepslate double compressé
+tile.utilitycraft:compressed_deepslate_3.name=Ardoise profonde triple compressée
+tile.utilitycraft:compressed_deepslate_4.name=Ardoise profonde quadruple compressée
+tile.utilitycraft:compressed_diamond_block.name=Bloc de diamant compressé
+tile.utilitycraft:compressed_diamond_block_2.name=Bloc de diamant double compressé
+tile.utilitycraft:compressed_diamond_block_3.name=Bloc de diamant triple compressé
+tile.utilitycraft:compressed_diamond_block_4.name=Bloc de diamant quadruple compressé
+tile.utilitycraft:compressed_dirt.name=Saleté compressée
+tile.utilitycraft:compressed_dirt_2.name=Saleté doublement compressée
+tile.utilitycraft:compressed_dirt_3.name=Saleté triple compressée
+tile.utilitycraft:compressed_dirt_4.name=Saleté quadruple compressée
+tile.utilitycraft:compressed_emerald_block.name=Bloc d'émeraude compressé
+tile.utilitycraft:compressed_emerald_block_2.name=Bloc d'émeraude double compressé
+tile.utilitycraft:compressed_emerald_block_3.name=Bloc d'émeraude triple compressé
+tile.utilitycraft:compressed_emerald_block_4.name=Bloc d'émeraude compressé quadruple
+tile.utilitycraft:compressed_endstone.name=Pierre d'extrémité compressée
+tile.utilitycraft:compressed_endstone_2.name=Pierre d'extrémité doublement compressée
+tile.utilitycraft:compressed_endstone_3.name=Pierre d'extrémité triple compressée
+tile.utilitycraft:compressed_endstone_4.name=Pierre d'extrémité quadruple compressée
+tile.utilitycraft:compressed_energized_iron_block.name=Bloc de fer énergisé comprimé
+tile.utilitycraft:compressed_energized_iron_block_2.name=Bloc de fer énergisé double compressé
+tile.utilitycraft:compressed_energized_iron_block_3.name=Bloc de fer énergisé triple compressé
+tile.utilitycraft:compressed_energized_iron_block_4.name=Bloc de fer énergisé quadruple comprimé
+tile.utilitycraft:compressed_exposed_copper_block.name=Bloc de cuivre exposé compressé
+tile.utilitycraft:compressed_exposed_copper_block_2.name=Bloc de cuivre exposé à double compression
+tile.utilitycraft:compressed_exposed_copper_block_3.name=Bloc de cuivre exposé triple compressé
+tile.utilitycraft:compressed_exposed_copper_block_4.name=Bloc de cuivre exposé quadruple comprimé
+tile.utilitycraft:compressed_flint_block.name=Bloc de silex compressé
+tile.utilitycraft:compressed_flint_block_2.name=Bloc de silex double compressé
+tile.utilitycraft:compressed_flint_block_3.name=Bloc de silex triple compressé
+tile.utilitycraft:compressed_flint_block_4.name=Bloc de silex compressé quadruple
+tile.utilitycraft:compressed_glass.name=Verre comprimé
+tile.utilitycraft:compressed_glass_2.name=Verre double compressé
+tile.utilitycraft:compressed_glass_3.name=Verre triple compressé
+tile.utilitycraft:compressed_glass_4.name=Verre comprimé quadruple
+tile.utilitycraft:compressed_gold_block.name=Bloc d'or compressé
+tile.utilitycraft:compressed_gold_block_2.name=Bloc d'or double compressé
+tile.utilitycraft:compressed_gold_block_3.name=Bloc d'or triple compressé
+tile.utilitycraft:compressed_gold_block_4.name=Bloc d'or quadruple compressé
+tile.utilitycraft:compressed_gravel.name=Gravier comprimé
+tile.utilitycraft:compressed_gravel_2.name=Gravier doublement compressé
+tile.utilitycraft:compressed_gravel_3.name=Gravier triple compressé
+tile.utilitycraft:compressed_gravel_4.name=Gravier Quadruple Comprimé
+tile.utilitycraft:compressed_iron_block.name=Bloc de fer comprimé
+tile.utilitycraft:compressed_iron_block_2.name=Bloc de fer comprimé double
+tile.utilitycraft:compressed_iron_block_3.name=Bloc triple en fer comprimé
+tile.utilitycraft:compressed_iron_block_4.name=Bloc quadruple en fer comprimé
+tile.utilitycraft:compressed_lapislazuli_block.name=Bloc de Lapislazuli compressé
+tile.utilitycraft:compressed_lapislazuli_block_2.name=Bloc de Lapislazuli double compressé
+tile.utilitycraft:compressed_lapislazuli_block_3.name=Bloc de Lapislazuli triple compressé
+tile.utilitycraft:compressed_lapislazuli_block_4.name=Bloc de Lapislazuli Quadruple Comprimé
+tile.utilitycraft:compressed_netherite_block.name=Bloc de Netherite compressé
+tile.utilitycraft:compressed_netherite_block_2.name=Bloc de Netherite double compressé
+tile.utilitycraft:compressed_netherite_block_3.name=Bloc de Netherite triple compressé
+tile.utilitycraft:compressed_netherite_block_4.name=Bloc de Netherite compressé quadruple
+tile.utilitycraft:compressed_netherrack.name=Netherrack compressé
+tile.utilitycraft:compressed_netherrack_2.name=Netherrack double compressé
+tile.utilitycraft:compressed_netherrack_3.name=Netherrack triple compressé
+tile.utilitycraft:compressed_netherrack_4.name=Netherrack quadruple compressé
+tile.utilitycraft:compressed_obsidian.name=Obsidienne compressée
+tile.utilitycraft:compressed_obsidian_2.name=Obsidienne double compressée
+tile.utilitycraft:compressed_obsidian_3.name=Obsidienne triple compressée
+tile.utilitycraft:compressed_obsidian_4.name=Obsidienne quadruple compressée
+tile.utilitycraft:compressed_oxidized_copper_block.name=Bloc de cuivre oxydé comprimé
+tile.utilitycraft:compressed_oxidized_copper_block_2.name=Bloc de cuivre oxydé à double compression
+tile.utilitycraft:compressed_oxidized_copper_block_3.name=Bloc de cuivre oxydé triple compressé
+tile.utilitycraft:compressed_oxidized_copper_block_4.name=Bloc de cuivre oxydé quadruple comprimé
+tile.utilitycraft:compressed_quartz_block.name=Bloc de quartz comprimé
+tile.utilitycraft:compressed_quartz_block_2.name=Bloc de quartz double compressé
+tile.utilitycraft:compressed_quartz_block_3.name=Bloc de quartz triple compressé
+tile.utilitycraft:compressed_quartz_block_4.name=Bloc de quartz comprimé quadruple
+tile.utilitycraft:compressed_raw_copper_block.name=Bloc de cuivre brut compressé
+tile.utilitycraft:compressed_raw_copper_block_2.name=Bloc de cuivre brut double compression
+tile.utilitycraft:compressed_raw_copper_block_3.name=Bloc de cuivre brut triple compressé
+tile.utilitycraft:compressed_raw_copper_block_4.name=Bloc de cuivre brut quadruple compressé
+tile.utilitycraft:compressed_raw_gold_block.name=Bloc d’or brut compressé
+tile.utilitycraft:compressed_raw_gold_block_2.name=Bloc d’or brut double compressé
+tile.utilitycraft:compressed_raw_gold_block_3.name=Bloc d’or brut triple compressé
+tile.utilitycraft:compressed_raw_gold_block_4.name=Bloc d’or brut quadruple compressé
+tile.utilitycraft:compressed_raw_iron_block.name=Bloc de fer brut comprimé
+tile.utilitycraft:compressed_raw_iron_block_2.name=Bloc de fer brut doublement comprimé
+tile.utilitycraft:compressed_raw_iron_block_3.name=Bloc de fer brut triple compressé
+tile.utilitycraft:compressed_raw_iron_block_4.name=Bloc de fer brut quadruple comprimé
+tile.utilitycraft:compressed_redstone_block.name=Bloc de Redstone compressé
+tile.utilitycraft:compressed_redstone_block_2.name=Bloc de Redstone double compressé
+tile.utilitycraft:compressed_redstone_block_3.name=Bloc de Redstone triple compressé
+tile.utilitycraft:compressed_redstone_block_4.name=Bloc de Redstone quadruple compressé
+tile.utilitycraft:compressed_sand.name=Sable comprimé
+tile.utilitycraft:compressed_sand_2.name=Sable doublement compressé
+tile.utilitycraft:compressed_sand_3.name=Sable triple compressé
+tile.utilitycraft:compressed_sand_4.name=Sable quadruple comprimé
+tile.utilitycraft:compressed_steel_block.name=Bloc en acier comprimé
+tile.utilitycraft:compressed_steel_block_2.name=Bloc en acier doublement comprimé
+tile.utilitycraft:compressed_steel_block_3.name=Bloc triple en acier comprimé
+tile.utilitycraft:compressed_steel_block_4.name=Bloc quadruple en acier comprimé
+tile.utilitycraft:compressed_stone.name=Pierre compressée
+tile.utilitycraft:compressed_stone_2.name=Pierre doublement compressée
+tile.utilitycraft:compressed_stone_3.name=Pierre triple compressée
+tile.utilitycraft:compressed_stone_4.name=Pierre compressée quadruple
+tile.utilitycraft:compressed_weathered_copper_block.name=Bloc de cuivre patiné comprimé
+tile.utilitycraft:compressed_weathered_copper_block_2.name=Bloc de cuivre patiné à double compression
+tile.utilitycraft:compressed_weathered_copper_block_3.name=Bloc de cuivre patiné triple compressé
+tile.utilitycraft:compressed_weathered_copper_block_4.name=Bloc de cuivre patiné quadruple comprimé
+tile.utilitycraft:compressed_acacia_wood.name=Bois d'acacia compressé
+tile.utilitycraft:compressed_acacia_wood_2.name=Bois d'acacia doublement compressé
+tile.utilitycraft:compressed_acacia_wood_3.name=Bois d'acacia triple compressé
+tile.utilitycraft:compressed_acacia_wood_4.name=Bois d'acacia compressé quadruple
+tile.utilitycraft:compressed_birch_wood.name=Bois de bouleau compressé
+tile.utilitycraft:compressed_birch_wood_2.name=Bois de bouleau doublement compressé
+tile.utilitycraft:compressed_birch_wood_3.name=Bois de bouleau triple compressé
+tile.utilitycraft:compressed_birch_wood_4.name=Bois de bouleau compressé quadruple
+tile.utilitycraft:compressed_cherry_wood.name=Bois de cerisier compressé
+tile.utilitycraft:compressed_cherry_wood_2.name=Bois de cerisier doublement compressé
+tile.utilitycraft:compressed_cherry_wood_3.name=Bois de cerisier triple compressé
+tile.utilitycraft:compressed_cherry_wood_4.name=Bois de cerisier compressé quadruple
+tile.utilitycraft:compressed_crimson_wood.name=Bois cramoisi compressé
+tile.utilitycraft:compressed_crimson_wood_2.name=Bois cramoisi doublement compressé
+tile.utilitycraft:compressed_crimson_wood_3.name=Bois cramoisi triple compressé
+tile.utilitycraft:compressed_crimson_wood_4.name=Bois cramoisi compressé quadruple
+tile.utilitycraft:compressed_dark_oak_wood.name=Bois de chêne foncé compressé
+tile.utilitycraft:compressed_dark_oak_wood_2.name=Bois de chêne foncé doublement compressé
+tile.utilitycraft:compressed_dark_oak_wood_3.name=Bois de chêne foncé triple compressé
+tile.utilitycraft:compressed_dark_oak_wood_4.name=Bois de chêne foncé compressé quadruple
+tile.utilitycraft:compressed_jungle_wood.name=Bois de la jungle compressé
+tile.utilitycraft:compressed_jungle_wood_2.name=Bois de la jungle doublement compressé
+tile.utilitycraft:compressed_jungle_wood_3.name=Bois de la jungle triple compressé
+tile.utilitycraft:compressed_jungle_wood_4.name=Bois de la jungle compressé quadruple
+tile.utilitycraft:compressed_mangrove_wood.name=Bois de mangrove compressé
+tile.utilitycraft:compressed_mangrove_wood_2.name=Bois de mangrove doublement compressé
+tile.utilitycraft:compressed_mangrove_wood_3.name=Bois de mangrove triple compressé
+tile.utilitycraft:compressed_mangrove_wood_4.name=Bois de mangrove compressé quadruple
+tile.utilitycraft:compressed_oak_wood.name=Bois de chêne compressé
+tile.utilitycraft:compressed_oak_wood_2.name=Bois de chêne doublement compressé
+tile.utilitycraft:compressed_oak_wood_3.name=Bois de chêne triple compressé
+tile.utilitycraft:compressed_oak_wood_4.name=Bois de chêne compressé quadruple
+tile.utilitycraft:compressed_pale_oak_wood.name=Bois de chêne pâle compressé
+tile.utilitycraft:compressed_pale_oak_wood_2.name=Bois de chêne pâle doublement compressé
+tile.utilitycraft:compressed_pale_oak_wood_3.name=Bois de chêne pâle triple compressé
+tile.utilitycraft:compressed_pale_oak_wood_4.name=Bois de chêne pâle compressé quadruple
+tile.utilitycraft:compressed_spruce_wood.name=Bois d'épinette compressé
+tile.utilitycraft:compressed_spruce_wood_2.name=Bois d'épinette doublement compressé
+tile.utilitycraft:compressed_spruce_wood_3.name=Bois d'épinette triple compressé
+tile.utilitycraft:compressed_spruce_wood_4.name=Bois d'épinette compressé quadruple
+tile.utilitycraft:compressed_warped_wood.name=Bois déformé compressé
+tile.utilitycraft:compressed_warped_wood_2.name=Bois déformé doublement compressé
+tile.utilitycraft:compressed_warped_wood_3.name=Bois déformé triple compressé
+tile.utilitycraft:compressed_warped_wood_4.name=Bois déformé compressé quadruple
+## Compressed Items
+item.utilitycraft:bag_of_beetroot_seeds=Sac de graines de betterave
+item.utilitycraft:bag_of_black_dye=Sac de teinture noire
+item.utilitycraft:bag_of_blaze_powder=Sac de poudre Blaze
+item.utilitycraft:bag_of_blue_dye=Sac de teinture bleue
+item.utilitycraft:bag_of_brown_dye=Sac de teinture marron
+item.utilitycraft:bag_of_cocoa_beans=Sac de fèves de cacao
+item.utilitycraft:bag_of_cyan_dye=Sac de teinture cyan
+item.utilitycraft:bag_of_feathers=Sac de plumes
+item.utilitycraft:bag_of_glowstone_dust=Sac de poussière de Glowstone
+item.utilitycraft:bag_of_gray_dye=Sac de teinture grise
+item.utilitycraft:bag_of_green_dye=Sac de teinture verte
+item.utilitycraft:bag_of_gunpowder=Sac de poudre à canon
+item.utilitycraft:bag_of_light_blue_dye=Sac de teinture bleu clair
+item.utilitycraft:bag_of_light_gray_dye=Sac de teinture gris clair
+item.utilitycraft:bag_of_lime_dye=Sac de teinture à la chaux
+item.utilitycraft:bag_of_magenta_dye=Sac de teinture magenta
+item.utilitycraft:bag_of_melon_seeds=Sac de graines de melon
+item.utilitycraft:bag_of_orange_dye=Sac de teinture orange
+item.utilitycraft:bag_of_pink_dye=Sac de teinture rose
+item.utilitycraft:bag_of_pitcher_pod=Sac de Pichet Pod
+item.utilitycraft:bag_of_pumpkin_seeds=Sac de graines de citrouille
+item.utilitycraft:bag_of_purple_dye=Sac de teinture violette
+item.utilitycraft:bag_of_red_dye=Sac de teinture rouge
+item.utilitycraft:bag_of_sugar=Sac de sucre
+item.utilitycraft:bag_of_torchflower_seeds=Sac de graines de Torchflower
+item.utilitycraft:bag_of_wheat_seeds=Sac de graines de blé
+item.utilitycraft:bag_of_white_dye=Sac de teinture blanche
+item.utilitycraft:bag_of_yellow_dye=Sac de teinture jaune
+item.utilitycraft:bundle_of_blaze_rods=Lot de cannes Blaze
+item.utilitycraft:bundle_of_breeze_rods=Lot de cannes Breeze
+item.utilitycraft:bundle_of_sticks=Paquet de bâtons
+item.utilitycraft:jar_of_cookies=Pot de biscuits
+item.utilitycraft:jar_of_ghast_tears=Pot de larmes épouvantables
+item.utilitycraft:jar_of_glow_ink=Pot d'encre lumineuse
+item.utilitycraft:jar_of_ink=Pot d'encre
+item.utilitycraft:ream_of_paper=Rame de papier
+item.utilitycraft:spool_of_strings=Bobine de cordes
+item.utilitycraft:vase_of_fermented_spider_eyes=Vase d'yeux d'araignée fermentés
+item.utilitycraft:vase_of_spider_eye=Vase d'oeil d'araignée
+## Block Placer Items
+item.utilitycraft:blaze_block=Noyau de Blaze
+item.utilitycraft:charcoal_block=Bloc de charbon de bois
+item.utilitycraft:compressed_charcoal_block=Bloc de charbon comprimé
+item.utilitycraft:compressed_charcoal_block_2=Bloc de charbon double compressé
+item.utilitycraft:compressed_charcoal_block_3=Bloc de charbon triple compressé
+item.utilitycraft:compressed_charcoal_block_4=Bloc de charbon comprimé quadruple
+item.utilitycraft:compressed_coal_block=Bloc de charbon comprimé
+item.utilitycraft:compressed_coal_block_2=Bloc de charbon double comprimé
+item.utilitycraft:compressed_coal_block_3=Bloc de charbon triple comprimé
+item.utilitycraft:compressed_coal_block_4=Bloc de charbon comprimé quadruple
+
+- Utility Blocks =## Blocs
+tile.utilitycraft:asphalt.name=Asphalte\n§7- Augmente la vitesse de déplacement\n en marchant dessus
+tile.utilitycraft:big_torch.name=Grande torche
+tile.utilitycraft:elevator.name=Ascenseur
+tile.utilitycraft:flint_block.name=Bloc de silex
+tile.utilitycraft:lantern.name=Lanterne
+tile.utilitycraft:sink.name=Couler
+
+## + Vehicles
+tile.utilitycraft:drill_placer.name=Percer
+tile.utilitycraft:tractor_placer.name=Tracteur
+
+## + Crushed Blocks
+tile.utilitycraft:crushed_netherrack.name=Netherrack écrasé
+tile.utilitycraft:crushed_endstone.name=Pierre de fin écrasée
+tile.utilitycraft:crushed_cobbled_deepslate.name=Ardoise profonde pavée écrasée
+
+
+- Actions =## Actions/Interactions
+action.hint.exit.utilitycraft:tractor=Quitter le tracteur
+action.hint.exit.utilitycraft:drill=Quitter l'exercice
+
+- Placeholder Items =## Aperçu des éléments
+item.utilitycraft:lucky_fishing_rod_item=§aCanne à pêche chanceuse\n§7Chance de la mer V\nLure V
+item.utilitycraft:lucky_pickaxe_item=§aPioche porte-bonheur\n§7Fortune V
+item.utilitycraft:lucky_sword_item=§aÉpée chanceuse\n§7Pillage V
+
+- Items =## Itens
+
+## to be updated.
+
+- Tools =## Ferramentas
+## >>>>>>>> Open Group -------- ##
+
+-- AIOTs =## AIOT
+item.utilitycraft:netherite_aiot=Netherite AIOT
+item.utilitycraft:diamond_aiot=Diamant AIOT
+item.utilitycraft:golden_aiot=AIOT doré
+item.utilitycraft:steel_aiot=AIOT en acier
+item.utilitycraft:iron_aiot=Fer AIOT
+item.utilitycraft:copper_aiot=AIOT en cuivre
+item.utilitycraft:stone_aiot=Pierre AIOT
+item.utilitycraft:wooden_aiot=AIOT en bois
+
+-- Paxels =## Pacachados
+item.utilitycraft:netherite_paxel=Paxel de Netherite
+item.utilitycraft:diamond_paxel=Paxel de diamant
+item.utilitycraft:steel_paxel=Paxel en acier
+item.utilitycraft:iron_paxel=Paxel de fer
+item.utilitycraft:copper_paxel=Paxel en cuivre
+item.utilitycraft:golden_paxel=Paxel doré
+item.utilitycraft:stone_paxel=Paxel en pierre
+item.utilitycraft:wooden_paxel=Paxel en bois
+
+-- Hammers =## Martelos
+item.utilitycraft:golden_hammer=Marteau d'or
+item.utilitycraft:netherite_hammer=Marteau de Netherite
+item.utilitycraft:diamond_hammer=Marteau de diamant
+item.utilitycraft:steel_hammer=Marteau en acier
+item.utilitycraft:iron_hammer=Marteau de fer
+item.utilitycraft:copper_hammer=Marteau en cuivre
+item.utilitycraft:stone_hammer=Marteau de pierre
+item.utilitycraft:wooden_hammer=Marteau en bois
+
+-- Steel =## Aço
+item.utilitycraft:steel_sword=Épée en acier
+item.utilitycraft:steel_axe=Hache en acier
+item.utilitycraft:steel_pickaxe=Pioche en acier
+item.utilitycraft:steel_shovel=Pelle en acier
+item.utilitycraft:steel_hoe=Houe en acier
+
+-- Special Tools =## Ferramentas Spéciales
+item.utilitycraft:lucky_pickaxe=§aPioche porte-bonheur
+item.utilitycraft:lucky_sword=§aÉpée porte-bonheur
+item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7- Fond les minerais en les cassant
+item.utilitycraft:bionic_arm=Bras bionique (Test)
+item.utilitycraft:lucky_fishing_rod=§aCanne à pêche chanceuse
+
+-- Drills =## Broca
+item.utilitycraft:drill=Forage\n§7- Mines dans une zone 3x3
+item.utilitycraft:heavy_drill=Foret lourd\n§7- Mines dans une zone 5x5
+## -------- Close Group <<<<<<<< ##
+
+- Seeds =## Graines
+## >>>>>>>> Open Group -------- ##
+
+item.utilitycraft:base_seeds=Semence de base
+
+-- Tier 1 =## Niveau (graines) 1
+item.utilitycraft:coal_seeds=Graines de charbon \n§eTier 1
+item.utilitycraft:copper_seeds=Graines de cuivre \n§eTier 1
+item.utilitycraft:dyes_seeds=Graines de colorants \n§eTier 1
+item.utilitycraft:glass_seeds=Graines de verre \n§eTier 1
+item.utilitycraft:gunpowder_seeds=Graines de poudre à canon \n§eTier 1
+item.utilitycraft:iron_seeds=Graines de fer \n§eTier 1
+item.utilitycraft:leather_seeds=Graines de cuir \n§eTier 1
+item.utilitycraft:prismarine_crystals_seeds=Graines de cristaux de prismarine \n§eTier 1
+item.utilitycraft:prismarine_shards_seeds=Graines d'éclats de prismarine \n§eTier 1
+item.utilitycraft:water_seeds=Graines d'eau \n§eTier 1
+item.utilitycraft:wool_seeds=Graines de laine \n§eTier 1
+
+-- Tier 2 =## Niveau (graines) 2
+item.utilitycraft:ghast_seeds=Graines de Ghast \n§cTier 2
+item.utilitycraft:glowstone_seeds=Graines Glowstone \n§cTier 2
+item.utilitycraft:gold_seeds=Graines d'or \n§cTier 2
+item.utilitycraft:honey_seeds=Graines de miel \n§cTier 2
+item.utilitycraft:lapis_seeds=Graines de lapis \n§cTier 2
+item.utilitycraft:lava_seeds=Graines de lave \n§cTier 2
+item.utilitycraft:quartz_seeds=Graines de quartz \n§cTier 2
+item.utilitycraft:redstone_seeds=Graines de Redstone \n§cTier 2
+item.utilitycraft:slime_seeds=Graines de slime \n§cTier 2
+
+-- Tier 3 =## Niveau (graines) 3
+item.utilitycraft:amethyst_seeds=Graines d'améthyste \n§bTier 3
+item.utilitycraft:blaze_seeds=Blaze Seeds \n§bTier 3
+item.utilitycraft:diamond_seeds=Graines de diamant \n§bTier 3
+item.utilitycraft:emerald_seeds=Graines d'émeraude \n§bTier 3
+item.utilitycraft:enderpearl_seeds=Graines Enderpearl \n§bTier 3
+item.utilitycraft:obsidian_seeds=Graines d'obsidienne \n§bTier 3
+
+-- Tier 4 =## Niveau (graines) 4
+item.utilitycraft:nether_star_seeds=Graines d'étoile du Néant \n§8Tier 4
+item.utilitycraft:netherite_seeds=Graines de Netherite \n§8Tier 4
+item.utilitycraft:shulker_seeds=Graines Shulker \n§8Tier 4
+item.utilitycraft:totem_seeds=Graines de totem \n§8Tier 4
+item.utilitycraft:wither_seeds=Wither Seeds \n§8Tier 4
+## -------- Close Group <<<<<<<< ##
+
+- Mesh =## Maillages
+item.utilitycraft:string_mesh=String Mesh\n§7- Niveau de chute maximum : charbon
+item.utilitycraft:flint_mesh=§7Flint§r Mesh\n§7- Niveau de chute maximum : fer
+item.utilitycraft:copper_mesh=§nCopper§r Mesh\n§7- Niveau de chute maximum : Or
+item.utilitycraft:iron_mesh=§iIron§r Mesh\n§7- Niveau de chute maximum : Diamant
+item.utilitycraft:golden_mesh=§pGolden§r Mesh\n§7- Niveau de chute maximum : Diamant
+item.utilitycraft:emerald_mesh=§aEmerald§r Mesh\n§7- Niveau de chute maximum : Diamant
+item.utilitycraft:diamond_mesh=§bDiamond§r Mesh\n§7- Niveau de chute maximum : Diamant
+item.utilitycraft:netherite_mesh=§jNetherite§r Mesh\n§7- Niveau de chute maximum : Diamant\n- Ne laisse pas tomber de silex
+
+- Fishing Nets =## Filets de pêche
+item.utilitycraft:string_fishing_net=Filet de pêche à cordes\n§7- Niveau de vitesse du crochet : 1
+item.utilitycraft:copper_fishing_net=§nCopper§r Filet de pêche\n§7- Niveau de vitesse du crochet : 2
+item.utilitycraft:iron_fishing_net=§iIron§r Filet de pêche\n§7- Niveau de vitesse du crochet : 3
+item.utilitycraft:golden_fishing_net=§pGolden§r Filet de pêche\n§7- Niveau de vitesse du crochet : 4
+item.utilitycraft:emerald_fishing_net=§aEmerald§r Filet de pêche\n§7- Niveau de vitesse du crochet : 5
+item.utilitycraft:diamond_fishing_net=§bDiamond§r Filet de pêche\n§7- Niveau de vitesse du crochet : 6
+item.utilitycraft:netherite_fishing_net=§jNetherite§r Filet de pêche\n§7- Niveau de vitesse du crochet : 7
+
+- Essences =## Essences
+item.utilitycraft:essence_vessel=Récipient d'essence \n§7- Faites un clic droit ou interagissez avec une entité\n- Tuez des monstres de ce type pour remplir l'essence
+item.utilitycraft:pig_essence=Essence de porc
+item.utilitycraft:cow_essence=Essence de vache
+item.utilitycraft:zombie_essence=Essence de zombie
+item.utilitycraft:skeleton_essence=Essence de squelette
+item.utilitycraft:slime_essence=Essence de vase
+item.utilitycraft:sheep_essence=Essence de mouton
+item.utilitycraft:spider_essence=Essence d'araignée
+item.utilitycraft:creeper_essence=Essence de plante grimpante
+item.utilitycraft:blaze_essence=Essence de feu
+item.utilitycraft:chicken_essence=Essence de poulet
+item.utilitycraft:enderman_essence=Essence Enderman
+item.utilitycraft:hoglin_essence=Essence de Hoglin
+item.utilitycraft:magma_cube_essence=Essence de cube de magma
+item.utilitycraft:mooshroom_essence=Essence de Champi-Mousse
+item.utilitycraft:wither_skeleton_essence=Essence de squelette flétri
+
+- Machines Upgrades =## Mises à niveau des machines
+## +
+item.utilitycraft:filter_upgrade=Filter Upgrade\n§7- Donne aux blocs de transport \n un moyen de filtrer les éléments
+item.utilitycraft:smart_filter_upgrade=Mise à niveau du filtre intelligent\n§7- Permet le routage avancé des articles\n à l'aide des catégories d'emplacements et des filtres basés sur la priorité\n
+item.utilitycraft:energy_upgrade=§bMise à niveau énergétique§r\n§7- Augmente l'efficacité énergétique des machines
+item.utilitycraft:speed_upgrade=§aMise à niveau de la vitesse§r\n§7- Augmente la vitesse des machines\n- Augmente la consommation d'énergie
+item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Augmente la portée des machines
+item.utilitycraft:quantity_upgrade=§3Amélioration de la quantité§r\n§7- Augmente l'apparition du plafond de foule pour le générateur mécanique
+item.utilitycraft:ultimate_upgrade=§8Mise à niveau ultime
+item.utilitycraft:damage_upgrade=§cDamage Upgrade§r\n§7- Augmente les dégâts infligés par Mob Grinder
+## +
+item.utilitycraft:base_upgrade=Mise à niveau de base\n§7- Utilisée pour fabriquer des améliorations de machine
+
+- Utility Items =## Éléments utilitaires
+item.utilitycraft:honey_ball=Boule de miel
+item.utilitycraft:lava_ball=Boule de lave
+item.utilitycraft:water_ball=Boule d'eau
+item.utilitycraft:grenade=Grenade
+item.utilitycraft:bomb=Bombe
+item.utilitycraft:dynamite=Dynamiter
+## +
+item.utilitycraft:smeltflare=Flamme d'éperlan
+item.utilitycraft:infinite_enderpearl=Perle Ender infinie
+item.utilitycraft:raw_leather=Cuir brut
+item.utilitycraft:antidote_potion=Potion antidote
+item.utilitycraft:antidote_potion_splash=Éclaboussure de potion antidote
+item.utilitycraft:wrench=Clé §r\n§7- Fait tourner la machine en se faufilant §r\n§7- Supprime les véhicules
+
+- Saplings =## Mudas
+item.utilitycraft:apple_sapling=Jeune arbre de pomme
+
+- Entities =## Entités
+## -------- Open Group -------- ##
+entity.utilitycraft:tractor.name=Tracteur
+entity.utilitycraft:oak_tree.name=Chêne
+entity.utilitycraft:birch_tree.name=Bouleau
+entity.utilitycraft:darkoak_tree.name=Chêne foncé
+entity.utilitycraft:acacia_tree.name=Acacia
+entity.utilitycraft:jungle_tree.name=Arbre de la jungle
+entity.utilitycraft:spruce_tree.name=Épinette
+entity.utilitycraft:drill.name=Percer
+entity.utilitycraft:grenade.name=Grenade
+entity.utilitycraft:bomb.name=Bombe
+entity.utilitycraft:dynamite.name=Dynamiter
+entity.utilitycraft:crusher.name=Broyeur
+entity.utilitycraft:autosieve.name=Tamis automatique
+entity.utilitycraft:cherry_tree.name=Cerisier
+entity.utilitycraft:mangrove_tree.name=Arbre de mangrove
+entity.utilitycraft:crimson_tree.name=Arbre cramoisi
+entity.utilitycraft:warped_tree.name=Arbre déformé
+entity.utilitycraft:kelp.name=Varech
+entity.utilitycraft:sugarcane.name=Canne à sucre
+entity.utilitycraft:bamboo.name=Bambou
+entity.utilitycraft:mushroom.name=Champignon
+entity.utilitycraft:cactus.name=cactus
+entity.utilitycraft:apple_tree.name=Pommier
+
+## -------- Close Group <<<<<<<< ##
+
+- Items 2 =##| Pour formater
+
+tile.utilitycraft:pedestal.name=Piédestal\n§7- Utilisé comme base pour l'horloge accélératrice
+entity.utilitycraft:accelerator_clock.name=Accelerator Clock\n§7- Accélère le jeu
+item.utilitycraft:accelerator_clock=Accelerator Clock\n§7- Accélère le jeu
+item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Horloge d'accélération d'invocation
+
+- Progress Bars =Barres de progression ##///////////////////////////////////////////////////////////
+item.utilitycraft:empty_liquid_bar=Vide
+item.utilitycraft:arrow_indicator=Indicateur de flèche
+item.utilitycraft:info=Informations :
+< Progress Bars =Barres de progression ##///////////////////////////////////////////////////////////
+
+- Energy Generators =Geradores d'Énergie ##///////////////////////////////////////////////////////////
+tile.utilitycraft:basic_furnator.name=§eFour de base \n §7 Tarif : 40 DE/t
+tile.utilitycraft:basic_magmator.name=§eBasic Magmator \n §7 Débit : 50 DE/t
+tile.utilitycraft:basic_thermo_generator.name=§eGénérateur Thermo Basique \n §7 Débit : 20 DE/t
+tile.utilitycraft:basic_battery.name=§eBatterie de base \n §7 Tarif : 100 DE/t
+tile.utilitycraft:basic_solar_panel.name=§ePanneau Solaire Basique \n §7 Tarif : 12 DE/t
+tile.utilitycraft:basic_wind_turbine.name=§eÉolienne de base \n §7 Taux de base : 8 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y20
+
+tile.utilitycraft:advanced_furnator.name=§cFour avancé \n §7 Taux : 160 DE/t
+tile.utilitycraft:advanced_magmator.name=§cMagmateur avancé \n §7 Taux : 200 DE/t
+tile.utilitycraft:advanced_thermo_generator.name=§cGénérateur thermique avancé \n §7 Taux : 80 DE/t
+tile.utilitycraft:advanced_battery.name=§cBatterie avancée \n §7 Taux : 800 DE/t
+tile.utilitycraft:advanced_solar_panel.name=§cPanneau solaire avancé \n §7 Tarif : 48 DE/t
+tile.utilitycraft:advanced_wind_turbine.name=§cÉolienne avancée \n §7 Taux de base : 32 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y20
+
+tile.utilitycraft:expert_furnator.name=§bFour Expert \n §7 Tarif : 640 DE/t
+tile.utilitycraft:expert_magmator.name=§bExpert Magmator \n §7 Taux : 800 DE/t
+tile.utilitycraft:expert_thermo_generator.name=§bGénérateur Thermo Expert \n §7 Débit : 320 DE/t
+tile.utilitycraft:expert_battery.name=§bBatterie Expert \n §7 Débit : 1,6 kDE/t
+tile.utilitycraft:expert_solar_panel.name=§bPanneau Solaire Expert \n §7 Tarif : 192 DE/t
+tile.utilitycraft:expert_wind_turbine.name=§bÉolienne Expert \n §7 Taux de base : 128 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y20
+
+tile.utilitycraft:ultimate_furnator.name=§8Fournateur ultime \n §7 Débit : 4 kDE/t
+tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Débit : 5 kDE/t
+tile.utilitycraft:ultimate_thermo_generator.name=§8Générateur Thermo Ultime \n §7 Débit : 2 kDE/t
+tile.utilitycraft:ultimate_battery.name=§8Batterie ultime \n §7 Débit : 10 kDE/t
+tile.utilitycraft:ultimate_solar_panel.name=§8Panneau Solaire Ultime \n §7 Tarif : 1200 DE/t
+tile.utilitycraft:ultimate_wind_turbine.name=§8Éolienne ultime \n §7 Taux de base : 800 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y16
+
+
+< Energy Generators =Geradores d'Énergie ##///////////////////////////////////////////////////////////
+
+- Stuff =## Coisas Non-Catégorisées
+tile.utilitycraft:waycenter.name=Centre de chemin
+tile.utilitycraft:waycarpet.name=Tapis de chemin
+item.utilitycraft:way_chip=Façon Puce
+
+item.utilitycraft:amethyst_dust=Poussière d'améthyste
+item.utilitycraft:diamond_dust=Poussière de diamant
+item.utilitycraft:emerald_dust=Poussière d'émeraude
+item.utilitycraft:obsidian_dust=Poussière d'obsidienne
+item.utilitycraft:quartz_dust=Poussière de quartz
+item.utilitycraft:netherite_dust=Poussière de Netherite
+item.utilitycraft:netherite_scrap_dust=Poussière de ferraille de Netherite
+item.utilitycraft:charcoal_dust=Poussière de charbon de bois
+item.utilitycraft:coal_dust=Poussière de charbon
+item.utilitycraft:crying_obsidian_dust=Poussière d'obsidienne qui pleure
+item.utilitycraft:stabilized_obsidian_dust=Poussière d'obsidienne stabilisée
+item.utilitycraft:copper_dust=Poussière de cuivre
+item.utilitycraft:gold_dust=Poussière d'or
+item.utilitycraft:iron_dust=Poussière de fer
+item.utilitycraft:ender_pearl_dust=Poussière de perle d'Ender
+
+
+item.utilitycraft:chip=Ébrécher
+item.utilitycraft:basic_chip=§ePuce de base
+item.utilitycraft:advanced_chip=§cPuce avancée
+item.utilitycraft:expert_chip=§bPuce experte
+item.utilitycraft:ultimate_chip=§8Puce ultime
+
+item.utilitycraft:energized_iron_ingot=Lingot de fer énergisé
+item.utilitycraft:energized_iron_nugget=Pépite de fer énergisée
+item.utilitycraft:energized_iron_dust=Poussière de fer énergisée
+item.utilitycraft:energized_iron_plate=Plaque de fer dynamisée
+item.utilitycraft:raw_energized_iron=Fer énergisé brut
+item.utilitycraft:energized_iron_block=Bloc de fer énergisé
+tile.utilitycraft:energized_iron_block.name=Bloc de fer énergisé
+tile.utilitycraft:raw_energized_iron_block.name=Bloc de fer énergisé brut
+
+item.utilitycraft:steel_ingot=Lingot d'acier
+tile.utilitycraft:raw_steel_block.name=Bloc d'acier brut
+item.utilitycraft:raw_steel=Acier brut
+tile.utilitycraft:steel_block.name=Bloc d'acier
+item.utilitycraft:steel_dust=Poussière d'acier
+item.utilitycraft:steel_nugget=Pépite d'acier
+item.utilitycraft:steel_plate=Plaque d'acier
+
+item.utilitycraft:copper_plate=Plaque de cuivre
+item.utilitycraft:gold_plate=Plaque d'or
+item.utilitycraft:iron_plate=Plaque de fer
+item.utilitycraft:netherite_plate=Plaque de Netherite
+item.utilitycraft:netherite_nugget=Pépite de Netherite
+
+item.utilitycraft:arrow_indicator_90=Indicateur de flèche
+< Stuff =## Coisas Non-Catégorisées
+
+## - Categories
+dorios:itemGroup.name.generators=Générateurs
+dorios:itemGroup.name.machines=Machines
+dorios:itemGroup.name.batteries=Piles
+dorios:itemGroup.name.basics=Les bases
+dorios:itemGroup.name.meshes=Mailles
+dorios:itemGroup.name.fishing_nets=Filets de pêche
+dorios:itemGroup.name.essences=Essences\n§7- Utilisées dans le générateur mécanique
+dorios:itemGroup.name.upgrades=Mises à niveau des machines
+dorios:itemGroup.name.plates=Assiettes
+dorios:itemGroup.name.seeds=Graines
+dorios:itemGroup.name.mob_grinding=Broyage de foule
+dorios:itemGroup.name.transportation=Transport des articles
+dorios:itemGroup.name.compressed=Blocs compressés
+dorios:itemGroup.name.bags=Sacs
+dorios:itemGroup.name.bundles=Forfaits
+dorios:itemGroup.name.vases=Vases
+dorios:itemGroup.name.jars=Pots
+dorios:itemGroup.name.tanks=Réservoirs
+dorios:itemGroup.name.cobble_gens=Générateurs de pavés
+dorios:itemGroup.name.soils=Sols
+dorios:itemGroup.name.dusts=Poussières
+dorios:itemGroup.name.indicators=Indicateurs
+dorios:itemGroup.name.aiots=AIOT
+dorios:itemGroup.name.paxels=Paxels
+dorios:itemGroup.name.hammers=Marteaux
+
+## < Categories
+
+dorios:itemGroup.name.pebbles=Cailloux
+item.utilitycraft:ancient_debris_chunk=Morceau de débris anciens
+item.utilitycraft:blackstone_pebble=Galet de pierre noire
+item.utilitycraft:basalt_pebble=Galet de basalte
+item.utilitycraft:crushed_netherrack_handful=Poignée de Netherrack écrasée
+item.utilitycraft:calcite_pebble=Galet Calcite
+item.utilitycraft:coal_chunk=Morceau de charbon
+item.utilitycraft:copper_chunk=Morceau de cuivre
+item.utilitycraft:crushed_deepslate_handful=Poignée d'ardoise profonde écrasée
+item.utilitycraft:crushed_endstone_handful=Poignée de pierre de fin concassée
+item.utilitycraft:deepslate_coal_chunk=Morceau de charbon de Deepslate
+item.utilitycraft:deepslate_diamond_chunk=Morceau de diamant de l'ardoise profonde
+item.utilitycraft:deepslate_emerald_chunk=Morceau d'émeraude des profondeurs
+item.utilitycraft:deepslate_gold_chunk=Morceau d'or de l'ardoise profonde
+item.utilitycraft:deepslate_iron_chunk=Morceau de fer d'ardoise profonde
+item.utilitycraft:deepslate_lapislazuli_chunk=Morceau de lapislazuli en ardoise profonde
+item.utilitycraft:deepslate_pebble=Galet d'ardoise profonde
+item.utilitycraft:deepslate_redstone_chunk=Morceau de Redstone Deepslate
+item.utilitycraft:diamond_chunk=Morceau de diamant
+item.utilitycraft:diamond_shard=Éclat de diamant
+item.utilitycraft:diorite_pebble=Galet diorite
+item.utilitycraft:andesite_pebble=Galet andésite
+item.utilitycraft:dirt_handful=Poignée de terre
+item.utilitycraft:dripstone_pebble=Galet de gouttelettes
+item.utilitycraft:emerald_chunk=Morceau d'émeraude
+item.utilitycraft:emerald_shard=Éclat d'émeraude
+item.utilitycraft:endstone_pebble=Galet de pierre de fin
+item.utilitycraft:geode=Géode
+item.utilitycraft:gilded_blackstone_pebble=Galet de pierre noire doré
+item.utilitycraft:gold_chunk=Morceau d'or
+item.utilitycraft:granite_pebble=Galet de granit
+item.utilitycraft:gravel_fragments=Fragments de gravier
+item.utilitycraft:iron_chunk=Morceau de fer
+item.utilitycraft:lapislazuli_chunk=Morceau de lapislazuli
+item.utilitycraft:mud_ball=Boule de boue
+item.utilitycraft:nether_gold_chunk=Morceau d'or du Néant
+item.utilitycraft:nether_quartz_chunk=Morceau de quartz du Néant
+item.utilitycraft:nether_star_fragment=Fragment d'étoile du Néant
+item.utilitycraft:netherrack_pebble=Galet Netherrack
+item.utilitycraft:red_sand_handful=Poignée de sable rouge
+item.utilitycraft:redstone_chunk=Morceau de pierre rouge
+item.utilitycraft:sand_handful=Poignée de sable
+item.utilitycraft:shulker_shell_shard=Éclat de coquille de Shulker
+item.utilitycraft:souls_handful=Poignée d'âmes
+item.utilitycraft:stone_pebble=Galet de pierre
+item.utilitycraft:totem_shard=Éclat de totem
+item.utilitycraft:tuff_pebble=Galet de tuf
+item.utilitycraft:wither_skull_shard=Éclat de crâne flétri
+
+tile.utilitycraft:energy_cable.name=Câble d'énergie
+tile.utilitycraft:item_conduit.name=Conduit d'objet (par défaut)\n§7- Transporte les objets
+tile.utilitycraft:item_conduit_blue.name=Conduit d'objet (bleu)\n§7- Transporte les objets
+tile.utilitycraft:item_conduit_yellow.name=Conduit d'article (jaune)\n§7- Transporte les articles
+tile.utilitycraft:item_conduit_red.name=Conduit d'article (rouge)\n§7- Transporte les articles
+tile.utilitycraft:item_conduit_purple.name=Conduit d'objet (violet)\n§7- Transporte les objets
+tile.utilitycraft:fluid_pipe.name=Tuyau de fluide (par défaut)\n§7- Transporte les liquides
+tile.utilitycraft:fluid_pipe_blue.name=Tuyau de fluide (bleu)\n§7- Transporte les liquides
+tile.utilitycraft:fluid_pipe_green.name=Tuyau de fluide (vert)\n§7- Transporte les liquides
+tile.utilitycraft:fluid_pipe_red.name=Tuyau de fluide (rouge)\n§7- Transporte les liquides
+tile.utilitycraft:fluid_pipe_purple.name=Tuyau de fluide (violet)\n§7- Transporte les liquides
+
+dorios:itemGroup.name.pipes=Tuyaux
+item.utilitycraft:flint_knife=Couteau en silex \n§7- Sépare les fibres des feuilles
+item.utilitycraft:fiber=Fibre
+tile.utilitycraft:item_exporter.name=Exportateur d'articles (par défaut)\n§7- Mises à niveau acceptées :\n §a§7 §f§7
+tile.utilitycraft:item_exporter_blue.name=Exportateur d'articles (bleu)\n§7- Mises à niveau acceptées :\n §a§7 §f§7
+tile.utilitycraft:item_exporter_red.name=Exportateur d'articles (rouge)\n§7- Mises à niveau acceptées :\n §a§7 §f§7
+tile.utilitycraft:item_exporter_yellow.name=Exportateur d'articles (jaune)\n§7- Mises à niveau acceptées :\n §a§7 §f§7
+tile.utilitycraft:item_exporter_purple.name=Exportateur d'articles (violet)\n§7- Mises à niveau acceptées :\n §a§7 §f§7
+item.utilitycraft:mortar=Mortier
+tile.utilitycraft:fluid_extractor.name=Extracteur de fluide (par défaut)\n§7- Mises à niveau acceptées :\n §a§7
+tile.utilitycraft:fluid_extractor_blue.name=Extracteur de fluide (bleu)\n§7- Mises à niveau acceptées :\n §a§7
+tile.utilitycraft:fluid_extractor_green.name=Extracteur de fluide (vert)\n§7- Mises à niveau acceptées :\n §a§7
+tile.utilitycraft:fluid_extractor_red.name=Extracteur de fluide (rouge)\n§7- Mises à niveau acceptées :\n §a§7
+tile.utilitycraft:fluid_extractor_purple.name=Extracteur de fluide (violet)\n§7- Mises à niveau acceptées :\n §a§7
+tile.utilitycraft:item_importer.name=Importateur d'articles (par défaut)\n§7- Mises à niveau acceptées :\n §f§7
+tile.utilitycraft:item_importer_blue.name=Importateur d'articles (bleu)\n§7- Mises à niveau acceptées :\n §f§7
+tile.utilitycraft:item_importer_red.name=Importateur d'articles (rouge)\n§7- Mises à niveau acceptées :\n §f§7
+tile.utilitycraft:item_importer_yellow.name=Importateur d'articles (jaune)\n§7- Mises à niveau acceptées :\n §f§7
+tile.utilitycraft:item_importer_purple.name=Importateur d'articles (violet)\n§7- Mises à niveau acceptées :\n §f§7
+
+
+## All the same
+
+item.utilitycraft:blueprint_paper=Plan vide
+item.utilitycraft:blueprint=Plan
+
+## Machines Entities
+entity.utilitycraft:assembler.name=Assembleur
+entity.utilitycraft:autosieve.name=Tamis automatique
+entity.utilitycraft:autofisher.name=Pêcheur automatique
+entity.utilitycraft:block_breaker.name=Disjoncteur de bloc
+entity.utilitycraft:block_placer.name=Placeur de blocs
+entity.utilitycraft:crusher.name=Broyeur
+entity.utilitycraft:digitizer.name=Numériseur
+entity.utilitycraft:electro_press.name=Presse Électro
+entity.utilitycraft:harvester.name=Moissonneuse
+entity.utilitycraft:incinerator.name=Incinérateur
+entity.utilitycraft:induction_anvil.name=Enclume à induction
+entity.utilitycraft:infuser.name=Infuseur
+entity.utilitycraft:magmatic_chamber.name=Chambre magmatique
+entity.utilitycraft:seed_synthesizer.name=Synthétiseur de graines
+entity.utilitycraft:power_condenser.name=Matrice de condensateur de puissance
+
+## Generators Entities
+entity.utilitycraft:battery.name=Batterie
+entity.utilitycraft:transmitter.name=Émetteur
+entity.utilitycraft:receiver.name=Récepteur
+entity.utilitycraft:furnator.name=Fourneau
+entity.utilitycraft:magmator.name=Magmateur
+entity.utilitycraft:solar_panel.name=Panneau solaire
+entity.utilitycraft:thermo_generator.name=Générateur thermique
+entity.utilitycraft:wind_turbine.name=Éolienne
+tile.utilitycraft:blaze_block.name=Noyau de Blaze
+item.utilitycraft:crushed_kelp=Varech écrasé
+
+dorios:itemGroup.name.removed=Supprimé
+
+tile.utilitycraft:basic_trash_can.name=Poubelle de base
+
+tile.utilitycraft:basic_energy_transmitter.name=§eTransmetteur d'énergie de base \n §7 Débit : 1 kDE/t\n §7 Capacité : 64 kDE\n §7 Portée : 32 blocs
+tile.utilitycraft:advanced_energy_transmitter.name=§cÉmetteur d'énergie avancée \n §7 Débit : 4 kDE/t\n §7 Capacité : 256 kDE\n §7 Portée : 64 blocs
+tile.utilitycraft:expert_energy_transmitter.name=§bÉmetteur d'énergie expert \n §7 Débit : 16 kDE/t\n §7 Capacité : 1,024 MDE\n §7 Portée : 128 blocs
+tile.utilitycraft:ultimate_energy_transmitter.name=§8Émetteur d'énergie ultime \n §7 Débit : 100 kDE/t\n §7 Capacité : 6,4 MDE\n §7 Portée : 512 blocs
+
+tile.utilitycraft:basic_energy_receiver.name=§eRécepteur d'énergie de base \n §7 Taux : 1 kDE/t\n §7 Capacité : 64 kDE
+tile.utilitycraft:advanced_energy_receiver.name=§cRécepteur d'énergie avancé \n §7 Taux : 4 kDE/t\n §7 Capacité : 256 kDE
+tile.utilitycraft:expert_energy_receiver.name=§bRécepteur d'énergie expert \n §7 Taux : 16 kDE/t\n §7 Capacité : 1,024 MDE
+tile.utilitycraft:ultimate_energy_receiver.name=§8Récepteur d'énergie ultime \n §7 Taux : 100 kDE/t\n §7 Capacité : 6,4 MDE
+
+item.utilitycraft:settings=Paramètres\n §7 Interagissez pour ouvrir les paramètres d'UtilityCraft

@@ -1,0 +1,871 @@
+## Translated by Milo
+
+message.utilitycraft.invalid_mesh=§e自定义筛网只能在自动筛机中使用！
+
+- Bloques =## 布洛克
+
+- Tables =## 梅萨斯
+tile.utilitycraft:workbench.name=工作台\n§7- 用于制作与机器相关的一切
+tile.utilitycraft:utility_table.name=实用工具表\n§7- 用于制作高级工具
+
+- Machines =## 马奎纳斯
+tile.utilitycraft:autosieve.name=Autosieve\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:autofisher.name=自动钓鱼\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:block_breaker.name=Block Breaker\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:ender_hopper.name=安德·霍珀\n§7- 接受的升级：\n §a§7 §9§7 §f§7
+tile.utilitycraft:crusher.name=破碎机\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:harvester.name=收割机\n§7- 接受的升级：\n §a§7 §b§7 §9§7
+tile.utilitycraft:electro_press.name=Electro Press\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:block_placer.name=块放置器\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:seed_synthesizer.name=种子合成器\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:incinerator.name=焚化炉\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:infuser.name=Infuser\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:assembler.name=汇编器\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:digitizer.name=数字化仪\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:induction_anvil.name=感应砧\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:magmatic_chamber.name=岩浆室\n§7- 接受的升级：\n §a§7 §b§7
+tile.utilitycraft:mechanic_dropper.name=机械投掷器\n§7- 接受的升级：\n §a§7 §f§7
+
+tile.utilitycraft:fluid_pump.name=流体泵\n§7- 接受的升级：\n §a§7
+
+tile.utilitycraft:machine_case.name=机箱
+tile.utilitycraft:xp_condenser.name=XP冷凝器
+tile.utilitycraft:sieve.name=筛子\n§7- 最大多次使用：5x5
+tile.utilitycraft:crucible.name=坩
+## +
+tile.utilitycraft:fan.name=风扇\n§7- 接受的升级：\n §9§7
+tile.utilitycraft:mob_grinder.name=生物研磨机\n§7- 接受的升级：\n §9§7 §c§7
+tile.utilitycraft:mob_trap.name=暴徒陷阱
+tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- 接受的升级：\n §9§7
+tile.utilitycraft:xp_drain.name=XP 消耗
+tile.utilitycraft:xp_spout.name=XP 喷口
+## +
+tile.utilitycraft:cobble_gen_0.name=圆石生成器 (§vTier 1§r)\n§7- 每秒生成 0.25
+tile.utilitycraft:cobble_gen_1.name=圆石生成器 (§iTier 2§r) \n§7- 每秒生成 0.5
+tile.utilitycraft:cobble_gen_2.name=圆石生成器 (§gTier 3§r) \n§7- 每秒生成 1 个
+tile.utilitycraft:cobble_gen_3.name=圆石生成器 (§qTier 4§r) \n§7- 每秒生成 2 个
+tile.utilitycraft:cobble_gen_4.name=圆石生成器 (§sTier 5§r) \n§7- 每秒生成 4 个
+tile.utilitycraft:cobble_gen_5.name=圆石生成器 (§jTier 6§r) \n§7- 每秒生成 20 个
+## +
+tile.utilitycraft:conveyor_horizontal.name=水平输送机
+tile.utilitycraft:conveyor_inclined.name=倾斜输送机
+tile.utilitycraft:conveyor_declined.name=拒绝输送机
+tile.utilitycraft:mechanic_hopper.name=机械料斗\n§7- 接受的升级：\n §7, §fFilter§7
+tile.utilitycraft:mechanic_upper.name=机械上部\n§7- 接受的升级：\n §7, §fFilter§7
+##+
+tile.utilitycraft:basic_fluid_tank.name=§e基础液罐
+tile.utilitycraft:advanced_fluid_tank.name=§c高级液体罐
+tile.utilitycraft:expert_fluid_tank.name=§b专家液罐
+tile.utilitycraft:ultimate_fluid_tank.name=§8终极液体罐
+- Bountiful Bonsais =## 丰富的盆景
+tile.utilitycraft:bonsai.name=盆景
+
+- Bountiful Crops =## 丰富的科尔黑塔斯
+## >>>>>>>> Open Group -------- ##
+
+-- Tier 1 =## 层（作物）1
+tile.utilitycraft:coal_crop.name=煤作物
+tile.utilitycraft:copper_crop.name=铜作物
+tile.utilitycraft:dyes_crop.name=染料作物
+tile.utilitycraft:glass_crop.name=玻璃作物
+tile.utilitycraft:gunpowder_crop.name=火药作物
+tile.utilitycraft:iron_crop.name=铁作物
+tile.utilitycraft:leather_crop.name=皮革裁剪
+tile.utilitycraft:prismarine_crystal_crop.name=海晶水晶作物
+tile.utilitycraft:prismarine_shards_crop.name=海晶碎片作物
+tile.utilitycraft:water_crop.name=水作物
+tile.utilitycraft:wool_crop.name=羊毛作物
+
+-- Tier 2 =## 层级（作物）2
+tile.utilitycraft:ghast_crop.name=恶魂作物
+tile.utilitycraft:glowstone_crop.name=萤石作物
+tile.utilitycraft:gold_crop.name=黄金作物
+tile.utilitycraft:honey_crop.name=蜂蜜作物
+tile.utilitycraft:lapis_crop.name=青金石作物
+tile.utilitycraft:lava_crop.name=熔岩作物
+tile.utilitycraft:quartz_crop.name=石英作物
+tile.utilitycraft:redstone_crop.name=红石作物
+tile.utilitycraft:slime_crop.name=史莱姆作物
+
+-- Tier 3 =## 层级（作物）3
+tile.utilitycraft:amethyst_crop.name=紫水晶作物
+tile.utilitycraft:blaze_crop.name=火焰作物
+tile.utilitycraft:diamond_crop.name=钻石作物
+tile.utilitycraft:emerald_crop.name=翡翠作物
+tile.utilitycraft:enderpearl_crop.name=末影珍珠作物
+tile.utilitycraft:obsidian_crop.name=黑曜石作物
+
+-- Tier 4 =## 第 4 层（作物）
+tile.utilitycraft:netherite_crop.name=下界合金作物
+tile.utilitycraft:netherstar_crop.name=虚空之星作物
+tile.utilitycraft:shulker_crop.name=潜影贝作物
+tile.utilitycraft:totem_crop.name=图腾作物
+tile.utilitycraft:wither_crop.name=枯萎作物
+## -------- Close Group <<<<<<<< ##
+
+- Soils =## 土壤
+tile.utilitycraft:blue_soil.name=§b蓝色土壤
+tile.utilitycraft:black_soil.name=§8黑土
+tile.utilitycraft:red_soil.name=§c红壤
+tile.utilitycraft:yellow_soil.name=§e黄土
+
+- Mechanical Spawners =## Invocadores 机械师
+tile.utilitycraft:mechanical_spawner.name=机械生成器\n§7- 接受的升级：\n §a§7 §3§7
+tile.utilitycraft:spawner_core.name=生成器核心
+
+-- =## 生成器物品
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_blaze.name=机械生成器：Blaze
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_chicken.name=机械生成器：鸡
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_cow.name=机械生成器：牛
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_creeper.name=机械生成器：苦力怕
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_enderman.name=机械生成器：末影人
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_hoglin.name=机械生成器：霍格林
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_magma_cube.name=机械生成器：岩浆立方体
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_mooshroom.name=机械生成器：哞菇
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_pig.name=机械生成器：猪
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_sheep.name=机械生成器：羊
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_skeleton.name=机械生成器：骷髅
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_slime.name=机械生成器：史莱姆
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_spider.name=机械生成器：蜘蛛
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_witch.name=机械生成器：女巫
+item.spawn_egg.entity.utilitycraft:mechanical_spawner_zombie.name=机械生成器：僵尸
+
+- Compressed Blocks =## 布洛科斯·普里米多斯
+tile.utilitycraft:compressed_cobblestone.name=压缩鹅卵石
+tile.utilitycraft:double_compressed_cobblestone.name=双压缩鹅卵石
+tile.utilitycraft:triple_compressed_cobblestone.name=三重压缩鹅卵石
+tile.utilitycraft:quadruple_compressed_cobblestone.name=四重压缩鹅卵石
+tile.utilitycraft:quintuple_compressed_cobblestone.name=五重压缩鹅卵石
+tile.utilitycraft:sextuple_compressed_cobblestone.name=六重压缩鹅卵石
+tile.utilitycraft:septuple_compressed_cobblestone.name=七重压缩鹅卵石
+tile.utilitycraft:octuple_compressed_cobblestone.name=八重压缩鹅卵石
+tile.utilitycraft:nonuple_compressed_cobblestone.name=非双层压缩鹅卵石
+## +
+tile.utilitycraft:compressed_amethyst_block.name=压缩紫水晶块
+tile.utilitycraft:compressed_amethyst_block_2.name=双压缩紫水晶块
+tile.utilitycraft:compressed_amethyst_block_3.name=三重压缩紫水晶块
+tile.utilitycraft:compressed_amethyst_block_4.name=四重压缩紫水晶块
+tile.utilitycraft:compressed_blackstone.name=压缩黑石
+tile.utilitycraft:compressed_blackstone_2.name=双压缩黑石
+tile.utilitycraft:compressed_blackstone_3.name=三重压缩黑石
+tile.utilitycraft:compressed_blackstone_4.name=四重压缩黑石
+tile.utilitycraft:compressed_block.name=全紫色\n§8- 这个方块没有理由存在，我只是喜欢纹理\n- 无法获得
+tile.utilitycraft:compressed_brute_energized_iron_block.name=压缩的强力通电铁块
+tile.utilitycraft:compressed_brute_energized_iron_block_2.name=双压缩强力通电铁块
+tile.utilitycraft:compressed_brute_energized_iron_block_3.name=三重压缩强力通电铁块
+tile.utilitycraft:compressed_brute_energized_iron_block_4.name=四重压缩强力铁块
+tile.utilitycraft:compressed_brute_steel_block.name=压缩粗钢块
+tile.utilitycraft:compressed_brute_steel_block_2.name=双压缩粗钢块
+tile.utilitycraft:compressed_brute_steel_block_3.name=三重压缩粗钢块
+tile.utilitycraft:compressed_brute_steel_block_4.name=四重压缩粗钢块
+tile.utilitycraft:compressed_coal_block.name=压缩煤块
+tile.utilitycraft:compressed_coal_block_2.name=双压煤块
+tile.utilitycraft:compressed_coal_block_3.name=三重压缩煤块
+tile.utilitycraft:compressed_coal_block_4.name=四重压缩煤块
+tile.utilitycraft:compressed_cobbled_deepslate.name=压缩鹅卵石深板岩
+tile.utilitycraft:compressed_cobbled_deepslate_2.name=双重压缩鹅卵石深板岩
+tile.utilitycraft:compressed_cobbled_deepslate_3.name=三重压缩鹅卵石深板岩
+tile.utilitycraft:compressed_cobbled_deepslate_4.name=四重压缩鹅卵石深板岩
+tile.utilitycraft:compressed_copper_block.name=压缩铜块
+tile.utilitycraft:compressed_copper_block_2.name=双压缩铜块
+tile.utilitycraft:compressed_copper_block_3.name=三重压缩铜块
+tile.utilitycraft:compressed_copper_block_4.name=四重压缩铜块
+tile.utilitycraft:compressed_crushed_cobbled_deepslate.name=压缩碎鹅卵石深板岩
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name=双重压缩碎卵石深板岩
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name=三重压缩碎卵石深板岩
+tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name=四重压缩碎卵石深板岩
+tile.utilitycraft:compressed_crushed_endstone.name=压缩碎末石
+tile.utilitycraft:compressed_crushed_endstone_2.name=双压缩碎末石
+tile.utilitycraft:compressed_crushed_endstone_3.name=三重压缩碎末石
+tile.utilitycraft:compressed_crushed_endstone_4.name=四重压缩碎末石
+tile.utilitycraft:compressed_crushed_netherrack.name=压缩粉碎的地狱岩
+tile.utilitycraft:compressed_crushed_netherrack_2.name=双压缩碎地狱岩
+tile.utilitycraft:compressed_crushed_netherrack_3.name=三重压缩碎地狱岩
+tile.utilitycraft:compressed_crushed_netherrack_4.name=四重压缩碎地狱岩
+tile.utilitycraft:compressed_cry_obsidian.name=压缩哭泣黑曜石
+tile.utilitycraft:compressed_cry_obsidian_2.name=双压缩哭泣黑曜石
+tile.utilitycraft:compressed_cry_obsidian_3.name=三重压缩哭泣黑曜石
+tile.utilitycraft:compressed_cry_obsidian_4.name=四重压缩哭泣黑曜石
+tile.utilitycraft:compressed_deepslate.name=压缩深石板
+tile.utilitycraft:compressed_deepslate_2.name=双压缩 Deepslate
+tile.utilitycraft:compressed_deepslate_3.name=三重压缩 Deepslate
+tile.utilitycraft:compressed_deepslate_4.name=四重压缩 Deepslate
+tile.utilitycraft:compressed_diamond_block.name=压缩金刚石块
+tile.utilitycraft:compressed_diamond_block_2.name=双压缩金刚石块
+tile.utilitycraft:compressed_diamond_block_3.name=三重压缩金刚石块
+tile.utilitycraft:compressed_diamond_block_4.name=四重压缩金刚石块
+tile.utilitycraft:compressed_dirt.name=压缩污垢
+tile.utilitycraft:compressed_dirt_2.name=双压缩污垢
+tile.utilitycraft:compressed_dirt_3.name=三重压缩污垢
+tile.utilitycraft:compressed_dirt_4.name=四重压缩污垢
+tile.utilitycraft:compressed_emerald_block.name=压缩祖母绿块
+tile.utilitycraft:compressed_emerald_block_2.name=双压缩祖母绿块
+tile.utilitycraft:compressed_emerald_block_3.name=三重压缩祖母绿块
+tile.utilitycraft:compressed_emerald_block_4.name=四重压缩祖母绿块
+tile.utilitycraft:compressed_endstone.name=压缩尾石
+tile.utilitycraft:compressed_endstone_2.name=双压缩端石
+tile.utilitycraft:compressed_endstone_3.name=三重压缩端石
+tile.utilitycraft:compressed_endstone_4.name=四重压缩端石
+tile.utilitycraft:compressed_energized_iron_block.name=压缩通电铁块
+tile.utilitycraft:compressed_energized_iron_block_2.name=双压缩通电铁块
+tile.utilitycraft:compressed_energized_iron_block_3.name=三重压缩通电铁块
+tile.utilitycraft:compressed_energized_iron_block_4.name=四重压缩通电铁块
+tile.utilitycraft:compressed_exposed_copper_block.name=压缩裸铜块
+tile.utilitycraft:compressed_exposed_copper_block_2.name=双压缩裸露铜块
+tile.utilitycraft:compressed_exposed_copper_block_3.name=三重压缩裸露铜块
+tile.utilitycraft:compressed_exposed_copper_block_4.name=四重压缩裸露铜块
+tile.utilitycraft:compressed_flint_block.name=压缩燧石块
+tile.utilitycraft:compressed_flint_block_2.name=双压缩火石块
+tile.utilitycraft:compressed_flint_block_3.name=三重压缩燧石块
+tile.utilitycraft:compressed_flint_block_4.name=四重压缩燧石块
+tile.utilitycraft:compressed_glass.name=压缩玻璃
+tile.utilitycraft:compressed_glass_2.name=双层压缩玻璃
+tile.utilitycraft:compressed_glass_3.name=三重压缩玻璃
+tile.utilitycraft:compressed_glass_4.name=四重压缩玻璃
+tile.utilitycraft:compressed_gold_block.name=压缩金块
+tile.utilitycraft:compressed_gold_block_2.name=双压缩金块
+tile.utilitycraft:compressed_gold_block_3.name=三重压缩金块
+tile.utilitycraft:compressed_gold_block_4.name=四重压缩金块
+tile.utilitycraft:compressed_gravel.name=压缩砾石
+tile.utilitycraft:compressed_gravel_2.name=双压缩碎石
+tile.utilitycraft:compressed_gravel_3.name=三重压缩砾石
+tile.utilitycraft:compressed_gravel_4.name=四重压缩砾石
+tile.utilitycraft:compressed_iron_block.name=压缩铁块
+tile.utilitycraft:compressed_iron_block_2.name=双压铁块
+tile.utilitycraft:compressed_iron_block_3.name=三重压缩铁块
+tile.utilitycraft:compressed_iron_block_4.name=四重压缩铁块
+tile.utilitycraft:compressed_lapislazuli_block.name=压缩青金石块
+tile.utilitycraft:compressed_lapislazuli_block_2.name=双压缩青金石块
+tile.utilitycraft:compressed_lapislazuli_block_3.name=三重压缩青金石块
+tile.utilitycraft:compressed_lapislazuli_block_4.name=四重压缩青金石块
+tile.utilitycraft:compressed_netherite_block.name=压缩下界合金块
+tile.utilitycraft:compressed_netherite_block_2.name=双压缩下界合金块
+tile.utilitycraft:compressed_netherite_block_3.name=三重压缩下界合金块
+tile.utilitycraft:compressed_netherite_block_4.name=四重压缩下界合金块
+tile.utilitycraft:compressed_netherrack.name=压缩地狱岩
+tile.utilitycraft:compressed_netherrack_2.name=双压缩地狱岩
+tile.utilitycraft:compressed_netherrack_3.name=三重压缩地狱岩
+tile.utilitycraft:compressed_netherrack_4.name=四重压缩地狱岩
+tile.utilitycraft:compressed_obsidian.name=压缩黑曜石
+tile.utilitycraft:compressed_obsidian_2.name=双压缩黑曜石
+tile.utilitycraft:compressed_obsidian_3.name=三重压缩黑曜石
+tile.utilitycraft:compressed_obsidian_4.name=四重压缩黑曜石
+tile.utilitycraft:compressed_oxidized_copper_block.name=压缩氧化铜块
+tile.utilitycraft:compressed_oxidized_copper_block_2.name=双压缩氧化铜块
+tile.utilitycraft:compressed_oxidized_copper_block_3.name=三重压缩氧化铜块
+tile.utilitycraft:compressed_oxidized_copper_block_4.name=四重压缩氧化铜块
+tile.utilitycraft:compressed_quartz_block.name=压缩石英块
+tile.utilitycraft:compressed_quartz_block_2.name=双压缩石英块
+tile.utilitycraft:compressed_quartz_block_3.name=三重压缩石英块
+tile.utilitycraft:compressed_quartz_block_4.name=四重压缩石英块
+tile.utilitycraft:compressed_raw_copper_block.name=压缩原铜块
+tile.utilitycraft:compressed_raw_copper_block_2.name=双压原铜块
+tile.utilitycraft:compressed_raw_copper_block_3.name=三重压缩原铜块
+tile.utilitycraft:compressed_raw_copper_block_4.name=四重压缩原铜块
+tile.utilitycraft:compressed_raw_gold_block.name=压缩原金块
+tile.utilitycraft:compressed_raw_gold_block_2.name=双压缩原金块
+tile.utilitycraft:compressed_raw_gold_block_3.name=三重压缩原金块
+tile.utilitycraft:compressed_raw_gold_block_4.name=四重压缩原金块
+tile.utilitycraft:compressed_raw_iron_block.name=压缩生铁块
+tile.utilitycraft:compressed_raw_iron_block_2.name=双压缩生铁块
+tile.utilitycraft:compressed_raw_iron_block_3.name=三重压缩生铁块
+tile.utilitycraft:compressed_raw_iron_block_4.name=四重压缩生铁块
+tile.utilitycraft:compressed_redstone_block.name=压缩红石块
+tile.utilitycraft:compressed_redstone_block_2.name=双压缩红石块
+tile.utilitycraft:compressed_redstone_block_3.name=三重压缩红石块
+tile.utilitycraft:compressed_redstone_block_4.name=四重压缩红石块
+tile.utilitycraft:compressed_sand.name=压缩砂
+tile.utilitycraft:compressed_sand_2.name=双压缩砂
+tile.utilitycraft:compressed_sand_3.name=三重压缩沙
+tile.utilitycraft:compressed_sand_4.name=四重压缩沙
+tile.utilitycraft:compressed_steel_block.name=压缩钢块
+tile.utilitycraft:compressed_steel_block_2.name=双压缩钢块
+tile.utilitycraft:compressed_steel_block_3.name=三重压缩钢块
+tile.utilitycraft:compressed_steel_block_4.name=四重压缩钢块
+tile.utilitycraft:compressed_stone.name=压缩石
+tile.utilitycraft:compressed_stone_2.name=双压缩石
+tile.utilitycraft:compressed_stone_3.name=三重压缩石
+tile.utilitycraft:compressed_stone_4.name=四重压缩石
+tile.utilitycraft:compressed_weathered_copper_block.name=压缩风化铜块
+tile.utilitycraft:compressed_weathered_copper_block_2.name=双压缩风化铜块
+tile.utilitycraft:compressed_weathered_copper_block_3.name=三重压缩风化铜块
+tile.utilitycraft:compressed_weathered_copper_block_4.name=四重压缩风化铜块
+tile.utilitycraft:compressed_acacia_wood.name=压缩金合欢木
+tile.utilitycraft:compressed_acacia_wood_2.name=双压缩金合欢木
+tile.utilitycraft:compressed_acacia_wood_3.name=三重压缩金合欢木
+tile.utilitycraft:compressed_acacia_wood_4.name=四重压缩金合欢木
+tile.utilitycraft:compressed_birch_wood.name=压缩白桦木
+tile.utilitycraft:compressed_birch_wood_2.name=双压缩白桦木
+tile.utilitycraft:compressed_birch_wood_3.name=三重压缩白桦木
+tile.utilitycraft:compressed_birch_wood_4.name=四重压缩白桦木
+tile.utilitycraft:compressed_cherry_wood.name=压缩樱花木
+tile.utilitycraft:compressed_cherry_wood_2.name=双压缩樱花木
+tile.utilitycraft:compressed_cherry_wood_3.name=三重压缩樱花木
+tile.utilitycraft:compressed_cherry_wood_4.name=四重压缩樱花木
+tile.utilitycraft:compressed_crimson_wood.name=压缩深红木
+tile.utilitycraft:compressed_crimson_wood_2.name=双压缩深红木
+tile.utilitycraft:compressed_crimson_wood_3.name=三重压缩深红木
+tile.utilitycraft:compressed_crimson_wood_4.name=四重压缩深红木
+tile.utilitycraft:compressed_dark_oak_wood.name=压缩深色橡木
+tile.utilitycraft:compressed_dark_oak_wood_2.name=双压缩深色橡木
+tile.utilitycraft:compressed_dark_oak_wood_3.name=三重压缩深色橡木
+tile.utilitycraft:compressed_dark_oak_wood_4.name=四重压缩深色橡木
+tile.utilitycraft:compressed_jungle_wood.name=压缩丛林木
+tile.utilitycraft:compressed_jungle_wood_2.name=双压缩丛林木
+tile.utilitycraft:compressed_jungle_wood_3.name=三重压缩丛林木
+tile.utilitycraft:compressed_jungle_wood_4.name=四重压缩丛林木
+tile.utilitycraft:compressed_mangrove_wood.name=压缩红树木
+tile.utilitycraft:compressed_mangrove_wood_2.name=双压缩红树木
+tile.utilitycraft:compressed_mangrove_wood_3.name=三重压缩红树木
+tile.utilitycraft:compressed_mangrove_wood_4.name=四重压缩红树木
+tile.utilitycraft:compressed_oak_wood.name=压缩橡木
+tile.utilitycraft:compressed_oak_wood_2.name=双压缩橡木
+tile.utilitycraft:compressed_oak_wood_3.name=三重压缩橡木
+tile.utilitycraft:compressed_oak_wood_4.name=四重压缩橡木
+tile.utilitycraft:compressed_pale_oak_wood.name=压缩苍白橡木
+tile.utilitycraft:compressed_pale_oak_wood_2.name=双压缩苍白橡木
+tile.utilitycraft:compressed_pale_oak_wood_3.name=三重压缩苍白橡木
+tile.utilitycraft:compressed_pale_oak_wood_4.name=四重压缩苍白橡木
+tile.utilitycraft:compressed_spruce_wood.name=压缩云杉木
+tile.utilitycraft:compressed_spruce_wood_2.name=双压缩云杉木
+tile.utilitycraft:compressed_spruce_wood_3.name=三重压缩云杉木
+tile.utilitycraft:compressed_spruce_wood_4.name=四重压缩云杉木
+tile.utilitycraft:compressed_warped_wood.name=压缩诡异木
+tile.utilitycraft:compressed_warped_wood_2.name=双压缩诡异木
+tile.utilitycraft:compressed_warped_wood_3.name=三重压缩诡异木
+tile.utilitycraft:compressed_warped_wood_4.name=四重压缩诡异木
+## Compressed Items
+item.utilitycraft:bag_of_beetroot_seeds=一袋甜菜根种子
+item.utilitycraft:bag_of_black_dye=一袋黑色染料
+item.utilitycraft:bag_of_blaze_powder=一袋火焰粉
+item.utilitycraft:bag_of_blue_dye=一袋蓝色染料
+item.utilitycraft:bag_of_brown_dye=一袋棕色染料
+item.utilitycraft:bag_of_cocoa_beans=一袋可可豆
+item.utilitycraft:bag_of_cyan_dye=一袋青色染料
+item.utilitycraft:bag_of_feathers=一袋羽毛
+item.utilitycraft:bag_of_glowstone_dust=一袋萤石粉
+item.utilitycraft:bag_of_gray_dye=一袋灰色染料
+item.utilitycraft:bag_of_green_dye=一袋绿色染料
+item.utilitycraft:bag_of_gunpowder=一袋火药
+item.utilitycraft:bag_of_light_blue_dye=一袋浅蓝色染料
+item.utilitycraft:bag_of_light_gray_dye=一袋浅灰色染料
+item.utilitycraft:bag_of_lime_dye=一袋石灰染料
+item.utilitycraft:bag_of_magenta_dye=一袋洋红色染料
+item.utilitycraft:bag_of_melon_seeds=一袋瓜子
+item.utilitycraft:bag_of_orange_dye=一袋橙色染料
+item.utilitycraft:bag_of_pink_dye=一袋粉色染料
+item.utilitycraft:bag_of_pitcher_pod=一袋水罐荚
+item.utilitycraft:bag_of_pumpkin_seeds=一袋南瓜籽
+item.utilitycraft:bag_of_purple_dye=一袋紫色染料
+item.utilitycraft:bag_of_red_dye=一袋红色染料
+item.utilitycraft:bag_of_sugar=一袋糖
+item.utilitycraft:bag_of_torchflower_seeds=一袋火炬花种子
+item.utilitycraft:bag_of_wheat_seeds=一袋小麦种子
+item.utilitycraft:bag_of_white_dye=一袋白色染料
+item.utilitycraft:bag_of_yellow_dye=一袋黄色染料
+item.utilitycraft:bundle_of_blaze_rods=一捆火焰棒
+item.utilitycraft:bundle_of_breeze_rods=一捆微风棒
+item.utilitycraft:bundle_of_sticks=一捆棍子
+item.utilitycraft:jar_of_cookies=一罐饼干
+item.utilitycraft:jar_of_ghast_tears=一罐恶魂之泪
+item.utilitycraft:jar_of_glow_ink=一罐发光墨水
+item.utilitycraft:jar_of_ink=墨水罐
+item.utilitycraft:ream_of_paper=令纸
+item.utilitycraft:spool_of_strings=线轴
+item.utilitycraft:vase_of_fermented_spider_eyes=发酵蜘蛛眼花瓶
+item.utilitycraft:vase_of_spider_eye=蜘蛛眼花瓶
+## Block Placer Items
+item.utilitycraft:blaze_block=火焰核心
+item.utilitycraft:charcoal_block=木炭块
+item.utilitycraft:compressed_charcoal_block=压缩木炭块
+item.utilitycraft:compressed_charcoal_block_2=双压缩木炭块
+item.utilitycraft:compressed_charcoal_block_3=三重压缩木炭块
+item.utilitycraft:compressed_charcoal_block_4=四重压缩木炭块
+item.utilitycraft:compressed_coal_block=压缩煤块
+item.utilitycraft:compressed_coal_block_2=双压煤块
+item.utilitycraft:compressed_coal_block_3=三重压缩煤块
+item.utilitycraft:compressed_coal_block_4=四重压缩煤块
+
+- Utility Blocks =## 块
+tile.utilitycraft:asphalt.name=沥青\n§7- 在其上行走时增加移动速度\n
+tile.utilitycraft:big_torch.name=大火炬
+tile.utilitycraft:elevator.name=电梯
+tile.utilitycraft:flint_block.name=燧石块
+tile.utilitycraft:lantern.name=灯笼
+tile.utilitycraft:sink.name=下沉
+
+## + Vehicles
+tile.utilitycraft:drill_placer.name=钻头
+tile.utilitycraft:tractor_placer.name=拖拉机
+
+## + Crushed Blocks
+tile.utilitycraft:crushed_netherrack.name=粉碎的地狱岩
+tile.utilitycraft:crushed_endstone.name=碎末石
+tile.utilitycraft:crushed_cobbled_deepslate.name=碎鹅卵石深板岩
+
+
+- Actions =## Ações/Interações
+action.hint.exit.utilitycraft:tractor=退出拖拉机
+action.hint.exit.utilitycraft:drill=退出演习
+
+- Placeholder Items =## 预览项目
+item.utilitycraft:lucky_fishing_rod_item=§a幸运鱼竿\n§7海之幸运V\n路亚V
+item.utilitycraft:lucky_pickaxe_item=§a幸运镐\n§7财富V
+item.utilitycraft:lucky_sword_item=§a幸运剑\n§7掠夺V
+
+- Items =## 项目
+
+## to be updated.
+
+- Tools =## 费拉门塔斯
+## >>>>>>>> Open Group -------- ##
+
+-- AIOTs =## AIOT
+item.utilitycraft:netherite_aiot=下界合金AOT
+item.utilitycraft:diamond_aiot=钻石智能物联网
+item.utilitycraft:golden_aiot=金色AIoT
+item.utilitycraft:steel_aiot=钢铁AIOT
+item.utilitycraft:iron_aiot=铁AOT
+item.utilitycraft:copper_aiot=铜AIoT
+item.utilitycraft:stone_aiot=石头智能物联网
+item.utilitycraft:wooden_aiot=木制AIOT
+
+-- Paxels =## 帕卡查多
+item.utilitycraft:netherite_paxel=下界合金帕克塞尔
+item.utilitycraft:diamond_paxel=钻石帕克塞尔
+item.utilitycraft:steel_paxel=钢帕克塞尔
+item.utilitycraft:iron_paxel=铁帕克塞尔
+item.utilitycraft:copper_paxel=铜帕克塞尔
+item.utilitycraft:golden_paxel=金帕克塞尔
+item.utilitycraft:stone_paxel=石帕克塞尔
+item.utilitycraft:wooden_paxel=木帕克塞尔
+
+-- Hammers =## 马特洛斯
+item.utilitycraft:golden_hammer=金锤
+item.utilitycraft:netherite_hammer=下界合金锤
+item.utilitycraft:diamond_hammer=钻石锤
+item.utilitycraft:steel_hammer=钢锤
+item.utilitycraft:iron_hammer=铁锤
+item.utilitycraft:copper_hammer=铜锤
+item.utilitycraft:stone_hammer=石锤
+item.utilitycraft:wooden_hammer=木锤
+
+-- Steel =## 阿索
+item.utilitycraft:steel_sword=钢剑
+item.utilitycraft:steel_axe=钢斧
+item.utilitycraft:steel_pickaxe=钢镐
+item.utilitycraft:steel_shovel=钢铲
+item.utilitycraft:steel_hoe=钢锄头
+
+-- Special Tools =## 特殊食品
+item.utilitycraft:lucky_pickaxe=§a幸运镐
+item.utilitycraft:lucky_sword=§a幸运剑
+item.utilitycraft:smelting_pickaxe=§6熔炼镐\n§7- 打破矿石时熔炼矿石
+item.utilitycraft:bionic_arm=仿生手臂（测试）
+item.utilitycraft:lucky_fishing_rod=§a幸运鱼竿
+
+-- Drills =## 布罗卡斯
+item.utilitycraft:drill=Drill\n§7- 3x3 区域内的地雷
+item.utilitycraft:heavy_drill=重型钻探\n§7- 5x5 区域内的地雷
+## -------- Close Group <<<<<<<< ##
+
+- Seeds =## 种子
+## >>>>>>>> Open Group -------- ##
+
+item.utilitycraft:base_seeds=基础种子
+
+-- Tier 1 =## 等级（种子）1
+item.utilitycraft:coal_seeds=煤种子 \n§eTier 1
+item.utilitycraft:copper_seeds=铜种子 \n§eTier 1
+item.utilitycraft:dyes_seeds=染料种子 \n§eTier 1
+item.utilitycraft:glass_seeds=玻璃种子 \n§e1 级
+item.utilitycraft:gunpowder_seeds=火药种子 \n§e1 级
+item.utilitycraft:iron_seeds=铁种子 \n§e1 级
+item.utilitycraft:leather_seeds=皮革种子 \n§e1 级
+item.utilitycraft:prismarine_crystals_seeds=海晶石晶体种子 \n§eTier 1
+item.utilitycraft:prismarine_shards_seeds=海晶碎片种子 \n§eTier 1
+item.utilitycraft:water_seeds=水种子 \n§e1 级
+item.utilitycraft:wool_seeds=羊毛种子 \n§e1 级
+
+-- Tier 2 =## 等级（种子）2
+item.utilitycraft:ghast_seeds=恶魂种子 \n§c2 级
+item.utilitycraft:glowstone_seeds=萤石种子 \n§c2 级
+item.utilitycraft:gold_seeds=金种子 \n§c2 级
+item.utilitycraft:honey_seeds=蜂蜜种子 \n§c2 级
+item.utilitycraft:lapis_seeds=青金石种子 \n§c2 级
+item.utilitycraft:lava_seeds=熔岩种子 \n§c2 级
+item.utilitycraft:quartz_seeds=石英籽 \n§cTier 2
+item.utilitycraft:redstone_seeds=红石种子 \n§c2 级
+item.utilitycraft:slime_seeds=史莱姆种子 \n§c2 级
+
+-- Tier 3 =## 等级（种子）3
+item.utilitycraft:amethyst_seeds=紫水晶种子 \n§b3 级
+item.utilitycraft:blaze_seeds=火焰种子 \n§bTier 3
+item.utilitycraft:diamond_seeds=钻石种子 \n§b3 级
+item.utilitycraft:emerald_seeds=翡翠种子 \n§b3 级
+item.utilitycraft:enderpearl_seeds=末影珍珠种子 \n§bTier 3
+item.utilitycraft:obsidian_seeds=黑曜石种子 \n§b3 级
+
+-- Tier 4 =## 等级（种子）4
+item.utilitycraft:nether_star_seeds=下界星星种子 \n§84 级
+item.utilitycraft:netherite_seeds=下界合金种子 \n§84 级
+item.utilitycraft:shulker_seeds=潜影贝种子 \n§84 级
+item.utilitycraft:totem_seeds=图腾种子 \n§84 级
+item.utilitycraft:wither_seeds=凋零种子 \n§84 级
+## -------- Close Group <<<<<<<< ##
+
+- Mesh =## 网格
+item.utilitycraft:string_mesh=绳网\n§7- 最大掉落层：煤炭
+item.utilitycraft:flint_mesh=§7燧石§r Mesh\n§7- 最大掉落等级：铁
+item.utilitycraft:copper_mesh=§n铜§r网\n§7- 最大掉落等级：金
+item.utilitycraft:iron_mesh=§i铁§r 网格\n§7- 最大掉落等级：钻石
+item.utilitycraft:golden_mesh=§p金色§r 网格\n§7- 最大掉落等级：钻石
+item.utilitycraft:emerald_mesh=§a翡翠§r 网格\n§7- 最大掉落等级：钻石
+item.utilitycraft:diamond_mesh=§b钻石§r 网格\n§7- 最大掉落等级：钻石
+item.utilitycraft:netherite_mesh=§jNetherite§r Mesh\n§7- 最大掉落等级：钻石\n- 不掉落火石
+
+- Fishing Nets =## 渔网
+item.utilitycraft:string_fishing_net=线状渔网\n§7- 钩速等级：1
+item.utilitycraft:copper_fishing_net=§n铜§r渔网\n§7- 钩速等级：2
+item.utilitycraft:iron_fishing_net=§i铁§r 渔网\n§7- 钩速等级：3
+item.utilitycraft:golden_fishing_net=§p金色§r 渔网\n§7- 钩速等级：4
+item.utilitycraft:emerald_fishing_net=§a翡翠§r 渔网\n§7- 钩速等级：5
+item.utilitycraft:diamond_fishing_net=§b钻石§r渔网\n§7- 钩速等级：6
+item.utilitycraft:netherite_fishing_net=§jNetherite§r 渔网\n§7- 钩速等级：7
+
+- Essences =## 精华
+item.utilitycraft:essence_vessel=精华容器\n§7-右键单击或与实体互动\n-杀死该类型的小怪以填充精华
+item.utilitycraft:pig_essence=猪精
+item.utilitycraft:cow_essence=牛精
+item.utilitycraft:zombie_essence=僵尸精华
+item.utilitycraft:skeleton_essence=骷髅精华
+item.utilitycraft:slime_essence=史莱姆精华
+item.utilitycraft:sheep_essence=羊精
+item.utilitycraft:spider_essence=蜘蛛精华
+item.utilitycraft:creeper_essence=苦力怕精华
+item.utilitycraft:blaze_essence=火焰精华
+item.utilitycraft:chicken_essence=鸡精
+item.utilitycraft:enderman_essence=末影人精华
+item.utilitycraft:hoglin_essence=霍格林精华
+item.utilitycraft:magma_cube_essence=岩浆立方精华
+item.utilitycraft:mooshroom_essence=哞菇精华
+item.utilitycraft:wither_skeleton_essence=凋灵骷髅精华
+
+- Machines Upgrades =## 机器升级
+## +
+item.utilitycraft:filter_upgrade=过滤器升级\n§7- 为运输块\n提供过滤物品的方法
+item.utilitycraft:smart_filter_upgrade=智能过滤器升级\n§7-启用高级项目路由\n使用槽类别和\n基于优先级的过滤器
+item.utilitycraft:energy_upgrade=§b能源升级§r\n§7- 提高机器的能源效率
+item.utilitycraft:speed_upgrade=§a速度升级§r\n§7- 提高机器速度\n- 增加能源消耗
+item.utilitycraft:range_upgrade=§9范围升级§r\n§7-增加机器的范围
+item.utilitycraft:quantity_upgrade=§3数量升级§r\n§7-增加机械生成器的生物上限
+item.utilitycraft:ultimate_upgrade=§8终极升级
+item.utilitycraft:damage_upgrade=§c伤害升级§r\n§7- 增加生物研磨机造成的伤害
+## +
+item.utilitycraft:base_upgrade=基础升级\n§7- 用于制作机器升级
+
+- Utility Items =## 实用工具
+item.utilitycraft:honey_ball=蜂蜜球
+item.utilitycraft:lava_ball=熔岩球
+item.utilitycraft:water_ball=水球
+item.utilitycraft:grenade=手榴弹
+item.utilitycraft:bomb=炸弹
+item.utilitycraft:dynamite=炸药
+## +
+item.utilitycraft:smeltflare=熔炼耀斑
+item.utilitycraft:infinite_enderpearl=无限末影珍珠
+item.utilitycraft:raw_leather=原皮
+item.utilitycraft:antidote_potion=解毒药水
+item.utilitycraft:antidote_potion_splash=解毒药水飞溅
+item.utilitycraft:wrench=扳手 §r\n§7- 潜行时旋转机器 §r\n§7- 移除车辆
+
+- Saplings =## 穆达斯
+item.utilitycraft:apple_sapling=苹果树苗
+
+- Entities =## 恩达德斯
+## -------- Open Group -------- ##
+entity.utilitycraft:tractor.name=拖拉机
+entity.utilitycraft:oak_tree.name=橡树
+entity.utilitycraft:birch_tree.name=白桦树
+entity.utilitycraft:darkoak_tree.name=深色橡树
+entity.utilitycraft:acacia_tree.name=金合欢树
+entity.utilitycraft:jungle_tree.name=丛林树
+entity.utilitycraft:spruce_tree.name=云杉树
+entity.utilitycraft:drill.name=钻头
+entity.utilitycraft:grenade.name=手榴弹
+entity.utilitycraft:bomb.name=炸弹
+entity.utilitycraft:dynamite.name=炸药
+entity.utilitycraft:crusher.name=破碎机
+entity.utilitycraft:autosieve.name=自动筛
+entity.utilitycraft:cherry_tree.name=樱花树
+entity.utilitycraft:mangrove_tree.name=红树林
+entity.utilitycraft:crimson_tree.name=深红树
+entity.utilitycraft:warped_tree.name=扭曲的树
+entity.utilitycraft:kelp.name=海带
+entity.utilitycraft:sugarcane.name=甘蔗
+entity.utilitycraft:bamboo.name=竹子
+entity.utilitycraft:mushroom.name=蘑菇
+entity.utilitycraft:cactus.name=仙人掌
+entity.utilitycraft:apple_tree.name=苹果树
+
+## -------- Close Group <<<<<<<< ##
+
+- Items 2 =##|格式化
+
+tile.utilitycraft:pedestal.name=基座\n§7- 用作加速器时钟的底座
+entity.utilitycraft:accelerator_clock.name=加速器时钟\n§7- 加快游戏速度
+item.utilitycraft:accelerator_clock=加速器时钟\n§7- 加快游戏速度
+item.spawn_egg.entity.utilitycraft:accelerator_clock.name=召唤加速器时钟
+
+- Progress Bars =进展障碍##////////////////////////////////////////////////////////////////
+item.utilitycraft:empty_liquid_bar=空的
+item.utilitycraft:arrow_indicator=箭头指示器
+item.utilitycraft:info=信息：
+< Progress Bars =进展障碍##////////////////////////////////////////////////////////////////
+
+- Energy Generators =能源热拉多雷斯##////////////////////////////////////////////////////////////////
+tile.utilitycraft:basic_furnator.name=§e基本熔炉 \n §7 速率：40 DE/t
+tile.utilitycraft:basic_magmator.name=§e基本岩浆机 \n §7 速率：50 DE/t
+tile.utilitycraft:basic_thermo_generator.name=§e基本热发生器 \n §7 速率：20 DE/t
+tile.utilitycraft:basic_battery.name=§e基本电池 \n §7 速率：100 DE/t
+tile.utilitycraft:basic_solar_panel.name=§e基本太阳能电池板 \n §7 速率：12 DE/t
+tile.utilitycraft:basic_wind_turbine.name=§e基本风力发电机 \n §7 基本速率：8 DE/t\n §7 最大高度乘数：300%\n §7 在 y20 以下不起作用
+
+tile.utilitycraft:advanced_furnator.name=§c高级熔炉 \n §7 速率：160 DE/t
+tile.utilitycraft:advanced_magmator.name=§c高级熔浆机 \n §7 速率：200 DE/t
+tile.utilitycraft:advanced_thermo_generator.name=§c高级热发生器 \n §7 速率：80 DE/t
+tile.utilitycraft:advanced_battery.name=§c高级电池 \n §7 速率：800 DE/t
+tile.utilitycraft:advanced_solar_panel.name=§c高级太阳能电池板 \n §7 速率：48 DE/t
+tile.utilitycraft:advanced_wind_turbine.name=§c高级风力涡轮机 \n §7 基本速率：32 DE/t\n §7 最大高度乘数：300%\n §7 在 y20 以下不起作用
+
+tile.utilitycraft:expert_furnator.name=§b专家熔炉 \n §7 速率：640 DE/t
+tile.utilitycraft:expert_magmator.name=§b专家级熔浆机 \n §7 速率：800 DE/t
+tile.utilitycraft:expert_thermo_generator.name=§b专家热发生器 \n §7 速率：320 DE/t
+tile.utilitycraft:expert_battery.name=§b专家电池 \n §7 速率：1.6 kDE/t
+tile.utilitycraft:expert_solar_panel.name=§b专家太阳能电池板 \n §7 速率：192 DE/t
+tile.utilitycraft:expert_wind_turbine.name=§b专家风力涡轮机 \n §7 基本速率：128 DE/t\n §7 最大高度乘数：300%\n §7 在 y20 以下不起作用
+
+tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator \n §7 速率：4 kDE/t
+tile.utilitycraft:ultimate_magmator.name=§8终极熔浆机 \n §7 速率：5 kDE/t
+tile.utilitycraft:ultimate_thermo_generator.name=§8终极热发生器 \n §7 速率：2 kDE/t
+tile.utilitycraft:ultimate_battery.name=§8终极电池 \n §7 速率：10 kDE/t
+tile.utilitycraft:ultimate_solar_panel.name=§8终极太阳能电池板 \n §7 速率：1200 DE/t
+tile.utilitycraft:ultimate_wind_turbine.name=§8终极风力涡轮机 \n §7 基本速率：800 DE/t\n §7 最大高度乘数：300%\n §7 在 y16 以下不起作用
+
+
+< Energy Generators =能源热拉多雷斯##////////////////////////////////////////////////////////////////
+
+- Stuff =## Coisas Não-Categorizadas
+tile.utilitycraft:waycenter.name=路中心
+tile.utilitycraft:waycarpet.name=路地毯
+item.utilitycraft:way_chip=路芯片
+
+item.utilitycraft:amethyst_dust=紫水晶尘
+item.utilitycraft:diamond_dust=钻石粉
+item.utilitycraft:emerald_dust=翡翠尘埃
+item.utilitycraft:obsidian_dust=黑曜石粉尘
+item.utilitycraft:quartz_dust=石英粉
+item.utilitycraft:netherite_dust=下界合金粉尘
+item.utilitycraft:netherite_scrap_dust=下界合金废料粉尘
+item.utilitycraft:charcoal_dust=木炭粉
+item.utilitycraft:coal_dust=煤尘
+item.utilitycraft:crying_obsidian_dust=哭泣的黑曜石尘埃
+item.utilitycraft:stabilized_obsidian_dust=稳定的黑曜石粉尘
+item.utilitycraft:copper_dust=铜粉
+item.utilitycraft:gold_dust=金粉
+item.utilitycraft:iron_dust=铁粉
+item.utilitycraft:ender_pearl_dust=末影珍珠粉
+
+
+item.utilitycraft:chip=芯片
+item.utilitycraft:basic_chip=§e基础芯片
+item.utilitycraft:advanced_chip=§c高级芯片
+item.utilitycraft:expert_chip=§b专家芯片
+item.utilitycraft:ultimate_chip=§8终极芯片
+
+item.utilitycraft:energized_iron_ingot=通电铁锭
+item.utilitycraft:energized_iron_nugget=充能铁块
+item.utilitycraft:energized_iron_dust=充能铁粉
+item.utilitycraft:energized_iron_plate=通电铁板
+item.utilitycraft:raw_energized_iron=粗暴的能量铁
+item.utilitycraft:energized_iron_block=通电铁块
+tile.utilitycraft:energized_iron_block.name=通电铁块
+tile.utilitycraft:raw_energized_iron_block.name=粗暴的通电​​铁块
+
+item.utilitycraft:steel_ingot=钢锭
+tile.utilitycraft:raw_steel_block.name=粗钢块
+item.utilitycraft:raw_steel=蛮钢
+tile.utilitycraft:steel_block.name=钢块
+item.utilitycraft:steel_dust=钢尘
+item.utilitycraft:steel_nugget=钢块
+item.utilitycraft:steel_plate=钢板
+
+item.utilitycraft:copper_plate=铜板
+item.utilitycraft:gold_plate=镀金
+item.utilitycraft:iron_plate=铁板
+item.utilitycraft:netherite_plate=下界合金板
+item.utilitycraft:netherite_nugget=下界合金块
+
+item.utilitycraft:arrow_indicator_90=箭头指示器
+< Stuff =## Coisas Não-Categorizadas
+
+## - Categories
+dorios:itemGroup.name.generators=发电机
+dorios:itemGroup.name.machines=机器
+dorios:itemGroup.name.batteries=电池
+dorios:itemGroup.name.basics=基础知识
+dorios:itemGroup.name.meshes=网格
+dorios:itemGroup.name.fishing_nets=渔网
+dorios:itemGroup.name.essences=精华\n§7- 用于机械生成器
+dorios:itemGroup.name.upgrades=机器升级
+dorios:itemGroup.name.plates=盘子
+dorios:itemGroup.name.seeds=种子
+dorios:itemGroup.name.mob_grinding=怪物研磨
+dorios:itemGroup.name.transportation=物品运输
+dorios:itemGroup.name.compressed=压缩块
+dorios:itemGroup.name.bags=包
+dorios:itemGroup.name.bundles=捆绑包
+dorios:itemGroup.name.vases=花瓶
+dorios:itemGroup.name.jars=罐子
+dorios:itemGroup.name.tanks=坦克
+dorios:itemGroup.name.cobble_gens=鹅卵石发电机
+dorios:itemGroup.name.soils=土壤
+dorios:itemGroup.name.dusts=灰尘
+dorios:itemGroup.name.indicators=指标
+dorios:itemGroup.name.aiots=人工智能物联网
+dorios:itemGroup.name.paxels=帕克塞尔
+dorios:itemGroup.name.hammers=锤子
+
+## < Categories
+
+dorios:itemGroup.name.pebbles=鹅卵石
+item.utilitycraft:ancient_debris_chunk=远古碎片块
+item.utilitycraft:blackstone_pebble=黑石卵石
+item.utilitycraft:basalt_pebble=玄武岩卵石
+item.utilitycraft:crushed_netherrack_handful=粉碎的地狱岩一把
+item.utilitycraft:calcite_pebble=方解石卵石
+item.utilitycraft:coal_chunk=煤块
+item.utilitycraft:copper_chunk=铜块
+item.utilitycraft:crushed_deepslate_handful=粉碎的深板岩一把
+item.utilitycraft:crushed_endstone_handful=碎末石一把
+item.utilitycraft:deepslate_coal_chunk=深板岩煤块
+item.utilitycraft:deepslate_diamond_chunk=深板岩钻石块
+item.utilitycraft:deepslate_emerald_chunk=深板祖母绿块
+item.utilitycraft:deepslate_gold_chunk=深石金块
+item.utilitycraft:deepslate_iron_chunk=深板岩铁块
+item.utilitycraft:deepslate_lapislazuli_chunk=深板岩青金石块
+item.utilitycraft:deepslate_pebble=深板岩卵石
+item.utilitycraft:deepslate_redstone_chunk=深石红石块
+item.utilitycraft:diamond_chunk=钻石块
+item.utilitycraft:diamond_shard=钻石碎片
+item.utilitycraft:diorite_pebble=闪长岩卵石
+item.utilitycraft:andesite_pebble=安山岩卵石
+item.utilitycraft:dirt_handful=灰尘一把
+item.utilitycraft:dripstone_pebble=滴水石卵石
+item.utilitycraft:emerald_chunk=祖母绿块
+item.utilitycraft:emerald_shard=翡翠碎片
+item.utilitycraft:endstone_pebble=末石卵石
+item.utilitycraft:geode=晶洞
+item.utilitycraft:gilded_blackstone_pebble=镀金黑石卵石
+item.utilitycraft:gold_chunk=金块
+item.utilitycraft:granite_pebble=花岗岩卵石
+item.utilitycraft:gravel_fragments=砾石碎片
+item.utilitycraft:iron_chunk=铁块
+item.utilitycraft:lapislazuli_chunk=青金石块
+item.utilitycraft:mud_ball=泥球
+item.utilitycraft:nether_gold_chunk=下界金块
+item.utilitycraft:nether_quartz_chunk=下界石英块
+item.utilitycraft:nether_star_fragment=下界星碎片
+item.utilitycraft:netherrack_pebble=地狱岩卵石
+item.utilitycraft:red_sand_handful=红沙一把
+item.utilitycraft:redstone_chunk=红石块
+item.utilitycraft:sand_handful=一把沙子
+item.utilitycraft:shulker_shell_shard=潜影贝壳碎片
+item.utilitycraft:souls_handful=少数灵魂
+item.utilitycraft:stone_pebble=石卵石
+item.utilitycraft:totem_shard=图腾碎片
+item.utilitycraft:tuff_pebble=凝灰岩卵石
+item.utilitycraft:wither_skull_shard=凋灵头骨碎片
+
+tile.utilitycraft:energy_cable.name=能源电缆
+tile.utilitycraft:item_conduit.name=物品导管（默认）\n§7- 运输物品
+tile.utilitycraft:item_conduit_blue.name=物品导管（蓝色）\n§7- 运输物品
+tile.utilitycraft:item_conduit_yellow.name=物品导管（黄色）\n§7- 运输物品
+tile.utilitycraft:item_conduit_red.name=物品导管（红色）\n§7- 运输物品
+tile.utilitycraft:item_conduit_purple.name=物品导管（紫色）\n§7- 运输物品
+tile.utilitycraft:fluid_pipe.name=流体管（默认）\n§7- 输送液体
+tile.utilitycraft:fluid_pipe_blue.name=流体管（蓝色）\n§7- 输送液体
+tile.utilitycraft:fluid_pipe_green.name=流体管（绿色）\n§7- 输送液体
+tile.utilitycraft:fluid_pipe_red.name=流体管（红色）\n§7- 输送液体
+tile.utilitycraft:fluid_pipe_purple.name=流体管（紫色）\n§7- 输送液体
+
+dorios:itemGroup.name.pipes=管道
+item.utilitycraft:flint_knife=燧石刀 \n§7- 将纤维与叶子分离
+item.utilitycraft:fiber=纤维
+tile.utilitycraft:item_exporter.name=物品导出器（默认）\n§7- 接受的升级：\n §a§7 §f§7
+tile.utilitycraft:item_exporter_blue.name=物品导出器（蓝色）\n§7- 接受的升级：\n §a§7 §f§7
+tile.utilitycraft:item_exporter_red.name=物品出口商（红色）\n§7- 接受的升级：\n §a§7 §f§7
+tile.utilitycraft:item_exporter_yellow.name=物品出口商（黄色）\n§7- 接受的升级：\n §a§7 §f§7
+tile.utilitycraft:item_exporter_purple.name=物品出口商（紫色）\n§7- 接受的升级：\n §a§7 §f§7
+item.utilitycraft:mortar=砂浆
+tile.utilitycraft:fluid_extractor.name=流体提取器（默认）\n§7- 接受的升级：\n §a§7
+tile.utilitycraft:fluid_extractor_blue.name=流体提取器（蓝色）\n§7- 接受的升级：\n §a§7
+tile.utilitycraft:fluid_extractor_green.name=流体提取器（绿色）\n§7- 接受的升级：\n §a§7
+tile.utilitycraft:fluid_extractor_red.name=流体提取器（红色）\n§7- 接受的升级：\n §a§7
+tile.utilitycraft:fluid_extractor_purple.name=流体提取器（紫色）\n§7- 接受的升级：\n §a§7
+tile.utilitycraft:item_importer.name=物品导入器（默认）\n§7- 接受的升级：\n §f§7
+tile.utilitycraft:item_importer_blue.name=物品导入器（蓝色）\n§7- 接受的升级：\n §f§7
+tile.utilitycraft:item_importer_red.name=物品导入器（红色）\n§7- 接受的升级：\n §f§7
+tile.utilitycraft:item_importer_yellow.name=物品导入器（黄色）\n§7- 接受的升级：\n §f§7
+tile.utilitycraft:item_importer_purple.name=物品导入器（紫色）\n§7- 接受的升级：\n §f§7
+
+
+## All the same
+
+item.utilitycraft:blueprint_paper=空蓝图
+item.utilitycraft:blueprint=蓝图
+
+## Machines Entities
+entity.utilitycraft:assembler.name=汇编器
+entity.utilitycraft:autosieve.name=自动筛
+entity.utilitycraft:autofisher.name=自动渔夫
+entity.utilitycraft:block_breaker.name=区块破坏者
+entity.utilitycraft:block_placer.name=块放置器
+entity.utilitycraft:crusher.name=破碎机
+entity.utilitycraft:digitizer.name=数字化仪
+entity.utilitycraft:electro_press.name=电压机
+entity.utilitycraft:harvester.name=收割机
+entity.utilitycraft:incinerator.name=焚烧炉
+entity.utilitycraft:induction_anvil.name=感应砧
+entity.utilitycraft:infuser.name=浸泡器
+entity.utilitycraft:magmatic_chamber.name=岩浆室
+entity.utilitycraft:seed_synthesizer.name=种子合成器
+entity.utilitycraft:power_condenser.name=功率电容器矩阵
+
+## Generators Entities
+entity.utilitycraft:battery.name=电池
+entity.utilitycraft:transmitter.name=发射机
+entity.utilitycraft:receiver.name=接收者
+entity.utilitycraft:furnator.name=火器
+entity.utilitycraft:magmator.name=岩浆机
+entity.utilitycraft:solar_panel.name=太阳能电池板
+entity.utilitycraft:thermo_generator.name=热发生器
+entity.utilitycraft:wind_turbine.name=风力发电机
+tile.utilitycraft:blaze_block.name=火焰核心
+item.utilitycraft:crushed_kelp=碎海带
+
+dorios:itemGroup.name.removed=已删除
+
+tile.utilitycraft:basic_trash_can.name=基本垃圾桶
+
+tile.utilitycraft:basic_energy_transmitter.name=§e基本能量发射器 \n §7 速率：1 kDE/t\n §7 容量：64 kDE\n §7 范围：32 块
+tile.utilitycraft:advanced_energy_transmitter.name=§c高级能量发射器 \n §7 速率：4 kDE/t\n §7 容量：256 kDE\n §7 范围：64 块
+tile.utilitycraft:expert_energy_transmitter.name=§b专家能量发射器 \n §7 速率：16 kDE/t\n §7 容量：1.024 MDE\n §7 范围：128 块
+tile.utilitycraft:ultimate_energy_transmitter.name=§8终极能量发射器 \n §7 速率：100 kDE/t\n §7 容量：6.4 MDE\n §7 范围：512 块
+
+tile.utilitycraft:basic_energy_receiver.name=§e基本能量受体 \n §7 速率：1 kDE/t\n §7 容量：64 kDE
+tile.utilitycraft:advanced_energy_receiver.name=§c高级能量受体 \n §7 速率：4 kDE/t\n §7 容量：256 kDE
+tile.utilitycraft:expert_energy_receiver.name=§b专家能量受体 \n §7 速率：16 kDE/t\n §7 容量：1.024 MDE
+tile.utilitycraft:ultimate_energy_receiver.name=§8终极能量受体 \n §7 速率：100 kDE/t\n §7 容量：6.4 MDE
+
+item.utilitycraft:settings=Settings\n §7 交互打开UtilityCraft设置
