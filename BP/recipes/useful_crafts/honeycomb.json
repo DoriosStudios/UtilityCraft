@@ -4,6 +4,7 @@
         "description": {
             "identifier": "utilitycraft:honeycomb_from_utilityitems"
         },
+        "tags": [ "crafting_table" ],
         "ingredients": [
             {
                 "item": "utilitycraft:honey_ball"
@@ -11,6 +12,14 @@
             {
                 "item": "utilitycraft:crushed_kelp"
             }
+        ],
+        "result": {
+            "item": "minecraft:honeycomb",
+            "count": 1
+        },
+        "unlock": [
+            { "item": "utilitycraft:honey_ball" },
+            { "item": "utilitycraft:crushed_kelp" }
         ]
     }
 }
