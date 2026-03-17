@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:oak_log_to_wood_lossless"
+        },
+        "priority": 0,
+        "tags": [ "crafting_table" ],
+        "pattern": [
+            "AA",
+            "AA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:oak_log"
+            }
+        },
+        "result": {
+            "item": "minecraft:oak_wood",
+            "count": 4
+        },
+        "unlock": [
+            { "item": "minecraft:oak_log" }
+        ]
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:compressed_pale_oak_wood_2",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_compressed_pale_oak_wood_2",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.0
+      },
+      "tag:minecraft:is_axe_item_destructible": {},
+      "tag:wood": {}
+    }
+  }
+}

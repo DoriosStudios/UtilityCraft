@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:decompressed_mangrove_wood_2"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:compressed_mangrove_wood_2"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_mangrove_wood",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:compressed_mangrove_wood_2"
+      }
+    ]
+  }
+}

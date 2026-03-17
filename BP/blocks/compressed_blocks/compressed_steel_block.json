@@ -8,11 +8,11 @@
       }
     },
     "components": {
-      "minecraft:geometry": "geometry.utilitycraft_block",
+      "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
           "texture": "utilitycraft_compressed_steel_block",
-          "render_method": "alpha_test"
+          "render_method": "opaque"
         }
       },
       "minecraft:destructible_by_mining": {

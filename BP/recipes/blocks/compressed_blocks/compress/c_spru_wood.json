@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:compressed_spruce_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:spruce_wood",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_spruce_wood"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:spruce_wood"
+      }
+    ]
+  }
+}
