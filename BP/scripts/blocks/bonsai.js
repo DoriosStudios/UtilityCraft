@@ -107,7 +107,7 @@ DoriosAPI.register.blockComponent('bonsai', {
         }
 
         /* --- Hoe → farm bonsai (reduces time if valid soil) --- */
-        if (itemId.includes('hoe')) {
+        if (itemId.includes('hoe') || itemId.includes('aiot')) {
             const enchantable = equipmentItem.getComponent('minecraft:enchantable')
             const unbreakingLvl = enchantable.hasEnchantment('unbreaking')
                 ? enchantable.getEnchantment('unbreaking').level
