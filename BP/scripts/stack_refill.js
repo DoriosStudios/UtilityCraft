@@ -11,10 +11,12 @@ function refillMainhandFromInventory(player, itemId) {
     if (!player || !itemId || !isStackRefillEnabled(player)) return
 
     const mainhandSlot = player.selectedSlotIndex
-    const inv = player.getComponent('minecraft:inventory')
-    if (!inv?.container) return
+    const inv = player.getComponent?.('minecraft:inventory')
+    if (!inv?.container || typeof mainhandSlot !== 'number') return
 
-    for (let i = 0; i < inv.inventorySize; i++) {
+    const inventorySize = inv.inventorySize ?? inv.container.size ?? 0
+
+    for (let i = 0; i < inventorySize; i++) {
         const slotItem = inv.container.getItem(i)
         if (!slotItem) continue
 
@@ -28,7 +30,9 @@ function refillMainhandFromInventory(player, itemId) {
 
 world.afterEvents.playerPlaceBlock.subscribe((e) => {
     const { player, block } = e
-    const mainhand = player.getComponent('equippable').getEquipment('Mainhand');
+    if (!player || !block) return
+
+    const mainhand = player.getComponent('equippable')?.getEquipment('Mainhand')
 
     if (mainhand) return
 
@@ -38,8 +42,12 @@ world.afterEvents.playerPlaceBlock.subscribe((e) => {
 
 world.afterEvents.itemUse.subscribe((e) => {
     const { source, itemStack } = e
-    const mainhand = source.getComponent('equippable').getEquipment('Mainhand');
+    if (!source || source.typeId !== 'minecraft:player' || !itemStack) return
+
+    const mainhand = source.getComponent('equippable')?.getEquipment('Mainhand')
+
     if (mainhand) return
+
     stackRefillUse(source, itemStack.typeId)
 })
 
@@ -50,7 +58,9 @@ export function stackRefillUse(player, itemId) {
 world.afterEvents.itemCompleteUse.subscribe((e) => {
     const { source, itemStack } = e
 
-    const mainhand = source.getComponent('equippable').getEquipment('Mainhand');
+    if (!source || source.typeId !== 'minecraft:player' || !itemStack) return
+
+    const mainhand = source.getComponent('equippable')?.getEquipment('Mainhand')
 
     if (mainhand) return
 
