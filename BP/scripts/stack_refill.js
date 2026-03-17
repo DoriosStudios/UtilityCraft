@@ -1,22 +1,38 @@
 import { world } from '@minecraft/server'
 
+const STACK_REFILL_PROPERTY = 'utilitycraft:stackRefillEnabled'
+
+function isStackRefillEnabled(player) {
+    const storedValue = player?.getDynamicProperty?.(STACK_REFILL_PROPERTY)
+    return typeof storedValue === 'boolean' ? storedValue : true
+}
+
+function refillMainhandFromInventory(player, itemId) {
+    if (!player || !itemId || !isStackRefillEnabled(player)) return
+
+    const mainhandSlot = player.selectedSlotIndex
+    const inv = player.getComponent('minecraft:inventory')
+    if (!inv?.container) return
+
+    for (let i = 0; i < inv.inventorySize; i++) {
+        const slotItem = inv.container.getItem(i)
+        if (!slotItem) continue
+
+        if (slotItem.typeId === itemId) {
+            inv.container.swapItems(i, mainhandSlot, inv.container)
+            break
+        }
+    }
+}
+
 
 world.afterEvents.playerPlaceBlock.subscribe((e) => {
     const { player, block } = e
-    const mainhandSlot = player.selectedSlotIndex
     const mainhand = player.getComponent('equippable').getEquipment('Mainhand');
-    const inv = player.getComponent('minecraft:inventory')
 
     if (mainhand) return
 
-    for (let i = 0; i < inv.inventorySize; i++) {
-        if (inv.container.getItem(i)) {
-            if (inv.container.getItem(i).typeId == block.typeId) {
-                inv.container.swapItems(i, mainhandSlot, inv.container)
-                break
-            }
-        }
-    }
+    refillMainhandFromInventory(player, block.typeId)
 
 })
 
@@ -28,33 +44,15 @@ world.afterEvents.itemUse.subscribe((e) => {
 })
 
 export function stackRefillUse(player, itemId) {
-    const mainhandSlot = player.selectedSlotIndex
-    const inv = player.getComponent('minecraft:inventory')
-    for (let i = 0; i < inv.inventorySize; i++) {
-        if (inv.container.getItem(i)) {
-            if (inv.container.getItem(i).typeId == itemId) {
-                inv.container.swapItems(i, mainhandSlot, inv.container)
-                break
-            }
-        }
-    }
+    refillMainhandFromInventory(player, itemId)
 }
 
 world.afterEvents.itemCompleteUse.subscribe((e) => {
     const { source, itemStack } = e
 
-    const mainhandSlot = source.selectedSlotIndex
     const mainhand = source.getComponent('equippable').getEquipment('Mainhand');
-    const inv = source.getComponent('minecraft:inventory')
 
     if (mainhand) return
 
-    for (let i = 0; i < inv.inventorySize; i++) {
-        if (inv.container.getItem(i)) {
-            if (inv.container.getItem(i).typeId == itemStack.typeId) {
-                inv.container.swapItems(i, mainhandSlot, inv.container)
-                break
-            }
-        }
-    }
+    refillMainhandFromInventory(source, itemStack.typeId)
 })

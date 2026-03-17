@@ -1,6 +1,13 @@
 import { system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 
+const STACK_REFILL_PROPERTY = "utilitycraft:stackRefillEnabled";
+
+function isStackRefillEnabled(player) {
+  const value = player?.getDynamicProperty?.(STACK_REFILL_PROPERTY);
+  return typeof value === "boolean" ? value : true;
+}
+
 DoriosAPI.register.command({
   name: "refreshspeed",
   description: "Sets the global UtilityCraft tick speed",
@@ -87,7 +94,8 @@ DoriosAPI.register.itemComponent("settings", {
  * @param {import("@minecraft/server").Player} player
  */
 async function openUtilityCraftSettings(player) {
-  const currentSpeed = world.getDynamicProperty("utilitycraft:tickSpeed") ?? 10;
+  const currentSpeed = Number(world.getDynamicProperty("utilitycraft:tickSpeed") ?? 10);
+  const currentStackRefill = isStackRefillEnabled(player);
 
   const form = new ModalFormData()
     .title("UtilityCraft Settings")
@@ -108,14 +116,37 @@ async function openUtilityCraftSettings(player) {
         defaultValue: currentSpeed,
         valueStep: 2
       }
-    );
+    )
+
+    .label(
+      "§bAuto Stack Refill\n" +
+      "§7Automatically refills your main hand stack from your inventory when it runs out.\n" +
+      "§7Works with blocks and items.\n" +
+      "§7Can be toggled on/off."
+    )
+
+    .toggle(
+      "Auto Stack Refill",
+      {
+        defaultValue: currentStackRefill
+      }
+    )
 
   const res = await form.show(player);
   if (res.canceled) return;
 
-  const [, refreshSpeed] = res.formValues;
+  const [, stackRefillEnabled, refreshSpeedValue] = res.formValues;
 
-  world.setDynamicProperty("utilitycraft:tickSpeed", refreshSpeed);
+  const refreshSpeed = Math.max(2, Math.floor(Number(refreshSpeedValue ?? currentSpeed) / 2) * 2);
+  player.setDynamicProperty(STACK_REFILL_PROPERTY, Boolean(stackRefillEnabled));
+
+  try {
+    player.dimension.runCommand(`scriptevent utilitycraft:set_tick_speed ${refreshSpeed}`);
+  } catch {
+    player.sendMessage("§cFailed to apply refresh speed.");
+    return;
+  }
 
   player.sendMessage(`§aRefresh speed set to §e${refreshSpeed} ticks`);
+  player.sendMessage(`§7Auto Stack Refill: ${stackRefillEnabled ? "§aEnabled" : "§cDisabled"}`);
 }
