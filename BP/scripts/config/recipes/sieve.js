@@ -1,6 +1,24 @@
 import { world, system } from "@minecraft/server";
 
-DoriosAPI.register.itemComponent('mesh', {})
+const mesh_tiers = ["string", "flint", "copper", "iron", "golden", "emerald", "diamond", "netherite"];
+const utility_meshes = new Set(mesh_tiers.map((tier) => `utilitycraft:${tier}_mesh`));
+
+DoriosAPI.register.itemComponent('mesh', {
+    onUseOn(e) {
+        const { source, block, itemStack } = e;
+        if (!source || source.typeId !== 'minecraft:player' || !block) return;
+        if (block.typeId !== 'utilitycraft:sieve') return;
+
+        const mainhandItem = itemStack ?? source.getComponent('equippable')?.getEquipment('Mainhand');
+        if (!mainhandItem) return;
+
+        // Prevent custom meshes from being used in the manual sieve.
+        // If the mesh is not an official UtilityCraft mesh, cancel interaction
+        // so the held item remains untouched.
+        if (!utility_meshes.has(mainhandItem.typeId) && Object.prototype.hasOwnProperty.call(e, 'cancel')) {
+            e.cancel = true;
+        }
+}});
 
 /**
  * Represents a possible sieve loot drop.

@@ -1,6 +1,17 @@
 import { ItemStack, world } from "@minecraft/server"
 import { sieveRecipes, acceptedBlocks } from "../config/recipes/sieve.js"
 import { stackRefillUse } from "stack_refill.js"
+
+const utility_meshes = new Set([
+    "utilitycraft:string_mesh",
+    "utilitycraft:flint_mesh",
+    "utilitycraft:copper_mesh",
+    "utilitycraft:iron_mesh",
+    "utilitycraft:golden_mesh",
+    "utilitycraft:emerald_mesh",
+    "utilitycraft:diamond_mesh",
+    "utilitycraft:netherite_mesh"
+])
 /**
  * Represents a single sieve block with utility methods.
  */
@@ -152,6 +163,11 @@ DoriosAPI.register.blockComponent("sieve", {
         // Sneak + empty hand → remove mesh
         if (!mainHand && player.isSneaking) {
             sieve.removeMesh(player)
+            return
+        }
+
+        // Block non-UtilityCraft meshes from being inserted/swapped in manual sieve.
+        if (mainHand?.hasComponent('utilitycraft:mesh') && !utility_meshes.has(mainHand.typeId)) {
             return
         }
 
