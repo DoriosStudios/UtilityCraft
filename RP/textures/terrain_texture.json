@@ -1480,6 +1480,138 @@
 		"utilitycraft_compressed_weathered_copper_block_4": {
 			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_4"
 		},
+		"utilitycraft_compressed_acacia_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_acacia_wood"
+		},
+		"utilitycraft_compressed_acacia_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_acacia_wood_2"
+		},
+		"utilitycraft_compressed_acacia_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_acacia_wood_3"
+		},
+		"utilitycraft_compressed_acacia_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_acacia_wood_4"
+		},
+		"utilitycraft_compressed_birch_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_birch_wood"
+		},
+		"utilitycraft_compressed_birch_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_birch_wood_2"
+		},
+		"utilitycraft_compressed_birch_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_birch_wood_3"
+		},
+		"utilitycraft_compressed_birch_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_birch_wood_4"
+		},
+		"utilitycraft_compressed_cherry_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cherry_wood"
+		},
+		"utilitycraft_compressed_cherry_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cherry_wood_2"
+		},
+		"utilitycraft_compressed_cherry_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cherry_wood_3"
+		},
+		"utilitycraft_compressed_cherry_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_cherry_wood_4"
+		},
+		"utilitycraft_compressed_crimson_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crimson_wood"
+		},
+		"utilitycraft_compressed_crimson_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crimson_wood_2"
+		},
+		"utilitycraft_compressed_crimson_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crimson_wood_3"
+		},
+		"utilitycraft_compressed_crimson_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crimson_wood_4"
+		},
+		"utilitycraft_compressed_dark_oak_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dark_oak_wood"
+		},
+		"utilitycraft_compressed_dark_oak_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dark_oak_wood_2"
+		},
+		"utilitycraft_compressed_dark_oak_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dark_oak_wood_3"
+		},
+		"utilitycraft_compressed_dark_oak_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_dark_oak_wood_4"
+		},
+		"utilitycraft_compressed_jungle_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_jungle_wood"
+		},
+		"utilitycraft_compressed_jungle_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_jungle_wood_2"
+		},
+		"utilitycraft_compressed_jungle_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_jungle_wood_3"
+		},
+		"utilitycraft_compressed_jungle_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_jungle_wood_4"
+		},
+		"utilitycraft_compressed_mangrove_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_mangrove_wood"
+		},
+		"utilitycraft_compressed_mangrove_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_mangrove_wood_2"
+		},
+		"utilitycraft_compressed_mangrove_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_mangrove_wood_3"
+		},
+		"utilitycraft_compressed_mangrove_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_mangrove_wood_4"
+		},
+		"utilitycraft_compressed_oak_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oak_wood"
+		},
+		"utilitycraft_compressed_oak_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oak_wood_2"
+		},
+		"utilitycraft_compressed_oak_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oak_wood_3"
+		},
+		"utilitycraft_compressed_oak_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_oak_wood_4"
+		},
+		"utilitycraft_compressed_pale_oak_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_pale_oak_wood"
+		},
+		"utilitycraft_compressed_pale_oak_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_pale_oak_wood_2"
+		},
+		"utilitycraft_compressed_pale_oak_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_pale_oak_wood_3"
+		},
+		"utilitycraft_compressed_pale_oak_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_pale_oak_wood_4"
+		},
+		"utilitycraft_compressed_spruce_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_spruce_wood"
+		},
+		"utilitycraft_compressed_spruce_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_spruce_wood_2"
+		},
+		"utilitycraft_compressed_spruce_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_spruce_wood_3"
+		},
+		"utilitycraft_compressed_spruce_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_spruce_wood_4"
+		},
+		"utilitycraft_compressed_warped_wood": {
+			"textures": "textures/blocks/compressed_blocks/compressed_warped_wood"
+		},
+		"utilitycraft_compressed_warped_wood_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_warped_wood_2"
+		},
+		"utilitycraft_compressed_warped_wood_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_warped_wood_3"
+		},
+		"utilitycraft_compressed_warped_wood_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_warped_wood_4"
+		},
 		"utilitycraft_compressed_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_block"
 		},
