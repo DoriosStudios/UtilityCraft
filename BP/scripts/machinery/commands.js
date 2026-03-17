@@ -135,10 +135,14 @@ async function openUtilityCraftSettings(player) {
   const res = await form.show(player);
   if (res.canceled) return;
 
-  const [, stackRefillEnabled, refreshSpeedValue] = res.formValues;
+  const formValues = Array.isArray(res.formValues) ? res.formValues : [];
+  const refreshSpeedValue = formValues.find((value) => typeof value === "number");
+  const stackRefillEnabledValue = [...formValues].reverse().find((value) => typeof value === "boolean");
 
   const refreshSpeed = Math.max(2, Math.floor(Number(refreshSpeedValue ?? currentSpeed) / 2) * 2);
-  player.setDynamicProperty(STACK_REFILL_PROPERTY, Boolean(stackRefillEnabled));
+  const stackRefillEnabled = stackRefillEnabledValue ?? currentStackRefill;
+
+  player.setDynamicProperty(STACK_REFILL_PROPERTY, stackRefillEnabled);
 
   try {
     player.dimension.runCommand(`scriptevent utilitycraft:set_tick_speed ${refreshSpeed}`);
