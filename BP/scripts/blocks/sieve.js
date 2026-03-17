@@ -174,6 +174,9 @@ DoriosAPI.register.blockComponent("sieve", {
 
         // Block non-UtilityCraft meshes from being inserted/swapped in manual sieve.
         if (mainHand?.hasComponent('utilitycraft:mesh') && !utility_meshes.has(mainHand.typeId)) {
+            player.sendMessage({
+                rawtext: [{ translate: "message.utilitycraft.invalid_mesh" }]
+            })
             return
         }
 

@@ -50,6 +50,14 @@
 					"render_method": "alpha_test"
 				}
 			},
+			"minecraft:collision_box": [
+				// Cauldron empty collision box
+				{ "origin": [-8, 0, -8], "size": [16, 6, 16] },
+				{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+				{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+				{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+				{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+			],
 			"minecraft:tick": {
 				"interval_range": [
 					40,
@@ -73,7 +81,15 @@
 							"render_method": "alpha_test"
 						}
 					},
-					"minecraft:light_emission": 3
+					"minecraft:light_emission": 3,
+					"minecraft:collision_box": [
+						// Cauldron - Same collision as empty
+						{ "origin": [-8, 0, -8], "size": [16, 6, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -85,7 +101,15 @@
 							"render_method": "alpha_test"
 						}
 					},
-					"minecraft:light_emission": 7
+					"minecraft:light_emission": 7,
+					"minecraft:collision_box": [
+						// Cauldron - Same collision as empty
+						{ "origin": [-8, 0, -8], "size": [16, 6, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -97,7 +121,15 @@
 							"render_method": "alpha_test"
 						}
 					},
-					"minecraft:light_emission": 11
+					"minecraft:light_emission": 11,
+					"minecraft:collision_box": [
+						// Cauldron - Same collision as empty
+						{ "origin": [-8, 0, -8], "size": [16, 6, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -109,7 +141,15 @@
 							"render_method": "alpha_test"
 						}
 					},
-					"minecraft:light_emission": 15
+					"minecraft:light_emission": 15,
+					"minecraft:collision_box": [
+						// Cauldron - Same collision as empty
+						{ "origin": [-8, 0, -8], "size": [16, 6, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -120,7 +160,14 @@
 							"texture": "utilitycraft_crucible_cobble_1",
 							"render_method": "alpha_test"
 						}
-					}
+					},
+					"minecraft:collision_box": [
+						{ "origin": [-8, 0, -8], "size": [16, 9, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -131,7 +178,14 @@
 							"texture": "utilitycraft_crucible_cobble_2",
 							"render_method": "alpha_test"
 						}
-					}
+					},
+					"minecraft:collision_box": [
+						{ "origin": [-8, 0, -8], "size": [16, 11, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -142,7 +196,14 @@
 							"texture": "utilitycraft_crucible_cobble_3",
 							"render_method": "alpha_test"
 						}
-					}
+					},
+					"minecraft:collision_box": [
+						{ "origin": [-8, 0, -8], "size": [16, 13, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			},
 			{
@@ -153,7 +214,14 @@
 							"texture": "utilitycraft_crucible_cobble_4",
 							"render_method": "alpha_test"
 						}
-					}
+					},
+					"minecraft:collision_box": [
+						{ "origin": [-8, 0, -8], "size": [16, 15, 16] },
+						{ "origin": [-8, 0, -8], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, 6], "size": [16, 16, 2] },
+						{ "origin": [-8, 0, -6], "size": [2, 16, 12] },
+						{ "origin": [6, 0, -6], "size": [2, 16, 12] }
+					]
 				}
 			}
 		]

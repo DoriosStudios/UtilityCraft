@@ -927,3 +927,5 @@ item.utilitycraft:water_bar_13=Água:
 item.utilitycraft:water_bar_14=Água:
 item.utilitycraft:water_bar_15=Água:
 item.utilitycraft:water_bar_16=Água:
+
+message.utilitycraft.invalid_mesh=§eMalhas personalizadas só podem ser usadas no Peneirador!
