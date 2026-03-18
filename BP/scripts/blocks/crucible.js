@@ -54,7 +54,8 @@ DoriosAPI.register.blockComponent('crucible', {
         // Add cobble-like blocks
         const cobbleUnits = acceptedItems[mainhand?.typeId]
         if (cobbleUnits) {
-            if (cobble < 4 && lava < 4 && cobble + lava < 4) {
+            const freeSpace = 4 - (cobble + lava)
+            if (freeSpace >= cobbleUnits) {
                 cobble += cobbleUnits
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
             }

@@ -1647,7 +1647,13 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
                 // Assign fluid type if empty
                 if (targetFluid.type === 'empty') targetFluid.setType(liquidType);
 
-                const move = Math.min(space, speed, amount);
+                let move = Math.min(space, speed, amount);
+
+                if (sourceBlock.typeId === 'utilitycraft:crucible') {
+                    move = Math.floor(move / 250) * 250;
+                    if (move <= 0) continue;
+                }
+
                 const added = targetFluid.add(move);
                 if (added > 0) {
                     transferred += added;
@@ -1670,8 +1676,11 @@ DoriosAPI.register.blockComponent('fluid_extractor', {
                 // remove vanilla fluid
                 sourceBlock.setType('minecraft:air');
             } else if (sourceBlock.typeId === 'utilitycraft:crucible') {
-                // drain crucible
-                sourceBlock.setPermutation(sourceBlock.permutation.withState('utilitycraft:lava', 0));
+                // drain crucible in 250mB levels based on actual transferred amount
+                const currentLava = sourceBlock.permutation.getState('utilitycraft:lava');
+                const drainedLevels = Math.min(currentLava, Math.floor(transferred / 250));
+                const remainingLava = Math.max(0, currentLava - drainedLevels);
+                sourceBlock.setPermutation(sourceBlock.permutation.withState('utilitycraft:lava', remainingLava));
             }
         }
 
