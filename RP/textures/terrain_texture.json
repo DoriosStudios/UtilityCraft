@@ -37,8 +37,53 @@
 		"utilitycraft_cobble_gen_netherite": {
 			"textures": "textures/blocks/cobblestone_generators/cobble_gen_netherite"
 		},
-		"utilitycraft_elevator": {
-			"textures": "textures/blocks/elevator"
+		"utilitycraft_white_elevator": {
+			"textures": "textures/blocks/elevators/white_elevator"
+		},
+		"utilitycraft_orange_elevator": {
+			"textures": "textures/blocks/elevators/orange_elevator"
+		},
+		"utilitycraft_magenta_elevator": {
+			"textures": "textures/blocks/elevators/magenta_elevator"
+		},
+		"utilitycraft_light_blue_elevator": {
+			"textures": "textures/blocks/elevators/light_blue_elevator"
+		},
+		"utilitycraft_yellow_elevator": {
+			"textures": "textures/blocks/elevators/yellow_elevator"
+		},
+		"utilitycraft_lime_elevator": {
+			"textures": "textures/blocks/elevators/lime_elevator"
+		},
+		"utilitycraft_pink_elevator": {
+			"textures": "textures/blocks/elevators/pink_elevator"
+		},
+		"utilitycraft_gray_elevator": {
+			"textures": "textures/blocks/elevators/gray_elevator"
+		},
+		"utilitycraft_light_gray_elevator": {
+			"textures": "textures/blocks/elevators/light_gray_elevator"
+		},
+		"utilitycraft_cyan_elevator": {
+			"textures": "textures/blocks/elevators/cyan_elevator"
+		},
+		"utilitycraft_purple_elevator": {
+			"textures": "textures/blocks/elevators/purple_elevator"
+		},
+		"utilitycraft_blue_elevator": {
+			"textures": "textures/blocks/elevators/blue_elevator"
+		},
+		"utilitycraft_brown_elevator": {
+			"textures": "textures/blocks/elevators/brown_elevator"
+		},
+		"utilitycraft_green_elevator": {
+			"textures": "textures/blocks/elevators/green_elevator"
+		},
+		"utilitycraft_red_elevator": {
+			"textures": "textures/blocks/elevators/red_elevator"
+		},
+		"utilitycraft_black_elevator": {
+			"textures": "textures/blocks/elevators/black_elevator"
 		},
 		"utilitycraft_blank_bonsai": {
 			"textures": "textures/blocks/bonsais/bonsai"

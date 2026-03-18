@@ -2,6 +2,7 @@ import './DoriosAPI/index.js'
 import './DoriosCore/index.js'
 
 import './config/main.js'
+import './machinery/main.js'
 
 import './blocks/bonsai.js'
 import './blocks/cobble_generators.js'
@@ -31,7 +32,6 @@ import './items/shovel.js'
 import './items/essences.js'
 import './items/arm.js'
 import './items/debug_stick.js'
-import './machinery/main.js'
 
 import './stack_refill.js'
 

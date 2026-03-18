@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:block": {
 		"description": {
-			"identifier": "utilitycraft:elevator",
+			"identifier": "utilitycraft:orange_elevator",
 			"states": {
 				"utilitycraft:ignore_colors": [
 					false,
@@ -17,7 +17,7 @@
 			"utilitycraft:elevator": {},
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_white_elevator",
+					"texture": "utilitycraft_orange_elevator",
 					"render_method": "opaque"
 				}
 			},

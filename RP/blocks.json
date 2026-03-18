@@ -124,7 +124,67 @@
 	},
 	"utilitycraft:elevator": {
 		"sound": "cloth",
-		"textures": "utilitycraft_elevator"
+		"textures": "utilitycraft_white_elevator"
+	},
+	"utilitycraft:orange_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_orange_elevator"
+	},
+	"utilitycraft:magenta_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_magenta_elevator"
+	},
+	"utilitycraft:light_blue_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_light_blue_elevator"
+	},
+	"utilitycraft:yellow_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_yellow_elevator"
+	},
+	"utilitycraft:lime_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_lime_elevator"
+	},
+	"utilitycraft:pink_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_pink_elevator"
+	},
+	"utilitycraft:gray_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_gray_elevator"
+	},
+	"utilitycraft:light_gray_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_light_gray_elevator"
+	},
+	"utilitycraft:cyan_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_cyan_elevator"
+	},
+	"utilitycraft:purple_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_purple_elevator"
+	},
+	"utilitycraft:blue_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_blue_elevator"
+	},
+	"utilitycraft:brown_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_brown_elevator"
+	},
+	"utilitycraft:green_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_green_elevator"
+	},
+	"utilitycraft:red_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_red_elevator"
+	},
+	"utilitycraft:black_elevator": {
+		"sound": "cloth",
+		"textures": "utilitycraft_black_elevator"
 	},
 	"utilitycraft:bonsai": {
 		"sound": "stone"

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:white_elevator"
+			"identifier": "utilitycraft:cyan_elevator"
 		},
 		"tags": [
 			"utilitycraft_workbench"
@@ -12,7 +12,7 @@
 				"item": "minecraft:ender_pearl"
 			},
 			"W": {
-				"item": "minecraft:white_wool"
+				"item": "minecraft:cyan_wool"
 			}
 		},
 		"pattern": [
@@ -21,14 +21,14 @@
 			"WWW"
 		],
 		"result": {
-			"item": "utilitycraft:white_elevator"
+			"item": "utilitycraft:cyan_elevator"
 		},
 		"unlock": [
 			{
 				"item": "minecraft:ender_pearl"
 			},
 			{
-				"item": "minecraft:white_wool"
+				"item": "minecraft:cyan_wool"
 			}
 		]
 	}

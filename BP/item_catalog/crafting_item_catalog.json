@@ -433,6 +433,30 @@
                     },
                     {
                         "group_identifier": {
+                            "icon": "utilitycraft:elevator",
+                            "name": "dorios:itemGroup.name.elevators"
+                        },
+                        "items": [
+                            "utilitycraft:black_elevator",
+                            "utilitycraft:gray_elevator",
+                            "utilitycraft:light_gray_elevator",
+                            "utilitycraft:elevator",
+                            "utilitycraft:yellow_elevator",
+                            "utilitycraft:orange_elevator",
+                            "utilitycraft:red_elevator",
+                            "utilitycraft:pink_elevator",
+                            "utilitycraft:magenta_elevator",
+                            "utilitycraft:purple_elevator",
+                            "utilitycraft:blue_elevator",
+                            "utilitycraft:light_blue_elevator",
+                            "utilitycraft:cyan_elevator",
+                            "utilitycraft:lime_elevator",
+                            "utilitycraft:green_elevator",
+                            "utilitycraft:brown_elevator"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "icon": "utilitycraft:cobble_gen_5",
                             "name": "dorios:itemGroup.name.cobble_gens"
                         },

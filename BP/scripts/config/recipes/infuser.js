@@ -183,17 +183,18 @@ const infuserRecipesRegister = {
     "minecraft:bone_meal|minecraft:cobblestone": {
         output: "minecraft:calcite",
         required: 4
-    }
+    },
     // Color pattern templates (placeholders will be expanded at load time)
-    ,"minecraft:{x}_dye|minecraft:{y}_terracotta": { output: "minecraft:{x}_terracotta", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_glazed_terracotta": { output: "minecraft:{x}_glazed_terracotta", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_concrete": { output: "minecraft:{x}_concrete", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_concrete_powder": { output: "minecraft:{x}_concrete_powder", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_stained_glass": { output: "minecraft:{x}_stained_glass", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_stained_glass_pane": { output: "minecraft:{x}_stained_glass_pane", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_wool": { output: "minecraft:{x}_wool", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_candle": { output: "minecraft:{x}_candle", required: 1 }
-    ,"minecraft:{x}_dye|minecraft:{y}_harness": { output: "minecraft:{x}_harness", required: 1 }
+    "minecraft:{x}_dye|minecraft:{y}_terracotta": { output: "minecraft:{x}_terracotta", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_glazed_terracotta": { output: "minecraft:{x}_glazed_terracotta", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_concrete": { output: "minecraft:{x}_concrete", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_concrete_powder": { output: "minecraft:{x}_concrete_powder", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_stained_glass": { output: "minecraft:{x}_stained_glass", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_stained_glass_pane": { output: "minecraft:{x}_stained_glass_pane", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_wool": { output: "minecraft:{x}_wool", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_candle": { output: "minecraft:{x}_candle", required: 1 },
+    "minecraft:{x}_dye|minecraft:{y}_harness": { output: "minecraft:{x}_harness", required: 1 },
+    "minecraft:{x}_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:{x}_elevator", required: 1 }
     // Note: bundles and shulker_boxes are intentionally NOT added because they are prone to data loss
 };
 
