@@ -160,6 +160,9 @@
 		"utilitycraft_mob_grinder_aspas_still": {
 			"textures": "textures/blocks/mob_grinding_aspas_still"
 		},
+		"utilitycraft_mechanical_spawner_empty_mob": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_empty_mob"
+		},
 		"utilitycraft_mechanical_spawner_zombie": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_zombie"
 		},
@@ -196,11 +199,20 @@
 		"utilitycraft_mechanical_spawner_enderman": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_enderman"
 		},
+		"utilitycraft_mechanical_spawner_guardian": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_slime"
+		},
 		"utilitycraft_mechanical_spawner_hoglin": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_hoglin"
 		},
+		"utilitycraft_mechanical_spawner_illager": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_skeleton"
+		},
 		"utilitycraft_mechanical_spawner_magma_cube": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_magma_cube"
+		},
+		"utilitycraft_mechanical_spawner_piglin": {
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_pig"
 		},
 		"utilitycraft_mechanical_spawner_wither_skeleton": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_wither_skeleton"

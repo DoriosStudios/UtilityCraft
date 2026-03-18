@@ -1,6 +1,8 @@
 ## Translated by Milo
 
 message.utilitycraft.invalid_mesh=§eCustom meshes can only be used in Autosieve!
+message.utilitycraft.spawner.use_empty_bottle=§eUse an empty bottle to recover the essence from this Mechanical Spawner.
+message.utilitycraft.spawner.swap_confirm=§eClick again within 50 ticks to swap the spawner essence.
 
 - Bloques = ## Bloques
 
@@ -582,6 +584,9 @@ item.utilitycraft:hoglin_essence=Hoglin Essence
 item.utilitycraft:magma_cube_essence=Magma Cube Essence
 item.utilitycraft:mooshroom_essence=Mooshroom Essence
 item.utilitycraft:wither_skeleton_essence=Wither Skeleton Essence
+item.utilitycraft:guardian_essence=Guardian Essence
+item.utilitycraft:piglin_essence=Piglin Essence
+item.utilitycraft:illager_essence=Illager Essence
 
 - Machines Upgrades = ## Machines Upgrades
 ## +

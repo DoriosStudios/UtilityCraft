@@ -6,9 +6,9 @@
 				"identifier": "geometry.utilitycraft_mechanical_spawner",
 				"texture_width": 32,
 				"texture_height": 32,
-				"visible_bounds_width": 2,
-				"visible_bounds_height": 2.5,
-				"visible_bounds_offset": [0, 0.75, 0]
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
 			},
 			"bones": [
 				{
@@ -23,24 +23,80 @@
 							"origin": [-3, 5, -3],
 							"size": [6, 6, 6],
 							"uv": {
-								"north": {"uv": [16, 0], "uv_size": [16, 16]},
-								"east": {"uv": [16, 0], "uv_size": [16, 16]},
-								"south": {"uv": [16, 0], "uv_size": [16, 16]},
-								"west": {"uv": [16, 0], "uv_size": [16, 16]},
-								"up": {"uv": [32, 16], "uv_size": [-16, -16]},
-								"down": {"uv": [32, 16], "uv_size": [-16, -16]}
+								"north": {"uv": [16, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"east": {"uv": [16, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"south": {"uv": [16, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"west": {"uv": [16, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"up": {"uv": [32, 16], "uv_size": [-16, -16], "material_instance": "spawner_base"},
+								"down": {"uv": [32, 16], "uv_size": [-16, -16], "material_instance": "spawner_base"}
 							}
 						},
 						{
 							"origin": [-8, 0, -8],
 							"size": [16, 16, 16],
 							"uv": {
-								"north": {"uv": [0, 0], "uv_size": [16, 16]},
-								"east": {"uv": [0, 0], "uv_size": [16, 16]},
-								"south": {"uv": [0, 0], "uv_size": [16, 16]},
-								"west": {"uv": [0, 0], "uv_size": [16, 16]},
-								"up": {"uv": [32, 32], "uv_size": [-16, -16]},
-								"down": {"uv": [16, 32], "uv_size": [-16, -16]}
+								"north": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"east": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"south": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"west": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "spawner_base"},
+								"up": {"uv": [32, 32], "uv_size": [-16, -16], "material_instance": "spawner_base"},
+								"down": {"uv": [16, 32], "uv_size": [-16, -16], "material_instance": "spawner_base"}
+							}
+						}
+					]
+				},
+				{
+					"name": "spawner_type",
+					"pivot": [0, 10, 0],
+					"cubes": [
+						{
+							"origin": [-5, 12, -8],
+							"size": [10, 4, 0],
+							"uv": {
+								"north": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"east": {"uv": [0, 0], "uv_size": [0, 0]},
+								"south": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"west": {"uv": [0, 0], "uv_size": [0, 0]},
+								"up": {"uv": [0, 0], "uv_size": [0, 0]},
+								"down": {"uv": [0, 0], "uv_size": [0, 0]}
+							}
+						},
+						{
+							"origin": [-5, 12, 8],
+							"size": [10, 4, 0],
+							"uv": {
+								"north": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"east": {"uv": [0, 0], "uv_size": [0, 0]},
+								"south": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"west": {"uv": [0, 0], "uv_size": [0, 0]},
+								"up": {"uv": [0, 0], "uv_size": [0, 0]},
+								"down": {"uv": [0, 0], "uv_size": [0, 0]}
+							}
+						},
+						{
+							"origin": [8, 12, -5],
+							"size": [0, 4, 10],
+							"pivot": [8, 14, 0],
+							"rotation": [0, 180, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [0, 0]},
+								"east": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"south": {"uv": [0, 0], "uv_size": [0, 0]},
+								"west": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"up": {"uv": [0, 0], "uv_size": [0, 0]},
+								"down": {"uv": [0, 0], "uv_size": [0, 0]}
+							}
+						},
+						{
+							"origin": [-8, 12, -5],
+							"size": [0, 4, 10],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [0, 0]},
+								"east": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"south": {"uv": [0, 0], "uv_size": [0, 0]},
+								"west": {"uv": [6, 0], "uv_size": [20, 7.75], "material_instance": "spawner_type"},
+								"up": {"uv": [0, 0], "uv_size": [0, 0]},
+								"down": {"uv": [0, 0], "uv_size": [0, 0]}
 							}
 						}
 					]
