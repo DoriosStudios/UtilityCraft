@@ -41,7 +41,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "minecraft:netherite_scrap",
+					"name": "utilitycraft:netherite_nugget",
 					"weight": 1,
 					"functions": [
 						{

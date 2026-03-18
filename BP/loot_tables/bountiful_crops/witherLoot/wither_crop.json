@@ -47,13 +47,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "minecraft:skull",
-					"functions": [
-						{
-							"function": "set_data",
-							"data": 1
-						}
-					],
+					"name": "utilitycraft:wither_skull_shard",
 					"weight": 1
 				},
 				{

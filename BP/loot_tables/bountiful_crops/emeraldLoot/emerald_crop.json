@@ -41,7 +41,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "minecraft:emerald",
+					"name": "utilitycraft:emerald_shard",
 					"weight": 1,
 					"functions": [
 						{

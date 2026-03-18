@@ -41,7 +41,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "minecraft:totem_of_undying",
+					"name": "utilitycraft:totem_shard",
 					"weight": 1
 				},
 				{
