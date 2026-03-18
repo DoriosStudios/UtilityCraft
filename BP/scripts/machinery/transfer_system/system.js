@@ -730,6 +730,8 @@ DoriosAPI.register.blockComponent('exporter', {
             const it = sourceInv.getItem(i)
             if (!it) continue
 
+            if (it.hasTag("utilitycraft:ui_element")) continue
+
             if (hasFilter && (exporter.hasTag(`${it.typeId}`) !== whiteList)) continue
 
             const didMove = tryPushSlotToTargets(sourceLoc, i, orderedTargets, dimension, exporter, moved, LIMIT, sourceInv)
