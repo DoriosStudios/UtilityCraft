@@ -5,7 +5,13 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "utilitycraft:wither_skull_shard"
+					"name": "minecraft:skull",
+					"functions": [
+						{
+							"function": "set_data",
+							"data": 1
+						}
+					]
 				}
 			]
 		},

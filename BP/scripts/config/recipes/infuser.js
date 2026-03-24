@@ -88,10 +88,6 @@ const infuserRecipesRegister = {
         output: "minecraft:soul_soil",
         required: 1
     },
-    "minecraft:wheat_seeds|minecraft:dirt": {
-        output: "minecraft:grass_block",
-        required: 9
-    },
     "minecraft:coal_block|minecraft:iron_block": {
         output: "utilitycraft:steel_block",
         required: 1

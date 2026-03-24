@@ -475,12 +475,6 @@
 		"utilitycraft_redstone_crop1": {
 			"textures": "textures/blocks/bountiful_crops/crops/redstoneCrop/redstone_crop_1"
 		},
-		"utilitycraft_resin_crop0": {
-			"textures": "textures/blocks/bountiful_crops/crops/resinCrop/resin_crop_0"
-		},
-		"utilitycraft_resin_crop1": {
-			"textures": "textures/blocks/bountiful_crops/crops/resinCrop/resin_crop_1"
-		},
 		"utilitycraft_shulker_crop0": {
 			"textures": "textures/blocks/bountiful_crops/crops/shulkerCrop/shulker_crop_0"
 		},

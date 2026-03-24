@@ -161,9 +161,6 @@
 		"utilitycraft_redstone_seeds": {
 			"textures": "textures/items/seeds/redstone_seeds"
 		},
-		"utilitycraft_resin_seeds": {
-			"textures": "textures/items/seeds/base_seeds"
-		},
 		"utilitycraft_coal_seeds": {
 			"textures": "textures/items/seeds/coal_seeds"
 		},

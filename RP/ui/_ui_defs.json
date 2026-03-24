@@ -17,8 +17,6 @@
         "ui/harvester.json",
         "ui/one_slot.json",
         "ui/solar_panel.json",
-        "ui/wind_turbine.json",
-        // tests,
-        "ui/ehxibitor.json"
+        "ui/wind_turbine.json"
     ]
 }
