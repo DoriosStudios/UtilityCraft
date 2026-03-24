@@ -24,6 +24,7 @@ export const data = {
     'utilitycraft:quartz_crop': { seed: 'utilitycraft:quartz_seeds', loot: 'bountiful_crops/quartzLoot/quartz_crop' },
     'utilitycraft:redstone_crop': { seed: 'utilitycraft:redstone_seeds', loot: 'bountiful_crops/redstoneLoot/redstone_crop' },
     'utilitycraft:slime_crop': { seed: 'utilitycraft:slime_seeds', loot: 'bountiful_crops/slimeLoot/slime_crop' },
+    'utilitycraft:resin_crop': { seed: 'utilitycraft:resin_seeds', loot: 'bountiful_crops/resinLoot/resin_crop' },
     'utilitycraft:amethyst_crop': { seed: 'utilitycraft:amethyst_seeds', loot: 'bountiful_crops/amethystLoot/amethyst_crop' },
     'utilitycraft:blaze_crop': { seed: 'utilitycraft:blaze_seeds', loot: 'bountiful_crops/blazeLoot/blaze_crop' },
     'utilitycraft:diamond_crop': { seed: 'utilitycraft:diamond_seeds', loot: 'bountiful_crops/diamondLoot/diamond_crop' },
@@ -267,6 +268,7 @@ export const plantsData = {
             { item: 'minecraft:pale_oak_log', amount: [6, 10], chance: 1 },
             { item: 'minecraft:pale_oak_leaves', amount: [0, 4], chance: 1 },
             { item: 'minecraft:stick', amount: [0, 6], chance: 1 },
+            { item: 'minecraft:resin_clump', amount: [1, 2], chance: 0.03 },
             { item: 'minecraft:pale_oak_sapling', amount: 1, chance: 0.05 }
         ]
     },
@@ -495,14 +497,14 @@ export const plantsData = {
     'utilitycraft:diamond_seeds': {
         cost: 512000,
         drops: [
-            { item: 'minecraft:diamond', amount: 1, chance: 1 },
+            { item: 'utilitycraft:diamond_shard', amount: 1, chance: 1 },
             { item: 'utilitycraft:diamond_seeds', amount: 1, chance: 0.05 }
         ]
     },
     'utilitycraft:emerald_seeds': {
         cost: 512000,
         drops: [
-            { item: 'minecraft:emerald', amount: 1, chance: 1 },
+            { item: 'utilitycraft:emerald_shard', amount: 1, chance: 1 },
             { item: 'utilitycraft:emerald_seeds', amount: 1, chance: 0.05 }
         ]
     },
@@ -523,36 +525,43 @@ export const plantsData = {
     'utilitycraft:netherite_seeds': {
         cost: 1024000,
         drops: [
-            { item: 'minecraft:netherite_scrap', amount: 1, chance: 1 },
+            { item: 'utilitycraft:netherite_nugget', amount: 1, chance: 1 },
             { item: 'utilitycraft:netherite_seeds', amount: 1, chance: 0.05 }
         ]
     },
     'utilitycraft:nether_star_seeds': {
         cost: 1024000,
         drops: [
-            { item: 'minecraft:nether_star', amount: 1, chance: 1 },
+            { item: 'utilitycraft:nether_star_fragment', amount: 1, chance: 1 },
             { item: 'utilitycraft:nether_star_seeds', amount: 1, chance: 0.05 }
         ]
     },
     'utilitycraft:shulker_seeds': {
         cost: 1024000,
         drops: [
-            { item: 'minecraft:shulker_shell', amount: 1, chance: 1 },
+            { item: 'utilitycraft:shulker_shell_shard', amount: 1, chance: 1 },
             { item: 'utilitycraft:shulker_seeds', amount: 1, chance: 0.05 }
         ]
     },
     'utilitycraft:totem_seeds': {
         cost: 1024000,
         drops: [
-            { item: 'minecraft:totem_of_undying', amount: 1, chance: 1 },
+            { item: 'utilitycraft:totem_shard', amount: 1, chance: 1 },
             { item: 'utilitycraft:totem_seeds', amount: 1, chance: 0.05 }
         ]
     },
     'utilitycraft:wither_seeds': {
         cost: 1024000,
         drops: [
-            { item: 'minecraft:wither_skeleton_skull', amount: 1, chance: 1 },
+            { item: 'utilitycraft:wither_skull_shard', amount: 1, chance: 1 },
             { item: 'utilitycraft:wither_seeds', amount: 1, chance: 0.05 }
+        ]
+    },
+    'utilitycraft:resin_seeds': {
+        cost: 128000,
+        drops: [
+            { item: 'minecraft:resin_clump', amount: [1, 2], chance: 1 },
+            { item: 'utilitycraft:resin_seeds', amount: 1, chance: 0.05 }
         ]
     },
     'minecraft:poppy': {
