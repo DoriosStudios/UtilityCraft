@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:ehxibitor",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"utilitycraft:ehxibitor": {
+				"entity": {
+					"type": "machine",
+					"name": "ehxibitor",
+					"inventory_size": 4,
+					"input_slot": 3
+				},
+				"machine": {
+					"energy_cap": 1,
+					"rate_speed_base": 0
+				}
+			},
+			"utilitycraft:special_container": {
+				"Display Slot": 3
+			},
+			"minecraft:geometry": "geometry.utilitycraft_block_2",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_machine_case",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:machine": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		}
+	}
+}

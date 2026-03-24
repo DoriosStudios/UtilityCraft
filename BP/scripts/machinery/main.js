@@ -13,6 +13,7 @@ import './machines/harvester.js'
 import './machines/way_center.js'
 import './machines/xp_condenser.js'
 import './machines/trash_can.js'
+import './machines/ehxibitor.js'
 
 import './hoppers/mech_hoppers.js'
 

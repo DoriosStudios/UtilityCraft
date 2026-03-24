@@ -96,7 +96,7 @@
 		"sound": "grass"
 	},
 	"utilitycraft:amethyst_crop": {
-		"sound": "grass"
+		"sound": "amethyst_cluster"
 	},
 	"utilitycraft:glowstone_crop": {
 		"sound": "grass"
@@ -104,8 +104,11 @@
 	"utilitycraft:slime_crop": {
 		"sound": "grass"
 	},
+	"utilitycraft:resin_crop": {
+		"sound": "resin"
+	},
 	"utilitycraft:honey_crop": {
-		"sound": "grass"
+		"sound": "honey_block"
 	},
 	"utilitycraft:cobble_gen_1": {
 		"sound": "stone"
@@ -334,6 +337,10 @@
 	},
 	"utilitycraft:block_placer": {
 		"sound": "metal"
+	},
+	"utilitycraft:ehxibitor": {
+		"sound": "metal",
+		"textures": "utilitycraft_machine_case"
 	},
 	"utilitycraft:xp_condenser": {
 		"sound": "metal"
