@@ -1,0 +1,202 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:resin_crop",
+			"states": {
+				"utilitycraft:age": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5
+				],
+				"utilitycraft:tier": [
+					1,
+					2,
+					3,
+					0
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('utilitycraft:age')==0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_base0",
+							"ambient_occlusion": true,
+							"face_dimming": false,
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							3,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('utilitycraft:age')==1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_base1",
+							"ambient_occlusion": true,
+							"face_dimming": false,
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							4,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('utilitycraft:age')==2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_base2",
+							"ambient_occlusion": true,
+							"face_dimming": false,
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							5,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('utilitycraft:age')==3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_base3",
+							"ambient_occlusion": true,
+							"face_dimming": false,
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('utilitycraft:age')==4",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_resin_crop0",
+							"ambient_occlusion": true,
+							"face_dimming": false,
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							12,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('utilitycraft:age')==5",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_resin_crop1",
+							"ambient_occlusion": true,
+							"face_dimming": false,
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:loot": "loot_tables/bountiful_crops/resinLoot/resin_crop.json",
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							16,
+							16
+						]
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:geometry": "geometry.utilitycraft_crop",
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"utilitycraft:red_soil"
+						]
+					}
+				]
+			},
+			"minecraft:collision_box": false,
+			"minecraft:loot": "loot_tables/bountiful_crops/resinLoot/resin_seed.json",
+			"minecraft:light_dampening": 0,
+			"utilitycraft:crop": {},
+			"minecraft:tick": {
+				"interval_range": [
+					2400,
+					4800
+				]
+			}
+		}
+	}
+}

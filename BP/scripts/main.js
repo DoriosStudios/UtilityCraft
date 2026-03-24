@@ -32,6 +32,7 @@ import './items/shovel.js'
 import './items/essences.js'
 import './items/arm.js'
 import './items/debug_stick.js'
+import './items/gamemode_stick.js'
 
 import './stack_refill.js'
 

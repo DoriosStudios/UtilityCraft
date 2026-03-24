@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "utilitycraft:netherite_scrap_from_dust"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "utilitycraft:netherite_scrap_dust",
+		"output": "minecraft:netherite_scrap"
+	}
+}
