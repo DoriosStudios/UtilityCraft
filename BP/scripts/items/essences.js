@@ -1,29 +1,28 @@
 import { world, ItemStack } from '@minecraft/server'
-
 const ESSENCE_TARGETS = Object.freeze([
     { displayName: 'Blaze', essenceItem: 'utilitycraft:blaze_essence', captureTypeIds: ['minecraft:blaze'] },
     { displayName: 'Chicken', essenceItem: 'utilitycraft:chicken_essence', captureTypeIds: ['minecraft:chicken'] },
     { displayName: 'Cow', essenceItem: 'utilitycraft:cow_essence', captureTypeIds: ['minecraft:cow'] },
     { displayName: 'Creeper', essenceItem: 'utilitycraft:creeper_essence', captureTypeIds: ['minecraft:creeper'] },
     { displayName: 'Enderman', essenceItem: 'utilitycraft:enderman_essence', captureTypeIds: ['minecraft:enderman'] },
-    { displayName: 'Hoglin', essenceItem: 'utilitycraft:hoglin_essence', captureTypeIds: ['minecraft:hoglin'] },
-    { displayName: 'Magma Cube', essenceItem: 'utilitycraft:magma_cube_essence', captureTypeIds: ['minecraft:magma_cube'] },
-    { displayName: 'Mooshroom', essenceItem: 'utilitycraft:mooshroom_essence', captureTypeIds: ['minecraft:mooshroom'] },
-    { displayName: 'Pig', essenceItem: 'utilitycraft:pig_essence', captureTypeIds: ['minecraft:pig'] },
-    { displayName: 'Sheep', essenceItem: 'utilitycraft:sheep_essence', captureTypeIds: ['minecraft:sheep'] },
-    { displayName: 'Skeleton', essenceItem: 'utilitycraft:skeleton_essence', captureTypeIds: ['minecraft:skeleton'] },
-    { displayName: 'Slime', essenceItem: 'utilitycraft:slime_essence', captureTypeIds: ['minecraft:slime'] },
-    { displayName: 'Spider', essenceItem: 'utilitycraft:spider_essence', captureTypeIds: ['minecraft:spider'] },
-    { displayName: 'Wither Skeleton', essenceItem: 'utilitycraft:wither_skeleton_essence', captureTypeIds: ['minecraft:wither_skeleton'] },
-    { displayName: 'Zombie', essenceItem: 'utilitycraft:zombie_essence', captureTypeIds: ['minecraft:zombie'] },
     { displayName: 'Guardian', essenceItem: 'utilitycraft:guardian_essence', captureTypeIds: ['minecraft:guardian', 'minecraft:elder_guardian'] },
-    { displayName: 'Piglin', essenceItem: 'utilitycraft:piglin_essence', captureTypeIds: ['minecraft:piglin'] },
+    { displayName: 'Hoglin', essenceItem: 'utilitycraft:hoglin_essence', captureTypeIds: ['minecraft:hoglin'] },
     {
         displayName: 'Illager',
         essenceItem: 'utilitycraft:illager_essence',
         captureTypeIds: ['minecraft:pillager', 'minecraft:vindicator', 'minecraft:evoker', 'minecraft:witch'],
         captureFamily: 'illager'
-    }
+    },
+    { displayName: 'Magma Cube', essenceItem: 'utilitycraft:magma_cube_essence', captureTypeIds: ['minecraft:magma_cube'] },
+    { displayName: 'Mooshroom', essenceItem: 'utilitycraft:mooshroom_essence', captureTypeIds: ['minecraft:mooshroom'] },
+    { displayName: 'Pig', essenceItem: 'utilitycraft:pig_essence', captureTypeIds: ['minecraft:pig'] },
+    { displayName: 'Piglin', essenceItem: 'utilitycraft:piglin_essence', captureTypeIds: ['minecraft:piglin'] },
+    { displayName: 'Sheep', essenceItem: 'utilitycraft:sheep_essence', captureTypeIds: ['minecraft:sheep'] },
+    { displayName: 'Skeleton', essenceItem: 'utilitycraft:skeleton_essence', captureTypeIds: ['minecraft:skeleton'] },
+    { displayName: 'Slime', essenceItem: 'utilitycraft:slime_essence', captureTypeIds: ['minecraft:slime'] },
+    { displayName: 'Spider', essenceItem: 'utilitycraft:spider_essence', captureTypeIds: ['minecraft:spider'] },
+    { displayName: 'Wither Skeleton', essenceItem: 'utilitycraft:wither_skeleton_essence', captureTypeIds: ['minecraft:wither_skeleton'] },
+    { displayName: 'Zombie', essenceItem: 'utilitycraft:zombie_essence', captureTypeIds: ['minecraft:zombie'] }
 ])
 
 const TARGET_BY_TYPE_ID = new Map()
@@ -82,12 +81,22 @@ world.afterEvents.entityDie.subscribe(e => {
     // Vessel is now complete → transform into actual essence item
     if (kills > 99) {
         const newEssence = new ItemStack(essenceTarget.essenceItem, 1)
-        equippable.setEquipment("Offhand", newEssence)
+
+        const equippedInOffhand = equippable.setEquipment("Offhand", newEssence)
+        const currentOffhand = equippable.getEquipment("Offhand")
+        if (equippedInOffhand && currentOffhand?.typeId === essenceTarget.essenceItem) return
+
+        const consumedVessel = equippable.setEquipment("Offhand")
+        if (!consumedVessel) return
+
+        giveItemToPlayerOrDrop(player, newEssence)
+        player.dimension.playSound("random.levelup", player.location, { volume: 0.5, pitch: 1 })
+        showLocalizedActionBar(player, "message.utilitycraft.essence_complete")
         return
     }
 
     // Update lore and show progress
-    player.runCommand(`title @s actionbar ${kills}%`)
+    DoriosAPI.utils.actionBar(player, `${kills}%`)
     offHand.setLore([
         `${lore?.[0]}`,
         `§r§7  ${kills} %`
@@ -153,7 +162,44 @@ function matchesEssenceTarget(entity, target) {
 function parseProgressValue(loreLine) {
     if (!loreLine) return 0
 
-    const numberText = loreLine.replace(/[^0-9]/g, '')
-    const parsed = parseInt(numberText, 10)
-    return Number.isNaN(parsed) ? 0 : parsed
+    const cleanLine = loreLine.replace(/§./g, '')
+    const match = cleanLine.match(/(\d+)\s*%/)
+    if (!match) return 0
+
+    const parsed = parseInt(match[1], 10)
+    if (Number.isNaN(parsed)) return 0
+
+    return Math.max(0, Math.min(parsed, 100))
+}
+
+/**
+ * Gives an item to the player inventory, dropping leftovers when full.
+ *
+ * @param {import('@minecraft/server').Player} player
+ * @param {ItemStack} itemStack
+ */
+function giveItemToPlayerOrDrop(player, itemStack) {
+    const inventory = player.getComponent('inventory')?.container
+    const leftover = inventory?.addItem(itemStack)
+    if (leftover) {
+        player.dimension.spawnItem(leftover, player.location)
+    }
+}
+
+/**
+ * Displays a localized actionbar message for the player.
+ *
+ * @param {import('@minecraft/server').Player} player
+ * @param {string} translationKey
+ */
+function showLocalizedActionBar(player, translationKey) {
+    if (!player?.onScreenDisplay || !translationKey) return
+
+    try {
+        player.onScreenDisplay.setActionBar({
+            rawtext: [{ translate: translationKey }]
+        })
+    } catch {
+        DoriosAPI.utils.actionBar(player, '§aEssence complete!')
+    }
 }

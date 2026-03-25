@@ -1005,3 +1005,4 @@ item.utilitycraft:utility_book_23=Manual do UtilityCraft
 item.utilitycraft:settings=Definições\n §7 Interage para abrir as definições do UtilityCraft
 
 message.utilitycraft.invalid_mesh=§eAs malhas personalizadas só podem ser usadas no Peneirador Automatizado!
+message.utilitycraft.essence_complete=§aEssência completa!

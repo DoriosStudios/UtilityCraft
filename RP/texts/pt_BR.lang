@@ -1010,5 +1010,6 @@ item.utilitycraft:water_bar_15=Água:
 item.utilitycraft:water_bar_16=Água:
 
 message.utilitycraft.invalid_mesh=§eMalhas personalizadas só podem ser usadas no Peneirador!
+message.utilitycraft.essence_complete=§aEssência completa!
 message.utilitycraft.spawner.use_empty_bottle=§eUse uma garrafa vazia para recuperar a essência deste Invocador Mecânico.
 message.utilitycraft.spawner.swap_confirm=§eClique novamente em até 50 ticks para trocar a essência do invocador.

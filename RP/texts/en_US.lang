@@ -1,6 +1,7 @@
 ## Translated by Milo
 
 message.utilitycraft.invalid_mesh=§eCustom meshes can only be used in Autosieve!
+message.utilitycraft.essence_complete=§aEssence complete!
 message.utilitycraft.spawner.use_empty_bottle=§eUse an empty bottle to recover the essence from this Mechanical Spawner.
 message.utilitycraft.spawner.swap_confirm=§eClick again within 50 ticks to swap the spawner essence.
 
