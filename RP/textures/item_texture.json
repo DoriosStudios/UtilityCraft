@@ -339,13 +339,13 @@
 			"textures": "textures/items/essences/pig_essence"
 		},
 		"utilitycraft_piglin_essence": {
-			"textures": "textures/items/essences/pig_essence"
+			"textures": "textures/items/essences/piglin_essence"
 		},
 		"utilitycraft_creeper_essence": {
 			"textures": "textures/items/essences/creeper_essence"
 		},
 		"utilitycraft_guardian_essence": {
-			"textures": "textures/items/essences/slime_essence"
+			"textures": "textures/items/essences/guardian_essence"
 		},
 		"utilitycraft_spider_essence": {
 			"textures": "textures/items/essences/spider_essence"
@@ -393,7 +393,7 @@
 			"textures": "textures/items/essences/enderman_essence"
 		},
 		"utilitycraft_illager_essence": {
-			"textures": "textures/items/essences/skeleton_essence"
+			"textures": "textures/items/essences/illager_essence"
 		},
 		"utilitycraft_hoglin_essence": {
 			"textures": "textures/items/essences/hoglin_essence"
