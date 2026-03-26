@@ -2,10 +2,10 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shapeless": {
 		"description": {
-			"identifier": "utilitycraft:mechanic_hopperv2"
+			"identifier": "utilitycraft:switch_mechanical_hopper"
 		},
 		"tags": [
-			"utilitycraft_workbench"
+			"utilitycraft_workbench", "crafting_table"
 		],
 		"ingredients": [
 			{

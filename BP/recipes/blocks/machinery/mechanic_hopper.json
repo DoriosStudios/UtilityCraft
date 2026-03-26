@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:mechanic_hopper"
+			"identifier": "utilitycraft:mechanical_hopper"
 		},
 		"tags": [
 			"utilitycraft_workbench"

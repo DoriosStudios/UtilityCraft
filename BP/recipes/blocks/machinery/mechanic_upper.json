@@ -1,24 +1,36 @@
 {
 	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
+	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:mechanic_upper"
+			"identifier": "utilitycraft:mechanical_upper"
 		},
 		"tags": [
 			"utilitycraft_workbench"
 		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:mechanic_hopper"
+		"key": {
+			"S": {
+				"item": "utilitycraft:steel_ingot"
+			},
+			"H": {
+				"item": "hopper"
 			}
+		},
+		"pattern": [
+			" S ",
+			"SHS",
+			"S S"
 		],
 		"result": {
 			"item": "utilitycraft:mechanic_upper"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:mechanic_hopper"
+				"item": "hopper"
+			},
+			{
+				"item": "utilitycraft:steel_ingot"
 			}
-		]
+		],
+		"priority": 0
 	}
 }

@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:mechanic_dropper"
+			"identifier": "utilitycraft:mechanical_dropper"
 		},
 		"tags": [
 			"utilitycraft_workbench"
