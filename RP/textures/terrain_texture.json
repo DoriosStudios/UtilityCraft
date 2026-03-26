@@ -200,19 +200,19 @@
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_enderman"
 		},
 		"utilitycraft_mechanical_spawner_guardian": {
-			"textures": "textures/blocks/mech-spawners/mechanical_spawner_slime"
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_guardian"
 		},
 		"utilitycraft_mechanical_spawner_hoglin": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_hoglin"
 		},
 		"utilitycraft_mechanical_spawner_illager": {
-			"textures": "textures/blocks/mech-spawners/mechanical_spawner_skeleton"
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_illager"
 		},
 		"utilitycraft_mechanical_spawner_magma_cube": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_magma_cube"
 		},
 		"utilitycraft_mechanical_spawner_piglin": {
-			"textures": "textures/blocks/mech-spawners/mechanical_spawner_pig"
+			"textures": "textures/blocks/mech-spawners/mechanical_spawner_piglin"
 		},
 		"utilitycraft_mechanical_spawner_wither_skeleton": {
 			"textures": "textures/blocks/mech-spawners/mechanical_spawner_wither_skeleton"
