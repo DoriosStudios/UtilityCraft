@@ -11,7 +11,7 @@
 		"components": {
 			"minecraft:icon": "utilitycraft_antidote_potion",
 			"minecraft:stacked_by_data": false,
-			"minecraft:max_stack_size": 1,
+			"minecraft:max_stack_size": 16,
 			"minecraft:food": {
 				"can_always_eat": true,
 				"using_converts_to": "glass_bottle"

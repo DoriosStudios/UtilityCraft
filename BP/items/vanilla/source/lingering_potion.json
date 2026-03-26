@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "minecraft:lingering_potion",
+      "category": "Items"
+    },
+    "components": {
+      "minecraft:max_stack_size": 16,
+      "minecraft:stack_by_data": true
+    }
+  }
+}
