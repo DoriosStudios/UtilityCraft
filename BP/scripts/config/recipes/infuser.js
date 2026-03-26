@@ -198,6 +198,7 @@ const infuserRecipesRegister = {
     "minecraft:{x}_dye|minecraft:{y}_wool": { output: "minecraft:{x}_wool", required: 1 },
     "minecraft:{x}_dye|minecraft:{y}_candle": { output: "minecraft:{x}_candle", required: 1 },
     "minecraft:{x}_dye|minecraft:{y}_harness": { output: "minecraft:{x}_harness", required: 1 },
+    "minecraft:white_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:elevator", required: 1 },
     "minecraft:{x}_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:{x}_elevator", required: 1 }
     // Note: bundles and shulker_boxes are intentionally NOT added because they are prone to data loss
 };
@@ -206,6 +207,16 @@ const infuserRecipesRegister = {
  * Families that must not be auto-expanded due to NBT/data risks.
  */
 const BLOCKED_SUFFIXES = ['_bundle', '_shulker_box'];
+/**
+ * Normalizes legacy elevator IDs that no longer exist.
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+function normalizeLegacyElevatorId(value) {
+    if (typeof value !== "string") return value;
+    return value.split("utilitycraft:white_elevator").join("utilitycraft:elevator");
+}
 
 /**
  * Colors used for expansion. Order matches Minecraft color names.
@@ -232,7 +243,12 @@ function expandColorPatterns(register) {
     // First pass: copy explicit (non-pattern) entries
     for (const [key, data] of Object.entries(register)) {
         if (!patternRegex.test(key) && !(data.output && patternRegex.test(data.output))) {
-            expanded[key] = data;
+            const normalizedKey = normalizeLegacyElevatorId(key);
+            const normalizedData = Object.assign({}, data);
+            if (typeof normalizedData.output === 'string') {
+                normalizedData.output = normalizeLegacyElevatorId(normalizedData.output);
+            }
+            expanded[normalizedKey] = normalizedData;
         }
         // Reset regex state
         patternRegex.lastIndex = 0;
@@ -272,10 +288,14 @@ function expandColorPatterns(register) {
 
         // Expand each combination into a concrete recipe
         for (const combo of combos) {
-            const expandedKey = key.replace(/\{([^}]+)\}/g, (_,t) => combo[t] ?? _);
+            const expandedKey = normalizeLegacyElevatorId(
+                key.replace(/\{([^}]+)\}/g, (_,t) => combo[t] ?? _)
+            );
             const newData = Object.assign({}, data);
             if (typeof newData.output === 'string') {
-                newData.output = newData.output.replace(/\{([^}]+)\}/g, (_,t) => combo[t] ?? _);
+                newData.output = normalizeLegacyElevatorId(
+                    newData.output.replace(/\{([^}]+)\}/g, (_,t) => combo[t] ?? _)
+                );
             }
 
             // Skip blocked families to avoid data loss (bundles/shulker boxes etc.)
@@ -338,18 +358,24 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 
         for (const [recipeKey, data] of Object.entries(payload)) {
             if (!data.output || typeof data.output !== "string") continue;
-            if (!recipeKey.includes("|")) {
-                console.warn(`[UtilityCraft] Invalid infuser key '${recipeKey}', expected "catalyst|input" format.`);
+
+            const normalizedRecipeKey = normalizeLegacyElevatorId(recipeKey);
+            if (!normalizedRecipeKey.includes("|")) {
+                console.warn(`[UtilityCraft] Invalid infuser key '${normalizedRecipeKey}', expected "catalyst|input" format.`);
                 continue;
             }
 
-            if (infuserRecipes[recipeKey]) {
+            const normalizedData = Object.assign({}, data, {
+                output: normalizeLegacyElevatorId(data.output)
+            });
+
+            if (infuserRecipes[normalizedRecipeKey]) {
                 replaced++;
             } else {
                 added++;
             }
 
-            infuserRecipes[recipeKey] = data;
+            infuserRecipes[normalizedRecipeKey] = normalizedData;
         }
     } catch (err) {
         console.warn("[UtilityCraft] Failed to parse infuser registration payload:", err);

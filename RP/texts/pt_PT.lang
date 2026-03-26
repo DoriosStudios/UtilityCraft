@@ -437,7 +437,6 @@ tile.utilitycraft:crushed_netherrack.name=Pedra Infernal Triturada
 tile.utilitycraft:crushed_endstone.name=Pedra do Fim Triturada
 tile.utilitycraft:crushed_cobbled_deepslate.name=Ardósia Profunda Irregular Triturada
 tile.utilitycraft:elevator.name=Elevador
-tile.utilitycraft:white_elevator.name=Elevador Branco
 tile.utilitycraft:orange_elevator.name=Elevador Laranja
 tile.utilitycraft:magenta_elevator.name=Elevador Magenta
 tile.utilitycraft:light_blue_elevator.name=Elevador Azul-claro

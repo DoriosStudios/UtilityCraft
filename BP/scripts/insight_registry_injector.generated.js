@@ -364,7 +364,6 @@ const ADDON_CONTENT = Object.freeze({
     "utilitycraft:dynamite",
     "utilitycraft:electro_press",
     "utilitycraft:elevator",
-    "utilitycraft:white_elevator",
     "utilitycraft:orange_elevator",
     "utilitycraft:magenta_elevator",
     "utilitycraft:light_blue_elevator",

@@ -10,7 +10,6 @@ const DIMENSION_LIMITS = {
 
 const ELEVATOR_BLOCK_IDS = new Set([
     "utilitycraft:elevator",
-    "utilitycraft:white_elevator",
     "utilitycraft:orange_elevator",
     "utilitycraft:magenta_elevator",
     "utilitycraft:light_blue_elevator",

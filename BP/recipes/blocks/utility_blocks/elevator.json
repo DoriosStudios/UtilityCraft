@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:white_elevator"
+			"identifier": "utilitycraft:elevator"
 		},
 		"tags": [
 			"utilitycraft_workbench"
@@ -21,7 +21,7 @@
 			"WWW"
 		],
 		"result": {
-			"item": "utilitycraft:white_elevator"
+			"item": "utilitycraft:elevator"
 		},
 		"unlock": [
 			{

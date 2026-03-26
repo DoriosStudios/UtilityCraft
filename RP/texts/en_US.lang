@@ -395,7 +395,6 @@ item.utilitycraft:compressed_coal_block_4=Quadruple Compressed Coal Block
 tile.utilitycraft:asphalt.name=Asphalt\n§7- Increases movement speed\n when walking on it
 tile.utilitycraft:big_torch.name=Big Torch
 tile.utilitycraft:elevator.name=Elevator
-tile.utilitycraft:white_elevator.name=White Elevator
 tile.utilitycraft:orange_elevator.name=Orange Elevator
 tile.utilitycraft:magenta_elevator.name=Magenta Elevator
 tile.utilitycraft:light_blue_elevator.name=Light Blue Elevator
