@@ -15,7 +15,7 @@
  * ```json
  * {
  *   "module_name": "@minecraft/server",
- *   "version": "2.5.0"
+ *   "version": "2.6.0"
  * }
  * ```
  *
@@ -677,6 +677,22 @@ export enum EnchantmentSlot {
     Shovel = 'Shovel',
     Spear = 'Spear',
     Sword = 'Sword',
+}
+
+/**
+ * The entity's attach location point. Contains points such as
+ * head, body, leg, etc to attach the camera to.
+ */
+export enum EntityAttachPoint {
+    Body = 'Body',
+    BreathingPoint = 'BreathingPoint',
+    DropAttachPoint = 'DropAttachPoint',
+    ExplosionPoint = 'ExplosionPoint',
+    Eyes = 'Eyes',
+    Feet = 'Feet',
+    Head = 'Head',
+    Mouth = 'Mouth',
+    WeaponAttachPoint = 'WeaponAttachPoint',
 }
 
 /**
@@ -1372,6 +1388,30 @@ export enum EntityDamageCause {
      *
      */
     wither = 'wither',
+}
+
+/**
+ * Describes the source of healing of an Entity.
+ */
+export enum EntityHealCause {
+    /**
+     * @remarks
+     * Healing caused by items such as potions.
+     *
+     */
+    Heal = 'Heal',
+    /**
+     * @remarks
+     * Healing caused by regeneration effects.
+     *
+     */
+    Regeneration = 'Regeneration',
+    /**
+     * @remarks
+     * Healing caused when hunger is full.
+     *
+     */
+    SelfHeal = 'SelfHeal',
 }
 
 /**
@@ -2704,6 +2744,40 @@ export enum StructureSaveMode {
 }
 
 /**
+ * The reason that the {@link
+ * @minecraft/server.TickingAreaError} was thrown.
+ */
+export enum TickingAreaErrorReason {
+    /**
+     * @remarks
+     * Added a ticking area with an identifier that already exists.
+     *
+     */
+    IdentifierAlreadyExists = 'IdentifierAlreadyExists',
+    /**
+     * @remarks
+     *  Adding this ticking area pushed the ticking areas over the
+     * limit specified by {@link TickingAreaManager.maxChunkCount}.
+     *
+     */
+    OverChunkLimit = 'OverChunkLimit',
+    /**
+     * @remarks
+     * Exceeded the 255 chunk limit for the length or width of the
+     * ticking area.
+     *
+     */
+    SideLengthExceeded = 'SideLengthExceeded',
+    /**
+     * @remarks
+     * Tried to remove ticking area with identifier not registered
+     * in the {@link TickingAreaManager}.
+     *
+     */
+    UnknownIdentifier = 'UnknownIdentifier',
+}
+
+/**
  * Provides numeric values for common periods in the Minecraft
  * day.
  */
@@ -3294,6 +3368,18 @@ export class Block {
     getComponent<T extends string>(componentId: T): BlockComponentReturnType<T> | undefined;
     /**
      * @remarks
+     * Returns all scripting components that are present on this
+     * block.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link LocationInUnloadedChunkError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
+     */
+    getComponents(): BlockComponent[];
+    /**
+     * @remarks
      * Creates a prototype item stack based on this block that can
      * be used with Container/ContainerSlot APIs.
      *
@@ -3301,6 +3387,7 @@ export class Block {
      * Number of instances of this block to place in the item
      * stack.
      * Defaults to: 1
+     * Bounds: [1, 255]
      * @param withData
      * Whether additional data facets of the item stack are
      * included.
@@ -3374,6 +3461,22 @@ export class Block {
      * {@link LocationOutOfWorldBoundariesError}
      */
     getTags(): string[];
+    /**
+     * @remarks
+     * Returns true if the specified component is present on this
+     * block.
+     *
+     * @param componentId
+     * The identifier of the component (e.g.,
+     * 'minecraft:inventory') to retrieve. If no namespace prefix
+     * is specified, 'minecraft:' is assumed.
+     * @throws This function can throw errors.
+     *
+     * {@link LocationInUnloadedChunkError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
+     */
+    hasComponent(componentId: string): boolean;
     /**
      * @remarks
      * Checks to see if the permutation of this block has a
@@ -3642,6 +3745,34 @@ export class BlockComponentBlockBreakEvent extends BlockEvent {
 }
 
 /**
+ * Contains information regarding an event sent by an entity to
+ * this block in the world.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class BlockComponentEntityEvent extends BlockEvent {
+    private constructor();
+    /**
+     * @remarks
+     * Returns permutation information about the block receiving
+     * the event.
+     *
+     */
+    readonly blockPermutation: BlockPermutation;
+    /**
+     * @remarks
+     * The entity that sent the event.
+     *
+     */
+    readonly entitySource: Entity;
+    /**
+     * @remarks
+     * Name of the event fired by the entity.
+     *
+     */
+    readonly name: string;
+}
+
+/**
  * Contains information regarding an entity falling onto a
  * specific block.
  */
@@ -3786,6 +3917,15 @@ export class BlockComponentRedstoneUpdateEvent extends BlockEvent {
      *
      */
     readonly powerLevel: number;
+    /**
+     * @remarks
+     * The redstone signal strength from the last tick that was
+     * passing through this block. It is guaranteed to be >= the
+     * `min_power` of the block's 'minecraft:redstone_consumer'
+     * component.
+     *
+     */
+    readonly previousPowerLevel: number;
 }
 
 export class BlockComponentRegistry {
@@ -4167,6 +4307,13 @@ export class BlockPermutation {
     private constructor();
     /**
      * @remarks
+     * Key for the localization of this BlockPermutation's name
+     * used in .lang files.
+     *
+     */
+    readonly localizationKey: string;
+    /**
+     * @remarks
      * The {@link BlockType} that the permutation has.
      *
      */
@@ -4215,6 +4362,7 @@ export class BlockPermutation {
      * Number of instances of this block to place in the prototype
      * item stack.
      * Defaults to: 1
+     * Bounds: [1, 255]
      */
     getItemStack(amount?: number): ItemStack | undefined;
     /**
@@ -4826,6 +4974,13 @@ export class BlockType {
      *
      */
     readonly id: string;
+    /**
+     * @remarks
+     * Key for the localization of this BlockType's name used in
+     * .lang files.
+     *
+     */
+    readonly localizationKey: string;
 }
 
 /**
@@ -5116,6 +5271,18 @@ export class Camera {
     readonly isValid: boolean;
     /**
      * @remarks
+     * Attaches the camera to a non-player entity.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param attachCameraOptions
+     * Options for the entity the camera is attaching to. Contains
+     * the entity identifier and optional entity location.
+     * @throws This function can throw errors.
+     */
+    attachToEntity(attachCameraOptions?: CameraAttachOptions): void;
+    /**
+     * @remarks
      * Clears the active camera for the specified player. Causes
      * the specified players to end any in-progress camera
      * perspectives, including any eased camera motions, and return
@@ -5138,6 +5305,13 @@ export class Camera {
      * @throws This function can throw errors.
      */
     fade(fadeCameraOptions?: CameraFadeOptions): void;
+    /**
+     * @remarks
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     */
+    playAnimation(splineType: CatmullRomSpline | LinearSpline, cameraAnimationOptions: AnimationOptions): void;
     /**
      * @remarks
      * Sets the current active camera for the specified player.
@@ -5183,6 +5357,20 @@ export class Camera {
      * @throws This function can throw errors.
      */
     setFov(fovCameraOptions?: CameraFovOptions): void;
+}
+
+/**
+ * CatmullRom spline creation.
+ */
+export class CatmullRomSpline {
+    /**
+     * @remarks
+     * Control points for the CatmullRom curve.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    controlPoints: Vector3[];
 }
 
 /**
@@ -5459,6 +5647,7 @@ export class Container {
      *
      * @param slot
      * Zero-based index of the slot to retrieve items from.
+     * Minimum value: 0
      * @throws
      * Throws if the container is invalid or if the `slot` index is
      * out of bounds.
@@ -5492,6 +5681,7 @@ export class Container {
      * @param slot
      * The index of the slot to return. This index must be within
      * the bounds of the container.
+     * Minimum value: 0
      * @throws
      * Throws if the container is invalid or if the `slot` index is
      * out of bounds.
@@ -5507,9 +5697,11 @@ export class Container {
      * @param fromSlot
      * Zero-based index of the slot to transfer an item from, on
      * this container.
+     * Minimum value: 0
      * @param toSlot
      * Zero-based index of the slot to transfer an item to, on
      * `toContainer`.
+     * Minimum value: 0
      * @param toContainer
      * Target container to transfer to. Note this can be the same
      * container as the source.
@@ -5558,6 +5750,7 @@ export class Container {
      *
      * @param slot
      * Zero-based index of the slot to set an item at.
+     * Minimum value: 0
      * @param itemStack
      * Stack of items to place within the specified slot. Setting
      * `itemStack` to undefined will clear the slot.
@@ -5578,8 +5771,10 @@ export class Container {
      *
      * @param slot
      * Zero-based index of the slot to swap from this container.
+     * Minimum value: 0
      * @param otherSlot
      * Zero-based index of the slot to swap with.
+     * Minimum value: 0
      * @param otherContainer
      * Target container to swap with. Note this can be the same
      * container as this source.
@@ -5602,6 +5797,7 @@ export class Container {
      * @param fromSlot
      * Zero-based index of the slot to transfer an item from, on
      * this container.
+     * Minimum value: 0
      * @param toContainer
      * Target container to transfer to. Note this can be the same
      * container as the source.
@@ -5661,6 +5857,7 @@ export class ContainerSlot {
      *
      * This property can't be edited in restricted-execution mode.
      *
+     * Bounds: [1, 255]
      * @throws
      * Throws if the value is outside the range of 1-255.
      */
@@ -6240,6 +6437,48 @@ export class Dimension {
     readonly localizationKey: string;
     /**
      * @remarks
+     * Checks if an area contains the specified biomes. If the area
+     * is partially inside world boundaries, only the area that is
+     * in bounds will be searched. This operation takes longer
+     * proportional to both the area of the volume and the number
+     * of biomes to check.
+     *
+     * @param volume
+     * Area to check biomes in.
+     * @param biomeFilter
+     * A list of biomes to include and exclude. A list of tags to
+     * include and exclude. Will return false if a biome is found
+     * in the area that is in the excluded list or contains any of
+     * the excluded tags.
+     * @param isSuperset
+     * Superset is used to determine the strictness of the filter.
+     * If superset is set to true then the area must contain one or
+     * more biomes in the included list or that contains all of the
+     * included tags. If superset is set to false then the area
+     * must contain only biomes in the included list and that
+     * contain all of the included tags
+     * @returns
+     * Returns true if the biomes in the area match the filter
+     * settings passed in. Otherwise, returns false.
+     * @throws
+     * An error will be thrown if the area provided includes
+     * unloaded chunks.
+     * An error will be thrown if the area provided is completely
+     * outside the world boundaries.
+     * An error will be thrown if an unknown biome name is
+     * provided.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
+     *
+     * {@link UnloadedChunksError}
+     */
+    containsBiomes(volume: BlockVolumeBase, biomeFilter: BiomeFilter, isSuperset: boolean): boolean;
+    /**
+     * @remarks
      * Searches the block volume for a block that satisfies the
      * block filter.
      *
@@ -6274,6 +6513,7 @@ export class Dimension {
      * The location of the explosion.
      * @param radius
      * Radius, in blocks, of the explosion to create.
+     * Bounds: [0, 1000]
      * @param explosionOptions
      * Additional configurable options for the explosion.
      * @throws This function can throw errors.
@@ -6794,6 +7034,7 @@ export class Dimension {
      * Sets the duration of the weather (in ticks). If no duration
      * is provided, the duration will be set to a random duration
      * between 300 and 900 seconds.
+     * Bounds: [1, 1000000]
      * @throws This function can throw errors.
      */
     setWeather(weatherType: WeatherType, duration?: number): void;
@@ -7516,6 +7757,7 @@ export class Entity {
      * 20 ticks per second. Use {@link TicksPerSecond} constant to
      * convert between ticks and seconds. The value must be within
      * the range [0, 20000000].
+     * Bounds: [1, 20000000]
      * @param options
      * Additional options for the effect.
      * @returns
@@ -8905,6 +9147,15 @@ export class EntityDefinitionFeedItem {
      *
      */
     readonly item: string;
+    /**
+     * @remarks
+     * Type ID of the resulting item after feeding has occurred.
+     * This will usually be empty but is used for scenarios such as
+     * feeding a Nautilus with a bucket of fish, where the result
+     * item will be an empty bucket.
+     *
+     */
+    readonly resultItem?: string;
 }
 
 /**
@@ -9169,6 +9420,145 @@ export class EntityHealableComponent extends EntityComponent {
 }
 
 /**
+ * Contains information related to an entity having been
+ * healed.
+ */
+export class EntityHealAfterEvent {
+    private constructor();
+    /**
+     * @remarks
+     * Entity that was healed.
+     *
+     */
+    readonly healedEntity: Entity;
+    /**
+     * @remarks
+     * Describes the amount of healing.
+     *
+     */
+    readonly healing: number;
+    /**
+     * @remarks
+     * Information on the source of healing.
+     *
+     */
+    readonly healSource: EntityHealSource;
+}
+
+/**
+ * Manages callbacks that are connected to when an entity is
+ * healed.
+ */
+export class EntityHealAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity is
+     * healed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: EntityHealAfterEvent) => void,
+        options?: EntityHealEventOptions,
+    ): (arg0: EntityHealAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity is
+     * healed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: EntityHealAfterEvent) => void): void;
+}
+
+/**
+ * Contains information related to an entity that will be
+ * healed.
+ */
+export class EntityHealBeforeEvent {
+    private constructor();
+    cancel: boolean;
+    /**
+     * @remarks
+     * Entity that will be healed.
+     *
+     */
+    readonly healedEntity: Entity;
+    /**
+     * @remarks
+     * Describes the amount of healing.
+     *
+     */
+    healing: number;
+    /**
+     * @remarks
+     * Information on the source of healing.
+     *
+     */
+    readonly healSource: EntityHealSource;
+}
+
+/**
+ * Manages callbacks that are connected to when an entity will
+ * be healed.
+ */
+export class EntityHealBeforeEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity will be
+     * healed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     * @returns
+     * Closure that is called with restricted-execution privilege.
+     */
+    subscribe(
+        callback: (arg0: EntityHealBeforeEvent) => void,
+        options?: EntityHealEventOptions,
+    ): (arg0: EntityHealBeforeEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity will be
+     * healed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     */
+    unsubscribe(callback: (arg0: EntityHealBeforeEvent) => void): void;
+}
+
+/**
+ * Provides information about how healing has been applied to
+ * an entity.
+ */
+export class EntityHealSource {
+    private constructor();
+    /**
+     * @remarks
+     * Cause enumerator of the source of healing.
+     *
+     */
+    readonly cause: EntityHealCause;
+}
+
+/**
  * Contains information related to an entity when its health
  * changes. Warning: don't change the health of an entity in
  * this event, or it will cause an infinite loop!
@@ -9428,7 +9818,7 @@ export class EntityHurtAfterEventSignal {
      */
     subscribe(
         callback: (arg0: EntityHurtAfterEvent) => void,
-        options?: EntityEventOptions,
+        options?: EntityHurtAfterEventOptions,
     ): (arg0: EntityHurtAfterEvent) => void;
     /**
      * @remarks
@@ -9440,6 +9830,72 @@ export class EntityHurtAfterEventSignal {
      *
      */
     unsubscribe(callback: (arg0: EntityHurtAfterEvent) => void): void;
+}
+
+/**
+ * Contains information related to an entity that will be hurt.
+ */
+export class EntityHurtBeforeEvent {
+    private constructor();
+    cancel: boolean;
+    /**
+     * @remarks
+     * Describes the amount of damage that will be caused.
+     *
+     */
+    damage: number;
+    /**
+     * @remarks
+     * Source information on the entity that may have applied this
+     * damage.
+     *
+     */
+    readonly damageSource: EntityDamageSource;
+    /**
+     * @remarks
+     * Entity that will be hurt.
+     *
+     */
+    readonly hurtEntity: Entity;
+}
+
+/**
+ * Manages callbacks that are connected to when an entity will
+ * be hurt.
+ */
+export class EntityHurtBeforeEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity will be
+     * hurt.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     * @returns
+     * Closure that is called with restricted-execution privilege.
+     */
+    subscribe(
+        callback: (arg0: EntityHurtBeforeEvent) => void,
+        options?: EntityHurtBeforeEventOptions,
+    ): (arg0: EntityHurtBeforeEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity will be
+     * hurt.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     */
+    unsubscribe(callback: (arg0: EntityHurtBeforeEvent) => void): void;
 }
 
 /**
@@ -9677,6 +10133,177 @@ export class EntityItemComponent extends EntityComponent {
      */
     readonly itemStack: ItemStack;
     static readonly componentId = 'minecraft:item';
+}
+
+/**
+ * Contains information related to an entity having dropped
+ * items.
+ */
+export class EntityItemDropAfterEvent {
+    private constructor();
+    /**
+     * @remarks
+     * The entity that has dropped the items.
+     *
+     */
+    readonly entity: Entity;
+    /**
+     * @remarks
+     * The list of items the entity has dropped.
+     *
+     */
+    readonly items: Entity[];
+}
+
+/**
+ * Manages callbacks that are connected to when an entity has
+ * dropped items.
+ */
+export class EntityItemDropAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity has
+     * dropped items.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: EntityItemDropAfterEvent) => void,
+        options?: EntityItemDropEventOptions,
+    ): (arg0: EntityItemDropAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity has
+     * dropped items.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: EntityItemDropAfterEvent) => void): void;
+}
+
+/**
+ * Contains information related to an entity having picked up
+ * items.
+ */
+export class EntityItemPickupAfterEvent {
+    private constructor();
+    /**
+     * @remarks
+     * The entity that has picked up the items.
+     *
+     */
+    readonly entity: Entity;
+    /**
+     * @remarks
+     * The list of items the entity has picked up.
+     *
+     */
+    readonly items: ItemStack[];
+}
+
+/**
+ * Manages callbacks that are connected to when an entity has
+ * picked up items.
+ */
+export class EntityItemPickupAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity has
+     * picked up items.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: EntityItemPickupAfterEvent) => void,
+        options?: EntityItemPickupEventOptions,
+    ): (arg0: EntityItemPickupAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity has
+     * picked up items.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: EntityItemPickupAfterEvent) => void): void;
+}
+
+/**
+ * Contains information related to an entity picking up an
+ * item.
+ */
+export class EntityItemPickupBeforeEvent {
+    private constructor();
+    /**
+     * @remarks
+     * If set to true the item will not be picked up.
+     *
+     */
+    cancel: boolean;
+    /**
+     * @remarks
+     * The entity that will pick up the item.
+     *
+     */
+    readonly entity: Entity;
+    /**
+     * @remarks
+     * The item that will be picked up.
+     *
+     */
+    readonly item: Entity;
+}
+
+/**
+ * Manages callbacks that are connected to when an entity will
+ * pick up an item.
+ */
+export class EntityItemPickupBeforeEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity will pick
+     * up an item.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     * @returns
+     * Closure that is called with restricted-execution privilege.
+     */
+    subscribe(
+        callback: (arg0: EntityItemPickupBeforeEvent) => void,
+        options?: EntityItemPickupEventOptions,
+    ): (arg0: EntityItemPickupBeforeEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity will
+     * pick up an item.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param callback
+     * This closure is called with restricted-execution privilege.
+     */
+    unsubscribe(callback: (arg0: EntityItemPickupBeforeEvent) => void): void;
 }
 
 /**
@@ -11043,6 +11670,13 @@ export class EntityType {
      *
      */
     readonly id: string;
+    /**
+     * @remarks
+     * Key for the localization of this EntityType's name used in
+     * .lang files.
+     *
+     */
+    readonly localizationKey: string;
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -11280,6 +11914,15 @@ export class FeedItem {
      *
      */
     readonly item: string;
+    /**
+     * @remarks
+     * Type ID of the resulting item after feeding has occurred.
+     * This will usually be empty but is used for scenarios such as
+     * feeding a Nautilus with a bucket of fish, where the result
+     * item will be an empty bucket.
+     *
+     */
+    readonly resultItem?: string;
     /**
      * @remarks
      * As part of the Healable component, an optional collection of
@@ -12327,6 +12970,16 @@ export class ItemDurabilityComponent extends ItemComponent {
      * @throws This property can throw when used.
      */
     readonly maxDurability: number;
+    /**
+     * @remarks
+     * Whether an item breaks or loses durability. Setting to true
+     * temporarily removes item's durability HUD, and freezes
+     * durability loss on item.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    unbreakable: boolean;
     static readonly componentId = 'minecraft:durability';
     /**
      * @remarks
@@ -12341,6 +12994,7 @@ export class ItemDurabilityComponent extends ItemComponent {
      * chance. Incoming unbreaking parameter must be within the
      * range [0, 3].
      * Defaults to: 0
+     * Bounds: [0, 3]
      * @throws This function can throw errors.
      */
     getDamageChance(unbreakingEnchantmentLevel?: number): number;
@@ -12779,6 +13433,7 @@ export class ItemStack {
      *
      * This property can't be edited in restricted-execution mode.
      *
+     * Bounds: [1, 255]
      * @throws
      * Throws if the value is outside the range of 1-255.
      */
@@ -12876,6 +13531,7 @@ export class ItemStack {
      * size. Note that certain items can only have one item in the
      * stack.
      * Defaults to: 1
+     * Bounds: [1, 255]
      * @throws
      * Throws if `itemType` is invalid, or if `amount` is outside
      * the range of 1-255.
@@ -13478,6 +14134,13 @@ export class ItemType {
      *
      */
     readonly id: string;
+    /**
+     * @remarks
+     * Key for the localization of this ItemType's name used in
+     * .lang files.
+     *
+     */
+    readonly localizationKey: string;
 }
 
 /**
@@ -13779,6 +14442,20 @@ export class LeverActionAfterEventSignal {
      *
      */
     unsubscribe(callback: (arg0: LeverActionAfterEvent) => void): void;
+}
+
+/**
+ * A spline that linearly interpolates between points.
+ */
+export class LinearSpline {
+    /**
+     * @remarks
+     * Control points for the Linear spline.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    controlPoints: Vector3[];
 }
 
 /**
@@ -14539,6 +15216,7 @@ export class Player extends Entity {
      * @param amount
      * Amount of experience to add. Note that this can be negative.
      * Min/max bounds at -2^24 ~ 2^24
+     * Bounds: [-16777216, 16777216]
      * @returns
      * Returns the current experience of the Player.
      * @throws This function can throw errors.
@@ -14553,6 +15231,7 @@ export class Player extends Entity {
      *
      * @param amount
      * Amount to add to the player. Min/max bounds at -2^24 ~ 2^24
+     * Bounds: [-16777216, 16777216]
      * @returns
      * Returns the current level of the Player.
      * @throws This function can throw errors.
@@ -14940,6 +15619,7 @@ export class Player extends Entity {
      * cooldown for.
      * @param tickDuration
      * Duration in ticks of the item cooldown.
+     * Bounds: [0, 32767]
      * @throws This function can throw errors.
      */
     startItemCooldown(cooldownCategory: string, tickDuration: number): void;
@@ -18095,6 +18775,7 @@ export class StructureManager {
      * templates.
      * @param maxDepth
      * The maximum recursion depth for the jigsaw structure.
+     * Bounds: [1, 20]
      * @param dimension
      * The dimension to place the jigsaw structure in.
      * @param location
@@ -18508,6 +19189,109 @@ export class TargetBlockHitAfterEventSignal {
 }
 
 /**
+ * This manager is used to add, remove or query temporary
+ * ticking areas to a dimension. These ticking areas are
+ * limited by a fixed amount of ticking chunks per pack
+ * independent of the command limits. Cannot modify or query
+ * ticking areas added by other packs or commands.
+ */
+export class TickingAreaManager {
+    private constructor();
+    /**
+     * @remarks
+     * The number of currently ticking chunks in this manager.
+     *
+     */
+    readonly chunkCount: number;
+    /**
+     * @remarks
+     * The maximum number of allowed ticking chunks. Overlapping
+     * ticking area chunks do count towards total.
+     *
+     */
+    readonly maxChunkCount: number;
+    /**
+     * @remarks
+     * Creates a ticking area. Promise will return when all the
+     * chunks in the area are loaded and ticking.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link TickingAreaError}
+     */
+    createTickingArea(identifier: string, options: TickingAreaOptions): Promise<void>;
+    /**
+     * @remarks
+     * Gets all ticking areas added by this manager.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    getAllTickingAreas(): TickingArea[];
+    /**
+     * @remarks
+     * Tries to get specific ticking area by identifier.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    getTickingArea(identifier: string | TickingArea): TickingArea | undefined;
+    /**
+     * @remarks
+     * Returns true if the manager has enough chunk capacity for
+     * the ticking area and false otherwise. Will also return false
+     * if the length or width exceeds the 255 chunk limit.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    hasCapacity(options: TickingAreaOptions): boolean;
+    /**
+     * @remarks
+     * Returns true if the identifier is already in the manager and
+     * false otherwise.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    hasTickingArea(identifier: string): boolean;
+    /**
+     * @remarks
+     * Removes all ticking areas added by this manager.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    removeAllTickingAreas(): void;
+    /**
+     * @remarks
+     * Removes specific ticking area by unique identifier.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link TickingAreaError}
+     */
+    removeTickingArea(identifier: string | TickingArea): void;
+}
+
+/**
  * Represents a trigger for firing an event.
  */
 export class Trigger {
@@ -18834,10 +19618,23 @@ export class World {
     readonly scoreboard: Scoreboard;
     /**
      * @remarks
+     * The world seed.
+     *
+     */
+    readonly seed: string;
+    /**
+     * @remarks
      * Returns the manager for {@link Structure} related APIs.
      *
      */
     readonly structureManager: StructureManager;
+    /**
+     * @remarks
+     * Manager for adding, removing and querying pack specific
+     * ticking areas.
+     *
+     */
+    readonly tickingAreaManager: TickingAreaManager;
     /**
      * @remarks
      * Clears the set of dynamic properties declared for this
@@ -19331,6 +20128,12 @@ export class WorldAfterEvents {
     readonly entityDie: EntityDieAfterEventSignal;
     /**
      * @remarks
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityHeal: EntityHealAfterEventSignal;
+    /**
+     * @remarks
      * This event fires when entity health changes in any degree.
      *
      * This property can be read in early-execution mode.
@@ -19363,6 +20166,22 @@ export class WorldAfterEvents {
      *
      */
     readonly entityHurt: EntityHurtAfterEventSignal;
+    /**
+     * @remarks
+     * This event fires when an entity drops items.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityItemDrop: EntityItemDropAfterEventSignal;
+    /**
+     * @remarks
+     * This event fires when an entity picks up items.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityItemPickup: EntityItemPickupAfterEventSignal;
     /**
      * @remarks
      * Fires when an entity is loaded.
@@ -19700,6 +20519,26 @@ export class WorldBeforeEvents {
     readonly effectAdd: EffectAddBeforeEventSignal;
     /**
      * @remarks
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityHeal: EntityHealBeforeEventSignal;
+    /**
+     * @remarks
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityHurt: EntityHurtBeforeEventSignal;
+    /**
+     * @remarks
+     * This event fires before an entity picks up an item.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityItemPickup: EntityItemPickupBeforeEventSignal;
+    /**
+     * @remarks
      * Fires before an entity is removed from the world (for
      * example, unloaded or removed after being killed.)
      *
@@ -19815,6 +20654,31 @@ export interface AABB {
 }
 
 /**
+ * Used to create camera animations.
+ */
+export interface AnimationOptions {
+    /**
+     * @remarks
+     * Key frames for the camera animation.
+     *
+     */
+    animation: SplineAnimation;
+    /**
+     * @remarks
+     * Total time of the camera animation in seconds.
+     *
+     */
+    totalTimeSeconds: number;
+}
+
+export interface BiomeFilter {
+    excludeBiomes?: string[];
+    excludeTags?: string[];
+    includeBiomes?: string[];
+    includeTags?: string[];
+}
+
+/**
  * A BlockBoundingBox is an interface to an object which
  * represents an AABB aligned rectangle.
  * The BlockBoundingBox assumes that it was created in a valid
@@ -19872,6 +20736,13 @@ export interface BlockCustomComponent {
      *
      */
     onBreak?: (arg0: BlockComponentBlockBreakEvent, arg1: CustomComponentParameters) => void;
+    /**
+     * @remarks
+     * This function will be called when an entity fires an event
+     * to this block in the world.
+     *
+     */
+    onEntity?: (arg0: BlockComponentEntityEvent, arg1: CustomComponentParameters) => void;
     /**
      * @remarks
      * This function will be called when an entity falls onto the
@@ -20102,6 +20973,25 @@ export interface BlockRaycastOptions extends BlockFilter {
      *
      */
     maxDistance?: number;
+}
+
+/**
+ * Used to attach the camera to a non player entity.
+ */
+export interface CameraAttachOptions {
+    /**
+     * @remarks
+     * Set a non player entity for the camera to target.
+     *
+     */
+    entity: Entity;
+    /**
+     * @remarks
+     * The location of the entity that you want to target (eg.
+     * head, feet, eyes).
+     *
+     */
+    locator: EntityAttachPoint;
 }
 
 /**
@@ -20680,6 +21570,27 @@ export interface EntityFilter {
 }
 
 /**
+ * Contains optional parameters for registering an entity heal
+ * event.
+ */
+export interface EntityHealEventOptions {
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for healing
+     * causes that match.
+     *
+     */
+    allowedHealCauses?: EntityHealCause[];
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for entities
+     * that match.
+     *
+     */
+    entityFilter?: EntityFilter;
+}
+
+/**
  * Contains additional information about an entity that was
  * hit.
  */
@@ -20690,6 +21601,110 @@ export interface EntityHitInformation {
      *
      */
     entity?: Entity;
+}
+
+/**
+ * Contains optional parameters for registering an entity hurt
+ * after event.
+ */
+export interface EntityHurtAfterEventOptions {
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for damage
+     * causes that match.
+     *
+     */
+    allowedDamageCauses?: EntityDamageCause[];
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for entities
+     * that match the entities within this collection.
+     *
+     */
+    entities?: Entity[];
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for entities
+     * that match.
+     *
+     */
+    entityFilter?: EntityFilter;
+    /**
+     * @remarks
+     * If this value is set, this event will only fire if the
+     * impacted entities' type matches this parameter.
+     *
+     */
+    entityTypes?: string[];
+}
+
+/**
+ * Contains optional parameters for registering an entity hurt
+ * before event.
+ */
+export interface EntityHurtBeforeEventOptions {
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for damage
+     * causes that match.
+     *
+     */
+    allowedDamageCauses?: EntityDamageCause[];
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for entities
+     * that match.
+     *
+     */
+    entityFilter?: EntityFilter;
+}
+
+/**
+ * An interface that is passed into {@link
+ * @minecraft/Server.EntityItemDropAfterEventSignal.subscribe}
+ * that filters out which events are passed to the provided
+ * callback.
+ */
+export interface EntityItemDropEventOptions {
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for entities
+     * that match.
+     *
+     */
+    entityFilter?: EntityFilter;
+    /**
+     * @remarks
+     * If this value is set, this event will only fire if an item
+     * in the event matches.
+     *
+     */
+    itemFilter?: ItemFilter;
+}
+
+/**
+ * An interface that is passed into {@link
+ * @minecraft/Server.EntityItemPickupAfterEventSignal.subscribe}
+ * and {@link
+ * @minecraft/Server.EntityItemPickupBeforeEventSignal.subscribe}
+ * that filters out which events are passed to the provided
+ * callback.
+ */
+export interface EntityItemPickupEventOptions {
+    /**
+     * @remarks
+     * If this value is set, this event will only fire for entities
+     * that match.
+     *
+     */
+    entityFilter?: EntityFilter;
+    /**
+     * @remarks
+     * If this value is set, this event will only fire if an item
+     * in the event matches.
+     *
+     */
+    itemFilter?: ItemFilter;
 }
 
 /**
@@ -21150,6 +22165,7 @@ export interface HotbarEventOptions {
      * The slot indexes to consider. Values should be between 0 and
      * 8, inclusive. If not specified, all slots are considered.
      *
+     * Bounds: [0, 8]
      */
     allowedSlots?: number[];
 }
@@ -21187,6 +22203,7 @@ export interface InventoryItemEventOptions {
      * The slot indexes to consider. Values should be positive
      * numbers. If not specified, all slots are considered.
      *
+     * Bounds: [0, 1000]
      */
     allowedSlots?: number[];
     /**
@@ -21287,6 +22304,18 @@ export interface ItemCustomComponent {
      *
      */
     onUseOn?: (arg0: ItemComponentUseOnEvent, arg1: CustomComponentParameters) => void;
+}
+
+/**
+ * Contains options for filtering items.
+ */
+export interface ItemFilter {
+    /**
+     * @remarks
+     * If defined, items that match these types are included.
+     *
+     */
+    includeTypes?: (ItemType | string)[];
 }
 
 /**
@@ -21500,6 +22529,32 @@ export interface PlayerSwingEventOptions {
      *
      */
     swingSource?: EntitySwingSource;
+}
+
+/**
+ * Key frame that holds the progress of the camera animation.
+ */
+export interface ProgressKeyFrame {
+    /**
+     * @remarks
+     * Value to denote how far along the curve the camera will be.
+     * Values are [0.0, 1.0] inclusive.
+     *
+     */
+    alpha: number;
+    /**
+     * @remarks
+     * The optional easing type that the frame will use for
+     * position.
+     *
+     */
+    easingFunc?: EasingType;
+    /**
+     * @remarks
+     * Time value that the camera will be at the given alpha.
+     *
+     */
+    timeSeconds: number;
 }
 
 /**
@@ -21743,6 +22798,31 @@ export interface RGBA extends RGB {
 }
 
 /**
+ * Key frame that holds the rotation of the camera animation.
+ */
+export interface RotationKeyFrame {
+    /**
+     * @remarks
+     * The optional easing type that the frame will use for
+     * rotation.
+     *
+     */
+    easingFunc?: EasingType;
+    /**
+     * @remarks
+     * Value of the rotation of the camera.
+     *
+     */
+    rotation: Vector3;
+    /**
+     * @remarks
+     * Time value that the camera will be at the given rotation.
+     *
+     */
+    timeSeconds: number;
+}
+
+/**
  * Contains additional options for how a scoreboard should be
  * displayed within its display slot.
  */
@@ -21801,6 +22881,24 @@ export interface SpawnEntityOptions {
      *
      */
     spawnEvent?: string;
+}
+
+/**
+ * Collection of key frames for camera animation.
+ */
+export interface SplineAnimation {
+    /**
+     * @remarks
+     * Key frames for camera progress along a given curve.
+     *
+     */
+    progressKeyFrames: ProgressKeyFrame[];
+    /**
+     * @remarks
+     * Key frames for camera rotation.
+     *
+     */
+    rotationKeyFrames: RotationKeyFrame[];
 }
 
 /**
@@ -21984,6 +23082,70 @@ export interface TeleportOptions {
 }
 
 /**
+ * A context which provides information about a specific
+ * ticking area.
+ */
+export interface TickingArea {
+    /**
+     * @remarks
+     * The box which contains all the ticking blocks in the ticking
+     * area.
+     *
+     */
+    boundingBox: BlockBoundingBox;
+    /**
+     * @remarks
+     * The number of chunks that the ticking area contains.
+     *
+     */
+    chunkCount: number;
+    /**
+     * @remarks
+     * The dimension the ticking area is located.
+     *
+     */
+    dimension: Dimension;
+    /**
+     * @remarks
+     * The unique identifier of the ticking area.
+     *
+     */
+    identifier: string;
+    /**
+     * @remarks
+     * Will be true if all the ticking areas chunks are loaded in
+     * ticking and false otherwise.
+     *
+     */
+    isFullyLoaded: boolean;
+}
+
+/**
+ * Options to create a ticking area using the {@link
+ * TickingAreaManager}.
+ */
+export interface TickingAreaOptions {
+    /**
+     * @remarks
+     * The dimension the ticking area will be in.
+     *
+     */
+    dimension: Dimension;
+    /**
+     * @remarks
+     * Corner block location of the bounding box.
+     *
+     */
+    from: Vector3;
+    /**
+     * @remarks
+     * Opposite corner block location of the bounding box.
+     *
+     */
+    to: Vector3;
+}
+
+/**
  * Contains additional options for displaying a title and
  * optional subtitle.
  */
@@ -22120,7 +23282,7 @@ export class BookError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    reason: BookErrorReason;
+    readonly reason: BookErrorReason;
 }
 
 /**
@@ -22138,7 +23300,7 @@ export class BookPageContentError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    pageIndex: number;
+    readonly pageIndex: number;
     /**
      * @remarks
      * The reason for the error.
@@ -22146,7 +23308,7 @@ export class BookPageContentError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    reason: BookErrorReason;
+    readonly reason: BookErrorReason;
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -22168,7 +23330,7 @@ export class ContainerRulesError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    reason: ContainerRulesErrorReason;
+    readonly reason: ContainerRulesErrorReason;
 }
 
 /**
@@ -22184,7 +23346,7 @@ export class CustomCommandError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    reason: CustomCommandErrorReason;
+    readonly reason: CustomCommandErrorReason;
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -22200,7 +23362,7 @@ export class CustomComponentNameError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    reason: CustomComponentNameErrorReason;
+    readonly reason: CustomComponentNameErrorReason;
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -22265,7 +23427,7 @@ export class InvalidEntityError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    id: string;
+    readonly id: string;
     /**
      * @remarks
      * The type of the entity that is now invalid.
@@ -22273,7 +23435,7 @@ export class InvalidEntityError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    type: string;
+    readonly type: string;
 }
 
 /**
@@ -22290,7 +23452,7 @@ export class InvalidItemStackError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    itemType: ItemType;
+    readonly itemType: ItemType;
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -22385,7 +23547,7 @@ export class NamespaceNameError extends Error {
      * This property can be read in early-execution mode.
      *
      */
-    reason: NamespaceNameErrorReason;
+    readonly reason: NamespaceNameErrorReason;
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -22396,6 +23558,23 @@ export class PlaceJigsawError extends Error {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class RawMessageError extends Error {
     private constructor();
+}
+
+/**
+ * The error returned from invalid {@link TickingAreaManager}
+ * method calls.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class TickingAreaError extends Error {
+    private constructor();
+    /**
+     * @remarks
+     * The specific reason that the error was thrown.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly reason: TickingAreaErrorReason;
 }
 
 /**
