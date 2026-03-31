@@ -57,21 +57,35 @@ world.afterEvents.worldLoad.subscribe(() => {
 export const autoFisherConfig = {
     luck: {
         default: 0,
-        enchantChancePerLuck: 0.01,
-        enchantCountPerLuck: 0.15,
-        enchantQualityPerLuck: 0.08
+        enchantChancePerLuck: 0.015,
+        enchantCountPerLuck: 0.05,
+        enchantQualityPerLuck: 0.025
     },
     bookEnchant: {
-        baseChance: 0.18,
-        chancePerTier: 0.02,
-        maxChance: 0.35,
+        baseChance: 0.2,
+        chancePerTier: 0.025,
+        chancePerLuck: 0.03,
+        maxChance: 0.92,
+        guaranteedLuckThreshold: 10,
+        guaranteedTierThreshold: 6,
         minCount: 1,
-        maxCount: 3
+        maxCount: 3,
+        countPerLuck: 0.08,
+        minQuality: 0.18,
+        qualityPerLuck: 0.03
     },
     equipment: {
         durabilityDamageRange: [0.6, 0.95],
-        enchantChance: 0.08,
-        enchantCount: [1, 2]
+        enchantChance: 0.12,
+        chancePerTier: 0.02,
+        chancePerLuck: 0.025,
+        maxChance: 0.88,
+        guaranteedLuckThreshold: 10,
+        guaranteedTierThreshold: 6,
+        enchantCount: [1, 2],
+        countPerLuck: 0.04,
+        minQuality: 0.12,
+        qualityPerLuck: 0.025
     }
 };
 

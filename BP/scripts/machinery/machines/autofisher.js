@@ -1,4 +1,4 @@
-import { ItemStack, Enchantment, EnchantmentTypes } from '@minecraft/server';
+import { ItemStack, EnchantmentTypes } from '@minecraft/server';
 import { Machine } from "DoriosCore/machinery/index.js"
 import { autoFisherConfig, autoFisherLoot } from '../../config/recipes/fisher.js';
 
@@ -27,6 +27,37 @@ let cachedEnchantmentTypes = null;
 const ITEM_ID_FIXES = {
     'minecraft:lily_pad': 'minecraft:waterlily'
 };
+const AUTO_FISHER_ENCHANTMENT_SOURCES = Object.freeze([
+    Object.freeze({ entries: Object.freeze(['minecraft:protection', 'minecraft:fire_protection', 'minecraft:blast_protection', 'minecraft:projectile_protection']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:sharpness', 'minecraft:smite', 'minecraft:bane_of_arthropods', 'minecraft:density']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:silk_touch', 'minecraft:fortune']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:depth_strider', 'minecraft:frost_walker']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:multishot', 'minecraft:piercing', 'minecraft:breach']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:loyalty', 'minecraft:riptide']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:unbreaking']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:mending']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:efficiency']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:respiration']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:aqua_affinity']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:thorns']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:feather_falling']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:fire_aspect']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:knockback']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:looting']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:power']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:punch']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:flame']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:infinity']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:quick_charge']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:impaling']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:channeling']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:lure']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:luck_of_the_sea']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:soul_speed']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:swift_sneak']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:wind_burst']), weight: 1 }),
+    Object.freeze({ entries: Object.freeze(['minecraft:lunge']), weight: 1 })
+]);
 
 const sanitizeLootItemId = (id) => ITEM_ID_FIXES[id] ?? id;
 const resolveLootItemId = (loot) => sanitizeLootItemId(loot.item);
@@ -47,11 +78,6 @@ const getTickSpeed = () => globalThis.tickSpeed ?? 10;
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const randomFloat = (min, max) => min + ((max - min) * Math.random());
-const getEnchantable = (item) => item?.getComponent('minecraft:enchantable');
-
-const getLuckChanceBonus = (luck) => (LUCK_CONFIG.enchantChancePerLuck ?? 0) * Math.max(0, luck ?? 0);
-const getLuckCountBonus = (luck) => Math.max(0, Math.floor((LUCK_CONFIG.enchantCountPerLuck ?? 0) * Math.max(0, luck ?? 0)));
-const getLuckQualityFactor = (luck) => clamp((LUCK_CONFIG.enchantQualityPerLuck ?? 0) * Math.max(0, luck ?? 0), 0, 1);
 
 function hasWaterNearby(block, radius = 1) {
     const { x, y, z } = block.location;
@@ -99,11 +125,6 @@ function ensureHiddenInputSlot(machine) {
     machine.entity.addItem(slotItem, undefined, true);
 }
 
-const getBookEnchantChance = (tier = 0) => Math.min(
-    BOOK_ENCHANT_CONFIG.maxChance ?? 1,
-    (BOOK_ENCHANT_CONFIG.baseChance ?? 0.35) + ((BOOK_ENCHANT_CONFIG.chancePerTier ?? 0) * Math.max(0, tier))
-);
-
 function getAllEnchantmentTypes() {
     if (!worldLoaded) return [];
     if (cachedEnchantmentTypes) return cachedEnchantmentTypes;
@@ -117,70 +138,359 @@ function getAllEnchantmentTypes() {
     return cachedEnchantmentTypes;
 }
 
-function rollRandomEnchantmentsFromTypes(types, count, qualityFactor = 0) {
-    if (!types?.length || count <= 0) return [];
+function getEnchantableComponent(stack) {
+    if (!stack || typeof stack.getComponent !== 'function') return null;
+    return stack.getComponent('minecraft:enchantable')
+        ?? stack.getComponent('minecraft:enchantments')
+        ?? stack.getComponent('enchantments')
+        ?? null;
+}
 
-    const pool = types.slice();
-    const picked = [];
-    const total = Math.min(count, pool.length);
+function canApplyEnchantment(enchantComp, type) {
+    if (!enchantComp || !type) return false;
+    if (typeof enchantComp.canAddEnchantment === 'function') {
+        let can = null;
+        try {
+            can = enchantComp.canAddEnchantment({ type, level: 1 });
+        } catch {
+            can = null;
+        }
+        if (can === true) return true;
 
-    for (let i = 0; i < total; i++) {
-        const index = Math.floor(Math.random() * pool.length);
-        const type = pool.splice(index, 1)[0];
-        const minLevel = type.minLevel ?? 1;
-        const maxLevel = type.maxLevel ?? 1;
-        const adjustedMin = Math.min(
-            maxLevel,
-            Math.floor(minLevel + ((maxLevel - minLevel) * clamp(qualityFactor, 0, 1)))
-        );
-        const level = DoriosAPI.math.randomInterval(adjustedMin, maxLevel);
-        picked.push(new Enchantment(type, level));
+        try {
+            can = enchantComp.canAddEnchantment(type);
+        } catch {
+            can = null;
+        }
+        if (can === true) return true;
+        if (can === false) return false;
+        return false;
     }
 
-    return picked;
+    return true;
+}
+
+function canWriteEnchantments(enchantComp) {
+    if (!enchantComp) return false;
+    if (typeof enchantComp.addEnchantments === 'function') return true;
+    if (typeof enchantComp.addEnchantment === 'function') return true;
+    return false;
+}
+
+function normalizeEnchantmentId(type) {
+    if (!type) return '';
+    const id = type.id ?? type.identifier ?? type.typeId ?? type.name ?? '';
+    return typeof id === 'string' ? id.toLowerCase() : '';
+}
+
+function normalizeEnchantmentList(list) {
+    if (!Array.isArray(list)) return [];
+    return list
+        .map(entry => {
+            const id = normalizeEnchantmentId(entry?.type);
+            const level = Math.floor(Number(entry?.level ?? entry?.lvl ?? entry?.amount ?? 0));
+            if (!id || level <= 0) return null;
+            return { id, level };
+        })
+        .filter(Boolean)
+        .sort((a, b) => a.id.localeCompare(b.id) || a.level - b.level);
+}
+
+function buildEnchantmentSignature(list) {
+    const normalized = normalizeEnchantmentList(list);
+    if (!normalized.length) return '';
+    return normalized.map(entry => `${entry.id}:${entry.level}`).join('|');
+}
+
+function readEnchantments(stack) {
+    const comp = getEnchantableComponent(stack);
+    if (!comp) return [];
+
+    let list = [];
+    try {
+        if (typeof comp.getEnchantments === 'function') {
+            list = comp.getEnchantments();
+        } else if (Array.isArray(comp.enchantments)) {
+            list = comp.enchantments;
+        }
+    } catch {
+        return [];
+    }
+
+    if (!Array.isArray(list)) return [];
+    return list
+        .map(entry => {
+            if (!entry?.type) return null;
+            const level = Math.floor(Number(entry.level ?? entry.lvl ?? entry.amount ?? 0));
+            if (level <= 0) return null;
+            return { type: entry.type, level };
+        })
+        .filter(Boolean);
+}
+
+function sanitizeEnchantmentEntries(enchantComp, enchantments) {
+    if (!Array.isArray(enchantments)) return [];
+
+    const selected = new Map();
+    for (const entry of enchantments) {
+        const type = entry?.type ?? null;
+        const level = Math.floor(Number(entry?.level ?? 0));
+        const id = normalizeEnchantmentId(type);
+        if (!id || level <= 0) continue;
+        if (!canApplyEnchantment(enchantComp, type)) continue;
+
+        const previous = selected.get(id);
+        if (!previous || previous.level < level) {
+            selected.set(id, { type, level });
+        }
+    }
+
+    return [...selected.values()];
+}
+
+function applyEnchantmentEntriesToStack(targetStack, enchantments) {
+    const enchantComp = getEnchantableComponent(targetStack);
+    if (!enchantComp || !canWriteEnchantments(enchantComp)) return false;
+
+    const sanitized = sanitizeEnchantmentEntries(enchantComp, enchantments);
+    if (!sanitized.length) return false;
+
+    try {
+        enchantComp.removeAllEnchantments?.();
+    } catch {
+        // Ignore components without explicit clear support.
+    }
+
+    try {
+        if (typeof enchantComp.addEnchantments === 'function') {
+            enchantComp.addEnchantments(sanitized);
+        } else if (typeof enchantComp.addEnchantment === 'function') {
+            for (const entry of sanitized) {
+                enchantComp.addEnchantment(entry);
+            }
+        } else {
+            return false;
+        }
+    } catch {
+        return false;
+    }
+
+    return buildEnchantmentSignature(readEnchantments(targetStack)) === buildEnchantmentSignature(sanitized);
+}
+
+function cloneSingleItemStack(stack) {
+    if (typeof stack?.clone === 'function') {
+        const clone = stack.clone();
+        clone.amount = 1;
+        return clone;
+    }
+
+    const clone = new ItemStack(stack.typeId, 1);
+    if (stack?.nameTag) clone.nameTag = stack.nameTag;
+    const lore = typeof stack?.getLore === 'function' ? stack.getLore() : [];
+    if (Array.isArray(lore) && lore.length && typeof clone.setLore === 'function') {
+        clone.setLore(lore);
+    }
+    return clone;
+}
+
+function buildVerifiedEnchantmentPlan(item, enchantments) {
+    const trialStack = cloneSingleItemStack(item);
+    if (!applyEnchantmentEntriesToStack(trialStack, enchantments)) {
+        return [];
+    }
+
+    return readEnchantments(trialStack);
+}
+
+function buildEnchantCandidatePool(types) {
+    if (!Array.isArray(types) || !types.length) return [];
+
+    const typeById = new Map(types.map(type => [normalizeEnchantmentId(type), type]));
+    const consumedIds = new Set();
+    const pool = [];
+
+    for (const source of AUTO_FISHER_ENCHANTMENT_SOURCES) {
+        const options = (source.entries ?? [])
+            .map(id => typeById.get(String(id).toLowerCase()))
+            .filter(Boolean);
+        if (!options.length) continue;
+
+        for (const option of options) {
+            consumedIds.add(normalizeEnchantmentId(option));
+        }
+
+        pool.push({
+            options,
+            weight: Math.max(0, Number(source.weight ?? 1) || 1)
+        });
+    }
+
+    const fallbackOptions = types.filter(type => !consumedIds.has(normalizeEnchantmentId(type)));
+    if (fallbackOptions.length) {
+        pool.push({
+            options: fallbackOptions,
+            weight: 1
+        });
+    }
+
+    return pool;
+}
+
+function pickWeightedPoolEntry(pool) {
+    const totalWeight = pool.reduce((sum, entry) => sum + Math.max(0, Number(entry?.weight ?? 1) || 0), 0);
+    if (totalWeight <= 0) return pool[0] ?? null;
+
+    let roll = Math.random() * totalWeight;
+    for (const entry of pool) {
+        roll -= Math.max(0, Number(entry?.weight ?? 1) || 0);
+        if (roll <= 0) return entry;
+    }
+
+    return pool[pool.length - 1] ?? null;
+}
+
+function pickCandidateFromPool(pool, blockedIds) {
+    const availablePool = pool
+        .map(entry => ({
+            ...entry,
+            options: entry.options.filter(option => !blockedIds.has(normalizeEnchantmentId(option)))
+        }))
+        .filter(entry => entry.options.length > 0);
+
+    const source = pickWeightedPoolEntry(availablePool);
+    if (!source) return null;
+
+    const choiceIndex = Math.floor(Math.random() * source.options.length);
+    return source.options[choiceIndex] ?? null;
+}
+
+function createRandomEnchantment(type, qualityFactor = 0) {
+    const minLevel = type.minLevel ?? 1;
+    const maxLevel = type.maxLevel ?? 1;
+    const adjustedMin = Math.min(
+        maxLevel,
+        Math.floor(minLevel + ((maxLevel - minLevel) * clamp(qualityFactor, 0, 1)))
+    );
+    const level = DoriosAPI.math.randomInterval(adjustedMin, maxLevel);
+    return { type, level };
 }
 
 function getCompatibleEnchantmentTypes(item) {
-    const enchantable = getEnchantable(item);
+    const enchantable = getEnchantableComponent(item);
     if (!enchantable) return [];
 
     const types = getAllEnchantmentTypes();
     if (!types?.length) return [];
 
-    return types.filter((type) => {
-        const minLevel = type.minLevel ?? 1;
-        try {
-            return enchantable.canAddEnchantment(new Enchantment(type, minLevel));
-        } catch {
-            return false;
+    return types.filter(type => canApplyEnchantment(enchantable, type));
+}
+
+function rollRandomEnchantmentsFromTypes(item, types, count, qualityFactor = 0) {
+    if (!item || !types?.length || count <= 0) return [];
+
+    const pool = buildEnchantCandidatePool(types);
+    const picked = [];
+    const blockedIds = new Set();
+    const total = Math.min(count, types.length);
+
+    for (let i = 0; i < total; i++) {
+        let accepted = false;
+        let attempts = 0;
+
+        while (attempts < Math.max(8, types.length * 2)) {
+            attempts += 1;
+
+            const type = pickCandidateFromPool(pool, blockedIds);
+            if (!type) break;
+
+            const typeId = normalizeEnchantmentId(type);
+            const candidate = createRandomEnchantment(type, qualityFactor);
+            const verified = buildVerifiedEnchantmentPlan(item, [...picked, candidate]);
+            if (verified.length > picked.length) {
+                picked.splice(0, picked.length, ...verified);
+                blockedIds.add(typeId);
+                accepted = true;
+                break;
+            }
+
+            blockedIds.add(typeId);
         }
-    });
+
+        if (!accepted) break;
+    }
+
+    return picked;
 }
 
 function rollRandomEnchantmentsForItem(item, count, qualityFactor = 0) {
     const compatibleTypes = getCompatibleEnchantmentTypes(item);
-    return rollRandomEnchantmentsFromTypes(compatibleTypes, count, qualityFactor);
+    return rollRandomEnchantmentsFromTypes(item, compatibleTypes, count, qualityFactor);
 }
 
-/**
-* Enchants an item with the specified enchantments.
-* @param {ItemStack} item - The item to enchant.
- * @param {Enchantment[]} enchantments - Enchantments to apply.
-* @example
-*/
-function enchantItem(item, enchantments) {
-    const enchantable = getEnchantable(item);
-    if (!enchantable || !Array.isArray(enchantments)) return false;
+function shouldGuaranteeEnchant(config, netTier = 0, netLuck = 0) {
+    const guaranteedLuckThreshold = Number(config?.guaranteedLuckThreshold);
+    const guaranteedTierThreshold = Number(config?.guaranteedTierThreshold);
 
-    for (const enchantment of enchantments) {
-        try {
-            enchantable.addEnchantment(enchantment);
-        } catch {
-            // Skip invalid or unsupported enchantments for this item.
-        }
+    return (Number.isFinite(guaranteedLuckThreshold) && Math.max(0, netLuck) >= guaranteedLuckThreshold)
+        || (Number.isFinite(guaranteedTierThreshold) && Math.max(0, netTier) >= guaranteedTierThreshold);
+}
+
+function resolveEnchantChance(config, netTier = 0, netLuck = 0) {
+    if (shouldGuaranteeEnchant(config, netTier, netLuck)) {
+        return 1;
     }
 
-    return true;
+    const baseChance = Number(config?.chance ?? config?.baseChance) || 0;
+    const chancePerTier = Number(config?.chancePerTier) || 0;
+    const chancePerLuck = Number(config?.chancePerLuck ?? LUCK_CONFIG.enchantChancePerLuck) || 0;
+    const maxChance = clamp(Number(config?.maxChance ?? 1) || 1, 0, 1);
+
+    return clamp(
+        baseChance
+        + (Math.max(0, netTier) * chancePerTier)
+        + (Math.max(0, netLuck) * chancePerLuck),
+        0,
+        maxChance
+    );
+}
+
+function resolveEnchantCountRange(config, fallbackMin, fallbackMax, netTier = 0, netLuck = 0, maxAvailable = 1) {
+    const [baseMin, baseMax] = resolveCountRange(config?.count, fallbackMin, fallbackMax);
+    const countPerLuck = Number(config?.countPerLuck ?? LUCK_CONFIG.enchantCountPerLuck) || 0;
+    const countPerTier = Number(config?.countPerTier) || 0;
+    const bonus = Math.max(0, Math.floor((Math.max(0, netLuck) * countPerLuck) + (Math.max(0, netTier) * countPerTier)));
+    const maxCount = Math.min(Math.max(0, maxAvailable), baseMax + bonus);
+    const minCount = Math.min(maxCount, baseMin + Math.floor(bonus / 2));
+
+    if (maxCount <= 0) {
+        return [0, 0];
+    }
+
+    return [
+        Math.max(1, minCount),
+        Math.max(1, maxCount)
+    ];
+}
+
+function resolveEnchantQualityFactor(config, netTier = 0, netLuck = 0) {
+    const minQuality = Number(config?.minQuality) || 0;
+    const qualityPerTier = Number(config?.qualityPerTier) || 0;
+    const qualityPerLuck = Number(config?.qualityPerLuck ?? LUCK_CONFIG.enchantQualityPerLuck) || 0;
+
+    return clamp(
+        minQuality
+        + (Math.max(0, netTier) * qualityPerTier)
+        + (Math.max(0, netLuck) * qualityPerLuck),
+        0,
+        1
+    );
+}
+
+function enchantItem(item, enchantments) {
+    const verified = buildVerifiedEnchantmentPlan(item, enchantments);
+    if (!verified.length) return false;
+    return applyEnchantmentEntriesToStack(item, verified);
 }
 
 function applyRandomDurability(item, damageRange) {
@@ -211,25 +521,36 @@ function createBookDropStacks(amount, netTier = 0, netLuck = 0) {
         return [new ItemStack(BOOK_ITEM_ID, total)];
     }
 
-    const chanceBonus = getLuckChanceBonus(netLuck);
-    const baseChance = getBookEnchantChance(netTier);
-    const maxChance = BOOK_ENCHANT_CONFIG.maxChance ?? 1;
-    const finalChance = clamp(baseChance + chanceBonus, 0, maxChance);
+    const enchantConfig = {
+        chance: BOOK_ENCHANT_CONFIG.baseChance ?? 0.2,
+        chancePerTier: BOOK_ENCHANT_CONFIG.chancePerTier ?? 0,
+        chancePerLuck: BOOK_ENCHANT_CONFIG.chancePerLuck ?? LUCK_CONFIG.enchantChancePerLuck ?? 0,
+        maxChance: BOOK_ENCHANT_CONFIG.maxChance ?? 1,
+        count: [
+            BOOK_ENCHANT_CONFIG.minCount ?? 1,
+            BOOK_ENCHANT_CONFIG.maxCount ?? 3
+        ],
+        countPerLuck: BOOK_ENCHANT_CONFIG.countPerLuck ?? LUCK_CONFIG.enchantCountPerLuck ?? 0,
+        qualityPerLuck: BOOK_ENCHANT_CONFIG.qualityPerLuck ?? LUCK_CONFIG.enchantQualityPerLuck ?? 0,
+        minQuality: BOOK_ENCHANT_CONFIG.minQuality ?? 0,
+        guaranteedLuckThreshold: BOOK_ENCHANT_CONFIG.guaranteedLuckThreshold,
+        guaranteedTierThreshold: BOOK_ENCHANT_CONFIG.guaranteedTierThreshold
+    };
+    const finalChance = resolveEnchantChance(enchantConfig, netTier, netLuck);
+    const [minEnchantments, maxEnchantments] = resolveEnchantCountRange(enchantConfig, 1, 1, netTier, netLuck, allTypes.length);
+    const qualityFactor = resolveEnchantQualityFactor(enchantConfig, netTier, netLuck);
 
-    const shouldEnchant = Math.random() <= finalChance;
-    if (!shouldEnchant) {
+    if (maxEnchantments <= 0) {
         return [new ItemStack(BOOK_ITEM_ID, total)];
     }
-
-    const countBonus = getLuckCountBonus(netLuck);
-    const baseMin = BOOK_ENCHANT_CONFIG.minCount ?? 1;
-    const baseMax = BOOK_ENCHANT_CONFIG.maxCount ?? 3;
-    const maxEnchantments = Math.min(baseMax + Math.max(0, netTier) + countBonus, allTypes.length);
-    const minEnchantments = Math.min(baseMin, maxEnchantments);
-    const qualityFactor = getLuckQualityFactor(netLuck);
     const stacks = [];
 
     for (let i = 0; i < total; i++) {
+        if (Math.random() > finalChance) {
+            stacks.push(new ItemStack(BOOK_ITEM_ID, 1));
+            continue;
+        }
+
         const bookStack = new ItemStack(ENCHANTED_BOOK_ITEM_ID, 1);
         const enchantCount = DoriosAPI.math.randomInterval(minEnchantments, maxEnchantments);
         const enchantments = rollRandomEnchantmentsForItem(bookStack, enchantCount, qualityFactor);
@@ -243,20 +564,37 @@ function createBookDropStacks(amount, netTier = 0, netLuck = 0) {
     return stacks;
 }
 
-function createEquipmentDropStacks(loot, amount, netLuck = 0) {
+function createEquipmentDropStacks(loot, amount, netLuck = 0, netTier = 0) {
     const total = Math.max(0, Math.floor(amount ?? 0));
     if (total <= 0) return [];
 
     const damageRange = loot.durabilityDamageRange ?? EQUIPMENT_CONFIG.durabilityDamageRange;
     const randomEnchant = loot.randomEnchant ?? {};
-    const baseChance = randomEnchant.chance ?? EQUIPMENT_CONFIG.enchantChance ?? 0;
-    const chancePerLuck = randomEnchant.chancePerLuck ?? LUCK_CONFIG.enchantChancePerLuck ?? 0;
-    const countPerLuck = randomEnchant.countPerLuck ?? LUCK_CONFIG.enchantCountPerLuck ?? 0;
-    const qualityPerLuck = randomEnchant.qualityPerLuck ?? LUCK_CONFIG.enchantQualityPerLuck ?? 0;
-    const [baseMinCount, baseMaxCount] = resolveCountRange(
-        randomEnchant.count ?? EQUIPMENT_CONFIG.enchantCount,
+    const enchantConfig = {
+        chance: randomEnchant.chance ?? EQUIPMENT_CONFIG.enchantChance ?? 0,
+        chancePerTier: randomEnchant.chancePerTier ?? EQUIPMENT_CONFIG.chancePerTier ?? 0,
+        chancePerLuck: randomEnchant.chancePerLuck ?? EQUIPMENT_CONFIG.chancePerLuck ?? LUCK_CONFIG.enchantChancePerLuck ?? 0,
+        maxChance: randomEnchant.maxChance ?? EQUIPMENT_CONFIG.maxChance ?? 1,
+        count: randomEnchant.count ?? EQUIPMENT_CONFIG.enchantCount,
+        countPerLuck: randomEnchant.countPerLuck ?? EQUIPMENT_CONFIG.countPerLuck ?? LUCK_CONFIG.enchantCountPerLuck ?? 0,
+        countPerTier: randomEnchant.countPerTier,
+        qualityPerLuck: randomEnchant.qualityPerLuck ?? EQUIPMENT_CONFIG.qualityPerLuck ?? LUCK_CONFIG.enchantQualityPerLuck ?? 0,
+        qualityPerTier: randomEnchant.qualityPerTier,
+        minQuality: randomEnchant.minQuality ?? EQUIPMENT_CONFIG.minQuality ?? 0,
+        guaranteedLuckThreshold: randomEnchant.guaranteedLuckThreshold ?? EQUIPMENT_CONFIG.guaranteedLuckThreshold,
+        guaranteedTierThreshold: randomEnchant.guaranteedTierThreshold ?? EQUIPMENT_CONFIG.guaranteedTierThreshold
+    };
+    const enchantChance = resolveEnchantChance(enchantConfig, netTier, netLuck);
+    const qualityFactor = resolveEnchantQualityFactor(enchantConfig, netTier, netLuck);
+    const probeStack = new ItemStack(loot.item, 1);
+    const compatibleTypes = getCompatibleEnchantmentTypes(probeStack);
+    const [minEnchantCount, maxEnchantCount] = resolveEnchantCountRange(
+        enchantConfig,
         1,
-        1
+        1,
+        netTier,
+        netLuck,
+        compatibleTypes.length
     );
 
     const stacks = [];
@@ -264,15 +602,8 @@ function createEquipmentDropStacks(loot, amount, netLuck = 0) {
         const stack = new ItemStack(loot.item, 1);
         applyRandomDurability(stack, damageRange);
 
-        const luck = Math.max(0, netLuck ?? 0);
-        const chance = clamp(baseChance + (chancePerLuck * luck), 0, 1);
-        if (chance > 0 && Math.random() <= chance) {
-            const countBonus = Math.max(0, Math.floor(countPerLuck * luck));
-            const allTypes = getAllEnchantmentTypes();
-            const maxCount = Math.min(baseMaxCount + countBonus, allTypes.length || baseMaxCount);
-            const minCount = Math.min(baseMinCount, maxCount);
-            const qualityFactor = clamp(qualityPerLuck * luck, 0, 1);
-            const enchantCount = DoriosAPI.math.randomInterval(minCount, maxCount);
+        if (compatibleTypes.length > 0 && enchantChance > 0 && Math.random() <= enchantChance) {
+            const enchantCount = DoriosAPI.math.randomInterval(minEnchantCount, maxEnchantCount);
             const enchantments = rollRandomEnchantmentsForItem(stack, enchantCount, qualityFactor);
             if (enchantments.length > 0) {
                 enchantItem(stack, enchantments);
@@ -390,7 +721,7 @@ DoriosAPI.register.blockComponent('autofisher', {
                                     machine.entity.addItem(stack);
                                 }
                             } else if (loot.randomEnchant || loot.durabilityDamageRange) {
-                                const equipmentStacks = createEquipmentDropStacks(loot, qty, netLuck);
+                                const equipmentStacks = createEquipmentDropStacks(loot, qty, netLuck, netTier);
                                 for (const stack of equipmentStacks) {
                                     machine.entity.addItem(stack);
                                 }
