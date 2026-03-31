@@ -9,6 +9,9 @@
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_iron_fishing_net",
+			"minecraft:durability": {
+				"max_durability": 753
+			},
 			"utilitycraft:fishing_net": {
 				"tier": 2,
 				"speed": 1.25,

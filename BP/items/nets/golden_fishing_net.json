@@ -9,6 +9,9 @@
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_golden_fishing_net",
+			"minecraft:durability": {
+				"max_durability": 32
+			},
 			"utilitycraft:fishing_net": {
 				"tier": 3,
 				"speed": 2,

@@ -9,6 +9,9 @@
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_netherite_fishing_net",
+			"minecraft:durability": {
+				"max_durability": 2031
+			},
 			"utilitycraft:fishing_net": {
 				"tier": 6,
 				"speed": 4,

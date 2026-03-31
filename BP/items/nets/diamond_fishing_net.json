@@ -9,6 +9,9 @@
 		},
 		"components": {
 			"minecraft:icon": "utilitycraft_diamond_fishing_net",
+			"minecraft:durability": {
+				"max_durability": 1561
+			},
 			"utilitycraft:fishing_net": {
 				"tier": 5,
 				"speed": 2,
