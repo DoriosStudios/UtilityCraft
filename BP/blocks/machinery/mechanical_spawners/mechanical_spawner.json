@@ -55,6 +55,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -69,6 +73,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -85,6 +93,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -99,6 +111,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -115,6 +131,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -129,6 +149,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -145,6 +169,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -159,6 +187,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -175,6 +207,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -189,6 +225,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -205,6 +245,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -219,6 +263,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -235,6 +283,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -249,6 +301,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -265,6 +321,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -279,6 +339,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -295,6 +359,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -309,6 +377,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -325,6 +397,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -335,6 +411,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -347,6 +427,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -357,6 +441,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -369,6 +457,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -379,6 +471,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -394,6 +490,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -407,6 +507,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -422,6 +526,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -435,6 +543,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -450,6 +562,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -463,6 +579,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -478,6 +598,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -491,6 +615,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -506,6 +634,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -519,6 +651,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -534,6 +670,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -547,6 +687,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -562,6 +706,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -575,6 +723,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -590,6 +742,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -603,6 +759,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -618,6 +778,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -632,6 +796,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					},
 					"minecraft:tick": {
@@ -645,6 +813,10 @@
 					"minecraft:material_instances": {
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					},
@@ -664,6 +836,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -678,6 +854,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -694,6 +874,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -708,6 +892,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -724,6 +912,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -738,6 +930,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -754,6 +950,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -768,6 +968,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -784,6 +988,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -798,6 +1006,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -814,6 +1026,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -828,6 +1044,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -844,6 +1064,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -858,6 +1082,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -874,6 +1102,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -888,6 +1120,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -904,6 +1140,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -918,6 +1158,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -934,6 +1178,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -948,6 +1196,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -964,6 +1216,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -978,6 +1234,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -994,6 +1254,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1008,6 +1272,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1024,6 +1292,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1038,6 +1310,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1054,6 +1330,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1068,6 +1348,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1084,6 +1368,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1098,6 +1386,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1114,6 +1406,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1128,6 +1424,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1144,6 +1444,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1158,6 +1462,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1174,6 +1482,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1188,6 +1500,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1204,6 +1520,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1218,6 +1538,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1234,6 +1558,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1248,6 +1576,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1264,6 +1596,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1278,6 +1614,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1294,6 +1634,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1308,6 +1652,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1324,6 +1672,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1338,6 +1690,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1354,6 +1710,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1368,6 +1728,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1384,6 +1748,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1398,6 +1766,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1414,6 +1786,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1428,6 +1804,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1444,6 +1824,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1458,6 +1842,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1474,6 +1862,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1488,6 +1880,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1504,6 +1900,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1518,6 +1918,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1534,6 +1938,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1548,6 +1956,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1564,6 +1976,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1578,6 +1994,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1594,6 +2014,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1608,6 +2032,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1624,6 +2052,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1638,6 +2070,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1654,6 +2090,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1668,6 +2108,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1684,6 +2128,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1698,6 +2146,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1714,6 +2166,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1728,6 +2184,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1744,6 +2204,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1758,6 +2222,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1774,6 +2242,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1788,6 +2260,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1804,6 +2280,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1818,6 +2298,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1834,6 +2318,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1848,6 +2336,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1864,6 +2356,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1878,6 +2374,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1894,6 +2394,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1908,6 +2412,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1924,6 +2432,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1938,6 +2450,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1954,6 +2470,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1968,6 +2488,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -1984,6 +2508,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -1998,6 +2526,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2014,6 +2546,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2028,6 +2564,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2044,6 +2584,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2058,6 +2602,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2074,6 +2622,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2088,6 +2640,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2104,6 +2660,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2118,6 +2678,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2134,6 +2698,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2148,6 +2716,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2164,6 +2736,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2178,6 +2754,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2194,6 +2774,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2208,6 +2792,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2224,6 +2812,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2238,6 +2830,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2254,6 +2850,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2268,6 +2868,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2284,6 +2888,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2298,6 +2906,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2314,6 +2926,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2328,6 +2944,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2344,6 +2964,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2358,6 +2982,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2374,6 +3002,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2388,6 +3020,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2404,6 +3040,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2418,6 +3058,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2434,6 +3078,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2448,6 +3096,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2464,6 +3116,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2478,6 +3134,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2494,6 +3154,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2508,6 +3172,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2524,6 +3192,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2538,6 +3210,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2554,6 +3230,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2568,6 +3248,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2584,6 +3268,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2598,6 +3286,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2614,6 +3306,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2628,6 +3324,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2644,6 +3344,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2658,6 +3362,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2674,6 +3382,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2688,6 +3400,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2704,6 +3420,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2718,6 +3438,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2734,6 +3458,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2748,6 +3476,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2764,6 +3496,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2778,6 +3514,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2794,6 +3534,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2808,6 +3552,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2824,6 +3572,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2838,6 +3590,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2854,6 +3610,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2868,6 +3628,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2884,6 +3648,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2898,6 +3666,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2914,6 +3686,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2928,6 +3704,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2944,6 +3724,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2958,6 +3742,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -2974,6 +3762,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -2988,6 +3780,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3004,6 +3800,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3018,6 +3818,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3034,6 +3838,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3048,6 +3856,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3064,6 +3876,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3078,6 +3894,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3094,6 +3914,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3108,6 +3932,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3124,6 +3952,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3138,6 +3970,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3154,6 +3990,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3168,6 +4008,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3184,6 +4028,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3198,6 +4046,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3214,6 +4066,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3228,6 +4084,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3244,6 +4104,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3258,6 +4122,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3274,6 +4142,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3288,6 +4160,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3304,6 +4180,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3318,6 +4198,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3334,6 +4218,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3348,6 +4236,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3364,6 +4256,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3378,6 +4274,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3394,6 +4294,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3408,6 +4312,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3424,6 +4332,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3438,6 +4350,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3454,6 +4370,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3468,6 +4388,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3484,6 +4408,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3498,6 +4426,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3514,6 +4446,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3528,6 +4464,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3544,6 +4484,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3558,6 +4502,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3574,6 +4522,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3588,6 +4540,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3604,6 +4560,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3618,6 +4578,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3634,6 +4598,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3648,6 +4616,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3664,6 +4636,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3678,6 +4654,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3694,6 +4674,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3708,6 +4692,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3724,6 +4712,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3738,6 +4730,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3754,6 +4750,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3768,6 +4768,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3784,6 +4788,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3798,6 +4806,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3814,6 +4826,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3828,6 +4844,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3844,6 +4864,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3858,6 +4882,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3874,6 +4902,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3888,6 +4920,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3904,6 +4940,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3918,6 +4958,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3934,6 +4978,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3948,6 +4996,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3964,6 +5016,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -3978,6 +5034,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -3994,6 +5054,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4008,6 +5072,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4024,6 +5092,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4038,6 +5110,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4054,6 +5130,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4068,6 +5148,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4084,6 +5168,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4098,6 +5186,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4114,6 +5206,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4128,6 +5224,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4144,6 +5244,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4158,6 +5262,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4174,6 +5282,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4188,6 +5300,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4204,6 +5320,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4218,6 +5338,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4234,6 +5358,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4248,6 +5376,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4264,6 +5396,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4278,6 +5414,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4294,6 +5434,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4308,6 +5452,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4324,6 +5472,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4338,6 +5490,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4354,6 +5510,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4368,6 +5528,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4384,6 +5548,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4398,6 +5566,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4414,6 +5586,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4428,6 +5604,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4444,6 +5624,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4458,6 +5642,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4474,6 +5662,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4488,6 +5680,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4504,6 +5700,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4518,6 +5718,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4534,6 +5738,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4548,6 +5756,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4564,6 +5776,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4578,6 +5794,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4594,6 +5814,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4608,6 +5832,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4624,6 +5852,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4638,6 +5870,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4654,6 +5890,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4668,6 +5908,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4684,6 +5928,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4698,6 +5946,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4714,6 +5966,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4728,6 +5984,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4744,6 +6004,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4758,6 +6022,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4774,6 +6042,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4788,6 +6060,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4804,6 +6080,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4818,6 +6098,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4834,6 +6118,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4848,6 +6136,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4864,6 +6156,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4878,6 +6174,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4894,6 +6194,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4908,6 +6212,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4924,6 +6232,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4938,6 +6250,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4954,6 +6270,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4968,6 +6288,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -4984,6 +6308,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -4998,6 +6326,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5014,6 +6346,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5028,6 +6364,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5044,6 +6384,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5058,6 +6402,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5074,6 +6422,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5088,6 +6440,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5104,6 +6460,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5118,6 +6478,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5134,6 +6498,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5148,6 +6516,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5164,6 +6536,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5178,6 +6554,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5194,6 +6574,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5208,6 +6592,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5224,6 +6612,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5238,6 +6630,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5254,6 +6650,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5268,6 +6668,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5284,6 +6688,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5298,6 +6706,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5314,6 +6726,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5328,6 +6744,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5344,6 +6764,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5358,6 +6782,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5374,6 +6802,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5388,6 +6820,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5404,6 +6840,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5418,6 +6858,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5434,6 +6878,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5448,6 +6896,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5464,6 +6916,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5478,6 +6934,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5494,6 +6954,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5508,6 +6972,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5524,6 +6992,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5538,6 +7010,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5554,6 +7030,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5568,6 +7048,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5584,6 +7068,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5598,6 +7086,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5614,6 +7106,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5628,6 +7124,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5644,6 +7144,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5658,6 +7162,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5674,6 +7182,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5688,6 +7200,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5704,6 +7220,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5718,6 +7238,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5734,6 +7258,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5748,6 +7276,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5764,6 +7296,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5778,6 +7314,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5794,6 +7334,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5808,6 +7352,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5824,6 +7372,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5838,6 +7390,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5854,6 +7410,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5868,6 +7428,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5884,6 +7448,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5898,6 +7466,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5914,6 +7486,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5928,6 +7504,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5944,6 +7524,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5958,6 +7542,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -5974,6 +7562,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -5988,6 +7580,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6004,6 +7600,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6018,6 +7618,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6034,6 +7638,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6048,6 +7656,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6064,6 +7676,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6078,6 +7694,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6094,6 +7714,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6108,6 +7732,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6124,6 +7752,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6138,6 +7770,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6154,6 +7790,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6168,6 +7808,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6184,6 +7828,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6198,6 +7846,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6214,6 +7866,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6228,6 +7884,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6244,6 +7904,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6258,6 +7922,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6274,6 +7942,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6288,6 +7960,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6304,6 +7980,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6318,6 +7998,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6334,6 +8018,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6348,6 +8036,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6364,6 +8056,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6378,6 +8074,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6394,6 +8094,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6408,6 +8112,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6424,6 +8132,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6438,6 +8150,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6454,6 +8170,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6468,6 +8188,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6484,6 +8208,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6498,6 +8226,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6514,6 +8246,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6528,6 +8264,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6544,6 +8284,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6558,6 +8302,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6574,6 +8322,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6588,6 +8340,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6604,6 +8360,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6618,6 +8378,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6634,6 +8398,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6648,6 +8416,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6664,6 +8436,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6678,6 +8454,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6694,6 +8474,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6708,6 +8492,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6724,6 +8512,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6738,6 +8530,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6754,6 +8550,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6768,6 +8568,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6784,6 +8588,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6798,6 +8606,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6814,6 +8626,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6828,6 +8644,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6844,6 +8664,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6858,6 +8682,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6874,6 +8702,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6888,6 +8720,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6904,6 +8740,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed1_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6918,6 +8758,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6934,6 +8778,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6948,6 +8796,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6964,6 +8816,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -6978,6 +8834,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed2_quantity4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -6994,6 +8854,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -7008,6 +8872,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity1",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -7024,6 +8892,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity2",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -7038,6 +8910,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity3",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -7054,6 +8930,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed3_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -7068,6 +8948,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -7084,6 +8968,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity1",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -7098,6 +8986,10 @@
 						},
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity2",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
 							"render_method": "alpha_test"
 						}
 					}
@@ -7114,6 +9006,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity3",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -7129,6 +9025,10 @@
 						"spawner_base": {
 							"texture": "utilitycraft_mechanical_spawner_speed4_quantity4",
 							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_mechanical_spawner_empty",
+							"render_method": "alpha_test"
 						}
 					}
 				}
@@ -7136,3 +9036,4 @@
 		]
 	}
 }
+
