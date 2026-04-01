@@ -260,6 +260,7 @@ export class Machine extends BasicMachine {
    * @param {number} value New progress value.
    * @param {Object} [options]
    * @param {number} [options.slot=2] Inventory slot to place the progress item.
+   * @param {number} [options.maxValue=800] Inventory slot to place the progress item.
    * @param {string} [options.type='progress_right_bar'] Item type suffix.
    * @param {boolean} [options.display=true] Whether to update the visual progress.
    * @param {number} [options.index=0] Progress index.
@@ -268,7 +269,7 @@ export class Machine extends BasicMachine {
    */
   setProgress(value, options) {
     options ??= {};
-    super.setProgress(value, this.getEnergyCost(options.index), options);
+    super.setProgress(value, options.maxValue ?? this.getEnergyCost(options.index), options);
   }
 
   /**
@@ -279,6 +280,7 @@ export class Machine extends BasicMachine {
    *
    * @param {Object} [options]
    * @param {number} [options.slot=2] Inventory slot where the progress bar item will be placed.
+   * @param {number} [options.maxValue=800] Inventory slot to place the progress item.
    * @param {string} [options.type="progress_right_bar"] Item type suffix used for the progress bar texture.
    * @param {number} [options.index=0] Progress index (useful for multi-process machines).
    * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
@@ -286,7 +288,7 @@ export class Machine extends BasicMachine {
    */
   displayProgress(options) {
     options ??= {};
-    const energyCost = this.getEnergyCost(options.index);
+    const energyCost = options.maxValue ?? this.getEnergyCost(options.index);
     if (!energyCost || energyCost <= 0) return;
 
     super.displayProgress(energyCost, options);
