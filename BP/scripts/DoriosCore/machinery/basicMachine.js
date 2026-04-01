@@ -89,18 +89,21 @@ export class BasicMachine {
    * Sets the machine progress directly.
    *
    * @param {number} value New progress value.
+   * @param {number} [maxValue=800] Maximum progress value used for normalization.
    * @param {Object} [options]
    * @param {number} [options.slot=2] Inventory slot to place the progress item.
-   * @param {string} [options.type='arrow_right'] Item type suffix.
+   * @param {string} [options.type='progress_right_bar'] Item type suffix.
    * @param {boolean} [options.display=true] Whether to update the visual progress.
    * @param {number} [options.index=0] Progress index.
+   * @param {number} [options.scale=16] Maximum visual scale.
+   * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
    */
-  setProgress(value, { slot = 2, type = "arrow_right", display = true, index = 0 } = {}) {
+  setProgress(value, maxValue = 800, { slot = 2, type, display = true, index = 0, scale = 16, legacy = false } = {}) {
     const key = `dorios:progress_${index}`;
     this.entity.setDynamicProperty(key, Math.max(0, value));
 
     if (display) {
-      this.displayProgress(slot, type, index);
+      this.displayProgress(maxValue, { slot, type, index, scale, legacy });
     }
   }
 
@@ -110,11 +113,12 @@ export class BasicMachine {
    * @param {number} maxValue The maximum progress value used for normalization.
    * @param {Object} [options]
    * @param {number} [options.slot=2] Inventory slot.
-   * @param {string} [options.type='arrow_right'] Item type suffix.
+   * @param {string} [options.type='progress_right_bar'] Item type suffix.
    * @param {number} [options.index=0] Progress index.
+   * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
    * @param {number} [options.scale=16] Maximum visual scale (e.g., 16 → 0–16).
    */
-  displayProgress(maxValue, { slot = 2, type = "arrow_right", index = 0, scale = 16 } = {}) {
+  displayProgress(maxValue = 800, { slot = 2, type, index = 0, scale = 16, legacy = false } = {}) {
     if (!maxValue || maxValue <= 0) return;
 
     const inv = this.container;
@@ -122,12 +126,21 @@ export class BasicMachine {
 
     const progress = this.getProgress(index);
 
-    const normalized = Math.min(
+    const normalized = Math.max(0, Math.min(
       scale,
       Math.floor((progress / maxValue) * scale)
-    );
+    ));
 
-    const itemId = `utilitycraft:${type}_${normalized}`;
+    if (legacy) {
+      type ??= "arrow_right";
+      const itemId = `utilitycraft:${type}_${normalized}`;
+      inv.setItem(slot, new ItemStack(itemId, 1));
+      return;
+    }
+
+    type ??= "progress_right_bar";
+    const frame = normalized.toString().padStart(2, "0");
+    const itemId = `utilitycraft:${type}_${frame}`;
     inv.setItem(slot, new ItemStack(itemId, 1));
   }
 

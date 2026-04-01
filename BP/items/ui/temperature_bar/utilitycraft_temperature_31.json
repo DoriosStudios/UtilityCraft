@@ -1,0 +1,14 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:item": {
+        "description": {
+            "identifier": "utilitycraft:temperature_31",
+            "menu_category": {
+                "category": "none"
+            }
+        },
+        "components": {
+            "minecraft:icon": "utilitycraft:temperature_31"
+        }
+    }
+}

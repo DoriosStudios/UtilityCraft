@@ -255,6 +255,23 @@ export class Machine extends BasicMachine {
   }
 
   /**
+   * Sets the machine progress using its configured energy cost as the max value.
+   *
+   * @param {number} value New progress value.
+   * @param {Object} [options]
+   * @param {number} [options.slot=2] Inventory slot to place the progress item.
+   * @param {string} [options.type='progress_right_bar'] Item type suffix.
+   * @param {boolean} [options.display=true] Whether to update the visual progress.
+   * @param {number} [options.index=0] Progress index.
+   * @param {number} [options.scale=16] Maximum visual scale.
+   * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
+   */
+  setProgress(value, options) {
+    options ??= {};
+    super.setProgress(value, this.getEnergyCost(options.index), options);
+  }
+
+  /**
    * Displays the machine's progress using its configured energy cost.
    *
    * This method retrieves the energy cost for the given progress index
@@ -262,17 +279,17 @@ export class Machine extends BasicMachine {
    *
    * @param {Object} [options]
    * @param {number} [options.slot=2] Inventory slot where the progress bar item will be placed.
-   * @param {string} [options.type="arrow_right"] Item type suffix used for the progress bar texture.
+   * @param {string} [options.type="progress_right_bar"] Item type suffix used for the progress bar texture.
    * @param {number} [options.index=0] Progress index (useful for multi-process machines).
+   * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
    * @param {number} [options.scale=16] Maximum visual scale of the progress bar (e.g., 16 → 0–16).
    */
-  displayProgress(options = {}) {
-    const { slot = 2, type = "arrow_right", index = 0, scale = 16 } = options;
-
-    const energyCost = this.getEnergyCost(index);
+  displayProgress(options) {
+    options ??= {};
+    const energyCost = this.getEnergyCost(options.index);
     if (!energyCost || energyCost <= 0) return;
 
-    super.displayProgress(energyCost, { slot, type, index, scale });
+    super.displayProgress(energyCost, options);
   }
   //#endregion
 
@@ -318,17 +335,15 @@ export class Machine extends BasicMachine {
    * @param {boolean} [options.resetProgress=true] Whether to reset the machine progress to 0.
    * @param {boolean} [options.displayProgress=true] Whether to display the progress bar when resetting.
    * @param {number} [options.slot=2] Progress display slot.
-   * @param {string} [options.type='arrow_right'] Progress bar type.
+   * @param {string} [options.type='progress_right_bar'] Progress bar type.
    * @param {number} [options.index=0] Progress index.
+   * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
    * @param {number} [options.scale=16] Visual progress scale.
    */
-  showWarning(message, { resetProgress = true, displayProgress = true, slot = 2, type = "arrow_right", index = 0, scale = 16 } = {}) {
-    if (resetProgress) {
-      this.setProgress(0, { slot, type, index, display: displayProgress });
-
-      if (displayProgress) {
-        this.displayProgress(1, { slot, type, index, scale });
-      }
+  showWarning(message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+      this.setProgress(0, { ...options, display: options.displayProgress !== false });
     }
 
     this.displayEnergy();

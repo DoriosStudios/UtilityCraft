@@ -2,6 +2,102 @@
 	"resource_pack_name": "UtilityCraft",
 	"texture_name": "atlas.items",
 	"texture_data": {
+		"utilitycraft:temperature_00": {
+			"textures": "textures/ui/temperature_br/temperature_00"
+		},
+		"utilitycraft:temperature_01": {
+			"textures": "textures/ui/temperature_br/temperature_01"
+		},
+		"utilitycraft:temperature_02": {
+			"textures": "textures/ui/temperature_br/temperature_02"
+		},
+		"utilitycraft:temperature_03": {
+			"textures": "textures/ui/temperature_br/temperature_03"
+		},
+		"utilitycraft:temperature_04": {
+			"textures": "textures/ui/temperature_br/temperature_04"
+		},
+		"utilitycraft:temperature_05": {
+			"textures": "textures/ui/temperature_br/temperature_05"
+		},
+		"utilitycraft:temperature_06": {
+			"textures": "textures/ui/temperature_br/temperature_06"
+		},
+		"utilitycraft:temperature_07": {
+			"textures": "textures/ui/temperature_br/temperature_07"
+		},
+		"utilitycraft:temperature_08": {
+			"textures": "textures/ui/temperature_br/temperature_08"
+		},
+		"utilitycraft:temperature_09": {
+			"textures": "textures/ui/temperature_br/temperature_09"
+		},
+		"utilitycraft:temperature_10": {
+			"textures": "textures/ui/temperature_br/temperature_10"
+		},
+		"utilitycraft:temperature_11": {
+			"textures": "textures/ui/temperature_br/temperature_11"
+		},
+		"utilitycraft:temperature_12": {
+			"textures": "textures/ui/temperature_br/temperature_12"
+		},
+		"utilitycraft:temperature_13": {
+			"textures": "textures/ui/temperature_br/temperature_13"
+		},
+		"utilitycraft:temperature_14": {
+			"textures": "textures/ui/temperature_br/temperature_14"
+		},
+		"utilitycraft:temperature_15": {
+			"textures": "textures/ui/temperature_br/temperature_15"
+		},
+		"utilitycraft:temperature_16": {
+			"textures": "textures/ui/temperature_br/temperature_16"
+		},
+		"utilitycraft:temperature_17": {
+			"textures": "textures/ui/temperature_br/temperature_17"
+		},
+		"utilitycraft:temperature_18": {
+			"textures": "textures/ui/temperature_br/temperature_18"
+		},
+		"utilitycraft:temperature_19": {
+			"textures": "textures/ui/temperature_br/temperature_19"
+		},
+		"utilitycraft:temperature_20": {
+			"textures": "textures/ui/temperature_br/temperature_20"
+		},
+		"utilitycraft:temperature_21": {
+			"textures": "textures/ui/temperature_br/temperature_21"
+		},
+		"utilitycraft:temperature_22": {
+			"textures": "textures/ui/temperature_br/temperature_22"
+		},
+		"utilitycraft:temperature_23": {
+			"textures": "textures/ui/temperature_br/temperature_23"
+		},
+		"utilitycraft:temperature_24": {
+			"textures": "textures/ui/temperature_br/temperature_24"
+		},
+		"utilitycraft:temperature_25": {
+			"textures": "textures/ui/temperature_br/temperature_25"
+		},
+		"utilitycraft:temperature_26": {
+			"textures": "textures/ui/temperature_br/temperature_26"
+		},
+		"utilitycraft:temperature_27": {
+			"textures": "textures/ui/temperature_br/temperature_27"
+		},
+		"utilitycraft:temperature_28": {
+			"textures": "textures/ui/temperature_br/temperature_28"
+		},
+		"utilitycraft:temperature_29": {
+			"textures": "textures/ui/temperature_br/temperature_29"
+		},
+		"utilitycraft:temperature_30": {
+			"textures": "textures/ui/temperature_br/temperature_30"
+		},
+		"utilitycraft:temperature_31": {
+			"textures": "textures/ui/temperature_br/temperature_31"
+		},
 		"utilitycraft_netherite_aiot": {
 			"textures": "textures/items/tools/netherite_aiot"
 		},
