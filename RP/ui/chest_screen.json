@@ -31,7 +31,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:transmitter.name')",
-            "$screen_content": "battery.utility_panel",
+            "$screen_content": "transmitter.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -42,7 +42,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:receiver.name')",
-            "$screen_content": "battery.utility_panel",
+            "$screen_content": "receiver.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -64,7 +64,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:thermo_generator.name')",
-            "$screen_content": "magmator.utility_panel",
+            "$screen_content": "thermo_generator.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -130,7 +130,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:crusher.name')",
-            "$screen_content": "simple_machine.utility_panel",
+            "$screen_content": "crusher.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -141,7 +141,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:electro_press.name')",
-            "$screen_content": "simple_machine.utility_panel",
+            "$screen_content": "electro_press.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -152,7 +152,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:incinerator.name')",
-            "$screen_content": "simple_machine.utility_panel",
+            "$screen_content": "incinerator.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -185,7 +185,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:seed_synthesizer.name')",
-            "$screen_content": "autosieve.utility_panel",
+            "$screen_content": "seed_synthesizer.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -196,7 +196,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:block_breaker.name')",
-            "$screen_content": "bar_only.utility_panel",
+            "$screen_content": "block_breaker.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -207,7 +207,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:block_placer.name')",
-            "$screen_content": "one_slot.utility_panel",
+            "$screen_content": "block_placer.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -218,7 +218,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:induction_anvil.name')",
-            "$screen_content": "one_slot.utility_panel",
+            "$screen_content": "induction_anvil.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
@@ -240,7 +240,7 @@
         "value": [
           {
             "requires": "($temp_container_title = 'entity.utilitycraft:digitizer.name')",
-            "$screen_content": "assembler.utility_panel",
+            "$screen_content": "digitizer.utility_panel",
             "$screen_bg_content": "common.screen_background"
           }
         ]
