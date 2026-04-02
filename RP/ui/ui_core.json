@@ -1834,5 +1834,20 @@
         "anchor_from": "top_left",
         "anchor_to": "top_left",
         "layer": 0
+    },
+    "big_machine_screen": {
+        "type": "image",
+        "texture": "textures/ui/screen_thermo_bg",
+        "size": [
+            104,
+            52
+        ],
+        "offset": [
+            11,
+            14
+        ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "layer": 0
     }
 }

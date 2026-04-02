@@ -16,16 +16,10 @@
         "$item_collection_name": "container_items",
         "controls": [
             {
-                "chest_label@chest.chest_label": {
-                    "offset": [
-                        10,
-                        0
-                    ]
-                }
+                "machine_name@uc.machine_name": {}
             },
             {
-                "energy_bar@machineryCommon.vertical_single": {
-                    "$is_energy": true,
+                "energy_bar@uc.energy_bar": {
                     "offset": [
                         54,
                         0
@@ -33,24 +27,10 @@
                 }
             },
             {
-                "screen": {
-                    "type": "image",
-                    "texture": "textures/ui/screen_vertical_bg",
-                    "anchor_from": "top_left",
-                    "anchor_to": "top_left",
-                    "size": [
-                        52,
-                        52
-                    ],
-                    "offset": [
-                        11,
-                        14
-                    ],
-                    "layer": 0
-                }
+                "machine_screen@uc.machine_small_screen": {}
             },
             {
-                "item_label@machineryCommon.item_label": {
+                "machine_description@uc.text_label": {
                     "collection_index": 1,
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
@@ -62,21 +42,19 @@
                 }
             },
             {
-                "machinery@common_machines.machinery": {
+                "machinery@uc.progress_display": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        38,
-                        30
+                        37,
+                        23
                     ],
                     "collection_index": 1
                 }
             },
             {
-                "liquid_bar@machineryCommon.vertical_single": {
+                "liquid_bar@uc.fluid_bar": {
                     "$collection_index": 2,
-                    "$is_liquid": true,
-                    "$has_bg": false,
                     "offset": [
                         0,
                         0
