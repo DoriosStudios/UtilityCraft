@@ -16,16 +16,10 @@
         "$item_collection_name": "container_items",
         "controls": [
             {
-                "chest_label@chest.chest_label": {
-                    "offset": [
-                        10,
-                        0
-                    ]
-                }
+                "machine_name@uc.machine_name": {}
             },
             {
-                "energy_bar@machineryCommon.vertical_single": {
-                    "$is_energy": true,
+                "energy_bar@uc.energy_bar": {
                     "$has_bg": true,
                     "offset": [
                         -102,
@@ -34,7 +28,7 @@
                 }
             },
             {
-                "upgrades@machineryCommon.vertical_interactive": {
+                "upgrades@uc.slot_stack_vertical": {
                     "$has_bg": true,
                     "$collection_index_first": 2,
                     "$collection_index_second": 3,
@@ -46,24 +40,17 @@
                 }
             },
             {
-                "screen": {
-                    "type": "image",
-                    "texture": "textures/ui/screen_vertical_bg",
+                "machine_screen@uc.machine_small_screen": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "size": [
-                        52,
-                        52
-                    ],
                     "offset": [
                         9,
                         14
-                    ],
-                    "layer": 0
+                    ]
                 }
             },
             {
-                "item_label@machineryCommon.item_label": {
+                "machine_description@uc.text_label": {
                     "collection_index": 1,
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",

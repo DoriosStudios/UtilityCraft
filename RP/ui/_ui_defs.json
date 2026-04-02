@@ -1,5 +1,6 @@
 {
     "ui_defs": [
+        "ui/ui_core.json",
         "ui/legacy/common_machinery.json",
         "ui/legacy/machineryCommon.json",
         "ui/legacy/bar_only.json",

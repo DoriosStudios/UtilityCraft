@@ -275,23 +275,34 @@ export class Machine extends BasicMachine {
   /**
    * Displays the machine's progress using its configured energy cost.
    *
-   * This method retrieves the energy cost for the given progress index
-   * and delegates the rendering logic to {@link BasicMachine.displayProgress}.
+   * Supports both:
+   * - `machine.displayProgress({ ...options })`
+   * - internal base-class calls like `this.displayProgress(maxValue, { ...options })`
    *
-   * @param {Object} [options]
-   * @param {number} [options.slot=2] Inventory slot where the progress bar item will be placed.
-   * @param {number} [options.maxValue=800] Inventory slot to place the progress item.
-   * @param {string} [options.type="progress_right_bar"] Item type suffix used for the progress bar texture.
-   * @param {number} [options.index=0] Progress index (useful for multi-process machines).
-   * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
-   * @param {number} [options.scale=16] Maximum visual scale of the progress bar (e.g., 16 → 0–16).
+   * @param {number|Object} [maxValueOrOptions]
+   * @param {Object} [maybeOptions]
+   * @param {number} [maybeOptions.slot=2] Inventory slot where the progress bar item will be placed.
+   * @param {number} [maybeOptions.maxValue=800] Maximum progress value.
+   * @param {string} [maybeOptions.type="progress_right_bar"] Item type suffix used for the progress bar texture.
+   * @param {number} [maybeOptions.index=0] Progress index (useful for multi-process machines).
+   * @param {boolean} [maybeOptions.legacy=false] Whether to use the legacy non-padded frame naming.
+   * @param {number} [maybeOptions.scale=16] Maximum visual scale of the progress bar (e.g., 16 → 0–16).
    */
-  displayProgress(options) {
-    options ??= {};
-    const energyCost = options.maxValue ?? this.getEnergyCost(options.index);
-    if (!energyCost || energyCost <= 0) return;
+  displayProgress(maxValueOrOptions, maybeOptions) {
+    let maxValue;
+    let options;
 
-    super.displayProgress(energyCost, options);
+    if (typeof maxValueOrOptions === "number") {
+      maxValue = maxValueOrOptions;
+      options = maybeOptions ?? {};
+    } else {
+      options = maxValueOrOptions ?? {};
+      maxValue = options.maxValue ?? this.getEnergyCost(options.index);
+    }
+
+    if (!maxValue || maxValue <= 0) return;
+
+    super.displayProgress(maxValue, options);
   }
   //#endregion
 

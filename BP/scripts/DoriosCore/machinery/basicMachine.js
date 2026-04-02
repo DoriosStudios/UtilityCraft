@@ -116,15 +116,17 @@ export class BasicMachine {
    * @param {string} [options.type='progress_right_bar'] Item type suffix.
    * @param {number} [options.index=0] Progress index.
    * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
-   * @param {number} [options.scale=16] Maximum visual scale (e.g., 16 → 0–16).
+   * @param {number} [options.scale=22] Maximum visual scale (e.g., 16 → 0–16).
    */
-  displayProgress(maxValue = 800, { slot = 2, type, index = 0, scale = 16, legacy = false } = {}) {
+  displayProgress(maxValue = 800, { slot = 2, type, index = 0, scale, legacy = false } = {}) {
     if (!maxValue || maxValue <= 0) return;
 
     const inv = this.container;
     if (!inv) return;
 
     const progress = this.getProgress(index);
+
+    if (legacy) { scale ??= 16 } else { scale ??= 22 }
 
     const normalized = Math.max(0, Math.min(
       scale,
@@ -138,7 +140,7 @@ export class BasicMachine {
       return;
     }
 
-    type ??= "progress_right_bar";
+    type ??= "progress_right_big_bar";
     const frame = normalized.toString().padStart(2, "0");
     const itemId = `utilitycraft:${type}_${frame}`;
     inv.setItem(slot, new ItemStack(itemId, 1));
