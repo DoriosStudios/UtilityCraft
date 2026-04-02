@@ -89,7 +89,7 @@
 			"minecraft:damage_sensor": {
 				"triggers": {
 					"cause": "all",
-					"deals_damage": "no"
+					"deals_damage": false
 				}
 			},
 			"minecraft:health": {
@@ -129,8 +129,6 @@
 					"lit_deepslate_redstone_ore",
 					"netherrack",
 					"grass_block",
-					"utilitycraft:deepslate_titanium_ore",
-					"utilitycraft:deepslate_aetherium_ore",
 					"short_grass",
 					"short_dry_grass",
 					"tall_grass",
