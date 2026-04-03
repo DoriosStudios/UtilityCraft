@@ -133,7 +133,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         // Update machine visuals and state
         machine.on();
         machine.displayEnergy();
-        machine.displayProgress({ type: "progress_right_big_bar", scale: 22 });
+        machine.displayProgress();
         // Machine operating normally
         machine.showStatus('Running');
     },
