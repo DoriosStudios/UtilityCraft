@@ -18,7 +18,7 @@ DoriosAPI.register.blockComponent('assembler', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings);
+            const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
             // Visual filler slot (optional, same as autosieve)
@@ -135,7 +135,7 @@ DoriosAPI.register.blockComponent('assembler', {
 
         // --- 6) Visuals and status ---
         machine.on();
-        machine.displayProgress();
+        machine.displayProgress({ maxValue: settings.machine.energy_cost });
         showStatus(machine, speedFactor, 'Running');
     },
 
@@ -238,13 +238,12 @@ function showWarning(machine, speed, message, resetProgress = true) {
  */
 function showStatus(machine, speed, message) {
     machine.displayEnergy();
-
     machine.setLabel(`
 §r${COLORS.darkGreen}${message}!
 
 §r${COLORS.green}Speed x${speed}
 §r${COLORS.green}Efficiency ${((1 / machine.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(machine.settings.machine.energy_cost * machine.boosts.consumption)}
 
 §r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
     `);

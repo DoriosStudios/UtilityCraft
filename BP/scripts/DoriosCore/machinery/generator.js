@@ -14,7 +14,7 @@ export class Generator extends BasicMachine {
    */
   constructor(block, settings) {
     const baseRate = settings?.generator?.rate_speed_base ?? 0;
-    super(block, baseRate);
+    super(block, { rate: baseRate, ignoreTick: settings.ignoreTick });
     if (!this.valid) return;
     this.settings = settings;
   }
@@ -118,13 +118,11 @@ export class Generator extends BasicMachine {
         }
       }
       this.addNearbyMachines(entity);
-      system.runTimeout(() => {
-        if (callback) try {
+      system.run(() => {
+        if (callback) {
           callback(entity);
-        } catch {
-          system.runTimeout(() => callback(entity), 2)
         }
-      }, 2);
+      });
     })
 
     Utils.updateAdjacentNetwork(block, permutationToPlace)

@@ -620,7 +620,7 @@ DoriosAPI.register.blockComponent('autofisher', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnEntity(e, settings, (entity) => {
             entity.setItem(3, UI_PLACEHOLDER_ITEM, 1, ' ');
-            const machine = new Machine(e.block, settings);
+            const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
             ensureHiddenInputSlot(machine);

@@ -14,7 +14,8 @@ export class Machine extends BasicMachine {
    * @param {MachineSettings} settings Machine configuration.
    */
   constructor(block, settings) {
-    super(block, settings.machine.rate_speed_base ?? 0);
+    const baseRate = settings.machine.rate_speed_base ?? 0
+    super(block, { rate: baseRate, ignoreTick: settings.ignoreTick });
     if (!this.valid) return;
 
     this.settings = settings;
@@ -136,13 +137,11 @@ export class Machine extends BasicMachine {
           fluidManager.set(fluid.amount);
         }
       }
-      system.runTimeout(() => {
-        if (callback) try {
+      system.run(() => {
+        if (callback) {
           callback(entity);
-        } catch {
-          system.runTimeout(() => callback(entity), 2)
         }
-      }, 2);
+      });
     });
     Utils.updateAdjacentNetwork(block, permutationToPlace)
   }

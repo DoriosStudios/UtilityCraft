@@ -9,19 +9,22 @@ export class BasicMachine {
    * Represents a simple machine.
    *
    * @param {Block} block The block representing the machine.
-   * @param {Number} baseRate Energy rate per tick (designed for 20 TPS logic).
+   * @param {number} [options.rate=16] baseRate Energy rate per tick (designed for 20 TPS logic).
+   * @param {boolean} [options.ignoreTick=false] Whether to ignore the refresh speed of the world or not.
    */
-  constructor(block, rate) {
+  constructor(block, options) {
     this.valid = false;
-    if (!Utils.shouldProcess()) return;
+    if (!options.ignoreTick && !Utils.shouldProcess()) return;
     this.entity = Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
     this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
-    this.container = this.entity.getComponent("inventory").container;
-    this.baseRate = rate;
-    this.rate = rate * tickSpeed;
+    const inventory = this.entity.getComponent("inventory")
+    if (!inventory) return;
+    this.container = inventory.container;
+    this.baseRate = options.rate;
+    this.rate = options.rate * tickSpeed;
     this.valid = true;
   }
 

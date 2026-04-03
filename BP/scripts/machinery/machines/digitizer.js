@@ -22,8 +22,10 @@ DoriosAPI.register.blockComponent('digitizer', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnEntity(e, settings, () => {
-            const machine = new Machine(e.block, settings, true);
+            const machine = new Machine(e.block, { ...settings, ignoreTick: true }, true);
             machine.setEnergyCost(settings.machine.energy_cost);
+            machine.entity.runCommand(`say ${machine.getEnergyCost()}`)
+
             machine.displayProgress();
             machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, "");
             machine.entity.setDynamicProperty('crafting', false);
@@ -203,7 +205,8 @@ DoriosAPI.register.blockComponent('digitizer', {
 
         // Estado/visualización (mismo patrón del autosieve)
         machine.on();
-        machine.displayProgress();
+        machine.displayProgress({ maxValue: settings.machine.energy_cost });
+        machine.entity.runCommand(`say ${machine.getEnergyCost()}`)
         machine.showStatus('Running');
     },
 
