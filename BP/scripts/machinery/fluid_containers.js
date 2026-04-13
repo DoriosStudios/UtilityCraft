@@ -40,7 +40,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
+                    `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
                 );
                 return;
             }
@@ -86,7 +86,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
             const percent = ((amount / cap) * 100).toFixed(2);
 
             player.onScreenDisplay.setActionBar(
-                `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
+                `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
             );
 
             if (!player.isInCreative()) {
@@ -136,7 +136,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
         // Fluid lore
         if (fluid.type !== 'empty' && fluid.get() > 0) {
-            const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
+            const liquidName = DoriosAPI.utils.formatIdToText(fluid.type);
             lore.push(
                 `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`
             );

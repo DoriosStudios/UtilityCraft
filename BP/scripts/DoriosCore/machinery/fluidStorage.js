@@ -120,10 +120,26 @@ export class FluidStorage {
    * @returns {number}
    */
   static getMaxLiquids(entity) {
-    if (!maxLiquidsData || !entity?.scoreboardIdentity) return 1;
+    if (!entity) return 1;
 
-    const score = maxLiquidsData.getScore(entity.scoreboardIdentity);
-    return score > 0 ? score : 1;
+    let score = 0;
+    if (maxLiquidsData && entity.scoreboardIdentity) {
+      score = maxLiquidsData.getScore(entity.scoreboardIdentity) || 0;
+      if (score > 0) return score;
+    }
+
+    let taggedSlots = 0;
+    for (const tag of entity.getTags()) {
+      const match = tag.match(/^fluid(\d+)Type:/);
+      if (!match) continue;
+
+      const index = Number(match[1]);
+      if (!Number.isNaN(index)) {
+        taggedSlots = Math.max(taggedSlots, index + 1);
+      }
+    }
+
+    return Math.max(1, score, taggedSlots);
   }
 
   /**
@@ -350,13 +366,21 @@ export class FluidStorage {
    */
   static findType(entity, type) {
     const max = FluidStorage.getMaxLiquids(entity);
+    let emptyTank = null;
+
     for (let i = 0; i < max; i++) {
-      const prefix = `fluid${i}Type:${type}`;
-      if (entity.hasTag(`${prefix}`) || entity.hasTag(`fluid${i}Type:empty`)) {
-        return new FluidStorage(entity, i);
+      FluidStorage.initializeObjectives(i);
+
+      const tank = new FluidStorage(entity, i);
+      const tankType = tank.getType();
+
+      if (tankType === type && tank.getFreeSpace() > 0) return tank;
+      if (!emptyTank && tankType === "empty" && tank.getFreeSpace() > 0) {
+        emptyTank = tank;
       }
     }
-    return null;
+
+    return emptyTank;
   }
 
   /**
@@ -386,7 +410,7 @@ export class FluidStorage {
     const percent = ((amount / cap) * 100).toFixed(2);
 
     player.onScreenDisplay.setActionBar(
-      `§b${DoriosAPI.utils.capitalizeFirst(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`,
+      `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`,
     );
 
     if (!player.isInCreative()) {
