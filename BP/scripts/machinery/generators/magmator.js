@@ -1,6 +1,38 @@
 import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/index.js"
+import { FunctionalSlot, SelectiveSlotContainer, SlotWatcherManager } from "DoriosCore/containers/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
+const MAGMATOR_BUTTON_SLOT = 3
+const magmatorButtonWatcherManager = new SlotWatcherManager({ intervalTicks: 1 })
+
+class MagmatorChatButtonSlot extends FunctionalSlot {
+    onItemChange(container, event) {
+        const buttonItem = event.beforeItem?.clone?.() ?? event.beforeItem ?? event.item?.clone?.() ?? event.item
+        if (!buttonItem) return
+
+        this.restoreButtonItem(container, event, buttonItem)
+        event.player?.sendMessage(`Magmator button activated in slot ${event.slotIndex}.`)
+    }
+}
+
+function registerMagmatorButtonWatcher(entity, player) {
+    const container = entity.getComponent("minecraft:inventory")?.container
+    if (!container) return
+
+    const watcher = new SelectiveSlotContainer({
+        id: `magmator-button:${entity.id}`,
+        container,
+        player,
+        inGameEntity: entity,
+        observedSlots: [MAGMATOR_BUTTON_SLOT],
+        options: {
+            machine: "magmator",
+        },
+    })
+
+    watcher.registerSlot(MAGMATOR_BUTTON_SLOT, new MagmatorChatButtonSlot())
+    magmatorButtonWatcherManager.register(watcher)
+}
 
 DoriosAPI.register.blockComponent('magmator', {
     /**
@@ -12,6 +44,8 @@ DoriosAPI.register.blockComponent('magmator', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
             entity.setItem(1, 'utilitycraft:progress_right_big_bar_00', 1, " ")
+            entity.setItem(MAGMATOR_BUTTON_SLOT, 'utilitycraft:container_filler', 1, "Testing")
+            registerMagmatorButtonWatcher(entity, e.player)
         });
     },
 
