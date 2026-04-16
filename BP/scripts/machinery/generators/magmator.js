@@ -2,9 +2,18 @@ import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/ind
 import { ButtonManager } from "DoriosCore/buttons/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
+
+const MAGMATOR_MACHINE_ID = "magmator"
 const MAGMATOR_BUTTON_SLOT = 3
 
-DoriosAPI.register.blockComponent('magmator', {
+ButtonManager.registerMachineButton(MAGMATOR_MACHINE_ID, MAGMATOR_BUTTON_SLOT, (event) => {
+    const { entity, block, container, slot } = event
+
+    const state = entity.getDynamicProperty("active") ?? true
+    entity.setDynamicProperty("active", !state)
+})
+
+DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -14,8 +23,6 @@ DoriosAPI.register.blockComponent('magmator', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
             entity.setItem(1, 'utilitycraft:progress_right_big_bar_00', 1, " ")
-            entity.setItem(MAGMATOR_BUTTON_SLOT, 'utilitycraft:ui_filler', 1, "Testing")
-            ButtonManager.registerListener(entity, MAGMATOR_BUTTON_SLOT, () => { DoriosAPI.utils.msg("hola") })
         });
     },
 
@@ -26,14 +33,32 @@ DoriosAPI.register.blockComponent('magmator', {
      * @param {{ params: GeneratorSettings }} ctx
      */
     onTick(e, { params: settings }) {
-        const { block } = e;
-        const generator = new Generator(block, settings);
+        const generator = new Generator(e.block, settings);
         if (!generator.valid) return
         const { entity, energy, rate } = generator
-        generator.energy.transferToNetwork(rate * 4)
+        ButtonManager.ensureWatching(entity, MAGMATOR_MACHINE_ID)
+        energy.transferToNetwork(rate * 4)
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
+
+        const state = entity.getDynamicProperty("active") ?? true
+        if (!state) {
+            generator.displayEnergy();
+            fluid.display(2)
+            generator.off();
+            generator.setLabel(`
+§r§eOff
+
+§r§eFuel Information
+ §eTime: §f---
+ §eValue: §f---
+
+§r§bEnergy at ${Math.floor(energy.getPercent())}%%
+§r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
+                    `)
+            return
+        }
 
         if (fluid.type == 'empty') {
             generator.displayEnergy();

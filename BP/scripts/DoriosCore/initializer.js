@@ -1,8 +1,9 @@
-import { system, world } from "@minecraft/server";
+import { ItemStack, system, world } from "@minecraft/server";
 import { scriptEventHandler } from "./scriptEvents.js";
 import { EnergyStorage } from "./machinery/energyStorage.js"
 import { FluidStorage } from "./machinery/fluidStorage.js"
 import * as Constants from "./constants";
+import { loadButtonItemStack } from "./buttons/index.js";
 
 globalThis.worldLoaded = false;
 globalThis.tickCount = 0;
@@ -43,6 +44,8 @@ world.afterEvents.worldLoad.subscribe(() => {
         ?? Constants.DEFAULT_TICK_SPEED;
 
     globalThis.tickSpeed = configuredTickSpeed;
+
+    loadButtonItemStack("utilitycraft:ui_filler", ItemStack);
 });
 
 // --- Al primer spawn del jugador ---
