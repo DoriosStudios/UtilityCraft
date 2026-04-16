@@ -44,7 +44,7 @@ DoriosAPI.register.blockComponent('magmator', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
             entity.setItem(1, 'utilitycraft:progress_right_big_bar_00', 1, " ")
-            entity.setItem(MAGMATOR_BUTTON_SLOT, 'utilitycraft:container_filler', 1, "Testing")
+            entity.setItem(MAGMATOR_BUTTON_SLOT, 'utilitycraft:ui_filler', 1, "Testing")
             registerMagmatorButtonWatcher(entity, e.player)
         });
     },
