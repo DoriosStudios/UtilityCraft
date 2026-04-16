@@ -13,14 +13,7 @@ export class SelectiveSlotContainer {
    *   container: import("@minecraft/server").Container,
    *   player?: import("@minecraft/server").Player,
    *   inGameEntity?: import("@minecraft/server").Entity | import("@minecraft/server").Block,
-   *   observedSlots?: number[],
-   *   options?: object,
-   *   compareOptions?: {
-   *     includeAmount?: boolean,
-   *     includeNameTag?: boolean,
-   *     includeLore?: boolean,
-   *     includeTags?: boolean
-   *   }
+   *   observedSlots?: number[]
    * }} settings
    */
   constructor(settings) {
@@ -28,61 +21,48 @@ export class SelectiveSlotContainer {
     this.container = settings?.container;
     this.player = settings?.player;
     this.inGameEntity = settings?.inGameEntity;
-    this.options = settings?.options ?? {};
-    this.compareOptions = settings?.compareOptions ?? {};
-    this.functionalSlots = new Map();
+    this.slotHandlers = new Map();
     this.slotCache = new Map();
 
     const initialSlots = normalizeObservedSlots(settings?.observedSlots ?? []);
     for (const slotIndex of initialSlots) {
-      this.functionalSlots.set(slotIndex, new FunctionalSlot());
-    }
-
-    this.initialize();
-  }
-
-  /**
-   * Seeds cache only for observed slots.
-   */
-  initialize() {
-    for (const [slotIndex, functionalSlot] of this.functionalSlots) {
+      this.slotHandlers.set(slotIndex, new FunctionalSlot());
       this.slotCache.set(slotIndex, cloneItem(readSlotItem(this.container, slotIndex)));
-      functionalSlot.onInitialize(this.container, slotIndex, this.inGameEntity);
     }
   }
 
   /**
-   * Registers or replaces a single functional slot.
+   * Registers or replaces a single observed slot callback.
    *
    * @param {number} slotIndex
-   * @param {FunctionalSlot} functionalSlot
+   * @param {FunctionalSlot | ((event: object) => void)} [handler]
    * @returns {this}
    */
-  registerSlot(slotIndex, functionalSlot = new FunctionalSlot()) {
+  registerSlot(slotIndex, handler = new FunctionalSlot()) {
     if (!Number.isInteger(slotIndex) || slotIndex < 0) return this;
 
-    this.functionalSlots.set(slotIndex, functionalSlot);
+    const slotHandler = handler instanceof FunctionalSlot ? handler : new FunctionalSlot(handler);
+    this.slotHandlers.set(slotIndex, slotHandler);
     this.slotCache.set(slotIndex, cloneItem(readSlotItem(this.container, slotIndex)));
-    functionalSlot.onInitialize(this.container, slotIndex, this.inGameEntity);
     return this;
   }
 
   /**
-   * Registers many functional slots at once.
+   * Registers many observed slot callbacks at once.
    *
-   * @param {Record<number, FunctionalSlot> | Map<number, FunctionalSlot>} registry
+   * @param {Record<number, FunctionalSlot | ((event: object) => void)> | Map<number, FunctionalSlot | ((event: object) => void)>} registry
    * @returns {this}
    */
   registerSlots(registry) {
     if (registry instanceof Map) {
-      for (const [slotIndex, functionalSlot] of registry) {
-        this.registerSlot(slotIndex, functionalSlot);
+      for (const [slotIndex, handler] of registry) {
+        this.registerSlot(slotIndex, handler);
       }
       return this;
     }
 
-    for (const [slotIndex, functionalSlot] of Object.entries(registry ?? {})) {
-      this.registerSlot(Number(slotIndex), functionalSlot);
+    for (const [slotIndex, handler] of Object.entries(registry ?? {})) {
+      this.registerSlot(Number(slotIndex), handler);
     }
 
     return this;
@@ -95,7 +75,7 @@ export class SelectiveSlotContainer {
    * @returns {this}
    */
   unregisterSlot(slotIndex) {
-    this.functionalSlots.delete(slotIndex);
+    this.slotHandlers.delete(slotIndex);
     this.slotCache.delete(slotIndex);
     return this;
   }
@@ -106,7 +86,7 @@ export class SelectiveSlotContainer {
    * @returns {number[]}
    */
   getObservedSlots() {
-    return [...this.functionalSlots.keys()].sort((a, b) => a - b);
+    return [...this.slotHandlers.keys()].sort((a, b) => a - b);
   }
 
   /**
@@ -119,23 +99,14 @@ export class SelectiveSlotContainer {
 
     let changes = 0;
 
-    for (const [slotIndex, functionalSlot] of this.functionalSlots) {
+    for (const [slotIndex, slotHandler] of this.slotHandlers) {
       const item = cloneItem(readSlotItem(this.container, slotIndex));
       const beforeItem = cloneItem(this.slotCache.get(slotIndex));
 
-      if (!hasItemChanged(beforeItem, item, this.compareOptions)) continue;
+      if (!hasItemChanged(beforeItem, item)) continue;
 
       const event = this.createChangeEvent(slotIndex, item, beforeItem);
-
-      functionalSlot.onItemChange(this.container, event);
-
-      if (beforeItem && !item) {
-        functionalSlot.onItemPickup(this.container, event);
-      }
-
-      if (item) {
-        functionalSlot.onAllowedItem(this.container, event);
-      }
+      slotHandler.handleChange(event);
 
       this.slotCache.set(slotIndex, cloneItem(readSlotItem(this.container, slotIndex)));
       changes++;
@@ -159,7 +130,7 @@ export class SelectiveSlotContainer {
       beforeItem,
       container: this.container,
       inGameEntity: this.inGameEntity,
-      options: this.options,
+      watcher: this,
     };
   }
 }

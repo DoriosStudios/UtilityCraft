@@ -54,39 +54,19 @@ export function cloneItem(item) {
 /**
  * Builds a comparable signature for an item.
  *
- * By default it compares enough data to detect:
- * - empty -> item
- * - item -> empty
- * - item A -> item B
- * - same item with relevant metadata changes
- *
  * @param {import("@minecraft/server").ItemStack | undefined} item
- * @param {{
- *   includeAmount?: boolean,
- *   includeNameTag?: boolean,
- *   includeLore?: boolean,
- *   includeTags?: boolean
- * }} [options]
  * @returns {string}
  */
-export function createItemSignature(item, options = {}) {
+export function createItemSignature(item) {
   if (!item) return "empty";
-
-  const {
-    includeAmount = true,
-    includeNameTag = true,
-    includeLore = true,
-    includeTags = true,
-  } = options;
 
   const payload = {
     typeId: item.typeId,
+    amount: item.amount,
+    nameTag: item.nameTag ?? "",
+    lore: safeGetLore(item),
+    tags: safeGetTags(item),
   };
-
-  if (includeAmount) payload.amount = item.amount;
-  if (includeNameTag) payload.nameTag = item.nameTag ?? "";
-  if (includeLore) payload.lore = safeGetLore(item);
-  if (includeTags) payload.tags = safeGetTags(item);
 
   return JSON.stringify(payload);
 }
@@ -94,11 +74,10 @@ export function createItemSignature(item, options = {}) {
 /**
  * @param {import("@minecraft/server").ItemStack | undefined} beforeItem
  * @param {import("@minecraft/server").ItemStack | undefined} item
- * @param {object} [options]
  * @returns {boolean}
  */
-export function hasItemChanged(beforeItem, item, options) {
-  return createItemSignature(beforeItem, options) !== createItemSignature(item, options);
+export function hasItemChanged(beforeItem, item) {
+  return createItemSignature(beforeItem) !== createItemSignature(item);
 }
 
 /**
