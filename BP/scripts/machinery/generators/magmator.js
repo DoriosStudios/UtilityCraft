@@ -1,15 +1,8 @@
 import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/index.js"
-import { ButtonManager } from "DoriosCore/buttons/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
 
 const MAGMATOR_MACHINE_ID = "magmator"
-const MAGMATOR_BUTTON_SLOT = 3
-
-ButtonManager.registerMachineButton(MAGMATOR_MACHINE_ID, MAGMATOR_BUTTON_SLOT, ({ entity }) => {
-    const state = entity.getDynamicProperty("active") ?? true
-    entity.setDynamicProperty("active", !state)
-})
 
 DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
     /**
@@ -35,17 +28,10 @@ DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
         if (!generator.valid) return
 
         const { entity, energy, rate } = generator
-        ButtonManager.ensureWatching(entity, MAGMATOR_MACHINE_ID)
         energy.transferToNetwork(rate * 4)
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
-
-        const state = entity.getDynamicProperty("active") ?? true
-        if (!state) {
-            updateMagmatorState(generator, fluid, "Off")
-            return
-        }
 
         if (fluid.type == 'empty') {
             updateMagmatorState(generator, fluid, "No Fuel")
@@ -119,4 +105,3 @@ function updateMagmatorState(generator, fluid, status, options = {}) {
 §r§cRate ${EnergyStorage.formatEnergyToText(generator.baseRate)}/t
 `)
 }
-

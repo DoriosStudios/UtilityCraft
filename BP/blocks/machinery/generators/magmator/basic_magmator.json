@@ -27,7 +27,7 @@
 				"entity": {
 					"name": "magmator",
 					"type": "fluid_generator",
-					"inventory_size": 4
+					"inventory_size": 3
 				},
 				"generator": {
 					"energy_cap": 80000,

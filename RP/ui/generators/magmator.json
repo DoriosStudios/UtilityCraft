@@ -60,17 +60,6 @@
                         0
                     ]
                 }
-            },
-            {
-                "start_button@uc.machine_button": {
-                    "$index": 3,
-                    "anchor_from": "top_left",
-                    "anchor_to": "top_left",
-                    "offset": [
-                        -40,
-                        0
-                    ]
-                }
             }
         ]
     },
