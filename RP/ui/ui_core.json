@@ -189,17 +189,21 @@
             "100%c",
             "100%c"
         ],
+        "$button_size|default": [
+            18,
+            18
+        ],
         "$button_text|default": " ",
         "$text_scale|default": 1,
+        "$default_texture|default": "textures/ui/buttons/power_button",
+        "$hover_texture|default": "textures/ui/buttons/power_button_selected",
+        "$pressed_texture|default": "textures/ui/buttons/power_button_pressed",
         "controls": [
             {
                 "button": {
                     "type": "button",
                     "collection_index": "$index",
-                    "size": [
-                        18,
-                        18
-                    ],
+                    "size": "$button_size",
                     "default_control": "default",
                     "hover_control": "hover",
                     "pressed_control": "pressed",
@@ -227,19 +231,19 @@
                         {
                             "default": {
                                 "type": "image",
-                                "texture": "textures/ui/nether"
+                                "texture": "$default_texture"
                             }
                         },
                         {
                             "hover": {
                                 "type": "image",
-                                "texture": "textures/ui/overworld"
+                                "texture": "$hover_texture"
                             }
                         },
                         {
                             "pressed": {
                                 "type": "image",
-                                "texture": "textures/ui/the_end"
+                                "texture": "$pressed_texture"
                             }
                         },
                         {
@@ -264,16 +268,20 @@
             "100%c",
             "100%c"
         ],
+        "$button_size|default": [
+            18,
+            18
+        ],
         "$text_scale|default": 1,
+        "$default_texture|default": "textures/ui/buttons/power_button",
+        "$hover_texture|default": "textures/ui/buttons/power_button_selected",
+        "$pressed_texture|default": "textures/ui/buttons/power_button_pressed",
         "controls": [
             {
                 "button": {
                     "type": "button",
                     "collection_index": "$index",
-                    "size": [
-                        18,
-                        18
-                    ],
+                    "size": "$button_size",
                     "default_control": "default",
                     "hover_control": "hover",
                     "pressed_control": "pressed",
@@ -301,19 +309,19 @@
                         {
                             "default": {
                                 "type": "image",
-                                "texture": "textures/ui/nether"
+                                "texture": "$default_texture"
                             }
                         },
                         {
                             "hover": {
                                 "type": "image",
-                                "texture": "textures/ui/overworld"
+                                "texture": "$hover_texture"
                             }
                         },
                         {
                             "pressed": {
                                 "type": "image",
-                                "texture": "textures/ui/the_end"
+                                "texture": "$pressed_texture"
                             }
                         },
                         {

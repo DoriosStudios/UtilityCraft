@@ -64,8 +64,6 @@
             {
                 "start_button@uc.machine_button": {
                     "$index": 3,
-                    "$button_text": "State",
-                    "$text_scale": 0.7,
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [
