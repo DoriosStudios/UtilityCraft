@@ -48,6 +48,19 @@ function safeGetMachineEntity(block) {
     }
 }
 
+function isUtilityCraftTypeId(typeId) {
+    return typeof typeId === "string"
+        && typeId.trim().toLowerCase().startsWith("utilitycraft:");
+}
+
+function resolveMachineEntity(context) {
+    if (context?.linkedEntity) {
+        return context.linkedEntity;
+    }
+
+    return safeGetMachineEntity(context?.block);
+}
+
 function formatEnergy(value) {
     try {
         if (typeof EnergyStorage?.formatEnergyToText === "function") {
@@ -153,11 +166,19 @@ function getEnergyLine(context) {
         return undefined;
     }
 
-    if (!context.block?.hasTag?.("dorios:energy")) {
+    const blockTypeId = String(context?.block?.typeId || "");
+    if (!isUtilityCraftTypeId(blockTypeId)) {
         return undefined;
     }
 
-    const machineEntity = safeGetMachineEntity(context.block);
+    const hasEnergyTag = context.block?.hasTag?.("dorios:energy") === true;
+    const hasUtilityCraftBlock = isUtilityCraftTypeId(blockTypeId);
+
+    if (!hasEnergyTag && !hasUtilityCraftBlock) {
+        return undefined;
+    }
+
+    const machineEntity = resolveMachineEntity(context);
     if (!machineEntity) {
         return undefined;
     }
@@ -340,31 +361,40 @@ function getVariantLine(context, states) {
 // ---------------------------------------------------------------------------
 
 function collectUtilityCraftBlockFields(context) {
-    if (!context?.playerSettings?.showCustomFields || !context.block) {
+    if (!context?.playerSettings?.showCustomFields || !context?.block) {
         return undefined;
     }
 
-    const states = safeGetBlockStates(context.block);
-    const machineEntity = safeGetMachineEntity(context.block);
+    if (!isUtilityCraftTypeId(context.block.typeId)) {
+        return undefined;
+    }
+
+    const resolvedContext = {
+        ...context,
+        machineEntity: resolveMachineEntity(context)
+    };
+
+    const states = safeGetBlockStates(resolvedContext.block);
+    const machineEntity = resolvedContext.machineEntity;
 
     const lines = [];
 
-    const energyLine = getEnergyLine(context);
+    const energyLine = getEnergyLine(resolvedContext);
     if (energyLine) lines.push(energyLine);
 
-    const fluidLines = getFluidLines(context, machineEntity);
+    const fluidLines = getFluidLines(resolvedContext, machineEntity);
     for (const fl of fluidLines) lines.push(fl);
 
-    const rotationLine = getRotationLine(context, states);
+    const rotationLine = getRotationLine(resolvedContext, states);
     if (rotationLine) lines.push(rotationLine);
 
-    const progressLine = getMachineProgressLine(context, machineEntity);
+    const progressLine = getMachineProgressLine(resolvedContext, machineEntity);
     if (progressLine) lines.push(progressLine);
 
-    const cobbleLine = getCobblestoneCountLine(context, states);
+    const cobbleLine = getCobblestoneCountLine(resolvedContext, states);
     if (cobbleLine) lines.push(cobbleLine);
 
-    const variantLine = getVariantLine(context, states);
+    const variantLine = getVariantLine(resolvedContext, states);
     if (variantLine) lines.push(variantLine);
 
     return lines.length ? lines : undefined;
