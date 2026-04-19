@@ -111,26 +111,29 @@ export class EnergyStorage {
    * formatEnergyToText(1048576); // "1.05 MDE"
    */
   static formatEnergyToText(value) {
-    let unit = "DE";
+    const safeValue = Math.max(0, Number(value) || 0);
 
-    if (value >= 1e15) {
-      unit = "PDE";
-      value /= 1e15;
-    } else if (value >= 1e12) {
-      unit = "TDE";
-      value /= 1e12;
-    } else if (value >= 1e9) {
-      unit = "GDE";
-      value /= 1e9;
-    } else if (value >= 1e6) {
-      unit = "MDE";
-      value /= 1e6;
-    } else if (value >= 1e3) {
-      unit = "kDE";
-      value /= 1e3;
+    if (safeValue >= 1e15) {
+      return `${(safeValue / 1e15).toFixed(2)} PDE`;
     }
 
-    return `${parseFloat(value.toFixed(2))} ${unit}`;
+    if (safeValue >= 1e12) {
+      return `${(safeValue / 1e12).toFixed(2)} TDE`;
+    }
+
+    if (safeValue >= 1e9) {
+      return `${(safeValue / 1e9).toFixed(2)} GDE`;
+    }
+
+    if (safeValue >= 1e6) {
+      return `${(safeValue / 1e6).toFixed(2)} MDE`;
+    }
+
+    if (safeValue >= 1e3) {
+      return `${(safeValue / 1e3).toFixed(1)} kDE`;
+    }
+
+    return `${Math.floor(safeValue)} DE`;
   }
 
   /**
@@ -148,38 +151,24 @@ export class EnergyStorage {
     // Remove Minecraft formatting codes
     const cleanedInput = input.replace(/§[0-9a-frklmnor]/gi, "");
 
-    // Find all matches like "12.5 kDE"
-    const matches = cleanedInput.match(/([\d.]+)\s*(kDE|MDE|GDE|TDE|DE)/g);
+    const matches = [...cleanedInput.matchAll(/([\d.]+)\s*(PDE|TDE|GDE|MDE|KDE|DE)/gi)];
 
-    if (!matches || index >= matches.length) {
+    if (!matches.length || index < 0 || index >= matches.length) {
       throw new Error("Invalid input or index: couldn't parse energy values.");
     }
 
-    const [valueStr, unit] = matches[index].split(" ");
-    let multiplier = 1;
+    const [, valueStr, rawUnit] = matches[index];
+    const unit = String(rawUnit || "DE").toUpperCase();
+    const multipliers = {
+      DE: 1,
+      KDE: 1e3,
+      MDE: 1e6,
+      GDE: 1e9,
+      TDE: 1e12,
+      PDE: 1e15,
+    };
 
-    switch (unit) {
-      case "kDE":
-        multiplier = 1e3;
-        break;
-      case "MDE":
-        multiplier = 1e6;
-        break;
-      case "GDE":
-        multiplier = 1e9;
-        break;
-      case "TDE":
-        multiplier = 1e12;
-        break;
-      case "PDE":
-        multiplier = 1e15;
-        break;
-      case "DE":
-        multiplier = 1;
-        break;
-    }
-
-    return parseFloat(valueStr) * multiplier;
+    return parseFloat(valueStr) * (multipliers[unit] ?? 1);
   }
   //#endregion
 

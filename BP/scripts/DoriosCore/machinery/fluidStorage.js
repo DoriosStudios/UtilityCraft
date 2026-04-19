@@ -232,15 +232,33 @@ export class FluidStorage {
    * @returns {string} A formatted string with unit suffix (mB, kB, MB).
    */
   static formatFluid(value) {
-    let unit = "mB";
-    if (value >= 1e7) {
-      unit = "MB";
-      value /= 1e6;
-    } else if (value >= 1e4) {
-      unit = "kB";
-      value /= 1e3;
+    const safeValue = Math.max(0, Number(value) || 0);
+
+    if (safeValue >= 1e18) {
+      return `${(safeValue / 1e18).toFixed(2)} EB`;
     }
-    return `${value.toFixed(1)} ${unit}`;
+
+    if (safeValue >= 1e15) {
+      return `${(safeValue / 1e15).toFixed(2)} PB`;
+    }
+
+    if (safeValue >= 1e12) {
+      return `${(safeValue / 1e12).toFixed(2)} TB`;
+    }
+
+    if (safeValue >= 1e9) {
+      return `${(safeValue / 1e9).toFixed(2)} MB`;
+    }
+
+    if (safeValue >= 1e6) {
+      return `${(safeValue / 1e6).toFixed(2)} KB`;
+    }
+
+    if (safeValue >= 1e3) {
+      return `${(safeValue / 1e3).toFixed(1)} B`;
+    }
+
+    return `${Math.floor(safeValue)} mB`;
   }
 
   /**
@@ -254,8 +272,7 @@ export class FluidStorage {
   static getFluidFromText(input) {
     const cleaned = input.replace(/§./g, "").trim();
 
-    // Match without "Stored"
-    const match = cleaned.match(/(\w+):\s*([\d.]+)\s*(mB|kB|MB|B)/);
+    const match = cleaned.match(/([^:]+):\s*([\d.]+)\s*(mB|B|kB|MB|GB|TB|PB|EB)/i);
     if (!match) return { type: "empty", amount: 0 };
 
     const [, rawType, rawValue, unit] = match;
@@ -263,12 +280,24 @@ export class FluidStorage {
     const multipliers = {
       mB: 1,
       B: 1000,
-      kB: 1000,
-      MB: 1_000_000,
+      kB: 1_000_000,
+      MB: 1_000_000_000,
+      GB: 1_000_000_000_000,
+      TB: 1_000_000_000_000_000,
+      PB: 1_000_000_000_000_000_000,
+      EB: 1_000_000_000_000_000_000_000,
     };
 
-    const amount = parseFloat(rawValue) * (multipliers[unit] ?? 1);
-    const type = rawType.toLowerCase();
+    let normalizedUnit = unit;
+    if (/^mb$/i.test(unit)) {
+      normalizedUnit = "mB";
+    } else if (/^kb$/i.test(unit)) {
+      normalizedUnit = "kB";
+    } else {
+      normalizedUnit = unit.toUpperCase();
+    }
+    const amount = parseFloat(rawValue) * (multipliers[normalizedUnit] ?? 1);
+    const type = rawType.trim().toLowerCase().replace(/\s+/g, "_");
 
     return { type, amount };
   }

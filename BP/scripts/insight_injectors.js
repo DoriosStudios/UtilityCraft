@@ -7,9 +7,9 @@ const MAX_REGISTRATION_ATTEMPTS = 180;
 const INSIGHT_PROVIDER_NAME = "UtilityCraft";
 const INSIGHT_CUSTOM_COMPONENT_KEYS = Object.freeze([
     "customEnergyInfo",
+    "customFluidInfo",
     "customRotationInfo",
     "customMachineProgress",
-    "customonInfo",
     "customCobblestoneCount",
     "customVariantPreview"
 ]);
@@ -78,6 +78,23 @@ function formatFluid(value) {
 function capitalize(str) {
     if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function resolveInsightComponentKeys(api, preferredKeys) {
+    const keys = Array.isArray(preferredKeys)
+        ? preferredKeys.filter((key) => typeof key === "string" && key.trim().length > 0)
+        : [];
+
+    if (!api || typeof api.getSupportedComponentKeys !== "function") {
+        return keys;
+    }
+
+    try {
+        const supportedKeys = new Set(api.getSupportedComponentKeys());
+        return keys.filter((key) => supportedKeys.has(key));
+    } catch {
+        return keys;
+    }
 }
 
 function getObjectiveScoreFromCandidates(scoreboardIdentity, objectiveIds) {
@@ -165,7 +182,7 @@ function getEnergyLine(context) {
             return `Energy: ${formatEnergy(scoreboardEnergy.stored)} / ${formatEnergy(scoreboardEnergy.cap)}${formatPercent(scoreboardEnergy.stored, scoreboardEnergy.cap)}`;
         }
 
-        return `Energy: ${formatEnergy(scoreboardEnergyStorage.stored)}`;
+        return `Energy: ${formatEnergy(scoreboardEnergy.stored)}`;
     }
 }
 
@@ -367,9 +384,11 @@ function tryRegisterInjectors() {
         return false;
     }
 
+    const componentKeys = resolveInsightComponentKeys(api, INSIGHT_CUSTOM_COMPONENT_KEYS);
+
     api.registerBlockFieldInjector(collectUtilityCraftBlockFields, {
         provider: INSIGHT_PROVIDER_NAME,
-        components: INSIGHT_CUSTOM_COMPONENT_KEYS
+        components: componentKeys
     });
 
     // State merge: combine E0 (units) + E1 (tens) into a single "Cobblestone" row
