@@ -51,6 +51,67 @@ export function tryGetEntityFromBlock(block) {
   return block.dimension.getEntitiesAtBlockLocation(block.location)[0];
 }
 
+/**
+ * Attempts to resolve the block currently represented by a machine entity.
+ *
+ * Machine helper entities are spawned with a small offset, so the lookup uses
+ * floored coordinates to reach the owning block position.
+ *
+ * @param {import("@minecraft/server").Entity} entity The helper entity to inspect.
+ * @returns {import("@minecraft/server").Block | undefined} The block under the entity, if available.
+ */
+export function tryGetBlockFromEntity(entity) {
+  if (!entity?.dimension || !entity.location) {
+    return undefined;
+  }
+
+  return entity.dimension.getBlock({
+    x: Math.floor(entity.location.x),
+    y: Math.floor(entity.location.y),
+    z: Math.floor(entity.location.z),
+  });
+}
+
+/**
+ * Returns the block type id represented by a machine helper entity.
+ *
+ * Preference order:
+ * 1. Current block under the entity (keeps renamed/swapped machines accurate)
+ * 2. Persisted dynamic property written at spawn time
+ *
+ * @param {import("@minecraft/server").Entity} entity The helper entity to inspect.
+ * @returns {string | undefined} Represented block type id.
+ */
+export function getRepresentedBlockId(entity) {
+  const block = tryGetBlockFromEntity(entity);
+  if (typeof block?.typeId === "string" && block.typeId.length > 0 && block.typeId !== "minecraft:air") {
+    return block.typeId;
+  }
+
+  try {
+    const storedBlockId = entity?.getDynamicProperty?.(Constants.MACHINE_BLOCK_ID_PROPERTY_ID);
+    if (typeof storedBlockId === "string" && storedBlockId.trim().length > 0) {
+      return storedBlockId.trim();
+    }
+  } catch {
+    // Ignore dynamic property access failures.
+  }
+
+  return undefined;
+}
+
+function persistRepresentedBlockId(entity, blockId) {
+  if (!entity || typeof blockId !== "string" || blockId.length === 0) {
+    return;
+  }
+
+  try {
+    entity.setDynamicProperty(Constants.MACHINE_BLOCK_ID_PROPERTY_ID, blockId);
+  } catch {
+    // Ignore environments where the property is not registered yet.
+  }
+}
+
 const configExample = {
   entity: {
     identifier: "utilitycraft:machine",
@@ -103,6 +164,7 @@ export function spawnEntity(block, config) {
 
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
+  persistRepresentedBlockId(entity, block.typeId);
 
   // Normalize slot config independently
   const inputRange =

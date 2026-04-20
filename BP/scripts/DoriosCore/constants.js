@@ -10,6 +10,12 @@
 export const DEFAULT_ENTITY_ID = "utilitycraft:machine_entity";
 
 /**
+ * Dynamic property used to persist which block a machine helper entity
+ * currently represents.
+ */
+export const MACHINE_BLOCK_ID_PROPERTY_ID = "dorios:machine_block_id";
+
+/**
  * Default machine processing interval.
  *
  * Represents the number of ticks between machine updates.

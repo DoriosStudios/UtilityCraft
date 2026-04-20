@@ -7,9 +7,9 @@ const MAX_REGISTRATION_ATTEMPTS = 180;
 const INSIGHT_PROVIDER_NAME = "UtilityCraft";
 const INSIGHT_CUSTOM_COMPONENT_KEYS = Object.freeze([
     "customEnergyInfo",
+    "customFluidInfo",
     "customRotationInfo",
     "customMachineProgress",
-    "customonInfo",
     "customCobblestoneCount",
     "customVariantPreview"
 ]);
@@ -48,6 +48,19 @@ function safeGetMachineEntity(block) {
     }
 }
 
+function isUtilityCraftTypeId(typeId) {
+    return typeof typeId === "string"
+        && typeId.trim().toLowerCase().startsWith("utilitycraft:");
+}
+
+function resolveMachineEntity(context) {
+    if (context?.linkedEntity) {
+        return context.linkedEntity;
+    }
+
+    return safeGetMachineEntity(context?.block);
+}
+
 function formatEnergy(value) {
     try {
         if (typeof EnergyStorage?.formatEnergyToText === "function") {
@@ -78,6 +91,23 @@ function formatFluid(value) {
 function capitalize(str) {
     if (!str) return str;
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function resolveInsightComponentKeys(api, preferredKeys) {
+    const keys = Array.isArray(preferredKeys)
+        ? preferredKeys.filter((key) => typeof key === "string" && key.trim().length > 0)
+        : [];
+
+    if (!api || typeof api.getSupportedComponentKeys !== "function") {
+        return keys;
+    }
+
+    try {
+        const supportedKeys = new Set(api.getSupportedComponentKeys());
+        return keys.filter((key) => supportedKeys.has(key));
+    } catch {
+        return keys;
+    }
 }
 
 function getObjectiveScoreFromCandidates(scoreboardIdentity, objectiveIds) {
@@ -136,11 +166,19 @@ function getEnergyLine(context) {
         return undefined;
     }
 
-    if (!context.block?.hasTag?.("dorios:energy")) {
+    const blockTypeId = String(context?.block?.typeId || "");
+    if (!isUtilityCraftTypeId(blockTypeId)) {
         return undefined;
     }
 
-    const machineEntity = safeGetMachineEntity(context.block);
+    const hasEnergyTag = context.block?.hasTag?.("dorios:energy") === true;
+    const hasUtilityCraftBlock = isUtilityCraftTypeId(blockTypeId);
+
+    if (!hasEnergyTag && !hasUtilityCraftBlock) {
+        return undefined;
+    }
+
+    const machineEntity = resolveMachineEntity(context);
     if (!machineEntity) {
         return undefined;
     }
@@ -165,7 +203,7 @@ function getEnergyLine(context) {
             return `Energy: ${formatEnergy(scoreboardEnergy.stored)} / ${formatEnergy(scoreboardEnergy.cap)}${formatPercent(scoreboardEnergy.stored, scoreboardEnergy.cap)}`;
         }
 
-        return `Energy: ${formatEnergy(scoreboardEnergyStorage.stored)}`;
+        return `Energy: ${formatEnergy(scoreboardEnergy.stored)}`;
     }
 }
 
@@ -323,31 +361,40 @@ function getVariantLine(context, states) {
 // ---------------------------------------------------------------------------
 
 function collectUtilityCraftBlockFields(context) {
-    if (!context?.playerSettings?.showCustomFields || !context.block) {
+    if (!context?.playerSettings?.showCustomFields || !context?.block) {
         return undefined;
     }
 
-    const states = safeGetBlockStates(context.block);
-    const machineEntity = safeGetMachineEntity(context.block);
+    if (!isUtilityCraftTypeId(context.block.typeId)) {
+        return undefined;
+    }
+
+    const resolvedContext = {
+        ...context,
+        machineEntity: resolveMachineEntity(context)
+    };
+
+    const states = safeGetBlockStates(resolvedContext.block);
+    const machineEntity = resolvedContext.machineEntity;
 
     const lines = [];
 
-    const energyLine = getEnergyLine(context);
+    const energyLine = getEnergyLine(resolvedContext);
     if (energyLine) lines.push(energyLine);
 
-    const fluidLines = getFluidLines(context, machineEntity);
+    const fluidLines = getFluidLines(resolvedContext, machineEntity);
     for (const fl of fluidLines) lines.push(fl);
 
-    const rotationLine = getRotationLine(context, states);
+    const rotationLine = getRotationLine(resolvedContext, states);
     if (rotationLine) lines.push(rotationLine);
 
-    const progressLine = getMachineProgressLine(context, machineEntity);
+    const progressLine = getMachineProgressLine(resolvedContext, machineEntity);
     if (progressLine) lines.push(progressLine);
 
-    const cobbleLine = getCobblestoneCountLine(context, states);
+    const cobbleLine = getCobblestoneCountLine(resolvedContext, states);
     if (cobbleLine) lines.push(cobbleLine);
 
-    const variantLine = getVariantLine(context, states);
+    const variantLine = getVariantLine(resolvedContext, states);
     if (variantLine) lines.push(variantLine);
 
     return lines.length ? lines : undefined;
@@ -367,9 +414,11 @@ function tryRegisterInjectors() {
         return false;
     }
 
+    const componentKeys = resolveInsightComponentKeys(api, INSIGHT_CUSTOM_COMPONENT_KEYS);
+
     api.registerBlockFieldInjector(collectUtilityCraftBlockFields, {
         provider: INSIGHT_PROVIDER_NAME,
-        components: INSIGHT_CUSTOM_COMPONENT_KEYS
+        components: componentKeys
     });
 
     // State merge: combine E0 (units) + E1 (tens) into a single "Cobblestone" row
