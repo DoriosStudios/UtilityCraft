@@ -1,0 +1,875 @@
+{
+    "namespace": "how_to_play",
+    "how_to_play_selector_stack_panel/how_to_play_selector_pane": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "padding_00": {
+                            "type": "panel",
+                            "size": [
+                                0,
+                                6
+                            ]
+                        }
+                    },
+                    {
+                        "utilitycraft_category@how_to_play_common.topic_category": {
+                            "$category": "utilitycraft"
+                        }
+                    },
+                    {
+                        "uc:getting_started_button@how_to_play.uc:getting_started_button": {
+                            "$toggle_group_forced_index": 251
+                        }
+                    },
+                    {
+                        "uc:expanding_resources_button@how_to_play.uc:expanding_resources_button": {
+                            "$toggle_group_forced_index": 252
+                        }
+                    },
+                    {
+                        "uc:water_lava_production_button@how_to_play.uc:water_lava_production_button": {
+                            "$toggle_group_forced_index": 253
+                        }
+                    },
+                    {
+                        "uc:first_steps_steel_button@how_to_play.uc:first_steps_steel_button": {
+                            "$toggle_group_forced_index": 254
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "how_to_play_section_content_panels/general_tips_sections": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "uc:getting_started_section@how_to_play.uc:getting_started_section": {}
+                    },
+                    {
+                        "uc:expanding_resources_section@how_to_play.uc:expanding_resources_section": {}
+                    },
+                    {
+                        "uc:water_lava_production_section@how_to_play.uc:water_lava_production_section": {}
+                    },
+                    {
+                        "uc:first_steps_steel_section@how_to_play.uc:first_steps_steel_section": {}
+                    }
+                ]
+            }
+        ]
+    },
+    "guide_full_image@how_to_play_common.image": {
+        "size": [
+            "100%",
+            "140px"
+        ]
+    },
+    "guide_recipe_image@how_to_play_common.image": {
+        "size": [
+            "75%",
+            "112px"
+        ]
+    },
+    "uc:getting_started_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:getting_started"
+    },
+    "uc:expanding_resources_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:expanding_resources"
+    },
+    "uc:water_lava_production_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:water_lava_production"
+    },
+    "uc:first_steps_steel_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:first_steps_steel"
+    },
+    "uc:getting_started_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:getting_started_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "paragraph_1@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p3"
+                }
+            },
+            {
+                "paragraph_4@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p4"
+                }
+            },
+            {
+                "paragraph_5@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p5"
+                }
+            },
+            {
+                "paragraph_6@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p6"
+                }
+            },
+            {
+                "image_1@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/using_hammer_pebbles"
+                }
+            },
+            {
+                "padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_7@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p7"
+                }
+            },
+            {
+                "paragraph_8@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p8"
+                }
+            },
+            {
+                "image_2@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_wooden_hammer"
+                }
+            },
+            {
+                "padding_3@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_9@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p9"
+                }
+            },
+            {
+                "padding_4@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h2"
+                }
+            },
+            {
+                "paragraph_10@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p10"
+                }
+            },
+            {
+                "padding_5@how_to_play_common.small_padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h3"
+                }
+            },
+            {
+                "paragraph_11@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p11"
+                }
+            },
+            {
+                "paragraph_12@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p12"
+                }
+            },
+            {
+                "image_3@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/using_flint_knife"
+                }
+            },
+            {
+                "padding_6@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_13@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p13"
+                }
+            },
+            {
+                "padding_7@how_to_play_common.small_padding": {}
+            },
+            {
+                "header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h4"
+                }
+            },
+            {
+                "image_4@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_flint_knife"
+                }
+            },
+            {
+                "padding_8@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_5@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_fiber"
+                }
+            },
+            {
+                "padding_9@how_to_play_common.padding": {}
+            },
+            {
+                "header_5@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h5"
+                }
+            },
+            {
+                "paragraph_14@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p14"
+                }
+            },
+            {
+                "paragraph_15@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p15"
+                }
+            },
+            {
+                "image_6@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/wooden_sieve"
+                }
+            },
+            {
+                "padding_10@how_to_play_common.padding": {}
+            },
+            {
+                "header_6@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h6"
+                }
+            },
+            {
+                "paragraph_16@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p16"
+                }
+            },
+            {
+                "paragraph_17@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p17"
+                }
+            },
+            {
+                "image_7@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_string_mesh"
+                }
+            },
+            {
+                "padding_11@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_18@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p18"
+                }
+            },
+            {
+                "padding_12@how_to_play_common.padding": {}
+            },
+            {
+                "header_7@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h7"
+                }
+            },
+            {
+                "paragraph_19@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p19"
+                }
+            },
+            {
+                "paragraph_20@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p20"
+                }
+            },
+            {
+                "paragraph_21@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p21"
+                }
+            },
+            {
+                "image_8@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/hammers_with_blocks"
+                }
+            },
+            {
+                "padding_13@how_to_play_common.padding": {}
+            },
+            {
+                "header_8@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h8"
+                }
+            },
+            {
+                "paragraph_22@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p22"
+                }
+            },
+            {
+                "paragraph_23@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p23"
+                }
+            },
+            {
+                "image_9@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_with_gravel"
+                }
+            },
+            {
+                "padding_14@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_24@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p24"
+                }
+            },
+            {
+                "padding_15@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_25@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p25"
+                }
+            },
+            {
+                "paragraph_26@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p26"
+                }
+            },
+            {
+                "paragraph_27@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p27"
+                }
+            }
+        ]
+    },
+    "uc:expanding_resources_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:expanding_resources_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "paragraph_1@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p3"
+                }
+            },
+            {
+                "paragraph_4@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p4"
+                }
+            },
+            {
+                "image_1@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/using_multiple_sieves"
+                }
+            },
+            {
+                "padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_5@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p5"
+                }
+            },
+            {
+                "padding_5@how_to_play_common.padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.h3"
+                }
+            },
+            {
+                "paragraph_10@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p10"
+                }
+            },
+            {
+                "paragraph_11@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p11"
+                }
+            },
+            {
+                "image_3@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/meshes"
+                }
+            },
+            {
+                "padding_6@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_4@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_string_mesh"
+                }
+            },
+            {
+                "padding_7@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_5@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_flint_mesh"
+                }
+            },
+            {
+                "padding_8@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_6@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_copper_mesh"
+                }
+            },
+            {
+                "padding_9@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_7@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_iron_mesh"
+                }
+            },
+            {
+                "padding_10@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_8@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_gold_mesh"
+                }
+            },
+            {
+                "padding_11@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_9@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_emerald_mesh"
+                }
+            },
+            {
+                "padding_12@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_10@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_diamond_mesh"
+                }
+            },
+            {
+                "padding_13@how_to_play_common.small_padding": {}
+            },
+            {
+                "image_11@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_netherite_mesh"
+                }
+            },
+            {
+                "padding_14@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_12@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p12"
+                }
+            },
+            {
+                "paragraph_13@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p13"
+                }
+            },
+            {
+                "padding_15@how_to_play_common.padding": {}
+            },
+            {
+                "header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.h4"
+                }
+            },
+            {
+                "paragraph_14@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p14"
+                }
+            },
+            {
+                "paragraph_15@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p15"
+                }
+            },
+            {
+                "image_12@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crushing_compress_cobblestone"
+                }
+            },
+            {
+                "padding_16@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_16@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p16"
+                }
+            },
+            {
+                "padding_17@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_17@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p17"
+                }
+            },
+            {
+                "paragraph_18@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p18"
+                }
+            },
+            {
+                "paragraph_19@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p19"
+                }
+            }
+        ]
+    },
+    "uc:water_lava_production_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:water_lava_production_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "paragraph_1@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p3"
+                }
+            },
+            {
+                "image_1@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_mortar"
+                }
+            },
+            {
+                "padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_4@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p4"
+                }
+            },
+            {
+                "image_2@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_water_mortar"
+                }
+            },
+            {
+                "padding_3@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_5@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p5"
+                }
+            },
+            {
+                "image_3@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/filling_cauldron"
+                }
+            },
+            {
+                "padding_4@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h2"
+                }
+            },
+            {
+                "paragraph_6@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p6"
+                }
+            },
+            {
+                "image_4@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_torch"
+                }
+            },
+            {
+                "padding_5@how_to_play_common.small_padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h3"
+                }
+            },
+            {
+                "paragraph_7@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p7"
+                }
+            },
+            {
+                "paragraph_8@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p8"
+                }
+            },
+            {
+                "paragraph_9@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p9"
+                }
+            },
+            {
+                "image_5@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_obtaining_obsidian"
+                }
+            },
+            {
+                "padding_6@how_to_play_common.padding": {}
+            },
+            {
+                "header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h4"
+                }
+            },
+            {
+                "paragraph_10@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p10"
+                }
+            },
+            {
+                "image_6@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_crucible"
+                }
+            },
+            {
+                "padding_7@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_11@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p11"
+                }
+            },
+            {
+                "paragraph_12@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p12"
+                }
+            },
+            {
+                "paragraph_13@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p13"
+                }
+            },
+            {
+                "image_7@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/mud_process"
+                }
+            },
+            {
+                "padding_8@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_14@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p14"
+                }
+            },
+            {
+                "padding_9@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_15@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p15"
+                }
+            }
+        ]
+    },
+    "uc:first_steps_steel_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:first_steps_steel_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "paragraph_1@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p3"
+                }
+            },
+            {
+                "image_1@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_smeltflare"
+                }
+            },
+            {
+                "padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_4@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p4"
+                }
+            },
+            {
+                "padding_3@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h2"
+                }
+            },
+            {
+                "paragraph_5@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p5"
+                }
+            },
+            {
+                "image_2@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_brute_steel_manual"
+                }
+            },
+            {
+                "padding_4@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_6@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p6"
+                }
+            },
+            {
+                "padding_5@how_to_play_common.padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h3"
+                }
+            },
+            {
+                "paragraph_7@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p7"
+                }
+            },
+            {
+                "image_3@how_to_play.guide_recipe_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/recipe_workbench"
+                }
+            },
+            {
+                "padding_6@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_8@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p8"
+                }
+            },
+            {
+                "padding_7@how_to_play_common.padding": {}
+            },
+            {
+                "header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h4"
+                }
+            },
+            {
+                "paragraph_9@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p9"
+                }
+            },
+            {
+                "image_4@how_to_play.guide_full_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/sieving_sand_resources"
+                }
+            },
+            {
+                "padding_8@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_10@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p10"
+                }
+            },
+            {
+                "padding_9@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_11@how_to_play_common.paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p11"
+                }
+            }
+        ]
+    }
+}
