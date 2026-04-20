@@ -1,6 +1,7 @@
 import { ItemStack, system } from "@minecraft/server";
 import { ModalFormData } from '@minecraft/server-ui'
 import { BasicMachine } from "./basicMachine";
+import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import * as Utils from "../utils/entity";
@@ -44,7 +45,7 @@ export class Generator extends BasicMachine {
       lore.push(`§r§7  Energy: ${EnergyStorage.formatEnergyToText(energy.get())}/${EnergyStorage.formatEnergyToText(energy.cap)}`);
     }
 
-    if (fluid.type != "empty") {
+    if (fluid.type != Constants.EMPTY_FLUID_TYPE) {
       const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
       lore.push(`§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`);
     }

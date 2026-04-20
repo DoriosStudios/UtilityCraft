@@ -1,10 +1,10 @@
 import { ItemStack, system, world } from "@minecraft/server";
+import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
-const COLORS = DoriosAPI.constants.textColors
 
 export class Machine extends BasicMachine {
   /**
@@ -55,7 +55,7 @@ export class Machine extends BasicMachine {
       lore.push(`§r§7  Energy: ${EnergyStorage.formatEnergyToText(energy.get())}/${EnergyStorage.formatEnergyToText(energy.cap)}`);
     }
 
-    if (fluid.type != "empty") {
+    if (fluid.type != Constants.EMPTY_FLUID_TYPE) {
       const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
       lore.push(`§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`);
     }
@@ -312,7 +312,7 @@ export class Machine extends BasicMachine {
    * @param {number} [index=0] Cost index.
    */
   setEnergyCost(value, index = 0) {
-    this.entity.setDynamicProperty(`dorios:energy_cost_${index}`, Math.max(1, value));
+    this.entity.setDynamicProperty(`${Constants.MACHINE_ENERGY_COST_PROPERTY_PREFIX}${index}`, Math.max(1, value));
   }
 
   /**
@@ -322,7 +322,7 @@ export class Machine extends BasicMachine {
    * @returns {number} Energy cost value.
    */
   getEnergyCost(index = 0) {
-    return this.entity.getDynamicProperty(`dorios:energy_cost_${index}`) ?? 800;
+    return this.entity.getDynamicProperty(`${Constants.MACHINE_ENERGY_COST_PROPERTY_PREFIX}${index}`) ?? Constants.DEFAULT_PROGRESS_MAX;
   }
 
   /**
@@ -362,13 +362,13 @@ export class Machine extends BasicMachine {
     this.off();
 
     this.setLabel(`
-§r${COLORS.yellow}${message}!
+§r${Constants.MACHINE_TEXT_COLORS.yellow}${message}!
 
-§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ---
+§r${Constants.MACHINE_TEXT_COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${Constants.MACHINE_TEXT_COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${Constants.MACHINE_TEXT_COLORS.green}Cost ---
 
-§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
+§r${Constants.MACHINE_TEXT_COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
 `);
   }
 
@@ -383,13 +383,13 @@ export class Machine extends BasicMachine {
     this.displayEnergy();
 
     this.setLabel(`
-§r${COLORS.darkGreen}${message}!
+§r${Constants.MACHINE_TEXT_COLORS.darkGreen}${message}!
 
-§r${COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
-§r${COLORS.green}Cost ${EnergyStorage.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
+§r${Constants.MACHINE_TEXT_COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
+§r${Constants.MACHINE_TEXT_COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${Constants.MACHINE_TEXT_COLORS.green}Cost ${EnergyStorage.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
-§r${COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
+§r${Constants.MACHINE_TEXT_COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
     `);
   }
   //#endregion

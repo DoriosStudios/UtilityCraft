@@ -1,7 +1,8 @@
 import { ItemStack, system } from "@minecraft/server";
-import { EnergyStorage } from "../machinery/energyStorage.js"
-import { FluidStorage } from "../machinery/fluidStorage.js"
-import * as Constants from "../constants";
+import * as GlobalConstants from "../constants.js";
+import { EnergyStorage } from "../machinery/energyStorage.js";
+import { FluidStorage } from "../machinery/fluidStorage.js";
+import * as Constants from "./constants.js";
 
 /**
  * Determines whether the current tick should execute machine logic.
@@ -18,7 +19,10 @@ import * as Constants from "../constants";
  * @returns {boolean} True if the current tick matches the configured processing interval.
  */
 export function shouldProcess() {
-  return (globalThis.tickCount % globalThis.tickSpeed == 0 && globalThis.worldLoaded);
+  return (
+    globalThis[GlobalConstants.GLOBAL_TICK_COUNT_KEY] % globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY] === 0 &&
+    globalThis[GlobalConstants.GLOBAL_WORLD_LOADED_KEY]
+  );
 }
 
 /**
@@ -50,6 +54,7 @@ export function initializeEntity(entity) {
 export function tryGetEntityFromBlock(block) {
   return block.dimension.getEntitiesAtBlockLocation(block.location)[0];
 }
+
 
 /**
  * Attempts to resolve the block currently represented by a machine entity.
@@ -112,18 +117,6 @@ function persistRepresentedBlockId(entity, blockId) {
   }
 }
 
-const configExample = {
-  entity: {
-    identifier: "utilitycraft:machine",
-    type: "",
-    name: "example",
-    inventory_size: 10,
-    input_range: [3, 6],
-    output_range: [7, 10]
-  },
-  spawn_offset: { x: 0, y: -0.2, z: 0 },
-};
-
 /**
  * Spawns a UtilityCraft machine entity at the given block location
  * and initializes its inventory size and name tag.
@@ -146,7 +139,7 @@ const configExample = {
  * @returns {import("@minecraft/server").Entity} The spawned entity.
  */
 export function spawnEntity(block, config) {
-  const { entity: entityData, spawn_offset = { x: 0, y: -0.25, z: 0 } } = config;
+  const { entity: entityData, spawn_offset = Constants.DEFAULT_MACHINE_SPAWN_OFFSET } = config;
   const dimension = block.dimension;
 
   const center = block.center();
@@ -156,11 +149,13 @@ export function spawnEntity(block, config) {
     z: center.z + spawn_offset.z,
   };
 
-  const identifier = entityData.identifier ?? Constants.DEFAULT_ENTITY_ID;
+  const identifier = entityData.identifier ?? GlobalConstants.DEFAULT_ENTITY_ID;
   const entity = dimension.spawnEntity(identifier, location);
 
   const inventorySize = entityData.inventory_size ?? 1;
-  entity.triggerEvent(`utilitycraft:inventory_${inventorySize}`);
+  try {
+    entity.triggerEvent(`utilitycraft:inventory_${inventorySize}`);
+  } catch { }
 
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
@@ -244,7 +239,7 @@ export function registerSlotConfig(entity, config) {
 
   // Dorios internal config
   entity.runCommand(
-    `scriptevent dorios:special_container ${JSON.stringify(slotRegister)}`
+    `scriptevent ${Constants.SPECIAL_CONTAINER_EVENT_ID} ${JSON.stringify(slotRegister)}`
   );
 
   // AE2BE container registry
@@ -266,7 +261,7 @@ export function registerSlotConfig(entity, config) {
 
   // Item Ducts compatibility
   entity.runCommand(
-    `scriptevent item_ducts:register ${JSON.stringify({
+    `scriptevent ${Constants.ITEM_DUCTS_REGISTER_EVENT_ID} ${JSON.stringify({
       typeId: config.block_id,
       extractSlots: outputSlots,
       insertSlots: inputSlots
@@ -290,16 +285,16 @@ export function registerSlotConfig(entity, config) {
 export function updateAdjacentNetwork(block, permutationToPlace = block.permutation) {
   let { x, y, z } = block.location;
   system.runTimeout(() => {
-    if (permutationToPlace.hasTag("dorios:energy")) {
-      block.dimension.runCommand(`execute as @n run scriptevent dorios:updatePipes energy|[${x},${y},${z}]`);
+    if (permutationToPlace.hasTag(Constants.ENERGY_BLOCK_TAG)) {
+      block.dimension.runCommand(`execute as @n run scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} energy|[${x},${y},${z}]`);
     }
 
-    if (permutationToPlace.hasTag("dorios:item")) {
-      block.dimension.runCommand(`execute as @n run scriptevent dorios:updatePipes item|[${x},${y},${z}]`);
+    if (permutationToPlace.hasTag(Constants.ITEM_BLOCK_TAG)) {
+      block.dimension.runCommand(`execute as @n run scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} item|[${x},${y},${z}]`);
     }
 
-    if (permutationToPlace.hasTag("dorios:fluid")) {
-      block.dimension.runCommand(`execute as @n run scriptevent dorios:updatePipes fluid|[${x},${y},${z}]`);
+    if (permutationToPlace.hasTag(Constants.FLUID_BLOCK_TAG)) {
+      block.dimension.runCommand(`execute as @n run scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} fluid|[${x},${y},${z}]`);
     }
   }, 2);
 }
@@ -357,8 +352,7 @@ export function dropAllItems(entity) {
 
     // Skip UI items
     let shouldContinue = false;
-    if (item.hasTag("utilitycraft:ui_element")) continue;
-    if (item.hasTag("utilitycraft:ui.element")) continue;
+    if (Constants.UI_ITEM_TAGS.some((tag) => item.hasTag(tag))) continue;
     item.getTags().forEach((tag) => {
       if (tag.includes("ui")) {
         shouldContinue = true;

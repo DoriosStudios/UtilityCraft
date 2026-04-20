@@ -1,6 +1,7 @@
 import { world, ItemStack, system } from "@minecraft/server";
-import { loadObjectives } from "../utils/scoreboards.js"
-import { initializeEntity } from "../utils/entity.js"
+import * as Constants from "./constants.js";
+import { loadObjectives } from "../utils/scoreboards.js";
+import { initializeEntity } from "../utils/entity.js";
 
 /**
  * Utility class to manage scoreboard-based energy values for entities.
@@ -54,12 +55,7 @@ export class EnergyStorage {
    *
    */
   static initializeObjectives() {
-    loadObjectives([
-      ["energy", "Energy"],
-      ["energyExp", "EnergyExp"],
-      ["energyCap", "Energy Max Capacity"],
-      ["energyCapExp", "Energy Max Capacity Exp"],
-    ], EnergyStorage.#objectives);
+    loadObjectives(Constants.ENERGY_OBJECTIVE_DEFINITIONS, EnergyStorage.#objectives);
   }
 
   /**
@@ -101,15 +97,15 @@ export class EnergyStorage {
   }
 
   /**
-   * Formats a numerical Dorios Energy (DE) value into a human-readable string with appropriate unit suffix.
-   *
-   * @param {number} value The energy value in DE (Dorios Energy).
-   * @returns {string} A formatted string representing the value with the appropriate unit (DE, kDE, MDE, GDE, TDE).
-   *
-   * @example
-   * formatEnergyToText(15300); // "15.3 kDE"
-   * formatEnergyToText(1048576); // "1.05 MDE"
-   */
+  * Formats a numerical Dorios Energy (DE) value into a human-readable string with appropriate unit suffix.
+  *
+  * @param {number} value The energy value in DE (Dorios Energy).
+  * @returns {string} A formatted string representing the value with the appropriate unit (DE, kDE, MDE, GDE, TDE).
+  *
+  * @example
+  * formatEnergyToText(15300); // "15.3 kDE"
+  * formatEnergyToText(1048576); // "1.05 MDE"
+  */
   static formatEnergyToText(value) {
     const safeValue = Math.max(0, Number(value) || 0);
 
@@ -382,11 +378,11 @@ export class EnergyStorage {
 
     const energy = this.get();
     const energyCap = this.getCap();
-    const energyP = Math.floor((energy / energyCap) * 48) || 0;
-    const frame = Math.max(0, Math.min(48, energyP));
+    const energyP = Math.floor((energy / energyCap) * Constants.ENERGY_BAR_FRAME_COUNT) || 0;
+    const frame = Math.max(0, Math.min(Constants.ENERGY_BAR_FRAME_COUNT, energyP));
     const frameName = frame.toString().padStart(2, "0");
 
-    const item = new ItemStack(`utilitycraft:energy_${frameName}`, 1);
+    const item = new ItemStack(`${Constants.ENERGY_BAR_ITEM_PREFIX}${frameName}`, 1);
     item.nameTag = `§rEnergy
 §r§7  Stored: ${EnergyStorage.formatEnergyToText(this.get())} / ${EnergyStorage.formatEnergyToText(this.cap)}
 §r§7  Percentage: ${this.getPercent().toFixed(2)}%%`;
@@ -407,7 +403,7 @@ export class EnergyStorage {
    * if (used > 0) console.log(`Consumed ${used} energy`);
    */
   consume(amount) {
-    if (this.entity.hasTag("creative")) return amount;
+    if (this.entity.hasTag(Constants.CREATIVE_TAG)) return amount;
     if (amount <= 0) return 0;
 
     const current = this.get();

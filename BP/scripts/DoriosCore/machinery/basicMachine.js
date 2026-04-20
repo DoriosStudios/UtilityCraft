@@ -1,4 +1,6 @@
 import { ItemStack } from "@minecraft/server";
+import * as GlobalConstants from "../constants.js";
+import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import * as Utils from "../utils/entity";
 
@@ -24,7 +26,7 @@ export class BasicMachine {
     if (!inventory) return;
     this.container = inventory.container;
     this.baseRate = options.rate;
-    this.rate = options.rate * tickSpeed;
+    this.rate = options.rate * globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY];
     this.valid = true;
   }
 
@@ -35,20 +37,30 @@ export class BasicMachine {
    */
   setRate(baseRate) {
     this.baseRate = baseRate;
-    this.rate = baseRate * tickSpeed;
+    this.rate = baseRate * globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY];
   }
 
   /**
    * Sets a label in the machine inventory using a fixed item as placeholder.
    *
-   * The label is displayed by overriding the item's `nameTag` with custom text.
+   * Strings are written directly into `nameTag`.
+   * Arrays use the first element as `nameTag` and the remaining ones as lore lines.
    *
-   * @param {string} text The text to display in the label. Supports Minecraft formatting codes (§).
+   * @param {string | string[]} text The text or lines to display in the label. Supports Minecraft formatting codes (§).
    * @param {number} [slot=1] The inventory slot where the label will be placed.
    */
   setLabel(text, slot = 1) {
-    const baseItem = this.container.getItem(slot) ?? new ItemStack("utilitycraft:arrow_indicator_90");
-    baseItem.nameTag = text;
+    const baseItem = this.container.getItem(slot) ?? new ItemStack(Constants.LABEL_ITEM_ID);
+
+    if (Array.isArray(text)) {
+      const [nameTag = "", ...lore] = text;
+      baseItem.nameTag = nameTag;
+      baseItem.setLore(lore);
+    } else {
+      baseItem.nameTag = text ?? "";
+      baseItem.setLore([]);
+    }
+
     this.container.setItem(slot, baseItem);
   }
 
@@ -73,7 +85,7 @@ export class BasicMachine {
    * @param {number} [index=0] Progress index.
    */
   addProgress(amount, index = 0) {
-    const key = `dorios:progress_${index}`;
+    const key = `${Constants.MACHINE_PROGRESS_PROPERTY_PREFIX}${index}`;
     const current = this.entity.getDynamicProperty(key) ?? 0;
     this.entity.setDynamicProperty(key, current + amount);
   }
@@ -85,7 +97,7 @@ export class BasicMachine {
    * @returns {number} Current progress value.
    */
   getProgress(index = 0) {
-    return this.entity.getDynamicProperty(`dorios:progress_${index}`) ?? 0;
+    return this.entity.getDynamicProperty(`${Constants.MACHINE_PROGRESS_PROPERTY_PREFIX}${index}`) ?? 0;
   }
 
   /**
@@ -101,8 +113,8 @@ export class BasicMachine {
    * @param {number} [options.scale=16] Maximum visual scale.
    * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
    */
-  setProgress(value, maxValue = 800, { slot = 2, type, display = true, index = 0, scale = 16, legacy = false } = {}) {
-    const key = `dorios:progress_${index}`;
+  setProgress(value, maxValue = Constants.DEFAULT_PROGRESS_MAX, { slot = Constants.DEFAULT_PROGRESS_SLOT, type, display = true, index = 0, scale = Constants.LEGACY_PROGRESS_SCALE, legacy = false } = {}) {
+    const key = `${Constants.MACHINE_PROGRESS_PROPERTY_PREFIX}${index}`;
     this.entity.setDynamicProperty(key, Math.max(0, value));
 
     if (display) {
@@ -121,7 +133,7 @@ export class BasicMachine {
    * @param {boolean} [options.legacy=false] Whether to use the legacy non-padded frame naming.
    * @param {number} [options.scale=22] Maximum visual scale (e.g., 16 → 0–16).
    */
-  displayProgress(maxValue = 800, { slot = 2, type, index = 0, scale, legacy = false } = {}) {
+  displayProgress(maxValue = Constants.DEFAULT_PROGRESS_MAX, { slot = Constants.DEFAULT_PROGRESS_SLOT, type, index = 0, scale, legacy = false } = {}) {
     if (!maxValue || maxValue <= 0) return;
 
     const inv = this.container;
@@ -129,7 +141,7 @@ export class BasicMachine {
 
     const progress = this.getProgress(index);
 
-    if (legacy) { scale ??= 16 } else { scale ??= 22 }
+    if (legacy) { scale ??= Constants.LEGACY_PROGRESS_SCALE; } else { scale ??= Constants.MODERN_PROGRESS_SCALE; }
 
     const normalized = Math.max(0, Math.min(
       scale,
@@ -137,13 +149,13 @@ export class BasicMachine {
     ));
 
     if (legacy) {
-      type ??= "arrow_right";
+      type ??= Constants.LEGACY_PROGRESS_TYPE;
       const itemId = `utilitycraft:${type}_${normalized}`;
       inv.setItem(slot, new ItemStack(itemId, 1));
       return;
     }
 
-    type ??= "progress_right_big_bar";
+    type ??= Constants.DEFAULT_PROGRESS_TYPE;
     const frame = normalized.toString().padStart(2, "0");
     const itemId = `utilitycraft:${type}_${frame}`;
     inv.setItem(slot, new ItemStack(itemId, 1));
@@ -169,7 +181,7 @@ export class BasicMachine {
   blockSlots(slots) {
     for (const index of slots) {
       if (!this.container.getItem(index)) {
-        this.container.setItem(index, new ItemStack("utilitycraft:arrow_right_0", 1));
+        this.container.setItem(index, new ItemStack(Constants.BLOCKED_SLOT_ITEM_ID, 1));
       }
     }
   }
@@ -182,7 +194,7 @@ export class BasicMachine {
   unblockSlots(slots) {
     for (const index of slots) {
       const item = this.container.getItem(index);
-      if (item && item.typeId === "utilitycraft:arrow_right_0") {
+      if (item && item.typeId === Constants.BLOCKED_SLOT_ITEM_ID) {
         this.container.setItem(index, undefined);
       }
     }

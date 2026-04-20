@@ -1,12 +1,15 @@
-import { system, world } from "@minecraft/server";
-import { FluidStorage, Generator } from "DoriosCore/index.js"
+import { ItemStack, system, world } from "@minecraft/server";
+import * as Constants from "./constants.js";
+import * as MachineryConstants from "./machinery/constants.js";
+import * as UtilsConstants from "./utils/constants.js";
+import { FluidStorage, Generator, Machine } from "DoriosCore/index.js";
 
 export const scriptEventHandler = {
     /**
      * ScriptEvent handler to destroy a machine at given coordinates.
      * Removes the machine entity, drops stored items, and replaces the block with air.
      */
-    "dorios:destroyMachine": ({ message, sourceEntity }) => {
+    [Constants.DESTROY_MACHINE_EVENT_ID]: ({ message, sourceEntity }) => {
         try {
             const [x, y, z] = message.split(",").map(Number);
             const dim = sourceEntity.dimension;
@@ -37,20 +40,20 @@ export const scriptEventHandler = {
     /**
      * Registers input and output slots for special containers
      */
-    "dorios:special_container": ({ message, sourceEntity }) => {
+    [UtilsConstants.SPECIAL_CONTAINER_EVENT_ID]: ({ message, sourceEntity }) => {
         let slots;
         try {
             slots = JSON.parse(message)
         } catch { return }
         if (!slots) return
         if (!slots.input && !slots.output) return
-        sourceEntity.setDynamicProperty("dorios:special_container", JSON.stringify(slots))
+        sourceEntity.setDynamicProperty(UtilsConstants.SPECIAL_CONTAINER_PROPERTY_ID, JSON.stringify(slots))
     },
     /**
      * ScriptEvent handler to destroy a generator at given coordinates.
      * Removes the generator entity, drops stored items, and replaces the block with air.
      */
-    "dorios:destroyGenerator": ({ message, sourceEntity }) => {
+    [Constants.DESTROY_GENERATOR_EVENT_ID]: ({ message, sourceEntity }) => {
         try {
             const [x, y, z] = message.split(",").map(Number);
             const dim = sourceEntity.dimension;
@@ -82,7 +85,7 @@ export const scriptEventHandler = {
      * ScriptEvent handler to destroy a fluid tank at given coordinates.
      * Builds the tank item with fluid lore, removes the entity, sets the block to air, and drops the item.
      */
-    "dorios:destroyTank": ({ message, sourceEntity }) => {
+    [Constants.DESTROY_TANK_EVENT_ID]: ({ message, sourceEntity }) => {
         try {
             const [x, y, z] = message.split(",").map(Number);
             const dim = sourceEntity.dimension;
@@ -103,7 +106,7 @@ export const scriptEventHandler = {
             const lore = [];
 
             // Fluid lore
-            if (fluid.type !== "empty" && fluid.get() > 0) {
+            if (fluid.type !== MachineryConstants.EMPTY_FLUID_TYPE && fluid.get() > 0) {
                 const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
                 lore.push(
                     `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`,
@@ -142,7 +145,7 @@ export const scriptEventHandler = {
      * - Existing items are replaced and logged individually.
      * - Only a summary log is printed when finished.
      */
-    "utilitycraft:register_fluid_item": ({ message }) => {
+    [Constants.REGISTER_FLUID_ITEM_EVENT_ID]: ({ message }) => {
         try {
             const payload = JSON.parse(message);
             if (!payload || typeof payload !== "object") return;
@@ -189,7 +192,7 @@ export const scriptEventHandler = {
      *   }
      * }
      */
-    "utilitycraft:register_fluid_holder": ({ message }) => {
+    [Constants.REGISTER_FLUID_HOLDER_EVENT_ID]: ({ message }) => {
         try {
             const payload = JSON.parse(message);
             if (!payload || typeof payload !== "object") return;
@@ -234,7 +237,7 @@ export const scriptEventHandler = {
      * - Replaces the tickSpeed value immediately.
      * - Ignores invalid or non-numeric payloads.
      */
-    "utilitycraft:set_tick_speed": ({ message }) => {
+    [Constants.SET_TICK_SPEED_EVENT_ID]: ({ message }) => {
         try {
             const value = JSON.parse(message);
 
@@ -243,8 +246,8 @@ export const scriptEventHandler = {
                 return;
             }
 
-            world.setDynamicProperty("utilitycraft:tickSpeed", value);
-            globalThis.tickSpeed = value;
+            world.setDynamicProperty(Constants.TICK_SPEED_PROPERTY_ID, value);
+            globalThis[Constants.GLOBAL_TICK_SPEED_KEY] = value;
         } catch {
             console.warn("[UtilityCraft] Failed to parse tickSpeed payload.");
         }

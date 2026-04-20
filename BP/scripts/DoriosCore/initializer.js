@@ -1,17 +1,20 @@
 import { ItemStack, system, world } from "@minecraft/server";
-import { scriptEventHandler } from "./scriptEvents.js";
-import { EnergyStorage } from "./machinery/energyStorage.js"
-import { FluidStorage } from "./machinery/fluidStorage.js"
-import * as Constants from "./constants";
+import * as ButtonConstants from "./buttons/constants.js";
 import { loadButtonItemStack } from "./buttons/index.js";
+import { scriptEventHandler } from "./scriptEvents.js";
+import * as Constants from "./constants.js";
+import { EnergyStorage } from "./machinery/energyStorage.js";
+import { FluidStorage } from "./machinery/fluidStorage.js";
 
-globalThis.worldLoaded = false;
-globalThis.tickCount = 0;
-globalThis.tickSpeed = 10;
+globalThis[Constants.GLOBAL_WORLD_LOADED_KEY] = false;
+globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
+globalThis[Constants.GLOBAL_TICK_SPEED_KEY] = Constants.DEFAULT_TICK_SPEED;
 
 system.runInterval(() => {
-    globalThis.tickCount += 2;
-    if (globalThis.tickCount == 1000) globalThis.tickCount = 0;
+    globalThis[Constants.GLOBAL_TICK_COUNT_KEY] += 2;
+    if (globalThis[Constants.GLOBAL_TICK_COUNT_KEY] === 1000) {
+        globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
+    }
 }, 2);
 
 /**
@@ -28,35 +31,35 @@ system.runInterval(() => {
 world.afterEvents.worldLoad.subscribe(() => {
 
     // Initialize energy system scoreboard objectives
-    EnergyStorage.initializeObjectives()
+    EnergyStorage.initializeObjectives();
 
     // Initialize fluid objectives
-    FluidStorage.initializeObjectives()
+    FluidStorage.initializeObjectives();
 
     // Mark world as ready
     if (world.getDimension("overworld").getEntities()[0]) {
-        worldLoaded = true;
+        globalThis[Constants.GLOBAL_WORLD_LOADED_KEY] = true;
     }
 
     // Load configurable tick speed
     const configuredTickSpeed =
-        world.getDynamicProperty("utilitycraft:tickSpeed")
+        world.getDynamicProperty(Constants.TICK_SPEED_PROPERTY_ID)
         ?? Constants.DEFAULT_TICK_SPEED;
 
-    globalThis.tickSpeed = configuredTickSpeed;
+    globalThis[Constants.GLOBAL_TICK_SPEED_KEY] = configuredTickSpeed;
 
-    loadButtonItemStack("utilitycraft:ui_filler", ItemStack);
+    loadButtonItemStack(ButtonConstants.DEFAULT_BUTTON_ITEM_ID, ItemStack);
 });
 
 // --- Al primer spawn del jugador ---
 world.afterEvents.playerSpawn.subscribe(({ initialSpawn }) => {
     if (!initialSpawn) return;
     system.runTimeout(() => {
-        worldLoaded = true;
+        globalThis[Constants.GLOBAL_WORLD_LOADED_KEY] = true;
     }, 50);
 });
 
 system.afterEvents.scriptEventReceive.subscribe((e) => {
-    const event = scriptEventHandler[e.id]
-    if (event) event(e)
+    const event = scriptEventHandler[e.id];
+    if (event) event(e);
 });

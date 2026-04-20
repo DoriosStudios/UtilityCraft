@@ -1,166 +1,5 @@
 import { system } from "@minecraft/server";
-
-const FACING = ["up", "down", "north", "south", "east", "west"];
-const CARDINAL = ["north", "south", "east", "west"];
-const rotationMap = {
-    up: {
-        north: {
-            0: { axis: "west", rotation: 0 },
-            1: { axis: "west", rotation: 1 },
-            2: { axis: "west", rotation: 2 },
-            3: { axis: "west", rotation: 3 },
-        },
-        west: {
-            0: { axis: "south", rotation: 0 },
-            1: { axis: "south", rotation: 1 },
-            2: { axis: "south", rotation: 2 },
-            3: { axis: "south", rotation: 3 },
-        },
-        south: {
-            0: { axis: "east", rotation: 0 },
-            1: { axis: "east", rotation: 1 },
-            2: { axis: "east", rotation: 2 },
-            3: { axis: "east", rotation: 3 },
-        },
-        east: {
-            0: { axis: "north", rotation: 0 },
-            1: { axis: "north", rotation: 1 },
-            2: { axis: "north", rotation: 2 },
-            3: { axis: "north", rotation: 3 },
-        },
-    },
-    down: {
-        north: {
-            0: { axis: "east", rotation: 0 },
-            1: { axis: "east", rotation: 1 },
-            2: { axis: "east", rotation: 2 },
-            3: { axis: "east", rotation: 3 },
-        },
-        east: {
-            0: { axis: "south", rotation: 0 },
-            1: { axis: "south", rotation: 1 },
-            2: { axis: "south", rotation: 2 },
-            3: { axis: "south", rotation: 3 },
-        },
-        south: {
-            0: { axis: "west", rotation: 0 },
-            1: { axis: "west", rotation: 1 },
-            2: { axis: "west", rotation: 2 },
-            3: { axis: "west", rotation: 3 },
-        },
-        west: {
-            0: { axis: "north", rotation: 0 },
-            1: { axis: "north", rotation: 1 },
-            2: { axis: "north", rotation: 2 },
-            3: { axis: "north", rotation: 3 },
-        },
-    },
-    south: {
-        up: {
-            0: { axis: "west", rotation: 1 },
-            1: { axis: "east", rotation: 0 }, ///
-            2: { axis: "west", rotation: 3 }, ////
-            3: { axis: "east", rotation: 2 }, //
-        },
-        east: {
-            0: { axis: "down", rotation: 1 }, ///
-            1: { axis: "up", rotation: 2 }, ////
-            2: { axis: "down", rotation: 3 }, //
-            3: { axis: "up", rotation: 0 },
-        },
-        down: {
-            0: { axis: "east", rotation: 1 }, ////
-            1: { axis: "west", rotation: 2 }, ///
-            2: { axis: "east", rotation: 3 },
-            3: { axis: "west", rotation: 0 }, //
-        },
-        west: {
-            0: { axis: "up", rotation: 3 }, //
-            1: { axis: "down", rotation: 2 },
-            2: { axis: "up", rotation: 1 }, ///
-            3: { axis: "down", rotation: 0 }, ////
-        },
-    },
-    north: {
-        up: {
-            0: { axis: "east", rotation: 3 },
-            1: { axis: "west", rotation: 2 }, ////
-            2: { axis: "east", rotation: 1 }, ///
-            3: { axis: "west", rotation: 0 }, //
-        },
-        east: {
-            0: { axis: "up", rotation: 1 }, ////
-            1: { axis: "down", rotation: 0 }, ///
-            2: { axis: "up", rotation: 3 }, //
-            3: { axis: "down", rotation: 2 },
-        },
-        down: {
-            0: { axis: "west", rotation: 3 }, ///
-            1: { axis: "east", rotation: 0 }, ////
-            2: { axis: "west", rotation: 1 },
-            3: { axis: "east", rotation: 2 }, //
-        },
-        west: {
-            0: { axis: "down", rotation: 3 }, //
-            1: { axis: "up", rotation: 0 },
-            2: { axis: "down", rotation: 1 }, ////
-            3: { axis: "up", rotation: 2 }, ///
-        },
-    },
-    east: {
-        up: {
-            0: { axis: "south", rotation: 0 }, ///
-            1: { axis: "south", rotation: 1 }, ////start
-            2: { axis: "south", rotation: 2 }, //
-            3: { axis: "south", rotation: 3 },
-        },
-        south: {
-            0: { axis: "down", rotation: 0 }, ///start
-            1: { axis: "down", rotation: 3 }, ////
-            2: { axis: "down", rotation: 2 }, //
-            3: { axis: "up", rotation: 1 },
-        },
-        down: {
-            0: { axis: "north", rotation: 2 }, ///
-            1: { axis: "north", rotation: 1 },
-            2: { axis: "north", rotation: 0 }, //
-            3: { axis: "north", rotation: 3 }, ////
-        },
-        north: {
-            0: { axis: "up", rotation: 2 }, //start
-            1: { axis: "up", rotation: 3 },
-            2: { axis: "up", rotation: 0 }, ///
-            3: { axis: "up", rotation: 1 }, ////
-        },
-    },
-
-    west: {
-        down: {
-            0: { axis: "north", rotation: 2 },
-            1: { axis: "north", rotation: 3 },
-            2: { axis: "north", rotation: 0 },
-            3: { axis: "north", rotation: 1 },
-        },
-        north: {
-            0: { axis: "up", rotation: 2 },
-            1: { axis: "up", rotation: 1 },
-            2: { axis: "up", rotation: 0 },
-            3: { axis: "up", rotation: 3 },
-        },
-        up: {
-            0: { axis: "south", rotation: 2 },
-            1: { axis: "south", rotation: 3 },
-            2: { axis: "south", rotation: 0 },
-            3: { axis: "south", rotation: 1 },
-        },
-        south: {
-            0: { axis: "down", rotation: 2 },
-            1: { axis: "down", rotation: 3 },
-            2: { axis: "down", rotation: 0 },
-            3: { axis: "down", rotation: 1 },
-        },
-    },
-};
+import * as Constants from "./constants.js";
 
 /**
  * ==================================================
@@ -211,21 +50,21 @@ export class Rotation {
                 `setblock ${x} ${y} ${z} ${perm.type.id} ["utilitycraft:axis"="${axis}"]`,
             );
             system.run(() => {
-                if (perm.hasTag("dorios:energy")) {
+                if (perm.hasTag(Constants.ENERGY_BLOCK_TAG)) {
                     player.runCommand(
-                        `scriptevent dorios:updatePipes energy|[${x},${y},${z}]`,
+                        `scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} energy|[${x},${y},${z}]`,
                     );
                 }
 
-                if (perm.hasTag("dorios:item")) {
+                if (perm.hasTag(Constants.ITEM_BLOCK_TAG)) {
                     player.runCommand(
-                        `scriptevent dorios:updatePipes item|[${x},${y},${z}]`,
+                        `scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} item|[${x},${y},${z}]`,
                     );
                 }
 
-                if (perm.hasTag("dorios:fluid")) {
+                if (perm.hasTag(Constants.FLUID_BLOCK_TAG)) {
                     player.runCommand(
-                        `scriptevent dorios:updatePipes fluid|[${x},${y},${z}]`,
+                        `scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} fluid|[${x},${y},${z}]`,
                     );
                 }
             });
@@ -257,12 +96,12 @@ export class Rotation {
                 "minecraft:facing_direction",
             );
             if (facingDir !== undefined) {
-                const index = FACING.indexOf(facingDir);
-                const next = (index + 1) % FACING.length;
+                const index = Constants.FACING_DIRECTIONS.indexOf(facingDir);
+                const next = (index + 1) % Constants.FACING_DIRECTIONS.length;
                 block.setPermutation(
                     block.permutation.withState(
                         "minecraft:facing_direction",
-                        FACING[next],
+                        Constants.FACING_DIRECTIONS[next],
                     ),
                 );
                 return;
@@ -275,12 +114,12 @@ export class Rotation {
                 "minecraft:cardinal_direction",
             );
             if (cardDir !== undefined) {
-                const index = CARDINAL.indexOf(cardDir);
-                const next = (index + 1) % CARDINAL.length;
+                const index = Constants.CARDINAL_DIRECTIONS.indexOf(cardDir);
+                const next = (index + 1) % Constants.CARDINAL_DIRECTIONS.length;
                 block.setPermutation(
                     block.permutation.withState(
                         "minecraft:cardinal_direction",
-                        CARDINAL[next],
+                        Constants.CARDINAL_DIRECTIONS[next],
                     ),
                 );
                 return;
@@ -323,7 +162,7 @@ export class Rotation {
         }
 
         // Axis change using precomputed mapping table
-        const nextData = rotationMap[face]?.[axis]?.[rotation];
+        const nextData = Constants.ROTATION_MAP[face]?.[axis]?.[rotation];
         if (!nextData) return;
 
         const { axis: nextAxis, rotation: nextRotation } = nextData;
