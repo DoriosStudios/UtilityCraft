@@ -1,5 +1,6 @@
 import './DoriosAPI/index.js'
 import './DoriosCore/index.js'
+import './UIItemsCleanUp.js'
 
 import './config/main.js'
 import './machinery/main.js'
