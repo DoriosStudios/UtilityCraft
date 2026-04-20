@@ -154,7 +154,8 @@ export class EnergyStorage {
     const matches = [...cleanedInput.matchAll(/([\d.]+)\s*(PDE|TDE|GDE|MDE|KDE|DE)/gi)];
 
     if (!matches.length || index < 0 || index >= matches.length) {
-      throw new Error("Invalid input or index: couldn't parse energy values.");
+      return
+      // throw new Error("Invalid input or index: couldn't parse energy values.");
     }
 
     const [, valueStr, rawUnit] = matches[index];

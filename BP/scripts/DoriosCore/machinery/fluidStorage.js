@@ -235,24 +235,31 @@ export class FluidStorage {
     const safeValue = Math.max(0, Number(value) || 0);
 
     if (safeValue >= 1e18) {
-      return `${(safeValue / 1e18).toFixed(2)} EB`; } // ExaBucket (EB) for extremely large values
+      return `${(safeValue / 1e18).toFixed(2)} EB`;
+    } // ExaBucket (EB) for extremely large values
 
     if (safeValue >= 1e15) {
-      return `${(safeValue / 1e15).toFixed(2)} PB`; } // PetaBucket (PB) for very large values
+      return `${(safeValue / 1e15).toFixed(2)} PB`;
+    } // PetaBucket (PB) for very large values
 
     if (safeValue >= 1e12) {
-      return `${(safeValue / 1e12).toFixed(2)} TB`; } // TeraBucket (TB) for large values
+      return `${(safeValue / 1e12).toFixed(2)} TB`;
+    } // TeraBucket (TB) for large values
 
     if (safeValue >= 1e9) {
-      return `${(safeValue / 1e9).toFixed(2)} MB`; } // MegaBucket (MB) for large values
+      return `${(safeValue / 1e9).toFixed(2)} MB`;
+    } // MegaBucket (MB) for large values
 
     if (safeValue >= 1e6) {
-      return `${(safeValue / 1e6).toFixed(2)} KB`; } // KiloBucket (KB) for medium values
+      return `${(safeValue / 1e6).toFixed(2)} KB`;
+    } // KiloBucket (KB) for medium values
 
     if (safeValue >= 1e3) {
-      return `${(safeValue / 1e3).toFixed(1)} B`; } // Bucket (B) for small values
+      return `${(safeValue / 1e3).toFixed(1)} B`;
+    } // Bucket (B) for small values
 
-    return `${Math.floor(safeValue)} mB`; } // Milibucket (mB) for very small values
+    return `${Math.floor(safeValue)} mB`;
+  } // Milibucket (mB) for very small values
 
   /**
    * Extracts the fluid type and amount from a formatted text like:
