@@ -234,17 +234,21 @@ export class FluidStorage {
   static formatFluid(value) {
     const safeValue = Math.max(0, Number(value) || 0);
 
-    if (safeValue >= 1e18) {
-      return `${(safeValue / 1e18).toFixed(2)} EB`;
+    if (safeValue >= 1e21) {
+      return `${(safeValue / 1e21).toFixed(2)} EB`;
     } // ExaBucket (EB) for extremely large values
 
-    if (safeValue >= 1e15) {
-      return `${(safeValue / 1e15).toFixed(2)} PB`;
+    if (safeValue >= 1e18) {
+      return `${(safeValue / 1e18).toFixed(2)} PB`;
     } // PetaBucket (PB) for very large values
 
-    if (safeValue >= 1e12) {
-      return `${(safeValue / 1e12).toFixed(2)} TB`;
+    if (safeValue >= 1e15) {
+      return `${(safeValue / 1e15).toFixed(2)} TB`;
     } // TeraBucket (TB) for large values
+
+    if (safeValue >= 1e12) {
+      return `${(safeValue / 1e12).toFixed(2)} GB`;
+    } // GigaBucket (GB) for large values
 
     if (safeValue >= 1e9) {
       return `${(safeValue / 1e9).toFixed(2)} MB`;
