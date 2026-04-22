@@ -12,6 +12,7 @@ Desktop.ini
 # Ignore compilarions and packs | Ignorar compilaciones y empaquetados | Ignorar compilações e pacotes
 builds/
 packs/
+Renders/
 
 # Bridge | Excepciones específicas | Exceções específicas
 !.bridge/compiler/
