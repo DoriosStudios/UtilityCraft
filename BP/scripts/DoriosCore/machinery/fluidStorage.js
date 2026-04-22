@@ -40,7 +40,18 @@ export class FluidStorage {
 
     this.type = this.getType();
     this.cap = this.getCap();
-    if (this.get() == 0) this.setType(Constants.EMPTY_FLUID_TYPE);
+    if (this.get() == 0 && !this.hasFixedFluidType()) {
+      this.setType(Constants.EMPTY_FLUID_TYPE);
+    }
+  }
+
+  /**
+   * Checks whether this entity should preserve its fluid type tags while empty.
+   *
+   * @returns {boolean}
+   */
+  hasFixedFluidType() {
+    return this.entity.hasTag(Constants.CONSTANT_FLUID_TYPE_TAG);
   }
 
   /**
@@ -410,7 +421,9 @@ export class FluidStorage {
       const tank = new FluidStorage(entity, i);
       const tankType = tank.getType();
 
-      if (tankType === type && tank.getFreeSpace() > 0) return tank;
+      // If this type already exists in any slot, keep using that slot
+      // even when it is full so the entity never duplicates a fluid type.
+      if (tankType === type) return tank;
       if (!emptyTank && tankType === Constants.EMPTY_FLUID_TYPE && tank.getFreeSpace() > 0) {
         emptyTank = tank;
       }
