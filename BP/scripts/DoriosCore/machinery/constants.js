@@ -89,6 +89,11 @@ export const EMPTY_FLUID_BAR_ITEM_ID = "utilitycraft:empty_fluid_bar";
 export const EMPTY_FLUID_TYPE = "empty";
 
 /**
+ * Tag used by entities that must keep a fixed fluid type even when empty.
+ */
+export const CONSTANT_FLUID_TYPE_TAG = "dorios:constant_fluid_type";
+
+/**
  * Names of shared scoreboard objectives used by the fluid system.
  */
 export const FLUID_OBJECTIVE_NAMES = {

@@ -1,5 +1,6 @@
 import { ItemStack, system } from "@minecraft/server";
 import * as GlobalConstants from "../constants.js";
+import * as MachineryConstants from "../machinery/constants.js";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
 import * as Constants from "./constants.js";
@@ -134,6 +135,7 @@ function persistRepresentedBlockId(entity, blockId) {
  * @param {[number, number]} [config.entity.output_range] Output slot range.
  * @param {number} [config.entity.input_slot] Single input slot.
  * @param {number} [config.entity.output_slot] Single output slot.
+ * @param {boolean} [config.entity.fixed_fluid_types] Keeps fluid type tags even when tanks are empty.
  * @param {{x:number,y:number,z:number}} [config.spawn_offset] Optional spawn offset.
  *
  * @returns {import("@minecraft/server").Entity} The spawned entity.
@@ -151,6 +153,10 @@ export function spawnEntity(block, config) {
 
   const identifier = entityData.identifier ?? GlobalConstants.DEFAULT_ENTITY_ID;
   const entity = dimension.spawnEntity(identifier, location);
+
+  if (entityData.fixed_fluid_types === true) {
+    entity.addTag(MachineryConstants.CONSTANT_FLUID_TYPE_TAG);
+  }
 
   const inventorySize = entityData.inventory_size ?? 1;
   try {
