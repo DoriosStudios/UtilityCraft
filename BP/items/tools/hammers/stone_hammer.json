@@ -50,6 +50,12 @@
 						}
 					},
 					{
+						"speed": 8,
+						"block": {
+							"tags": "query.any_tag( 'utilitycraft:compressed_siftable' )"
+						}
+					},
+					{
 						"speed": 6,
 						"block": "minecraft:dirt"
 					},

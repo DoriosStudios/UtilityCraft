@@ -52,7 +52,12 @@
 							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'stone' )"
 						}
 					},
-
+					{
+						"speed": 16,
+						"block": {
+							"tags": "query.any_tag( 'utilitycraft:compressed_siftable' )"
+						}
+					},
 					{
 						"speed": 12,
 						"block": "minecraft:dirt"
