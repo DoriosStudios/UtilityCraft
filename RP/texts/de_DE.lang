@@ -1,23 +1,23 @@
 ## Translated by Milo
 
-message.utilitycraft.invalid_mesh=§eBenutzerdefinierte Netze können nur in Autosieve verwendet werden!
+message.utilitycraft.invalid_mesh=§eBenutzerdefinierte Netze können nur im automatischen Sieb verwendet werden!
 message.utilitycraft.essence_complete=§aEssenz abgeschlossen!
 
 - Bloques =## Bloques
 
-- Tables =## Mesas
+- Tables =## Arbeitstische
 tile.utilitycraft:workbench.name=Werkbank\n§7- Zum Herstellen von allem, was mit Maschinen zu tun hat
-tile.utilitycraft:utility_table.name=Utility Table\n§7- Zur Herstellung hochwertiger Werkzeuge
+tile.utilitycraft:utility_table.name=Werkzeugtisch\n§7- Zur Herstellung hochwertiger Werkzeuge
 
 - Machines =## Maschinen
-tile.utilitycraft:autosieve.name=Autosieve\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
-tile.utilitycraft:autofisher.name=Auto Fisher\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
+tile.utilitycraft:autosieve.name=Automatisches Sieb\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
+tile.utilitycraft:autofisher.name=Auto-Angler\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
 tile.utilitycraft:block_breaker.name=Blockbrecher\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
-tile.utilitycraft:ender_hopper.name=Ender Hopper\n§7- Akzeptierte Upgrades:\n §a§7 §9§7 §f§7
+tile.utilitycraft:ender_hopper.name=Ender-Trichter\n§7- Akzeptierte Upgrades:\n §a§7 §9§7 §f§7
 tile.utilitycraft:crusher.name=Brecher\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
 tile.utilitycraft:harvester.name=Erntemaschine\n§7- Akzeptierte Upgrades:\n §a§7 §b§7 §9§7
 tile.utilitycraft:electro_press.name=Elektropresse\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
-tile.utilitycraft:block_placer.name=Block Placer\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
+tile.utilitycraft:block_placer.name=Blockplatzierer\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
 tile.utilitycraft:seed_synthesizer.name=Seed-Synthesizer\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
 tile.utilitycraft:incinerator.name=Verbrennungsanlage\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
 tile.utilitycraft:infuser.name=Infuser\n§7- Akzeptierte Upgrades:\n §a§7 §b§7
@@ -37,7 +37,7 @@ tile.utilitycraft:crucible.name=Tiegel
 tile.utilitycraft:fan.name=Lüfter\n§7- Akzeptierte Upgrades:\n §9§7
 tile.utilitycraft:mob_grinder.name=Mob Grinder\n§7- Akzeptierte Upgrades:\n §9§7 §c§7
 tile.utilitycraft:mob_trap.name=Mob-Falle
-tile.utilitycraft:xp_magnet.name=XP Magnet\n§7- Akzeptierte Upgrades:\n §9§7
+tile.utilitycraft:xp_magnet.name=XP-Magnet\n§7- Akzeptierte Upgrades:\n §9§7
 tile.utilitycraft:xp_drain.name=XP-Entzug
 tile.utilitycraft:xp_spout.name=XP-Auslauf
 ## +
@@ -50,18 +50,18 @@ tile.utilitycraft:cobble_gen_5.name=Kopfsteinpflaster-Generator (§jTier 6§r) \
 ## +
 tile.utilitycraft:conveyor_horizontal.name=Horizontalförderer
 tile.utilitycraft:conveyor_inclined.name=Schrägförderer
-tile.utilitycraft:conveyor_declined.name=Abgelehnter Förderer
+tile.utilitycraft:conveyor_declined.name=Abwärtsförderer
 tile.utilitycraft:mechanic_hopper.name=Mechanischer Hopper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7
-tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7
+tile.utilitycraft:mechanic_upper.name=Mechanischer Heber\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7
 ##+
 tile.utilitycraft:basic_fluid_tank.name=§eBasis-Flüssigkeitstank
 tile.utilitycraft:advanced_fluid_tank.name=§cErweiterter Flüssigkeitstank
 tile.utilitycraft:expert_fluid_tank.name=§bExpert-Flüssigkeitstank
 tile.utilitycraft:ultimate_fluid_tank.name=§8Ultimate-Flüssigkeitstank
-- Bountiful Bonsais =## Bonsais Abundantes
+- Bountiful Bonsais =## Üppige Bonsais
 tile.utilitycraft:bonsai.name=Bonsai
 
-- Bountiful Crops =## Colheitas Abundantes
+- Bountiful Crops =## Üppige Feldfrüchte
 ## >>>>>>>> Open Group -------- ##
 
 -- Tier 1 =## Stufe (Ernte) 1
@@ -110,7 +110,7 @@ tile.utilitycraft:black_soil.name=§8Schwarzer Boden
 tile.utilitycraft:red_soil.name=§cRoter Boden
 tile.utilitycraft:yellow_soil.name=§eGelbe Erde
 
-- Mechanical Spawners =## Invocadores Mecânicos
+- Mechanical Spawners =## Mechanische Spawner
 tile.utilitycraft:mechanical_spawner.name=Mechanischer Spawner\n§7- Akzeptierte Upgrades:\n §a§7 §3§7
 tile.utilitycraft:spawner_core.name=Spawner-Kern
 
@@ -421,20 +421,20 @@ tile.utilitycraft:crushed_endstone.name=Zerkleinerter Endstein
 tile.utilitycraft:crushed_cobbled_deepslate.name=Zerkleinerter, gepflasterter Deepslate
 
 
-- Actions =## Ações/Interações
-action.hint.exit.utilitycraft:tractor=Verlassen Sie den Traktor
-action.hint.exit.utilitycraft:drill=Beenden Sie die Übung
+- Actions =## Aktionen/Interaktionen
+action.hint.exit.utilitycraft:tractor=Traktor verlassen
+action.hint.exit.utilitycraft:drill=Bohrer verlassen
 
-- Placeholder Items =## Vorschau der Elemente
+- Placeholder Items =## Vorschaugegenstände
 item.utilitycraft:lucky_fishing_rod_item=§aLucky Fishing Rod\n§7Luck of the Sea V\nLure V
 item.utilitycraft:lucky_pickaxe_item=§aGlücksspitzhacke\n§7Fortune V
 item.utilitycraft:lucky_sword_item=§aGlücksschwert\n§7Looting V
 
-- Items =## Itens
+- Items =## Gegenstände
 
 ## to be updated.
 
-- Tools =## Ferramentas
+- Tools =## Werkzeuge
 ## >>>>>>>> Open Group -------- ##
 
 -- AIOTs =## AIOTs
@@ -447,7 +447,7 @@ item.utilitycraft:copper_aiot=Kupfer-AIOT
 item.utilitycraft:stone_aiot=Stein-AIOT
 item.utilitycraft:wooden_aiot=AIOT aus Holz
 
--- Paxels =## Pacachados
+-- Paxels =## Paxel
 item.utilitycraft:netherite_paxel=Netherit-Paxel
 item.utilitycraft:diamond_paxel=Diamant-Paxel
 item.utilitycraft:steel_paxel=Stahl-Paxel
@@ -457,7 +457,7 @@ item.utilitycraft:golden_paxel=Goldenes Paxel
 item.utilitycraft:stone_paxel=Steinpaxel
 item.utilitycraft:wooden_paxel=Holzpaxel
 
--- Hammers =##Martelos
+-- Hammers =## Hämmer
 item.utilitycraft:golden_hammer=Goldener Hammer
 item.utilitycraft:netherite_hammer=Netherit-Hammer
 item.utilitycraft:diamond_hammer=Diamanthammer
@@ -467,22 +467,22 @@ item.utilitycraft:copper_hammer=Kupferhammer
 item.utilitycraft:stone_hammer=Steinhammer
 item.utilitycraft:wooden_hammer=Holzhammer
 
--- Steel =## Aço
+-- Steel =## Stahl
 item.utilitycraft:steel_sword=Stahlschwert
 item.utilitycraft:steel_axe=Stahlaxt
 item.utilitycraft:steel_pickaxe=Stahlspitzhacke
 item.utilitycraft:steel_shovel=Stahlschaufel
 item.utilitycraft:steel_hoe=Stahlhacke
 
--- Special Tools =## Ferramentas Especiais
+-- Special Tools =## Spezialwerkzeuge
 item.utilitycraft:lucky_pickaxe=§aGlücksspitzhacke
 item.utilitycraft:lucky_sword=§aGlücksschwert
 item.utilitycraft:smelting_pickaxe=§6Schmelzspitzhacke\n§7- Schmelzt Erze, wenn sie zerbrochen werden
 item.utilitycraft:bionic_arm=Bionischer Arm (Test)
 item.utilitycraft:lucky_fishing_rod=§aGlücksangel
 
--- Drills =## Brocas
-item.utilitycraft:drill=Drill\n§7- Minen in einem 3x3-Gebiet
+-- Drills =## Bohrer
+item.utilitycraft:drill=Bohrer\n§7- Baut in einem 3x3-Bereich ab
 item.utilitycraft:heavy_drill=Schwerer Bohrer\n§7- Minen in einem 5x5-Bereich
 ## -------- Close Group <<<<<<<< ##
 
@@ -581,7 +581,7 @@ item.utilitycraft:damage_upgrade=§cSchadens-Upgrade§r\n§7- Erhöht den von Mo
 ## +
 item.utilitycraft:base_upgrade=Basis-Upgrade\n§7- Wird zur Herstellung von Maschinen-Upgrades verwendet
 
-- Utility Items =## Es sind Utilitários
+- Utility Items =## Nützliche Gegenstände
 item.utilitycraft:honey_ball=Honigball
 item.utilitycraft:lava_ball=Lavaball
 item.utilitycraft:water_ball=Wasserball
@@ -596,10 +596,10 @@ item.utilitycraft:antidote_potion=Gegenmitteltrank
 item.utilitycraft:antidote_potion_splash=Gegengift-Trankspritzer
 item.utilitycraft:wrench=Schraubenschlüssel §r\n§7- Dreht die Maschine beim Schleichen §r\n§7- Entfernt Fahrzeuge
 
-- Saplings =## Mudas
+- Saplings =## Setzlinge
 item.utilitycraft:apple_sapling=Apfelsetzling
 
-- Entities =## Entidades
+- Entities =## Entitäten
 ## -------- Open Group -------- ##
 entity.utilitycraft:tractor.name=Traktor
 entity.utilitycraft:oak_tree.name=Eiche
@@ -608,7 +608,7 @@ entity.utilitycraft:darkoak_tree.name=Dunkle Eiche
 entity.utilitycraft:acacia_tree.name=Akazie
 entity.utilitycraft:jungle_tree.name=Dschungelbaum
 entity.utilitycraft:spruce_tree.name=Fichte
-entity.utilitycraft:drill.name=Bohren
+entity.utilitycraft:drill.name=Bohrer
 entity.utilitycraft:grenade.name=Granate
 entity.utilitycraft:bomb.name=Bombe
 entity.utilitycraft:dynamite.name=Dynamit
@@ -634,13 +634,13 @@ entity.utilitycraft:accelerator_clock.name=Beschleunigeruhr\n§7- Beschleunigt d
 item.utilitycraft:accelerator_clock=Beschleunigeruhr\n§7- Beschleunigt das Spiel
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Beschwörungsbeschleunigeruhr
 
-- Progress Bars =Barras de Progressão ##//////////////////////////////////////////////////////////
+- Progress Bars =## Fortschrittsanzeigen
 item.utilitycraft:empty_liquid_bar=Leer
 item.utilitycraft:arrow_indicator=Pfeilanzeige
 item.utilitycraft:info=Informationen:
-< Progress Bars =Barras de Progressão ##//////////////////////////////////////////////////////////
+< Progress Bars =## Fortschrittsanzeigen
 
-- Energy Generators =Geradores de Energy ##///////////////////////////////////////////////////////////
+- Energy Generators =## Energiegeneratoren
 tile.utilitycraft:basic_furnator.name=§eBasic Furnator \n §7 Rate: 40 DE/t
 tile.utilitycraft:basic_magmator.name=§eBasic Magmator \n §7 Rate: 50 DE/t
 tile.utilitycraft:basic_thermo_generator.name=§eBasis-Thermogenerator \n §7 Rate: 20 DE/t
@@ -670,9 +670,9 @@ tile.utilitycraft:ultimate_solar_panel.name=§8Ultimate Solar Panel \n §7 Rate:
 tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Basisrate: 800 DE/t\n §7 Maximaler Höhenmultiplikator: 300 %\n §7 Funktioniert nicht unter y16
 
 
-< Energy Generators =Geradores de Energy ##///////////////////////////////////////////////////////////
+< Energy Generators =## Energiegeneratoren
 
-- Stuff =## Coisas Não-Categorizadas
+- Stuff =## Sonstiges
 tile.utilitycraft:waycenter.name=Wegzentrum
 tile.utilitycraft:waycarpet.name=Wegteppich
 item.utilitycraft:way_chip=Weg Chip
@@ -724,7 +724,7 @@ item.utilitycraft:netherite_plate=Netheritplatte
 item.utilitycraft:netherite_nugget=Netherit-Nugget
 
 item.utilitycraft:arrow_indicator_90=Pfeilanzeige
-< Stuff =## Coisas Não-Categorizadas
+< Stuff =## Sonstiges
 
 ## - Categories
 dorios:itemGroup.name.generators=Generatoren
@@ -845,7 +845,7 @@ item.utilitycraft:blueprint=Entwurf
 ## Machines Entities
 entity.utilitycraft:assembler.name=Monteur
 entity.utilitycraft:autosieve.name=Automatisches Sieb
-entity.utilitycraft:autofisher.name=Auto Fisher
+entity.utilitycraft:autofisher.name=Auto-Angler
 entity.utilitycraft:block_breaker.name=Blockbrecher
 entity.utilitycraft:block_placer.name=Blockplatzierer
 entity.utilitycraft:crusher.name=Brecher
@@ -854,7 +854,7 @@ entity.utilitycraft:electro_press.name=Elektropresse
 entity.utilitycraft:harvester.name=Mähdrescher
 entity.utilitycraft:incinerator.name=Verbrennungsanlage
 entity.utilitycraft:induction_anvil.name=Induktionsamboss
-entity.utilitycraft:infuser.name=Teesieb
+entity.utilitycraft:infuser.name=Infuser
 entity.utilitycraft:magmatic_chamber.name=Magmatische Kammer
 entity.utilitycraft:seed_synthesizer.name=Seed-Synthesizer
 entity.utilitycraft:power_condenser.name=Leistungskondensatormatrix
@@ -885,4 +885,4 @@ tile.utilitycraft:advanced_energy_receiver.name=§cAdvanced Energy Receptor \n �
 tile.utilitycraft:expert_energy_receiver.name=§bExpert Energy Receptor \n §7 Rate: 16 kDE/t\n §7 Kapazität: 1.024 MDE
 tile.utilitycraft:ultimate_energy_receiver.name=§8Ultimate Energy Receptor \n §7 Rate: 100 kDE/t\n §7 Kapazität: 6,4 MDE
 
-item.utilitycraft:settings=Settings\n §7 Interagieren Sie, um die UtilityCraft-Einstellungen zu öffnen
+item.utilitycraft:settings=Einstellungen\n §7 Interagieren, um die UtilityCraft-Einstellungen zu öffnen
