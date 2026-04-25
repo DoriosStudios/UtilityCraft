@@ -18,7 +18,8 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 3.8
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {}
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "tag:utilitycraft:compressed_siftable": {}
     }
   }
 }
