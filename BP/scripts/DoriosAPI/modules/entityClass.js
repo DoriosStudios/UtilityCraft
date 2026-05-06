@@ -13,7 +13,7 @@ const entityExtensions = {
      * @param {number} [amount=1] Amount of the item if a string is provided. Ignored if item is an ItemStack.
      * @param {boolean} [shouldSpawn=false]
      */
-    addItem(item, amount = 1, shouldSpawn) {
+    tryAddItem(item, amount = 1, shouldSpawn) {
         if (!this?.getComponent || !this.getComponent('inventory')) return;
 
         const inventory = this.getComponent('inventory');

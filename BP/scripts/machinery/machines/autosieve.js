@@ -110,7 +110,7 @@ DoriosAPI.register.blockComponent('autosieve', {
                     if (meshData.amount_multiplier) qty *= meshData.amount_multiplier;
 
                     try {
-                        machine.entity.addItem(
+                        machine.entity.tryAddItem(
                             loot.item,
                             processCount * Math.ceil(Math.random() * qty)
                         );
