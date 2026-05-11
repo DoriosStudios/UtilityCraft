@@ -22,6 +22,9 @@ Renders/
 *.log
 *.txt
 
+# Planned but Unfinished Features | Características planedas pero no terminadas | Recursos planejados mas não finalizados
+
+
 # Specific Exceptions | Excepciones específicas | Exceções específicas
 BP/items/utility_items/debug_stick.json
 BP/scripts/items/debug_stick.js
