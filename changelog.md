@@ -56,6 +56,14 @@
 
 ## Developer Changes
 
+### Fluid Storage
+- Added native support for **infinite fluid containers** in `FluidStorage`.
+  - Registered containers can now use `infinite: true` to refill the full free space of a compatible tank instead of behaving like oversized finite containers.
+- Improved held-item replacement during fluid container interactions.
+  - Tank interactions now preserve same-item results safely, which keeps infinite containers stable and avoids stack-loss edge cases when the output item matches the input.
+
+---
+
 ### Tool Components Compatibility
 - Updated `utilitycraft:hammer` script event handling to accept both `dorios:hammerBlock` and `dorios:hammerblock` event IDs.
 - Improved hammer tier resolution for ScriptEvent flows:
