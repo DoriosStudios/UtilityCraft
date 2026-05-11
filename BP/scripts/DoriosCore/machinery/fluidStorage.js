@@ -569,7 +569,19 @@ export class FluidStorage {
     // 1. INSERTION: item adds fluid into tank
     const insertData = FluidStorage.itemFluidStorages[typeId];
     if (insertData) {
-      const { type, amount, output } = insertData;
+      const { type, amount, output, infinite } = insertData;
+
+      if (infinite === true) {
+        const currentType = this.getType();
+        if (currentType !== Constants.EMPTY_FLUID_TYPE && currentType !== type) return false;
+
+        const freeSpace = this.getFreeSpace();
+        if (freeSpace <= 0) return false;
+
+        if (currentType === Constants.EMPTY_FLUID_TYPE) this.setType(type);
+        this.add(freeSpace);
+        return output ?? typeId;
+      }
 
       if (!this.tryInsert(type, amount)) return false;
 
