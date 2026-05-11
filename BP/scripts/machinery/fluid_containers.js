@@ -90,8 +90,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
             );
 
             if (!player.isInCreative()) {
-                player.changeItemAmount(player.selectedSlotIndex, -1);
-                if (result) player.giveItem(result);
+                FluidStorage.replaceHeldFluidItem(player, mainHand.typeId, result || undefined);
             }
 
 
