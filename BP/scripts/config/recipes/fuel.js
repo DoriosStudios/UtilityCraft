@@ -57,6 +57,48 @@ export const solidFuels = [
 ];
 
 /**
+ * Resolves the best solid fuel match for an item type ID.
+ *
+ * Matching priority:
+ * 1. Exact full type ID match (for example, "minecraft:coal").
+ * 2. Exact identifier match without namespace (for example, "coal").
+ * 3. Partial match using the longest fuel ID to prefer specific patterns
+ *    such as "_compressed_wood_4" over generic ones like "_wood".
+ *
+ * @param {string | undefined} typeId
+ * @returns {SolidFuel | undefined}
+ */
+export function getSolidFuel(typeId) {
+    if (!typeId) return undefined;
+
+    const itemId = typeId.split(":").pop() ?? typeId;
+    let bestMatch;
+    let bestScore = -1;
+
+    for (const fuel of solidFuels) {
+        let score = -1;
+
+        if (typeId === fuel.id) {
+            score = 3;
+        } else if (itemId === fuel.id) {
+            score = 2;
+        } else if (typeId.includes(fuel.id)) {
+            score = 1;
+        }
+
+        if (score === -1) continue;
+
+        const weightedScore = (score * 1000) + fuel.id.length;
+        if (weightedScore > bestScore) {
+            bestScore = weightedScore;
+            bestMatch = fuel;
+        }
+    }
+
+    return bestMatch;
+}
+
+/**
  * ScriptEvent receiver: "utilitycraft:register_fuel"
  *
  * Allows other addons or scripts to dynamically add or replace solid fuels.
