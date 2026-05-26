@@ -20,7 +20,7 @@
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
-				"max_durability": 251
+				"max_durability": 131
 			},
 			"minecraft:damage": 4,
 			"minecraft:icon": "utilitycraft_stone_hammer",
@@ -32,11 +32,11 @@
 				"repair_items": [
 					{
 						"items": ["minecraft:cobblestone"],
-						"repair_amount": 83
+						"repair_amount": 33
 					},
 					{
 						"items": ["utilitycraft:stone_hammer"],
-						"repair_amount": 251
+						"repair_amount": 131
 					}
 				]
 			},
