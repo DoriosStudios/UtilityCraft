@@ -832,6 +832,7 @@ dorios:itemGroup.name.essences=Esencias\n§7- Usadas en el Generador Mecánico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Mejoras de Máquinas
 dorios:itemGroup.name.removed=Eliminados
+dorios:itemGroup.name.elevators=Ascensores
 
 ## < Categorias
 

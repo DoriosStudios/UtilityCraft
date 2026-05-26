@@ -863,6 +863,8 @@ dorios:itemGroup.name.hammers=Martelos
 dorios:itemGroup.name.removed=Removidos
 dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
 dorios:itemGroup.name.fishing_nets=Redes de Pesca
+dorios:itemGroup.name.elevators=Elevadores
+
 item.utilitycraft:string_fishing_net=Rede de Pesca de Linha\n§7- Escalão de Velocidade do Anzol: 1
 item.utilitycraft:copper_fishing_net=Rede de Pesca de Cobre\n§7- Escalão de Velocidade do Anzol: 2
 item.utilitycraft:iron_fishing_net=Rede de Pesca de Ferro\n§7- Escalão de Velocidade do Anzol: 3
