@@ -64,6 +64,16 @@
 					]
 				}
 			},
+			"utilitycraft:power_beacon": {
+				"minecraft:type_family": {
+					"family": [
+						"dorios:machine",
+						"dorios:energy_source",
+						"dorios:energy_container",
+						"dorios:power_beacon"
+					]
+				}
+			},
 			// Normal Machines
 			"utilitycraft:special_machine": {
 				"minecraft:type_family": {
@@ -515,6 +525,13 @@
 				"add": {
 					"component_groups": [
 						"utilitycraft:passive_generator"
+					]
+				}
+			},
+			"utilitycraft:power_beacon": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:power_beacon"
 					]
 				}
 			},

@@ -865,6 +865,8 @@ dorios:itemGroup.name.essences=Essências\n§7- Usado no Invocador Mecânico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Módulos de Melhoria
 dorios:itemGroup.name.removed=Removidos
+dorios:itemGroup.name.elevators=Elevadores
+
 ## < Categories
 
 ## All the same

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:bag_of_gray_dye"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:gray_dye",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:bag_of_gray_dye"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gray_dye"
+      }
+    ]
+  }
+}

@@ -19,7 +19,7 @@
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
-				"max_durability": 251
+				"max_durability": 59
 			},
 			"minecraft:damage": 3,
 			"minecraft:icon": "utilitycraft_wooden_hammer",
@@ -31,11 +31,11 @@
 				"repair_items": [
 					{
 						"items": ["planks"],
-						"repair_amount": 83
+						"repair_amount": 15
 					},
 					{
 						"items": ["utilitycraft:wooden_hammer"],
-						"repair_amount": 251
+						"repair_amount": 59
 					}
 				]
 			},

@@ -122,7 +122,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
                     // if (!loot.item.endsWith('_seeds')) qty *= soil.multi;
 
                     try {
-                        machine.entity.addItem(
+                        machine.entity.tryAddItem(
                             loot.item,
                             processCount * Math.ceil(Math.random() * qty)
                         );

@@ -20,6 +20,11 @@
 				}
 			],
 			"minecraft:icon": "utilitycraft_flint_knife",
+			"minecraft:tags": {
+				"tags": [
+					"utilitycraft:flint_knife"
+				]
+			},
 			"minecraft:durability": {
 				"max_durability": 128
 			},

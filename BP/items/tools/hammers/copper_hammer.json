@@ -20,7 +20,7 @@
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {
-				"max_durability": 573
+				"max_durability": 190
 			},
 			"minecraft:damage": 4,
 			"minecraft:icon": "utilitycraft_copper_hammer",
@@ -32,11 +32,11 @@
 				"repair_items": [
 					{
 						"items": ["minecraft:copper_ingot"],
-						"repair_amount": 146
+						"repair_amount": 47
 					},
 					{
 						"items": ["utilitycraft:copper_hammer"],
-						"repair_amount": 573
+						"repair_amount": 190
 					}
 				]
 			},

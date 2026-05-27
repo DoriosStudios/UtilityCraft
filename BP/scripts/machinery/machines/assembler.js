@@ -121,7 +121,7 @@ DoriosAPI.register.blockComponent('assembler', {
 
             // Add leftover item if exists
             if (leftover !== false) {
-                machine.entity.addItem(leftover, 1);
+                machine.entity.tryAddItem(leftover, 1);
             }
 
             // Consume progress

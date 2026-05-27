@@ -12,6 +12,7 @@ Desktop.ini
 # Ignore compilarions and packs | Ignorar compilaciones y empaquetados | Ignorar compilações e pacotes
 builds/
 packs/
+Renders/
 
 # Bridge | Excepciones específicas | Exceções específicas
 !.bridge/compiler/
@@ -20,6 +21,9 @@ packs/
 # Specific File Types | Tipos de archivo específicos | Tipos de arquivo específicos
 *.log
 *.txt
+
+# Planned but Unfinished Features | Características planedas pero no terminadas | Recursos planejados mas não finalizados
+
 
 # Specific Exceptions | Excepciones específicas | Exceções específicas
 BP/items/utility_items/debug_stick.json

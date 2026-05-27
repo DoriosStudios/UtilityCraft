@@ -122,7 +122,7 @@ function ensureHiddenInputSlot(machine) {
     // Relocate misplaced items into the main inventory before locking the slot again.
     inv.setItem(UNUSED_INPUT_SLOT, undefined);
     machine.entity.setItem(UNUSED_INPUT_SLOT, UI_PLACEHOLDER_ITEM, 1, '');
-    machine.entity.addItem(slotItem, undefined, true);
+    machine.entity.tryAddItem(slotItem, undefined, true);
 }
 
 function getAllEnchantmentTypes() {
@@ -718,15 +718,15 @@ DoriosAPI.register.blockComponent('autofisher', {
                             if (lootItemId === BOOK_ITEM_ID) {
                                 const bookStacks = createBookDropStacks(qty, netTier, netLuck);
                                 for (const stack of bookStacks) {
-                                    machine.entity.addItem(stack);
+                                    machine.entity.tryAddItem(stack);
                                 }
                             } else if (loot.randomEnchant || loot.durabilityDamageRange) {
                                 const equipmentStacks = createEquipmentDropStacks(loot, qty, netLuck, netTier);
                                 for (const stack of equipmentStacks) {
-                                    machine.entity.addItem(stack);
+                                    machine.entity.tryAddItem(stack);
                                 }
                             } else {
-                                machine.entity.addItem(lootItemId, qty);
+                                machine.entity.tryAddItem(lootItemId, qty);
                             }
                         } catch {
                             // Inventory full mid-loop, break early to avoid unnecessary work

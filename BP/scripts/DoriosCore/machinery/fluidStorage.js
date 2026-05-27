@@ -333,6 +333,67 @@ export class FluidStorage {
     return this.itemFluidStorages[id] ?? null;
   }
 
+  /**
+   * Returns the currently selected inventory stack for a player.
+   *
+   * @param {Player} player
+   * @returns {{ slot: number, inventory: Container, item: ItemStack | undefined } | null}
+   */
+  static getSelectedInventoryItem(player) {
+    if (!player) return null;
+
+    const slot = player.selectedSlotIndex ?? 0;
+    const inventory = player.getComponent("minecraft:inventory")?.container;
+    if (!inventory) return null;
+
+    return {
+      slot,
+      inventory,
+      item: inventory.getItem(slot)
+    };
+  }
+
+  /**
+   * Replaces or preserves the held fluid item after a fluid interaction.
+   *
+   * This is safer than decrement + give because it keeps the selected slot stable,
+   * works with stacks, and avoids losing items when the result item equals the input.
+   *
+   * @param {Player} player
+   * @param {string} expectedTypeId
+   * @param {string | undefined} nextTypeId
+   * @returns {boolean}
+   */
+  static replaceHeldFluidItem(player, expectedTypeId, nextTypeId) {
+    if (!player || !expectedTypeId) return false;
+    if (typeof player.isInCreative === "function" && player.isInCreative()) return true;
+    if (expectedTypeId === nextTypeId) return true;
+
+    const selected = FluidStorage.getSelectedInventoryItem(player);
+    if (!selected) return false;
+
+    const { slot, inventory } = selected;
+    const current = inventory.getItem(slot);
+    if (!current || current.typeId !== expectedTypeId) return false;
+
+    if (current.amount > 1) {
+      current.amount -= 1;
+      inventory.setItem(slot, current);
+
+      if (!nextTypeId) return true;
+
+      const overflow = inventory.addItem(new ItemStack(nextTypeId, 1));
+      if (overflow) {
+        player.dimension?.spawnItem?.(overflow, player.location);
+      }
+
+      return true;
+    }
+
+    inventory.setItem(slot, nextTypeId ? new ItemStack(nextTypeId, 1) : undefined);
+    return true;
+  }
+
   // --------------------------------------------------------------------------
   // Core operations
   // --------------------------------------------------------------------------
@@ -463,8 +524,7 @@ export class FluidStorage {
     );
 
     if (!player.isInCreative()) {
-      player.changeItemAmount(player.selectedSlotIndex, -1);
-      if (insert) player.giveItem(insert);
+      FluidStorage.replaceHeldFluidItem(player, mainHand.typeId, insert || undefined);
     }
   }
 
@@ -509,7 +569,19 @@ export class FluidStorage {
     // 1. INSERTION: item adds fluid into tank
     const insertData = FluidStorage.itemFluidStorages[typeId];
     if (insertData) {
-      const { type, amount, output } = insertData;
+      const { type, amount, output, infinite } = insertData;
+
+      if (infinite === true) {
+        const currentType = this.getType();
+        if (currentType !== Constants.EMPTY_FLUID_TYPE && currentType !== type) return false;
+
+        const freeSpace = this.getFreeSpace();
+        if (freeSpace <= 0) return false;
+
+        if (currentType === Constants.EMPTY_FLUID_TYPE) this.setType(type);
+        this.add(freeSpace);
+        return output ?? typeId;
+      }
 
       if (!this.tryInsert(type, amount)) return false;
 
