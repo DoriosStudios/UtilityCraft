@@ -1,5 +1,5 @@
 import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
-import { getSolidFuel } from "../../config/recipes/fuel.js";
+import { solidFuels } from "../../config/recipes/fuel.js";
 
 DoriosAPI.register.blockComponent('furnator', {
     /**
@@ -63,7 +63,7 @@ DoriosAPI.register.blockComponent('furnator', {
                     generator.displayEnergy()
                     return
                 }
-                const fuel = getSolidFuel(item?.typeId);
+                const fuel = solidFuels.find(f => item?.typeId.includes(f.id));
                 if (!fuel) {
                     generator.setLabel(`
 §r§eInvalid Fuel
