@@ -1,0 +1,1780 @@
+{
+    "namespace": "how_to_play",
+    "how_to_play_selector_stack_panel/how_to_play_selector_pane": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "padding_00": {
+                            "type": "panel",
+                            "size": [
+                                0,
+                                6
+                            ]
+                        }
+                    },
+                    {
+                        "utilitycraft_category@how_to_play_common.topic_category": {
+                            "$category": "utilitycraft"
+                        }
+                    },
+                    {
+                        "uc:introduction_button@how_to_play.uc:introduction_button": {
+                            "$toggle_group_forced_index": 250
+                        }
+                    },
+                    {
+                        "uc:getting_started_button@how_to_play.uc:getting_started_button": {
+                            "$toggle_group_forced_index": 251
+                        }
+                    },
+                    {
+                        "uc:first_steps_steel_button@how_to_play.uc:first_steps_steel_button": {
+                            "$toggle_group_forced_index": 252
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "how_to_play_section_content_panels/general_tips_sections": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "uc:introduction_section@how_to_play.uc:introduction_section": {}
+                    },
+                    {
+                        "uc:getting_started_section@how_to_play.uc:getting_started_section": {}
+                    },
+                    {
+                        "uc:first_steps_steel_section@how_to_play.uc:first_steps_steel_section": {}
+                    }
+                ]
+            }
+        ]
+    },
+    "guide_full_image@how_to_play_common.image": {
+        "size": [
+            "100%",
+            "140px"
+        ]
+    },
+    "guide_recipe_image@how_to_play_common.image": {
+        "size": [
+            "75%",
+            "112px"
+        ]
+    },
+    "guide_title_image@how_to_play_common.image": {
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "270px",
+            "69px"
+        ]
+    },
+    "guide_basics_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/basics_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "120px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_batteries_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/batteries_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "120px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_hammers_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/hammers_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "240px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_basic_pebbles_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/basic_pebbles_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "210px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_flint_knife_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/flint_knife_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "120px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_sieve_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "60px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_string_mesh_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/string_mesh_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "60px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_breaking_blocks_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/breaking_blocks_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "270px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_sieve_gravel_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "70px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_gravel_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "60px",
+                        "68px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_sieve_scaling_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "62px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_scaling_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "270px",
+                        "62px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_breaking_blocks_comp_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "120px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/breaking_blocks_comp_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "270px",
+                        "120px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_sieve_gravel_comp_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "70px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_gravel_comp_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "60px",
+                        "68px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_mortar_item": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/items/tools/morter",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "60px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_water_bottle_recipe": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/water_bottle_recipe",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "120px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_cauldron_water_process_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/cauldron_water_process_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "176px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_crucible_eg_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "72px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_eg_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "85px",
+                        "72px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_crucible_obsidian_process_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "46px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_obsidian_process_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "156px",
+                        "46px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_crucible_recipe_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_recipe_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "150px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_getting_mud_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/getting_mud_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "150px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_smeltflare_recipe_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/smeltflare_recipe_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "120px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_brute_steel_recipe": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/brute_steel_recipe",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "120px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_workbench_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/workbench_render",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "60px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_workbench_recipe": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/workbench_recipe",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "150px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_fluid_tanks_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/fluid_tanks_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "120px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_meshes_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/meshes_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "240px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_tools_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/tools_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "240px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_crops_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/crops_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "120px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_cobble_gens_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/cobble_gens_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "180px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_machines_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/machines_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "210px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_generators_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "120px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/generators_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "150px",
+                        "120px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_machines_upgrades_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/machines_upgrades_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "210px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_mob_grinding_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/mob_grinding_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "90px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_dorios_logo": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "60px"
+        ],
+        "controls": [
+            {
+                "logo@how_to_play_common.image": {
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/dorios_logo",
+                    "offset": [
+                        "90% - 30px",
+                        0
+                    ],
+                    "size": [
+                        "60px",
+                        "60px"
+                    ]
+                }
+            }
+        ]
+    },
+    "guide_discord_link": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "90px"
+        ],
+        "controls": [
+            {
+                "qr@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/discord_link",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "90px",
+                        "90px"
+                    ]
+                }
+            }
+        ]
+    },
+    "wide_paragraph": {
+        "type": "panel",
+        "$text|default": "",
+        "$line_padding|default": 4,
+        "size": [
+            "100%",
+            "100%cm"
+        ],
+        "controls": [
+            {
+                "label": {
+                    "type": "label",
+                    "color": "$body_text_color",
+                    "anchor_from": "left_middle",
+                    "anchor_to": "left_middle",
+                    "size": [
+                        "90%",
+                        "default"
+                    ],
+                    "line_padding": "$line_padding",
+                    "text": "$text",
+                    "text_tts": "$text"
+                }
+            },
+            {
+                "focus_border@how_to_play_common.paragraph_tts_focus_border": {
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": [
+                        "90% + 4px",
+                        "100%sm + 3px"
+                    ],
+                    "offset": [
+                        -2,
+                        -1
+                    ]
+                }
+            }
+        ]
+    },
+    "intro_header_background@how_to_play_common.header_background": {
+        "size": [
+            "90%",
+            "20px"
+        ],
+        "anchor_from": "left_middle",
+        "anchor_to": "left_middle"
+    },
+    "intro_header": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "28px"
+        ],
+        "controls": [
+            {
+                "header@how_to_play.intro_header_background": {}
+            }
+        ]
+    },
+    "uc:introduction_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:introduction"
+    },
+    "uc:getting_started_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:getting_started"
+    },
+    "uc:first_steps_steel_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:first_steps_steel"
+    },
+    "uc:introduction_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:introduction_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "title_image@how_to_play.guide_title_image": {
+                    "texture": "textures/ui/wiki/utilitycraft/guide/title"
+                }
+            },
+            {
+                "padding_0@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_1@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p3"
+                }
+            },
+            {
+                "basics_image@how_to_play.guide_basics_render": {}
+            },
+            {
+                "padding_2a@how_to_play_common.small_padding": {}
+            },
+            {
+                "meshes_image@how_to_play.guide_meshes_render": {}
+            },
+            {
+                "padding_2@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h2"
+                }
+            },
+            {
+                "paragraph_4@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p4"
+                }
+            },
+            {
+                "crops_image@how_to_play.guide_crops_render": {}
+            },
+            {
+                "padding_2b@how_to_play_common.small_padding": {}
+            },
+            {
+                "tools_image@how_to_play.guide_tools_render": {}
+            },
+            {
+                "padding_2c@how_to_play_common.small_padding": {}
+            },
+            {
+                "cobble_gens_image@how_to_play.guide_cobble_gens_render": {}
+            },
+            {
+                "padding_3@how_to_play_common.padding": {}
+            },
+            {
+                "header_3@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h3"
+                }
+            },
+            {
+                "paragraph_5@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p5"
+                }
+            },
+            {
+                "machines_image@how_to_play.guide_machines_render": {}
+            },
+            {
+                "padding_3a@how_to_play_common.small_padding": {}
+            },
+            {
+                "generators_image@how_to_play.guide_generators_render": {}
+            },
+            {
+                "padding_3b@how_to_play_common.small_padding": {}
+            },
+            {
+                "batteries_image@how_to_play.guide_batteries_render": {}
+            },
+            {
+                "padding_3c@how_to_play_common.small_padding": {}
+            },
+            {
+                "machines_upgrades_image@how_to_play.guide_machines_upgrades_render": {}
+            },
+            {
+                "padding_4@how_to_play_common.padding": {}
+            },
+            {
+                "header_4@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h4"
+                }
+            },
+            {
+                "paragraph_6@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p6"
+                }
+            },
+            {
+                "fluid_tanks_image@how_to_play.guide_fluid_tanks_render": {}
+            },
+            {
+                "padding_5@how_to_play_common.padding": {}
+            },
+            {
+                "header_5@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h5"
+                }
+            },
+            {
+                "paragraph_7@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p7"
+                }
+            },
+            {
+                "mob_grinding_image@how_to_play.guide_mob_grinding_render": {}
+            },
+            {
+                "padding_6@how_to_play_common.padding": {}
+            },
+            {
+                "header_6@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h6"
+                }
+            },
+            {
+                "paragraph_8@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p8"
+                }
+            },
+            {
+                "padding_7@how_to_play_common.padding": {}
+            },
+            {
+                "header_7@how_to_play.intro_header": {
+                    "$text": "howtoplay.utilitycraft.introduction.h7"
+                }
+            },
+            {
+                "paragraph_9@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p9"
+                }
+            },
+            {
+                "discord_link@how_to_play.guide_discord_link": {}
+            },
+            {
+                "padding_8@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_10@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.introduction.p10"
+                }
+            },
+            {
+                "dorios_logo@how_to_play.guide_dorios_logo": {}
+            }
+        ]
+    },
+    "uc:getting_started_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:getting_started_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "paragraph_2@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p3"
+                }
+            },
+            {
+                "hammers_image@how_to_play.guide_hammers_render": {}
+            },
+            {
+                "padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "pebbles_image@how_to_play.guide_basic_pebbles_render": {}
+            },
+            {
+                "padding_4@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h2"
+                }
+            },
+            {
+                "paragraph_10@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p10"
+                }
+            },
+            {
+                "padding_5@how_to_play_common.small_padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h3"
+                }
+            },
+            {
+                "paragraph_11@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p11"
+                }
+            },
+            {
+                "flint_knife_image@how_to_play.guide_flint_knife_render": {}
+            },
+            {
+                "padding_6@how_to_play_common.padding": {}
+            },
+            {
+                "header_5@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h5"
+                }
+            },
+            {
+                "paragraph_14@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p14"
+                }
+            },
+            {
+                "paragraph_15@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p15"
+                }
+            },
+            {
+                "sieve_image@how_to_play.guide_sieve_render": {}
+            },
+            {
+                "padding_10@how_to_play_common.padding": {}
+            },
+            {
+                "header_6@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h6"
+                }
+            },
+            {
+                "paragraph_16@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p16"
+                }
+            },
+            {
+                "paragraph_17@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p17"
+                }
+            },
+            {
+                "string_mesh_image@how_to_play.guide_string_mesh_render": {}
+            },
+            {
+                "padding_11@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_18@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p18"
+                }
+            },
+            {
+                "padding_12@how_to_play_common.padding": {}
+            },
+            {
+                "header_7@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h7"
+                }
+            },
+            {
+                "paragraph_19@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p19"
+                }
+            },
+            {
+                "paragraph_20@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p20"
+                }
+            },
+            {
+                "paragraph_21@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p21"
+                }
+            },
+            {
+                "breaking_blocks_image@how_to_play.guide_breaking_blocks_render": {}
+            },
+            {
+                "padding_13@how_to_play_common.padding": {}
+            },
+            {
+                "header_8@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.getting_started.h8"
+                }
+            },
+            {
+                "paragraph_22@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p22"
+                }
+            },
+            {
+                "paragraph_23@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p23"
+                }
+            },
+            {
+                "sieve_gravel_image@how_to_play.guide_sieve_gravel_render": {}
+            },
+            {
+                "padding_14@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_24@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p24"
+                }
+            },
+            {
+                "padding_15@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_25@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p25"
+                }
+            },
+            {
+                "paragraph_26@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p26"
+                }
+            },
+            {
+                "paragraph_27@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.getting_started.p27"
+                }
+            },
+            {
+                "expanding_section_padding@how_to_play_common.padding": {}
+            },
+            {
+                "expanding_section_header@how_to_play_common.header": {
+                    "$text": "howtoplay.uc:expanding_resources"
+                }
+            },
+            {
+                "expanding_paragraph_1@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p1"
+                }
+            },
+            {
+                "expanding_paragraph_2@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p2"
+                }
+            },
+            {
+                "expanding_padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "expanding_header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.h1"
+                }
+            },
+            {
+                "expanding_paragraph_3@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p3"
+                }
+            },
+            {
+                "expanding_paragraph_4@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p4"
+                }
+            },
+            {
+                "expanding_sieve_scaling_image@how_to_play.guide_sieve_scaling_render": {}
+            },
+            {
+                "expanding_padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "expanding_paragraph_5@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p5"
+                }
+            },
+            {
+                "expanding_padding_5@how_to_play_common.padding": {}
+            },
+            {
+                "expanding_header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.h3"
+                }
+            },
+            {
+                "expanding_paragraph_10@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p10"
+                }
+            },
+            {
+                "expanding_paragraph_11@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p11"
+                }
+            },
+            {
+                "expanding_meshes_image@how_to_play.guide_meshes_render": {}
+            },
+            {
+                "expanding_padding_6@how_to_play_common.small_padding": {}
+            },
+            {
+                "expanding_paragraph_12@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p12"
+                }
+            },
+            {
+                "expanding_paragraph_13@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p13"
+                }
+            },
+            {
+                "expanding_padding_15@how_to_play_common.padding": {}
+            },
+            {
+                "expanding_header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.h4"
+                }
+            },
+            {
+                "expanding_paragraph_14@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p14"
+                }
+            },
+            {
+                "expanding_paragraph_15@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p15"
+                }
+            },
+            {
+                "expanding_breaking_blocks_comp_image@how_to_play.guide_breaking_blocks_comp_render": {}
+            },
+            {
+                "expanding_padding_16@how_to_play_common.small_padding": {}
+            },
+            {
+                "expanding_paragraph_16@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p16"
+                }
+            },
+            {
+                "expanding_padding_16a@how_to_play_common.small_padding": {}
+            },
+            {
+                "expanding_sieve_gravel_comp_image@how_to_play.guide_sieve_gravel_comp_render": {}
+            },
+            {
+                "expanding_padding_17@how_to_play_common.padding": {}
+            },
+            {
+                "expanding_paragraph_19@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.expanding_resources.p19"
+                }
+            },
+            {
+                "dorios_logo@how_to_play.guide_dorios_logo": {}
+            }
+        ]
+    },
+    "uc:first_steps_steel_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:first_steps_steel_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "water_paragraph_1@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p1"
+                }
+            },
+            {
+                "water_paragraph_2@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p2"
+                }
+            },
+            {
+                "water_padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "water_header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h1"
+                }
+            },
+            {
+                "water_paragraph_3@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p3"
+                }
+            },
+            {
+                "water_mortar_item@how_to_play.guide_mortar_item": {}
+            },
+            {
+                "water_padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "water_paragraph_4@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p4"
+                }
+            },
+            {
+                "water_bottle_recipe@how_to_play.guide_water_bottle_recipe": {}
+            },
+            {
+                "water_padding_3@how_to_play_common.small_padding": {}
+            },
+            {
+                "water_paragraph_5@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p5"
+                }
+            },
+            {
+                "water_cauldron_process@how_to_play.guide_cauldron_water_process_render": {}
+            },
+            {
+                "water_padding_4@how_to_play_common.padding": {}
+            },
+            {
+                "water_header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h2"
+                }
+            },
+            {
+                "water_paragraph_6@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p6"
+                }
+            },
+            {
+                "water_crucible_eg@how_to_play.guide_crucible_eg_render": {}
+            },
+            {
+                "water_padding_5@how_to_play_common.small_padding": {}
+            },
+            {
+                "water_header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h3"
+                }
+            },
+            {
+                "water_paragraph_7@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p7"
+                }
+            },
+            {
+                "water_paragraph_8@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p8"
+                }
+            },
+            {
+                "water_paragraph_9@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p9"
+                }
+            },
+            {
+                "water_crucible_obsidian_process@how_to_play.guide_crucible_obsidian_process_render": {}
+            },
+            {
+                "water_padding_6@how_to_play_common.padding": {}
+            },
+            {
+                "water_header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.h4"
+                }
+            },
+            {
+                "water_paragraph_10@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p10"
+                }
+            },
+            {
+                "water_crucible_recipe@how_to_play.guide_crucible_recipe_render": {}
+            },
+            {
+                "water_padding_7@how_to_play_common.small_padding": {}
+            },
+            {
+                "water_paragraph_11@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p11"
+                }
+            },
+            {
+                "water_paragraph_12@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p12"
+                }
+            },
+            {
+                "water_paragraph_13@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p13"
+                }
+            },
+            {
+                "water_getting_mud@how_to_play.guide_getting_mud_render": {}
+            },
+            {
+                "water_padding_8@how_to_play_common.small_padding": {}
+            },
+            {
+                "water_paragraph_14@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p14"
+                }
+            },
+            {
+                "water_padding_9@how_to_play_common.padding": {}
+            },
+            {
+                "water_paragraph_15@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.water_lava_production.p15"
+                }
+            },
+            {
+                "water_to_steel_padding@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_1@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p2"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h1"
+                }
+            },
+            {
+                "paragraph_3@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p3"
+                }
+            },
+            {
+                "smeltflare_recipe@how_to_play.guide_smeltflare_recipe_render": {}
+            },
+            {
+                "padding_2@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_4@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p4"
+                }
+            },
+            {
+                "padding_3@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h2"
+                }
+            },
+            {
+                "paragraph_5@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p5"
+                }
+            },
+            {
+                "brute_steel_recipe@how_to_play.guide_brute_steel_recipe": {}
+            },
+            {
+                "padding_4@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_6@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p6"
+                }
+            },
+            {
+                "padding_5@how_to_play_common.padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h3"
+                }
+            },
+            {
+                "paragraph_7@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p7"
+                }
+            },
+            {
+                "workbench_render@how_to_play.guide_workbench_render": {}
+            },
+            {
+                "padding_6@how_to_play_common.small_padding": {}
+            },
+            {
+                "paragraph_8@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p8"
+                }
+            },
+            {
+                "workbench_recipe@how_to_play.guide_workbench_recipe": {}
+            },
+            {
+                "padding_6a@how_to_play_common.small_padding": {}
+            },
+            {
+                "padding_7@how_to_play_common.padding": {}
+            },
+            {
+                "header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.h4"
+                }
+            },
+            {
+                "paragraph_9@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p9"
+                }
+            },
+            {
+                "paragraph_10@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p10"
+                }
+            },
+            {
+                "padding_9@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_11@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.first_steps_steel.p11"
+                }
+            },
+            {
+                "dorios_logo@how_to_play.guide_dorios_logo": {}
+            }
+        ]
+    }
+}
