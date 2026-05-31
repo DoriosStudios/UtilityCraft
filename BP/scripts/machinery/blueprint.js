@@ -174,3 +174,18 @@ export function sendBlueprintDataEvent(entity, payload, eventId = BLUEPRINT_WRIT
         return false;
     }
 }
+
+system.afterEvents.scriptEventReceive.subscribe(({ id, message, sourceEntity }) => {
+    if (id !== BLUEPRINT_WRITE_EVENT_ID || !sourceEntity) return;
+
+    let payload;
+    try {
+        payload = JSON.parse(message);
+    } catch {
+        return;
+    }
+
+    if (!payload || typeof payload !== "object") return;
+
+    writeBlueprintDataAtSlot(sourceEntity, payload.slot, payload.data);
+});
