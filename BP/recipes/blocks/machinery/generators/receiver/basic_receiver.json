@@ -2,7 +2,7 @@
 	"format_version": "1.20.80",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "utilitycraft:basic_energy_transmitter"
+			"identifier": "utilitycraft:basic_energy_receiver"
 		},
 		"tags": [
 			"utilitycraft_workbench"
@@ -12,7 +12,7 @@
 				"item": "utilitycraft:ender_pearl_dust"
 			},
 			"T": {
-				"item": "repeater"
+				"item": "redstone_torch"
 			},
 			"C": {
 				"item": "utilitycraft:basic_chip"
@@ -30,7 +30,7 @@
 			"ERE"
 		],
 		"result": {
-			"item": "utilitycraft:basic_energy_transmitter"
+			"item": "utilitycraft:basic_energy_receiver"
 		},
 		"unlock": [
 			{
