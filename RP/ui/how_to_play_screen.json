@@ -34,6 +34,11 @@
                         "uc:first_steps_steel_button@how_to_play.uc:first_steps_steel_button": {
                             "$toggle_group_forced_index": 252
                         }
+                    },
+                    {
+                        "uc:drop_tables_button@how_to_play.uc:drop_tables_button": {
+                            "$toggle_group_forced_index": 253
+                        }
                     }
                 ]
             }
@@ -53,6 +58,9 @@
                     },
                     {
                         "uc:first_steps_steel_section@how_to_play.uc:first_steps_steel_section": {}
+                    },
+                    {
+                        "uc:drop_tables_section@how_to_play.uc:drop_tables_section": {}
                     }
                 ]
             }
@@ -76,6 +84,29 @@
         "size": [
             "270px",
             "69px"
+        ]
+    },
+    "guide_title_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "69px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/title",
+                    "offset": [ 0, 0 ],
+                    "size": [
+                        "270px",
+                        "69px"
+                    ]
+                }
+            }
         ]
     },
     "guide_basics_render": {
@@ -695,6 +726,32 @@
             }
         ]
     },
+    "guide_fishing_nets_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "30px"
+        ],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/fishing_nets_render",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "210px",
+                        "30px"
+                    ]
+                }
+            }
+        ]
+    },
     "guide_tools_render": {
         "type": "panel",
         "anchor_from": "top_middle",
@@ -969,6 +1026,144 @@
             }
         ]
     },
+    "drop_table_row": {
+        "type": "panel",
+        "$c1|default": "",
+        "$c2|default": "",
+        "$c3|default": "",
+        "$c4|default": "",
+        "$row_color|default": "$body_text_color",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": [
+            "90%",
+            "12px"
+        ],
+        "controls": [
+            {
+                "bottom_line": {
+                    "type": "image",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_horizontal",
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "size": [
+                        "100%",
+                        "2px"
+                    ]
+                }
+            },
+            {
+                "line_1": {
+                    "type": "image",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        "28%",
+                        0
+                    ],
+                    "size": [
+                        "4px",
+                        "100%"
+                    ]
+                }
+            },
+            {
+                "line_2": {
+                    "type": "image",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        "43%",
+                        0
+                    ],
+                    "size": [
+                        "4px",
+                        "100%"
+                    ]
+                }
+            },
+            {
+                "line_3": {
+                    "type": "image",
+                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        "73%",
+                        0
+                    ],
+                    "size": [
+                        "4px",
+                        "100%"
+                    ]
+                }
+            },
+            {
+                "col_1": {
+                    "type": "label",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [ 3, 2 ],
+                    "size": [ "27%", "default" ],
+                    "font_scale_factor": 0.6,
+                    "line_padding": 1,
+                    "color": "$row_color",
+                    "text": "$c1",
+                    "text_tts": "$c1"
+                }
+            },
+            {
+                "col_2": {
+                    "type": "label",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [ "28% + 3px", 2 ],
+                    "size": [ "14%", "default" ],
+                    "font_scale_factor": 0.6,
+                    "line_padding": 1,
+                    "color": "$row_color",
+                    "text": "$c2",
+                    "text_tts": "$c2"
+                }
+            },
+            {
+                "col_3": {
+                    "type": "label",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [ "43% + 3px", 2 ],
+                    "size": [ "29%", "default" ],
+                    "font_scale_factor": 0.6,
+                    "line_padding": 1,
+                    "color": "$row_color",
+                    "text": "$c3",
+                    "text_tts": "$c3"
+                }
+            },
+            {
+                "col_4": {
+                    "type": "label",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [ "73% + 3px", 2 ],
+                    "size": [ "26%", "default" ],
+                    "font_scale_factor": 0.6,
+                    "line_padding": 1,
+                    "color": "$row_color",
+                    "text": "$c4",
+                    "text_tts": "$c4"
+                }
+            }
+        ]
+    },
+    "drop_table_row_tall@how_to_play.drop_table_row": {
+        "size": [
+            "90%",
+            "21px"
+        ]
+    },
     "intro_header_background@how_to_play_common.header_background": {
         "size": [
             "90%",
@@ -998,6 +1193,9 @@
     "uc:first_steps_steel_button@how_to_play_common.section_toggle_button": {
         "$section_topic": "uc:first_steps_steel"
     },
+    "uc:drop_tables_button@how_to_play_common.section_toggle_button": {
+        "$section_topic": "uc:drop_tables"
+    },
     "uc:introduction_section@how_to_play_common.main_sections": {
         "bindings": [
             {
@@ -1009,9 +1207,7 @@
         ],
         "controls": [
             {
-                "title_image@how_to_play.guide_title_image": {
-                    "texture": "textures/ui/wiki/utilitycraft/guide/title"
-                }
+                "title_image@how_to_play.guide_title_render": {}
             },
             {
                 "padding_0@how_to_play_common.small_padding": {}
@@ -1770,6 +1966,325 @@
             {
                 "paragraph_11@how_to_play.wide_paragraph": {
                     "$text": "howtoplay.utilitycraft.first_steps_steel.p11"
+                }
+            },
+            {
+                "dorios_logo@how_to_play.guide_dorios_logo": {}
+            }
+        ]
+    },
+    "uc:drop_tables_section@how_to_play_common.main_sections": {
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "uc:drop_tables_button_toggle",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "paragraph_1@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p1"
+                }
+            },
+            {
+                "padding_1@how_to_play_common.padding": {}
+            },
+            {
+                "header_1@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.h1"
+                }
+            },
+            {
+                "paragraph_2@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p2"
+                }
+            },
+            {
+                "mesh_header@how_to_play.drop_table_row": {
+                    "$c1": "§fMesh",
+                    "$c2": "§fTier",
+                    "$c3": "§fMultiplier",
+                    "$c4": "§fNotes",
+                    "$row_color": "$title_text_color"
+                }
+            },
+            {
+                "mesh_string@how_to_play.drop_table_row": {
+                    "$c1": "String",
+                    "$c2": "0",
+                    "$c3": "0.75x",
+                    "$c4": "Basic drops"
+                }
+            },
+            {
+                "mesh_flint@how_to_play.drop_table_row": {
+                    "$c1": "§7Flint",
+                    "$c2": "1",
+                    "$c3": "1.00x",
+                    "$c4": "Iron + quartz"
+                }
+            },
+            {
+                "mesh_copper@how_to_play.drop_table_row": {
+                    "$c1": "§6Copper",
+                    "$c2": "2",
+                    "$c3": "1.25x",
+                    "$c4": "Redstone + clay"
+                }
+            },
+            {
+                "mesh_iron@how_to_play.drop_table_row": {
+                    "$c1": "§fIron",
+                    "$c2": "3",
+                    "$c3": "1.50x",
+                    "$c4": "Gold + lapis"
+                }
+            },
+            {
+                "mesh_golden@how_to_play.drop_table_row": {
+                    "$c1": "§eGold",
+                    "$c2": "4",
+                    "$c3": "2.00x",
+                    "$c4": "Diamond-tier drops"
+                }
+            },
+            {
+                "mesh_emerald@how_to_play.drop_table_row": {
+                    "$c1": "§aEmerald",
+                    "$c2": "5",
+                    "$c3": "2.50x",
+                    "$c4": "Ancient debris"
+                }
+            },
+            {
+                "mesh_diamond@how_to_play.drop_table_row": {
+                    "$c1": "§bDiamond",
+                    "$c2": "6",
+                    "$c3": "3.00x",
+                    "$c4": "High output"
+                }
+            },
+            {
+                "mesh_netherite@how_to_play.drop_table_row": {
+                    "$c1": "§jNetherite",
+                    "$c2": "7",
+                    "$c3": "4.00x",
+                    "$c4": "Best output"
+                }
+            },
+            {
+                "padding_2@how_to_play_common.padding": {}
+            },
+            {
+                "header_2@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.h2"
+                }
+            },
+            {
+                "paragraph_3@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p3"
+                }
+            },
+            {
+                "gravel_header@how_to_play_common.header": {
+                    "$text": "Gravel"
+                }
+            },
+            {
+                "gravel_table_header@how_to_play.drop_table_row": {
+                    "$c1": "§fItem",
+                    "$c2": "§fAmount",
+                    "$c3": "§fChance",
+                    "$c4": "§fMin Tier",
+                    "$row_color": "$title_text_color"
+                }
+            },
+            { "gravel_flint@how_to_play.drop_table_row": { "$c1": "Flint", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "gravel_coal@how_to_play.drop_table_row": { "$c1": "Coal Chunk", "$c2": "1", "$c3": "25%%", "$c4": "0 (§fString§r)" } },
+            { "gravel_iron@how_to_play.drop_table_row": { "$c1": "Iron Chunk", "$c2": "1", "$c3": "15%%", "$c4": "1 (§7Flint§r)" } },
+            { "gravel_gold@how_to_play.drop_table_row": { "$c1": "Gold Chunk", "$c2": "1", "$c3": "5%%", "$c4": "3 (§fIron§r)" } },
+            { "gravel_lapis@how_to_play.drop_table_row": { "$c1": "Lapis Chunk", "$c2": "1", "$c3": "2.5%%", "$c4": "3 (§fIron§r)" } },
+            { "gravel_emerald@how_to_play.drop_table_row": { "$c1": "Emerald Chunk", "$c2": "1", "$c3": "2%%", "$c4": "4 (§eGold§r)" } },
+            { "gravel_diamond@how_to_play.drop_table_row": { "$c1": "Diamond Chunk", "$c2": "1", "$c3": "1%%", "$c4": "4 (§eGold§r)" } },
+            { "drops_padding_gravel@how_to_play_common.small_padding": {} },
+            { "dirt_header@how_to_play_common.header": { "$text": "Dirt" } },
+            { "dirt_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "dirt_carrot@how_to_play.drop_table_row": { "$c1": "Carrot", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_potato@how_to_play.drop_table_row": { "$c1": "Potato", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_wheat@how_to_play.drop_table_row": { "$c1": "Wheat Seeds", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_pumpkin@how_to_play.drop_table_row": { "$c1": "Pumpkin Seeds", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_beetroot@how_to_play.drop_table_row": { "$c1": "Beetroot Seeds", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_melon@how_to_play.drop_table_row": { "$c1": "Melon Seeds", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_sugar@how_to_play.drop_table_row": { "$c1": "Sugar Cane", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_bamboo@how_to_play.drop_table_row": { "$c1": "Bamboo", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_acacia@how_to_play.drop_table_row": { "$c1": "Acacia Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_birch@how_to_play.drop_table_row": { "$c1": "Birch Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_dark_oak@how_to_play.drop_table_row": { "$c1": "Dark Oak Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_jungle@how_to_play.drop_table_row": { "$c1": "Jungle Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_mangrove@how_to_play.drop_table_row": { "$c1": "Mangrove Propagule", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_oak@how_to_play.drop_table_row": { "$c1": "Oak Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_pale_oak@how_to_play.drop_table_row": { "$c1": "Pale Oak Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_spruce@how_to_play.drop_table_row": { "$c1": "Spruce Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "dirt_cherry@how_to_play.drop_table_row": { "$c1": "Cherry Sapling", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "drops_padding_dirt@how_to_play_common.small_padding": {} },
+            { "grass_header@how_to_play_common.header": { "$text": "Grass Block" } },
+            { "grass_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "grass_red@how_to_play.drop_table_row": { "$c1": "Red Flower", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "grass_yellow@how_to_play.drop_table_row": { "$c1": "Yellow Flower", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "grass_double@how_to_play.drop_table_row": { "$c1": "Double Plant", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "grass_torchflower@how_to_play.drop_table_row": { "$c1": "Torchflower", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "grass_pitcher@how_to_play.drop_table_row": { "$c1": "Pitcher Plant", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "grass_petals@how_to_play.drop_table_row": { "$c1": "Pink Petals", "$c2": "1", "$c3": "20%%", "$c4": "0 (§fString§r)" } },
+            { "drops_padding_grass@how_to_play_common.small_padding": {} },
+            { "sand_header@how_to_play_common.header": { "$text": "Sand" } },
+            { "sand_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "sand_prismarine_shard@how_to_play.drop_table_row": { "$c1": "Prismarine Shard", "$c2": "1", "$c3": "10%%", "$c4": "2 (§6Copper§r)" } },
+            { "sand_prismarine_crystals@how_to_play.drop_table_row": { "$c1": "Prismarine Crystals", "$c2": "1", "$c3": "10%%", "$c4": "2 (§6Copper§r)" } },
+            { "sand_copper@how_to_play.drop_table_row": { "$c1": "Copper Chunk", "$c2": "1", "$c3": "25%%", "$c4": "1 (§7Flint§r)" } },
+            { "sand_redstone@how_to_play.drop_table_row": { "$c1": "Redstone Chunk", "$c2": "1", "$c3": "20%%", "$c4": "2 (§6Copper§r)" } },
+            { "sand_bone@how_to_play.drop_table_row": { "$c1": "Bone Meal", "$c2": "1", "$c3": "25%%", "$c4": "0 (§fString§r)" } },
+            { "sand_gunpowder@how_to_play.drop_table_row": { "$c1": "Gunpowder", "$c2": "1", "$c3": "12%%", "$c4": "0 (§fString§r)" } },
+            { "sand_glowstone@how_to_play.drop_table_row": { "$c1": "Glowstone Dust", "$c2": "1", "$c3": "8%%", "$c4": "0 (§fString§r)" } },
+            { "sand_blaze@how_to_play.drop_table_row": { "$c1": "Blaze Powder", "$c2": "1", "$c3": "10%%", "$c4": "3 (§fIron§r)" } },
+            { "sand_cactus@how_to_play.drop_table_row": { "$c1": "Cactus", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "sand_kelp@how_to_play.drop_table_row": { "$c1": "Kelp", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "sand_clay@how_to_play.drop_table_row": { "$c1": "Clay Ball", "$c2": "1", "$c3": "10%%", "$c4": "2 (§6Copper§r)" } },
+            { "sand_cocoa@how_to_play.drop_table_row": { "$c1": "Cocoa Beans", "$c2": "1", "$c3": "1%%", "$c4": "0 (§fString§r)" } },
+            { "sand_conduit@how_to_play.drop_table_row": { "$c1": "Conduit", "$c2": "1", "$c3": "0.5%%", "$c4": "4 (§eGold§r)" } },
+            { "sand_certus@how_to_play.drop_table_row": { "$c1": "Certus Quartz", "$c2": "1", "$c3": "17%%", "$c4": "3 (§fIron§r)" } },
+            { "sand_charged_certus@how_to_play.drop_table_row": { "$c1": "Charged Certus", "$c2": "1", "$c3": "1%%", "$c4": "4 (§eGold§r)" } },
+            { "drops_padding_sand@how_to_play_common.small_padding": {} },
+            { "soul_sand_header@how_to_play_common.header": { "$text": "Soul Sand" } },
+            { "soul_sand_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "soul_quartz_1@how_to_play.drop_table_row": { "$c1": "Nether Quartz Chunk", "$c2": "1", "$c3": "33%%", "$c4": "1 (§7Flint§r)" } },
+            { "soul_quartz_3@how_to_play.drop_table_row": { "$c1": "Nether Quartz Chunk", "$c2": "3", "$c3": "10%%", "$c4": "1 (§7Flint§r)" } },
+            { "soul_bone@how_to_play.drop_table_row": { "$c1": "Bone", "$c2": "1", "$c3": "15%%", "$c4": "0 (§fString§r)" } },
+            { "soul_ghast@how_to_play.drop_table_row": { "$c1": "Ghast Tear", "$c2": "1", "$c3": "8%%", "$c4": "4 (§eGold§r)" } },
+            { "soul_wart@how_to_play.drop_table_row": { "$c1": "Nether Wart", "$c2": "1", "$c3": "12%%", "$c4": "0 (§fString§r)" } },
+            { "soul_warped@how_to_play.drop_table_row": { "$c1": "Warped Fungus", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "soul_crimson@how_to_play.drop_table_row": { "$c1": "Crimson Fungus", "$c2": "1", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "drops_padding_soul@how_to_play_common.small_padding": {} },
+            { "netherrack_header@how_to_play_common.header": { "$text": "Crushed Netherrack" } },
+            { "netherrack_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "netherrack_quartz@how_to_play.drop_table_row": { "$c1": "Nether Quartz Chunk", "$c2": "1", "$c3": "33%%", "$c4": "1 (§7Flint§r)" } },
+            { "netherrack_nugget@how_to_play.drop_table_row": { "$c1": "Gold Nugget", "$c2": "1", "$c3": "20%%", "$c4": "3 (§fIron§r)" } },
+            { "netherrack_gold@how_to_play.drop_table_row": { "$c1": "Nether Gold Chunk", "$c2": "1", "$c3": "33%%", "$c4": "3 (§fIron§r)" } },
+            { "netherrack_debris@how_to_play.drop_table_row": { "$c1": "Ancient Debris Chunk", "$c2": "1", "$c3": "2.5%%", "$c4": "5 (§aEmerald§r)" } },
+            { "drops_padding_netherrack@how_to_play_common.small_padding": {} },
+            { "endstone_header@how_to_play_common.header": { "$text": "Crushed Endstone" } },
+            { "endstone_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "endstone_flower@how_to_play.drop_table_row": { "$c1": "Chorus Flower", "$c2": "1", "$c3": "1%%", "$c4": "4 (§eGold§r)" } },
+            { "endstone_fruit@how_to_play.drop_table_row": { "$c1": "Chorus Fruit", "$c2": "1", "$c3": "80%%", "$c4": "4 (§eGold§r)" } },
+            { "endstone_pearl@how_to_play.drop_table_row": { "$c1": "Ender Pearl", "$c2": "1", "$c3": "16%%", "$c4": "4 (§eGold§r)" } },
+            { "drops_padding_endstone@how_to_play_common.small_padding": {} },
+            { "deepslate_header@how_to_play_common.header": { "$text": "Crushed Cobbled Deepslate" } },
+            { "deepslate_table_header@how_to_play.drop_table_row": { "$c1": "§fItem", "$c2": "§fAmount", "$c3": "§fChance", "$c4": "§fMin Tier", "$row_color": "$title_text_color" } },
+            { "deepslate_echo@how_to_play.drop_table_row": { "$c1": "Echo Shard", "$c2": "1", "$c3": "5%%", "$c4": "5 (§aEmerald§r)" } },
+            { "deepslate_sculk@how_to_play.drop_table_row": { "$c1": "Sculk Catalyst", "$c2": "1", "$c3": "0.5%%", "$c4": "5 (§aEmerald§r)" } },
+            { "deepslate_amethyst@how_to_play.drop_table_row": { "$c1": "Amethyst Shard", "$c2": "1", "$c3": "1%%", "$c4": "5 (§aEmerald§r)" } },
+            { "deepslate_diamond@how_to_play.drop_table_row": { "$c1": "Deepslate Diamond Chunk", "$c2": "1", "$c3": "5%%", "$c4": "4 (§eGold§r)" } },
+            { "deepslate_emerald@how_to_play.drop_table_row": { "$c1": "Deepslate Emerald Chunk", "$c2": "1", "$c3": "5%%", "$c4": "4 (§eGold§r)" } },
+            { "deepslate_gold@how_to_play.drop_table_row": { "$c1": "Deepslate Gold Chunk", "$c2": "1", "$c3": "20%%", "$c4": "4 (§eGold§r)" } },
+            { "deepslate_iron@how_to_play.drop_table_row": { "$c1": "Deepslate Iron Chunk", "$c2": "1", "$c3": "25%%", "$c4": "1 (§7Flint§r)" } },
+            { "deepslate_lapis@how_to_play.drop_table_row": { "$c1": "Deepslate Lapis Chunk", "$c2": "1", "$c3": "15%%", "$c4": "3 (§fIron§r)" } },
+            { "deepslate_coal@how_to_play.drop_table_row": { "$c1": "Deepslate Coal Chunk", "$c2": "1", "$c3": "30%%", "$c4": "0 (§fString§r)" } },
+            {
+                "padding_3@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_4@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p4"
+                }
+            },
+            {
+                "padding_4@how_to_play_common.padding": {}
+            },
+            {
+                "header_3@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.h3"
+                }
+            },
+            {
+                "paragraph_5@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p5"
+                }
+            },
+            {
+                "fishing_nets_image@how_to_play.guide_fishing_nets_render": {}
+            },
+            {
+                "nets_table_header@how_to_play.drop_table_row": {
+                    "$c1": "§fNet",
+                    "$c2": "§fTier",
+                    "$c3": "§fChance",
+                    "$c4": "§fRolls",
+                    "$row_color": "$title_text_color"
+                }
+            },
+            { "net_string@how_to_play.drop_table_row": { "$c1": "String", "$c2": "0", "$c3": "1.00x", "$c4": "1" } },
+            { "net_copper@how_to_play.drop_table_row": { "$c1": "§6Copper", "$c2": "1", "$c3": "1.25x", "$c4": "1" } },
+            { "net_iron@how_to_play.drop_table_row": { "$c1": "§fIron", "$c2": "2", "$c3": "1.50x", "$c4": "2" } },
+            { "net_gold@how_to_play.drop_table_row": { "$c1": "§eGold", "$c2": "3", "$c3": "2.00x", "$c4": "2" } },
+            { "net_emerald@how_to_play.drop_table_row": { "$c1": "§aEmerald", "$c2": "4", "$c3": "2.50x", "$c4": "3" } },
+            { "net_diamond@how_to_play.drop_table_row": { "$c1": "§bDiamond", "$c2": "5", "$c3": "3.00x", "$c4": "3" } },
+            { "net_netherite@how_to_play.drop_table_row": { "$c1": "§jNetherite", "$c2": "6", "$c3": "4.00x", "$c4": "4" } },
+            {
+                "padding_5@how_to_play_common.padding": {}
+            },
+            {
+                "header_4@how_to_play_common.header": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.h4"
+                }
+            },
+            {
+                "paragraph_6@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p6"
+                }
+            },
+            {
+                "fisher_table_header@how_to_play.drop_table_row": {
+                    "$c1": "§fItem",
+                    "$c2": "§fAmount",
+                    "$c3": "§fChance",
+                    "$c4": "§fMin Net",
+                    "$row_color": "$title_text_color"
+                }
+            },
+            { "fish_cod@how_to_play.drop_table_row": { "$c1": "Cod", "$c2": "1-3", "$c3": "45%%", "$c4": "0 (§fString§r)" } },
+            { "fish_salmon@how_to_play.drop_table_row": { "$c1": "Salmon", "$c2": "1-2", "$c3": "25%%", "$c4": "0 (§fString§r)" } },
+            { "fish_tropical@how_to_play.drop_table_row": { "$c1": "Tropical Fish", "$c2": "1", "$c3": "10%%", "$c4": "1 (§6Copper§r)" } },
+            { "fish_puffer@how_to_play.drop_table_row": { "$c1": "Pufferfish", "$c2": "1", "$c3": "8%%", "$c4": "1 (§6Copper§r)" } },
+            { "fish_string@how_to_play.drop_table_row": { "$c1": "String", "$c2": "1-4", "$c3": "12%%", "$c4": "0 (§fString§r)" } },
+            { "fish_bone@how_to_play.drop_table_row": { "$c1": "Bone", "$c2": "1-3", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "fish_lily@how_to_play.drop_table_row": { "$c1": "Lily Pad", "$c2": "1", "$c3": "8%%", "$c4": "0 (§fString§r)" } },
+            { "fish_ink@how_to_play.drop_table_row": { "$c1": "Ink Sac", "$c2": "1-3", "$c3": "6%%", "$c4": "1 (§6Copper§r)" } },
+            { "fish_glow_ink@how_to_play.drop_table_row": { "$c1": "Glow Ink Sac", "$c2": "1-2", "$c3": "5%%", "$c4": "2 (§fIron§r)" } },
+            { "fish_prismarine_shard@how_to_play.drop_table_row": { "$c1": "Prism. Shard", "$c2": "1-3", "$c3": "4%%", "$c4": "2 (§fIron§r)" } },
+            { "fish_prismarine_crystal@how_to_play.drop_table_row": { "$c1": "Prism. Crystal", "$c2": "1-3", "$c3": "3%%", "$c4": "2 (§fIron§r)" } },
+            { "fish_nautilus@how_to_play.drop_table_row": { "$c1": "Nautilus Shell", "$c2": "1", "$c3": "2.5%%", "$c4": "3 (§eGold§r)" } },
+            { "fish_xp@how_to_play.drop_table_row": { "$c1": "EXP Bottle", "$c2": "1", "$c3": "2%%", "$c4": "4 (§aEmerald§r)" } },
+            { "fish_name_tag@how_to_play.drop_table_row": { "$c1": "Name Tag", "$c2": "1", "$c3": "2%%", "$c4": "4 (§aEmerald§r)" } },
+            { "fish_saddle@how_to_play.drop_table_row": { "$c1": "Saddle", "$c2": "1", "$c3": "2%%", "$c4": "4 (§aEmerald§r)" } },
+            { "fish_emerald@how_to_play.drop_table_row": { "$c1": "Emerald", "$c2": "1-2", "$c3": "1.5%%", "$c4": "5 (§bDiamond§r)" } },
+            { "fish_water_bottle@how_to_play.drop_table_row": { "$c1": "Water Bottle", "$c2": "1", "$c3": "0.5%%", "$c4": "2 (§fIron§r)" } },
+            { "fish_book@how_to_play.drop_table_row": { "$c1": "Book", "$c2": "1", "$c3": "0.5%%", "$c4": "4 (§aEmerald§r)" } },
+            { "fish_rod@how_to_play.drop_table_row": { "$c1": "Fishing Rod", "$c2": "1", "$c3": "0.4%%", "$c4": "2 (§fIron§r)" } },
+            { "fish_bow@how_to_play.drop_table_row": { "$c1": "Bow", "$c2": "1", "$c3": "0.08%%", "$c4": "3 (§eGold§r)" } },
+            { "fish_trident@how_to_play.drop_table_row": { "$c1": "Trident", "$c2": "1", "$c3": "0.05%%", "$c4": "6 (§jNetherite§r)" } },
+            { "fish_heart@how_to_play.drop_table_row": { "$c1": "Heart of Sea", "$c2": "1", "$c3": "0.1%%", "$c4": "6 (§jNetherite§r)" } },
+            { "fish_stick@how_to_play.drop_table_row": { "$c1": "Stick", "$c2": "0-2", "$c3": "10%%", "$c4": "0 (§fString§r)" } },
+            { "fish_boots@how_to_play.drop_table_row": { "$c1": "Leather Boots", "$c2": "1", "$c3": "0.08%%", "$c4": "2 (§fIron§r)" } },
+            { "fish_capsule@how_to_play.drop_table_row": { "$c1": "Liquid Capsule", "$c2": "1", "$c3": "0.4%%", "$c4": "5 (§bDiamond§r)" } },
+            { "fish_totem@how_to_play.drop_table_row": { "$c1": "Totem Shard", "$c2": "1", "$c3": "0.02%%", "$c4": "7 (§jNetherite+§r)" } },
+            { "fish_sand@how_to_play.drop_table_row": { "$c1": "Sand Handful", "$c2": "1-6", "$c3": "2%%", "$c4": "0 (§fString§r)" } },
+            {
+                "padding_6@how_to_play_common.padding": {}
+            },
+            {
+                "paragraph_7@how_to_play.wide_paragraph": {
+                    "$text": "howtoplay.utilitycraft.drop_tables.p7"
                 }
             },
             {
