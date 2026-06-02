@@ -35,7 +35,7 @@ const heatSources = {
     'minecraft:soul_campfire': 3,
     'minecraft:fire': 2,
     'minecraft:campfire': 2,
-    'minecraft:magma_block': 2,
+    'minecraft:magma': 2,
     'minecraft:torch': 1
 }
 
