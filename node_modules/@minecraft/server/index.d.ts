@@ -15,7 +15,7 @@
  * ```json
  * {
  *   "module_name": "@minecraft/server",
- *   "version": "2.6.0"
+ *   "version": "2.7.0"
  * }
  * ```
  *
@@ -23,6 +23,24 @@
 import * as minecraftcommon from '@minecraft/common';
 // @ts-ignore Optional types-only package, will decay to any if @minecraft/vanilla-data isn't installed
 import type * as minecraftvanilladata from '@minecraft/vanilla-data';
+/**
+ * Specifies different targeting modes for use in aim-assist.
+ */
+export enum AimAssistTargetMode {
+    /**
+     * @remarks
+     * Angle based targeting.
+     *
+     */
+    Angle = 'Angle',
+    /**
+     * @remarks
+     * Distance based targeting.
+     *
+     */
+    Distance = 'Distance',
+}
+
 /**
  * The types of block components that are accessible via
  * function Block.getComponent.
@@ -3105,6 +3123,537 @@ export type ItemComponentTypeMap = {
 };
 
 /**
+ * Handle to an aim-assist category that exists in the
+ * world.aimAssist registry.
+ */
+export class AimAssistCategory {
+    private constructor();
+    /**
+     * @remarks
+     * Default targeting priority used for block types not found in
+     * getBlockPriorities.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly defaultBlockPriority: number;
+    /**
+     * @remarks
+     * Default targeting priority used for entity types not found
+     * in getEntityPriorities.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly defaultEntityPriority: number;
+    /**
+     * @remarks
+     * The unique Id associated with the category.
+     *
+     */
+    readonly identifier: string;
+    /**
+     * @remarks
+     * Gets the priority settings used for block targeting.
+     *
+     * @returns
+     * The record mapping block Ids to their priority settings.
+     * Larger numbers have greater priority.
+     * @throws This function can throw errors.
+     */
+    getBlockPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Gets the priority settings used for block targeting.
+     *
+     * @returns
+     * The record mapping block tags to their priority settings.
+     * Larger numbers have greater priority.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    getBlockTagPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Gets the priority settings used for entity targeting.
+     *
+     * @returns
+     * The record mapping entity Ids to their priority settings.
+     * Larger numbers have greater priority.
+     * @throws This function can throw errors.
+     */
+    getEntityPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Gets the priority settings used for entity targeting.
+     *
+     * @returns
+     * Map entity type families to their priority settings in a
+     * Record. Larger numbers have greater priority.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    getEntityTypeFamilyPriorities(): Record<string, number>;
+}
+
+/**
+ * Settings used with AimAssistRegistry.addCategory for
+ * creation of the AimAssistCategory.
+ */
+export class AimAssistCategorySettings {
+    /**
+     * @remarks
+     * Optional. Default targeting priority used for block types
+     * not provided to setBlockPriorities.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    defaultBlockPriority: number;
+    /**
+     * @remarks
+     * Optional. Default targeting priority used for entity types
+     * not provided to setEntityPriorities.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    defaultEntityPriority: number;
+    /**
+     * @remarks
+     * The unique Id used to register the category with. Must have
+     * a namespace.
+     *
+     */
+    readonly identifier: string;
+    /**
+     * @remarks
+     * Constructor that takes a unique Id to associate with the
+     * created AimAssistCategory. Must have a namespace.
+     *
+     */
+    constructor(identifier: string);
+    /**
+     * @remarks
+     * Gets the priority settings used for block targeting.
+     *
+     * @returns
+     * The record mapping block Ids to their priority settings.
+     * Larger numbers have greater priority.
+     */
+    getBlockPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Gets the priority settings used for block targeting.
+     *
+     * @returns
+     * The record mapping block tags to their priority settings.
+     * Larger numbers have greater priority.
+     */
+    getBlockTagPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Gets the priority settings used for entity targeting.
+     *
+     * @returns
+     * The record mapping entity Ids to their priority settings.
+     * Larger numbers have greater priority.
+     */
+    getEntityPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Gets the priority settings used for entity targeting.
+     *
+     * @returns
+     * Map entity type families to their priority settings in a
+     * Record. Larger numbers have greater priority.
+     */
+    getEntityTypeFamilyPriorities(): Record<string, number>;
+    /**
+     * @remarks
+     * Sets the priority settings used for block targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param blockPriorities
+     * A record mapping block Ids to their priority settings.
+     * Larger numbers have greater priority.
+     */
+    setBlockPriorities(blockPriorities: Record<string, number>): void;
+    /**
+     * @remarks
+     * Sets the priority settings used for block targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    setBlockTagPriorities(blockTagPriorities: Record<string, number>): void;
+    /**
+     * @remarks
+     * Sets the priority settings used for entity targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param entityPriorities
+     * A record mapping entity Ids to their priority settings.
+     * Larger numbers have greater priority.
+     */
+    setEntityPriorities(entityPriorities: Record<string, number>): void;
+    /**
+     * @remarks
+     * Sets the priority settings used for entity targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    setEntityTypeFamilyPriorities(entityTypeFamilyPriorities: Record<string, number>): void;
+}
+
+/**
+ * Handle to an aim-assist preset that exists in the
+ * world.aimAssist registry.
+ */
+export class AimAssistPreset {
+    private constructor();
+    /**
+     * @remarks
+     * Optional. Default aim-assist category Id used for items not
+     * provided to setItemSettings.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly defaultItemSettings?: string;
+    /**
+     * @remarks
+     * Optional. Aim-assist category Id used for an empty hand.
+     *
+     * @throws This property can throw when used.
+     */
+    readonly handSettings?: string;
+    /**
+     * @remarks
+     * The unique Id associated with the preset.
+     *
+     */
+    readonly identifier: string;
+    /**
+     * @remarks
+     * Gets the list of block tags to exclude from aim assist
+     * targeting.
+     *
+     * @returns
+     * The array of block tags.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    getExcludedBlockTagTargets(): string[];
+    /**
+     * @remarks
+     * Gets the list of block Ids to exclude from aim assist
+     * targeting.
+     *
+     * @returns
+     * The array of block Ids.
+     * @throws This function can throw errors.
+     */
+    getExcludedBlockTargets(): string[];
+    /**
+     * @remarks
+     * Gets the list of entity Ids to exclude from aim assist
+     * targeting.
+     *
+     * @returns
+     * The array of entity Ids.
+     * @throws This function can throw errors.
+     */
+    getExcludedEntityTargets(): string[];
+    /**
+     * @remarks
+     * Gets the list of entity type families to exclude from aim
+     * assist targeting.
+     *
+     * @returns
+     * The array of entity type families.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    getExcludedEntityTypeFamilyTargets(): string[];
+    /**
+     * @remarks
+     * Gets the per-item aim-assist category Ids.
+     *
+     * @returns
+     * The record mapping item Ids to aim-assist category Ids.
+     * @throws This function can throw errors.
+     */
+    getItemSettings(): Record<string, string>;
+    /**
+     * @remarks
+     * Gets the list of item Ids that will target liquid blocks
+     * with aim-assist when being held.
+     *
+     * @returns
+     * The array of item Ids.
+     * @throws This function can throw errors.
+     */
+    getLiquidTargetingItems(): string[];
+}
+
+/**
+ * Settings used with AimAssistRegistry.addPreset for creation
+ * of the AimAssistPreset.
+ */
+export class AimAssistPresetSettings {
+    /**
+     * @remarks
+     * Optional. Default aim-assist category Id used for items not
+     * provided to setItemSettings.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    defaultItemSettings?: string;
+    /**
+     * @remarks
+     * Optional. Aim-assist category Id used for an empty hand.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    handSettings?: string;
+    /**
+     * @remarks
+     * The unique Id used to register the preset with. Must have a
+     * namespace.
+     *
+     */
+    readonly identifier: string;
+    /**
+     * @remarks
+     * Constructor that takes a unique Id to associate with the
+     * created AimAssistPreset. Must have a namespace.
+     *
+     */
+    constructor(identifier: string);
+    /**
+     * @remarks
+     * Gets the list of block tags to exclude from aim assist
+     * targeting.
+     *
+     * @returns
+     * The array of block tags.
+     */
+    getExcludedBlockTagTargets(): string[] | undefined;
+    /**
+     * @remarks
+     * Gets the list of block Ids to exclude from aim assist
+     * targeting.
+     *
+     * @returns
+     * The array of block Ids.
+     */
+    getExcludedBlockTargets(): string[] | undefined;
+    /**
+     * @remarks
+     * Gets the list of entity Ids to exclude from aim assist
+     * targeting.
+     *
+     * @returns
+     * The array of entity Ids.
+     */
+    getExcludedEntityTargets(): string[] | undefined;
+    /**
+     * @remarks
+     * Gets the list of entity type families to exclude from aim
+     * assist targeting.
+     *
+     * @returns
+     * The array of entity type families.
+     */
+    getExcludedEntityTypeFamilyTargets(): string[] | undefined;
+    /**
+     * @remarks
+     * Gets the per-item aim-assist category Ids.
+     *
+     * @returns
+     * The record mapping item Ids to aim-assist category Ids.
+     */
+    getItemSettings(): Record<string, string>;
+    /**
+     * @remarks
+     * Gets the list of item Ids that will target liquid blocks
+     * with aim-assist when being held.
+     *
+     * @returns
+     * The array of item Ids.
+     */
+    getLiquidTargetingItems(): string[] | undefined;
+    /**
+     * @remarks
+     * Sets the list of block tags to exclude from aim assist
+     * targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    setExcludedBlockTagTargets(blockTagTargets?: string[]): void;
+    /**
+     * @remarks
+     * Sets the list of block Ids to exclude from aim assist
+     * targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    setExcludedBlockTargets(blockTargets?: string[]): void;
+    /**
+     * @remarks
+     * Sets the list of entity Ids to exclude from aim assist
+     * targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    setExcludedEntityTargets(entityTargets?: string[]): void;
+    /**
+     * @remarks
+     * Sets the list of entity type families to exclude from aim
+     * assist targeting.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    setExcludedEntityTypeFamilyTargets(entityTypeFamilyTargets?: string[]): void;
+    /**
+     * @remarks
+     * Sets the per-item aim-assist category Ids.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param itemSettings
+     * A record mapping item Ids to aim-assist category Ids.
+     * Category Ids must have a namespace.
+     */
+    setItemSettings(itemSettings: Record<string, string>): void;
+    /**
+     * @remarks
+     * Sets the list of item Ids that will target liquid blocks
+     * with aim-assist when being held.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param items
+     * An array of item Ids.
+     */
+    setLiquidTargetingItems(items?: string[]): void;
+}
+
+/**
+ * A container for APIs related to the world's aim-assist
+ * settings.
+ */
+export class AimAssistRegistry {
+    private constructor();
+    /**
+     * @remarks
+     * The default aim-assist category Id that is used when not
+     * otherwise specified.
+     *
+     */
+    static readonly DefaultCategoryId = 'minecraft:default';
+    /**
+     * @remarks
+     * The default aim-assist preset Id that is used when not
+     * otherwise specified.
+     *
+     */
+    static readonly DefaultPresetId = 'minecraft:aim_assist_default';
+    /**
+     * @remarks
+     * Adds an aim-assist category to the registry.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param category
+     * The category settings used to create the new category.
+     * @returns
+     * The created category handle.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link Error}
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link NamespaceNameError}
+     */
+    addCategory(category: AimAssistCategorySettings): AimAssistCategory;
+    /**
+     * @remarks
+     * Adds an aim-assist preset to the registry.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param preset
+     * The preset settings used to create the new preset.
+     * @returns
+     * The created preset handle.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link Error}
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link NamespaceNameError}
+     */
+    addPreset(preset: AimAssistPresetSettings): AimAssistPreset;
+    /**
+     * @remarks
+     * Gets all available categories in the registry.
+     *
+     * @returns
+     * An array of all available category objects.
+     */
+    getCategories(): AimAssistCategory[];
+    /**
+     * @remarks
+     * Gets the category associated with the provided Id.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @returns
+     * The category object if it exists, otherwise returns
+     * undefined.
+     */
+    getCategory(categoryId: string): AimAssistCategory | undefined;
+    /**
+     * @remarks
+     * Gets the preset associated with the provided Id.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param presetId
+     * The Id of the preset to retrieve. Must have a namespace.
+     * @returns
+     * The preset object if it exists, otherwise returns undefined.
+     */
+    getPreset(presetId: string): AimAssistPreset | undefined;
+    /**
+     * @remarks
+     * Gets all available presets in the registry.
+     *
+     * @returns
+     * An array of all available preset objects.
+     */
+    getPresets(): AimAssistPreset[];
+}
+
+/**
  * Describes a type of biome.
  */
 export class BiomeType {
@@ -3115,6 +3664,46 @@ export class BiomeType {
      *
      */
     readonly id: string;
+    /**
+     * @remarks
+     * Returns a list of the biome's tags.
+     *
+     */
+    getTags(): string[];
+    /**
+     * @remarks
+     * Checks if the biome has all of the provided tags.
+     *
+     * @param tags
+     * The list of tags to check against the biome.
+     */
+    hasTags(tags: string[]): boolean;
+}
+
+/**
+ * Supports a catalog of available biome types registered
+ * within Minecraft.
+ */
+export class BiomeTypes {
+    private constructor();
+    /**
+     * @remarks
+     * Returns a specific biome type.
+     *
+     * @param typeName
+     * Identifier of the biome.  Generally, namespaced identifiers
+     * (e.g., minecraft:frozen_peaks) should be used.
+     * @returns
+     * If the biome exists, a BiomeType object is returned. If not,
+     * undefined is returned.
+     */
+    static get(typeName: string): BiomeType | undefined;
+    /**
+     * @remarks
+     * Returns all registered biome types within Minecraft
+     *
+     */
+    static getAll(): BiomeType[];
 }
 
 /**
@@ -3494,7 +4083,7 @@ export class Block {
      * {@link LocationOutOfWorldBoundariesError}
      * @example checkBlockTags.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
+     * import { DimensionLocation } from '@minecraft/server';
      *
      * function checkBlockTags(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   // Fetch the block
@@ -3502,9 +4091,9 @@ export class Block {
      *
      *   // check that the block is loaded
      *   if (block) {
-     *     log(`Block is dirt: ${block.hasTag("dirt")}`);
-     *     log(`Block is wood: ${block.hasTag("wood")}`);
-     *     log(`Block is stone: ${block.hasTag("stone")}`);
+     *     log(`Block is dirt: ${block.hasTag('dirt')}`);
+     *     log(`Block is wood: ${block.hasTag('wood')}`);
+     *     log(`Block is stone: ${block.hasTag('stone')}`);
      *   }
      * }
      * ```
@@ -4141,15 +4730,15 @@ export class BlockFluidContainerComponent extends BlockComponent {
  * blocks like chests.
  * @example placeItemsInChest.ts
  * ```typescript
- * import { ItemStack, BlockInventoryComponent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
+ * import { ItemStack, BlockInventoryComponent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes, MinecraftItemTypes } from '@minecraft/vanilla-data';
  *
  * function placeItemsInChest(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // Fetch block
  *   const block = targetLocation.dimension.getBlock(targetLocation);
  *
  *   if (!block) {
- *     log("Could not find block. Maybe it is not loaded?", -1);
+ *     log('Could not find block. Maybe it is not loaded?', -1);
  *     return;
  *   }
  *
@@ -4157,10 +4746,10 @@ export class BlockFluidContainerComponent extends BlockComponent {
  *   block.setType(MinecraftBlockTypes.Chest);
  *
  *   // Get the inventory
- *   const inventoryComponent = block.getComponent("inventory") as BlockInventoryComponent;
+ *   const inventoryComponent = block.getComponent('inventory') as BlockInventoryComponent;
  *
  *   if (!inventoryComponent || !inventoryComponent.container) {
- *     log("Could not find inventory component.", -1);
+ *     log('Could not find inventory component.', -1);
  *     return;
  *   }
  *
@@ -4279,8 +4868,8 @@ export class BlockMovableComponent extends BlockComponent {
  * Block}).
  * @example addTranslatedSign.ts
  * ```typescript
- * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function addTranslatedSign(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
@@ -4290,7 +4879,7 @@ export class BlockMovableComponent extends BlockComponent {
  *   const signBlock = dim.getBlock(targetLocation);
  *
  *   if (!signBlock) {
- *     log("Could not find a block at specified location.");
+ *     log('Could not find a block at specified location.');
  *     return -1;
  *   }
  *   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -4299,7 +4888,7 @@ export class BlockMovableComponent extends BlockComponent {
  *
  *   const signComponent = signBlock.getComponent(BlockComponentTypes.Sign) as BlockSignComponent;
  *
- *   signComponent?.setText({ translate: "item.skull.player.name", with: [players[0].name] });
+ *   signComponent?.setText({ translate: 'item.skull.player.name', with: [players[0].name] });
  * }
  * ```
  */
@@ -4392,7 +4981,7 @@ export class BlockPermutation {
      * Returns `true` if the permutation has the tag, else `false`.
      * @example checkBlockTags.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
+     * import { DimensionLocation } from '@minecraft/server';
      *
      * function checkBlockTags(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   // Fetch the block
@@ -4400,9 +4989,9 @@ export class BlockPermutation {
      *
      *   // check that the block is loaded
      *   if (block) {
-     *     log(`Block is dirt: ${block.hasTag("dirt")}`);
-     *     log(`Block is wood: ${block.hasTag("wood")}`);
-     *     log(`Block is stone: ${block.hasTag("stone")}`);
+     *     log(`Block is dirt: ${block.hasTag('dirt')}`);
+     *     log(`Block is wood: ${block.hasTag('wood')}`);
+     *     log(`Block is stone: ${block.hasTag('stone')}`);
      *   }
      * }
      * ```
@@ -4471,9 +5060,9 @@ export class BlockPermutation {
      * @throws This function can throw errors.
      * @example addBlockColorCube.ts
      * ```typescript
-     * import { BlockPermutation, DimensionLocation } from "@minecraft/server";
-     * import { Vector3Utils } from "@minecraft/math";
-     * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+     * import { BlockPermutation, DimensionLocation } from '@minecraft/server';
+     * import { Vector3Utils } from '@minecraft/math';
+     * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
      *
      * function addBlockColorCube(targetLocation: DimensionLocation) {
      *   const allWoolBlocks: string[] = [
@@ -4708,8 +5297,8 @@ export class BlockRedstoneProducerComponent extends BlockComponent {
  * Represents a block that can display text on it.
  * @example addSign.ts
  * ```typescript
- * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function addSign(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
@@ -4719,7 +5308,7 @@ export class BlockRedstoneProducerComponent extends BlockComponent {
  *   const signBlock = dim.getBlock(targetLocation);
  *
  *   if (!signBlock) {
- *     log("Could not find a block at specified location.");
+ *     log('Could not find a block at specified location.');
  *     return -1;
  *   }
  *   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -4733,14 +5322,21 @@ export class BlockRedstoneProducerComponent extends BlockComponent {
  * ```
  * @example addTwoSidedSign.ts
  * ```typescript
- * import { BlockPermutation, BlockSignComponent, SignSide, DyeColor, BlockComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import {
+ *   BlockPermutation,
+ *   BlockSignComponent,
+ *   SignSide,
+ *   DyeColor,
+ *   BlockComponentTypes,
+ *   DimensionLocation,
+ * } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function addTwoSidedSign(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const signBlock = targetLocation.dimension.getBlock(targetLocation);
  *
  *   if (!signBlock) {
- *     log("Could not find a block at specified location.");
+ *     log('Could not find a block at specified location.');
  *     return -1;
  *   }
  *   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -4758,42 +5354,42 @@ export class BlockRedstoneProducerComponent extends BlockComponent {
  *     // players cannot edit sign!
  *     signComponent.setWaxed(true);
  *   } else {
- *     log("Could not find sign component.");
+ *     log('Could not find sign component.');
  *   }
  * }
  * ```
  * @example updateSignText.ts
  * ```typescript
- * import { BlockSignComponent, BlockComponentTypes, DimensionLocation, RawMessage, RawText } from "@minecraft/server";
+ * import { BlockSignComponent, BlockComponentTypes, DimensionLocation, RawMessage, RawText } from '@minecraft/server';
  *
  * function updateSignText(targetLocation: DimensionLocation) {
  *   const block = targetLocation.dimension.getBlock(targetLocation);
  *   if (!block) {
- *     console.warn("Could not find a block at specified location.");
+ *     console.warn('Could not find a block at specified location.');
  *     return;
  *   }
  *
  *   const sign = block.getComponent(BlockComponentTypes.Sign) as BlockSignComponent;
  *   if (sign) {
  *     // RawMessage
- *     const helloWorldMessage: RawMessage = { text: "Hello World" };
+ *     const helloWorldMessage: RawMessage = { text: 'Hello World' };
  *     sign.setText(helloWorldMessage);
  *
  *     // RawText
- *     const helloWorldText: RawText = { rawtext: [{ text: "Hello World" }] };
+ *     const helloWorldText: RawText = { rawtext: [{ text: 'Hello World' }] };
  *     sign.setText(helloWorldText);
  *
  *     // Regular string
- *     sign.setText("Hello World");
+ *     sign.setText('Hello World');
  *   } else {
- *     console.warn("Could not find a sign component on the block.");
+ *     console.warn('Could not find a sign component on the block.');
  *   }
  * }
  * ```
  * @example addTranslatedSign.ts
  * ```typescript
- * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function addTranslatedSign(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
@@ -4803,7 +5399,7 @@ export class BlockRedstoneProducerComponent extends BlockComponent {
  *   const signBlock = dim.getBlock(targetLocation);
  *
  *   if (!signBlock) {
- *     log("Could not find a block at specified location.");
+ *     log('Could not find a block at specified location.');
  *     return -1;
  *   }
  *   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -4812,7 +5408,7 @@ export class BlockRedstoneProducerComponent extends BlockComponent {
  *
  *   const signComponent = signBlock.getComponent(BlockComponentTypes.Sign) as BlockSignComponent;
  *
- *   signComponent?.setText({ translate: "item.skull.player.name", with: [players[0].name] });
+ *   signComponent?.setText({ translate: 'item.skull.player.name', with: [players[0].name] });
  * }
  * ```
  */
@@ -5154,8 +5750,8 @@ export class BlockVolumeBase {
  * Contains information related to changes to a button push.
  * @example buttonPushEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function buttonPushEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a button on cobblestone
@@ -5167,18 +5763,18 @@ export class BlockVolumeBase {
  *   });
  *
  *   if (cobblestone === undefined || button === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
  *   cobblestone.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Cobblestone));
- *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState("facing_direction", 1));
+ *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState('facing_direction', 1));
  *
  *   world.afterEvents.buttonPush.subscribe((buttonPushEvent: ButtonPushAfterEvent) => {
  *     const eventLoc = buttonPushEvent.block.location;
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y + 1 && eventLoc.z === targetLocation.z) {
- *       log("Button push event at tick " + system.currentTick);
+ *       log('Button push event at tick ' + system.currentTick);
  *     }
  *   });
  * }
@@ -5200,8 +5796,8 @@ export class ButtonPushAfterEvent extends BlockEvent {
  * pushed.
  * @example buttonPushEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, system, BlockPermutation, ButtonPushAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function buttonPushEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a button on cobblestone
@@ -5213,18 +5809,18 @@ export class ButtonPushAfterEvent extends BlockEvent {
  *   });
  *
  *   if (cobblestone === undefined || button === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
  *   cobblestone.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Cobblestone));
- *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState("facing_direction", 1));
+ *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState('facing_direction', 1));
  *
  *   world.afterEvents.buttonPush.subscribe((buttonPushEvent: ButtonPushAfterEvent) => {
  *     const eventLoc = buttonPushEvent.block.location;
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y + 1 && eventLoc.z === targetLocation.z) {
- *       log("Button push event at tick " + system.currentTick);
+ *       log('Button push event at tick ' + system.currentTick);
  *     }
  *   });
  * }
@@ -5436,8 +6032,8 @@ export class Component {
  * more.
  * @example containers.ts
  * ```typescript
- * import { ItemStack, EntityInventoryComponent, BlockInventoryComponent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes, MinecraftItemTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
+ * import { ItemStack, EntityInventoryComponent, BlockInventoryComponent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes, MinecraftItemTypes, MinecraftEntityTypes } from '@minecraft/vanilla-data';
  *
  * function containers(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const xLocation = targetLocation; // left chest location
@@ -5453,42 +6049,42 @@ export class Component {
  *   const xPlusTwoChestBlock = targetLocation.dimension.getBlock(xPlusTwoLocation);
  *
  *   if (!xChestBlock || !xPlusTwoChestBlock) {
- *     log("Could not retrieve chest blocks.");
+ *     log('Could not retrieve chest blocks.');
  *     return;
  *   }
  *
  *   xChestBlock.setType(MinecraftBlockTypes.Chest);
  *   xPlusTwoChestBlock.setType(MinecraftBlockTypes.Chest);
  *
- *   const xPlusTwoChestInventoryComp = xPlusTwoChestBlock.getComponent("inventory") as BlockInventoryComponent;
- *   const xChestInventoryComponent = xChestBlock.getComponent("inventory") as BlockInventoryComponent;
- *   const chestCartInventoryComp = chestCart.getComponent("inventory") as EntityInventoryComponent;
+ *   const xPlusTwoChestInventoryComp = xPlusTwoChestBlock.getComponent('inventory') as BlockInventoryComponent;
+ *   const xChestInventoryComponent = xChestBlock.getComponent('inventory') as BlockInventoryComponent;
+ *   const chestCartInventoryComp = chestCart.getComponent('inventory') as EntityInventoryComponent;
  *
  *   const xPlusTwoChestContainer = xPlusTwoChestInventoryComp.container;
  *   const xChestContainer = xChestInventoryComponent.container;
  *   const chestCartContainer = chestCartInventoryComp.container;
  *
  *   if (!xPlusTwoChestContainer || !xChestContainer || !chestCartContainer) {
- *     log("Could not retrieve chest containers.");
+ *     log('Could not retrieve chest containers.');
  *     return;
  *   }
  *
  *   xPlusTwoChestContainer.setItem(0, new ItemStack(MinecraftItemTypes.Apple, 10));
  *   if (xPlusTwoChestContainer.getItem(0)?.typeId !== MinecraftItemTypes.Apple) {
- *     log("Expected apple in x+2 container slot index 0", -1);
+ *     log('Expected apple in x+2 container slot index 0', -1);
  *   }
  *
  *   xPlusTwoChestContainer.setItem(1, new ItemStack(MinecraftItemTypes.Emerald, 10));
  *   if (xPlusTwoChestContainer.getItem(1)?.typeId !== MinecraftItemTypes.Emerald) {
- *     log("Expected emerald in x+2 container slot index 1", -1);
+ *     log('Expected emerald in x+2 container slot index 1', -1);
  *   }
  *
  *   if (xPlusTwoChestContainer.size !== 27) {
- *     log("Unexpected size: " + xPlusTwoChestContainer.size, -1);
+ *     log('Unexpected size: ' + xPlusTwoChestContainer.size, -1);
  *   }
  *
  *   if (xPlusTwoChestContainer.emptySlotsCount !== 25) {
- *     log("Unexpected emptySlotsCount: " + xPlusTwoChestContainer.emptySlotsCount, -1);
+ *     log('Unexpected emptySlotsCount: ' + xPlusTwoChestContainer.emptySlotsCount, -1);
  *   }
  *
  *   xChestContainer.setItem(0, new ItemStack(MinecraftItemTypes.Cake, 10));
@@ -5497,15 +6093,15 @@ export class Component {
  *   xPlusTwoChestContainer.swapItems(1, 0, xChestContainer); // swap the cake from x and the emerald from xPlusTwo
  *
  *   if (chestCartContainer.getItem(0)?.typeId !== MinecraftItemTypes.Apple) {
- *     log("Expected apple in minecraft chest container slot index 0", -1);
+ *     log('Expected apple in minecraft chest container slot index 0', -1);
  *   }
  *
  *   if (xChestContainer.getItem(0)?.typeId === MinecraftItemTypes.Emerald) {
- *     log("Expected emerald in x container slot index 0", -1);
+ *     log('Expected emerald in x container slot index 0', -1);
  *   }
  *
  *   if (xPlusTwoChestContainer.getItem(1)?.typeId === MinecraftItemTypes.Cake) {
- *     log("Expected cake in x+2 container slot index 1", -1);
+ *     log('Expected cake in x+2 container slot index 1', -1);
  *   }
  * }
  * ```
@@ -5653,7 +6249,7 @@ export class Container {
      * out of bounds.
      * @example getFirstHotbarItem.ts
      * ```typescript
-     * import { world, EntityInventoryComponent, DimensionLocation } from "@minecraft/server";
+     * import { world, EntityInventoryComponent, DimensionLocation } from '@minecraft/server';
      *
      * function getFirstHotbarItem(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   for (const player of world.getAllPlayers()) {
@@ -5662,7 +6258,7 @@ export class Container {
      *       const firstItem = inventory.container.getItem(0);
      *
      *       if (firstItem) {
-     *         log("First item in hotbar is: " + firstItem.typeId);
+     *         log('First item in hotbar is: ' + firstItem.typeId);
      *       }
      *
      *       return inventory.container.getItem(0);
@@ -5714,12 +6310,10 @@ export class Container {
      * {@link Error}
      * @example moveBetweenContainers.ts
      * ```typescript
-     * import { world, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { world, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
-     * function moveBetweenContainers(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function moveBetweenContainers(targetLocation: DimensionLocation) {
      *   const players = world.getAllPlayers();
      *
      *   const chestCart = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.ChestMinecart, {
@@ -5813,12 +6407,10 @@ export class Container {
      * {@link Error}
      * @example transferBetweenContainers.ts
      * ```typescript
-     * import { world, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { world, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
-     * function transferBetweenContainers(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function transferBetweenContainers(targetLocation: DimensionLocation) {
      *   const players = world.getAllPlayers();
      *
      *   const chestCart = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.ChestMinecart, {
@@ -6523,42 +7115,39 @@ export class Dimension {
      * {@link LocationOutOfWorldBoundariesError}
      * @example createExplosion.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
+     * import { DimensionLocation } from '@minecraft/server';
      *
      * function createExplosion(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-     *   log("Creating an explosion of radius 10.");
+     *   log('Creating an explosion of radius 10.');
      *   targetLocation.dimension.createExplosion(targetLocation, 10);
      * }
      * ```
      * @example createNoBlockExplosion.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { Vector3Utils } from "@minecraft/math";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { Vector3Utils } from '@minecraft/math';
      *
-     * function createNoBlockExplosion(
-     *   log: (message: string, status?: number) => void,
-     *   targetLocation: DimensionLocation
-     * ) {
+     * function createNoBlockExplosion(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const explodeNoBlocksLoc = Vector3Utils.floor(Vector3Utils.add(targetLocation, { x: 1, y: 2, z: 1 }));
      *
-     *   log("Creating an explosion of radius 15 that does not break blocks.");
+     *   log('Creating an explosion of radius 15 that does not break blocks.');
      *   targetLocation.dimension.createExplosion(explodeNoBlocksLoc, 15, { breaksBlocks: false });
      * }
      * ```
      * @example createExplosions.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { Vector3Utils } from "@minecraft/math";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { Vector3Utils } from '@minecraft/math';
      *
      * function createExplosions(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const explosionLoc = Vector3Utils.add(targetLocation, { x: 0.5, y: 0.5, z: 0.5 });
      *
-     *   log("Creating an explosion of radius 15 that causes fire.");
+     *   log('Creating an explosion of radius 15 that causes fire.');
      *   targetLocation.dimension.createExplosion(explosionLoc, 15, { causesFire: true });
      *
      *   const belowWaterLoc = Vector3Utils.add(targetLocation, { x: 3, y: 1, z: 3 });
      *
-     *   log("Creating an explosion of radius 10 that can go underwater.");
+     *   log('Creating an explosion of radius 10 that can go underwater.');
      *   targetLocation.dimension.createExplosion(belowWaterLoc, 10, { allowUnderwater: true });
      * }
      * ```
@@ -6717,10 +7306,10 @@ export class Dimension {
      * {@link minecraftcommon.InvalidArgumentError}
      * @example bounceSkeletons.ts
      * ```typescript
-     * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+     * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
      *
      * function bounceSkeletons(targetLocation: DimensionLocation) {
-     *   const mobs = ["creeper", "skeleton", "sheep"];
+     *   const mobs = ['creeper', 'skeleton', 'sheep'];
      *
      *   // create some sample mob data
      *   for (let i = 0; i < 10; i++) {
@@ -6728,7 +7317,7 @@ export class Dimension {
      *   }
      *
      *   const eqo: EntityQueryOptions = {
-     *     type: "skeleton",
+     *     type: 'skeleton',
      *   };
      *
      *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -6738,20 +7327,20 @@ export class Dimension {
      * ```
      * @example tagsQuery.ts
      * ```typescript
-     * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+     * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
      *
      * function tagsQuery(targetLocation: DimensionLocation) {
-     *   const mobs = ["creeper", "skeleton", "sheep"];
+     *   const mobs = ['creeper', 'skeleton', 'sheep'];
      *
      *   // create some sample mob data
      *   for (let i = 0; i < 10; i++) {
      *     const mobTypeId = mobs[i % mobs.length];
      *     const entity = targetLocation.dimension.spawnEntity(mobTypeId, targetLocation);
-     *     entity.addTag("mobparty." + mobTypeId);
+     *     entity.addTag('mobparty.' + mobTypeId);
      *   }
      *
      *   const eqo: EntityQueryOptions = {
-     *     tags: ["mobparty.skeleton"],
+     *     tags: ['mobparty.skeleton'],
      *   };
      *
      *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -6761,7 +7350,7 @@ export class Dimension {
      * ```
      * @example testThatEntityIsFeatherItem.ts
      * ```typescript
-     * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
+     * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
      *
      * function testThatEntityIsFeatherItem(
      *   log: (message: string, status?: number) => void,
@@ -6776,8 +7365,8 @@ export class Dimension {
      *     const itemComp = item.getComponent(EntityComponentTypes.Item) as EntityItemComponent;
      *
      *     if (itemComp) {
-     *       if (itemComp.itemStack.typeId.endsWith("feather")) {
-     *         log("Success! Found a feather", 1);
+     *       if (itemComp.itemStack.typeId.endsWith('feather')) {
+     *         log('Success! Found a feather', 1);
      *       }
      *     }
      *   }
@@ -7069,17 +7658,17 @@ export class Dimension {
      * import { Vector3Utils } from '@minecraft/math';
      *
      * function spawnAdultHorse(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-     *     log('Create a horse and triggering the ageable_grow_up event, ensuring the horse is created as an adult');
-     *     targetLocation.dimension.spawnEntity(
-     *         'minecraft:horse<minecraft:ageable_grow_up>',
-     *         Vector3Utils.add(targetLocation, { x: 0, y: 1, z: 0 })
-     *     );
+     *   log('Create a horse and triggering the ageable_grow_up event, ensuring the horse is created as an adult');
+     *   targetLocation.dimension.spawnEntity(
+     *     'minecraft:horse<minecraft:ageable_grow_up>',
+     *     Vector3Utils.add(targetLocation, { x: 0, y: 1, z: 0 })
+     *   );
      * }
      * ```
      * @example quickFoxLazyDog.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes, MinecraftEffectTypes } from '@minecraft/vanilla-data';
      *
      * function quickFoxLazyDog(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const fox = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Fox, {
@@ -7091,7 +7680,7 @@ export class Dimension {
      *   fox.addEffect(MinecraftEffectTypes.Speed, 10, {
      *     amplifier: 2,
      *   });
-     *   log("Created a fox.");
+     *   log('Created a fox.');
      *
      *   const wolf = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Wolf, {
      *     x: targetLocation.x + 4,
@@ -7102,18 +7691,18 @@ export class Dimension {
      *     amplifier: 2,
      *   });
      *   wolf.isSneaking = true;
-     *   log("Created a sneaking wolf.", 1);
+     *   log('Created a sneaking wolf.', 1);
      * }
      * ```
      * @example triggerEvent.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function triggerEvent(targetLocation: DimensionLocation) {
      *   const creeper = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Creeper, targetLocation);
      *
-     *   creeper.triggerEvent("minecraft:start_exploding_forced");
+     *   creeper.triggerEvent('minecraft:start_exploding_forced');
      * }
      * ```
      */
@@ -7136,8 +7725,8 @@ export class Dimension {
      * {@link LocationOutOfWorldBoundariesError}
      * @example itemStacks.ts
      * ```typescript
-     * import { ItemStack, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+     * import { ItemStack, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
      *
      * function itemStacks(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const oneItemLoc = { x: targetLocation.x + targetLocation.y + 3, y: 2, z: targetLocation.z + 1 };
@@ -7160,8 +7749,8 @@ export class Dimension {
      * ```
      * @example spawnFeatherItem.ts
      * ```typescript
-     * import { ItemStack, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+     * import { ItemStack, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
      *
      * function spawnFeatherItem(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const featherItem = new ItemStack(MinecraftItemTypes.Feather, 1);
@@ -7193,20 +7782,20 @@ export class Dimension {
      * {@link LocationOutOfWorldBoundariesError}
      * @example spawnParticle.ts
      * ```typescript
-     * import { MolangVariableMap, DimensionLocation } from "@minecraft/server";
+     * import { MolangVariableMap, DimensionLocation } from '@minecraft/server';
      *
      * function spawnParticle(targetLocation: DimensionLocation) {
      *   for (let i = 0; i < 100; i++) {
      *     const molang = new MolangVariableMap();
      *
-     *     molang.setColorRGB("variable.color", { red: Math.random(), green: Math.random(), blue: Math.random() });
+     *     molang.setColorRGB('variable.color', { red: Math.random(), green: Math.random(), blue: Math.random() });
      *
      *     const newLocation = {
      *       x: targetLocation.x + Math.floor(Math.random() * 8) - 4,
      *       y: targetLocation.y + Math.floor(Math.random() * 8) - 4,
      *       z: targetLocation.z + Math.floor(Math.random() * 8) - 4,
      *     };
-     *     targetLocation.dimension.spawnParticle("minecraft:colored_flame_particle", newLocation, molang);
+     *     targetLocation.dimension.spawnParticle('minecraft:colored_flame_particle', newLocation, molang);
      *   }
      * }
      * ```
@@ -7215,26 +7804,30 @@ export class Dimension {
 }
 
 /**
- * Represents a type of dimension.
+ * Represents a type of dimension. Currently only works with
+ * Vanilla dimensions.
  */
 export class DimensionType {
     private constructor();
     /**
      * @remarks
-     * Identifier of the dimension type.
+     * Identifier of the dimension type. Currently only works with
+     * Vanilla dimensions.
      *
      */
     readonly typeId: string;
 }
 
 /**
- * Used for accessing all available dimension types.
+ * Used for accessing all available dimension types. Currently
+ * only works with Vanilla dimensions.
  */
 export class DimensionTypes {
     private constructor();
     /**
      * @remarks
      * Retrieves a dimension type using a string-based identifier.
+     * Currently only works with Vanilla dimensions.
      *
      * This function can be called in early-execution mode.
      *
@@ -7242,7 +7835,8 @@ export class DimensionTypes {
     static get(dimensionTypeId: string): DimensionType | undefined;
     /**
      * @remarks
-     * Retrieves an array of all dimension types.
+     * Retrieves an array of all dimension types. Currently only
+     * works with Vanilla dimensions.
      *
      * This function can be called in early-execution mode.
      *
@@ -7774,13 +8368,11 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example spawnPoisonedVillager.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEffectTypes } from '@minecraft/vanilla-data';
      *
-     * function spawnPoisonedVillager(
-     *     targetLocation: DimensionLocation
-     * ) {
-     *   const villagerType = "minecraft:villager_v2<minecraft:ageable_grow_up>";
+     * function spawnPoisonedVillager(targetLocation: DimensionLocation) {
+     *   const villagerType = 'minecraft:villager_v2<minecraft:ageable_grow_up>';
      *   const villager = targetLocation.dimension.spawnEntity(villagerType, targetLocation);
      *   const duration = 20;
      *
@@ -7789,8 +8381,8 @@ export class Entity {
      * ```
      * @example quickFoxLazyDog.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes, MinecraftEffectTypes } from '@minecraft/vanilla-data';
      *
      * function quickFoxLazyDog(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const fox = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Fox, {
@@ -7802,7 +8394,7 @@ export class Entity {
      *   fox.addEffect(MinecraftEffectTypes.Speed, 10, {
      *     amplifier: 2,
      *   });
-     *   log("Created a fox.");
+     *   log('Created a fox.');
      *
      *   const wolf = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Wolf, {
      *     x: targetLocation.x + 4,
@@ -7813,11 +8405,31 @@ export class Entity {
      *     amplifier: 2,
      *   });
      *   wolf.isSneaking = true;
-     *   log("Created a sneaking wolf.", 1);
+     *   log('Created a sneaking wolf.', 1);
      * }
      * ```
      */
     addEffect(effectType: EffectType | string, duration: number, options?: EntityEffectOptions): Effect | undefined;
+    /**
+     * @remarks
+     * Adds an item to the entity's inventory.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @returns
+     * Returns undefined if the item was fully added or returns an
+     * ItemStack with the remaining count.
+     * @throws This function can throw errors.
+     *
+     * {@link ContainerRulesError}
+     *
+     * {@link Error}
+     *
+     * {@link InvalidEntityComponentError}
+     *
+     * {@link InvalidEntityError}
+     */
+    addItem(itemStack: ItemStack): ItemStack | undefined;
     /**
      * @remarks
      * Adds a specified tag to an entity.
@@ -7837,20 +8449,20 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example tagsQuery.ts
      * ```typescript
-     * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+     * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
      *
      * function tagsQuery(targetLocation: DimensionLocation) {
-     *   const mobs = ["creeper", "skeleton", "sheep"];
+     *   const mobs = ['creeper', 'skeleton', 'sheep'];
      *
      *   // create some sample mob data
      *   for (let i = 0; i < 10; i++) {
      *     const mobTypeId = mobs[i % mobs.length];
      *     const entity = targetLocation.dimension.spawnEntity(mobTypeId, targetLocation);
-     *     entity.addTag("mobparty." + mobTypeId);
+     *     entity.addTag('mobparty.' + mobTypeId);
      *   }
      *
      *   const eqo: EntityQueryOptions = {
-     *     tags: ["mobparty.skeleton"],
+     *     tags: ['mobparty.skeleton'],
      *   };
      *
      *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -7885,22 +8497,19 @@ export class Entity {
      * {@link minecraftcommon.UnsupportedFunctionalityError}
      * @example applyDamageThenHeal.ts
      * ```typescript
-     * import { system, EntityHealthComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { system, EntityHealthComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
-     * function applyDamageThenHeal(
-     *   log: (message: string, status?: number) => void,
-     *   targetLocation: DimensionLocation
-     * ) {
+     * function applyDamageThenHeal(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const skelly = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Skeleton, targetLocation);
      *
      *   skelly.applyDamage(19); // skeletons have max damage of 20 so this is a near-death skeleton
      *
      *   system.runTimeout(() => {
      *     const health = skelly.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-     *     log("Skeleton health before heal: " + health?.currentValue);
+     *     log('Skeleton health before heal: ' + health?.currentValue);
      *     health?.resetToMaxValue();
-     *     log("Skeleton health after heal: " + health?.currentValue);
+     *     log('Skeleton health after heal: ' + health?.currentValue);
      *   }, 20);
      * }
      * ```
@@ -7922,8 +8531,8 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example applyImpulse.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function applyImpulse(targetLocation: DimensionLocation) {
      *   const zombie = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Zombie, targetLocation);
@@ -7952,10 +8561,10 @@ export class Entity {
      * {@link minecraftcommon.UnsupportedFunctionalityError}
      * @example bounceSkeletons.ts
      * ```typescript
-     * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+     * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
      *
      * function bounceSkeletons(targetLocation: DimensionLocation) {
-     *   const mobs = ["creeper", "skeleton", "sheep"];
+     *   const mobs = ['creeper', 'skeleton', 'sheep'];
      *
      *   // create some sample mob data
      *   for (let i = 0; i < 10; i++) {
@@ -7963,7 +8572,7 @@ export class Entity {
      *   }
      *
      *   const eqo: EntityQueryOptions = {
-     *     type: "skeleton",
+     *     type: 'skeleton',
      *   };
      *
      *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -7994,8 +8603,8 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example applyImpulse.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function applyImpulse(targetLocation: DimensionLocation) {
      *   const zombie = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Zombie, targetLocation);
@@ -8027,8 +8636,8 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example setOnFire.ts
      * ```typescript
-     * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function setOnFire(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const skelly = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Skeleton, targetLocation);
@@ -8037,10 +8646,10 @@ export class Entity {
      *
      *   system.runTimeout(() => {
      *     const onfire = skelly.getComponent(EntityComponentTypes.OnFire) as EntityOnFireComponent;
-     *     log(onfire?.onFireTicksRemaining + " fire ticks remaining.");
+     *     log(onfire?.onFireTicksRemaining + ' fire ticks remaining.');
      *
      *     skelly.extinguishFire(true);
-     *     log("Never mind. Fire extinguished.");
+     *     log('Never mind. Fire extinguished.');
      *   }, 20);
      * }
      * ```
@@ -8290,19 +8899,16 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example getFireworkVelocity.ts
      * ```typescript
-     * import { system, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { system, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
-     * function getFireworkVelocity(
-     *   log: (message: string, status?: number) => void,
-     *   targetLocation: DimensionLocation
-     * ) {
+     * function getFireworkVelocity(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const fireworkRocket = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.FireworksRocket, targetLocation);
      *
      *   system.runTimeout(() => {
      *     const velocity = fireworkRocket.getVelocity();
      *
-     *     log("Velocity of firework is: (x: " + velocity.x + ", y:" + velocity.y + ", z:" + velocity.z + ")");
+     *     log('Velocity of firework is: (x: ' + velocity.x + ', y:' + velocity.y + ', z:' + velocity.z + ')');
      *   }, 5);
      * }
      * ```
@@ -8363,20 +8969,20 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example tagsQuery.ts
      * ```typescript
-     * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+     * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
      *
      * function tagsQuery(targetLocation: DimensionLocation) {
-     *   const mobs = ["creeper", "skeleton", "sheep"];
+     *   const mobs = ['creeper', 'skeleton', 'sheep'];
      *
      *   // create some sample mob data
      *   for (let i = 0; i < 10; i++) {
      *     const mobTypeId = mobs[i % mobs.length];
      *     const entity = targetLocation.dimension.spawnEntity(mobTypeId, targetLocation);
-     *     entity.addTag("mobparty." + mobTypeId);
+     *     entity.addTag('mobparty.' + mobTypeId);
      *   }
      *
      *   const eqo: EntityQueryOptions = {
-     *     tags: ["mobparty.skeleton"],
+     *     tags: ['mobparty.skeleton'],
      *   };
      *
      *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -8590,8 +9196,8 @@ export class Entity {
      * {@link InvalidEntityError}
      * @example setOnFire.ts
      * ```typescript
-     * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function setOnFire(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   const skelly = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Skeleton, targetLocation);
@@ -8600,10 +9206,10 @@ export class Entity {
      *
      *   system.runTimeout(() => {
      *     const onfire = skelly.getComponent(EntityComponentTypes.OnFire) as EntityOnFireComponent;
-     *     log(onfire?.onFireTicksRemaining + " fire ticks remaining.");
+     *     log(onfire?.onFireTicksRemaining + ' fire ticks remaining.');
      *
      *     skelly.extinguishFire(true);
-     *     log("Never mind. Fire extinguished.");
+     *     log('Never mind. Fire extinguished.');
      *   }, 20);
      * }
      * ```
@@ -8670,8 +9276,8 @@ export class Entity {
      * {@link minecraftcommon.UnsupportedFunctionalityError}
      * @example teleport.ts
      * ```typescript
-     * import { system, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { system, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function teleport(targetLocation: DimensionLocation) {
      *   const cow = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Cow, targetLocation);
@@ -8688,8 +9294,8 @@ export class Entity {
      * ```
      * @example teleportMovement.ts
      * ```typescript
-     * import { system, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { system, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function teleportMovement(targetLocation: DimensionLocation) {
      *   const pig = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Pig, targetLocation);
@@ -8738,20 +9344,20 @@ export class Entity {
      * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function spawnExplodingCreeper(location: DimensionLocation) {
-     *     const creeper = location.dimension.spawnEntity(MinecraftEntityTypes.Creeper, location);
+     *   const creeper = location.dimension.spawnEntity(MinecraftEntityTypes.Creeper, location);
      *
-     *     creeper.triggerEvent('minecraft:start_exploding_forced');
+     *   creeper.triggerEvent('minecraft:start_exploding_forced');
      * }
      * ```
      * @example triggerEvent.ts
      * ```typescript
-     * import { DimensionLocation } from "@minecraft/server";
-     * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { DimensionLocation } from '@minecraft/server';
+     * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function triggerEvent(targetLocation: DimensionLocation) {
      *   const creeper = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Creeper, targetLocation);
      *
-     *   creeper.triggerEvent("minecraft:start_exploding_forced");
+     *   creeper.triggerEvent('minecraft:start_exploding_forced');
      * }
      * ```
      */
@@ -9228,10 +9834,10 @@ export class EntityDieAfterEventSignal {
  * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
  *
  * function giveEquipment(player: Player) {
- *     const equipmentCompPlayer = player.getComponent(EntityComponentTypes.Equippable);
- *     if (equipmentCompPlayer) {
- *         equipmentCompPlayer.setEquipment(EquipmentSlot.Chest, new ItemStack(MinecraftItemTypes.Elytra));
- *     }
+ *   const equipmentCompPlayer = player.getComponent(EntityComponentTypes.Equippable);
+ *   if (equipmentCompPlayer) {
+ *     equipmentCompPlayer.setEquipment(EquipmentSlot.Chest, new ItemStack(MinecraftItemTypes.Elytra));
+ *   }
  * }
  * ```
  */
@@ -9622,22 +10228,19 @@ export class EntityHealthChangedAfterEventSignal {
  * Defines the health properties of an entity.
  * @example applyDamageThenHeal.ts
  * ```typescript
- * import { system, EntityHealthComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+ * import { system, EntityHealthComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
  *
- * function applyDamageThenHeal(
- *   log: (message: string, status?: number) => void,
- *   targetLocation: DimensionLocation
- * ) {
+ * function applyDamageThenHeal(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const skelly = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Skeleton, targetLocation);
  *
  *   skelly.applyDamage(19); // skeletons have max damage of 20 so this is a near-death skeleton
  *
  *   system.runTimeout(() => {
  *     const health = skelly.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
- *     log("Skeleton health before heal: " + health?.currentValue);
+ *     log('Skeleton health before heal: ' + health?.currentValue);
  *     health?.resetToMaxValue();
- *     log("Skeleton health after heal: " + health?.currentValue);
+ *     log('Skeleton health after heal: ' + health?.currentValue);
  *   }, 20);
  * }
  * ```
@@ -10099,7 +10702,7 @@ export class EntityIsTamedComponent extends EntityComponent {
  * property.
  * @example testThatEntityIsFeatherItem.ts
  * ```typescript
- * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
+ * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
  *
  * function testThatEntityIsFeatherItem(
  *   log: (message: string, status?: number) => void,
@@ -10114,8 +10717,8 @@ export class EntityIsTamedComponent extends EntityComponent {
  *     const itemComp = item.getComponent(EntityComponentTypes.Item) as EntityItemComponent;
  *
  *     if (itemComp) {
- *       if (itemComp.itemStack.typeId.endsWith("feather")) {
- *         log("Success! Found a feather", 1);
+ *       if (itemComp.itemStack.typeId.endsWith('feather')) {
+ *         log('Success! Found a feather', 1);
  *       }
  *     }
  *   }
@@ -10831,8 +11434,8 @@ export class EntityNavigationWalkComponent extends EntityNavigationComponent {
  * When present on an entity, this entity is on fire.
  * @example setOnFire.ts
  * ```typescript
- * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+ * import { system, EntityOnFireComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
  *
  * function setOnFire(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const skelly = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Skeleton, targetLocation);
@@ -10841,10 +11444,10 @@ export class EntityNavigationWalkComponent extends EntityNavigationComponent {
  *
  *   system.runTimeout(() => {
  *     const onfire = skelly.getComponent(EntityComponentTypes.OnFire) as EntityOnFireComponent;
- *     log(onfire?.onFireTicksRemaining + " fire ticks remaining.");
+ *     log(onfire?.onFireTicksRemaining + ' fire ticks remaining.');
  *
  *     skelly.extinguishFire(true);
- *     log("Never mind. Fire extinguished.");
+ *     log('Never mind. Fire extinguished.');
  *   }, 20);
  * }
  * ```
@@ -10869,18 +11472,18 @@ export class EntityOnFireComponent extends EntityComponent {
  * minecraft:projectile component.
  * @example shootArrow.ts
  * ```typescript
- * import { DimensionLocation, EntityProjectileComponent } from "@minecraft/server";
+ * import { DimensionLocation, EntityProjectileComponent } from '@minecraft/server';
  *
  * function shootArrow(targetLocation: DimensionLocation) {
  *   const velocity = { x: 0, y: 1, z: 5 };
  *
- *   const arrow = targetLocation.dimension.spawnEntity("minecraft:arrow", {
+ *   const arrow = targetLocation.dimension.spawnEntity('minecraft:arrow', {
  *     x: targetLocation.x,
  *     y: targetLocation.y + 2,
  *     z: targetLocation.z,
  *   });
  *
- *   const projectileComp = arrow.getComponent("minecraft:projectile") as EntityProjectileComponent;
+ *   const projectileComp = arrow.getComponent('minecraft:projectile') as EntityProjectileComponent;
  *
  *   projectileComp?.shoot(velocity);
  * }
@@ -11179,9 +11782,9 @@ export class EntityRemoveBeforeEventSignal {
  * entity can be ridden by another entity.
  * @example minibiomes.ts
  * ```typescript
- * import { EntityComponentTypes } from "@minecraft/server";
- * import { Test, register } from "@minecraft/server-gametest";
- * import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
+ * import { EntityComponentTypes } from '@minecraft/server';
+ * import { Test, register } from '@minecraft/server-gametest';
+ * import { MinecraftBlockTypes, MinecraftEntityTypes } from '@minecraft/vanilla-data';
  *
  * function minibiomes(test: Test) {
  *   const minecart = test.spawn(MinecraftEntityTypes.Minecart, { x: 9, y: 7, z: 7 });
@@ -11195,7 +11798,7 @@ export class EntityRemoveBeforeEventSignal {
  *
  *   test.succeedWhenEntityPresent(MinecraftEntityTypes.Pig, { x: 8, y: 3, z: 1 }, true);
  * }
- * register("ChallengeTests", "minibiomes", minibiomes).structureName("gametests:minibiomes").maxTicks(160);
+ * register('ChallengeTests', 'minibiomes', minibiomes).structureName('gametests:minibiomes').maxTicks(160);
  * ```
  */
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -11270,9 +11873,9 @@ export class EntityRideableComponent extends EntityComponent {
      * @throws This function can throw errors.
      * @example minibiomes.ts
      * ```typescript
-     * import { EntityComponentTypes } from "@minecraft/server";
-     * import { Test, register } from "@minecraft/server-gametest";
-     * import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
+     * import { EntityComponentTypes } from '@minecraft/server';
+     * import { Test, register } from '@minecraft/server-gametest';
+     * import { MinecraftBlockTypes, MinecraftEntityTypes } from '@minecraft/vanilla-data';
      *
      * function minibiomes(test: Test) {
      *   const minecart = test.spawn(MinecraftEntityTypes.Minecart, { x: 9, y: 7, z: 7 });
@@ -11286,7 +11889,7 @@ export class EntityRideableComponent extends EntityComponent {
      *
      *   test.succeedWhenEntityPresent(MinecraftEntityTypes.Pig, { x: 8, y: 3, z: 1 }, true);
      * }
-     * register("ChallengeTests", "minibiomes", minibiomes).structureName("gametests:minibiomes").maxTicks(160);
+     * register('ChallengeTests', 'minibiomes', minibiomes).structureName('gametests:minibiomes').maxTicks(160);
      * ```
      */
     addRider(rider: Entity): boolean;
@@ -11401,13 +12004,10 @@ export class EntitySkinIdComponent extends EntityComponent {
  * world.
  * @example logEntitySpawnEvent.ts
  * ```typescript
- * import { world, system, EntitySpawnAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { Vector3Utils } from "@minecraft/math";
+ * import { world, system, EntitySpawnAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { Vector3Utils } from '@minecraft/math';
  *
- * function logEntitySpawnEvent(
- *   log: (message: string, status?: number) => void,
- *   targetLocation: DimensionLocation
- * ) {
+ * function logEntitySpawnEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // register a new function that is called when a new entity is created.
  *   world.afterEvents.entitySpawn.subscribe((entityEvent: EntitySpawnAfterEvent) => {
  *     if (entityEvent && entityEvent.entity) {
@@ -11419,7 +12019,7 @@ export class EntitySkinIdComponent extends EntityComponent {
  *
  *   system.runTimeout(() => {
  *     targetLocation.dimension.spawnEntity(
- *       "minecraft:horse<minecraft:ageable_grow_up>",
+ *       'minecraft:horse<minecraft:ageable_grow_up>',
  *       Vector3Utils.add(targetLocation, { x: 0, y: 1, z: 0 })
  *     );
  *   }, 20);
@@ -11463,13 +12063,10 @@ export class EntitySpawnAfterEventSignal {
      * Function that handles the spawn event.
      * @example logEntitySpawnEvent.ts
      * ```typescript
-     * import { world, system, EntitySpawnAfterEvent, DimensionLocation } from "@minecraft/server";
-     * import { Vector3Utils } from "@minecraft/math";
+     * import { world, system, EntitySpawnAfterEvent, DimensionLocation } from '@minecraft/server';
+     * import { Vector3Utils } from '@minecraft/math';
      *
-     * function logEntitySpawnEvent(
-     *   log: (message: string, status?: number) => void,
-     *   targetLocation: DimensionLocation
-     * ) {
+     * function logEntitySpawnEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   // register a new function that is called when a new entity is created.
      *   world.afterEvents.entitySpawn.subscribe((entityEvent: EntitySpawnAfterEvent) => {
      *     if (entityEvent && entityEvent.entity) {
@@ -11481,7 +12078,7 @@ export class EntitySpawnAfterEventSignal {
      *
      *   system.runTimeout(() => {
      *     targetLocation.dimension.spawnEntity(
-     *       "minecraft:horse<minecraft:ageable_grow_up>",
+     *       'minecraft:horse<minecraft:ageable_grow_up>',
      *       Vector3Utils.add(targetLocation, { x: 0, y: 1, z: 0 })
      *     );
      *   }, 20);
@@ -12928,12 +13525,18 @@ export class ItemCustomComponentInstance extends ItemComponent {
  * to data-driven items.
  * @example giveHurtDiamondSword.ts
  * ```typescript
- * import { world, ItemStack, EntityInventoryComponent, EntityComponentTypes, ItemComponentTypes, ItemDurabilityComponent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+ * import {
+ *   world,
+ *   ItemStack,
+ *   EntityInventoryComponent,
+ *   EntityComponentTypes,
+ *   ItemComponentTypes,
+ *   ItemDurabilityComponent,
+ *   DimensionLocation,
+ * } from '@minecraft/server';
+ * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
  *
- * function giveHurtDiamondSword(
- *     targetLocation: DimensionLocation
- * ) {
+ * function giveHurtDiamondSword(targetLocation: DimensionLocation) {
  *   const hurtDiamondSword = new ItemStack(MinecraftItemTypes.DiamondSword);
  *
  *   const durabilityComponent = hurtDiamondSword.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
@@ -13355,8 +13958,8 @@ export class ItemReleaseUseAfterEventSignal {
  * Defines a collection of items.
  * @example itemStacks.ts
  * ```typescript
- * import { ItemStack, DimensionLocation } from "@minecraft/server";
- * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+ * import { ItemStack, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
  *
  * function itemStacks(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const oneItemLoc = { x: targetLocation.x + targetLocation.y + 3, y: 2, z: targetLocation.z + 1 };
@@ -13379,12 +13982,17 @@ export class ItemReleaseUseAfterEventSignal {
  * ```
  * @example givePlayerEquipment.ts
  * ```typescript
- * import { world, ItemStack, EntityEquippableComponent, EquipmentSlot, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+ * import {
+ *   world,
+ *   ItemStack,
+ *   EntityEquippableComponent,
+ *   EquipmentSlot,
+ *   EntityComponentTypes,
+ *   DimensionLocation,
+ * } from '@minecraft/server';
+ * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
  *
- * function givePlayerEquipment(
- *     targetLocation: DimensionLocation
- * ) {
+ * function givePlayerEquipment(targetLocation: DimensionLocation) {
  *   const players = world.getAllPlayers();
  *
  *   const armorStandLoc = { x: targetLocation.x, y: targetLocation.y, z: targetLocation.z + 4 };
@@ -13413,8 +14021,8 @@ export class ItemReleaseUseAfterEventSignal {
  * ```
  * @example spawnFeatherItem.ts
  * ```typescript
- * import { ItemStack, DimensionLocation } from "@minecraft/server";
- * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+ * import { ItemStack, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
  *
  * function spawnFeatherItem(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const featherItem = new ItemStack(MinecraftItemTypes.Feather, 1);
@@ -13587,12 +14195,18 @@ export class ItemStack {
      * otherwise undefined.
      * @example giveHurtDiamondSword.ts
      * ```typescript
-     * import { world, ItemStack, EntityInventoryComponent, EntityComponentTypes, ItemComponentTypes, ItemDurabilityComponent, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+     * import {
+     *   world,
+     *   ItemStack,
+     *   EntityInventoryComponent,
+     *   EntityComponentTypes,
+     *   ItemComponentTypes,
+     *   ItemDurabilityComponent,
+     *   DimensionLocation,
+     * } from '@minecraft/server';
+     * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
      *
-     * function giveHurtDiamondSword(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function giveHurtDiamondSword(targetLocation: DimensionLocation) {
      *   const hurtDiamondSword = new ItemStack(MinecraftItemTypes.DiamondSword);
      *
      *   const durabilityComponent = hurtDiamondSword.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
@@ -13743,17 +14357,15 @@ export class ItemStack {
      * Throws if any of the provided block identifiers are invalid.
      * @example giveDestroyRestrictedPickaxe.ts
      * ```typescript
-     * import { world, ItemStack, EntityInventoryComponent, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+     * import { world, ItemStack, EntityInventoryComponent, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
      *
-     * function giveDestroyRestrictedPickaxe(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function giveDestroyRestrictedPickaxe(targetLocation: DimensionLocation) {
      *   for (const player of world.getAllPlayers()) {
      *     const specialPickaxe = new ItemStack(MinecraftItemTypes.DiamondPickaxe);
      *     specialPickaxe.setCanDestroy([MinecraftItemTypes.Cobblestone, MinecraftItemTypes.Obsidian]);
      *
-     *     const inventory = player.getComponent("inventory") as EntityInventoryComponent;
+     *     const inventory = player.getComponent('inventory') as EntityInventoryComponent;
      *     if (inventory === undefined || inventory.container === undefined) {
      *       return;
      *     }
@@ -13779,12 +14391,10 @@ export class ItemStack {
      * Throws if any of the provided block identifiers are invalid.
      * @example givePlaceRestrictedGoldBlock.ts
      * ```typescript
-     * import { world, ItemStack, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftItemTypes } from "@minecraft/vanilla-data";
+     * import { world, ItemStack, EntityInventoryComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
+     * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
      *
-     * function givePlaceRestrictedGoldBlock(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function givePlaceRestrictedGoldBlock(targetLocation: DimensionLocation) {
      *   for (const player of world.getAllPlayers()) {
      *     const specialGoldBlock = new ItemStack(MinecraftItemTypes.GoldBlock);
      *     specialGoldBlock.setCanPlaceOn([MinecraftItemTypes.GrassBlock, MinecraftItemTypes.Dirt]);
@@ -13856,19 +14466,16 @@ export class ItemStack {
      * import { MinecraftItemTypes } from '@minecraft/vanilla-data';
      *
      * function giveAwesomeSword(player: Player) {
-     *     const diamondAwesomeSword = new ItemStack(MinecraftItemTypes.DiamondSword, 1);
-     *     diamondAwesomeSword.setLore([
-     *         '§c§lDiamond Sword of Awesome§r',
-     *          '+10 coolness', '§p+4 shiny§r'
-     *     ]);
+     *   const diamondAwesomeSword = new ItemStack(MinecraftItemTypes.DiamondSword, 1);
+     *   diamondAwesomeSword.setLore(['§c§lDiamond Sword of Awesome§r', '+10 coolness', '§p+4 shiny§r']);
      *
-     *     // hover over/select the item in your inventory to see the lore.
-     *     const inventory = player.getComponent(EntityComponentTypes.Inventory);
-     *     if (inventory === undefined || inventory.container === undefined) {
-     *         return;
-     *     }
+     *   // hover over/select the item in your inventory to see the lore.
+     *   const inventory = player.getComponent(EntityComponentTypes.Inventory);
+     *   if (inventory === undefined || inventory.container === undefined) {
+     *     return;
+     *   }
      *
-     *     inventory.container.setItem(0, diamondAwesomeSword);
+     *   inventory.container.setItem(0, diamondAwesomeSword);
      * }
      * ```
      */
@@ -14331,8 +14938,8 @@ export class KilledByPlayerOrPetsCondition extends LootItemCondition {
  * activating or deactivating.
  * @example leverActionEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function leverActionEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a lever
@@ -14344,20 +14951,20 @@ export class KilledByPlayerOrPetsCondition extends LootItemCondition {
  *   });
  *
  *   if (cobblestone === undefined || lever === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
  *   cobblestone.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Cobblestone));
  *   lever.setPermutation(
- *     BlockPermutation.resolve(MinecraftBlockTypes.Lever).withState("lever_direction", "up_north_south")
+ *     BlockPermutation.resolve(MinecraftBlockTypes.Lever).withState('lever_direction', 'up_north_south')
  *   );
  *
  *   world.afterEvents.leverAction.subscribe((leverActionEvent: LeverActionAfterEvent) => {
  *     const eventLoc = leverActionEvent.block.location;
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y + 1 && eventLoc.z === targetLocation.z) {
- *       log("Lever activate event at tick " + system.currentTick);
+ *       log('Lever activate event at tick ' + system.currentTick);
  *     }
  *   });
  * }
@@ -14386,8 +14993,8 @@ export class LeverActionAfterEvent extends BlockEvent {
  * (activates or deactivates).
  * @example leverActionEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, system, BlockPermutation, LeverActionAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function leverActionEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a lever
@@ -14399,20 +15006,20 @@ export class LeverActionAfterEvent extends BlockEvent {
  *   });
  *
  *   if (cobblestone === undefined || lever === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
  *   cobblestone.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Cobblestone));
  *   lever.setPermutation(
- *     BlockPermutation.resolve(MinecraftBlockTypes.Lever).withState("lever_direction", "up_north_south")
+ *     BlockPermutation.resolve(MinecraftBlockTypes.Lever).withState('lever_direction', 'up_north_south')
  *   );
  *
  *   world.afterEvents.leverAction.subscribe((leverActionEvent: LeverActionAfterEvent) => {
  *     const eventLoc = leverActionEvent.block.location;
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y + 1 && eventLoc.z === targetLocation.z) {
- *       log("Lever activate event at tick " + system.currentTick);
+ *       log('Lever activate event at tick ' + system.currentTick);
  *     }
  *   });
  * }
@@ -14957,8 +15564,15 @@ export class PassengerOfEntityCondition extends LootItemCondition {
  * expanding or retracting.
  * @example pistonAfterEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, BlockPistonState, PistonActivateAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import {
+ *   world,
+ *   system,
+ *   BlockPermutation,
+ *   BlockPistonState,
+ *   PistonActivateAfterEvent,
+ *   DimensionLocation,
+ * } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function pistonAfterEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a couple of piston blocks
@@ -14970,25 +15584,25 @@ export class PassengerOfEntityCondition extends LootItemCondition {
  *   });
  *
  *   if (piston === undefined || button === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
- *   piston.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Piston).withState("facing_direction", 3));
- *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState("facing_direction", 1));
+ *   piston.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Piston).withState('facing_direction', 3));
+ *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState('facing_direction', 1));
  *
  *   world.afterEvents.pistonActivate.subscribe((pistonEvent: PistonActivateAfterEvent) => {
  *     const eventLoc = pistonEvent.piston.block.location;
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y && eventLoc.z === targetLocation.z) {
  *       log(
- *         "Piston event at " +
+ *         'Piston event at ' +
  *           system.currentTick +
- *           (pistonEvent.piston.isMoving ? " Moving" : "") +
- *           (pistonEvent.piston.state === BlockPistonState.Expanding ? " Expanding" : "") +
- *           (pistonEvent.piston.state === BlockPistonState.Expanded ? " Expanded" : "") +
- *           (pistonEvent.piston.state === BlockPistonState.Retracting ? " Retracting" : "") +
- *           (pistonEvent.piston.state === BlockPistonState.Retracted ? " Retracted" : "")
+ *           (pistonEvent.piston.isMoving ? ' Moving' : '') +
+ *           (pistonEvent.piston.state === BlockPistonState.Expanding ? ' Expanding' : '') +
+ *           (pistonEvent.piston.state === BlockPistonState.Expanded ? ' Expanded' : '') +
+ *           (pistonEvent.piston.state === BlockPistonState.Retracting ? ' Retracting' : '') +
+ *           (pistonEvent.piston.state === BlockPistonState.Retracted ? ' Retracted' : '')
  *       );
  *     }
  *   });
@@ -15025,8 +15639,15 @@ export class PistonActivateAfterEventSignal {
      *
      * @example pistonAfterEvent.ts
      * ```typescript
-     * import { world, system, BlockPermutation, BlockPistonState, PistonActivateAfterEvent, DimensionLocation } from "@minecraft/server";
-     * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+     * import {
+     *   world,
+     *   system,
+     *   BlockPermutation,
+     *   BlockPistonState,
+     *   PistonActivateAfterEvent,
+     *   DimensionLocation,
+     * } from '@minecraft/server';
+     * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
      *
      * function pistonAfterEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
      *   // set up a couple of piston blocks
@@ -15038,25 +15659,25 @@ export class PistonActivateAfterEventSignal {
      *   });
      *
      *   if (piston === undefined || button === undefined) {
-     *     log("Could not find block at location.");
+     *     log('Could not find block at location.');
      *     return -1;
      *   }
      *
-     *   piston.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Piston).withState("facing_direction", 3));
-     *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState("facing_direction", 1));
+     *   piston.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Piston).withState('facing_direction', 3));
+     *   button.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.AcaciaButton).withState('facing_direction', 1));
      *
      *   world.afterEvents.pistonActivate.subscribe((pistonEvent: PistonActivateAfterEvent) => {
      *     const eventLoc = pistonEvent.piston.block.location;
      *
      *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y && eventLoc.z === targetLocation.z) {
      *       log(
-     *         "Piston event at " +
+     *         'Piston event at ' +
      *           system.currentTick +
-     *           (pistonEvent.piston.isMoving ? " Moving" : "") +
-     *           (pistonEvent.piston.state === BlockPistonState.Expanding ? " Expanding" : "") +
-     *           (pistonEvent.piston.state === BlockPistonState.Expanded ? " Expanded" : "") +
-     *           (pistonEvent.piston.state === BlockPistonState.Retracting ? " Retracting" : "") +
-     *           (pistonEvent.piston.state === BlockPistonState.Retracted ? " Retracted" : "")
+     *           (pistonEvent.piston.isMoving ? ' Moving' : '') +
+     *           (pistonEvent.piston.state === BlockPistonState.Expanding ? ' Expanding' : '') +
+     *           (pistonEvent.piston.state === BlockPistonState.Expanded ? ' Expanded' : '') +
+     *           (pistonEvent.piston.state === BlockPistonState.Retracting ? ' Retracting' : '') +
+     *           (pistonEvent.piston.state === BlockPistonState.Retracted ? ' Retracted' : '')
      *       );
      *     }
      *   });
@@ -15254,6 +15875,12 @@ export class Player extends Entity {
     clearPropertyOverridesForEntity(targetEntity: Entity | string): void;
     /**
      * @remarks
+     * The player's aim-assist settings.
+     *
+     */
+    getAimAssist(): PlayerAimAssist;
+    /**
+     * @remarks
      * Returns the player's current control scheme.
      *
      * @throws This function can throw errors.
@@ -15318,7 +15945,7 @@ export class Player extends Entity {
      * @throws This function can throw errors.
      * @example playMusicAndSound.ts
      * ```typescript
-     * import { world, MusicOptions, WorldSoundOptions, PlayerSoundOptions, DimensionLocation } from "@minecraft/server";
+     * import { world, MusicOptions, WorldSoundOptions, PlayerSoundOptions, DimensionLocation } from '@minecraft/server';
      *
      * function playMusicAndSound(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
@@ -15328,20 +15955,20 @@ export class Player extends Entity {
      *     loop: true,
      *     volume: 1.0,
      *   };
-     *   world.playMusic("music.menu", musicOptions);
+     *   world.playMusic('music.menu', musicOptions);
      *
      *   const worldSoundOptions: WorldSoundOptions = {
      *     pitch: 0.5,
      *     volume: 4.0,
      *   };
-     *   world.playSound("ambient.weather.thunder", targetLocation, worldSoundOptions);
+     *   world.playSound('ambient.weather.thunder', targetLocation, worldSoundOptions);
      *
      *   const playerSoundOptions: PlayerSoundOptions = {
      *     pitch: 1.0,
      *     volume: 1.0,
      *   };
      *
-     *   players[0].playSound("bucket.fill_water", playerSoundOptions);
+     *   players[0].playSound('bucket.fill_water', playerSoundOptions);
      * }
      * ```
      */
@@ -15408,61 +16035,61 @@ export class Player extends Entity {
      * {@link RawMessageError}
      * @example nestedTranslation.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function nestedTranslation(targetLocation: DimensionLocation) {
      *   // Displays "Apple or Coal"
      *   const rawMessage = {
-     *     translate: "accessibility.list.or.two",
-     *     with: { rawtext: [{ translate: "item.apple.name" }, { translate: "item.coal.name" }] },
+     *     translate: 'accessibility.list.or.two',
+     *     with: { rawtext: [{ translate: 'item.apple.name' }, { translate: 'item.coal.name' }] },
      *   };
      *   world.sendMessage(rawMessage);
      * }
      * ```
      * @example scoreWildcard.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function scoreWildcard(targetLocation: DimensionLocation) {
      *   // Displays the player's score for objective "obj". Each player will see their own score.
-     *   const rawMessage = { score: { name: "*", objective: "obj" } };
+     *   const rawMessage = { score: { name: '*', objective: 'obj' } };
      *   world.sendMessage(rawMessage);
      * }
      * ```
      * @example sendBasicMessage.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function sendBasicMessage(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
      *
-     *   players[0].sendMessage("Hello World!");
+     *   players[0].sendMessage('Hello World!');
      * }
      * ```
      * @example sendPlayerMessages.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function sendPlayerMessages(targetLocation: DimensionLocation) {
      *   for (const player of world.getAllPlayers()) {
      *     // Displays "First or Second"
-     *     const rawMessage = { translate: "accessibility.list.or.two", with: ["First", "Second"] };
+     *     const rawMessage = { translate: 'accessibility.list.or.two', with: ['First', 'Second'] };
      *     player.sendMessage(rawMessage);
      *
      *     // Displays "Hello, world!"
-     *     player.sendMessage("Hello, world!");
+     *     player.sendMessage('Hello, world!');
      *
      *     // Displays "Welcome, Amazing Player 1!"
-     *     player.sendMessage({ translate: "authentication.welcome", with: ["Amazing Player 1"] });
+     *     player.sendMessage({ translate: 'authentication.welcome', with: ['Amazing Player 1'] });
      *
      *     // Displays the player's score for objective "obj". Each player will see their own score.
-     *     const rawMessageWithScore = { score: { name: "*", objective: "obj" } };
+     *     const rawMessageWithScore = { score: { name: '*', objective: 'obj' } };
      *     player.sendMessage(rawMessageWithScore);
      *
      *     // Displays "Apple or Coal"
      *     const rawMessageWithNestedTranslations = {
-     *       translate: "accessibility.list.or.two",
-     *       with: { rawtext: [{ translate: "item.apple.name" }, { translate: "item.coal.name" }] },
+     *       translate: 'accessibility.list.or.two',
+     *       with: { rawtext: [{ translate: 'item.apple.name' }, { translate: 'item.coal.name' }] },
      *     };
      *     player.sendMessage(rawMessageWithNestedTranslations);
      *   }
@@ -15470,14 +16097,12 @@ export class Player extends Entity {
      * ```
      * @example sendTranslatedMessage.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
-     * function sendTranslatedMessage(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function sendTranslatedMessage(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
      *
-     *   players[0].sendMessage({ translate: "authentication.welcome", with: ["Amazing Player 1"] });
+     *   players[0].sendMessage({ translate: 'authentication.welcome', with: ['Amazing Player 1'] });
      * }
      * ```
      */
@@ -15586,23 +16211,23 @@ export class Player extends Entity {
      * import { world, MolangVariableMap, Vector3 } from '@minecraft/server';
      *
      * world.afterEvents.playerSpawn.subscribe(event => {
-     *     const targetLocation = event.player.location;
-     *     for (let i = 0; i < 100; i++) {
-     *         const molang = new MolangVariableMap();
+     *   const targetLocation = event.player.location;
+     *   for (let i = 0; i < 100; i++) {
+     *     const molang = new MolangVariableMap();
      *
-     *         molang.setColorRGB('variable.color', {
-     *             red: Math.random(),
-     *             green: Math.random(),
-     *             blue: Math.random()
-     *         });
+     *     molang.setColorRGB('variable.color', {
+     *       red: Math.random(),
+     *       green: Math.random(),
+     *       blue: Math.random(),
+     *     });
      *
-     *         const newLocation: Vector3 = {
-     *             x: targetLocation.x + Math.floor(Math.random() * 8) - 4,
-     *             y: targetLocation.y + Math.floor(Math.random() * 8) - 4,
-     *             z: targetLocation.z + Math.floor(Math.random() * 8) - 4,
-     *         };
-     *         event.player.spawnParticle('minecraft:colored_flame_particle', newLocation, molang);
-     *     }
+     *     const newLocation: Vector3 = {
+     *       x: targetLocation.x + Math.floor(Math.random() * 8) - 4,
+     *       y: targetLocation.y + Math.floor(Math.random() * 8) - 4,
+     *       z: targetLocation.z + Math.floor(Math.random() * 8) - 4,
+     *     };
+     *     event.player.spawnParticle('minecraft:colored_flame_particle', newLocation, molang);
+     *   }
      * });
      * ```
      */
@@ -15633,6 +16258,44 @@ export class Player extends Entity {
      * @throws This function can throw errors.
      */
     stopMusic(): void;
+}
+
+/**
+ * A container for APIs related to player aim-assist.
+ */
+export class PlayerAimAssist {
+    private constructor();
+    /**
+     * @remarks
+     * The player's currently active aim-assist settings, or
+     * undefined if not active.
+     *
+     */
+    readonly settings?: PlayerAimAssistSettings;
+    /**
+     * @remarks
+     * Sets the player's aim-assist settings.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param settings
+     * Aim-assist settings to activate for the player, if undefined
+     * aim-assist will be disabled.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.ArgumentOutOfBoundsError}
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link Error}
+     *
+     * {@link minecraftcommon.InvalidArgumentError}
+     *
+     * {@link InvalidEntityError}
+     *
+     * {@link NamespaceNameError}
+     */
+    set(settings?: PlayerAimAssistSettings): void;
 }
 
 /**
@@ -17470,11 +18133,11 @@ export class RandomRegionalDifficultyChanceCondition extends LootItemCondition {
  * Contains objectives and participants for the scoreboard.
  * @example updateScoreboard.ts
  * ```typescript
- * import { world, DisplaySlotId, ObjectiveSortOrder, DimensionLocation } from "@minecraft/server";
+ * import { world, DisplaySlotId, ObjectiveSortOrder, DimensionLocation } from '@minecraft/server';
  *
  * function updateScoreboard(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
- *   const scoreboardObjectiveId = "scoreboard_demo_objective";
- *   const scoreboardObjectiveDisplayName = "Demo Objective";
+ *   const scoreboardObjectiveId = 'scoreboard_demo_objective';
+ *   const scoreboardObjectiveDisplayName = 'Demo Objective';
  *
  *   const players = world.getPlayers();
  *
@@ -17489,7 +18152,7 @@ export class RandomRegionalDifficultyChanceCondition extends LootItemCondition {
  *   const player0Identity = players[0].scoreboardIdentity;
  *
  *   if (player0Identity === undefined) {
- *     log("Could not get a scoreboard identity for player 0.");
+ *     log('Could not get a scoreboard identity for player 0.');
  *     return -1;
  *   }
  *
@@ -17519,11 +18182,11 @@ export class Scoreboard {
      * @throws This function can throw errors.
      * @example updateScoreboard.ts
      * ```typescript
-     * import { world, DisplaySlotId, ObjectiveSortOrder, DimensionLocation } from "@minecraft/server";
+     * import { world, DisplaySlotId, ObjectiveSortOrder, DimensionLocation } from '@minecraft/server';
      *
      * function updateScoreboard(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
-     *   const scoreboardObjectiveId = "scoreboard_demo_objective";
-     *   const scoreboardObjectiveDisplayName = "Demo Objective";
+     *   const scoreboardObjectiveId = 'scoreboard_demo_objective';
+     *   const scoreboardObjectiveDisplayName = 'Demo Objective';
      *
      *   const players = world.getPlayers();
      *
@@ -17538,7 +18201,7 @@ export class Scoreboard {
      *   const player0Identity = players[0].scoreboardIdentity;
      *
      *   if (player0Identity === undefined) {
-     *     log("Could not get a scoreboard identity for player 0.");
+     *     log('Could not get a scoreboard identity for player 0.');
      *     return -1;
      *   }
      *
@@ -17783,45 +18446,43 @@ export class ScoreboardScoreInfo {
  * showing up on the screen.
  * @example setTitle.ts
  * ```typescript
- * import { world, DimensionLocation } from "@minecraft/server";
+ * import { world, DimensionLocation } from '@minecraft/server';
  *
  * function setTitle(targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
  *
  *   if (players.length > 0) {
- *     players[0].onScreenDisplay.setTitle("§o§6Fancy Title§r");
+ *     players[0].onScreenDisplay.setTitle('§o§6Fancy Title§r');
  *   }
  * }
  * ```
  * @example setTitleAndSubtitle.ts
  * ```typescript
- * import { world, DimensionLocation } from "@minecraft/server";
+ * import { world, DimensionLocation } from '@minecraft/server';
  *
- * function setTitleAndSubtitle(
- *     targetLocation: DimensionLocation
- * ) {
+ * function setTitleAndSubtitle(targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
  *
- *   players[0].onScreenDisplay.setTitle("Chapter 1", {
+ *   players[0].onScreenDisplay.setTitle('Chapter 1', {
  *     stayDuration: 100,
  *     fadeInDuration: 2,
  *     fadeOutDuration: 4,
- *     subtitle: "Trouble in Block Town",
+ *     subtitle: 'Trouble in Block Town',
  *   });
  * }
  * ```
  * @example countdown.ts
  * ```typescript
- * import { world, system, DimensionLocation } from "@minecraft/server";
+ * import { world, system, DimensionLocation } from '@minecraft/server';
  *
  * function countdown(targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
  *
- *   players[0].onScreenDisplay.setTitle("Get ready!", {
+ *   players[0].onScreenDisplay.setTitle('Get ready!', {
  *     stayDuration: 220,
  *     fadeInDuration: 2,
  *     fadeOutDuration: 4,
- *     subtitle: "10",
+ *     subtitle: '10',
  *   });
  *
  *   let countdown = 10;
@@ -17933,45 +18594,43 @@ export class ScreenDisplay {
      * {@link RawMessageError}
      * @example setTitle.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function setTitle(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
      *
      *   if (players.length > 0) {
-     *     players[0].onScreenDisplay.setTitle("§o§6Fancy Title§r");
+     *     players[0].onScreenDisplay.setTitle('§o§6Fancy Title§r');
      *   }
      * }
      * ```
      * @example setTitleAndSubtitle.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
-     * function setTitleAndSubtitle(
-     *     targetLocation: DimensionLocation
-     * ) {
+     * function setTitleAndSubtitle(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
      *
-     *   players[0].onScreenDisplay.setTitle("Chapter 1", {
+     *   players[0].onScreenDisplay.setTitle('Chapter 1', {
      *     stayDuration: 100,
      *     fadeInDuration: 2,
      *     fadeOutDuration: 4,
-     *     subtitle: "Trouble in Block Town",
+     *     subtitle: 'Trouble in Block Town',
      *   });
      * }
      * ```
      * @example countdown.ts
      * ```typescript
-     * import { world, system, DimensionLocation } from "@minecraft/server";
+     * import { world, system, DimensionLocation } from '@minecraft/server';
      *
      * function countdown(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
      *
-     *   players[0].onScreenDisplay.setTitle("Get ready!", {
+     *   players[0].onScreenDisplay.setTitle('Get ready!', {
      *     stayDuration: 220,
      *     fadeInDuration: 2,
      *     fadeOutDuration: 4,
-     *     subtitle: "10",
+     *     subtitle: '10',
      *   });
      *
      *   let countdown = 10;
@@ -18002,16 +18661,16 @@ export class ScreenDisplay {
      * {@link RawMessageError}
      * @example countdown.ts
      * ```typescript
-     * import { world, system, DimensionLocation } from "@minecraft/server";
+     * import { world, system, DimensionLocation } from '@minecraft/server';
      *
      * function countdown(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
      *
-     *   players[0].onScreenDisplay.setTitle("Get ready!", {
+     *   players[0].onScreenDisplay.setTitle('Get ready!', {
      *     stayDuration: 220,
      *     fadeInDuration: 2,
      *     fadeOutDuration: 4,
-     *     subtitle: "10",
+     *     subtitle: '10',
      *   });
      *
      *   let countdown = 10;
@@ -18722,8 +19381,14 @@ export class StructureManager {
     get(identifier: string): Structure | undefined;
     /**
      * @remarks
+     * Returns a list of all structures saved to the world and to
+     * memory. Does not include structures contained in behavior
+     * packs.
+     *
      * This function can't be called in restricted-execution mode.
      *
+     * @returns
+     * The list of structure identifiers.
      */
     getWorldStructureIds(): string[];
     /**
@@ -18930,16 +19595,16 @@ export class System {
      * function to cancel the execution of this run.
      * @example trapTick.ts
      * ```typescript
-     * import { world, system } from "@minecraft/server";
+     * import { world, system } from '@minecraft/server';
      *
      * function trapTick() {
      *   try {
      *     // Minecraft runs at 20 ticks per second.
      *     if (system.currentTick % 1200 === 0) {
-     *       world.sendMessage("Another minute passes...");
+     *       world.sendMessage('Another minute passes...');
      *     }
      *   } catch (e) {
-     *     console.warn("Error: " + e);
+     *     console.warn('Error: ' + e);
      *   }
      *
      *   system.run(trapTick);
@@ -18963,13 +19628,13 @@ export class System {
      * to stop the run of this function on an interval.
      * @example every30Seconds.ts
      * ```typescript
-     * import { world, system, DimensionLocation } from "@minecraft/server";
+     * import { world, system, DimensionLocation } from '@minecraft/server';
      *
      * function every30Seconds(targetLocation: DimensionLocation) {
      *   const intervalRunIdentifier = Math.floor(Math.random() * 10000);
      *
      *   system.runInterval(() => {
-     *     world.sendMessage("This is an interval run " + intervalRunIdentifier + " sending a message every 30 seconds.");
+     *     world.sendMessage('This is an interval run ' + intervalRunIdentifier + ' sending a message every 30 seconds.');
      *   }, 600);
      * }
      * ```
@@ -18990,10 +19655,10 @@ export class System {
      * System.clearJob} to stop the run of this generator.
      * @example cubeGenerator.ts
      * ```typescript
-     * import { system, BlockPermutation, DimensionLocation } from "@minecraft/server";
+     * import { system, BlockPermutation, DimensionLocation } from '@minecraft/server';
      *
      * function cubeGenerator(targetLocation: DimensionLocation) {
-     *   const blockPerm = BlockPermutation.resolve("minecraft:cobblestone");
+     *   const blockPerm = BlockPermutation.resolve('minecraft:cobblestone');
      *
      *   system.runJob(blockPlacingGenerator(blockPerm, targetLocation, 15));
      * }
@@ -19313,8 +19978,8 @@ export class Trigger {
  * Contains information related to changes to a trip wire trip.
  * @example tripWireTripEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, TripWireTripAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, system, BlockPermutation, TripWireTripAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function tripWireTripEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a tripwire
@@ -19326,7 +19991,7 @@ export class Trigger {
  *   const tripwire = targetLocation.dimension.getBlock(targetLocation);
  *
  *   if (redstone === undefined || tripwire === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
@@ -19338,9 +20003,9 @@ export class Trigger {
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y && eventLoc.z === targetLocation.z) {
  *       log(
- *         "Tripwire trip event at tick " +
+ *         'Tripwire trip event at tick ' +
  *           system.currentTick +
- *           (tripWireTripEvent.sources.length > 0 ? " by entity " + tripWireTripEvent.sources[0].id : "")
+ *           (tripWireTripEvent.sources.length > 0 ? ' by entity ' + tripWireTripEvent.sources[0].id : '')
  *       );
  *     }
  *   });
@@ -19369,8 +20034,8 @@ export class TripWireTripAfterEvent extends BlockEvent {
  * tripped.
  * @example tripWireTripEvent.ts
  * ```typescript
- * import { world, system, BlockPermutation, TripWireTripAfterEvent, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, system, BlockPermutation, TripWireTripAfterEvent, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function tripWireTripEvent(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   // set up a tripwire
@@ -19382,7 +20047,7 @@ export class TripWireTripAfterEvent extends BlockEvent {
  *   const tripwire = targetLocation.dimension.getBlock(targetLocation);
  *
  *   if (redstone === undefined || tripwire === undefined) {
- *     log("Could not find block at location.");
+ *     log('Could not find block at location.');
  *     return -1;
  *   }
  *
@@ -19394,9 +20059,9 @@ export class TripWireTripAfterEvent extends BlockEvent {
  *
  *     if (eventLoc.x === targetLocation.x && eventLoc.y === targetLocation.y && eventLoc.z === targetLocation.z) {
  *       log(
- *         "Tripwire trip event at tick " +
+ *         'Tripwire trip event at tick ' +
  *           system.currentTick +
- *           (tripWireTripEvent.sources.length > 0 ? " by entity " + tripWireTripEvent.sources[0].id : "")
+ *           (tripWireTripEvent.sources.length > 0 ? ' by entity ' + tripWireTripEvent.sources[0].id : '')
  *       );
  *     }
  *   });
@@ -19575,23 +20240,23 @@ export class World {
      *
      * @example customCommand.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function customCommand(targetLocation: DimensionLocation) {
-     *   const chatCallback = world.beforeEvents.chatSend.subscribe((eventData) => {
-     *     if (eventData.message.includes("cancel")) {
+     *   const chatCallback = world.beforeEvents.chatSend.subscribe(eventData => {
+     *     if (eventData.message.includes('cancel')) {
      *       // Cancel event if the message contains "cancel"
      *       eventData.cancel = true;
      *     } else {
-     *       const args = eventData.message.split(" ");
+     *       const args = eventData.message.split(' ');
      *
      *       if (args.length > 0) {
      *         switch (args[0].toLowerCase()) {
-     *           case "echo":
+     *           case 'echo':
      *             // Send a modified version of chat message
      *             world.sendMessage(`Echo '${eventData.message.substring(4).trim()}'`);
      *             break;
-     *           case "help":
+     *           case 'help':
      *             world.sendMessage(`Available commands: echo <message>`);
      *             break;
      *         }
@@ -19648,6 +20313,13 @@ export class World {
      *
      */
     getAbsoluteTime(): number;
+    /**
+     * @remarks
+     * The aim-assist presets and categories that can be used in
+     * the world.
+     *
+     */
+    getAimAssist(): AimAssistRegistry;
     /**
      * @remarks
      * Returns an array of all active players within the world.
@@ -19713,68 +20385,65 @@ export class World {
      * defined.
      * @example incrementDynamicProperty.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
-     * function incrementDynamicProperty(
-     *   log: (message: string, status?: number) => void,
-     *   targetLocation: DimensionLocation
-     * ) {
-     *   let number = world.getDynamicProperty("samplelibrary:number");
+     * function incrementDynamicProperty(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
+     *   let number = world.getDynamicProperty('samplelibrary:number');
      *
-     *   log("Current value is: " + number);
+     *   log('Current value is: ' + number);
      *
      *   if (number === undefined) {
      *     number = 0;
      *   }
      *
-     *   if (typeof number !== "number") {
-     *     log("Number is of an unexpected type.");
+     *   if (typeof number !== 'number') {
+     *     log('Number is of an unexpected type.');
      *     return -1;
      *   }
      *
-     *   world.setDynamicProperty("samplelibrary:number", number + 1);
+     *   world.setDynamicProperty('samplelibrary:number', number + 1);
      * }
      * ```
      * @example incrementDynamicPropertyInJsonBlob.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function incrementDynamicPropertyInJsonBlob(
      *   log: (message: string, status?: number) => void,
      *   targetLocation: DimensionLocation
      * ) {
-     *   let paintStr = world.getDynamicProperty("samplelibrary:longerjson");
+     *   let paintStr = world.getDynamicProperty('samplelibrary:longerjson');
      *   let paint: { color: string; intensity: number } | undefined = undefined;
      *
-     *   log("Current value is: " + paintStr);
+     *   log('Current value is: ' + paintStr);
      *
      *   if (paintStr === undefined) {
      *     paint = {
-     *       color: "purple",
+     *       color: 'purple',
      *       intensity: 0,
      *     };
      *   } else {
-     *     if (typeof paintStr !== "string") {
-     *       log("Paint is of an unexpected type.");
+     *     if (typeof paintStr !== 'string') {
+     *       log('Paint is of an unexpected type.');
      *       return -1;
      *     }
      *
      *     try {
      *       paint = JSON.parse(paintStr);
      *     } catch (e) {
-     *       log("Error parsing serialized struct.");
+     *       log('Error parsing serialized struct.');
      *       return -1;
      *     }
      *   }
      *
      *   if (!paint) {
-     *     log("Error parsing serialized struct.");
+     *     log('Error parsing serialized struct.');
      *     return -1;
      *   }
      *
      *   paint.intensity++;
      *   paintStr = JSON.stringify(paint); // be very careful to ensure your serialized JSON str cannot exceed limits
-     *   world.setDynamicProperty("samplelibrary:longerjson", paintStr);
+     *   world.setDynamicProperty('samplelibrary:longerjson', paintStr);
      * }
      * ```
      */
@@ -19861,7 +20530,7 @@ export class World {
      * {@link minecraftcommon.PropertyOutOfBoundsError}
      * @example playMusicAndSound.ts
      * ```typescript
-     * import { world, MusicOptions, WorldSoundOptions, PlayerSoundOptions, DimensionLocation } from "@minecraft/server";
+     * import { world, MusicOptions, WorldSoundOptions, PlayerSoundOptions, DimensionLocation } from '@minecraft/server';
      *
      * function playMusicAndSound(targetLocation: DimensionLocation) {
      *   const players = world.getPlayers();
@@ -19871,20 +20540,20 @@ export class World {
      *     loop: true,
      *     volume: 1.0,
      *   };
-     *   world.playMusic("music.menu", musicOptions);
+     *   world.playMusic('music.menu', musicOptions);
      *
      *   const worldSoundOptions: WorldSoundOptions = {
      *     pitch: 0.5,
      *     volume: 4.0,
      *   };
-     *   world.playSound("ambient.weather.thunder", targetLocation, worldSoundOptions);
+     *   world.playSound('ambient.weather.thunder', targetLocation, worldSoundOptions);
      *
      *   const playerSoundOptions: PlayerSoundOptions = {
      *     pitch: 1.0,
      *     volume: 1.0,
      *   };
      *
-     *   players[0].playSound("bucket.fill_water", playerSoundOptions);
+     *   players[0].playSound('bucket.fill_water', playerSoundOptions);
      * }
      * ```
      */
@@ -19986,68 +20655,65 @@ export class World {
      * {@link minecraftcommon.ArgumentOutOfBoundsError}
      * @example incrementDynamicProperty.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
-     * function incrementDynamicProperty(
-     *   log: (message: string, status?: number) => void,
-     *   targetLocation: DimensionLocation
-     * ) {
-     *   let number = world.getDynamicProperty("samplelibrary:number");
+     * function incrementDynamicProperty(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
+     *   let number = world.getDynamicProperty('samplelibrary:number');
      *
-     *   log("Current value is: " + number);
+     *   log('Current value is: ' + number);
      *
      *   if (number === undefined) {
      *     number = 0;
      *   }
      *
-     *   if (typeof number !== "number") {
-     *     log("Number is of an unexpected type.");
+     *   if (typeof number !== 'number') {
+     *     log('Number is of an unexpected type.');
      *     return -1;
      *   }
      *
-     *   world.setDynamicProperty("samplelibrary:number", number + 1);
+     *   world.setDynamicProperty('samplelibrary:number', number + 1);
      * }
      * ```
      * @example incrementDynamicPropertyInJsonBlob.ts
      * ```typescript
-     * import { world, DimensionLocation } from "@minecraft/server";
+     * import { world, DimensionLocation } from '@minecraft/server';
      *
      * function incrementDynamicPropertyInJsonBlob(
      *   log: (message: string, status?: number) => void,
      *   targetLocation: DimensionLocation
      * ) {
-     *   let paintStr = world.getDynamicProperty("samplelibrary:longerjson");
+     *   let paintStr = world.getDynamicProperty('samplelibrary:longerjson');
      *   let paint: { color: string; intensity: number } | undefined = undefined;
      *
-     *   log("Current value is: " + paintStr);
+     *   log('Current value is: ' + paintStr);
      *
      *   if (paintStr === undefined) {
      *     paint = {
-     *       color: "purple",
+     *       color: 'purple',
      *       intensity: 0,
      *     };
      *   } else {
-     *     if (typeof paintStr !== "string") {
-     *       log("Paint is of an unexpected type.");
+     *     if (typeof paintStr !== 'string') {
+     *       log('Paint is of an unexpected type.');
      *       return -1;
      *     }
      *
      *     try {
      *       paint = JSON.parse(paintStr);
      *     } catch (e) {
-     *       log("Error parsing serialized struct.");
+     *       log('Error parsing serialized struct.');
      *       return -1;
      *     }
      *   }
      *
      *   if (!paint) {
-     *     log("Error parsing serialized struct.");
+     *     log('Error parsing serialized struct.');
      *     return -1;
      *   }
      *
      *   paint.intensity++;
      *   paintStr = JSON.stringify(paint); // be very careful to ensure your serialized JSON str cannot exceed limits
-     *   world.setDynamicProperty("samplelibrary:longerjson", paintStr);
+     *   world.setDynamicProperty('samplelibrary:longerjson', paintStr);
      * }
      * ```
      */
@@ -21661,9 +22327,8 @@ export interface EntityHurtBeforeEventOptions {
 
 /**
  * An interface that is passed into {@link
- * @minecraft/Server.EntityItemDropAfterEventSignal.subscribe}
- * that filters out which events are passed to the provided
- * callback.
+ * EntityItemDropAfterEventSignal.subscribe} that filters out
+ * which events are passed to the provided callback.
  */
 export interface EntityItemDropEventOptions {
     /**
@@ -21684,11 +22349,9 @@ export interface EntityItemDropEventOptions {
 
 /**
  * An interface that is passed into {@link
- * @minecraft/Server.EntityItemPickupAfterEventSignal.subscribe}
- * and {@link
- * @minecraft/Server.EntityItemPickupBeforeEventSignal.subscribe}
- * that filters out which events are passed to the provided
- * callback.
+ * EntityItemPickupAfterEventSignal.subscribe} and {@link
+ * EntityItemPickupBeforeEventSignal.subscribe} that filters
+ * out which events are passed to the provided callback.
  */
 export interface EntityItemPickupEventOptions {
     /**
@@ -21711,37 +22374,35 @@ export interface EntityItemPickupEventOptions {
  * Contains options for selecting entities within an area.
  * @example blockConditional.ts
  * ```typescript
- * import { DimensionLocation } from "@minecraft/server";
+ * import { DimensionLocation } from '@minecraft/server';
  *
  * function blockConditional(targetLocation: DimensionLocation) {
  *   targetLocation.dimension
  *     .getEntities({
- *       type: "fox",
+ *       type: 'fox',
  *     })
- *     .filter((entity) => {
+ *     .filter(entity => {
  *       const block = targetLocation.dimension.getBlock({
  *         x: entity.location.x,
  *         y: entity.location.y - 1,
  *         z: entity.location.z,
  *       });
  *
- *       return block !== undefined && block.matches("minecraft:stone");
+ *       return block !== undefined && block.matches('minecraft:stone');
  *     })
- *     .forEach((entity) => {
- *       targetLocation.dimension.spawnEntity("salmon", entity.location);
+ *     .forEach(entity => {
+ *       targetLocation.dimension.spawnEntity('salmon', entity.location);
  *     });
  * }
  * ```
  * @example findEntitiesHavingPropertyEqualsTo.ts
  * ```typescript
- * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+ * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
  *
- * function findEntitiesHavingPropertyEqualsTo(
- *     targetLocation: DimensionLocation
- * ) {
+ * function findEntitiesHavingPropertyEqualsTo(targetLocation: DimensionLocation) {
  *   // Minecraft bees have a has_nectar boolean property
  *   const queryOption: EntityQueryOptions = {
- *     propertyOptions: [{ propertyId: "minecraft:has_nectar", value: { equals: true } }],
+ *     propertyOptions: [{ propertyId: 'minecraft:has_nectar', value: { equals: true } }],
  *   };
  *
  *   const entities = targetLocation.dimension.getEntities(queryOption);
@@ -21749,38 +22410,36 @@ export interface EntityItemPickupEventOptions {
  * ```
  * @example playSoundChained.ts
  * ```typescript
- * import { DimensionLocation } from "@minecraft/server";
+ * import { DimensionLocation } from '@minecraft/server';
  *
  * function playSoundChained(targetLocation: DimensionLocation) {
  *   const targetPlayers = targetLocation.dimension.getPlayers();
  *   const originEntities = targetLocation.dimension.getEntities({
- *     type: "armor_stand",
- *     name: "myArmorStand",
- *     tags: ["dummyTag1"],
- *     excludeTags: ["dummyTag2"],
+ *     type: 'armor_stand',
+ *     name: 'myArmorStand',
+ *     tags: ['dummyTag1'],
+ *     excludeTags: ['dummyTag2'],
  *   });
  *
- *   originEntities.forEach((entity) => {
- *     targetPlayers.forEach((player) => {
- *       player.playSound("raid.horn");
+ *   originEntities.forEach(entity => {
+ *     targetPlayers.forEach(player => {
+ *       player.playSound('raid.horn');
  *     });
  *   });
  * }
  * ```
  * @example setScoreboardChained.ts
  * ```typescript
- * import { world, DimensionLocation } from "@minecraft/server";
+ * import { world, DimensionLocation } from '@minecraft/server';
  *
- * function setScoreboardChained(
- *     targetLocation: DimensionLocation
- * ) {
- *   const objective = world.scoreboard.addObjective("scoreObjective1", "dummy");
+ * function setScoreboardChained(targetLocation: DimensionLocation) {
+ *   const objective = world.scoreboard.addObjective('scoreObjective1', 'dummy');
  *   targetLocation.dimension
  *     .getEntities({
- *       type: "armor_stand",
- *       name: "myArmorStand",
+ *       type: 'armor_stand',
+ *       name: 'myArmorStand',
  *     })
- *     .forEach((entity) => {
+ *     .forEach(entity => {
  *       if (entity.scoreboardIdentity !== undefined) {
  *         objective.setScore(entity.scoreboardIdentity, -1);
  *       }
@@ -21789,20 +22448,20 @@ export interface EntityItemPickupEventOptions {
  * ```
  * @example summonMobChained.ts
  * ```typescript
- * import { DimensionLocation } from "@minecraft/server";
+ * import { DimensionLocation } from '@minecraft/server';
  *
  * function summonMobChained(targetLocation: DimensionLocation) {
  *   const armorStandArray = targetLocation.dimension.getEntities({
- *     type: "armor_stand",
+ *     type: 'armor_stand',
  *   });
  *   const playerArray = targetLocation.dimension.getPlayers({
  *     location: { x: 0, y: -60, z: 0 },
  *     closest: 4,
  *     maxDistance: 15,
  *   });
- *   armorStandArray.forEach((entity) => {
- *     playerArray.forEach((player) => {
- *       targetLocation.dimension.spawnEntity("pig", {
+ *   armorStandArray.forEach(entity => {
+ *     playerArray.forEach(player => {
+ *       targetLocation.dimension.spawnEntity('pig', {
  *         x: player.location.x + 1,
  *         y: player.location.y,
  *         z: player.location.z,
@@ -21813,10 +22472,10 @@ export interface EntityItemPickupEventOptions {
  * ```
  * @example bounceSkeletons.ts
  * ```typescript
- * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+ * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
  *
  * function bounceSkeletons(targetLocation: DimensionLocation) {
- *   const mobs = ["creeper", "skeleton", "sheep"];
+ *   const mobs = ['creeper', 'skeleton', 'sheep'];
  *
  *   // create some sample mob data
  *   for (let i = 0; i < 10; i++) {
@@ -21824,7 +22483,7 @@ export interface EntityItemPickupEventOptions {
  *   }
  *
  *   const eqo: EntityQueryOptions = {
- *     type: "skeleton",
+ *     type: 'skeleton',
  *   };
  *
  *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -21834,20 +22493,20 @@ export interface EntityItemPickupEventOptions {
  * ```
  * @example tagsQuery.ts
  * ```typescript
- * import { EntityQueryOptions, DimensionLocation } from "@minecraft/server";
+ * import { EntityQueryOptions, DimensionLocation } from '@minecraft/server';
  *
  * function tagsQuery(targetLocation: DimensionLocation) {
- *   const mobs = ["creeper", "skeleton", "sheep"];
+ *   const mobs = ['creeper', 'skeleton', 'sheep'];
  *
  *   // create some sample mob data
  *   for (let i = 0; i < 10; i++) {
  *     const mobTypeId = mobs[i % mobs.length];
  *     const entity = targetLocation.dimension.spawnEntity(mobTypeId, targetLocation);
- *     entity.addTag("mobparty." + mobTypeId);
+ *     entity.addTag('mobparty.' + mobTypeId);
  *   }
  *
  *   const eqo: EntityQueryOptions = {
- *     tags: ["mobparty.skeleton"],
+ *     tags: ['mobparty.skeleton'],
  *   };
  *
  *   for (const entity of targetLocation.dimension.getEntities(eqo)) {
@@ -21857,7 +22516,7 @@ export interface EntityItemPickupEventOptions {
  * ```
  * @example testThatEntityIsFeatherItem.ts
  * ```typescript
- * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from "@minecraft/server";
+ * import { EntityItemComponent, EntityComponentTypes, DimensionLocation } from '@minecraft/server';
  *
  * function testThatEntityIsFeatherItem(
  *   log: (message: string, status?: number) => void,
@@ -21872,8 +22531,8 @@ export interface EntityItemPickupEventOptions {
  *     const itemComp = item.getComponent(EntityComponentTypes.Item) as EntityItemComponent;
  *
  *     if (itemComp) {
- *       if (itemComp.itemStack.typeId.endsWith("feather")) {
- *         log("Success! Found a feather", 1);
+ *       if (itemComp.itemStack.typeId.endsWith('feather')) {
+ *         log('Success! Found a feather', 1);
  *       }
  *     }
  *   }
@@ -22050,33 +22709,30 @@ export interface EqualsComparison {
  * Dimension.createExplosion} method.
  * @example createNoBlockExplosion.ts
  * ```typescript
- * import { DimensionLocation } from "@minecraft/server";
- * import { Vector3Utils } from "@minecraft/math";
+ * import { DimensionLocation } from '@minecraft/server';
+ * import { Vector3Utils } from '@minecraft/math';
  *
- * function createNoBlockExplosion(
- *   log: (message: string, status?: number) => void,
- *   targetLocation: DimensionLocation
- * ) {
+ * function createNoBlockExplosion(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const explodeNoBlocksLoc = Vector3Utils.floor(Vector3Utils.add(targetLocation, { x: 1, y: 2, z: 1 }));
  *
- *   log("Creating an explosion of radius 15 that does not break blocks.");
+ *   log('Creating an explosion of radius 15 that does not break blocks.');
  *   targetLocation.dimension.createExplosion(explodeNoBlocksLoc, 15, { breaksBlocks: false });
  * }
  * ```
  * @example createExplosions.ts
  * ```typescript
- * import { DimensionLocation } from "@minecraft/server";
- * import { Vector3Utils } from "@minecraft/math";
+ * import { DimensionLocation } from '@minecraft/server';
+ * import { Vector3Utils } from '@minecraft/math';
  *
  * function createExplosions(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const explosionLoc = Vector3Utils.add(targetLocation, { x: 0.5, y: 0.5, z: 0.5 });
  *
- *   log("Creating an explosion of radius 15 that causes fire.");
+ *   log('Creating an explosion of radius 15 that causes fire.');
  *   targetLocation.dimension.createExplosion(explosionLoc, 15, { causesFire: true });
  *
  *   const belowWaterLoc = Vector3Utils.add(targetLocation, { x: 3, y: 1, z: 3 });
  *
- *   log("Creating an explosion of radius 10 that can go underwater.");
+ *   log('Creating an explosion of radius 10 that can go underwater.');
  *   targetLocation.dimension.createExplosion(belowWaterLoc, 10, { allowUnderwater: true });
  * }
  * ```
@@ -22172,9 +22828,8 @@ export interface HotbarEventOptions {
 
 /**
  * An interface that is passed into {@link
- * @minecraft/Server.PlayerButtonInputAfterEventSignal.subscribe}
- * that filters out which events are passed to the provided
- * callback.
+ * PlayerButtonInputAfterEventSignal.subscribe} that filters
+ * out which events are passed to the provided callback.
  */
 export interface InputEventOptions {
     /**
@@ -22482,6 +23137,37 @@ export interface PlayAnimationOptions {
 }
 
 /**
+ * Settings relating to a player's aim-assist targeting.
+ */
+export interface PlayerAimAssistSettings {
+    /**
+     * @remarks
+     * The view distance limit to use for aim-assist targeting.
+     *
+     */
+    distance?: number;
+    /**
+     * @remarks
+     * The Id of the aim-assist preset to activate. Must have a
+     * namespace.
+     *
+     */
+    presetId: string;
+    /**
+     * @remarks
+     * The mode to use for aim-assist targeting.
+     *
+     */
+    targetMode?: AimAssistTargetMode;
+    /**
+     * @remarks
+     * The view angle limit to use for aim-assist targeting.
+     *
+     */
+    viewAngle?: Vector2;
+}
+
+/**
  * Additional options for how a sound plays for a player.
  */
 export interface PlayerSoundOptions {
@@ -22508,7 +23194,7 @@ export interface PlayerSoundOptions {
 
 /**
  * An interface that is passed into {@link
- * @minecraft/Server.PlayerSwingStartAfterEvent.subscribe} that
+ * @minecraft/server.PlayerSwingStartAfterEvent.subscribe} that
  * filters out which events are passed to the provided
  * callback.
  */
@@ -22597,49 +23283,46 @@ export interface RangeComparison {
  * import { DimensionLocation, world, BlockPermutation, BlockComponentTypes } from '@minecraft/server';
  *
  * function placeTranslatedSign(location: DimensionLocation, text: string) {
- *     const signBlock = location.dimension.getBlock(location);
+ *   const signBlock = location.dimension.getBlock(location);
  *
- *     if (!signBlock) {
- *         console.warn('Could not find a block at specified location.');
- *         return;
- *     }
- *     const signPerm = BlockPermutation.resolve('minecraft:standing_sign', { ground_sign_direction: 8 });
- *     signBlock.setPermutation(signPerm);
+ *   if (!signBlock) {
+ *     console.warn('Could not find a block at specified location.');
+ *     return;
+ *   }
+ *   const signPerm = BlockPermutation.resolve('minecraft:standing_sign', { ground_sign_direction: 8 });
+ *   signBlock.setPermutation(signPerm);
  *
- *     const signComponent = signBlock.getComponent(BlockComponentTypes.Sign);
- *     if (signComponent) {
- *         signComponent.setText({ translate: 'item.skull.player.name', with: [text] });
- *     } else {
- *         console.error('Could not find a sign component on the block.');
- *     }
+ *   const signComponent = signBlock.getComponent(BlockComponentTypes.Sign);
+ *   if (signComponent) {
+ *     signComponent.setText({ translate: 'item.skull.player.name', with: [text] });
+ *   } else {
+ *     console.error('Could not find a sign component on the block.');
+ *   }
  * }
  *
  * placeTranslatedSign(
- *     {
- *         dimension: world.getDimension('overworld'),
- *         x: 0,
- *         y: 0,
- *         z: 0,
- *     },
- *     'Steve',
+ *   {
+ *     dimension: world.getDimension('overworld'),
+ *     x: 0,
+ *     y: 0,
+ *     z: 0,
+ *   },
+ *   'Steve'
  * );
  * ```
  * @example showTranslatedMessageForm.ts
  * ```typescript
- * import { world, DimensionLocation } from "@minecraft/server";
- * import { MessageFormResponse, MessageFormData } from "@minecraft/server-ui";
+ * import { world, DimensionLocation } from '@minecraft/server';
+ * import { MessageFormResponse, MessageFormData } from '@minecraft/server-ui';
  *
- * function showTranslatedMessageForm(
- *   log: (message: string, status?: number) => void,
- *   targetLocation: DimensionLocation
- * ) {
+ * function showTranslatedMessageForm(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
  *
  *   const messageForm = new MessageFormData()
- *     .title({ translate: "permissions.removeplayer" })
- *     .body({ translate: "accessibility.list.or.two", with: ["Player 1", "Player 2"] })
- *     .button1("Player 1")
- *     .button2("Player 2");
+ *     .title({ translate: 'permissions.removeplayer' })
+ *     .body({ translate: 'accessibility.list.or.two', with: ['Player 1', 'Player 2'] })
+ *     .button1('Player 1')
+ *     .button2('Player 2');
  *
  *   messageForm
  *     .show(players[0])
@@ -22649,18 +23332,18 @@ export interface RangeComparison {
  *         return;
  *       }
  *
- *       log(`You selected ${formData.selection === 0 ? "Player 1" : "Player 2"}`);
+ *       log(`You selected ${formData.selection === 0 ? 'Player 1' : 'Player 2'}`);
  *     })
  *     .catch((error: Error) => {
- *       log("Failed to show form: " + error);
+ *       log('Failed to show form: ' + error);
  *       return -1;
  *     });
  * }
  * ```
  * @example addTranslatedSign.ts
  * ```typescript
- * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from "@minecraft/server";
- * import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+ * import { world, BlockPermutation, BlockSignComponent, BlockComponentTypes, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftBlockTypes } from '@minecraft/vanilla-data';
  *
  * function addTranslatedSign(log: (message: string, status?: number) => void, targetLocation: DimensionLocation) {
  *   const players = world.getPlayers();
@@ -22670,7 +23353,7 @@ export interface RangeComparison {
  *   const signBlock = dim.getBlock(targetLocation);
  *
  *   if (!signBlock) {
- *     log("Could not find a block at specified location.");
+ *     log('Could not find a block at specified location.');
  *     return -1;
  *   }
  *   const signPerm = BlockPermutation.resolve(MinecraftBlockTypes.StandingSign, { ground_sign_direction: 8 });
@@ -22679,7 +23362,7 @@ export interface RangeComparison {
  *
  *   const signComponent = signBlock.getComponent(BlockComponentTypes.Sign) as BlockSignComponent;
  *
- *   signComponent?.setText({ translate: "item.skull.player.name", with: [players[0].name] });
+ *   signComponent?.setText({ translate: 'item.skull.player.name', with: [players[0].name] });
  * }
  * ```
  */
@@ -23004,8 +23687,8 @@ export interface StructurePlaceOptions {
  * Contains additional options for teleporting an entity.
  * @example teleport.ts
  * ```typescript
- * import { system, DimensionLocation } from "@minecraft/server";
- * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+ * import { system, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
  *
  * function teleport(targetLocation: DimensionLocation) {
  *   const cow = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Cow, targetLocation);
@@ -23022,8 +23705,8 @@ export interface StructurePlaceOptions {
  * ```
  * @example teleportMovement.ts
  * ```typescript
- * import { system, DimensionLocation } from "@minecraft/server";
- * import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+ * import { system, DimensionLocation } from '@minecraft/server';
+ * import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
  *
  * function teleportMovement(targetLocation: DimensionLocation) {
  *   const pig = targetLocation.dimension.spawnEntity(MinecraftEntityTypes.Pig, targetLocation);
@@ -23410,6 +24093,15 @@ export class InvalidContainerError extends Error {
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class InvalidContainerSlotError extends Error {
+    private constructor();
+}
+
+/**
+ * This error can occur when accessing components on an entity
+ * that doesn't have them.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class InvalidEntityComponentError extends Error {
     private constructor();
 }
 

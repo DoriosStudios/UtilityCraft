@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@minecraft/server": "^2.5.0"
+    "@minecraft/server": "^2.7.0"
   }
 }
