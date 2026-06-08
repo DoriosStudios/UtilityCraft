@@ -1,5 +1,7 @@
 {
+	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/unified.json",
 	"type": "minecraftBedrock",
+	"author": "Dorios Studios",
 	"name": "UtilityCraft",
 	"namespace": "utilitycraft",
 	"authors": [
@@ -40,5 +42,28 @@
 				}
 			]
 		]
+	},
+	"regolith": {
+		"dataPath": "./data",
+		"filterDefinitions": {},
+		"formatVersion": "1.8.0",
+		"profiles": {
+			"default": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "development"
+				},
+				"filters": []
+			},
+			"build": {
+				"export": {
+					"bpName": "project.name + ' BP'",
+					"rpName": "project.name + ' RP'",
+					"target": "local"
+				},
+				"filters": []
+			}
+		}
 	}
 }

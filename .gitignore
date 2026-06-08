@@ -10,9 +10,11 @@ Desktop.ini
 .git/
 
 # Ignore compilarions and packs | Ignorar compilaciones y empaquetados | Ignorar compilações e pacotes
+build/
 builds/
 packs/
 Renders/
+.regolith/
 
 # Bridge | Excepciones específicas | Exceções específicas
 !.bridge/compiler/
