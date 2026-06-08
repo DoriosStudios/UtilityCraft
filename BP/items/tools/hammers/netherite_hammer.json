@@ -12,6 +12,7 @@
 			"minecraft:tags": {
 				"tags": [
 					"minecraft:is_pickaxe",
+					"minecraft:is_shovel",
 					"minecraft:is_tool",
 					"utilitycraft:is_hammer",
 					"minecraft:netherite_tier"
@@ -49,7 +50,7 @@
 					{
 						"speed": 20,
 						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'stone' )"
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'stone' )"
 						}
 					},
 

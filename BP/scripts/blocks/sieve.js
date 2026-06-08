@@ -78,7 +78,7 @@ class Sieve {
         this.block.setState("utilitycraft:state", 4)
         if (!player.isInCreative()) {
             player.runCommand(`clear @s ${mainHand.typeId} 0 1`)
-            if (!mainHand || mainHand.amount == 1) stackRefillUse(player, id)
+            stackRefillUse(player, id)
 
         }
         this.block.dimension.playSound("dig.gravel", this.block.location)

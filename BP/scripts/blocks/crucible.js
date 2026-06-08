@@ -33,6 +33,7 @@ const heatSources = {
     'minecraft:soul_fire': 3,
     'minecraft:soul_torch': 3,
     'minecraft:soul_campfire': 3,
+    'utilitycraft:big_torch': 2,
     'minecraft:fire': 2,
     'minecraft:campfire': 2,
     'minecraft:magma': 2,

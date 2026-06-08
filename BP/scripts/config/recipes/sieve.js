@@ -18,7 +18,8 @@ DoriosAPI.register.itemComponent('mesh', {
         if (!utility_meshes.has(mainhandItem.typeId) && Object.prototype.hasOwnProperty.call(e, 'cancel')) {
             e.cancel = true;
         }
-}});
+    }
+});
 
 /**
  * Represents a possible sieve loot drop.
@@ -68,6 +69,7 @@ const sieveRecipesRegister = {
         { item: 'utilitycraft:iron_chunk', amount: 1, chance: 0.15, tier: 1 },
         { item: 'utilitycraft:coal_chunk', amount: 1, chance: 0.25, tier: 0 },
         { item: 'utilitycraft:gold_chunk', amount: 1, chance: 0.05, tier: 3 },
+        { item: 'utilitycraft:redstone_chunk', amount: 1, chance: 0.20, tier: 2 },
         { item: 'utilitycraft:lapislazuli_chunk', amount: 1, chance: 0.025, tier: 3 },
         { item: 'utilitycraft:emerald_chunk', amount: 1, chance: 0.02, tier: 4 },
         { item: 'utilitycraft:diamond_chunk', amount: 1, chance: 0.01, tier: 4 }
@@ -109,7 +111,6 @@ const sieveRecipesRegister = {
         { item: 'minecraft:prismarine_shard', amount: 1, chance: 0.10, tier: 2 },
         { item: 'minecraft:prismarine_crystals', amount: 1, chance: 0.10, tier: 2 },
         { item: 'utilitycraft:copper_chunk', amount: 1, chance: 0.25, tier: 1 },
-        { item: 'utilitycraft:redstone_chunk', amount: 1, chance: 0.20, tier: 2 },
         { item: 'minecraft:bone_meal', amount: 1, chance: 0.25 },
         { item: 'minecraft:gunpowder', amount: 1, chance: 0.12 },
         { item: 'minecraft:glowstone_dust', amount: 1, chance: 0.08 },
@@ -138,9 +139,10 @@ const sieveRecipesRegister = {
         { item: 'minecraft:ender_pearl', amount: 1, chance: 0.16, tier: 4 }
     ],
     'utilitycraft:crushed_cobbled_deepslate': [
-        { item: 'minecraft:echo_shard', amount: 1, chance: 0.05, tier: 5 },
+        { item: 'minecraft:echo_shard', amount: 1, chance: 0.025, tier: 5 },
         { item: 'minecraft:sculk_catalyst', amount: 1, chance: 0.005, tier: 5 },
-        { item: 'minecraft:amethyst_shard', amount: 1, chance: 0.01, tier: 5 },
+        { item: 'minecraft:amethyst_shard', amount: 1, chance: 0.05, tier: 5 },
+        { item: 'utilitycraft:deepslate_redstone_chunk', amount: 1, chance: 0.30, tier: 2 },
         { item: 'utilitycraft:deepslate_diamond_chunk', amount: 1, chance: 0.05, tier: 4 },
         { item: 'utilitycraft:deepslate_emerald_chunk', amount: 1, chance: 0.05, tier: 4 },
         { item: 'utilitycraft:deepslate_gold_chunk', amount: 1, chance: 0.20, tier: 4 },
@@ -154,6 +156,7 @@ const sieveRecipesRegister = {
         { item: 'utilitycraft:iron_chunk', amount: 9, chance: 0.15, tier: 1 },
         { item: 'utilitycraft:coal_chunk', amount: 9, chance: 0.25, tier: 0 },
         { item: 'utilitycraft:gold_chunk', amount: 9, chance: 0.05, tier: 3 },
+        { item: 'utilitycraft:redstone_chunk', amount: 9, chance: 0.20, tier: 2 },
         { item: 'utilitycraft:lapislazuli_chunk', amount: 9, chance: 0.025, tier: 3 },
         { item: 'utilitycraft:emerald_chunk', amount: 9, chance: 0.02, tier: 4 },
         { item: 'utilitycraft:diamond_chunk', amount: 9, chance: 0.01, tier: 4 }
@@ -181,7 +184,6 @@ const sieveRecipesRegister = {
         { item: 'minecraft:prismarine_shard', amount: 9, chance: 0.10, tier: 2 },
         { item: 'minecraft:prismarine_crystals', amount: 9, chance: 0.10, tier: 2 },
         { item: 'utilitycraft:copper_chunk', amount: 9, chance: 0.25, tier: 1 },
-        { item: 'utilitycraft:redstone_chunk', amount: 9, chance: 0.20, tier: 2 },
         { item: 'minecraft:bone_meal', amount: 9, chance: 0.25 },
         { item: 'minecraft:gunpowder', amount: 9, chance: 0.12 },
         { item: 'minecraft:glowstone_dust', amount: 9, chance: 0.08 },
@@ -202,9 +204,10 @@ const sieveRecipesRegister = {
         { item: 'utilitycraft:ancient_debris_chunk', amount: 9, chance: 0.025, tier: 5 }
     ],
     'utilitycraft:compressed_crushed_cobbled_deepslate': [
-        { item: 'minecraft:echo_shard', amount: 9, chance: 0.05, tier: 5 },
+        { item: 'minecraft:echo_shard', amount: 9, chance: 0.025, tier: 5 },
         { item: 'minecraft:sculk_catalyst', amount: 9, chance: 0.005, tier: 5 },
-        { item: 'minecraft:amethyst_shard', amount: 9, chance: 0.01, tier: 5 },
+        { item: 'minecraft:amethyst_shard', amount: 9, chance: 0.05, tier: 5 },
+        { item: 'utilitycraft:deepslate_redstone_chunk', amount: 9, chance: 0.30, tier: 2 },
         { item: 'utilitycraft:deepslate_diamond_chunk', amount: 9, chance: 0.05, tier: 4 },
         { item: 'utilitycraft:deepslate_emerald_chunk', amount: 9, chance: 0.05, tier: 4 },
         { item: 'utilitycraft:deepslate_gold_chunk', amount: 9, chance: 0.20, tier: 4 },

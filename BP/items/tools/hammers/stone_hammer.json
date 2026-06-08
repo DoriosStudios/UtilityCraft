@@ -12,6 +12,7 @@
 			"minecraft:tags": {
 				"tags": [
 					"minecraft:is_pickaxe",
+					"minecraft:is_shovel",
 					"minecraft:is_tool",
 					"utilitycraft:is_hammer",
 					"minecraft:stone_tier"
@@ -46,7 +47,7 @@
 					{
 						"speed": 10,
 						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible')"
+							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible')"
 						}
 					},
 					{

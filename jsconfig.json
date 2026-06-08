@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": ".",
+    "paths": {
+      "@utilitycraft/core": ["BP/scripts/DoriosCore/index.js"],
+      "@utilitycraft/core/*": ["BP/scripts/DoriosCore/*"],
+      "@utilitycraft/api": ["BP/scripts/DoriosAPI/index.js"],
+      "@utilitycraft/api/*": ["BP/scripts/DoriosAPI/*"],
+      "@scripts/*": ["BP/scripts/*"]
+    }
+  },
+  "include": ["BP/scripts/**/*.js"],
+  "exclude": ["node_modules", "builds", "packs", "Renders"]
+}
