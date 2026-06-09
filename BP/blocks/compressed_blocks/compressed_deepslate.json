@@ -18,6 +18,7 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 2.5
       },
+      "minecraft:loot": "loot_tables/compressed_blocks/compressed_deepslate.json",
       "tag:minecraft:is_pickaxe_item_destructible": {}
     }
   }
