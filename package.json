@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@minecraft/server": "^2.7.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
   }
 }

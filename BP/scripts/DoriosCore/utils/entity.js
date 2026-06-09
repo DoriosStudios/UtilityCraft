@@ -95,7 +95,7 @@ export function getRepresentedBlockId(entity) {
   }
 
   try {
-    const storedBlockId = entity?.getDynamicProperty?.(Constants.MACHINE_BLOCK_ID_PROPERTY_ID);
+    const storedBlockId = entity?.getDynamicProperty?.(GlobalConstants.MACHINE_BLOCK_ID_PROPERTY_ID);
     if (typeof storedBlockId === "string" && storedBlockId.trim().length > 0) {
       return storedBlockId.trim();
     }
@@ -112,7 +112,7 @@ function persistRepresentedBlockId(entity, blockId) {
   }
 
   try {
-    entity.setDynamicProperty(Constants.MACHINE_BLOCK_ID_PROPERTY_ID, blockId);
+    entity.setDynamicProperty(GlobalConstants.MACHINE_BLOCK_ID_PROPERTY_ID, blockId);
   } catch {
     // Ignore environments where the property is not registered yet.
   }

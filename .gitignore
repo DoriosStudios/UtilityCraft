@@ -15,6 +15,9 @@ builds/
 packs/
 Renders/
 .regolith/
+node_modules/.bin/
+node_modules/@esbuild/
+node_modules/esbuild/
 
 # Bridge | Excepciones específicas | Exceções específicas
 !.bridge/compiler/

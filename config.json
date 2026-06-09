@@ -45,7 +45,24 @@
 	},
 	"regolith": {
 		"dataPath": "./data",
-		"filterDefinitions": {},
+		"filterDefinitions": {
+			"bundle_scripts": {
+				"runWith": "shell",
+				"command": "npx esbuild BP/scripts/main.js --outfile=BP/scripts/__bundle.js --bundle --format=esm --target=es2020 --log-level=warning --alias:Config=./BP/scripts/Config --alias:config=./BP/scripts/config --alias:DoriosAPI=./BP/scripts/DoriosAPI --alias:DoriosCore=./BP/scripts/DoriosCore --alias:Machinery=./BP/scripts/Machinery --alias:machinery=./BP/scripts/machinery --alias:blocks=./BP/scripts/blocks --alias:items=./BP/scripts/items --alias:stack_refill.js=./BP/scripts/stack_refill.js --alias:UIItemsCleanUp.js=./BP/scripts/UIItemsCleanUp.js --external:@minecraft/server --external:@minecraft/server-ui --external:@minecraft/server-* --external:@minecraft/common --external:@minecraft/debug-utilities --preserve-symlinks"
+			},
+			"minify_bundle_scripts": {
+				"runWith": "shell",
+				"command": "npx esbuild BP/scripts/main.js --outfile=BP/scripts/__bundle.js --bundle --format=esm --target=es2020 --minify --legal-comments=none --log-level=warning --alias:Config=./BP/scripts/Config --alias:config=./BP/scripts/config --alias:DoriosAPI=./BP/scripts/DoriosAPI --alias:DoriosCore=./BP/scripts/DoriosCore --alias:Machinery=./BP/scripts/Machinery --alias:machinery=./BP/scripts/machinery --alias:blocks=./BP/scripts/blocks --alias:items=./BP/scripts/items --alias:stack_refill.js=./BP/scripts/stack_refill.js --alias:UIItemsCleanUp.js=./BP/scripts/UIItemsCleanUp.js --external:@minecraft/server --external:@minecraft/server-ui --external:@minecraft/server-* --external:@minecraft/common --external:@minecraft/debug-utilities --preserve-symlinks"
+			},
+			"use_bundle_entry": {
+				"runWith": "shell",
+				"command": "node -e \"const fs=require('fs'); const p='BP/manifest.json'; const m=JSON.parse(fs.readFileSync(p,'utf8')); const script=m.modules.find(module=>module.type==='script'); if(script) script.entry='scripts/__bundle.js'; fs.writeFileSync(p, JSON.stringify(m,null,'\\t'));\""
+			},
+			"cleanup_bundled_scripts": {
+				"runWith": "shell",
+				"command": "Move-Item BP/scripts/__bundle.js BP/__bundle.js; Remove-Item BP/scripts -Recurse -Force; New-Item -ItemType Directory BP/scripts | Out-Null; Move-Item BP/__bundle.js BP/scripts/__bundle.js"
+			}
+		},
 		"formatVersion": "1.8.0",
 		"profiles": {
 			"default": {
@@ -56,13 +73,59 @@
 				},
 				"filters": []
 			},
+			"bundle": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "development"
+				},
+				"filters": [
+					{
+						"filter": "bundle_scripts"
+					},
+					{
+						"filter": "use_bundle_entry"
+					},
+					{
+						"filter": "cleanup_bundled_scripts"
+					}
+				]
+			},
+			"minify": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "development"
+				},
+				"filters": [
+					{
+						"filter": "minify_bundle_scripts"
+					},
+					{
+						"filter": "use_bundle_entry"
+					},
+					{
+						"filter": "cleanup_bundled_scripts"
+					}
+				]
+			},
 			"build": {
 				"export": {
 					"bpName": "project.name + ' BP'",
 					"rpName": "project.name + ' RP'",
 					"target": "local"
 				},
-				"filters": []
+				"filters": [
+					{
+						"filter": "bundle_scripts"
+					},
+					{
+						"filter": "use_bundle_entry"
+					},
+					{
+						"filter": "cleanup_bundled_scripts"
+					}
+				]
 			}
 		}
 	}
