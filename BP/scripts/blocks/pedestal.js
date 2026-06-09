@@ -149,12 +149,12 @@ DoriosAPI.register.blockComponent("pedestal", {
     },
 
     /**
-     * Drops the clock if the pedestal is destroyed.
-     * @param {import("@minecraft/server").BlockComponentPlayerDestroyEvent} e
+     * Drops the clock if the pedestal is broken.
+     * @param {import("@minecraft/server").BlockComponentPlayerBreakEvent} e
      */
-    onPlayerDestroy(e) {
-        const { block, destroyedBlockPermutation } = e;
-        if (destroyedBlockPermutation.getState("utilitycraft:hasItem") === 1) {
+    onPlayerBreak(e) {
+        const { block, brokenBlockPermutation } = e;
+        if (brokenBlockPermutation.getState("utilitycraft:hasItem") === 1) {
             block.dimension.spawnItem(new ItemStack("utilitycraft:accelerator_clock", 1), block.location);
         }
     },
