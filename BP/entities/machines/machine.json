@@ -1,4 +1,4 @@
-{
+﻿{
 	"format_version": "1.19.20",
 	"minecraft:entity": {
 		"description": {
@@ -14,6 +14,7 @@
 			"utilitycraft:simple_container": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:container"
 					]
@@ -22,6 +23,7 @@
 			"utilitycraft:basic_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container"
 					]
@@ -31,6 +33,7 @@
 			"utilitycraft:battery": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:battery",
 						"dorios:energy_source",
 						"dorios:energy_container"
@@ -40,6 +43,7 @@
 			"utilitycraft:simple_generator": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_source",
 						"dorios:container",
@@ -50,6 +54,7 @@
 			"utilitycraft:fluid_generator": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_source",
 						"dorios:fluid_container"
@@ -59,6 +64,7 @@
 			"utilitycraft:passive_generator": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_source"
 					]
@@ -67,6 +73,7 @@
 			"utilitycraft:power_beacon": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_source",
 						"dorios:energy_container",
@@ -78,6 +85,7 @@
 			"utilitycraft:special_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -88,6 +96,7 @@
 			"utilitycraft:simple_input_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -98,6 +107,7 @@
 			"utilitycraft:simple_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -109,6 +119,7 @@
 			"utilitycraft:complex_in_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -120,6 +131,7 @@
 			"utilitycraft:complex_out_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -131,6 +143,7 @@
 			"utilitycraft:complex_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -143,6 +156,7 @@
 			"utilitycraft:simple_machine_fluid": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -154,6 +168,7 @@
 			"utilitycraft:complex_machine_fluid": {
 				"minecraft:type_family": {
 					"family": [
+						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:container",
@@ -323,6 +338,7 @@
 			},
 			"minecraft:type_family": {
 				"family": [
+					"inanimate",
 					"dorios:machine",
 					"dorios:energy_container",
 					"dorios:container"
@@ -545,3 +561,4 @@
 		}
 	}
 }
+

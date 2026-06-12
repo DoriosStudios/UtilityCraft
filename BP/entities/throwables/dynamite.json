@@ -63,6 +63,11 @@
 			"minecraft:pushable": {
 				"is_pushable": true,
 				"is_pushable_by_piston": true
+			},
+			"minecraft:type_family": {
+				"family": [
+					"inanimate"
+				]
 			}
 		},
 		"events": {
