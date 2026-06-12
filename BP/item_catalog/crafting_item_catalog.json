@@ -210,6 +210,18 @@
                     },
                     {
                         "group_identifier": {
+                            "icon": "utilitycraft:energized_iron_block",
+                            "name": "dorios:itemGroup.name.uc_materials"
+                        },
+                        "items": [
+                            "utilitycraft:energized_iron_block",
+                            "utilitycraft:raw_energized_iron_block",
+                            "utilitycraft:steel_block",
+                            "utilitycraft:raw_steel_block"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "icon": "utilitycraft:compressed_cobblestone",
                             "name": "dorios:itemGroup.name.compressed"
                         },
@@ -481,14 +493,10 @@
                             "name": "dorios:itemGroup.name.uc_materials"
                         },
                         "items": [
-                            "utilitycraft:energized_iron_block",
-                            "utilitycraft:raw_energized_iron_block",
                             "utilitycraft:raw_energized_iron",
                             "utilitycraft:energized_iron_ingot",
                             "utilitycraft:energized_iron_nugget",
                             "utilitycraft:netherite_nugget",
-                            "utilitycraft:steel_block",
-                            "utilitycraft:raw_steel_block",
                             "utilitycraft:raw_steel",
                             "utilitycraft:steel_ingot",
                             "utilitycraft:steel_nugget"
