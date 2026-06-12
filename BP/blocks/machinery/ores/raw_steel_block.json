@@ -10,7 +10,10 @@
 		"components": {
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 3.0
+			},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true
 			}
-	}
+		}
 	}
 }

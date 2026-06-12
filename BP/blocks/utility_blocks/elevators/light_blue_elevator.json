@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:light_blue_elevator",
+			"states": {
+				"utilitycraft:ignore_colors": [
+					false,
+					true
+				]
+			},
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"utilitycraft:elevator": {},
+            "minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_light_blue_elevator",
+					"render_method": "opaque",
+                    "face_dimming": true,
+                    "ambient_occlusion": true
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.6
+			}
+		}
+	}
+}

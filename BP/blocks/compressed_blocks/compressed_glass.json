@@ -8,11 +8,14 @@
       }
     },
     "components": {
-      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:geometry": {
+        "identifier": "geometry.utilitycraft_glass",
+        "culling": "utilitycraft:compressed_glass"
+      },
       "minecraft:material_instances": {
         "*": {
           "texture": "utilitycraft_compressed_glass",
-          "render_method": "opaque"
+          "render_method": "blend"
         }
       },
       "minecraft:destructible_by_mining": {

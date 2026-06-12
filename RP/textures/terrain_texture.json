@@ -1303,17 +1303,17 @@
 		"utilitycraft_compressed_energized_iron_block_4": {
 			"textures": "textures/blocks/compressed_blocks/compressed_energized_iron_block_4"
 		},
-		"utilitycraft_compressed_exposed_copper_block": {
-			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block"
+		"utilitycraft_compressed_andesite": {
+			"textures": "textures/blocks/compressed_blocks/compressed_andesite"
 		},
-		"utilitycraft_compressed_exposed_copper_block_2": {
-			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block_2"
+		"utilitycraft_compressed_andesite_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_andesite_2"
 		},
-		"utilitycraft_compressed_exposed_copper_block_3": {
-			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block_3"
+		"utilitycraft_compressed_andesite_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_andesite_3"
 		},
-		"utilitycraft_compressed_exposed_copper_block_4": {
-			"textures": "textures/blocks/compressed_blocks/compressed_exposed_copper_block_4"
+		"utilitycraft_compressed_andesite_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_andesite_4"
 		},
 		"utilitycraft_compressed_flint_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_flint_block"
@@ -1423,17 +1423,17 @@
 		"utilitycraft_compressed_obsidian_4": {
 			"textures": "textures/blocks/compressed_blocks/compressed_obsidian_4"
 		},
-		"utilitycraft_compressed_oxidized_copper_block": {
-			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block"
+		"utilitycraft_compressed_granite": {
+			"textures": "textures/blocks/compressed_blocks/compressed_granite"
 		},
-		"utilitycraft_compressed_oxidized_copper_block_2": {
-			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block_2"
+		"utilitycraft_compressed_granite_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_granite_2"
 		},
-		"utilitycraft_compressed_oxidized_copper_block_3": {
-			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block_3"
+		"utilitycraft_compressed_granite_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_granite_3"
 		},
-		"utilitycraft_compressed_oxidized_copper_block_4": {
-			"textures": "textures/blocks/compressed_blocks/compressed_oxidized_copper_block_4"
+		"utilitycraft_compressed_granite_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_granite_4"
 		},
 		"utilitycraft_compressed_quartz_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_quartz_block"
@@ -1531,17 +1531,17 @@
 		"utilitycraft_compressed_stone_4": {
 			"textures": "textures/blocks/compressed_blocks/compressed_stone_4"
 		},
-		"utilitycraft_compressed_weathered_copper_block": {
-			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block"
+		"utilitycraft_compressed_diorite": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diorite"
 		},
-		"utilitycraft_compressed_weathered_copper_block_2": {
-			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_2"
+		"utilitycraft_compressed_diorite_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diorite_2"
 		},
-		"utilitycraft_compressed_weathered_copper_block_3": {
-			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_3"
+		"utilitycraft_compressed_diorite_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diorite_3"
 		},
-		"utilitycraft_compressed_weathered_copper_block_4": {
-			"textures": "textures/blocks/compressed_blocks/compressed_weathered_copper_block_4"
+		"utilitycraft_compressed_diorite_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_diorite_4"
 		},
 		"utilitycraft_compressed_acacia_wood": {
 			"textures": "textures/blocks/compressed_blocks/compressed_acacia_wood"

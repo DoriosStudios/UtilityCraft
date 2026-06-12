@@ -8,6 +8,9 @@
       }
     },
     "components": {
+      "minecraft:redstone_conductivity": {
+          "redstone_conductor": true
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.21.100",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:compressed_charcoal_block",
@@ -8,6 +8,9 @@
       }
     },
     "components": {
+      "minecraft:redstone_conductivity": {
+          "redstone_conductor": true
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {

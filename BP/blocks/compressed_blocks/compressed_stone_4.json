@@ -9,6 +9,9 @@
     },
     "components": {
       "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:redstone_conductivity": {
+          "redstone_conductor": true
+      },
       "minecraft:material_instances": {
         "*": {
           "texture": "utilitycraft_compressed_stone_4",

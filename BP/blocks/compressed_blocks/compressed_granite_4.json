@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:compressed_granite_4",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:redstone_conductivity": {
+          "redstone_conductor": true
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_compressed_granite_4",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 4.6
+      },
+      "tag:minecraft:is_pickaxe_item_destructible": {}
+    }
+  }
+}

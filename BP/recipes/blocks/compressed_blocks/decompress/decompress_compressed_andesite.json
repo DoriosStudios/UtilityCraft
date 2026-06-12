@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:decompress_compressed_andesite"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:compressed_andesite"
+      }
+    ],
+    "result": {
+      "item": "minecraft:andesite",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:compressed_andesite"
+      }
+    ]
+  }
+}

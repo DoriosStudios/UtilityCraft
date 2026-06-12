@@ -12,199 +12,221 @@ import { world, system } from "@minecraft/server";
 export const infuserRecipes = {};
 
 const infuserRecipesRegister = {
-  "utilitycraft:amethyst_dust|utilitycraft:obsidian_dust": {
+  "utilitycraft:amethyst_dust|utilitycraft:obsidian_dust": { // Stabilized Obsidian Dust
     output: "utilitycraft:stabilized_obsidian_dust",
     required: 4,
   },
-  "utilitycraft:amethyst_dust|utilitycraft:crying_obsidian_dust": {
+  "utilitycraft:amethyst_dust|utilitycraft:crying_obsidian_dust": { // Stabilized Obsidian Dust (variant)
     output: "utilitycraft:stabilized_obsidian_dust",
     required: 1,
   },
-  "minecraft:redstone|minecraft:iron_ingot": {
+  "minecraft:redstone|minecraft:iron_ingot": { // Energized Iron Ingot
     output: "utilitycraft:energized_iron_ingot",
     required: 4,
   },
-  "minecraft:redstone|utilitycraft:iron_dust": {
+  "minecraft:redstone|utilitycraft:iron_dust": { // Energized Iron Dust
     output: "utilitycraft:energized_iron_dust",
     required: 4,
   },
-  "minecraft:redstone|utilitycraft:steel_plate": {
+  "minecraft:redstone|minecraft:raw_iron": { // Raw Energized Iron
+    output: "utilitycraft:raw_energized_iron",
+    required: 4,
+  },
+  "minecraft:redstone|utilitycraft:raw_iron_dust": { // Raw Energized Iron Dust
+    output: "utilitycraft:raw_energized_iron_dust",
+    required: 4,
+  },
+  "minecraft:redstone|utilitycraft:steel_plate": { // Base/Simple Chip
     output: "utilitycraft:chip",
     required: 2,
   },
-  "utilitycraft:gold_dust|utilitycraft:chip": {
+  "utilitycraft:gold_dust|utilitycraft:chip": { // Basic Chip
     output: "utilitycraft:basic_chip",
     required: 2,
   },
-  "utilitycraft:energized_iron_dust|utilitycraft:basic_chip": {
+  "utilitycraft:energized_iron_dust|utilitycraft:basic_chip": { // Advanced Chip
     output: "utilitycraft:advanced_chip",
     required: 2,
   },
-  "utilitycraft:diamond_dust|utilitycraft:advanced_chip": {
+  "utilitycraft:diamond_dust|utilitycraft:advanced_chip": { // Expert Chip
     output: "utilitycraft:expert_chip",
     required: 2,
   },
-  "utilitycraft:netherite_dust|utilitycraft:expert_chip": {
+  "utilitycraft:netherite_dust|utilitycraft:expert_chip": { // Ultimate Chip
     output: "utilitycraft:ultimate_chip",
     required: 2,
   },
-  "minecraft:coal|minecraft:iron_ingot": {
+  "minecraft:coal|minecraft:iron_ingot": { // Steel Ingot (coal)
     output: "utilitycraft:steel_ingot",
     required: 1,
   },
-  "minecraft:coal|utilitycraft:iron_dust": {
+  "minecraft:coal|utilitycraft:iron_dust": { // Steel Dust (coal)
     output: "utilitycraft:steel_dust",
     required: 1,
   },
-  "minecraft:charcoal|minecraft:iron_ingot": {
+  "minecraft:charcoal|minecraft:iron_ingot": { // Steel Ingot (charcoal)
     output: "utilitycraft:steel_ingot",
     required: 1,
   },
-  "minecraft:charcoal|utilitycraft:iron_dust": {
+  "minecraft:charcoal|utilitycraft:iron_dust": { // Steel Dust (charcoal)
     output: "utilitycraft:steel_dust",
     required: 1,
   },
-  "utilitycraft:coal_dust|minecraft:iron_ingot": {
+  "utilitycraft:coal_dust|minecraft:iron_ingot": { // Steel Ingot (coal dust)
     output: "utilitycraft:steel_ingot",
     required: 1,
   },
-  "utilitycraft:coal_dust|utilitycraft:iron_dust": {
+  "utilitycraft:coal_dust|utilitycraft:iron_dust": { // Steel Dust (coal dust)
     output: "utilitycraft:steel_dust",
     required: 1,
   },
-  "utilitycraft:charcoal_dust|minecraft:iron_ingot": {
+  "utilitycraft:charcoal_dust|minecraft:iron_ingot": { // Steel Ingot (charcoal dust)
     output: "utilitycraft:steel_ingot",
     required: 1,
   },
-  "utilitycraft:charcoal_dust|utilitycraft:iron_dust": {
+  "utilitycraft:charcoal_dust|utilitycraft:iron_dust": { // Steel Dust (charcoal dust)
     output: "utilitycraft:steel_dust",
     required: 1,
   },
-  "minecraft:blaze_powder|minecraft:sand": {
+  "minecraft:blaze_powder|minecraft:sand": { // Soul Sand
     output: "minecraft:soul_sand",
     required: 1,
   },
-  "minecraft:blaze_powder|minecraft:dirt": {
+  "minecraft:blaze_powder|minecraft:dirt": { // Soul Soil
     output: "minecraft:soul_soil",
     required: 1,
   },
-  "minecraft:wheat_seeds|minecraft:dirt": {
+  "minecraft:wheat_seeds|minecraft:dirt": { // Grass Block (seeds route)
     output: "minecraft:grass_block",
     required: 9,
   },
-  "minecraft:coal_block|minecraft:iron_block": {
+  "minecraft:coal_block|minecraft:iron_block": { // Steel Block
     output: "utilitycraft:steel_block",
     required: 1,
   },
-  "minecraft:redstone_block|minecraft:iron_block": {
+  "minecraft:redstone_block|minecraft:iron_block": { // Energized Iron Block
     output: "utilitycraft:energized_iron_block",
     required: 4,
   },
-  "utilitycraft:netherite_scrap_dust|minecraft:gold_ingot": {
+  "utilitycraft:netherite_scrap_dust|minecraft:gold_ingot": { // Netherite Ingot
     output: "minecraft:netherite_ingot",
     required: 4,
   },
-  "utilitycraft:netherite_scrap_dust|utilitycraft:gold_dust": {
+  "utilitycraft:netherite_scrap_dust|utilitycraft:gold_dust": { // Netherite Dust
     output: "utilitycraft:netherite_dust",
     required: 4,
   },
   // Stone variants
-  "minecraft:quartz|minecraft:cobblestone": {
+  "minecraft:quartz|minecraft:cobblestone": { // Diorite
     output: "minecraft:diorite",
     required: 1,
   },
-  "utilitycraft:flint|minecraft:cobblestone": {
+  "minecraft:flint|minecraft:cobblestone": { // Andesite
     output: "minecraft:andesite",
     required: 1,
   },
-  "utilitycraft:dirt_handful|minecraft:cobblestone": {
+  "utilitycraft:dirt_handful|minecraft:cobblestone": { // Granite
     output: "minecraft:granite",
     required: 1,
   },
-  "minecraft:charcoal|minecraft:cobblestone": {
-    output: "minecraft:blackstone",
-    required: 1,
-  },
-  "minecraft:coal|minecraft:cobblestone": {
-    output: "minecraft:blackstone",
-    required: 1,
-  },
-  "utilitycraft:coal_dust|minecraft:cobblestone": {
-    output: "minecraft:blackstone",
-    required: 1,
-  },
-  "utilitycraft:charcoal_dust|minecraft:cobblestone": {
-    output: "minecraft:blackstone",
-    required: 1,
-  },
-  "minecraft:coal_block|utilitycraft:compressed_cobblestone": {
-    output: "utilitycraft:compressed_blackstone",
-    required: 1,
-  },
-  "minecraft:blaze_powder|minecraft:cobblestone": {
-    output: "minecraft:netherrack",
-    required: 1,
-  },
-  "utilitycraft:ender_pearl_dust|minecraft:cobblestone": {
-    output: "minecraft:end_stone",
-    required: 1,
-  },
-  // Integrated Storage
-  "minecraft:blaze_powder|ae2be:certus_quartz_crystal": {
-    output: "ae2be:charged_certus_quartz_crystal",
-    required: 1,
-  },
-  "minecraft:redstone|ae2be:charged_certus_quartz_crystal": {
-    output: "ae2be:fluix_crystal",
-    required: 4,
-  },
-  "ae2be:silicon|utilitycraft:chip": {
-    output: "ae2be:silicon_press",
-    required: 4,
-  },
-  "ae2be:silicon|utilitycraft:basic_chip": {
-    output: "ae2be:logic_processor_press",
-    required: 4,
-  },
-  "ae2be:silicon|utilitycraft:expert_chip": {
-    output: "ae2be:engineering_processor_press",
-    required: 4,
-  },
-  "ae2be:silicon|ae2be:charged_certus_quartz_crystal": {
-    output: "ae2be:calculation_processor_press",
-    required: 4,
-  },
-  // New Recipes for 3.2
-  "utilitycraft:bag_of_blaze_powder|utilitycraft:compressed_cobblestone": {
-    output: "utilitycraft:compressed_netherrack",
-    required: 1,
-  },
-  "minecraft:redstone|minecraft:raw_iron": {
-    output: "utilitycraft:raw_energized_iron",
-    required: 4,
-  },
-  // Cost multiplier needed
-  "minecraft:bone_meal|minecraft:cobblestone": {
+  "minecraft:bone_meal|minecraft:cobblestone": { // Calcite
     output: "minecraft:calcite",
     required: 2,
   },
+  "minecraft:vine|minecraft:rooted_dirt": { // Moss Block
+    output: "minecraft:moss_block",
+    required: 4,
+  },
+  "minecraft:gravel|minecraft:cobblestone": { // Tuff
+    output: "minecraft:tuff",
+    required: 1,
+  },
+  "minecraft:moss_block|minecraft:cobblestone": { // Mossy Cobblestone
+    output: "minecraft:mossy_cobblestone",
+    required: 1,
+  },
+  "minecraft:moss_block|minecraft:stone_bricks": { // Mossy Stone Bricks
+    output: "minecraft:mossy_stone_bricks",
+    required: 1,
+  },
   // Cost multiplier needed
-  "minecraft:bone_meal|minecraft:dirt": {
+  "minecraft:bone_meal|minecraft:dirt": { // Grass Block (bone meal route)
     output: "minecraft:grass_block",
     required: 1,
   },
+  "minecraft:charcoal|minecraft:cobblestone": { // Blackstone (charcoal)
+    output: "minecraft:blackstone",
+    required: 1,
+  },
+  "minecraft:coal|minecraft:cobblestone": { // Blackstone (coal)
+    output: "minecraft:blackstone",
+    required: 1,
+  },
+  "utilitycraft:coal_dust|minecraft:cobblestone": { // Blackstone (coal dust)
+    output: "minecraft:blackstone",
+    required: 1,
+  },
+  "utilitycraft:charcoal_dust|minecraft:cobblestone": { // Blackstone (charcoal dust)
+    output: "minecraft:blackstone",
+    required: 1,
+  },
+  "minecraft:coal_block|utilitycraft:compressed_cobblestone": { // Compressed Blackstone
+    output: "utilitycraft:compressed_blackstone",
+    required: 1,
+  },
+  "minecraft:blaze_powder|minecraft:cobblestone": { // Netherrack
+    output: "minecraft:netherrack",
+    required: 1,
+  },
+  "utilitycraft:ender_pearl_dust|minecraft:cobblestone": { // End Stone
+    output: "minecraft:end_stone",
+    required: 1,
+  },
+  // ---------- Integrated Storage ----------
+  "minecraft:blaze_powder|ae2be:certus_quartz_crystal": { // Charged Certus Quartz Crystal
+    output: "ae2be:charged_certus_quartz_crystal",
+    required: 1,
+  },
+  "minecraft:redstone|ae2be:charged_certus_quartz_crystal": { // Fluix Crystal
+    output: "ae2be:fluix_crystal",
+    required: 4,
+  },
+  "ae2be:silicon|utilitycraft:chip": { // Silicon Press
+    output: "ae2be:silicon_press",
+    required: 4,
+  },
+  "ae2be:silicon|utilitycraft:basic_chip": { // Logic Processor Press
+    output: "ae2be:logic_processor_press",
+    required: 4,
+  },
+  "ae2be:silicon|utilitycraft:expert_chip": { // Engineering Processor Press
+    output: "ae2be:engineering_processor_press",
+    required: 4,
+  },
+  "ae2be:silicon|ae2be:charged_certus_quartz_crystal": { // Calculation Processor Press
+    output: "ae2be:calculation_processor_press",
+    required: 4,
+  },
+  "utilitycraft:bag_of_blaze_powder|utilitycraft:compressed_cobblestone": { // Compressed Netherrack
+    output: "utilitycraft:compressed_netherrack",
+    required: 1,
+  },
+  "minecraft:mangrove_roots|minecraft:dirt": { // Rooted Dirt
+    output: "minecraft:rooted_dirt",
+    required: 1,
+  },
   // Color pattern templates (placeholders will be expanded at load time)
-  "minecraft:{x}_dye|minecraft:{y}_terracotta": { output: "minecraft:{x}_terracotta", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_glazed_terracotta": { output: "minecraft:{x}_glazed_terracotta", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_concrete": { output: "minecraft:{x}_concrete", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_concrete_powder": { output: "minecraft:{x}_concrete_powder", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_stained_glass": { output: "minecraft:{x}_stained_glass", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_stained_glass_pane": { output: "minecraft:{x}_stained_glass_pane", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_wool": { output: "minecraft:{x}_wool", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_candle": { output: "minecraft:{x}_candle", required: 1 },
-  "minecraft:{x}_dye|minecraft:{y}_harness": { output: "minecraft:{x}_harness", required: 1 },
-  "minecraft:white_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:elevator", required: 1 },
-  "minecraft:{x}_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:{x}_elevator", required: 1 },
+  "minecraft:{x}_dye|minecraft:{y}_terracotta": { output: "minecraft:{x}_terracotta", required: 1 }, // Terracotta recolor template
+  "minecraft:{x}_dye|minecraft:{y}_glazed_terracotta": { output: "minecraft:{x}_glazed_terracotta", required: 1 }, // Glazed terracotta recolor template
+  "minecraft:{x}_dye|minecraft:{y}_concrete": { output: "minecraft:{x}_concrete", required: 1 }, // Concrete recolor template
+  "minecraft:{x}_dye|minecraft:{y}_concrete_powder": { output: "minecraft:{x}_concrete_powder", required: 1 }, // Concrete powder recolor template
+  "minecraft:{x}_dye|minecraft:{y}_stained_glass": { output: "minecraft:{x}_stained_glass", required: 1 }, // Stained glass recolor template
+  "minecraft:{x}_dye|minecraft:{y}_stained_glass_pane": { output: "minecraft:{x}_stained_glass_pane", required: 1 }, // Stained glass pane recolor template
+  "minecraft:{x}_dye|minecraft:{y}_wool": { output: "minecraft:{x}_wool", required: 1 }, // Wool recolor template
+  "minecraft:{x}_dye|minecraft:{y}_candle": { output: "minecraft:{x}_candle", required: 1 }, // Candle recolor template
+  "minecraft:{x}_dye|minecraft:{y}_harness": { output: "minecraft:{x}_harness", required: 1 }, // Harness recolor template
+  "minecraft:white_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:elevator", required: 1 }, // Elevator reset-to-white template
+  "minecraft:{x}_dye|utilitycraft:{y}_elevator": { output: "utilitycraft:{x}_elevator", required: 1 }, // Elevator recolor template
   // Note: bundles and shulker_boxes are intentionally NOT added because they are prone to data loss
 };
 
