@@ -134,7 +134,8 @@
                             "utilitycraft:mechanic_hopper",
                             "utilitycraft:mechanic_upper",
                             "utilitycraft:mechanic_dropper",
-                            "utilitycraft:ender_hopper"
+                            "utilitycraft:ender_hopper",
+                            "utilitycraft:basic_trash_can"
                         ]
                     },
                     {
@@ -204,6 +205,8 @@
                         },
                         "items": [
                             "utilitycraft:mechanical_spawner",
+                            "utilitycraft:spawner_core",
+                            "utilitycraft:fan",
                             "utilitycraft:mob_grinder",
                             "utilitycraft:xp_magnet"
                         ]
@@ -217,7 +220,32 @@
                             "utilitycraft:energized_iron_block",
                             "utilitycraft:raw_energized_iron_block",
                             "utilitycraft:steel_block",
-                            "utilitycraft:raw_steel_block"
+                            "utilitycraft:raw_steel_block",
+                            "utilitycraft:blaze_block",
+                            "utilitycraft:flint_block"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "utilitycraft:crushed_netherrack",
+                            "name": "dorios:itemGroup.name.crushed_blocks"
+                        },
+                        "items": [
+                            "utilitycraft:crushed_netherrack",
+                            "utilitycraft:crushed_endstone",
+                            "utilitycraft:crushed_cobbled_deepslate",
+                            "utilitycraft:compressed_crushed_cobbled_deepslate",
+                            "utilitycraft:compressed_crushed_cobbled_deepslate_2",
+                            "utilitycraft:compressed_crushed_cobbled_deepslate_3",
+                            "utilitycraft:compressed_crushed_cobbled_deepslate_4",
+                            "utilitycraft:compressed_crushed_endstone",
+                            "utilitycraft:compressed_crushed_endstone_2",
+                            "utilitycraft:compressed_crushed_endstone_3",
+                            "utilitycraft:compressed_crushed_endstone_4",
+                            "utilitycraft:compressed_crushed_netherrack",
+                            "utilitycraft:compressed_crushed_netherrack_2",
+                            "utilitycraft:compressed_crushed_netherrack_3",
+                            "utilitycraft:compressed_crushed_netherrack_4"
                         ]
                     },
                     {
@@ -226,7 +254,6 @@
                             "name": "dorios:itemGroup.name.compressed"
                         },
                         "items": [
-                            "utilitycraft:blaze_block",
                             "utilitycraft:compressed_acacia_wood",
                             "utilitycraft:compressed_acacia_wood_2",
                             "utilitycraft:compressed_acacia_wood_3",
@@ -285,18 +312,6 @@
                             "utilitycraft:compressed_crimson_wood_2",
                             "utilitycraft:compressed_crimson_wood_3",
                             "utilitycraft:compressed_crimson_wood_4",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate_2",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate_3",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate_4",
-                            "utilitycraft:compressed_crushed_endstone",
-                            "utilitycraft:compressed_crushed_endstone_2",
-                            "utilitycraft:compressed_crushed_endstone_3",
-                            "utilitycraft:compressed_crushed_endstone_4",
-                            "utilitycraft:compressed_crushed_netherrack",
-                            "utilitycraft:compressed_crushed_netherrack_2",
-                            "utilitycraft:compressed_crushed_netherrack_3",
-                            "utilitycraft:compressed_crushed_netherrack_4",
                             "utilitycraft:compressed_cry_obsidian",
                             "utilitycraft:compressed_cry_obsidian_2",
                             "utilitycraft:compressed_cry_obsidian_3",

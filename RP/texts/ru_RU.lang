@@ -740,6 +740,7 @@ dorios:itemGroup.name.seeds=Семена
 dorios:itemGroup.name.mob_grinding=Измельчение мобов
 dorios:itemGroup.name.transportation=Транспортировка предметов
 dorios:itemGroup.name.compressed=Сжатые блоки
+dorios:itemGroup.name.crushed_blocks=Дробленые блоки
 dorios:itemGroup.name.bags=Сумки
 dorios:itemGroup.name.bundles=Пакеты
 dorios:itemGroup.name.vases=Вазы

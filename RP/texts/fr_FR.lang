@@ -740,6 +740,7 @@ dorios:itemGroup.name.seeds=Graines
 dorios:itemGroup.name.mob_grinding=Broyage de foule
 dorios:itemGroup.name.transportation=Transport des articles
 dorios:itemGroup.name.compressed=Blocs compressés
+dorios:itemGroup.name.crushed_blocks=Blocs concassés
 dorios:itemGroup.name.bags=Sacs
 dorios:itemGroup.name.bundles=Forfaits
 dorios:itemGroup.name.vases=Vases

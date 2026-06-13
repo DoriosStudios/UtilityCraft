@@ -818,6 +818,7 @@ dorios:itemGroup.name.seeds=Semillas
 dorios:itemGroup.name.mob_grinding=Triturador de Mobs
 dorios:itemGroup.name.transportation=Transporte de Objetos
 dorios:itemGroup.name.compressed=Bloques Comprimidos
+dorios:itemGroup.name.crushed_blocks=Bloques Triturados
 dorios:itemGroup.name.bags=Bolsas
 dorios:itemGroup.name.bundles=Fardos
 dorios:itemGroup.name.vases=Jarrones

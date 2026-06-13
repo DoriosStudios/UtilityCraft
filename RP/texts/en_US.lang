@@ -763,6 +763,7 @@ dorios:itemGroup.name.seeds=Seeds
 dorios:itemGroup.name.mob_grinding=Mob Grinding
 dorios:itemGroup.name.transportation=Item Transportation
 dorios:itemGroup.name.compressed=Compressed Blocks
+dorios:itemGroup.name.crushed_blocks=Crushed Blocks
 dorios:itemGroup.name.bags=Bags
 dorios:itemGroup.name.bundles=Bundles
 dorios:itemGroup.name.vases=Vases

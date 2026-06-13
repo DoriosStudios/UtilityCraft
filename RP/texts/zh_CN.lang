@@ -740,6 +740,7 @@ dorios:itemGroup.name.seeds=种子
 dorios:itemGroup.name.mob_grinding=怪物研磨
 dorios:itemGroup.name.transportation=物品运输
 dorios:itemGroup.name.compressed=压缩块
+dorios:itemGroup.name.crushed_blocks=粉碎方块
 dorios:itemGroup.name.bags=包
 dorios:itemGroup.name.bundles=捆绑包
 dorios:itemGroup.name.vases=花瓶

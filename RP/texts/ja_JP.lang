@@ -740,6 +740,7 @@ dorios:itemGroup.name.seeds=種子
 dorios:itemGroup.name.mob_grinding=モブグラインディング
 dorios:itemGroup.name.transportation=アイテムの輸送
 dorios:itemGroup.name.compressed=圧縮ブロック
+dorios:itemGroup.name.crushed_blocks=粉砕ブロック
 dorios:itemGroup.name.bags=バッグ
 dorios:itemGroup.name.bundles=バンドル
 dorios:itemGroup.name.vases=花瓶

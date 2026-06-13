@@ -839,6 +839,7 @@ dorios:itemGroup.name.generators=Geradores
 dorios:itemGroup.name.machines=Máquinas
 dorios:itemGroup.name.batteries=Baterias
 dorios:itemGroup.name.compressed=Blocos Comprimidos
+dorios:itemGroup.name.crushed_blocks=Blocos Triturados
 dorios:itemGroup.name.bags=Bolsas Comprimidas
 dorios:itemGroup.name.bundles=Feixes Comprimidos
 dorios:itemGroup.name.vases=Vasos Comprimidos
