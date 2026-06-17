@@ -67,7 +67,7 @@ export class Generator extends BasicMachine {
           .find((item) => item.getComponent("minecraft:item")?.itemStack?.typeId === blockItemId);
         oldItemEntity?.remove();
       }
-      TickScheduler.releaseTickGroup(entity);
+      TickScheduler.releaseTickSlot(block);
       Utils.dropAllItems(entity);
       entity.remove();
       dim.spawnItem(blockItem, block.center());

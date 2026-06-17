@@ -1,7 +1,6 @@
 import { world, ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
-
-const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
+import * as TickScheduler from "./tickScheduler.js";
 
 /** @type {ScoreboardObjective} */
 let maxLiquidsData;
@@ -78,12 +77,7 @@ export class FluidStorage {
    * @returns {boolean} Whether the UI is currently open.
    */
   static hasOpenUI(entity) {
-    try {
-      const count = Number(entity?.getProperty?.(OPEN_UI_PLAYERS_PROPERTY_ID) ?? 0);
-      return count > 0;
-    } catch {
-      return false;
-    }
+    return TickScheduler.hasOpenUI(entity);
   }
 
   /**

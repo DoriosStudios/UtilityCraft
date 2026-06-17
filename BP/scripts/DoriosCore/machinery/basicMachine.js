@@ -16,10 +16,10 @@ export class BasicMachine {
    */
   constructor(block, options) {
     this.valid = false;
+    this.shouldUpdateUI = TickScheduler.hasOpenUI(block);
+    if (!options.ignoreTick && !TickScheduler.shouldProcessBlock(block)) return;
     this.entity = Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
-    this.shouldUpdateUI = Utils.hasOpenUI(this.entity);
-    if (!options.ignoreTick && !TickScheduler.shouldProcessMachine(this.entity)) return;
     this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
@@ -27,9 +27,10 @@ export class BasicMachine {
     if (!inventory) return;
     this.container = inventory.container;
     this.baseRate = options.rate;
-    this.processingInterval = TickScheduler.getProcessingInterval(this.entity);
+    this.processingInterval = TickScheduler.getProcessingInterval(block);
     this.rate = options.rate * this.processingInterval;
     this.valid = true;
+    TickScheduler.recordMachineTick();
   }
 
   /**

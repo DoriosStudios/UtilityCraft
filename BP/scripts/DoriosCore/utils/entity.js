@@ -6,8 +6,6 @@ import { FluidStorage } from "../machinery/fluidStorage.js";
 import * as TickScheduler from "../machinery/tickScheduler.js";
 import * as Constants from "./constants.js";
 
-const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
-
 /**
  * Determines whether the current tick should execute machine logic.
  *
@@ -115,12 +113,7 @@ export function getRepresentedBlockId(entity) {
  * @returns {number} Open UI viewer count.
  */
 export function getOpenUICount(entity) {
-  try {
-    const count = Number(entity?.getProperty?.(OPEN_UI_PLAYERS_PROPERTY_ID) ?? 0);
-    return Math.max(0, Math.floor(count));
-  } catch {
-    return 0;
-  }
+  return TickScheduler.getOpenUICount(entity);
 }
 
 /**
@@ -130,8 +123,7 @@ export function getOpenUICount(entity) {
  * @returns {boolean} Whether the UI is currently open.
  */
 export function hasOpenUI(entity) {
-  // return true;
-  return getOpenUICount(entity) > 0;
+  return TickScheduler.hasOpenUI(entity);
 }
 
 /**
@@ -142,15 +134,7 @@ export function hasOpenUI(entity) {
  * @returns {number} The normalized count written to the entity.
  */
 export function setOpenUICount(entity, count) {
-  const normalizedCount = Math.max(0, Math.floor(Number(count) || 0));
-
-  try {
-    entity?.setProperty?.(OPEN_UI_PLAYERS_PROPERTY_ID, normalizedCount);
-  } catch {
-    return getOpenUICount(entity);
-  }
-
-  return normalizedCount;
+  return TickScheduler.setOpenUICount(entity, count);
 }
 
 /**
@@ -160,7 +144,7 @@ export function setOpenUICount(entity, count) {
  * @returns {number} The updated viewer count.
  */
 export function addOpenUICount(entity) {
-  return setOpenUICount(entity, getOpenUICount(entity) + 1);
+  return TickScheduler.addOpenUICount(entity);
 }
 
 /**
@@ -170,7 +154,7 @@ export function addOpenUICount(entity) {
  * @returns {number} The updated viewer count.
  */
 export function removeOpenUICount(entity) {
-  return setOpenUICount(entity, getOpenUICount(entity) - 1);
+  return TickScheduler.removeOpenUICount(entity);
 }
 
 function persistRepresentedBlockId(entity, blockId) {
@@ -233,7 +217,7 @@ export function spawnEntity(block, config) {
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
   persistRepresentedBlockId(entity, block.typeId);
-  TickScheduler.assignTickGroup(entity);
+  TickScheduler.assignTickSlot(block);
 
   // Normalize slot config independently
   const inputRange = Array.isArray(entityData.input_range)
