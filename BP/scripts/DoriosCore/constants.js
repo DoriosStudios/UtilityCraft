@@ -74,3 +74,13 @@ export const REGISTER_FLUID_HOLDER_EVENT_ID = "utilitycraft:register_fluid_holde
  * Script event used to update the shared machinery tick speed.
  */
 export const SET_TICK_SPEED_EVENT_ID = "utilitycraft:set_tick_speed";
+
+/**
+ * Script event used to synchronize machine tick group counts across addons.
+ */
+export const TICK_GROUP_EVENT_ID = "utilitycraft:tick_group";
+
+/**
+ * Source identifier used by UtilityCraft tick group sync messages.
+ */
+export const TICK_GROUP_SOURCE_ID = "utilitycraft";

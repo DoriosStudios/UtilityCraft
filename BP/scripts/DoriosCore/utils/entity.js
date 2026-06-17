@@ -3,6 +3,7 @@ import * as GlobalConstants from "../constants.js";
 import * as MachineryConstants from "../machinery/constants.js";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
+import * as TickScheduler from "../machinery/tickScheduler.js";
 import * as Constants from "./constants.js";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
@@ -232,6 +233,7 @@ export function spawnEntity(block, config) {
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
   persistRepresentedBlockId(entity, block.typeId);
+  TickScheduler.assignTickGroup(entity);
 
   // Normalize slot config independently
   const inputRange = Array.isArray(entityData.input_range)

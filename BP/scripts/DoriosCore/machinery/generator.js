@@ -4,6 +4,7 @@ import { BasicMachine } from "./basicMachine";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
+import * as TickScheduler from "./tickScheduler.js";
 import * as Utils from "../utils/entity";
 
 export class Generator extends BasicMachine {
@@ -66,6 +67,7 @@ export class Generator extends BasicMachine {
           .find((item) => item.getComponent("minecraft:item")?.itemStack?.typeId === blockItemId);
         oldItemEntity?.remove();
       }
+      TickScheduler.releaseTickGroup(entity);
       Utils.dropAllItems(entity);
       entity.remove();
       dim.spawnItem(blockItem, block.center());

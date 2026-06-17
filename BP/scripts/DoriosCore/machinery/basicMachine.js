@@ -1,7 +1,7 @@
 import { ItemStack } from "@minecraft/server";
-import * as GlobalConstants from "../constants.js";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
+import * as TickScheduler from "./tickScheduler.js";
 import * as Utils from "../utils/entity";
 
 export class BasicMachine {
@@ -16,18 +16,19 @@ export class BasicMachine {
    */
   constructor(block, options) {
     this.valid = false;
-    if (!options.ignoreTick && !Utils.shouldProcess()) return;
     this.entity = Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
-    this.energy = new EnergyStorage(this.entity);
     this.shouldUpdateUI = Utils.hasOpenUI(this.entity);
+    if (!options.ignoreTick && !TickScheduler.shouldProcessMachine(this.entity)) return;
+    this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
     const inventory = this.entity.getComponent("inventory")
     if (!inventory) return;
     this.container = inventory.container;
     this.baseRate = options.rate;
-    this.rate = options.rate * globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY];
+    this.processingInterval = TickScheduler.getProcessingInterval(this.entity);
+    this.rate = options.rate * this.processingInterval;
     this.valid = true;
   }
 
@@ -38,7 +39,7 @@ export class BasicMachine {
    */
   setRate(baseRate) {
     this.baseRate = baseRate;
-    this.rate = baseRate * globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY];
+    this.rate = baseRate * this.processingInterval;
   }
 
   /**

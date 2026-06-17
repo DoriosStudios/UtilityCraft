@@ -3,6 +3,7 @@ import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
+import * as TickScheduler from "./tickScheduler.js";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
 
@@ -76,6 +77,7 @@ export class Machine extends BasicMachine {
           .find((item) => item.getComponent("minecraft:item")?.itemStack?.typeId === blockItemId);
         oldItemEntity?.remove();
       }
+      TickScheduler.releaseTickGroup(entity);
       Utils.dropAllItems(entity);
       entity.remove();
       dim.spawnItem(blockItem, block.center());

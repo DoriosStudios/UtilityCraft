@@ -14,6 +14,14 @@
 						0,
 						100
 					]
+				},
+				"utilitycraft:tick_group": {
+					"type": "int",
+					"default": 0,
+					"range": [
+						0,
+						5
+					]
 				}
 			}
 		},

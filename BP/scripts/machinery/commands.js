@@ -1,5 +1,6 @@
 import { system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
+import { getGroupCounts } from "../DoriosCore/machinery/tickScheduler.js";
 
 const STACK_REFILL_PROPERTY = "utilitycraft:stackRefillEnabled";
 
@@ -72,6 +73,39 @@ DoriosAPI.register.command({
         "§cWarning: This tick speed has a high performance impact. " +
         "Only recommended for powerful devices.",
       );
+    }
+  },
+});
+
+DoriosAPI.register.command({
+  name: "tickgroups",
+  description: "Lists UtilityCraft machine tick group counts",
+  permissionLevel: "admin",
+  parameters: [
+    {
+      name: "action",
+      type: "enum",
+      enum: ["List"],
+    },
+  ],
+  callback(origin, action) {
+    if (action !== "List" && action !== "list") return;
+
+    const counts = getGroupCounts();
+    const total = counts.reduce((sum, count) => sum + count, 0);
+    const labels = ["A", "B", "C", "D", "E"];
+    const lines = counts.map((count, index) => `Â§7Group ${labels[index]}: Â§e${count}`);
+    const message = [
+      "Â§aUtilityCraft Tick Groups",
+      ...lines,
+      `Â§7Total: Â§e${total}`,
+    ].join("\n");
+
+    const source = origin.sourceEntity;
+    if (source?.sendMessage) {
+      source.sendMessage(message);
+    } else {
+      world.sendMessage(message);
     }
   },
 });
