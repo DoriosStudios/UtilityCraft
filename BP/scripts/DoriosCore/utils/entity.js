@@ -5,6 +5,8 @@ import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
 import * as Constants from "./constants.js";
 
+const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
+
 /**
  * Determines whether the current tick should execute machine logic.
  *
@@ -56,7 +58,6 @@ export function tryGetEntityFromBlock(block) {
   return block.dimension.getEntitiesAtBlockLocation(block.location)[0];
 }
 
-
 /**
  * Attempts to resolve the block currently represented by a machine entity.
  *
@@ -104,6 +105,71 @@ export function getRepresentedBlockId(entity) {
   }
 
   return undefined;
+}
+
+/**
+ * Returns how many players currently have this entity container UI open.
+ *
+ * @param {import("@minecraft/server").Entity} entity The machine entity to inspect.
+ * @returns {number} Open UI viewer count.
+ */
+export function getOpenUICount(entity) {
+  try {
+    const count = Number(entity?.getProperty?.(OPEN_UI_PLAYERS_PROPERTY_ID) ?? 0);
+    return Math.max(0, Math.floor(count));
+  } catch {
+    return 0;
+  }
+}
+
+/**
+ * Returns true when at least one player has this entity container UI open.
+ *
+ * @param {import("@minecraft/server").Entity} entity The machine entity to inspect.
+ * @returns {boolean} Whether the UI is currently open.
+ */
+export function hasOpenUI(entity) {
+  // return true;
+  return getOpenUICount(entity) > 0;
+}
+
+/**
+ * Updates the open UI viewer count stored on the machine entity.
+ *
+ * @param {import("@minecraft/server").Entity} entity The machine entity to update.
+ * @param {number} count The new viewer count.
+ * @returns {number} The normalized count written to the entity.
+ */
+export function setOpenUICount(entity, count) {
+  const normalizedCount = Math.max(0, Math.floor(Number(count) || 0));
+
+  try {
+    entity?.setProperty?.(OPEN_UI_PLAYERS_PROPERTY_ID, normalizedCount);
+  } catch {
+    return getOpenUICount(entity);
+  }
+
+  return normalizedCount;
+}
+
+/**
+ * Adds one open UI viewer to the machine entity.
+ *
+ * @param {import("@minecraft/server").Entity} entity The machine entity to update.
+ * @returns {number} The updated viewer count.
+ */
+export function addOpenUICount(entity) {
+  return setOpenUICount(entity, getOpenUICount(entity) + 1);
+}
+
+/**
+ * Removes one open UI viewer from the machine entity.
+ *
+ * @param {import("@minecraft/server").Entity} entity The machine entity to update.
+ * @returns {number} The updated viewer count.
+ */
+export function removeOpenUICount(entity) {
+  return setOpenUICount(entity, getOpenUICount(entity) - 1);
 }
 
 function persistRepresentedBlockId(entity, blockId) {
@@ -161,32 +227,30 @@ export function spawnEntity(block, config) {
   const inventorySize = entityData.inventory_size ?? 1;
   try {
     entity.triggerEvent(`utilitycraft:inventory_${inventorySize}`);
-  } catch { }
+  } catch {}
 
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
   persistRepresentedBlockId(entity, block.typeId);
 
   // Normalize slot config independently
-  const inputRange =
-    Array.isArray(entityData.input_range)
-      ? entityData.input_range
-      : typeof entityData.input_slot === "number"
-        ? [entityData.input_slot, entityData.input_slot]
-        : undefined;
+  const inputRange = Array.isArray(entityData.input_range)
+    ? entityData.input_range
+    : typeof entityData.input_slot === "number"
+      ? [entityData.input_slot, entityData.input_slot]
+      : undefined;
 
-  const outputRange =
-    Array.isArray(entityData.output_range)
-      ? entityData.output_range
-      : typeof entityData.output_slot === "number"
-        ? [entityData.output_slot, entityData.output_slot]
-        : undefined;
+  const outputRange = Array.isArray(entityData.output_range)
+    ? entityData.output_range
+    : typeof entityData.output_slot === "number"
+      ? [entityData.output_slot, entityData.output_slot]
+      : undefined;
 
   if (inputRange || outputRange) {
     registerSlotConfig(entity, {
       input_range: inputRange,
       output_range: outputRange,
-      block_id: block.typeId
+      block_id: block.typeId,
     });
   }
 
@@ -223,11 +287,7 @@ export function registerSlotConfig(entity, config) {
     return arr;
   };
 
-  const validRange = (range) =>
-    Array.isArray(range) &&
-    range.length === 2 &&
-    typeof range[0] === "number" &&
-    typeof range[1] === "number";
+  const validRange = (range) => Array.isArray(range) && range.length === 2 && typeof range[0] === "number" && typeof range[1] === "number";
 
   const inputRange = validRange(config.input_range) ? config.input_range : [-1, -1];
   const outputRange = validRange(config.output_range) ? config.output_range : [-1, -1];
@@ -244,9 +304,7 @@ export function registerSlotConfig(entity, config) {
   }
 
   // Dorios internal config
-  entity.runCommand(
-    `scriptevent ${Constants.SPECIAL_CONTAINER_EVENT_ID} ${JSON.stringify(slotRegister)}`
-  );
+  entity.runCommand(`scriptevent ${Constants.SPECIAL_CONTAINER_EVENT_ID} ${JSON.stringify(slotRegister)}`);
 
   // AE2BE container registry
   // system.sendScriptEvent(
@@ -270,8 +328,8 @@ export function registerSlotConfig(entity, config) {
     `scriptevent ${Constants.ITEM_DUCTS_REGISTER_EVENT_ID} ${JSON.stringify({
       typeId: config.block_id,
       extractSlots: outputSlots,
-      insertSlots: inputSlots
-    })}`
+      insertSlots: inputSlots,
+    })}`,
   );
 }
 

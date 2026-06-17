@@ -20,6 +20,7 @@ export class BasicMachine {
     this.entity = Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
     this.energy = new EnergyStorage(this.entity);
+    this.shouldUpdateUI = Utils.hasOpenUI(this.entity);
     this.dimension = block.dimension;
     this.block = block;
     const inventory = this.entity.getComponent("inventory")
@@ -50,6 +51,8 @@ export class BasicMachine {
    * @param {number} [slot=1] The inventory slot where the label will be placed.
    */
   setLabel(text, slot = 1) {
+    if (!this.shouldUpdateUI) return;
+
     const baseItem = this.container.getItem(slot) ?? new ItemStack(Constants.LABEL_ITEM_ID);
 
     if (Array.isArray(text)) {
@@ -134,6 +137,7 @@ export class BasicMachine {
    * @param {number} [options.scale=22] Maximum visual scale (e.g., 16 → 0–16).
    */
   displayProgress(maxValue = Constants.DEFAULT_PROGRESS_MAX, { slot = Constants.DEFAULT_PROGRESS_SLOT, type, index = 0, scale, legacy = false } = {}) {
+    if (!this.shouldUpdateUI) return;
     if (!maxValue || maxValue <= 0) return;
 
     const inv = this.container;
@@ -169,6 +173,8 @@ export class BasicMachine {
    * @param {number} [slot=0] The inventory slot index where the energy bar will be displayed.
    */
   displayEnergy(slot = 0) {
+    if (!this.shouldUpdateUI) return;
+
     this.energy.display(slot);
   }
 

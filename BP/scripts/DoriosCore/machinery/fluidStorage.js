@@ -1,6 +1,8 @@
 import { world, ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 
+const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
+
 /** @type {ScoreboardObjective} */
 let maxLiquidsData;
 
@@ -30,6 +32,7 @@ export class FluidStorage {
     this.entity = entity;
     this.index = index;
     this.scoreId = entity?.scoreboardIdentity;
+    this.shouldUpdateUI = FluidStorage.hasOpenUI(entity);
 
     this.scores = {
       fluid: objectives.get(`fluid_${index}`),
@@ -66,6 +69,21 @@ export class FluidStorage {
    */
   static initializeSingle(entity) {
     return new FluidStorage(entity, 0);
+  }
+
+  /**
+   * Returns whether at least one player currently has this entity container UI open.
+   *
+   * @param {Entity} entity The entity to inspect.
+   * @returns {boolean} Whether the UI is currently open.
+   */
+  static hasOpenUI(entity) {
+    try {
+      const count = Number(entity?.getProperty?.(OPEN_UI_PLAYERS_PROPERTY_ID) ?? 0);
+      return count > 0;
+    } catch {
+      return false;
+    }
   }
 
   /**
@@ -988,6 +1006,8 @@ export class FluidStorage {
    * @returns {void}
    */
   display(slot = Constants.DEFAULT_FLUID_DISPLAY_SLOT) {
+    if (!this.shouldUpdateUI) return;
+
     const inv = this.entity.getComponent("minecraft:inventory")?.container;
     if (!inv) return;
 
