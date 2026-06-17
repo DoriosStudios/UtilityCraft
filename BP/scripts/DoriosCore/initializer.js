@@ -11,11 +11,11 @@ globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
 globalThis[Constants.GLOBAL_TICK_SPEED_KEY] = Constants.DEFAULT_TICK_SPEED;
 
 system.runInterval(() => {
-    globalThis[Constants.GLOBAL_TICK_COUNT_KEY] += 2;
+    globalThis[Constants.GLOBAL_TICK_COUNT_KEY] += 4;
     if (globalThis[Constants.GLOBAL_TICK_COUNT_KEY] === 1000) {
         globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
     }
-}, 2);
+}, 4);
 
 /**
  * Initializes global scoreboard objectives and core runtime

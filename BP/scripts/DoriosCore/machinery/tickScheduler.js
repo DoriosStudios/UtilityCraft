@@ -7,7 +7,7 @@ export const TICK_GROUP_COUNTS_PROPERTY_ID = "utilitycraft:tick_group_counts";
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
 const GROUP_COUNT = 5;
 const CLOSED_INTERVAL = 20;
-const OPEN_INTERVAL = 2;
+const OPEN_INTERVAL = 4;
 const GROUP_PHASES = [0, 4, 8, 12, 16, 0];
 
 function normalizeGroup(group) {
