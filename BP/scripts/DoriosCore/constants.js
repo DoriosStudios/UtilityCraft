@@ -76,6 +76,21 @@ export const REGISTER_FLUID_HOLDER_EVENT_ID = "utilitycraft:register_fluid_holde
 export const SET_TICK_SPEED_EVENT_ID = "utilitycraft:set_tick_speed";
 
 /**
+ * Default background scheduler profile used by UtilityCraft machinery.
+ */
+export const DEFAULT_SCHEDULER_PROFILE = "fast";
+
+/**
+ * Dynamic property used to persist the configured machinery scheduler profile.
+ */
+export const SCHEDULER_PROFILE_PROPERTY_ID = "utilitycraft:schedulerProfile";
+
+/**
+ * Script event used to update the machinery scheduler profile.
+ */
+export const SET_SCHEDULER_PROFILE_EVENT_ID = "utilitycraft:set_scheduler_profile";
+
+/**
  * Script event used to synchronize machine tick group counts across addons.
  */
 export const TICK_GROUP_EVENT_ID = "utilitycraft:tick_group";

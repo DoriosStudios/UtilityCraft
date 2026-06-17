@@ -6,9 +6,36 @@ export const TICK_GROUP_COUNTS_PROPERTY_ID = "utilitycraft:tick_group_counts";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
 const GROUP_COUNT = 5;
-const CLOSED_INTERVAL = 20;
 const OPEN_INTERVAL = 4;
-const GROUP_PHASES = [0, 4, 8, 12, 16, 0];
+
+export const SCHEDULER_PROFILES = {
+  fast: {
+    label: "Fast",
+    closedInterval: 20,
+  },
+  normal: {
+    label: "Normal",
+    closedInterval: 40,
+  },
+  low: {
+    label: "Low",
+    closedInterval: 80,
+  },
+};
+
+export const SCHEDULER_PROFILE_IDS = Object.keys(SCHEDULER_PROFILES);
+
+let schedulerProfileCache;
+
+function normalizeProfile(profile) {
+  const value = String(profile ?? "").trim().toLowerCase();
+  return SCHEDULER_PROFILES[value] ? value : Constants.DEFAULT_SCHEDULER_PROFILE;
+}
+
+function getGroupPhase(group, closedInterval) {
+  const step = closedInterval / GROUP_COUNT;
+  return group === GROUP_COUNT ? 0 : group * step;
+}
 
 function normalizeGroup(group) {
   const value = Math.floor(Number(group) || 0);
@@ -52,6 +79,25 @@ export function updateGroupCount(group, delta) {
 function broadcastGroupCount(group, delta) {
   const action = delta > 0 ? "add" : "remove";
   system.sendScriptEvent(Constants.TICK_GROUP_EVENT_ID, `${action}|${group}|${Constants.TICK_GROUP_SOURCE_ID}`);
+}
+
+export function getSchedulerProfile() {
+  if (!schedulerProfileCache) {
+    schedulerProfileCache = normalizeProfile(world.getDynamicProperty(Constants.SCHEDULER_PROFILE_PROPERTY_ID));
+  }
+
+  return schedulerProfileCache;
+}
+
+export function setSchedulerProfile(profile) {
+  const normalizedProfile = normalizeProfile(profile);
+  world.setDynamicProperty(Constants.SCHEDULER_PROFILE_PROPERTY_ID, normalizedProfile);
+  schedulerProfileCache = normalizedProfile;
+  return normalizedProfile;
+}
+
+export function getSchedulerProfileConfig(profile = getSchedulerProfile()) {
+  return SCHEDULER_PROFILES[normalizeProfile(profile)];
 }
 
 export function getLeastUsedGroup() {
@@ -135,11 +181,16 @@ export function shouldProcessMachine(entity) {
   const group = assignTickGroup(entity);
   if (group === 0) return false;
 
-  return tick % CLOSED_INTERVAL === GROUP_PHASES[group];
+  const { closedInterval } = getSchedulerProfileConfig();
+  return tick % closedInterval === getGroupPhase(group, closedInterval);
 }
 
 export function getProcessingInterval(entity) {
-  return hasOpenUI(entity) ? OPEN_INTERVAL : CLOSED_INTERVAL;
+  return hasOpenUI(entity) ? OPEN_INTERVAL : getSchedulerProfileConfig().closedInterval;
+}
+
+export function handleSchedulerProfileScriptEvent(message) {
+  setSchedulerProfile(message);
 }
 
 export function handleTickGroupScriptEvent(message) {
