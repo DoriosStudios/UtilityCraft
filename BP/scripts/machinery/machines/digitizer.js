@@ -73,13 +73,21 @@ DoriosAPI.register.blockComponent("digitizer", {
         }
 
         const energyCost = settings.machine.energy_cost;
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
+
+        const energyToConsume = Math.min(
+            machine.energy.get(),
+            machine.rate,
+            Math.max(0, energyCost - progress) * machine.boosts.consumption
+        );
+
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume / machine.boosts.consumption;
+            machine.setProgress(progress, { display: false });
+        }
 
         if (progress < energyCost) {
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
-
             machine.on();
             machine.displayProgress({ maxValue: settings.machine.energy_cost });
             machine.showStatus("Running");

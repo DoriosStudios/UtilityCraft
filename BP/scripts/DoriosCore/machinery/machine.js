@@ -23,6 +23,17 @@ export class Machine extends BasicMachine {
     const machineSettings = settings.machine;
     if (!machineSettings) return;
 
+    this.upgrades = {
+      energy: 0,
+      range: 0,
+      speed: 0,
+      ultimate: 0,
+    };
+    this.boosts = {
+      speed: 1,
+      consumption: 1,
+    };
+
     if (machineSettings.upgrades) {
       this.upgrades = this.#getUpgradeLevels(machineSettings.upgrades);
       this.boosts = this.#calculateBoosts(this.upgrades);

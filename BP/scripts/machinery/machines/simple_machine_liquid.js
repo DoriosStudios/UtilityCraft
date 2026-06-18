@@ -86,7 +86,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
 
         //#endregion
 
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
         const energyCost = recipe.cost ?? settings.machine.energy_cost;
         machine.setEnergyCost(energyCost)
 
@@ -98,26 +98,29 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
         }
 
         const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, inputSlot.amount))
-        // If there is enough progress accumulated to process
-        if (progress >= energyCost) {
-            const processCount = Math.min(
-                Math.floor(progress / energyCost),
-                maxAmountToCraft
-            );
-            if (processCount > 0) {
-                // Add the processed items to the output
-                liquid.add(recipeAmount * processCount)
-                if (liquid.type == 'empty') liquid.setType(recipe.liquid)
-                // Deduct progress and input items
-                machine.addProgress(-processCount * energyCost);
-                machine.entity.changeItemAmount(INPUTSLOT, -processCount);
-            }
-        } else {
-            // If not enough progress, continue charging with energy
-            const consumption = machine.boosts.consumption
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, maxAmountToCraft * energyCost * consumption);
+        const consumption = machine.boosts.consumption
+        const maxProgress = maxAmountToCraft * energyCost;
+        const progressCapacity = Math.max(0, maxProgress - progress);
+        const energyToConsume = Math.min(machine.energy.get(), machine.rate, progressCapacity * consumption);
+
+        if (energyToConsume > 0) {
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / consumption);
+            progress += energyToConsume / consumption;
+            machine.setProgress(progress, { display: false });
+        }
+
+        const processCount = Math.min(
+            Math.floor(progress / energyCost),
+            maxAmountToCraft
+        );
+        if (processCount > 0) {
+            // Add the processed items to the output
+            liquid.add(recipeAmount * processCount)
+            if (liquid.type == 'empty') liquid.setType(recipe.liquid)
+            // Deduct progress and input items while preserving leftover progress.
+            progress -= processCount * energyCost;
+            machine.setProgress(progress, { display: false });
+            machine.entity.changeItemAmount(INPUTSLOT, -processCount);
         }
 
         // Update machine visuals and state

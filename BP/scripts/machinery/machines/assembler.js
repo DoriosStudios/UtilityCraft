@@ -98,7 +98,19 @@ DoriosAPI.register.blockComponent('assembler', {
         }
 
         const energyCost = settings.machine.energy_cost;
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
+        const progressCapacity = Math.max(0, energyCost - progress);
+        const energyToConsume = Math.min(
+            machine.energy.get(),
+            machine.rate / machine.boosts.speed,
+            progressCapacity * machine.boosts.consumption
+        );
+
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume / machine.boosts.consumption;
+            machine.setProgress(progress, { display: false });
+        }
 
         // --- 5) Processing Logic ---
         if (progress >= energyCost) {
@@ -125,12 +137,8 @@ DoriosAPI.register.blockComponent('assembler', {
             }
 
             // Consume progress
-            machine.addProgress(-energyCost);
-        } else {
-            // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate / machine.boosts.speed);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
+            progress -= energyCost;
+            machine.setProgress(progress, { display: false });
         }
 
         // --- 6) Visuals and status ---

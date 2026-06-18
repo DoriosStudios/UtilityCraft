@@ -82,17 +82,27 @@ DoriosAPI.register.blockComponent('autosieve', {
             return;
         }
 
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
         const energyCost = recipe.cost ?? settings.machine.energy_cost;
         machine.setEnergyCost(energyCost)
 
-        // If there is enough progress accumulated to process
-        if (progress >= energyCost) {
-            const processCount = Math.min(
-                Math.floor(progress / energyCost),
-                inputSlot.amount
-            );
+        const consumption = machine.boosts.consumption
+        const maxAmountToCraft = inputSlot.amount;
+        const maxProgress = maxAmountToCraft * energyCost;
+        const progressCapacity = Math.max(0, maxProgress - progress);
+        const energyToConsume = Math.min(machine.energy.get(), machine.rate, progressCapacity * consumption);
 
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume / consumption;
+            machine.setProgress(progress, { display: false });
+        }
+
+        const processCount = Math.min(
+            Math.floor(progress / energyCost),
+            maxAmountToCraft
+        );
+        if (processCount > 0) {
             const multi = meshData.multiplier
             const tier = meshData.tier
 
@@ -122,14 +132,9 @@ DoriosAPI.register.blockComponent('autosieve', {
 
 
             // Deduct progress and input items
-            machine.addProgress(-processCount * energyCost);
+            progress -= processCount * energyCost;
+            machine.setProgress(progress, { display: false });
             machine.entity.changeItemAmount(INTPUTSLOT, -processCount);
-        } else {
-            // If not enough progress, continue charging with energy
-            const consumption = machine.boosts.consumption
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, inputSlot.amount * energyCost * consumption);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / consumption);
         }
 
         // Update machine visuals and state

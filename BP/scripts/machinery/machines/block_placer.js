@@ -28,7 +28,7 @@ DoriosAPI.register.blockComponent('block_placer', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;
         const inv = machine.container;
 
@@ -36,6 +36,13 @@ DoriosAPI.register.blockComponent('block_placer', {
         if (machine.energy.get() <= 0) {
             machine.showWarning('No Energy', { resetProgress: false });
             return;
+        }
+
+        const energyToConsume = Math.min(machine.energy.get(), machine.rate, Math.max(0, energyCost - progress));
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume;
+            machine.setProgress(progress, { display: false });
         }
 
         if (progress >= energyCost) {
@@ -68,12 +75,6 @@ DoriosAPI.register.blockComponent('block_placer', {
                 machine.showWarning('Invalid Item', { displayProgress: false, resetProgress: false });
                 return
             }
-
-        } else {
-            // Charge up progress
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost - progress);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume);
         }
 
         // Update visuals

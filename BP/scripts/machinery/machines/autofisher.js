@@ -658,10 +658,18 @@ DoriosAPI.register.blockComponent('autofisher', {
         machine.setEnergyCost(energyCost);
 
         machine.setRate(settings.machine.rate_speed_base * speedMultiplier * machine.boosts.speed * machine.boosts.consumption);
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
 
-        if (progress >= energyCost) {
-            const processCount = Math.floor(progress / energyCost);
+        const consumption = machine.boosts.consumption;
+        const energyToConsume = Math.min(machine.energy.get(), machine.rate);
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume / consumption;
+            machine.setProgress(progress, { display: false });
+        }
+
+        const processCount = Math.floor(progress / energyCost);
+        if (processCount > 0) {
             const totalRolls = processCount * rollsPerCast;
             const shouldBlockSlots = totalRolls > 0 && upgrades.length > 0;
 
@@ -710,12 +718,8 @@ DoriosAPI.register.blockComponent('autofisher', {
                 }
             }
 
-            machine.addProgress(-processCount * energyCost);
-        } else {
-            const consumption = machine.boosts.consumption;
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, energyCost * consumption);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / consumption);
+            progress -= processCount * energyCost;
+            machine.setProgress(progress, { display: false });
         }
 
         machine.on();
