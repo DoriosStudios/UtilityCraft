@@ -345,7 +345,12 @@ export class Generator extends BasicMachine {
   static onDestroy(event: DestroyEventLike): boolean;
   /** Spawns and initializes a generator helper entity from placement data. */
   static spawnEntity(event: PlacementEventLike, config: GeneratorSettings, callback?: (entity: Entity) => void): void;
-  /** Adds six adjacent block positions as network tags on a generator entity. */
+  /**
+   * Adds six adjacent block positions as network tags on a generator entity.
+   *
+   * @deprecated Network tags are rebuilt through `updatePipes` from real placed
+   * energy blocks. Avoid registering all adjacent positions by default.
+   */
   static addNearbyMachines(entity: Entity): void;
   /** Opens the generator transfer mode menu for nearest, farthest, or round mode. */
   static openGeneratorTransferModeMenu(entity: Entity, player: Player): void;
@@ -419,7 +424,8 @@ export class EnergyStorage {
    * Transfers energy to connected network nodes.
    *
    * Network positions are read from cached dynamic properties/tags and processed
-   * according to the selected transfer mode.
+   * according to the selected transfer mode. Stale `pos:`/`net:` tags are removed
+   * when their position no longer contains an energy container entity.
    */
   transferToNetwork(speed: number, mode?: TransferMode): number;
 }

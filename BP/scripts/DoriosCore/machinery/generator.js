@@ -89,8 +89,8 @@ export class Generator extends BasicMachine {
    * player's main hand, then applies those values to the newly created entity.
    *
    * After spawning, the entity's energy capacity, fluid capacity (if defined),
-   * and display elements are initialized. Nearby machines are also registered
-   * and adjacent pipe networks are updated.
+   * and display elements are initialized. Adjacent pipe networks are updated so
+   * connected generators can rebuild their real network tags from placed blocks.
    *
    * @param {{
    *   block: import("@minecraft/server").Block,
@@ -126,7 +126,6 @@ export class Generator extends BasicMachine {
           fluidManager.set(fluid.amount);
         }
       }
-      this.addNearbyMachines(entity);
       system.run(() => {
         if (callback) {
           callback(entity);
@@ -146,6 +145,8 @@ export class Generator extends BasicMachine {
    *
    * @param {import("@minecraft/server").Entity} entity The entity, usually a generator or battery, to tag with nearby positions.
    * @returns {void}
+   * @deprecated Network tags are rebuilt through `updatePipes` from real placed
+   * energy blocks. Avoid registering all adjacent positions by default.
    */
   static addNearbyMachines(entity) {
     let { x, y, z } = entity.location;
