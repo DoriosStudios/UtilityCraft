@@ -36,9 +36,11 @@ DoriosAPI.register.blockComponent('simple_machine', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.transferItems()
-
         const inv = machine.container;
+        let outputSlot = inv.getItem(OUTPUTSLOT);
+        if (outputSlot && machine.transferItems()) {
+            outputSlot = inv.getItem(OUTPUTSLOT);
+        }
 
         //#region Comprobations
         // Get the input slot (slot 3 in this case)
@@ -70,7 +72,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
 
 
         // Get the output slot (usually the last one)
-        const outputSlot = inv.getItem(OUTPUTSLOT);
         // Output slot must either match the recipe result or be empty
         if (outputSlot && outputSlot.typeId !== recipe.output) {
             machine.showWarning('Recipe Conflict');

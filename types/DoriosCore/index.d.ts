@@ -16,6 +16,8 @@ export type DirectionName = "up" | "down" | "north" | "south" | "east" | "west";
 export type CardinalDirectionName = "north" | "south" | "east" | "west";
 /** Transfer order used by generator, battery, energy, and fluid network outputs. */
 export type TransferMode = "nearest" | "farthest" | "round";
+/** Transfer target categories cached by the output tracker. */
+export type OutputTransferType = "item" | "fluid";
 /** Scheduler profile ids used by the machinery refresh speed system. */
 export type SchedulerProfileId = "fast" | "normal" | "low";
 
@@ -304,8 +306,10 @@ export class Machine extends BasicMachine {
    * the placed item lore and applying optional rotation behavior.
    */
   static spawnEntity(event: PlacementEventLike, config: MachineSettings, callback?: (entity: Entity) => void): void;
-  /** Transfers output items toward the opposite side of the machine's facing axis. */
+  /** Transfers output items to the cached item output target, clearing stale targets. */
   transferItems(): boolean;
+  /** Returns whether the configured output slot or range contains items. */
+  hasOutputItems(): boolean;
   /** Pulls items from the vanilla container block above the machine into a slot. */
   pullItemsFromAbove(targetSlot: number): boolean;
   /** Sets progress using this machine's configured energy cost as the default max value. */
@@ -549,7 +553,7 @@ export class FluidStorage {
   setType(type: string): void;
   /** Transfers fluid to connected network nodes using the selected order. */
   transferToNetwork(speed: number, mode?: TransferMode, nodes?: Vector3[]): number;
-  /** Transfers fluid toward the opposite side of the source block's facing axis. */
+  /** Transfers fluid to the cached fluid output target, clearing stale targets. */
   transferFluids(block: Block, amount?: number): boolean;
   /** Transfers fluid from this tank to another tank. */
   transferTo(other: FluidStorage, amount: number): number;
@@ -620,6 +624,29 @@ export class TickScheduler {
   static handleSchedulerProfileScriptEvent(message: string): void;
   /** Handles cross-addon tick group count sync events. */
   static handleTickGroupScriptEvent(message: string): void;
+}
+
+/**
+ * Tracks cached machine output targets for item and fluid transfer.
+ *
+ * The tracker refreshes machines when relevant blocks are placed and provides
+ * a lazy fallback for machines that existed before the cache was written.
+ */
+export class OutputTracker {
+  /** Returns whether a block can receive the requested transfer type. */
+  static isOutputTarget(block: Block | undefined, type: OutputTransferType): boolean;
+  /** Returns the location in front of a machine's output side. */
+  static getOutputLocation(block: Block): Vector3 | undefined;
+  /** Reads a cached output target from a machine helper entity. */
+  static getOutputTarget(entity: Entity, type: OutputTransferType): Vector3 | undefined;
+  /** Stores a cached output target on a machine helper entity. */
+  static setOutputTarget(entity: Entity, type: OutputTransferType, target: Vector3): void;
+  /** Clears a cached output target from a machine helper entity. */
+  static clearOutputTarget(entity: Entity, type: OutputTransferType): void;
+  /** Recalculates and stores the output target for a machine block. */
+  static refreshOutput(block: Block, type: OutputTransferType): Vector3 | undefined;
+  /** Refreshes output targets for machine blocks adjacent to a placed target. */
+  static refreshAdjacentOutputs(block: Block, type: OutputTransferType): void;
 }
 
 /**

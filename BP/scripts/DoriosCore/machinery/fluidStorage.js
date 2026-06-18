@@ -1,5 +1,6 @@
 import { world, ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
+import { OutputTracker } from "./outputTracker.js";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
 
@@ -900,48 +901,33 @@ export class FluidStorage {
   }
 
   /**
-   * Transfers fluid from this tank or machine toward the opposite
-   * direction of its facing axis (`utilitycraft:axis`).
+   * Transfers fluid to this machine's cached fluid output target.
    *
    * ## Behavior
-   * - Reads `utilitycraft:axis` from the source block.
+   * - Reads the cached target from {@link OutputTracker}.
    * - Determines the **opposite direction vector** (e.g. east → west).
-   * - Locates the target block in that opposite direction.
-   * - If the target has the tag `"dorios:fluid"`, tries to transfer fluid to it.
+   * - Refreshes the target once from the block axis when no cache exists.
+   * - Clears stale targets when they no longer support fluid storage.
    * - If the target is a fluid tank with no entity, one is spawned empty first.
    * - Uses {@link FluidStorage.transferTo} to handle transfer and visual updates.
    *
    * @param {Block} block The source block associated with this fluid entity.
    * @param {number} [amount=100] Maximum amount to transfer (in mB).
-   * @returns {boolean} True if a valid transfer occurred, false otherwise.
+   * @returns {boolean} True if fluid was transferred.
    */
   transferFluids(block, amount = 100) {
     if (!block || !this.entity?.isValid) return false;
+    if (this.get() <= 0 || this.getType() === Constants.EMPTY_FLUID_TYPE) return false;
 
-    const facing = block.getState("utilitycraft:axis");
-    if (!facing) return false;
+    const targetLoc = OutputTracker.getOutputTarget(this.entity, "fluid") ?? OutputTracker.refreshOutput(block, "fluid");
+    if (!targetLoc) return false;
 
-    // Opposite direction vectors
-    const opposites = {
-      east: [-1, 0, 0],
-      west: [1, 0, 0],
-      north: [0, 0, 1],
-      south: [0, 0, -1],
-      up: [0, -1, 0],
-      down: [0, 1, 0],
-    };
-
-    const offset = opposites[facing];
-    if (!offset) return false;
-
-    const { x, y, z } = block.location;
-    const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
     const dim = block.dimension;
     const targetBlock = dim.getBlock(targetLoc);
-    if (!targetBlock) return false;
-
-    // Only proceed if the target block supports fluids
-    if (!targetBlock.hasTag("dorios:fluid") || targetBlock.hasTag("dorios:isTube")) return false;
+    if (!OutputTracker.isOutputTarget(targetBlock, "fluid")) {
+      OutputTracker.clearOutputTarget(this.entity, "fluid");
+      return false;
+    }
 
     let targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
 
@@ -953,10 +939,16 @@ export class FluidStorage {
       targetEntity = dim.getEntitiesAtBlockLocation(targetLoc)[0];
     }
 
-    if (!targetEntity) return false;
+    if (!targetEntity) {
+      OutputTracker.clearOutputTarget(this.entity, "fluid");
+      return false;
+    }
 
     const targetFluid = new FluidStorage(targetEntity, 0);
-    if (!targetFluid || targetFluid.getCap() <= 0) return false;
+    if (!targetFluid || targetFluid.getCap() <= 0) {
+      OutputTracker.clearOutputTarget(this.entity, "fluid");
+      return false;
+    }
 
     const transferred = this.transferTo(targetFluid, amount);
     return transferred > 0;

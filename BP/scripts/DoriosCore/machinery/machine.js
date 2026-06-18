@@ -3,6 +3,7 @@ import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
+import { OutputTracker } from "./outputTracker.js";
 import { TickScheduler } from "./tickScheduler.js";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
@@ -165,14 +166,12 @@ export class Machine extends BasicMachine {
     Utils.updateAdjacentNetwork(block, permutationToPlace);
   }
   /**
-   * Transfers items from this machine toward the opposite direction
-   * of its current facing axis (`utilitycraft:axis`).
+   * Transfers output items to this machine's cached item output target.
    *
    * ## Behavior
-   * - Reads `utilitycraft:axis` from the block permutation.
-   * - Determines the **opposite direction vector** (e.g. east → west).
-   * - Finds the block located in that opposite direction.
-   * - Calls {@link DoriosAPI.containers.transferItemsAt} to move items to the target container.
+   * - Uses the output slot range registered on the machine entity.
+   * - Reads the cached target from {@link OutputTracker}.
+   * - Calls {@link DoriosAPI.containers.transferItemsAt} and clears stale targets.
    *
    * Compatible with:
    * - Vanilla containers (chests, barrels, hoppers, etc.)
@@ -182,34 +181,44 @@ export class Machine extends BasicMachine {
    * - `"simple"` → transfers only the **last slot** (output).
    * - `"complex"` → transfers the **last 9 slots** (outputs).
    *
-   * @returns {boolean} True if the transfer was attempted, false otherwise.
+   * @returns {boolean} True when at least one item was moved.
    */
   transferItems() {
-    const facing = this.block.getState("utilitycraft:axis");
-    if (!facing) return false;
+    const range = DoriosAPI.containers.getAllowedOutputRange(this.entity);
+    const targetLoc = OutputTracker.getOutputTarget(this.entity, "item") ?? OutputTracker.refreshOutput(this.block, "item");
+    if (!targetLoc) return false;
 
-    // Opposite direction vectors
-    const opposites = {
-      east: [-1, 0, 0],
-      west: [1, 0, 0],
-      north: [0, 0, 1],
-      south: [0, 0, -1],
-      up: [0, -1, 0],
-      down: [0, 1, 0],
-    };
+    const moved = DoriosAPI.containers.transferItemsAt(this.container, targetLoc, this.dimension, range);
+    if (moved === -1) {
+      OutputTracker.clearOutputTarget(this.entity, "item");
+      return false;
+    }
 
-    const offset = opposites[facing];
-    if (!offset) return false;
+    return moved > 0;
+  }
 
-    const { x, y, z } = this.block.location;
-    const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
-
-    // Determine slot range based on type
+  /**
+   * Returns whether the configured output slot or slot range contains items.
+   *
+   * @returns {boolean} True when at least one registered output slot has an item.
+   */
+  hasOutputItems() {
     const range = DoriosAPI.containers.getAllowedOutputRange(this.entity);
 
-    // Execute transfer using DoriosAPI
-    DoriosAPI.containers.transferItemsAt(this.container, targetLoc, this.dimension, range);
-    return true;
+    if (typeof range === "number") {
+      return !!this.container.getItem(range);
+    }
+
+    if (!Array.isArray(range) || range.length !== 2) {
+      return false;
+    }
+
+    const [start, end] = range;
+    for (let slot = start; slot <= end; slot++) {
+      if (this.container.getItem(slot)) return true;
+    }
+
+    return false;
   }
 
   /**

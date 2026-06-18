@@ -31,9 +31,8 @@ DoriosAPI.register.blockComponent('autosieve', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.transferItems()
-
         const inv = machine.container;
+        if (machine.hasOutputItems()) machine.transferItems()
 
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INTPUTSLOT);

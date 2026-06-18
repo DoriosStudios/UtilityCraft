@@ -37,13 +37,16 @@ DoriosAPI.register.blockComponent('assembler', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.transferItems()
         const inv = machine.container;
 
         const size = inv.size;
         const OUTPUT_SLOT = size - 1;
         const INPUT_START = size - 10;
         const INPUT_END = size - 2;
+        let outputSlot = inv.getItem(OUTPUT_SLOT);
+        if (outputSlot && machine.transferItems()) {
+            outputSlot = inv.getItem(OUTPUT_SLOT);
+        }
 
         const speedFactor = machine.upgrades.speed <= 1
             ? machine.upgrades.speed + 1
@@ -85,7 +88,6 @@ DoriosAPI.register.blockComponent('assembler', {
             return;
         }
 
-        const outputSlot = inv.getItem(OUTPUT_SLOT);
         const available = outputSlot
             ? (outputSlot.typeId === resultItem
                 ? Math.max(0, 64 - outputSlot.amount)

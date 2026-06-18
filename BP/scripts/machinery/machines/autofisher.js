@@ -614,9 +614,10 @@ DoriosAPI.register.blockComponent('autofisher', {
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return;
-        machine.transferItems();
 
         const inv = machine.container;
+        if (machine.hasOutputItems()) machine.transferItems();
+
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {
             machine.showWarning('No Net Item');
