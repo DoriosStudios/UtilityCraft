@@ -8,6 +8,15 @@
 			"is_experimental": false
 		},
 		"component_groups": {
+			"ender_hopper": {
+				"minecraft:collision_box": {
+					"height": 0.5,
+					"width": 0.5
+				},
+				"minecraft:scale": {
+					"value": 0.25
+				}
+			},
 			"despawn": {
 				"minecraft:instant_despawn": {}
 			}
@@ -44,10 +53,7 @@
 			},
 			"minecraft:collision_box": {
 				"height": 0.5,
-				"width": 0.5
-			},
-			"minecraft:scale": {
-				"value": 0.25
+				"width": 1
 			},
 			"minecraft:inventory": {
 				"inventory_size": 5,
@@ -81,6 +87,13 @@
 			}
 		},
 		"events": {
+			"utilitycraft:ender_hopper": {
+				"add": {
+					"component_groups": [
+						"ender_hopper"
+					]
+				}
+			},
 			"despawn": {
 				"sequence": [
 					{
