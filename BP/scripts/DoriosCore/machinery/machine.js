@@ -3,7 +3,7 @@ import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
-import * as TickScheduler from "./tickScheduler.js";
+import { TickScheduler } from "./tickScheduler.js";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
 

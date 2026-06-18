@@ -1,12 +1,7 @@
 import { system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import * as CoreConstants from "../DoriosCore/constants.js";
-import {
-  getGroupCounts,
-  getSchedulerProfile,
-  getSchedulerProfileConfig,
-  SCHEDULER_PROFILE_IDS,
-} from "../DoriosCore/machinery/tickScheduler.js";
+import { TickScheduler } from "../DoriosCore/machinery/tickScheduler.js";
 
 const STACK_REFILL_PROPERTY = "utilitycraft:stackRefillEnabled";
 const SCHEDULER_PROFILE_LABELS = ["Fast", "Normal", "Low"];
@@ -17,7 +12,7 @@ function isStackRefillEnabled(player) {
 }
 
 function getClosedIntervalLabel(profile) {
-  return getSchedulerProfileConfig(profile).closedInterval;
+  return TickScheduler.getSchedulerProfileConfig(profile).closedInterval;
 }
 
 DoriosAPI.register.command({
@@ -93,7 +88,7 @@ DoriosAPI.register.command({
   ],
   callback(origin, mode) {
     const profile = String(mode ?? CoreConstants.DEFAULT_SCHEDULER_PROFILE).toLowerCase();
-    const config = getSchedulerProfileConfig(profile);
+    const config = TickScheduler.getSchedulerProfileConfig(profile);
 
     system.sendScriptEvent(CoreConstants.SET_SCHEDULER_PROFILE_EVENT_ID, profile);
 
@@ -117,7 +112,7 @@ DoriosAPI.register.command({
   callback(origin, action) {
     if (action !== "List" && action !== "list") return;
 
-    const counts = getGroupCounts();
+    const counts = TickScheduler.getGroupCounts();
     const total = counts.reduce((sum, count) => sum + count, 0);
     const labels = ["A", "B", "C", "D", "E"];
     const lines = counts.map((count, index) => `\u00a77Group ${labels[index]}: \u00a7e${count}`);
@@ -151,8 +146,9 @@ DoriosAPI.register.itemComponent("settings", {
  * @param {import("@minecraft/server").Player} player
  */
 async function openUtilityCraftSettings(player) {
-  const currentProfile = getSchedulerProfile();
-  const currentProfileIndex = Math.max(0, SCHEDULER_PROFILE_IDS.indexOf(currentProfile));
+  const schedulerProfileIds = TickScheduler.getSchedulerProfileIds();
+  const currentProfile = TickScheduler.getSchedulerProfile();
+  const currentProfileIndex = Math.max(0, schedulerProfileIds.indexOf(currentProfile));
   const currentStackRefill = isStackRefillEnabled(player);
 
   const form = new ModalFormData()
@@ -191,7 +187,7 @@ async function openUtilityCraftSettings(player) {
   const formValues = Array.isArray(res.formValues) ? res.formValues : [];
   const profileIndex = formValues.find((value) => typeof value === "number" && Number.isFinite(value));
   const stackRefillEnabledValue = [...formValues].reverse().find((value) => typeof value === "boolean");
-  const profile = SCHEDULER_PROFILE_IDS[profileIndex] ?? currentProfile;
+  const profile = schedulerProfileIds[profileIndex] ?? currentProfile;
   const stackRefillEnabled = stackRefillEnabledValue ?? currentStackRefill;
 
   player.setDynamicProperty(STACK_REFILL_PROPERTY, stackRefillEnabled);
@@ -204,7 +200,7 @@ async function openUtilityCraftSettings(player) {
   }
 
   player.sendMessage(
-    `\u00a7aRefresh speed profile set to \u00a7e${getSchedulerProfileConfig(profile).label} \u00a77(Closed: ${getClosedIntervalLabel(profile)} ticks)`,
+    `\u00a7aRefresh speed profile set to \u00a7e${TickScheduler.getSchedulerProfileConfig(profile).label} \u00a77(Closed: ${getClosedIntervalLabel(profile)} ticks)`,
   );
   player.sendMessage(`\u00a77Auto Stack Refill: ${stackRefillEnabled ? "\u00a7aEnabled" : "\u00a7cDisabled"}`);
 }

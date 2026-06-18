@@ -3,7 +3,7 @@ import * as GlobalConstants from "../constants.js";
 import * as MachineryConstants from "../machinery/constants.js";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
-import * as TickScheduler from "../machinery/tickScheduler.js";
+import { TickScheduler } from "../machinery/tickScheduler.js";
 import * as Constants from "./constants.js";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";

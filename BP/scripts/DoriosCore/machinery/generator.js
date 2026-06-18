@@ -4,7 +4,7 @@ import { BasicMachine } from "./basicMachine";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
-import * as TickScheduler from "./tickScheduler.js";
+import { TickScheduler } from "./tickScheduler.js";
 import * as Utils from "../utils/entity";
 
 export class Generator extends BasicMachine {

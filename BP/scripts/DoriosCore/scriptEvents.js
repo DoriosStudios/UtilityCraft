@@ -3,7 +3,7 @@ import * as Constants from "./constants.js";
 import * as MachineryConstants from "./machinery/constants.js";
 import * as UtilsConstants from "./utils/constants.js";
 import { FluidStorage, Generator, Machine } from "DoriosCore/index.js";
-import { handleSchedulerProfileScriptEvent, handleTickGroupScriptEvent } from "./machinery/tickScheduler.js";
+import { TickScheduler } from "./machinery/tickScheduler.js";
 
 export const scriptEventHandler = {
     /**
@@ -260,7 +260,7 @@ export const scriptEventHandler = {
      * Supported payloads: "fast", "normal", "low".
      */
     [Constants.SET_SCHEDULER_PROFILE_EVENT_ID]: ({ message }) => {
-        handleSchedulerProfileScriptEvent(message);
+        TickScheduler.handleSchedulerProfileScriptEvent(message);
     },
     /**
      * ScriptEvent: "utilitycraft:tick_group"
@@ -273,6 +273,6 @@ export const scriptEventHandler = {
      * - "remove|1|addon_id"
      */
     [Constants.TICK_GROUP_EVENT_ID]: ({ message }) => {
-        handleTickGroupScriptEvent(message);
+        TickScheduler.handleTickGroupScriptEvent(message);
     }
 }
