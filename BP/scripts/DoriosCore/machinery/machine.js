@@ -11,11 +11,11 @@ export class Machine extends BasicMachine {
   /**
    * Creates a new Machine instance.
    *
-   * @param {Block} block The block representing the machine.
-   * @param {MachineSettings} settings Machine configuration.
+   * @param {import("@minecraft/server").Block} block The block representing the machine.
+   * @param {Object} settings Machine configuration.
    */
   constructor(block, settings) {
-    const baseRate = settings.machine.rate_speed_base ?? 0
+    const baseRate = settings.machine.rate_speed_base ?? 0;
     super(block, { rate: baseRate, ignoreTick: settings.ignoreTick });
     if (!this.valid) return;
 
@@ -27,7 +27,7 @@ export class Machine extends BasicMachine {
       this.upgrades = this.#getUpgradeLevels(machineSettings.upgrades);
       this.boosts = this.#calculateBoosts(this.upgrades);
       const adjustedRate = settings.machine.rate_speed_base * this.boosts.speed * this.boosts.consumption;
-      this.setRate(adjustedRate)
+      this.setRate(adjustedRate);
     }
   }
 
@@ -38,7 +38,13 @@ export class Machine extends BasicMachine {
    * - Removes the machine entity.
    * - Skips drop if the player is in Creative mode.
    *
-   * @param {{ block: Block, brokenBlockPermutation: BlockPermutationplayer: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
+   * @param {{
+   *   block: import("@minecraft/server").Block,
+   *   brokenBlockPermutation: import("@minecraft/server").BlockPermutation,
+   *   player?: import("@minecraft/server").Player,
+   *   dimension: import("@minecraft/server").Dimension
+   * }} e Event data containing the dimension, block, broken permutation, and player.
+   * @returns {boolean} True when a matching machine entity was found and queued for removal.
    */
   static onDestroy(e) {
     const { block, brokenBlockPermutation, player, dimension: dim } = e;
@@ -98,7 +104,7 @@ export class Machine extends BasicMachine {
    *   cancel?: boolean
    * }} e Event data containing the block location, player, and block permutation.
    *
-   * @param {MachineSettings} config Machine configuration used to define
+   * @param {Object} config Machine configuration used to define
    * the entity name, inventory size, and machine capacities.
    *
    * @param {(entity: import("@minecraft/server").Entity) => void} [callback]
@@ -145,7 +151,7 @@ export class Machine extends BasicMachine {
         }
       });
     });
-    Utils.updateAdjacentNetwork(block, permutationToPlace)
+    Utils.updateAdjacentNetwork(block, permutationToPlace);
   }
   /**
    * Transfers items from this machine toward the opposite direction
@@ -161,8 +167,7 @@ export class Machine extends BasicMachine {
    * - Vanilla containers (chests, barrels, hoppers, etc.)
    * - Dorios containers and machines with inventories
    *
-   * @param {"simple" | "complex"} [type="simple"]
-   * Determines which slots to transfer:
+   * Uses the output slot range registered on the machine entity.
    * - `"simple"` → transfers only the **last slot** (output).
    * - `"complex"` → transfers the **last 9 slots** (outputs).
    *

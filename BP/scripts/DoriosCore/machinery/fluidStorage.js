@@ -51,7 +51,7 @@ export class FluidStorage {
   /**
    * Checks whether this entity should preserve its fluid type tags while empty.
    *
-   * @returns {boolean}
+   * @returns {boolean} True when the entity has the constant fluid type tag.
    */
   hasFixedFluidType() {
     return this.entity.hasTag(Constants.CONSTANT_FLUID_TYPE_TAG);
@@ -89,9 +89,9 @@ export class FluidStorage {
   /**
    * Initializes multiple fluid tanks for an entity and updates maxLiquids.
    *
-   * @param {Entity} entity Machine entity
-   * @param {number} count Amount of supported fluids
-   * @returns {FluidStorage[]} Array of FluidStorage instances
+   * @param {Entity} entity Machine entity.
+   * @param {number} count Amount of supported fluids.
+   * @returns {FluidStorage[]} Array of FluidStorage instances.
    */
   static initializeMultiple(entity, count) {
     // Set scoreboard maxLiquids for this entity
@@ -1045,8 +1045,8 @@ export class FluidStorage {
    * @param {Block} block The block representing the tank.
    * @param {string} type The type of fluid to insert.
    * @param {number} amount Amount of fluid to insert in mB.
-   * @returns {Entity} entity if insertion was successful.
-   */
+   * @returns {Entity | undefined} The tank entity if insertion was successful.
+  */
   static addfluidToTank(block, type, amount) {
     const dim = block.dimension;
     const pos = block.location;

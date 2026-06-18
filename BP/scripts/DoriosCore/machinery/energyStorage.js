@@ -137,11 +137,11 @@ export class EnergyStorage {
    *
    * @param {string} input The string with formatted energy (e.g., "§r§7  Energy: 12.5 kDE / 256 kDE").
    * @param {number} index Which value to extract: 0 = current, 1 = max.
-   * @returns {number} The numeric value in base DE.
+   * @returns {number | undefined} The numeric value in base DE, or undefined when parsing fails.
    *
    * @example
-   * parseFormattedEnergy("§r§7  Energy: 12.5 kDE / 256 kDE", 0); // 12500
-   * parseFormattedEnergy("§r§7  Energy: 12.5 kDE / 256 kDE", 1); // 256000
+   * EnergyStorage.getEnergyFromText("§r§7  Energy: 12.5 kDE / 256 kDE", 0); // 12500
+   * EnergyStorage.getEnergyFromText("§r§7  Energy: 12.5 kDE / 256 kDE", 1); // 256000
    */
   static getEnergyFromText(input, index = 0) {
     // Remove Minecraft formatting codes
@@ -479,7 +479,7 @@ export class EnergyStorage {
   /**
    * Transfers energy from this entity to another Energy manager.
    *
-   * @param {Energy} other The target Energy instance.
+   * @param {EnergyStorage} other The target energy storage instance.
    * @param {number} amount The maximum amount to transfer.
    * @returns {number} The actual amount transferred.
    *
@@ -523,7 +523,7 @@ export class EnergyStorage {
   /**
    * Receives energy from another Energy manager.
    *
-   * @param {Energy} other The source Energy instance.
+   * @param {EnergyStorage} other The source energy storage instance.
    * @param {number} amount The maximum amount to receive.
    * @returns {number} The actual amount received.
    *

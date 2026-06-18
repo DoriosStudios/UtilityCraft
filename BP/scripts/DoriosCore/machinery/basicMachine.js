@@ -6,13 +6,17 @@ import * as Utils from "../utils/entity";
 
 export class BasicMachine {
   /**
-   * BasicMachine
+   * Creates a base machine runtime for a machine block.
    *
-   * Represents a simple machine.
+   * The constructor resolves the helper entity at the block location, checks
+   * the scheduler, and prepares common storage/container handles. If any
+   * required piece is missing, `valid` remains false and callers should skip
+   * machine logic.
    *
-   * @param {Block} block The block representing the machine.
-   * @param {number} [options.rate=16] baseRate Energy rate per tick (designed for 20 TPS logic).
-   * @param {boolean} [options.ignoreTick=false] Whether to ignore the refresh speed of the world or not.
+   * @param {import("@minecraft/server").Block} block The block representing the machine.
+   * @param {Object} options Constructor options.
+   * @param {number} [options.rate=16] Base rate designed for 20 TPS logic.
+   * @param {boolean} [options.ignoreTick=false] Whether to bypass scheduler throttling.
    */
   constructor(block, options) {
     this.valid = false;
@@ -23,7 +27,7 @@ export class BasicMachine {
     this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
-    const inventory = this.entity.getComponent("inventory")
+    const inventory = this.entity.getComponent("inventory");
     if (!inventory) return;
     this.container = inventory.container;
     this.baseRate = options.rate;
@@ -33,9 +37,11 @@ export class BasicMachine {
   }
 
   /**
-   * Sets a new base rate and updates the effective rate using tickSpeed.
+   * Sets a new base rate and updates the effective rate using the current
+   * scheduler processing interval.
    *
-   * @param {number} baseRate New base processing rate
+   * @param {number} baseRate New base processing rate.
+   * @returns {void}
    */
   setRate(baseRate) {
     this.baseRate = baseRate;

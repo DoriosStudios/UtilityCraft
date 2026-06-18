@@ -4,9 +4,9 @@ export class EntityManager {
   /**
    * Returns the geometric center of a bounding box.
    *
-   * @param {Vector3} min Minimum corner of the bounds.
-   * @param {Vector3} max Maximum corner of the bounds.
-   * @returns {Vector3} Center point between the two corners.
+   * @param {import("@minecraft/server").Vector3} min Minimum corner of the bounds.
+   * @param {import("@minecraft/server").Vector3} max Maximum corner of the bounds.
+   * @returns {import("@minecraft/server").Vector3} Center point between the two corners.
    */
   static getCenter(min, max) {
     return {
@@ -19,7 +19,7 @@ export class EntityManager {
   /**
    * Calculates the inclusive volume of a bounding box.
    *
-   * @param {{ min: Vector3, max: Vector3 }} bounds Bounding box to measure.
+   * @param {{ min: import("@minecraft/server").Vector3, max: import("@minecraft/server").Vector3 }} bounds Bounding box to measure.
    * @returns {number} Total amount of block positions contained in the bounds.
    */
   static getVolume(bounds) {
@@ -33,8 +33,8 @@ export class EntityManager {
   /**
    * Checks whether a position lies inside inclusive multiblock bounds.
    *
-   * @param {Vector3} pos Position to test.
-   * @param {{ min: Vector3, max: Vector3 }} bounds Bounding box to test against.
+   * @param {import("@minecraft/server").Vector3} pos Position to test.
+   * @param {{ min: import("@minecraft/server").Vector3, max: import("@minecraft/server").Vector3 }} bounds Bounding box to test against.
    * @returns {boolean} `true` if the position lies within the bounds.
    */
   static isInsideBounds(pos, bounds) {
@@ -56,8 +56,8 @@ export class EntityManager {
    * - Falls back to nearby entities in the `dorios:multiblock` family.
    * - Uses serialized multiblock bounds to determine ownership.
    *
-   * @param {Block} block Block belonging to or representing a multiblock.
-   * @returns {Entity | undefined} Matching controller entity if one is found.
+   * @param {import("@minecraft/server").Block} block Block belonging to or representing a multiblock.
+   * @returns {import("@minecraft/server").Entity | undefined} Matching controller entity if one is found.
    */
   static getEntityFromBlock(block) {
     if (!block) return;

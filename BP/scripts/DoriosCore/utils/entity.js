@@ -189,8 +189,9 @@ function persistRepresentedBlockId(entity, blockId) {
  * Spawns a UtilityCraft machine entity at the given block location
  * and initializes its inventory size and name tag.
  *
- * This version does NOT handle special machine types.
- * It only triggers the inventory event and assigns a name tag.
+ * The entity is assigned inventory size, name tag, represented block metadata,
+ * slot routing configuration, scoreboard identity, tick group, and optional
+ * type-specific entity event.
  *
  * @param {import("@minecraft/server").Block} block The block where the machine will be placed.
  * @param {Object} config Machine configuration object.
@@ -203,6 +204,7 @@ function persistRepresentedBlockId(entity, blockId) {
  * @param {number} [config.entity.input_slot] Single input slot.
  * @param {number} [config.entity.output_slot] Single output slot.
  * @param {boolean} [config.entity.fixed_fluid_types] Keeps fluid type tags even when tanks are empty.
+ * @param {string} [config.entity.type] Optional entity event suffix triggered after initialization.
  * @param {{x:number,y:number,z:number}} [config.spawn_offset] Optional spawn offset.
  *
  * @returns {import("@minecraft/server").Entity} The spawned entity.
@@ -274,7 +276,8 @@ export function spawnEntity(block, config) {
  * - Item Ducts compatibility
  *
  * @param {import("@minecraft/server").Entity} entity The entity that owns the container.
- * @param {{ input_range?: number[], output_range?: number[], block_id: String }} config Slot configuration object.
+ * @param {{ input_range?: number[], output_range?: number[], block_id: string }} config Slot configuration object.
+ * @returns {void}
  */
 export function registerSlotConfig(entity, config) {
   const slotRegister = {};
@@ -403,7 +406,8 @@ export function getEnergyAndFluidFromItem(item) {
 /**
  * Drops all items from a machine entity's inventory except UI elements.
  *
- * @param {Entity} entity The machine entity whose items will be dropped.
+ * @param {import("@minecraft/server").Entity} entity The machine entity whose items will be dropped.
+ * @returns {void}
  */
 export function dropAllItems(entity) {
   const inv = entity.getComponent("minecraft:inventory")?.container;

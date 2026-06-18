@@ -21,9 +21,10 @@ export class Rotation {
      * Equivalent to:
      *   /setblock ~~~ <typeId> ["utilitycraft:axis"="north"]
      *
-     * @param {Player} player The player placing the block.
-     * @param {Block} block The block reference (for position).
-     * @param {BlockPermutation} perm The block perm to place.
+     * @param {import("@minecraft/server").Player} player The player placing the block.
+     * @param {import("@minecraft/server").Block} block The block reference.
+     * @param {import("@minecraft/server").BlockPermutation} perm The block permutation to place.
+     * @returns {void}
      */
     static facing(player, block, perm) {
         const { x, y, z } = block.location;
@@ -77,8 +78,9 @@ export class Rotation {
      * - Supports both vanilla and UtilityCraft’s 24-axis rotation.
      * - Plays a click sound after successful rotation.
      *
-     * @param {Block} block The block being interacted with.
+     * @param {import("@minecraft/server").Block} block The block being interacted with.
      * @param {string} blockFace The face of the block that was clicked.
+     * @returns {void}
      */
     static handleRotation(block, blockFace) {
         // --- Handle UtilityCraft 24-axis rotation ---
@@ -136,8 +138,9 @@ export class Rotation {
      *    through the 4 lateral directions relative to the clicked face,
      *    and resets rotation to 0 for a clean orientation.
      *
-     * @param {Block} block The block being rotated.
+     * @param {import("@minecraft/server").Block} block The block being rotated.
      * @param {string} blockFace The clicked face (e.g. "north", "up").
+     * @returns {void}
      */
     static rotate_24(block, blockFace) {
         const perm = block.permutation;

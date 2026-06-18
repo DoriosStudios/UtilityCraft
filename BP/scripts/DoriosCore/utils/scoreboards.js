@@ -23,10 +23,10 @@ export function getOrCreateObjective(id, display = id) {
  * @param {Array<[string, string?]>} definitions
  * Array of [id, displayName] pairs.
  *
- * @param {Record<string, import("@minecraft/server").ScoreboardObjective>} [target]
- * Optional object where objectives will be stored.
+ * @param {Record<string, import("@minecraft/server").ScoreboardObjective>} target
+ * Object where objectives will be stored.
  *
- * @returns {typeof objectives}
+ * @returns {Record<string, import("@minecraft/server").ScoreboardObjective>}
  */
 export function loadObjectives(definitions, target) {
     for (const [id, display] of definitions) {
