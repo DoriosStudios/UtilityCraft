@@ -27,37 +27,37 @@ let cachedEnchantmentTypes = null;
 const ITEM_ID_FIXES = {
     'minecraft:lily_pad': 'minecraft:waterlily'
 };
-const AUTO_FISHER_ENCHANTMENT_SOURCES = Object.freeze([
-    Object.freeze({ entries: Object.freeze(['minecraft:protection', 'minecraft:fire_protection', 'minecraft:blast_protection', 'minecraft:projectile_protection']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:sharpness', 'minecraft:smite', 'minecraft:bane_of_arthropods', 'minecraft:density']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:silk_touch', 'minecraft:fortune']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:depth_strider', 'minecraft:frost_walker']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:multishot', 'minecraft:piercing', 'minecraft:breach']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:loyalty', 'minecraft:riptide']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:unbreaking']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:mending']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:efficiency']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:respiration']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:aqua_affinity']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:thorns']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:feather_falling']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:fire_aspect']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:knockback']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:looting']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:power']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:punch']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:flame']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:infinity']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:quick_charge']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:impaling']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:channeling']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:lure']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:luck_of_the_sea']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:soul_speed']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:swift_sneak']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:wind_burst']), weight: 1 }),
-    Object.freeze({ entries: Object.freeze(['minecraft:lunge']), weight: 1 })
-]);
+const AUTO_FISHER_ENCHANTMENT_SOURCES = [
+    { entries: ['minecraft:protection', 'minecraft:fire_protection', 'minecraft:blast_protection', 'minecraft:projectile_protection'], weight: 1 },
+    { entries: ['minecraft:sharpness', 'minecraft:smite', 'minecraft:bane_of_arthropods', 'minecraft:density'], weight: 1 },
+    { entries: ['minecraft:silk_touch', 'minecraft:fortune'], weight: 1 },
+    { entries: ['minecraft:depth_strider', 'minecraft:frost_walker'], weight: 1 },
+    { entries: ['minecraft:multishot', 'minecraft:piercing', 'minecraft:breach'], weight: 1 },
+    { entries: ['minecraft:loyalty', 'minecraft:riptide'], weight: 1 },
+    { entries: ['minecraft:unbreaking'], weight: 1 },
+    { entries: ['minecraft:mending'], weight: 1 },
+    { entries: ['minecraft:efficiency'], weight: 1 },
+    { entries: ['minecraft:respiration'], weight: 1 },
+    { entries: ['minecraft:aqua_affinity'], weight: 1 },
+    { entries: ['minecraft:thorns'], weight: 1 },
+    { entries: ['minecraft:feather_falling'], weight: 1 },
+    { entries: ['minecraft:fire_aspect'], weight: 1 },
+    { entries: ['minecraft:knockback'], weight: 1 },
+    { entries: ['minecraft:looting'], weight: 1 },
+    { entries: ['minecraft:power'], weight: 1 },
+    { entries: ['minecraft:punch'], weight: 1 },
+    { entries: ['minecraft:flame'], weight: 1 },
+    { entries: ['minecraft:infinity'], weight: 1 },
+    { entries: ['minecraft:quick_charge'], weight: 1 },
+    { entries: ['minecraft:impaling'], weight: 1 },
+    { entries: ['minecraft:channeling'], weight: 1 },
+    { entries: ['minecraft:lure'], weight: 1 },
+    { entries: ['minecraft:luck_of_the_sea'], weight: 1 },
+    { entries: ['minecraft:soul_speed'], weight: 1 },
+    { entries: ['minecraft:swift_sneak'], weight: 1 },
+    { entries: ['minecraft:wind_burst'], weight: 1 },
+    { entries: ['minecraft:lunge'], weight: 1 }
+];
 
 const sanitizeLootItemId = (id) => ITEM_ID_FIXES[id] ?? id;
 const resolveLootItemId = (loot) => sanitizeLootItemId(loot.item);
@@ -73,8 +73,6 @@ function resolveNetParams(netItem) {
         luck: params.luck ?? DEFAULT_LUCK
     };
 }
-
-const getTickSpeed = () => globalThis.tickSpeed ?? 10;
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const randomFloat = (min, max) => min + ((max - min) * Math.random());
@@ -105,24 +103,6 @@ function rollAmount(definition) {
         return DoriosAPI.math.randomInterval(min, max);
     }
     return definition ?? 1;
-}
-
-function ensureHiddenInputSlot(machine) {
-    const inv = machine.inv;
-    if (!inv) return;
-
-    const slotItem = inv.getItem(UNUSED_INPUT_SLOT);
-    if (!slotItem) {
-        machine.entity.setItem(UNUSED_INPUT_SLOT, UI_PLACEHOLDER_ITEM, 1, '');
-        return;
-    }
-
-    if (slotItem.typeId === UI_PLACEHOLDER_ITEM) return;
-
-    // Relocate misplaced items into the main inventory before locking the slot again.
-    inv.setItem(UNUSED_INPUT_SLOT, undefined);
-    machine.entity.setItem(UNUSED_INPUT_SLOT, UI_PLACEHOLDER_ITEM, 1, '');
-    machine.entity.tryAddItem(slotItem, undefined, true);
 }
 
 function getAllEnchantmentTypes() {
@@ -619,11 +599,10 @@ function createEquipmentDropStacks(loot, amount, netLuck = 0, netTier = 0) {
 DoriosAPI.register.blockComponent('autofisher', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnEntity(e, settings, (entity) => {
-            entity.setItem(3, UI_PLACEHOLDER_ITEM, 1, ' ');
+            entity.setItem(UNUSED_INPUT_SLOT, UI_PLACEHOLDER_ITEM, 1, ' ');
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
-            ensureHiddenInputSlot(machine);
             const player = e.player;
             if (player) {
                 player.sendMessage('§eAutoFisher placed! Ensure there is water nearby for it to function.§r');
@@ -635,24 +614,17 @@ DoriosAPI.register.blockComponent('autofisher', {
         const { block } = e;
         const machine = new Machine(block, settings);
         if (!machine.valid) return;
-        ensureHiddenInputSlot(machine);
-
-        const finalizeTick = () => {
-            machine.transferItems();
-            ensureHiddenInputSlot(machine);
-        };
+        machine.transferItems();
 
         const inv = machine.container;
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {
             machine.showWarning('No Net Item');
-            finalizeTick();
             return;
         }
 
         if (!hasWaterNearby(block)) {
             machine.showWarning('Need Water!');
-            finalizeTick();
             return;
         }
 
@@ -674,21 +646,18 @@ DoriosAPI.register.blockComponent('autofisher', {
 
         if (freeSlots <= 0) {
             machine.showWarning('Output Full');
-            finalizeTick();
             return;
         }
 
         if (machine.energy.get() <= 0) {
             machine.showWarning('No Energy');
-            finalizeTick();
             return;
         }
 
         const energyCost = settings.machine.energy_cost;
         machine.setEnergyCost(energyCost);
 
-        machine.baseRate = settings.machine.rate_speed_base * speedMultiplier * machine.boosts.speed * machine.boosts.consumption;
-        machine.rate = machine.baseRate * getTickSpeed();
+        machine.setRate(settings.machine.rate_speed_base * speedMultiplier * machine.boosts.speed * machine.boosts.consumption);
         const progress = machine.getProgress();
 
         if (progress >= energyCost) {
@@ -748,8 +717,6 @@ DoriosAPI.register.blockComponent('autofisher', {
             machine.energy.consume(energyToConsume);
             machine.addProgress(energyToConsume / consumption);
         }
-
-        finalizeTick();
 
         machine.on();
         machine.displayProgress();
