@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 
 DoriosAPI.register.blockComponent('block_breaker', {
     /**

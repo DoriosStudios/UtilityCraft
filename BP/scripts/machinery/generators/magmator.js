@@ -1,4 +1,4 @@
-import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
 

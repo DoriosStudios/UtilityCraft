@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
 const INPUTSLOT = 3

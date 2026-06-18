@@ -1,5 +1,5 @@
 import { ItemStack, EnchantmentTypes } from '@minecraft/server';
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 import { autoFisherConfig, autoFisherLoot } from '../../config/recipes/fisher.js';
 
 const NET_SLOT = 6;

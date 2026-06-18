@@ -1,5 +1,5 @@
 import { world } from '@minecraft/server'
-import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/index.js"
 
 const entitySettings = {
     name: "battery",

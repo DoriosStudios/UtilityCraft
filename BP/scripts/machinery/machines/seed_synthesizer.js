@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3

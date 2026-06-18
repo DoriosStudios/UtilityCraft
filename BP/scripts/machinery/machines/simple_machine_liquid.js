@@ -1,4 +1,4 @@
-import { Machine, FluidStorage } from "DoriosCore/machinery/index.js"
+import { Machine, FluidStorage } from "DoriosCore/index.js"
 import { melterRecipes } from "../../config/recipes/melter.js";
 
 const INPUTSLOT = 3

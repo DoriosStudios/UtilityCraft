@@ -1,7 +1,11 @@
 import { system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
-import * as CoreConstants from "../DoriosCore/constants.js";
-import { TickScheduler } from "../DoriosCore/machinery/tickScheduler.js";
+import {
+  DEFAULT_SCHEDULER_PROFILE,
+  SET_SCHEDULER_PROFILE_EVENT_ID,
+  SET_TICK_SPEED_EVENT_ID,
+  TickScheduler,
+} from "DoriosCore/index.js";
 
 const STACK_REFILL_PROPERTY = "utilitycraft:stackRefillEnabled";
 const SCHEDULER_PROFILE_LABELS = ["Fast", "Normal", "Low"];
@@ -61,7 +65,7 @@ DoriosAPI.register.command({
       return;
     }
 
-    system.sendScriptEvent(CoreConstants.SET_TICK_SPEED_EVENT_ID, `${finalValue}`);
+    system.sendScriptEvent(SET_TICK_SPEED_EVENT_ID, `${finalValue}`);
 
     source?.sendMessage(`\u00a7aLegacy tick speed set to \u00a7e${finalValue}`);
 
@@ -87,10 +91,10 @@ DoriosAPI.register.command({
     },
   ],
   callback(origin, mode) {
-    const profile = String(mode ?? CoreConstants.DEFAULT_SCHEDULER_PROFILE).toLowerCase();
+    const profile = String(mode ?? DEFAULT_SCHEDULER_PROFILE).toLowerCase();
     const config = TickScheduler.getSchedulerProfileConfig(profile);
 
-    system.sendScriptEvent(CoreConstants.SET_SCHEDULER_PROFILE_EVENT_ID, profile);
+    system.sendScriptEvent(SET_SCHEDULER_PROFILE_EVENT_ID, profile);
 
     origin.sourceEntity?.sendMessage(
       `\u00a7aRefresh speed profile set to \u00a7e${config.label} \u00a77(Closed: ${config.closedInterval} ticks, Open: 4 ticks)`,
@@ -193,7 +197,7 @@ async function openUtilityCraftSettings(player) {
   player.setDynamicProperty(STACK_REFILL_PROPERTY, stackRefillEnabled);
 
   try {
-    system.sendScriptEvent(CoreConstants.SET_SCHEDULER_PROFILE_EVENT_ID, profile);
+    system.sendScriptEvent(SET_SCHEDULER_PROFILE_EVENT_ID, profile);
   } catch {
     player.sendMessage("\u00a7cFailed to apply refresh speed profile.");
     return;

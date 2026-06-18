@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/machinery/index.js";
+import { Machine } from "DoriosCore/index.js";
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from "@minecraft/server";
 import { writeBlueprintData, sendBlueprintDataEvent } from "../blueprint.js";
