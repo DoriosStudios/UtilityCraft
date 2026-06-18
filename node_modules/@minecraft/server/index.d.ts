@@ -15,7 +15,7 @@
  * ```json
  * {
  *   "module_name": "@minecraft/server",
- *   "version": "2.7.0"
+ *   "version": "2.8.0"
  * }
  * ```
  *
@@ -781,6 +781,12 @@ export enum EntityComponentTypes {
     CursorInventory = 'minecraft:cursor_inventory',
     /**
      * @remarks
+     * Represents this entity's ender inventory properties.
+     *
+     */
+    EnderInventory = 'minecraft:ender_inventory',
+    /**
+     * @remarks
      * Provides access to a mob's equipment slots. This component
      * exists for all mob entities.
      *
@@ -1430,6 +1436,12 @@ export enum EntityHealCause {
      *
      */
     SelfHeal = 'SelfHeal',
+    /**
+     * @remarks
+     * Healing caused when Totem of Undying is activated.
+     *
+     */
+    TotemOfUndying = 'TotemOfUndying',
 }
 
 /**
@@ -2251,6 +2263,33 @@ export enum LiquidType {
 }
 
 /**
+ * Enum representing the different reasons why a locator bar
+ * operation may fail.
+ */
+export enum LocatorBarErrorReason {
+    /**
+     * @remarks
+     * The waypoint already exists in the locator bar and cannot be
+     * added again.
+     *
+     */
+    WaypointAlreadyExists = 'WaypointAlreadyExists',
+    /**
+     * @remarks
+     * The maximum number of waypoints has been reached and no more
+     * can be added.
+     *
+     */
+    WaypointLimitExceeded = 'WaypointLimitExceeded',
+    /**
+     * @remarks
+     * The specified waypoint does not exist in the locator bar.
+     *
+     */
+    WaypointNotFound = 'WaypointNotFound',
+}
+
+/**
  * Describes the memory of a device.
  */
 export enum MemoryTier {
@@ -2895,6 +2934,37 @@ export enum TintMethod {
 }
 
 /**
+ * Enum representing different texture icons that can be
+ * displayed for waypoints on the locator bar.
+ */
+export enum WaypointTexture {
+    /**
+     * @remarks
+     * Circle waypoint icon texture.
+     *
+     */
+    Circle = 'minecraft:circle',
+    /**
+     * @remarks
+     * Small square waypoint icon texture.
+     *
+     */
+    SmallSquare = 'minecraft:small_square',
+    /**
+     * @remarks
+     * Small star waypoint icon texture.
+     *
+     */
+    SmallStar = 'minecraft:small_star',
+    /**
+     * @remarks
+     * Square waypoint icon texture.
+     *
+     */
+    Square = 'minecraft:square',
+}
+
+/**
  * Used to specify the type of weather condition within the
  * world.
  */
@@ -2970,6 +3040,7 @@ export type EntityComponentTypeMap = {
     color: EntityColorComponent;
     color2: EntityColor2Component;
     cursor_inventory: PlayerCursorInventoryComponent;
+    ender_inventory: EntityEnderInventoryComponent;
     equippable: EntityEquippableComponent;
     fire_immune: EntityFireImmuneComponent;
     floats_in_liquid: EntityFloatsInLiquidComponent;
@@ -3004,6 +3075,7 @@ export type EntityComponentTypeMap = {
     'minecraft:color': EntityColorComponent;
     'minecraft:color2': EntityColor2Component;
     'minecraft:cursor_inventory': PlayerCursorInventoryComponent;
+    'minecraft:ender_inventory': EntityEnderInventoryComponent;
     'minecraft:equippable': EntityEquippableComponent;
     'minecraft:fire_immune': EntityFireImmuneComponent;
     'minecraft:floats_in_liquid': EntityFloatsInLiquidComponent;
@@ -4334,6 +4406,21 @@ export class BlockComponentBlockBreakEvent extends BlockEvent {
 }
 
 /**
+ * Contains information regarding a specific block permutation
+ * that was changed from a previous permutation.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class BlockComponentBlockStateChangeEvent extends BlockEvent {
+    private constructor();
+    /**
+     * @remarks
+     * The previous BlockPermutation.
+     *
+     */
+    readonly previousPermutation: BlockPermutation;
+}
+
+/**
  * Contains information regarding an event sent by an entity to
  * this block in the world.
  */
@@ -4578,6 +4665,106 @@ export class BlockComponentStepOnEvent extends BlockEvent {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class BlockComponentTickEvent extends BlockEvent {
     private constructor();
+}
+
+/**
+ * Contains information regarding a specific container block
+ * being closed.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class BlockContainerClosedAfterEvent extends BlockEvent {
+    private constructor();
+    /**
+     * @remarks
+     * The source of the block container being closed.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    closeSource: ContainerAccessSource;
+}
+
+/**
+ * Manages callbacks that are connected to when a block
+ * container is closed.
+ */
+export class BlockContainerClosedAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when a block container
+     * is closed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: BlockContainerClosedAfterEvent) => void,
+        options?: BlockContainerAccessEventOptions,
+    ): (arg0: BlockContainerClosedAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when a block container
+     * is closed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: BlockContainerClosedAfterEvent) => void): void;
+}
+
+/**
+ * Contains information regarding a specific container block
+ * being opened.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class BlockContainerOpenedAfterEvent extends BlockEvent {
+    private constructor();
+    /**
+     * @remarks
+     * The source of the block container being opened.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    openSource: ContainerAccessSource;
+}
+
+/**
+ * Manages callbacks that are connected to when a block
+ * container is opened.
+ */
+export class BlockContainerOpenedAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when a block container
+     * is opened.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: BlockContainerOpenedAfterEvent) => void,
+        options?: BlockContainerAccessEventOptions,
+    ): (arg0: BlockContainerOpenedAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when a block container
+     * is opened.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: BlockContainerOpenedAfterEvent) => void): void;
 }
 
 /**
@@ -5169,6 +5356,19 @@ export class BlockPrecipitationInteractionsComponent extends BlockComponent {
      * {@link LocationOutOfWorldBoundariesError}
      */
     accumulatesSnow(): boolean;
+    /**
+     * @remarks
+     * Returns `true` if this block can have snow within it, like a
+     * flower submerged in snow. Returns `false` if this block
+     * cannot have snow within it.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link LocationInUnloadedChunkError}
+     *
+     * {@link LocationOutOfWorldBoundariesError}
+     */
+    isSnowLoggable(): boolean;
     /**
      * @remarks
      * Returns `true` if rain will not go through the block.
@@ -5975,6 +6175,20 @@ export class CatmullRomSpline {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ClientSystemInfo extends SystemInfo {
     private constructor();
+    /**
+     * @remarks
+     * The locale selected by the client (e.g., en_US, fr_FR,
+     * ja_JP). Note that in most cases, server scripts should not
+     * use this property to manually localize text. Instead, use
+     * {@link RawMessage} with a translate field to send
+     * localization keys, allowing each client to resolve them in
+     * their own language automatically. Direct use of locale for
+     * localization is fragile and may produce unexpected results
+     * when players with different languages are on the same
+     * server.
+     *
+     */
+    readonly locale: string;
     /**
      * @remarks
      * The max render distance for the device in chunks.
@@ -7801,6 +8015,42 @@ export class Dimension {
      * ```
      */
     spawnParticle(effectName: string, location: Vector3, molangVariables?: MolangVariableMap): void;
+}
+
+/**
+ * Provides the functionality for registering custom
+ * dimensions. Custom dimensions can only be registered during
+ * the system startup event.
+ */
+export class DimensionRegistry {
+    private constructor();
+    /**
+     * @remarks
+     * Registers a new custom dimension type. Must be called during
+     * the system startup event. The dimension will be created
+     * using the void generator.
+     *
+     * This function can be called in early-execution mode.
+     *
+     * @param typeId
+     * The namespaced identifier for the custom dimension (e.g.,
+     * 'mypack:my_dimension'). Must include a namespace and use
+     * only valid identifier characters.
+     * @throws This function can throw errors.
+     *
+     * {@link CustomDimensionAlreadyRegisteredError}
+     *
+     * {@link CustomDimensionInvalidRegistryError}
+     *
+     * {@link CustomDimensionNameError}
+     *
+     * {@link CustomDimensionReloadNewDimensionError}
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link NamespaceNameError}
+     */
+    registerCustomDimension(typeId: string): void;
 }
 
 /**
@@ -9732,6 +9982,102 @@ export class EntityComponent extends Component {
 }
 
 /**
+ * Contains information regarding a specific entity container
+ * being closed.
+ */
+export class EntityContainerClosedAfterEvent {
+    private constructor();
+    /**
+     * @remarks
+     * The source of the entity container being closed.
+     *
+     */
+    readonly closeSource: ContainerAccessSource;
+    readonly entity: Entity;
+}
+
+/**
+ * Manages callbacks that are connected to when an entity
+ * container is closed.
+ */
+export class EntityContainerClosedAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity container
+     * is closed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: EntityContainerClosedAfterEvent) => void,
+        options?: EntityContainerAccessEventOptions,
+    ): (arg0: EntityContainerClosedAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity
+     * container is closed.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: EntityContainerClosedAfterEvent) => void): void;
+}
+
+/**
+ * Contains information regarding a specific entity container
+ * being opened.
+ */
+export class EntityContainerOpenedAfterEvent {
+    private constructor();
+    readonly entity: Entity;
+    /**
+     * @remarks
+     * The source of the entity container being opened.
+     *
+     */
+    readonly openSource: ContainerAccessSource;
+}
+
+/**
+ * Manages callbacks that are connected to when an entity
+ * container is opened.
+ */
+export class EntityContainerOpenedAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called when an entity container
+     * is opened.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: EntityContainerOpenedAfterEvent) => void,
+        options?: EntityContainerAccessEventOptions,
+    ): (arg0: EntityContainerOpenedAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback from being called when an entity
+     * container is opened.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: EntityContainerOpenedAfterEvent) => void): void;
+}
+
+/**
  * As part of the Ageable component, represents a set of items
  * that can be fed to an entity and the rate at which that
  * causes them to grow.
@@ -9822,6 +10168,28 @@ export class EntityDieAfterEventSignal {
      *
      */
     unsubscribe(callback: (arg0: EntityDieAfterEvent) => void): void;
+}
+
+/**
+ * Represents this entity's ender inventory properties. This
+ * component is always present on players and any items in its
+ * container will display for the player when they access an
+ * ender chest.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class EntityEnderInventoryComponent extends EntityComponent {
+    private constructor();
+    /**
+     * @remarks
+     * Defines the ender inventory container for this entity. The
+     * container will be undefined if the entity has been removed.
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidEntityError}
+     */
+    readonly container: Container;
+    static readonly componentId = 'minecraft:ender_inventory';
 }
 
 /**
@@ -12321,6 +12689,66 @@ export class EntityUnderwaterMovementComponent extends EntityAttributeComponent 
 }
 
 /**
+ * Contains information related to firing of a data driven
+ * entity version upgrade.
+ */
+export class EntityUpgradeAfterEvent {
+    private constructor();
+    /**
+     * @remarks
+     * Entity that the upgrade triggered on.
+     *
+     */
+    readonly entity: Entity;
+    /**
+     * @remarks
+     * Name of the data driven upgrade being triggered.
+     *
+     */
+    readonly upgradeId: string;
+    /**
+     * @remarks
+     * An updateable list of modifications to component state that
+     * are the effect of this triggered upgrade.
+     *
+     */
+    getModifiers(): DefinitionModifier[];
+}
+
+/**
+ * Contains event registration related to firing of a data
+ * driven entity version upgrade.
+ */
+export class EntityUpgradeAfterEventSignal {
+    private constructor();
+    /**
+     * @remarks
+     * Adds a callback that will be called after a data driven
+     * entity version upgrade is triggered.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    subscribe(
+        callback: (arg0: EntityUpgradeAfterEvent) => void,
+        options?: EntityDataDrivenTriggerEventOptions,
+    ): (arg0: EntityUpgradeAfterEvent) => void;
+    /**
+     * @remarks
+     * Removes a callback that will be called after a data driven
+     * entity version upgrade is triggered.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    unsubscribe(callback: (arg0: EntityUpgradeAfterEvent) => void): void;
+}
+
+/**
  * Used to differentiate the component group of a variant of an
  * entity from others. (e.g. ocelot, villager).
  */
@@ -12346,6 +12774,50 @@ export class EntityVariantComponent extends EntityComponent {
 export class EntityWantsJockeyComponent extends EntityComponent {
     private constructor();
     static readonly componentId = 'minecraft:wants_jockey';
+}
+
+/**
+ * Waypoint that tracks an entity's position. The waypoint
+ * automatically updates as the entity moves and becomes
+ * invalid when the entity is removed.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class EntityWaypoint extends Waypoint {
+    /**
+     * @remarks
+     * The entity being tracked by this waypoint.
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidWaypointError}
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    readonly entity: Entity;
+    /**
+     * @remarks
+     * The visibility rules that control when the waypoint is shown
+     * based on the entity's state (e.g., sneaking, invisible,
+     * dead).
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidWaypointError}
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    readonly entityRules: EntityVisibilityRules;
+    /**
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    constructor(
+        entity: Entity,
+        textureSelector: WaypointTextureSelector,
+        entityRules: EntityVisibilityRules,
+        color?: RGB,
+    );
 }
 
 /**
@@ -12931,6 +13403,10 @@ export class InputInfo {
  */
 // @ts-ignore Class inheritance allowed for native defined classes
 export class IsBabyCondition extends LootItemCondition {
+    private constructor();
+}
+
+export class ISerializable {
     private constructor();
 }
 
@@ -15099,6 +15575,173 @@ export class ListBlockVolume extends BlockVolumeBase {
 }
 
 /**
+ * Waypoint that points to a fixed location in the world.
+ * Unlike entity waypoints, location waypoints always remain
+ * valid and their position can be updated.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class LocationWaypoint extends Waypoint {
+    /**
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    constructor(dimensionLocation: DimensionLocation, textureSelector: WaypointTextureSelector, color?: RGB);
+    /**
+     * @remarks
+     * Updates the dimension and location that this waypoint points
+     * to.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param dimensionLocation
+     * The new {@link DimensionLocation} (dimension and
+     * coordinates) for the waypoint.
+     */
+    setDimensionLocation(dimensionLocation: DimensionLocation): void;
+}
+
+/**
+ * Manages the collection of waypoints displayed on a player's
+ * locator bar. Allows adding, removing, and querying waypoints
+ * with a maximum capacity limit.
+ *
+ * Invalid waypoints in the locator bar will be automatically
+ * removed in the next tick. This includes waypoints tied to
+ * entities that have been removed from the world.
+ *
+ * Note: You can control whether vanilla player waypoints are
+ * automatically added to the locator bar using the
+ * `playerWaypoints` {@link GameRule}. Accepted values are
+ * `off` (players are not shown on the locator bar) and
+ * `everyone` (all players are visible on the locator bar).
+ *
+ * Note: You can only modify, remove, or query waypoints that
+ * were added by this pack.
+ * @example sharedWaypoint.ts
+ * ```typescript
+ * /\*
+ * import { world, LocationWaypoint, WaypointTextureSelector, WaypointTexture } from "@minecraft/server"
+ *
+ * function sharedWaypoint() {
+ *   const players = world.getAllPlayers();
+ *
+ *   if (players.length < 2) {
+ *     console.warn("Need at least 2 players for this example.");
+ *     return;
+ *   }
+ *
+ *   const playerA = players[0];
+ *   const playerB = players[1];
+ *
+ *   // Create a single waypoint at a specific location
+ *   const textureSelector: WaypointTextureSelector = {
+ *     textureBoundsList: [
+ *       { lowerBound: 0, texture: WaypointTexture.Circle }
+ *     ]
+ *   };
+ *
+ *   const waypoint = new LocationWaypoint(
+ *     { dimension: playerA.dimension, x: 100, y: 64, z: 100 },
+ *     textureSelector,
+ *     { red: 1, green: 0, blue: 0 } // Initially red
+ *   );
+ *
+ *   // Add the same waypoint to both players' locator bars
+ *   playerA.locatorBar.addWaypoint(waypoint);
+ *   playerB.locatorBar.addWaypoint(waypoint);
+ *
+ *   // Change the color - this affects both players
+ *   waypoint.color = { red: 0, green: 1, blue: 0 }; // Now green for both players
+ * }
+ * *\/
+ * ```
+ */
+export class LocatorBar {
+    private constructor();
+    /**
+     * @remarks
+     * The current number of waypoints in the locator bar.
+     *
+     */
+    readonly count: number;
+    /**
+     * @remarks
+     * The maximum number of waypoints that can be added to the
+     * locator bar.
+     *
+     */
+    readonly maxCount: number;
+    /**
+     * @remarks
+     * Adds a waypoint to the locator bar. Throws an error if the
+     * waypoint already exists, the maximum waypoint limit has been
+     * reached, or the waypoint is invalid.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param waypoint
+     * The {@link Waypoint} to add to the locator bar.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link InvalidWaypointError}
+     *
+     * {@link LocatorBarError}
+     */
+    addWaypoint(waypoint: Waypoint): void;
+    /**
+     * @remarks
+     * Returns an array of all waypoints currently in the locator
+     * bar.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    getAllWaypoints(): Waypoint[];
+    /**
+     * @remarks
+     * Checks whether the specified waypoint exists in the locator
+     * bar.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param waypoint
+     * The {@link Waypoint} to check for.
+     */
+    hasWaypoint(waypoint: Waypoint): boolean;
+    /**
+     * @remarks
+     * Removes all waypoints from the locator bar, clearing it
+     * completely.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     */
+    removeAllWaypoints(): void;
+    /**
+     * @remarks
+     * Removes a specific waypoint from the locator bar. Returns an
+     * error if the waypoint does not exist in the locator bar.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @param waypoint
+     * The {@link Waypoint} to remove from the locator bar.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link LocatorBarError}
+     */
+    removeWaypoint(waypoint: Waypoint): void;
+}
+
+/**
  * Loot item function that drops extra items if the provided
  * tool has the looting enchant.
  */
@@ -15785,6 +16428,13 @@ export class Player extends Entity {
      * @throws This property can throw when used.
      */
     readonly level: number;
+    /**
+     * @remarks
+     * The player's Locator Bar. This property is used for managing
+     * waypoints displayed on the HUD.
+     *
+     */
+    readonly locatorBar: LocatorBar;
     /**
      * @remarks
      * Name of the player.
@@ -17661,6 +18311,39 @@ export class PlayerSwingStartAfterEventSignal {
 }
 
 /**
+ * Waypoint that tracks a player's position. Extends {@link
+ * EntityWaypoint} with additional player-specific visibility
+ * rules such as hidden state and spectator mode.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class PlayerWaypoint extends EntityWaypoint {
+    /**
+     * @remarks
+     * The {@link PlayerVisibilityRules} that control when the
+     * waypoint is shown based on the player's state (e.g., hidden,
+     * spectator mode, spectator viewing another spectator).
+     *
+     * @throws This property can throw when used.
+     *
+     * {@link InvalidWaypointError}
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    readonly playerRules: PlayerVisibilityRules;
+    /**
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    constructor(
+        player: Player,
+        textureSelector: WaypointTextureSelector,
+        playerRules: PlayerVisibilityRules,
+        color?: RGB,
+    );
+}
+
+/**
  * Represents how the potion effect is delivered.
  */
 export class PotionDeliveryType {
@@ -17858,6 +18541,149 @@ export class PressurePlatePushAfterEventSignal {
      *
      */
     unsubscribe(callback: (arg0: PressurePlatePushAfterEvent) => void): void;
+}
+
+/**
+ * The base class for a text primitive. Represents an object in
+ * the world and its base properties.
+ */
+export class PrimitiveShape {
+    private constructor();
+    /**
+     * @remarks
+     * The entity this shape is attached to. When set, this shape
+     * will copy the root location of the attached entity and the
+     * shape's position will be used as an offset.
+     *
+     */
+    attachedTo?: Entity;
+    /**
+     * @remarks
+     * The color of the shape.
+     *
+     */
+    color: RGBA;
+    /**
+     * @remarks
+     * The dimension the shape is visible within. If the dimension
+     * is undefined, it will display in all dimensions.
+     *
+     */
+    readonly dimension: Dimension;
+    /**
+     * @remarks
+     * Returns true if the shape has a limited time span before
+     * being removed.
+     *
+     */
+    readonly hasDuration: boolean;
+    /**
+     * @remarks
+     * The location of the shape.
+     *
+     */
+    readonly location: Vector3;
+    /**
+     * @remarks
+     * If defined, this distance will be used to determine how far
+     * away this primitive will be rendered for each client. By
+     * default the distance will match the client's render distance
+     * setting.
+     *
+     * Minimum Value: 0
+     */
+    maximumRenderDistance?: number;
+    /**
+     * @remarks
+     * The rotation of the shape (Euler angles - [Pitch, Yaw,
+     * Roll]).
+     *
+     */
+    rotation: Vector3;
+    /**
+     * @remarks
+     * The scale of the shape.
+     *
+     * Bounds: [-1000, 1000]
+     */
+    scale: number;
+    /**
+     * @remarks
+     * The time left (in seconds) until this shape is automatically
+     * removed. Returns undefined if the shape does not have a
+     * limited life-span.
+     *
+     */
+    timeLeft?: number;
+    /**
+     * @remarks
+     * The total initial time-span (in seconds) until this shape is
+     * automatically removed. Returns undefined if the shape does
+     * not have a limited life-span.
+     *
+     */
+    readonly totalTimeLeft?: number;
+    /**
+     * @remarks
+     * The list of players that this shape will be visible to. If
+     * left empty, the shape will be visible to all players.
+     *
+     */
+    visibleTo: Player[];
+    /**
+     * @remarks
+     * Removes this shape from the world. The shape can be re-added
+     * via the PrimitiveShapesManager's addText method.
+     *
+     */
+    remove(): void;
+    /**
+     * @remarks
+     * Set the location and dimension of the shape. If the
+     * dimension is undefined, it will display in all dimensions.
+     *
+     */
+    setLocation(location: DimensionLocation | Vector3): void;
+}
+
+/**
+ * Primitive Shapes class used to allow adding and removing
+ * text primitives to the world.
+ */
+export class PrimitiveShapesManager {
+    private constructor();
+    /**
+     * @remarks
+     * This is the maximum number of allowed primitive shapes.
+     *
+     */
+    readonly maxShapes: number;
+    /**
+     * @remarks
+     * Adds a new text primitive to the world.
+     *
+     * @param text
+     * The text primitive to be added.
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.EngineError}
+     *
+     * {@link PrimitiveShapeError}
+     */
+    addText(text: TextPrimitive, dimension?: Dimension): void;
+    /**
+     * @remarks
+     * Removes all text primitives from the world.
+     *
+     */
+    removeAll(): void;
+    /**
+     * @remarks
+     * Removes an instance of a text primitive from the world. This
+     * is equivalent to calling remove on the text itself.
+     *
+     */
+    removeText(text: TextPrimitive): void;
 }
 
 /**
@@ -19136,6 +19962,12 @@ export class StartupEvent {
      * This property can be read in early-execution mode.
      *
      */
+    readonly dimensionRegistry: DimensionRegistry;
+    /**
+     * @remarks
+     * This property can be read in early-execution mode.
+     *
+     */
     readonly itemComponentRegistry: ItemComponentRegistry;
 }
 
@@ -19144,7 +19976,8 @@ export class StartupEvent {
  * Structures can be placed in a world using the /structure
  * command or the {@link StructureManager} APIs.
  */
-export class Structure {
+// @ts-ignore Class inheritance allowed for native defined classes
+export class Structure extends ISerializable {
     private constructor();
     /**
      * @remarks
@@ -19379,6 +20212,18 @@ export class StructureManager {
      * Returns a Structure if it exists, otherwise undefined.
      */
     get(identifier: string): Structure | undefined;
+    /**
+     * @remarks
+     * Returns a list of all structures contained in behavior
+     * packs. Does not include structures saved to the world or in
+     * memory.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @returns
+     * The list of structure identifiers.
+     */
+    getPackStructureIds(): string[];
     /**
      * @remarks
      * Returns a list of all structures saved to the world and to
@@ -19854,6 +20699,72 @@ export class TargetBlockHitAfterEventSignal {
 }
 
 /**
+ * A primitive shape class that represents a text label in the
+ * world with a background.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class TextPrimitive extends PrimitiveShape {
+    /**
+     * @remarks
+     * If set to true, the text primitive will render the back-face
+     * of the background. Defaults to true but will always be false
+     * if 'useRotation' is set to false.
+     *
+     */
+    backfaceVisible: boolean;
+    /**
+     * @remarks
+     * The color of the background plate of the text. If set to
+     * undefined, it will use the default color.
+     *
+     */
+    backgroundColorOverride?: RGBA;
+    /**
+     * @remarks
+     * If set to true, the text will be hidden behind blocks or
+     * entities. By default this is set to false (will always
+     * render).
+     *
+     */
+    depthTest: boolean;
+    /**
+     * @remarks
+     * Get the text of the debug text shape. Returns the RawText of
+     * the debug text if `setText` was called with a RawMessage or
+     * a RawText object, otherwise returns a string.
+     *
+     */
+    readonly text: RawMessage | string;
+    /**
+     * @remarks
+     * If set to true, the text primitive will render the back-face
+     * of the text. Defaults to true but will always be false if
+     * 'useRotation' is set to false.
+     *
+     */
+    textBackfaceVisible: boolean;
+    /**
+     * @remarks
+     * If set to true, the text will not face the camera and
+     * instead will use the rotation from the shape.
+     *
+     */
+    useRotation: boolean;
+    constructor(location: DimensionLocation | Vector3, text: RawMessage | string);
+    /**
+     * @remarks
+     * Sets the text to display.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link minecraftcommon.ArgumentOutOfBoundsError}
+     *
+     * {@link RawMessageError}
+     */
+    setText(text: RawMessage | string): void;
+}
+
+/**
  * This manager is used to add, remove or query temporary
  * ticking areas to a dimension. These ticking areas are
  * limited by a fixed amount of ticking chunks per pack
@@ -20095,6 +21006,85 @@ export class TripWireTripAfterEventSignal {
 }
 
 /**
+ * Base class for waypoints displayed on the player's locator
+ * bar. Waypoints can track locations or entities and are
+ * rendered with customizable textures and colors.
+ *
+ * Waypoints act as shared handles that can be added to
+ * multiple players' locator bars. When you modify a waypoint's
+ * properties (such as color, texture, or enabled state), the
+ * changes are reflected for all players who have that waypoint
+ * in their locator bar. This allows you to efficiently manage
+ * waypoints across multiple players without creating separate
+ * instances for each player.
+ */
+export class Waypoint {
+    private constructor();
+    /**
+     * @remarks
+     * Optional {@link RGB} color tint applied to the waypoint
+     * icon. If not specified, the waypoint uses its default color.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    color?: RGB;
+    /**
+     * @remarks
+     * Controls whether the waypoint is currently displayed on the
+     * player's screen. When disabled, the waypoint is hidden but
+     * remains valid.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    isEnabled: boolean;
+    /**
+     * @remarks
+     * Returns whether the waypoint is currently valid. A waypoint
+     * becomes invalid when its tracked entity is no longer valid.
+     *
+     */
+    readonly isValid: boolean;
+    /**
+     * @remarks
+     * The {@link WaypointTextureSelector} that determines which
+     * icon texture is displayed for the waypoint based on distance
+     * or other criteria.
+     *
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    textureSelector: WaypointTextureSelector;
+    /**
+     * @remarks
+     * Gets the current {@link DimensionLocation} of the waypoint.
+     * For entity waypoints, this returns the entity's current
+     * position. For location waypoints, this returns the stored
+     * location.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     * @throws This function can throw errors.
+     *
+     * {@link InvalidWaypointError}
+     *
+     * {@link InvalidWaypointTextureSelectorError}
+     */
+    getDimensionLocation(): DimensionLocation;
+    /**
+     * @remarks
+     * Removes the waypoint from all locator bars it has been added
+     * to. This affects all players who have this waypoint in their
+     * locator bar.
+     *
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    remove(): void;
+}
+
+/**
  * Contains information related to changes in weather in the
  * environment.
  */
@@ -20274,6 +21264,13 @@ export class World {
      */
     readonly gameRules: GameRules;
     readonly isHardcore: boolean;
+    /**
+     * @remarks
+     * Manager for adding and removing primitive text objects in
+     * the world.
+     *
+     */
+    readonly primitiveShapesManager: PrimitiveShapesManager;
     /**
      * @remarks
      * Returns the general global scoreboard that applies to the
@@ -20493,6 +21490,14 @@ export class World {
      *
      */
     getMoonPhase(): MoonPhase;
+    /**
+     * @remarks
+     * Returns a map of pack setting name and value pairs.
+     *
+     * This function can be called in early-execution mode.
+     *
+     */
+    getPackSettings(): Record<string, boolean | number | string>;
     /**
      * @remarks
      * Returns a set of players based on a set of conditions
@@ -20749,6 +21754,22 @@ export class WorldAfterEvents {
     private constructor();
     /**
      * @remarks
+     * This event fires when a block container is closed.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly blockContainerClosed: BlockContainerClosedAfterEventSignal;
+    /**
+     * @remarks
+     * This event fires when a block container is opened.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly blockContainerOpened: BlockContainerOpenedAfterEventSignal;
+    /**
+     * @remarks
      * This event fires for each BlockLocation destroyed by an
      * explosion. It is fired after the blocks have already been
      * destroyed.
@@ -20784,6 +21805,22 @@ export class WorldAfterEvents {
      *
      */
     readonly effectAdd: EffectAddAfterEventSignal;
+    /**
+     * @remarks
+     * This event fires when an entity container is closed.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityContainerClosed: EntityContainerClosedAfterEventSignal;
+    /**
+     * @remarks
+     * This event fires when an entity container is opened.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityContainerOpened: EntityContainerOpenedAfterEventSignal;
     /**
      * @remarks
      * This event fires when an entity dies.
@@ -20873,6 +21910,12 @@ export class WorldAfterEvents {
      *
      */
     readonly entitySpawn: EntitySpawnAfterEventSignal;
+    /**
+     * @remarks
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly entityUpgrade: EntityUpgradeAfterEventSignal;
     /**
      * @remarks
      * This event is fired after an explosion occurs.
@@ -21378,6 +22421,26 @@ export interface BlockBoundingBox {
 }
 
 /**
+ * Options used to filter block container access events.
+ */
+export interface BlockContainerAccessEventOptions {
+    /**
+     * @remarks
+     * If present will filter which container access sources can
+     * trigger the event.
+     *
+     */
+    accessSourceFilter?: ContainerAccessSourceFilter;
+    /**
+     * @remarks
+     * If present will filter which container blocks can trigger
+     * the event.
+     *
+     */
+    blockFilter?: BlockFilter;
+}
+
+/**
  * Contains a set of events that will be raised for a block.
  * This object must be bound using the BlockRegistry.
  */
@@ -21389,6 +22452,7 @@ export interface BlockCustomComponent {
      *
      */
     beforeOnPlayerPlace?: (arg0: BlockComponentPlayerPlaceBeforeEvent, arg1: CustomComponentParameters) => void;
+    onBlockStateChange?: (arg0: BlockComponentBlockStateChangeEvent, arg1: CustomComponentParameters) => void;
     /**
      * @remarks
      * This function will be called when a specific block is
@@ -21777,6 +22841,31 @@ export interface CameraTargetOptions {
 }
 
 /**
+ * Represents the source of a container access.
+ */
+export interface ContainerAccessSource {
+    /**
+     * @remarks
+     * The entity that triggered the container access.
+     *
+     */
+    entity?: Entity;
+}
+
+/**
+ * Options for use when filtering container access sources.
+ */
+export interface ContainerAccessSourceFilter {
+    /**
+     * @remarks
+     * Filter options for the source entity accessing the
+     * container.
+     *
+     */
+    entityFilter?: EntityFilter;
+}
+
+/**
  * Rules that if broken on container operations will throw an
  * error.
  */
@@ -21891,6 +22980,32 @@ export interface CustomCommandResult {
      *
      */
     status: CustomCommandStatus;
+}
+
+export interface CustomTexture {
+    /**
+     * @remarks
+     * The height of the icon, in relative units. Value must be
+     * between 0.0 and 1.0, inclusive.
+     *
+     * Bounds: [0, 1]
+     */
+    iconHeight: number;
+    /**
+     * @remarks
+     * The width of the icon, in relative units. Value must be
+     * between 0.0 and 1.0, inclusive.
+     *
+     * Bounds: [0, 1]
+     */
+    iconWidth: number;
+    /**
+     * @remarks
+     * The resource path to the custom texture. This should be a
+     * valid string path to a texture asset.
+     *
+     */
+    path: string;
 }
 
 /**
@@ -22018,6 +23133,26 @@ export interface EntityApplyDamageOptions {
      *
      */
     damagingEntity?: Entity;
+}
+
+/**
+ * Options used to filter entity container access events.
+ */
+export interface EntityContainerAccessEventOptions {
+    /**
+     * @remarks
+     * If present will filter which container access sources can
+     * trigger the event.
+     *
+     */
+    accessSourceFilter?: ContainerAccessSourceFilter;
+    /**
+     * @remarks
+     * If present will filter which entity containers can trigger
+     * the event.
+     *
+     */
+    entityFilter?: EntityFilter;
 }
 
 /**
@@ -22693,6 +23828,36 @@ export interface EntityRaycastOptions extends EntityFilter {
 }
 
 /**
+ * Controls when a waypoint is visible based on the state of
+ * the entity it tracks. These rules allow filtering waypoint
+ * visibility by entity conditions like sneaking, invisibility,
+ * and death state.
+ */
+export interface EntityVisibilityRules {
+    /**
+     * @remarks
+     * Controls whether the waypoint is shown when the tracked
+     * entity is dead. If undefined, defaults to true.
+     *
+     */
+    showDead?: boolean;
+    /**
+     * @remarks
+     * Controls whether the waypoint is shown when the tracked
+     * entity is invisible. If undefined, defaults to true.
+     *
+     */
+    showInvisible?: boolean;
+    /**
+     * @remarks
+     * Controls whether the waypoint is shown when the tracked
+     * entity is sneaking. If undefined, defaults to true.
+     *
+     */
+    showSneaking?: boolean;
+}
+
+/**
  * Equal to operator.
  */
 export interface EqualsComparison {
@@ -23215,6 +24380,38 @@ export interface PlayerSwingEventOptions {
      *
      */
     swingSource?: EntitySwingSource;
+}
+
+/**
+ * Controls when a waypoint is visible based on player-specific
+ * states. Extends {@link EntityVisibilityRules} with
+ * additional rules for player-only states like hidden mode and
+ * spectator mode.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export interface PlayerVisibilityRules extends EntityVisibilityRules {
+    /**
+     * @remarks
+     * Controls whether the waypoint is shown when the tracked
+     * player is hidden. If undefined, defaults to true.
+     *
+     */
+    showHidden?: boolean;
+    /**
+     * @remarks
+     * Controls whether the waypoint is shown when the tracked
+     * player is in spectator mode. If undefined, defaults to true.
+     *
+     */
+    showSpectator?: boolean;
+    /**
+     * @remarks
+     * Controls whether the waypoint is shown when a spectator is
+     * viewing another spectator player. If undefined, defaults to
+     * true.
+     *
+     */
+    showSpectatorToSpectator?: boolean;
 }
 
 /**
@@ -23914,6 +25111,58 @@ export interface VectorXZ {
 }
 
 /**
+ * Defines a texture and the distance range in which it should
+ * be displayed. Used within a {@link WaypointTextureSelector}
+ * to create distance-based texture switching.
+ */
+export interface WaypointTextureBounds {
+    /**
+     * @remarks
+     * The lower distance bound for this texture. The texture is
+     * displayed when the distance to the waypoint is greater than
+     * this value. Value must be greater than or equal to 0.
+     *
+     * Minimum Value: 0
+     */
+    lowerBound: number;
+    /**
+     * @remarks
+     * The {@link WaypointTexture} or {@link CustomTexture} to
+     * display within this distance range.
+     *
+     */
+    texture: CustomTexture | WaypointTexture;
+    /**
+     * @remarks
+     * The upper distance bound for this texture. The texture is
+     * displayed when the distance to the waypoint is less than or
+     * equal to this value. If undefined, there is no upper limit.
+     * Value must be greater than or equal to 0.
+     *
+     * Minimum Value: 0
+     */
+    upperBound?: number;
+}
+
+/**
+ * Defines how waypoint textures change based on distance.
+ * Contains a list of texture bounds that determine which
+ * texture is displayed at different distance ranges.
+ */
+export interface WaypointTextureSelector {
+    /**
+     * @remarks
+     * An array of {@link WaypointTextureBounds} that define which
+     * textures are displayed at different distance ranges. The
+     * system evaluates these bounds to determine the appropriate
+     * texture based on the current distance to the waypoint. The
+     * list has a maximum size limit of 16.
+     *
+     */
+    textureBoundsList: WaypointTextureBounds[];
+}
+
+/**
  * Contains additional options for a playSound occurrence.
  */
 export interface WorldSoundOptions {
@@ -24048,6 +25297,44 @@ export class CustomComponentNameError extends Error {
     readonly reason: CustomComponentNameErrorReason;
 }
 
+/**
+ * Thrown when trying to register a custom dimension with a
+ * name that has already been registered.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class CustomDimensionAlreadyRegisteredError extends Error {
+    private constructor();
+}
+
+/**
+ * Thrown when trying to register a custom dimension outside of
+ * the system startup event.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class CustomDimensionInvalidRegistryError extends Error {
+    private constructor();
+}
+
+/**
+ * Thrown when trying to register a custom dimension with a
+ * name that contains invalid characters.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class CustomDimensionNameError extends Error {
+    private constructor();
+}
+
+/**
+ * Thrown after using the /reload command when trying to
+ * register a custom dimension that was not previously
+ * registered. New custom dimensions cannot be added during a
+ * reload.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class CustomDimensionReloadNewDimensionError extends Error {
+    private constructor();
+}
+
 // @ts-ignore Class inheritance allowed for native defined classes
 export class EnchantmentLevelOutOfBoundsError extends Error {
     private constructor();
@@ -24172,6 +25459,21 @@ export class InvalidStructureError extends Error {
 }
 
 /**
+ * Error thrown when attempting to perform operations on an
+ * invalid waypoint. A waypoint becomes invalid when it is
+ * removed or when the entity it tracks is no longer valid.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class InvalidWaypointError extends Error {
+    private constructor();
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class InvalidWaypointTextureSelectorError extends Error {
+    private constructor();
+}
+
+/**
  * Thrown when trying to register an item custom component with
  * a name that has already been registered.
  */
@@ -24228,6 +25530,24 @@ export class LocationOutOfWorldBoundariesError extends Error {
 }
 
 /**
+ * Error thrown when a locator bar operation fails. Contains a
+ * reason code indicating the specific cause of the error.
+ */
+// @ts-ignore Class inheritance allowed for native defined classes
+export class LocatorBarError extends Error {
+    private constructor();
+    /**
+     * @remarks
+     * The {@link LocatorBarErrorReason} code that indicates why
+     * the locator bar operation failed.
+     *
+     * This property can be read in early-execution mode.
+     *
+     */
+    readonly reason: LocatorBarErrorReason;
+}
+
+/**
  * Thrown when a name requires a namespace and an error occurs
  * when validating that namespace
  */
@@ -24244,6 +25564,11 @@ export class NamespaceNameError extends Error {
 
 // @ts-ignore Class inheritance allowed for native defined classes
 export class PlaceJigsawError extends Error {
+    private constructor();
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class PrimitiveShapeError extends Error {
     private constructor();
 }
 

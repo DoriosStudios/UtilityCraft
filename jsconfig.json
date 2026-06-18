@@ -7,6 +7,8 @@
     "checkJs": false,
     "baseUrl": ".",
     "paths": {
+      "DoriosCore": ["types/DoriosCore/index.d.ts"],
+      "DoriosCore/index.js": ["types/DoriosCore/index.d.ts"],
       "@utilitycraft/core": ["BP/scripts/DoriosCore/index.js"],
       "@utilitycraft/core/*": ["BP/scripts/DoriosCore/*"],
       "@utilitycraft/api": ["BP/scripts/DoriosAPI/index.js"],
@@ -14,6 +16,6 @@
       "@scripts/*": ["BP/scripts/*"]
     }
   },
-  "include": ["BP/scripts/**/*.js"],
+  "include": ["BP/scripts/**/*.js", "types/**/*.d.ts"],
   "exclude": ["node_modules", "builds", "packs", "Renders"]
 }
