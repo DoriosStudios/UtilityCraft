@@ -542,11 +542,12 @@ globalThis.DoriosAPI = {
      * @param {Vector3} loc World coordinates of the target.
      * @param {Dimension} dim Dimension where the target exists.
      * @param {number | [number, number]} range Slot index or range of slots to transfer.
+     * @returns {number} -1 when no valid target exists, 0 when nothing moved, or the amount moved.
      */
     transferItemsAt(initial, loc, dim, range) {
       /** @type {Container} */
       const sourceInv = initial?.getComponent?.("minecraft:inventory")?.container ?? initial;
-      if (!sourceInv) return;
+      if (!sourceInv) return 0;
 
       let target = null;
       try {
@@ -558,10 +559,10 @@ globalThis.DoriosAPI = {
           if (targetEntity) target = targetEntity;
         }
       } catch {
-        return false;
+        return -1;
       }
 
-      if (!target) return false;
+      if (!target) return -1;
 
       // Resolve range
       let start, end;
@@ -570,7 +571,7 @@ globalThis.DoriosAPI = {
       } else if (Array.isArray(range) && range.length === 2) {
         [start, end] = range;
       } else {
-        return; // invalid
+        return 0; // invalid
       }
 
       /** @type {EntityTypeFamilyComponent} */
@@ -579,14 +580,20 @@ globalThis.DoriosAPI = {
       const isDoriosContainer =
         tf?.hasTypeFamily("dorios:container") && !tf?.hasTypeFamily("dorios:complex_input") && !tf?.hasTypeFamily("dorios:simple_input") && !isMachineTarget;
 
+      let moved = 0;
+
       for (let slot = start; slot <= end; slot++) {
         let itemToTransfer = sourceInv.getItem(slot);
         if (!itemToTransfer) continue;
+        const beforeAmount = itemToTransfer.amount;
+        const beforeTypeId = itemToTransfer.typeId;
 
         if (DoriosAPI.constants.vanillaContainers.includes(target?.typeId) || isDoriosContainer) {
           /** @type {Container} */
           const targetInv = target.getComponent("inventory").container;
           sourceInv.transferItem(slot, targetInv);
+          const remaining = sourceInv.getItem(slot);
+          moved += beforeAmount - (remaining?.typeId === beforeTypeId ? remaining.amount : 0);
           continue;
         }
 
@@ -596,9 +603,11 @@ globalThis.DoriosAPI = {
         if (added === true) {
           // Fully transferred → clear the slot
           sourceInv.setItem(slot, undefined);
+          moved += beforeAmount;
         } else if (typeof added === "number") {
           // Partially transferred → reduce stack amount
           const newAmount = itemToTransfer.amount - added;
+          moved += added;
           if (newAmount > 0) {
             itemToTransfer.amount = newAmount;
             sourceInv.setItem(slot, itemToTransfer);
@@ -607,6 +616,8 @@ globalThis.DoriosAPI = {
           }
         }
       }
+
+      return moved;
     },
     /**
      * Transfers items between two world locations.

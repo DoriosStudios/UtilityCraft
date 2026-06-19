@@ -11,9 +11,10 @@ export class ActivationManager {
    * The fill is performed over several ticks to reduce the cost of a single
    * large `fill` command burst.
    *
-   * @param {{ min: Vector3, max: Vector3 }} bounds Bounding box to fill.
-   * @param {Dimension} dim Dimension where the fill commands should run.
+   * @param {{ min: import("@minecraft/server").Vector3, max: import("@minecraft/server").Vector3 }} bounds Bounding box to fill.
+   * @param {import("@minecraft/server").Dimension} dim Dimension where the fill commands should run.
    * @param {string} [blockId="minecraft:water"] Block identifier used to fill air.
+   * @returns {void}
    */
   static fillBlocks(bounds, dim, blockId = "minecraft:water") {
     const xA = bounds.min.x;
@@ -45,11 +46,11 @@ export class ActivationManager {
    * - Calculates and applies the resulting energy capacity.
    * - Marks the controller state as `on`.
    *
-   * @param {Entity} entity Controller entity representing the multiblock.
+   * @param {import("@minecraft/server").Entity} entity Controller entity representing the multiblock.
    * @param {{
    *   inputBlocks?: string[],
-   *   bounds?: { min: Vector3, max: Vector3 },
-   *   ventBlocks?: Vector3[],
+   *   bounds?: { min: import("@minecraft/server").Vector3, max: import("@minecraft/server").Vector3 },
+   *   ventBlocks?: import("@minecraft/server").Vector3[],
    *   components?: Record<string, number>,
    * }} structure Structure data returned by detection helpers.
    * @param {{ blockId?: string }} [fillBlocksConfig]

@@ -1,5 +1,5 @@
 import { system } from "@minecraft/server";
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 
 /**
  * Harvester Machine Component

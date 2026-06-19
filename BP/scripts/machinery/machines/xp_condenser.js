@@ -1,6 +1,6 @@
 import { world, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
-import { FluidStorage } from "DoriosCore/machinery/index.js"
+import { FluidStorage } from "DoriosCore/index.js"
 
 const tankCaps = {
     'utilitycraft:basic_fluid_tank': 8000,

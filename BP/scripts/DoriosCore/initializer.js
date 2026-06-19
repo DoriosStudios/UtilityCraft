@@ -10,12 +10,16 @@ globalThis[Constants.GLOBAL_WORLD_LOADED_KEY] = false;
 globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
 globalThis[Constants.GLOBAL_TICK_SPEED_KEY] = Constants.DEFAULT_TICK_SPEED;
 
+/**
+ * Advances the shared UtilityCraft tick counter on the same cadence as the
+ * current machine block tick base.
+ */
 system.runInterval(() => {
-    globalThis[Constants.GLOBAL_TICK_COUNT_KEY] += 2;
+    globalThis[Constants.GLOBAL_TICK_COUNT_KEY] += 4;
     if (globalThis[Constants.GLOBAL_TICK_COUNT_KEY] === 1000) {
         globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
     }
-}, 2);
+}, 4);
 
 /**
  * Initializes global scoreboard objectives and core runtime
@@ -24,7 +28,8 @@ system.runInterval(() => {
  * Responsibilities:
  * - Ensure energy-related objectives exist.
  * - Mark the world as loaded.
- * - Initialize global tick speed from dynamic property.
+ * - Initialize legacy global tick speed from dynamic property.
+ * - Preload the shared button item stack constructor dependency.
  *
  * This runs exactly once per world session.
  */

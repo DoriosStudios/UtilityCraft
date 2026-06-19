@@ -3,6 +3,7 @@ import * as Constants from "./constants.js";
 import * as MachineryConstants from "./machinery/constants.js";
 import * as UtilsConstants from "./utils/constants.js";
 import { FluidStorage, Generator, Machine } from "DoriosCore/index.js";
+import { TickScheduler } from "./machinery/tickScheduler.js";
 
 export const scriptEventHandler = {
     /**
@@ -251,5 +252,27 @@ export const scriptEventHandler = {
         } catch {
             console.warn("[UtilityCraft] Failed to parse tickSpeed payload.");
         }
+    },
+    /**
+     * ScriptEvent: "utilitycraft:set_scheduler_profile"
+     *
+     * Updates the background machine scheduler profile.
+     * Supported payloads: "fast", "normal", "low".
+     */
+    [Constants.SET_SCHEDULER_PROFILE_EVENT_ID]: ({ message }) => {
+        TickScheduler.handleSchedulerProfileScriptEvent(message);
+    },
+    /**
+     * ScriptEvent: "utilitycraft:tick_group"
+     *
+     * Synchronizes machine tick group counts between addons.
+     * Payload format:
+     * - "add|1"
+     * - "remove|1"
+     * - "add|1|addon_id"
+     * - "remove|1|addon_id"
+     */
+    [Constants.TICK_GROUP_EVENT_ID]: ({ message }) => {
+        TickScheduler.handleTickGroupScriptEvent(message);
     }
 }

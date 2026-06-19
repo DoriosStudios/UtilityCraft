@@ -1,43 +1,51 @@
 import { ItemStack } from "@minecraft/server";
-import * as GlobalConstants from "../constants.js";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
+import { TickScheduler } from "./tickScheduler.js";
 import * as Utils from "../utils/entity";
 
 export class BasicMachine {
   /**
-   * BasicMachine
+   * Creates a base machine runtime for a machine block.
    *
-   * Represents a simple machine.
+   * The constructor resolves the helper entity at the block location, checks
+   * the scheduler, and prepares common storage/container handles. If any
+   * required piece is missing, `valid` remains false and callers should skip
+   * machine logic.
    *
-   * @param {Block} block The block representing the machine.
-   * @param {number} [options.rate=16] baseRate Energy rate per tick (designed for 20 TPS logic).
-   * @param {boolean} [options.ignoreTick=false] Whether to ignore the refresh speed of the world or not.
+   * @param {import("@minecraft/server").Block} block The block representing the machine.
+   * @param {Object} options Constructor options.
+   * @param {number} [options.rate=16] Base rate designed for 20 TPS logic.
+   * @param {boolean} [options.ignoreTick=false] Whether to bypass scheduler throttling.
    */
   constructor(block, options) {
     this.valid = false;
-    if (!options.ignoreTick && !Utils.shouldProcess()) return;
     this.entity = Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
+    this.shouldUpdateUI = Utils.hasOpenUI(this.entity);
+    if (!options.ignoreTick && !TickScheduler.shouldProcessMachine(this.entity)) return;
     this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
-    const inventory = this.entity.getComponent("inventory")
+    const inventory = this.entity.getComponent("inventory");
     if (!inventory) return;
     this.container = inventory.container;
     this.baseRate = options.rate;
-    this.rate = options.rate * globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY];
+    this.processingInterval = TickScheduler.getProcessingInterval(this.entity);
+    this.rate = options.rate * this.processingInterval;
     this.valid = true;
   }
 
   /**
-   * Sets a new base rate and updates the effective rate using tickSpeed.
+   * Sets a new base rate and updates the effective rate using the current
+   * scheduler processing interval.
    *
-   * @param {number} baseRate New base processing rate
+   * @param {number} baseRate New base processing rate.
+   * @returns {void}
    */
   setRate(baseRate) {
     this.baseRate = baseRate;
-    this.rate = baseRate * globalThis[GlobalConstants.GLOBAL_TICK_SPEED_KEY];
+    this.rate = baseRate * this.processingInterval;
   }
 
   /**
@@ -50,6 +58,8 @@ export class BasicMachine {
    * @param {number} [slot=1] The inventory slot where the label will be placed.
    */
   setLabel(text, slot = 1) {
+    if (!this.shouldUpdateUI) return;
+
     const baseItem = this.container.getItem(slot) ?? new ItemStack(Constants.LABEL_ITEM_ID);
 
     if (Array.isArray(text)) {
@@ -134,6 +144,7 @@ export class BasicMachine {
    * @param {number} [options.scale=22] Maximum visual scale (e.g., 16 → 0–16).
    */
   displayProgress(maxValue = Constants.DEFAULT_PROGRESS_MAX, { slot = Constants.DEFAULT_PROGRESS_SLOT, type, index = 0, scale, legacy = false } = {}) {
+    if (!this.shouldUpdateUI) return;
     if (!maxValue || maxValue <= 0) return;
 
     const inv = this.container;
@@ -169,6 +180,8 @@ export class BasicMachine {
    * @param {number} [slot=0] The inventory slot index where the energy bar will be displayed.
    */
   displayEnergy(slot = 0) {
+    if (!this.shouldUpdateUI) return;
+
     this.energy.display(slot);
   }
 

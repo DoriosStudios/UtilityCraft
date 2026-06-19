@@ -1,4 +1,4 @@
-import { Machine, EnergyStorage } from "DoriosCore/machinery/index.js"
+import { Machine, EnergyStorage } from "DoriosCore/index.js"
 const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component
@@ -37,13 +37,16 @@ DoriosAPI.register.blockComponent('assembler', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.transferItems()
         const inv = machine.container;
 
         const size = inv.size;
         const OUTPUT_SLOT = size - 1;
         const INPUT_START = size - 10;
         const INPUT_END = size - 2;
+        let outputSlot = inv.getItem(OUTPUT_SLOT);
+        if (outputSlot && machine.transferItems()) {
+            outputSlot = inv.getItem(OUTPUT_SLOT);
+        }
 
         const speedFactor = machine.upgrades.speed <= 1
             ? machine.upgrades.speed + 1
@@ -85,7 +88,6 @@ DoriosAPI.register.blockComponent('assembler', {
             return;
         }
 
-        const outputSlot = inv.getItem(OUTPUT_SLOT);
         const available = outputSlot
             ? (outputSlot.typeId === resultItem
                 ? Math.max(0, 64 - outputSlot.amount)
@@ -98,7 +100,19 @@ DoriosAPI.register.blockComponent('assembler', {
         }
 
         const energyCost = settings.machine.energy_cost;
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
+        const progressCapacity = Math.max(0, energyCost - progress);
+        const energyToConsume = Math.min(
+            machine.energy.get(),
+            machine.rate / machine.boosts.speed,
+            progressCapacity * machine.boosts.consumption
+        );
+
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume / machine.boosts.consumption;
+            machine.setProgress(progress, { display: false });
+        }
 
         // --- 5) Processing Logic ---
         if (progress >= energyCost) {
@@ -125,12 +139,8 @@ DoriosAPI.register.blockComponent('assembler', {
             }
 
             // Consume progress
-            machine.addProgress(-energyCost);
-        } else {
-            // If not enough progress, continue charging with energy
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate / machine.boosts.speed);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
+            progress -= energyCost;
+            machine.setProgress(progress, { display: false });
         }
 
         // --- 6) Visuals and status ---

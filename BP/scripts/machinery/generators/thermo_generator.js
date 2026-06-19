@@ -1,4 +1,4 @@
-import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/index.js"
 
 export const heatSources = {
     'utilitycraft:blaze_block': 1.5,

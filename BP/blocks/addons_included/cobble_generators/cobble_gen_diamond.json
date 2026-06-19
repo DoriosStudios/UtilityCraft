@@ -43,7 +43,9 @@
 			}
 		},
 		"components": {
-			"utilitycraft:block_generator": {},
+			"utilitycraft:block_generator": {
+				"amount": 2
+			},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_cobble_gen_diamond",
@@ -60,8 +62,8 @@
 			},
 			"minecraft:tick": {
 				"interval_range": [
-					5,
-					5
+					10,
+					10
 				]
 			},
 			"minecraft:destructible_by_mining": {

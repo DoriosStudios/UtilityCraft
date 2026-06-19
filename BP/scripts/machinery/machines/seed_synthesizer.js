@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3
@@ -46,9 +46,8 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.transferItems()
-
         const inv = machine.container;
+        if (machine.hasOutputItems()) machine.transferItems()
 
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INTPUTSLOT);
@@ -94,7 +93,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             return;
         }
 
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
         const energyCost = recipe.cost * soil.cost
         machine.setEnergyCost(energyCost)
 
@@ -104,12 +103,23 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             return;
         }
 
-        // If there is enough progress accumulated to process
-        if (progress >= energyCost) {
-            const processCount = Math.min(
-                Math.floor(progress / energyCost),
-                inputSlot.amount
-            );
+        const consumption = machine.boosts.consumption
+        const maxAmountToCraft = inputSlot.amount;
+        const maxProgress = maxAmountToCraft * energyCost;
+        const progressCapacity = Math.max(0, maxProgress - progress);
+        const energyToConsume = Math.min(machine.energy.get(), machine.rate, progressCapacity * consumption);
+
+        if (energyToConsume > 0) {
+            machine.energy.consume(energyToConsume);
+            progress += energyToConsume / consumption;
+            machine.setProgress(progress, { display: false });
+        }
+
+        const processCount = Math.min(
+            Math.floor(progress / energyCost),
+            maxAmountToCraft
+        );
+        if (processCount > 0) {
             machine.blockSlots(settings.machine.upgrades)
 
             recipe.drops.forEach(loot => {
@@ -133,13 +143,8 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             machine.unblockSlots(settings.machine.upgrades)
 
             // Deduct progress and input items
-            machine.addProgress(-processCount * energyCost);
-        } else {
-            // If not enough progress, continue charging with energy
-            const consumption = machine.boosts.consumption
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, inputSlot.amount * energyCost * consumption);
-            machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / machine.boosts.consumption);
+            progress -= processCount * energyCost;
+            machine.setProgress(progress, { display: false });
         }
 
         // Update machine visuals and state

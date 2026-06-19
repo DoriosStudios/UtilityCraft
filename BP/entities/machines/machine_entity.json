@@ -5,7 +5,25 @@
 			"identifier": "utilitycraft:machine_entity",
 			"is_spawnable": false,
 			"is_summonable": true,
-			"is_experimental": false
+			"is_experimental": false,
+			"properties": {			
+				"utilitycraft:players": {
+					"type": "int",
+					"default": 0,
+					"range": [
+						0,
+						100
+					]
+				},
+				"utilitycraft:tick_group": {
+					"type": "int",
+					"default": 0,
+					"range": [
+						0,
+						5
+					]
+				}
+			}
 		},
 		"component_groups": {
 			"despawn": {

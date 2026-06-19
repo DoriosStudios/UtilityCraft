@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/machinery/index.js"
+import { Machine } from "DoriosCore/index.js"
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
 import { pressRecipes } from "../../config/recipes/press.js";
@@ -36,9 +36,11 @@ DoriosAPI.register.blockComponent('simple_machine', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.transferItems()
-
         const inv = machine.container;
+        let outputSlot = inv.getItem(OUTPUTSLOT);
+        if (outputSlot && machine.transferItems()) {
+            outputSlot = inv.getItem(OUTPUTSLOT);
+        }
 
         //#region Comprobations
         // Get the input slot (slot 3 in this case)
@@ -70,7 +72,6 @@ DoriosAPI.register.blockComponent('simple_machine', {
 
 
         // Get the output slot (usually the last one)
-        const outputSlot = inv.getItem(OUTPUTSLOT);
         // Output slot must either match the recipe result or be empty
         if (outputSlot && outputSlot.typeId !== recipe.output) {
             machine.showWarning('Recipe Conflict');
@@ -93,7 +94,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         }
         //#endregion
 
-        const progress = machine.getProgress();
+        let progress = machine.getProgress();
         const energyCost = recipe.cost ?? settings.machine.energy_cost;
         machine.setEnergyCost(energyCost)
 
@@ -104,30 +105,33 @@ DoriosAPI.register.blockComponent('simple_machine', {
         }
 
         const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, inputSlot.amount / required))
-        // If there is enough progress accumulated to process
-        if (progress >= energyCost) {
-            const processCount = Math.min(
-                Math.floor(progress / energyCost),
-                maxAmountToCraft
-            );
-            if (processCount > 0) {
-                // Add the processed items to the output
-                if (!outputSlot) {
-                    machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * recipeAmount);
-                } else {
-                    machine.entity.changeItemAmount(OUTPUTSLOT, processCount * recipeAmount);
-                }
+        const consumption = machine.boosts.consumption
+        const maxProgress = maxAmountToCraft * energyCost;
+        const progressCapacity = Math.max(0, maxProgress - progress);
+        const energyToConsume = Math.min(machine.energy.get(), machine.rate, progressCapacity * consumption);
 
-                // Deduct progress and input items
-                machine.addProgress(-processCount * energyCost);
-                machine.entity.changeItemAmount(INPUTSLOT, -processCount * required);
-            }
-        } else {
-            // If not enough progress, continue charging with energy
-            const consumption = machine.boosts.consumption
-            const energyToConsume = Math.min(machine.energy.get(), machine.rate, maxAmountToCraft * energyCost * consumption);
+        if (energyToConsume > 0) {
             machine.energy.consume(energyToConsume);
-            machine.addProgress(energyToConsume / consumption);
+            progress += energyToConsume / consumption;
+            machine.setProgress(progress, { display: false });
+        }
+
+        const processCount = Math.min(
+            Math.floor(progress / energyCost),
+            maxAmountToCraft
+        );
+        if (processCount > 0) {
+            // Add the processed items to the output
+            if (!outputSlot) {
+                machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * recipeAmount);
+            } else {
+                machine.entity.changeItemAmount(OUTPUTSLOT, processCount * recipeAmount);
+            }
+
+            // Deduct progress and input items while preserving leftover progress.
+            progress -= processCount * energyCost;
+            machine.setProgress(progress, { display: false });
+            machine.entity.changeItemAmount(INPUTSLOT, -processCount * required);
         }
 
         // Update machine visuals and state

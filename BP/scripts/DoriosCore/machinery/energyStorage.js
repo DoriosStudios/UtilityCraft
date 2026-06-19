@@ -3,6 +3,34 @@ import * as Constants from "./constants.js";
 import { loadObjectives } from "../utils/scoreboards.js";
 import { initializeEntity } from "../utils/entity.js";
 
+const ENERGY_NETWORK_NODES_PROPERTY_ID = "dorios:energy_nodes";
+
+function getLocationKey(location) {
+  return `${Math.floor(location.x)},${Math.floor(location.y)},${Math.floor(location.z)}`;
+}
+
+function parseNetworkTag(tag) {
+  const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
+  if (![x, y, z].every(Number.isFinite)) return undefined;
+  return { x, y, z };
+}
+
+function removeInvalidNetworkNodes(entity, invalidKeys, targets) {
+  if (invalidKeys.size === 0) return;
+
+  for (const tag of entity.getTags()) {
+    if (!tag.startsWith("pos:[") && !tag.startsWith("net:[")) continue;
+
+    const location = parseNetworkTag(tag);
+    if (!location || invalidKeys.has(getLocationKey(location))) {
+      entity.removeTag(tag);
+    }
+  }
+
+  const filteredTargets = targets.filter((target) => !invalidKeys.has(getLocationKey(target)));
+  entity.setDynamicProperty(ENERGY_NETWORK_NODES_PROPERTY_ID, JSON.stringify(filteredTargets));
+}
+
 /**
  * Utility class to manage scoreboard-based energy values for entities.
  */
@@ -137,11 +165,11 @@ export class EnergyStorage {
    *
    * @param {string} input The string with formatted energy (e.g., "§r§7  Energy: 12.5 kDE / 256 kDE").
    * @param {number} index Which value to extract: 0 = current, 1 = max.
-   * @returns {number} The numeric value in base DE.
+   * @returns {number | undefined} The numeric value in base DE, or undefined when parsing fails.
    *
    * @example
-   * parseFormattedEnergy("§r§7  Energy: 12.5 kDE / 256 kDE", 0); // 12500
-   * parseFormattedEnergy("§r§7  Energy: 12.5 kDE / 256 kDE", 1); // 256000
+   * EnergyStorage.getEnergyFromText("§r§7  Energy: 12.5 kDE / 256 kDE", 0); // 12500
+   * EnergyStorage.getEnergyFromText("§r§7  Energy: 12.5 kDE / 256 kDE", 1); // 256000
    */
   static getEnergyFromText(input, index = 0) {
     // Remove Minecraft formatting codes
@@ -479,7 +507,7 @@ export class EnergyStorage {
   /**
    * Transfers energy from this entity to another Energy manager.
    *
-   * @param {Energy} other The target Energy instance.
+   * @param {EnergyStorage} other The target energy storage instance.
    * @param {number} amount The maximum amount to transfer.
    * @returns {number} The actual amount transferred.
    *
@@ -523,7 +551,7 @@ export class EnergyStorage {
   /**
    * Receives energy from another Energy manager.
    *
-   * @param {Energy} other The source Energy instance.
+   * @param {EnergyStorage} other The source energy storage instance.
    * @param {number} amount The maximum amount to receive.
    * @returns {number} The actual amount received.
    *
@@ -565,6 +593,8 @@ export class EnergyStorage {
    * - If the property doesn't exist or the entity has the `updateNetwork` tag,
    *   rebuilds the node list from its `pos:[x,y,z]` or `net:[x,y,z]` tags.
    * - Caches the list sorted by distance for performance.
+   * - Removes stale `pos:`/`net:` tags when a cached position no longer has an
+   *   entity in the `dorios:energy_container` family.
    *
    * ## Transfer Modes
    * - `"nearest"` → Transfers to the closest valid target first.
@@ -589,27 +619,36 @@ export class EnergyStorage {
     // ──────────────────────────────────────────────
     // Retrieve or rebuild cached network nodes
     // ──────────────────────────────────────────────
-    let nodes = this.entity.getDynamicProperty("dorios:energy_nodes");
+    let nodes = this.entity.getDynamicProperty(ENERGY_NETWORK_NODES_PROPERTY_ID);
     const needsUpdate = this.entity.hasTag("updateNetwork");
 
     if (!nodes || needsUpdate) {
       const positions = this.entity
         .getTags()
         .filter((tag) => tag.startsWith("pos:[") || tag.startsWith("net:["))
-        .map((tag) => {
-          const [x, y, z] = tag.slice(5, -1).split(",").map(Number);
-          return { x, y, z };
-        })
+        .map(parseNetworkTag)
+        .filter(Boolean)
         .sort((a, b) => DoriosAPI.math.distanceBetween(pos, a) - DoriosAPI.math.distanceBetween(pos, b));
 
-      this.entity.setDynamicProperty("dorios:energy_nodes", JSON.stringify(positions));
+      this.entity.setDynamicProperty(ENERGY_NETWORK_NODES_PROPERTY_ID, JSON.stringify(positions));
       this.entity.removeTag("updateNetwork");
       nodes = JSON.stringify(positions);
     }
 
     /** @type {{x:number,y:number,z:number}[]} */
-    const targets = JSON.parse(nodes);
+    let targets;
+    try {
+      targets = JSON.parse(nodes);
+      if (!Array.isArray(targets)) {
+        targets = [];
+        this.entity.setDynamicProperty(ENERGY_NETWORK_NODES_PROPERTY_ID, "[]");
+      }
+    } catch {
+      targets = [];
+      this.entity.setDynamicProperty(ENERGY_NETWORK_NODES_PROPERTY_ID, "[]");
+    }
     if (targets.length === 0) return 0;
+    const invalidKeys = new Set();
 
     // ──────────────────────────────────────────────
     // Select order based on transfer mode
@@ -622,10 +661,16 @@ export class EnergyStorage {
       const validEntities = [];
       for (const loc of orderedTargets) {
         const [target] = dim.getEntitiesAtBlockLocation(loc);
-        if (!target) continue;
+        if (!target) {
+          invalidKeys.add(getLocationKey(loc));
+          continue;
+        }
 
         const tf = target.getComponent("minecraft:type_family");
-        if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
+        if (!tf?.hasTypeFamily("dorios:energy_container")) {
+          invalidKeys.add(getLocationKey(loc));
+          continue;
+        }
         if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
 
         const energy = new EnergyStorage(target);
@@ -633,6 +678,7 @@ export class EnergyStorage {
       }
 
       if (validEntities.length === 0) {
+        removeInvalidNetworkNodes(this.entity, invalidKeys, targets);
         // avanzar igual aunque no haya válidos
         // this.entity.setDynamicProperty("dorios:energy_round_idx", (idx + 10) % orderedTargets.length);
         return 0;
@@ -665,10 +711,16 @@ export class EnergyStorage {
         if (available <= 0 || speed <= 0) break;
 
         const [target] = dim.getEntitiesAtBlockLocation(loc);
-        if (!target) continue;
+        if (!target) {
+          invalidKeys.add(getLocationKey(loc));
+          continue;
+        }
 
         const tf = target.getComponent("minecraft:type_family");
-        if (!tf?.hasTypeFamily("dorios:energy_container")) continue;
+        if (!tf?.hasTypeFamily("dorios:energy_container")) {
+          invalidKeys.add(getLocationKey(loc));
+          continue;
+        }
         if (isBattery && tf.hasTypeFamily("dorios:battery")) continue;
 
         const energy = new EnergyStorage(target);
@@ -688,6 +740,7 @@ export class EnergyStorage {
     // ──────────────────────────────────────────────
     // Apply total energy consumption
     // ──────────────────────────────────────────────
+    removeInvalidNetworkNodes(this.entity, invalidKeys, targets);
     if (transferred > 0) this.consume(transferred);
 
     return transferred;

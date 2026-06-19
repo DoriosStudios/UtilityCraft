@@ -1,5 +1,4 @@
-import { world } from '@minecraft/server'
-import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/index.js"
 
 const entitySettings = {
     name: "battery",
@@ -38,17 +37,11 @@ DoriosAPI.register.blockComponent('battery', {
         if (!generator.valid) return
 
         const { energy, rate, entity } = generator;
-        generator.energy.transferToNetwork(rate * 4)
-        const current = energy.get();
-
-        const lastEnergy = entity.getDynamicProperty('lastEnergy') ?? current;
-        const beforeTransfer = current;
-
-        // Calculate change since last tick (raw delta)
-        const delta = beforeTransfer - lastEnergy;
+        const beforeTransfer = energy.get();
+        const lastEnergy = entity.getDynamicProperty('lastEnergy') ?? beforeTransfer;
 
         // Transfer energy out (output)
-        const transferred = energy.transferToNetwork(rate / 100);
+        const transferred = energy.transferToNetwork(rate);
 
         // Get energy after transfer (final value)
         const afterTransfer = energy.get();
@@ -61,7 +54,7 @@ DoriosAPI.register.blockComponent('battery', {
 
         // Update capacity visuals
         block.setState('utilitycraft:capacity',
-            DoriosAPI.math.scaleToSetNumber(current, energy.cap, 6));
+            DoriosAPI.math.scaleToSetNumber(afterTransfer, energy.cap, 6));
 
         // Update visuals and label
         generator.on();
@@ -70,7 +63,7 @@ DoriosAPI.register.blockComponent('battery', {
 §r§eEnergy Information
 
 §r§bCapacity §f${Math.floor(energy.getPercent())}%%
-§r§bStored §f${EnergyStorage.formatEnergyToText(current)} / ${EnergyStorage.formatEnergyToText(energy.cap)}
+§r§bStored §f${EnergyStorage.formatEnergyToText(afterTransfer)} / ${EnergyStorage.formatEnergyToText(energy.cap)}
 
 §r§aInput §f${EnergyStorage.formatEnergyToText(input)}/t
 §r§cOutput §f${EnergyStorage.formatEnergyToText(output)}/t

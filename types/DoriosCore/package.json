@@ -1,0 +1,13 @@
+﻿{
+  "name": "DoriosCore",
+  "version": "0.0.0-private",
+  "private": true,
+  "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    "./index.js": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  }
+}

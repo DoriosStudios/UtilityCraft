@@ -3,6 +3,8 @@ import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
+import { OutputTracker } from "./outputTracker.js";
+import { TickScheduler } from "./tickScheduler.js";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
 
@@ -10,11 +12,11 @@ export class Machine extends BasicMachine {
   /**
    * Creates a new Machine instance.
    *
-   * @param {Block} block The block representing the machine.
-   * @param {MachineSettings} settings Machine configuration.
+   * @param {import("@minecraft/server").Block} block The block representing the machine.
+   * @param {Object} settings Machine configuration.
    */
   constructor(block, settings) {
-    const baseRate = settings.machine.rate_speed_base ?? 0
+    const baseRate = settings.machine.rate_speed_base ?? 0;
     super(block, { rate: baseRate, ignoreTick: settings.ignoreTick });
     if (!this.valid) return;
 
@@ -22,11 +24,22 @@ export class Machine extends BasicMachine {
     const machineSettings = settings.machine;
     if (!machineSettings) return;
 
+    this.upgrades = {
+      energy: 0,
+      range: 0,
+      speed: 0,
+      ultimate: 0,
+    };
+    this.boosts = {
+      speed: 1,
+      consumption: 1,
+    };
+
     if (machineSettings.upgrades) {
       this.upgrades = this.#getUpgradeLevels(machineSettings.upgrades);
       this.boosts = this.#calculateBoosts(this.upgrades);
       const adjustedRate = settings.machine.rate_speed_base * this.boosts.speed * this.boosts.consumption;
-      this.setRate(adjustedRate)
+      this.setRate(adjustedRate);
     }
   }
 
@@ -37,7 +50,13 @@ export class Machine extends BasicMachine {
    * - Removes the machine entity.
    * - Skips drop if the player is in Creative mode.
    *
-   * @param {{ block: Block, brokenBlockPermutation: BlockPermutationplayer: Player, dimension: Dimension }} e The event data object containing the dimension, block and player.
+   * @param {{
+   *   block: import("@minecraft/server").Block,
+   *   brokenBlockPermutation: import("@minecraft/server").BlockPermutation,
+   *   player?: import("@minecraft/server").Player,
+   *   dimension: import("@minecraft/server").Dimension
+   * }} e Event data containing the dimension, block, broken permutation, and player.
+   * @returns {boolean} True when a matching machine entity was found and queued for removal.
    */
   static onDestroy(e) {
     const { block, brokenBlockPermutation, player, dimension: dim } = e;
@@ -76,6 +95,7 @@ export class Machine extends BasicMachine {
           .find((item) => item.getComponent("minecraft:item")?.itemStack?.typeId === blockItemId);
         oldItemEntity?.remove();
       }
+      TickScheduler.releaseTickGroup(entity);
       Utils.dropAllItems(entity);
       entity.remove();
       dim.spawnItem(blockItem, block.center());
@@ -96,7 +116,7 @@ export class Machine extends BasicMachine {
    *   cancel?: boolean
    * }} e Event data containing the block location, player, and block permutation.
    *
-   * @param {MachineSettings} config Machine configuration used to define
+   * @param {Object} config Machine configuration used to define
    * the entity name, inventory size, and machine capacities.
    *
    * @param {(entity: import("@minecraft/server").Entity) => void} [callback]
@@ -143,55 +163,62 @@ export class Machine extends BasicMachine {
         }
       });
     });
-    Utils.updateAdjacentNetwork(block, permutationToPlace)
+    Utils.updateAdjacentNetwork(block, permutationToPlace);
   }
   /**
-   * Transfers items from this machine toward the opposite direction
-   * of its current facing axis (`utilitycraft:axis`).
+   * Transfers output items to this machine's cached item output target.
    *
    * ## Behavior
-   * - Reads `utilitycraft:axis` from the block permutation.
-   * - Determines the **opposite direction vector** (e.g. east → west).
-   * - Finds the block located in that opposite direction.
-   * - Calls {@link DoriosAPI.containers.transferItemsAt} to move items to the target container.
+   * - Uses the output slot range registered on the machine entity.
+   * - Reads the cached target from {@link OutputTracker}.
+   * - Calls {@link DoriosAPI.containers.transferItemsAt} and clears stale targets.
    *
    * Compatible with:
    * - Vanilla containers (chests, barrels, hoppers, etc.)
    * - Dorios containers and machines with inventories
    *
-   * @param {"simple" | "complex"} [type="simple"]
-   * Determines which slots to transfer:
+   * Uses the output slot range registered on the machine entity.
    * - `"simple"` → transfers only the **last slot** (output).
    * - `"complex"` → transfers the **last 9 slots** (outputs).
    *
-   * @returns {boolean} True if the transfer was attempted, false otherwise.
+   * @returns {boolean} True when at least one item was moved.
    */
   transferItems() {
-    const facing = this.block.getState("utilitycraft:axis");
-    if (!facing) return false;
+    const range = DoriosAPI.containers.getAllowedOutputRange(this.entity);
+    const targetLoc = OutputTracker.getOutputTarget(this.entity, "item") ?? OutputTracker.refreshOutput(this.block, "item");
+    if (!targetLoc) return false;
 
-    // Opposite direction vectors
-    const opposites = {
-      east: [-1, 0, 0],
-      west: [1, 0, 0],
-      north: [0, 0, 1],
-      south: [0, 0, -1],
-      up: [0, -1, 0],
-      down: [0, 1, 0],
-    };
+    const moved = DoriosAPI.containers.transferItemsAt(this.container, targetLoc, this.dimension, range);
+    if (moved === -1) {
+      OutputTracker.clearOutputTarget(this.entity, "item");
+      return false;
+    }
 
-    const offset = opposites[facing];
-    if (!offset) return false;
+    return moved > 0;
+  }
 
-    const { x, y, z } = this.block.location;
-    const targetLoc = { x: x + offset[0], y: y + offset[1], z: z + offset[2] };
-
-    // Determine slot range based on type
+  /**
+   * Returns whether the configured output slot or slot range contains items.
+   *
+   * @returns {boolean} True when at least one registered output slot has an item.
+   */
+  hasOutputItems() {
     const range = DoriosAPI.containers.getAllowedOutputRange(this.entity);
 
-    // Execute transfer using DoriosAPI
-    DoriosAPI.containers.transferItemsAt(this.container, targetLoc, this.dimension, range);
-    return true;
+    if (typeof range === "number") {
+      return !!this.container.getItem(range);
+    }
+
+    if (!Array.isArray(range) || range.length !== 2) {
+      return false;
+    }
+
+    const [start, end] = range;
+    for (let slot = start; slot <= end; slot++) {
+      if (this.container.getItem(slot)) return true;
+    }
+
+    return false;
   }
 
   /**

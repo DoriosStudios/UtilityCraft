@@ -1,4 +1,4 @@
-import { Generator, EnergyStorage } from "DoriosCore/machinery/index.js"
+import { Generator, EnergyStorage } from "DoriosCore/index.js"
 import { solidFuels } from "../../config/recipes/fuel.js";
 
 DoriosAPI.register.blockComponent('furnator', {

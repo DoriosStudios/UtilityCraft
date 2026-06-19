@@ -1,16 +1,27 @@
 import { system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
+import {
+  DEFAULT_SCHEDULER_PROFILE,
+  SET_SCHEDULER_PROFILE_EVENT_ID,
+  SET_TICK_SPEED_EVENT_ID,
+  TickScheduler,
+} from "DoriosCore/index.js";
 
 const STACK_REFILL_PROPERTY = "utilitycraft:stackRefillEnabled";
+const SCHEDULER_PROFILE_LABELS = ["Fast", "Normal", "Low"];
 
 function isStackRefillEnabled(player) {
   const value = player?.getDynamicProperty?.(STACK_REFILL_PROPERTY);
   return typeof value === "boolean" ? value : true;
 }
 
+function getClosedIntervalLabel(profile) {
+  return TickScheduler.getSchedulerProfileConfig(profile).closedInterval;
+}
+
 DoriosAPI.register.command({
-  name: "refreshspeed",
-  description: "Sets the global UtilityCraft tick speed",
+  name: "legacyrefreshspeed",
+  description: "Legacy global UtilityCraft tick speed setting",
   permissionLevel: "admin",
   parameters: [
     {
@@ -28,12 +39,12 @@ DoriosAPI.register.command({
     const source = origin.sourceEntity;
 
     const presets = {
-      lowest: { ticks: 40, impact: "low" },
-      low: { ticks: 20, impact: "Medlum" },
-      normal: { ticks: 10, impact: "normal" },
+      lowest: { ticks: 40, impact: "Low" },
+      low: { ticks: 20, impact: "Medium" },
+      normal: { ticks: 10, impact: "Normal" },
       fast: { ticks: 4, impact: "High" },
       fastest: { ticks: 2, impact: "Very High" },
-      default: { ticks: 20, impact: "Medlum" },
+      default: { ticks: 20, impact: "Medium" },
     };
 
     let finalValue;
@@ -41,7 +52,7 @@ DoriosAPI.register.command({
 
     if (mode === "Custom" || mode === "custom") {
       if (typeof value !== "number" || value <= 0) {
-        source?.sendMessage("§cCustom mode requires a valid number.");
+        source?.sendMessage("\u00a7cCustom mode requires a valid number.");
         return;
       }
       finalValue = Math.floor(value / 2) * 2;
@@ -50,28 +61,76 @@ DoriosAPI.register.command({
     }
 
     if (finalValue <= 0) {
-      source?.sendMessage("§cInvalid tick speed result.");
+      source?.sendMessage("\u00a7cInvalid tick speed result.");
       return;
     }
-    system.sendScriptEvent("utilitycraft:set_tick_speed", `${finalValue}`);
 
-    source?.sendMessage(`§aTick speed set to §e${finalValue}`);
+    system.sendScriptEvent(SET_TICK_SPEED_EVENT_ID, `${finalValue}`);
+
+    source?.sendMessage(`\u00a7aLegacy tick speed set to \u00a7e${finalValue}`);
 
     if (mode !== "Custom" && mode !== "custom") {
       source?.sendMessage(
-        `§7Mode: §f${mode.replace("_", " ")} §8| §7Impact: §f${preset.impact ?? "Variable"}`,
+        `\u00a77Mode: \u00a7f${mode.replace("_", " ")} \u00a78| \u00a77Impact: \u00a7f${preset.impact ?? "Variable"}`,
       );
     } else {
-      source?.sendMessage(
-        `§7Mode: §f${mode.replace("_", " ")} §8| §7Impact: §fVariable`,
-      );
+      source?.sendMessage("\u00a77Mode: \u00a7fCustom \u00a78| \u00a77Impact: \u00a7fVariable");
     }
+  },
+});
 
-    if (finalValue <= 4) {
-      source?.sendMessage(
-        "§cWarning: This tick speed has a high performance impact. " +
-        "Only recommended for powerful devices.",
-      );
+DoriosAPI.register.command({
+  name: "refreshspeed",
+  description: "Sets the UtilityCraft machine scheduler profile",
+  permissionLevel: "admin",
+  parameters: [
+    {
+      name: "mode",
+      type: "enum",
+      enum: SCHEDULER_PROFILE_LABELS,
+    },
+  ],
+  callback(origin, mode) {
+    const profile = String(mode ?? DEFAULT_SCHEDULER_PROFILE).toLowerCase();
+    const config = TickScheduler.getSchedulerProfileConfig(profile);
+
+    system.sendScriptEvent(SET_SCHEDULER_PROFILE_EVENT_ID, profile);
+
+    origin.sourceEntity?.sendMessage(
+      `\u00a7aRefresh speed profile set to \u00a7e${config.label} \u00a77(Closed: ${config.closedInterval} ticks, Open: 4 ticks)`,
+    );
+  },
+});
+
+DoriosAPI.register.command({
+  name: "tickgroups",
+  description: "Lists UtilityCraft machine tick group counts",
+  permissionLevel: "admin",
+  parameters: [
+    {
+      name: "action",
+      type: "enum",
+      enum: ["List"],
+    },
+  ],
+  callback(origin, action) {
+    if (action !== "List" && action !== "list") return;
+
+    const counts = TickScheduler.getGroupCounts();
+    const total = counts.reduce((sum, count) => sum + count, 0);
+    const labels = ["A", "B", "C", "D", "E"];
+    const lines = counts.map((count, index) => `\u00a77Group ${labels[index]}: \u00a7e${count}`);
+    const message = [
+      "\u00a7aUtilityCraft Tick Groups",
+      ...lines,
+      `\u00a77Total: \u00a7e${total}`,
+    ].join("\n");
+
+    const source = origin.sourceEntity;
+    if (source?.sendMessage) {
+      source.sendMessage(message);
+    } else {
+      world.sendMessage(message);
     }
   },
 });
@@ -82,76 +141,70 @@ DoriosAPI.register.itemComponent("settings", {
     if (!player) return;
 
     openUtilityCraftSettings(player);
-  }
+  },
 });
 
 /**
- * Opens the UtilityCraft Refresh Speed menu.
- *
- * Controls how often UtilityCraft machines visually update.
- * Does NOT affect processing speed.
+ * Opens the UtilityCraft settings menu.
  *
  * @param {import("@minecraft/server").Player} player
  */
 async function openUtilityCraftSettings(player) {
-  const currentSpeed = Number(world.getDynamicProperty("utilitycraft:tickSpeed") ?? 10);
+  const schedulerProfileIds = TickScheduler.getSchedulerProfileIds();
+  const currentProfile = TickScheduler.getSchedulerProfile();
+  const currentProfileIndex = Math.max(0, schedulerProfileIds.indexOf(currentProfile));
   const currentStackRefill = isStackRefillEnabled(player);
 
   const form = new ModalFormData()
     .title("UtilityCraft Settings")
-
     .label(
-      "§bRefresh Speed\n" +
-      "§7Controls how often machines visually update.\n" +
-      "§aLower§7 = smoother animation, higher performance cost.\n" +
-      "§aHigher§7 = less frequent updates, better performance.\n" +
-      "§7Does §bnot§7 affect machine processing speed."
+      "\u00a7bRefresh Speed\n" +
+      "\u00a77Controls how often closed machines process in the background.\n" +
+      "\u00a7aFast\u00a77 = current scheduler speed.\n" +
+      "\u00a7aNormal\u00a77 = double closed tick span.\n" +
+      "\u00a7aLow\u00a77 = 80 tick closed span.\n" +
+      "\u00a77Open machine UIs always refresh every 4 ticks.",
     )
-
-    .slider(
+    .dropdown(
       "Machine Refresh Speed",
-      2,
-      40,
+      SCHEDULER_PROFILE_LABELS,
       {
-        defaultValue: currentSpeed,
-        valueStep: 2
-      }
+        defaultValueIndex: currentProfileIndex,
+      },
     )
-
     .label(
-      "§bAuto Stack Refill\n" +
-      "§7Automatically refills your main hand stack from your inventory when it runs out.\n" +
-      "§7Works with blocks and items.\n" +
-      "§7Can be toggled on/off."
+      "\u00a7bAuto Stack Refill\n" +
+      "\u00a77Automatically refills your main hand stack from your inventory when it runs out.\n" +
+      "\u00a77Works with blocks and items.\n" +
+      "\u00a77Can be toggled on/off.",
     )
-
     .toggle(
       "Auto Stack Refill",
       {
-        defaultValue: currentStackRefill
-      }
-    )
+        defaultValue: currentStackRefill,
+      },
+    );
 
   const res = await form.show(player);
   if (res.canceled) return;
 
   const formValues = Array.isArray(res.formValues) ? res.formValues : [];
-  const refreshSpeedValue = formValues.find((value) => typeof value === "number" && Number.isFinite(value));
+  const profileIndex = formValues.find((value) => typeof value === "number" && Number.isFinite(value));
   const stackRefillEnabledValue = [...formValues].reverse().find((value) => typeof value === "boolean");
-
-  const selectedRefreshSpeed = Number.isFinite(refreshSpeedValue) ? refreshSpeedValue : currentSpeed;
-  const refreshSpeed = Math.max(2, Math.floor(Number(selectedRefreshSpeed) / 2) * 2);
+  const profile = schedulerProfileIds[profileIndex] ?? currentProfile;
   const stackRefillEnabled = stackRefillEnabledValue ?? currentStackRefill;
 
   player.setDynamicProperty(STACK_REFILL_PROPERTY, stackRefillEnabled);
 
   try {
-    system.sendScriptEvent("utilitycraft:set_tick_speed", `${refreshSpeed}`);
+    system.sendScriptEvent(SET_SCHEDULER_PROFILE_EVENT_ID, profile);
   } catch {
-    player.sendMessage("§cFailed to apply refresh speed.");
+    player.sendMessage("\u00a7cFailed to apply refresh speed profile.");
     return;
   }
 
-  player.sendMessage(`§aRefresh speed set to §e${refreshSpeed} ticks`);
-  player.sendMessage(`§7Auto Stack Refill: ${stackRefillEnabled ? "§aEnabled" : "§cDisabled"}`);
+  player.sendMessage(
+    `\u00a7aRefresh speed profile set to \u00a7e${TickScheduler.getSchedulerProfileConfig(profile).label} \u00a77(Closed: ${getClosedIntervalLabel(profile)} ticks)`,
+  );
+  player.sendMessage(`\u00a77Auto Stack Refill: ${stackRefillEnabled ? "\u00a7aEnabled" : "\u00a7cDisabled"}`);
 }
