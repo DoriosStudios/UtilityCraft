@@ -60,7 +60,7 @@
 			},
 			"cleanup_bundled_scripts": {
 				"runWith": "shell",
-				"command": "Move-Item BP/scripts/__bundle.js BP/__bundle.js; Remove-Item BP/scripts -Recurse -Force; New-Item -ItemType Directory BP/scripts | Out-Null; Move-Item BP/__bundle.js BP/scripts/__bundle.js"
+				"command": "node -e \"const fs=require('fs'); fs.renameSync('BP/scripts/__bundle.js','BP/__bundle.js'); fs.rmSync('BP/scripts',{recursive:true,force:true}); fs.mkdirSync('BP/scripts',{recursive:true}); fs.renameSync('BP/__bundle.js','BP/scripts/__bundle.js');\""
 			}
 		},
 		"formatVersion": "1.8.0",
