@@ -8,8 +8,8 @@
 		"url": "https://www.curseforge.com/members/doriosstudios/projects"
 	},
 	"header": {
-		"name": "§aUtilityCraft§8",
-		"description": "3.4.3 §6Dorios Studios",
+		"name": "§aUtilityCraft§r",
+		"description": "3.4.4 §6Dorios Studios",
 		"min_engine_version": [
 			1,
 			20,
@@ -19,7 +19,7 @@
 		"version": [
 			3,
 			4,
-			3
+			4
 		]
 	},
 	"modules": [
@@ -50,7 +50,7 @@
 			"version": [
 				3,
 				4,
-				3
+				4
 			]
 		},
 		{
