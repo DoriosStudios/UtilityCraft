@@ -7,16 +7,18 @@ on:
 jobs:
   build-addon:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       # Obtain release title (example: "UtilityCraft Heavy Machinery v0.1.0")
       - name: Get release title
         run: echo "REL_TITLE=${RELEASE_TITLE}" >> $GITHUB_ENV
         env:
-          RELEASE_TITLE: ${{ github.event.release.name }}
+          RELEASE_TITLE: ${{ github.event.release.name || github.event.release.tag_name }}
 
       # Sanitize title for filenames (replace spaces with underscores)
       - name: Sanitize title
@@ -51,8 +53,8 @@ jobs:
       - name: Create packs ZIP
         run: |
           mkdir pack_folder
-          mv "${REL_TITLE} BP.mcpack" pack_folder/
-          mv "${REL_TITLE} RP.mcpack" pack_folder/
+          cp "${REL_TITLE} BP.mcpack" pack_folder/
+          cp "${REL_TITLE} RP.mcpack" pack_folder/
           cd pack_folder
           zip -r "../$FILE_NAME-packs.zip" .
           cd ..
@@ -60,12 +62,12 @@ jobs:
 
       # Upload assets to the GitHub Release
       - name: Upload release assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
+          tag_name: ${{ github.event.release.tag_name }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             ${{ env.FILE_NAME }}.mcaddon
             ${{ env.FILE_NAME }}-packs.zip
             ${{ env.REL_TITLE }} BP.mcpack
             ${{ env.REL_TITLE }} RP.mcpack
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
