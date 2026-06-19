@@ -14,60 +14,59 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      # Obtain release title (example: "UtilityCraft Heavy Machinery v0.1.0")
-      - name: Get release title
-        run: echo "REL_TITLE=${RELEASE_TITLE}" >> $GITHUB_ENV
+      - name: Prepare release variables
         env:
-          RELEASE_TITLE: ${{ github.event.release.name || github.event.release.tag_name }}
-
-      # Sanitize title for filenames (replace spaces with underscores)
-      - name: Sanitize title
-        run: echo "FILE_NAME=$(echo \"$REL_TITLE\" | tr ' ' '_')" >> $GITHUB_ENV
-
-      # Create MCADDON
-      - name: Create MCAddon
+          RELEASE_TITLE: ${{ github.event.release.name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
-          mkdir temp_mcaddon
-          cp -r BP temp_mcaddon/BP
-          cp -r RP temp_mcaddon/RP
-          cd temp_mcaddon
-          zip -r "../$FILE_NAME.mcaddon" .
-          cd ..
-          rm -rf temp_mcaddon
+          TAG_NAME="${RELEASE_TAG:-$GITHUB_REF_NAME}"
 
-      # Create BP.mcpack with EXACT naming
-      - name: Create BP mcpack
+          if [ -z "$TAG_NAME" ]; then
+            echo "::error::Release tag could not be resolved."
+            exit 1
+          fi
+
+          REL_TITLE="${RELEASE_TITLE:-$TAG_NAME}"
+          FILE_NAME="$(printf '%s' "$REL_TITLE" | tr ' ' '_' | tr -cd '[:alnum:]_.-')"
+
+          if [ -z "$FILE_NAME" ]; then
+            FILE_NAME="$(printf '%s' "$TAG_NAME" | tr ' ' '_' | tr -cd '[:alnum:]_.-')"
+          fi
+
+          echo "TAG_NAME=$TAG_NAME" >> "$GITHUB_ENV"
+          echo "REL_TITLE=$REL_TITLE" >> "$GITHUB_ENV"
+          echo "FILE_NAME=$FILE_NAME" >> "$GITHUB_ENV"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Regolith
         run: |
-          cd BP
-          zip -r "../${REL_TITLE} BP.mcpack" .
-          cd ..
+          curl -L https://github.com/Bedrock-OSS/regolith/releases/download/1.8.0/regolith_1.8.0_linux_amd64.tar.gz -o regolith.tar.gz
+          tar -xzf regolith.tar.gz
+          sudo mv regolith /usr/local/bin/regolith
+          regolith --version
 
-      # Create RP.mcpack with EXACT naming
-      - name: Create RP mcpack
+      - name: Build dev addon
         run: |
-          cd RP
-          zip -r "../${REL_TITLE} RP.mcpack" .
-          cd ..
+          rm -rf build artifacts
+          regolith run build
+          mkdir -p artifacts
+          cd build
+          zip -r "../artifacts/${FILE_NAME}_dev.mcaddon" "UtilityCraft BP" "UtilityCraft RP"
 
-      # Create packs.zip containing the two mcpack files
-      - name: Create packs ZIP
+      - name: Build minified addon
         run: |
-          mkdir pack_folder
-          cp "${REL_TITLE} BP.mcpack" pack_folder/
-          cp "${REL_TITLE} RP.mcpack" pack_folder/
-          cd pack_folder
-          zip -r "../$FILE_NAME-packs.zip" .
-          cd ..
-          rm -rf pack_folder
+          rm -rf build
+          regolith run buildMinify
+          cd build
+          zip -r "../artifacts/${FILE_NAME}.mcaddon" "UtilityCraft BP" "UtilityCraft RP"
 
-      # Upload assets to the GitHub Release
       - name: Upload release assets
-        uses: softprops/action-gh-release@v3
-        with:
-          tag_name: ${{ github.event.release.tag_name }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: |
-            ${{ env.FILE_NAME }}.mcaddon
-            ${{ env.FILE_NAME }}-packs.zip
-            ${{ env.REL_TITLE }} BP.mcpack
-            ${{ env.REL_TITLE }} RP.mcpack
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "$TAG_NAME" \
+            "artifacts/${FILE_NAME}_dev.mcaddon" \
+            "artifacts/${FILE_NAME}.mcaddon" \
+            --clobber

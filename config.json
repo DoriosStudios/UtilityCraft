@@ -126,6 +126,24 @@
 						"filter": "cleanup_bundled_scripts"
 					}
 				]
+			},
+			"buildMinify": {
+				"export": {
+					"bpName": "project.name + ' BP'",
+					"rpName": "project.name + ' RP'",
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "minify_bundle_scripts"
+					},
+					{
+						"filter": "use_bundle_entry"
+					},
+					{
+						"filter": "cleanup_bundled_scripts"
+					}
+				]
 			}
 		}
 	}
