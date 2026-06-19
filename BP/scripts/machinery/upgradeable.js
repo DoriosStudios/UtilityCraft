@@ -21,10 +21,17 @@ DoriosAPI.register.blockComponent("upgradeable", {
             return;
         }
 
-        block.setState(upgradeKey, current + 1);
+        const nextLevel = current + 1;
+        const nextPermutation = tryCreateStatePermutation(block.permutation, upgradeKey, nextLevel);
+        if (!nextPermutation) {
+            player.onScreenDisplay.setActionBar(`§cCould not apply ${DoriosAPI.utils.formatIdToText(upgradeKey)} upgrade`);
+            return;
+        }
+
+        block.setPermutation(nextPermutation);
         player.runCommand(`clear @s ${mainHand.typeId} 0 1`);
 
-        player.onScreenDisplay.setActionBar(`§aApplied ${upgradeKey} upgrade (${current + 1}/${max})`);
+        player.onScreenDisplay.setActionBar(`§aApplied ${upgradeKey} upgrade (${nextLevel}/${max})`);
     },
     /**
      * Drop upgrade items when the block is broken
@@ -46,30 +53,44 @@ DoriosAPI.register.blockComponent("upgradeable", {
 })
 
 /**
- * Gets the maximum valid value of a block state by testing sequentially up to a theoretical maximum.
+ * Gets the maximum upgrade level supported by a block state.
  *
- * This function attempts to set the block state incrementally until it throws an error,
- * then returns the last valid value. By default it tests values from current+1 up to 16.
+ * This probes possible numeric values, but only accepts a value when the returned
+ * permutation still reports the same value. That keeps the behavior dynamic while
+ * avoiding states that silently normalize back to defaults.
  *
  * @param {import("@minecraft/server").Block} block Block to test the state on.
  * @param {string} key Block state key to test (e.g., "utilitycraft:speed").
- * @param {number} [maxTry=16] Maximum value to test (theoretical cap for integer states).
+ * @param {number} [maxTry=16] Maximum value to test.
  * @returns {number} Maximum valid state value for the given key, or 0 if the state does not exist.
  */
 function getMaxState(block, key, maxTry = 16) {
-    const perm = block.permutation;
-    const current = perm.getState(key);
-
+    const current = block.permutation.getState(key);
     if (current === undefined) return 0;
 
     let lastValid = current;
     for (let i = current + 1; i <= maxTry; i++) {
-        try {
-            perm.withState(key, i);
-            lastValid = i;
-        } catch {
-            break;
-        }
+        if (!tryCreateStatePermutation(block.permutation, key, i)) break;
+        lastValid = i;
     }
+
     return lastValid;
+}
+
+/**
+ * Attempts to create a permutation with a numeric state value and verifies that
+ * Bedrock did not silently normalize the value to another state.
+ *
+ * @param {import("@minecraft/server").BlockPermutation} permutation Source permutation.
+ * @param {string} key Block state key.
+ * @param {number} value State value to test.
+ * @returns {import("@minecraft/server").BlockPermutation | undefined} Valid permutation, if accepted.
+ */
+function tryCreateStatePermutation(permutation, key, value) {
+    try {
+        const nextPermutation = permutation.withState(key, value);
+        return nextPermutation.getState(key) === value ? nextPermutation : undefined;
+    } catch {
+        return undefined;
+    }
 }

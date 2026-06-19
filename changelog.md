@@ -86,6 +86,7 @@ This update focuses on performance, smoother machine behavior, cleaner transfer 
 - Fixed Mechanical Hopper placement to use the normal place event instead of the before-place event.
 - Fixed Mechanical Hopper speed permutations so they no longer redefine identical tick behavior.
 - Fixed hopper variant detection to avoid fragile string matching.
+- Fixed upgrade blocks accepting levels above their real maximum and resetting previous upgrades.
 
 ## OPTIMIZATIONS
 
