@@ -12,7 +12,6 @@
 			"minecraft:tags": {
 				"tags": [
 					"minecraft:is_pickaxe",
-					"minecraft:is_shovel",
 					"minecraft:is_tool",
 					"utilitycraft:is_hammer",
 					"minecraft:netherite_tier"
