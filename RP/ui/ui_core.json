@@ -31,6 +31,28 @@
         ]
     },
     "text_label": {
+        "type": "panel",
+        "$text_scale|default": 1,
+        "controls": [
+            {
+                "label_v1@uc._text_label_v1": {
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [0, 0],
+                    "$text_scale": "$text_scale"
+                }
+            },
+            {
+                "label_v2@uc._text_label_v2": {
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [0, 0],
+                    "$text_scale": "$text_scale"
+                }
+            }
+        ]
+    },
+    "_text_label_v1": {
         "type": "label",
         "text": "#hover_text",
         "color": [
@@ -48,6 +70,44 @@
                 "binding_collection_name": "container_items"
             }
         ]
+    },    
+    "_text_label_v2": {
+        "type": "label",
+        "text": "#displaying_text",
+        "color": [
+            0,
+            1,
+            0
+        ],
+        "layer": 1,
+        "$text_scale|default": 1,
+        "font_scale_factor": "$text_scale",
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_name_override": "#always_text",
+                "binding_condition": "always",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_name": "#hover_text",
+                "binding_name_override": "#displaying_text",
+                "binding_condition": "visibility_changed",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#always_text = #displaying_text)",
+                "target_property_name": "#always_equals_display"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#always_equals_display or (#always_text = '')))",
+                "target_property_name": "#visible"
+            }
+        ]
     },
     "machine_name": {
         "type": "panel",
@@ -63,6 +123,7 @@
             }
         ]
     },
+    
     "_slot_visual": {
         "type": "input_panel",
         "layer": 1,
