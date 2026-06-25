@@ -49,7 +49,7 @@ export const addonData = {
   name: "UtilityCraft",
   author: "Dorios Studios",
   identifier: "utilitycraft",
-  version: "3.4.4",
+  version: "3.4.5",
 };
 
 /**
