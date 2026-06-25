@@ -6,6 +6,7 @@ import './config/main.js'
 import './machinery/main.js'
 
 import './blocks/bonsai.js'
+import './qol/concrete_cauldron.js'
 import './blocks/cobble_generators.js'
 import './blocks/crucible.js'
 import './blocks/sieve.js'
