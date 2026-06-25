@@ -1,4 +1,4 @@
-# UtilityCraft v3.4.4
+# UtilityCraft v3.4.5
 
 This update focuses on performance, smoother machine behavior, cleaner transfer logic, and better creator-facing DoriosCore documentation.
 
