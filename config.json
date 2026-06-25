@@ -127,6 +127,14 @@
 					}
 				]
 			},
+			"buildDev": {
+				"export": {
+					"bpName": "project.name + ' BP'",
+					"rpName": "project.name + ' RP'",
+					"target": "local"
+				},
+				"filters": []
+			},
 			"buildMinify": {
 				"export": {
 					"bpName": "project.name + ' BP'",

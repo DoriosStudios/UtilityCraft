@@ -50,7 +50,7 @@ jobs:
       - name: Build dev addon
         run: |
           rm -rf build artifacts
-          regolith run build
+          regolith run buildDev
           mkdir -p artifacts
           cd build
           zip -r "../artifacts/${FILE_NAME}_dev.mcaddon" "UtilityCraft BP" "UtilityCraft RP"

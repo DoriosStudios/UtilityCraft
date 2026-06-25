@@ -80,6 +80,7 @@ This update focuses on performance, smoother machine behavior, cleaner transfer 
 - Fixed durability values for hammers.
 - Fixed a Bonsai/Pedestal bug that could cause item loss when breaking it.
 - Fixed a bug that caused Ender Hoppers to collect UI items when pressing buttons.
+- Fixed a UI bug that caused screen labels to flicker when taking an item.
 - Fixed Compressed Stone and Compressed Deepslate so they now drop their cobbled versions correctly when mined.
 - Fixed Battery energy transfer running with incorrect rate handling.
 - Fixed several cases where transfer logic could keep checking invalid or missing targets.
