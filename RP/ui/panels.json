@@ -27,7 +27,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 7
                 }
             },
             {
@@ -45,7 +45,7 @@
                         0.3,
                         0.3
                     ],
-                    "layer": 1,
+                    "layer": 8,
                     "font_scale_factor": 1
                 }
             },
@@ -81,7 +81,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 6,
+                    "layer": 7,
                     "alpha": 0.5
                 }
             },
@@ -99,7 +99,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 6,
+                    "layer": 7,
                     "alpha": 0.5
                 }
             },
@@ -117,7 +117,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 6,
+                    "layer": 7,
                     "alpha": 0.5,
                     "visible": "$has_third"
                 }
@@ -149,7 +149,8 @@
                         0,
                         0
                     ],
-                    "collection_index": "$index_1"
+                    "collection_index": "$index_1",
+                    "layer": 1
                 }
             },
             {
@@ -160,7 +161,8 @@
                         18,
                         0
                     ],
-                    "collection_index": "$index_2"
+                    "collection_index": "$index_2",
+                    "layer": 1
                 }
             },
             {
@@ -172,7 +174,8 @@
                         0
                     ],
                     "collection_index": "$index_3",
-                    "visible": "$has_third"
+                    "visible": "$has_third",
+                    "layer": 1
                 }
             }
         ]
