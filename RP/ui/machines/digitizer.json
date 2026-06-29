@@ -19,38 +19,11 @@
                 "machine_name@uc.machine_name": {}
             },
             {
-                "machine_screen@uc.machine_small_screen": {}
-            },
-            {
                 "energy_bar@uc.energy_bar": {
-                    "$has_bg": true,
+                    "$has_bg": false,
                     "offset": [
-                        -102,
+                        -72,
                         0
-                    ]
-                }
-            },
-            {
-                "upgrades@uc.slot_stack_vertical": {
-                    "$has_bg": true,
-                    "$collection_index_first": 4,
-                    "$collection_index_second": 5,
-                    "$has_third": false,
-                    "offset": [
-                        102,
-                        0
-                    ]
-                }
-            },
-            {
-                "machine_description@uc.text_label": {
-                    "collection_index": 1,
-                    "anchor_from": "top_left",
-                    "anchor_to": "top_left",
-                    "$text_scale": 0.55,
-                    "offset": [
-                        14,
-                        12
                     ]
                 }
             },
@@ -59,7 +32,7 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        12,
+                        -14,
                         13
                     ],
                     "$collection_index_1": 6,
@@ -78,7 +51,7 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        52,
+                        36,
                         24
                     ],
                     "collection_index": 2
@@ -89,10 +62,42 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        52,
+                        36,
                         10
                     ],
                     "collection_index": 3
+                }
+            },
+            {
+                "blueprint_overlay@uc.function_panel": {
+                    "collection_index": 3,
+                    "type": "panel",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        36,
+                        11
+                    ],
+                    "controls": [
+                        {
+                            "flame_clear_image": {
+                                "type": "image",
+                                "texture": "textures/items/machinery/blueprint_paper",
+                                "layer": 4,
+                                "alpha": 0.5,
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "size": [
+                                    16,
+                                    16
+                                ]
+                            }
+                        }
+                    ]
                 }
             },
             {
@@ -100,10 +105,236 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        78,
+                        72,
                         27
                     ],
                     "collection_index": 15
+                }
+            },
+            {
+                "upgrade_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        107,
+                        -25
+                    ],
+                    "$toggle_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_name": "upgrade_toggle_button",
+                    "$toggle_layer": -5,
+                    "$toggle_index": 1,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_control_name": "upgrade_toggle_button",
+                    "$toggle_unchecked": "textures/ui/toggle_button/unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/unchecked",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/checked"
+                }
+            },
+            {
+                "upgrade_icon": {
+                    "type": "image",
+                    "texture": "textures/ui/icons/upgrade_icon",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        107,
+                        3
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 0
+                }
+            },
+            {
+                "info_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        107,
+                        5
+                    ],
+                    "$toggle_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_name": "info_toggle_button",
+                    "$toggle_layer": -5,
+                    "$toggle_group": false,
+                    "$toggle_default_state": true,
+                    "$toggle_control_name": "info_toggle_button",
+                    "$toggle_unchecked": "textures/ui/toggle_button/unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/unchecked",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/checked"
+                }
+            },
+            {
+                "info_icon": {
+                    "type": "image",
+                    "texture": "textures/ui/icons/info_icon",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        107,
+                        33
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 0
+                }
+            },
+            {
+                "upgrade_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        162,
+                        72
+                    ],
+                    "offset": [
+                        -8,
+                        56
+                    ],
+                    "layer": 30,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "upgrade_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "upgrades_panel@uc.upgrades_panel": {
+                                "$index_1": 4,
+                                "$index_2": 5,
+                                "$has_third": false
+                            }
+                        },
+                        {
+                            "upgrade_toggle@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    62,
+                                    -44
+                                ],
+                                "$toggle_size": [
+                                    15,
+                                    15
+                                ],
+                                "$toggle_name": "upgrade_toggle_button",
+                                "$toggle_layer": 4,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": true,
+                                "$toggle_control_name": "upgrade_toggle_button",
+                                "$toggle_unchecked": "textures/ui/close_button/unchecked",
+                                "$toggle_checked": "textures/ui/close_button/checked",
+                                "$toggle_unchecked_hover": "textures/ui/close_button/unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/close_button/checked"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "info_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        162,
+                        72
+                    ],
+                    "offset": [
+                        -52,
+                        3
+                    ],
+                    "layer": 0,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "info_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "machine_description@uc.text_label": {
+                                "collection_index": 1,
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "$text_scale": 0.55,
+                                "offset": [
+                                    -2,
+                                    16
+                                ]
+                            }
+                        },
+                        {
+                            "machine_screen@uc.machine_small_screen": {
+                                "offset": [
+                                    -6,
+                                    16
+                                ]
+                            }
+                        },
+                        {
+                            "info_background": {
+                                "type": "image",
+                                "texture": "textures/ui/background/background_panel",
+                                "size": [
+                                    80,
+                                    84
+                                ],
+                                "offset": [
+                                    -58,
+                                    -4
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": -5
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "type": "label",
+                                "text": "ui.utilitycraft:info_panel.name",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    -60,
+                                    2
+                                ],
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 1,
+                                "font_scale_factor": 1
+                            }
+                        }
+                    ]
                 }
             }
         ]

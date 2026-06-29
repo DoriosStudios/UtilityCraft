@@ -1,0 +1,180 @@
+{
+    "namespace": "uc",
+    "upgrades_panel": {
+        "type": "collection_panel",
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "size": [
+            162,
+            72
+        ],
+        "$index_1|default": 0,
+        "$index_2|default": 1,
+        "$index_3|default": 2,
+        "$has_third|default": false,
+        "controls": [
+            {
+                "upgrades_background": {
+                    "type": "image",
+                    "texture": "textures/ui/background/upgrades_background_test",
+                    "size": [
+                        112,
+                        58
+                    ],
+                    "offset": [
+                        18,
+                        -20
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1
+                }
+            },
+            {
+                "text_label": {
+                    "type": "label",
+                    "text": "ui.utilitycraft:upgrades_panel.name",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        -8,
+                        -14
+                    ],
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "layer": 1,
+                    "font_scale_factor": 1
+                }
+            },
+            {
+                "upgrades_background": {
+                    "type": "image",
+                    "texture": "textures/ui/black_background",
+                    "size": [
+                        1000,
+                        1000
+                    ],
+                    "offset": [
+                        0,
+                        -250
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 0,
+                    "alpha": 0.5
+                }
+            },
+            {
+                "upgrade_icon": {
+                    "type": "image",
+                    "texture": "textures/items/machinery/speed_upgrade",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        0,
+                        1
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 6,
+                    "alpha": 0.5
+                }
+            },
+            {
+                "upgrade_icon": {
+                    "type": "image",
+                    "texture": "textures/items/machinery/energy_upgrade",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        18,
+                        1
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 6,
+                    "alpha": 0.5
+                }
+            },
+            {
+                "upgrade_icon": {
+                    "type": "image",
+                    "texture": "textures/items/machinery/range_upgrade",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        36,
+                        1
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 6,
+                    "alpha": 0.5,
+                    "visible": "$has_third"
+                }
+            },
+            {
+                "upgrade_icon": {
+                    "type": "image",
+                    "texture": "textures/ui/icons/disabled",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        36,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 6,
+                    "alpha": 0.5,
+                    "visible": "(not ($has_third))"
+                }
+            },
+            {
+                "item@uc.input_item": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "collection_index": "$index_1"
+                }
+            },
+            {
+                "item@uc.input_item": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        18,
+                        0
+                    ],
+                    "collection_index": "$index_2"
+                }
+            },
+            {
+                "item@uc.input_item": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        36,
+                        0
+                    ],
+                    "collection_index": "$index_3",
+                    "visible": "$has_third"
+                }
+            }
+        ]
+    }
+}

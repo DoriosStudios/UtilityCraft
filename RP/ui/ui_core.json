@@ -1,5 +1,63 @@
 {
     "namespace": "uc",
+    "function_panel": {
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#item_id_aux < 1)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "slot_button_prototype@common.container_slot_button_prototype": {
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_secondary_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_auto_place",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_secondary_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop_all",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            }
+        ]
+    },
     "slot_button": {
         "type": "button",
         "$highlight_control|default": "uc.slot_highlight",
@@ -38,7 +96,10 @@
                 "label_v1@uc._text_label_v1": {
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "offset": [0, 0],
+                    "offset": [
+                        0,
+                        0
+                    ],
                     "$text_scale": "$text_scale"
                 }
             },
@@ -46,7 +107,10 @@
                 "label_v2@uc._text_label_v2": {
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "offset": [0, 0],
+                    "offset": [
+                        0,
+                        0
+                    ],
                     "$text_scale": "$text_scale"
                 }
             }
@@ -70,7 +134,7 @@
                 "binding_collection_name": "container_items"
             }
         ]
-    },    
+    },
     "_text_label_v2": {
         "type": "label",
         "text": "#displaying_text",
@@ -123,7 +187,6 @@
             }
         ]
     },
-    
     "_slot_visual": {
         "type": "input_panel",
         "layer": 1,
@@ -1295,7 +1358,8 @@
                         26,
                         26
                     ],
-                    "$cell_image_size": "$cell_image_size"
+                    "$cell_image_size": "$cell_image_size",
+                    "$button_ref": "uc.slot_button_prototype"
                 }
             }
         ]
@@ -2130,6 +2194,238 @@
                     "offset": [
                         0,
                         0
+                    ]
+                }
+            }
+        ]
+    },
+    "toggle_button": {
+        "type": "panel",
+        "$toggle_layer|default": 0,
+        "$toggle_lost_reset|default": true,
+        "$toggle_size|default": [
+            18,
+            18
+        ],
+        "$toggle_name|default": "toggle_button",
+        "$toggle_index|default": 0,
+        "$toggle_group|default": false,
+        "$toggle_default_state|default": false,
+        "$toggle_control_name|default": "",
+        "$toggle_unchecked|default": "textures/ui/buttons/unchecked",
+        "$toggle_checked|default": "textures/ui/buttons/checked",
+        "$toggle_unchecked_hover|default": "textures/ui/buttons/unchecked_hover",
+        "$toggle_checked_hover|default": "textures/ui/buttons/checked_hover",
+        "controls": [
+            {
+                "$toggle_control_name@common.toggle": {
+                    "size": "$toggle_size",
+                    "layer": "$toggle_layer",
+                    "$reset_on_focus_lost": "$toggle_lost_reset",
+                    "$default_toggle_state": "$toggle_default_state",
+                    "$radio_toggle_group": "$toggle_group",
+                    "$toggle_group_forced_index": "$toggle_index",
+                    "$toggle_name": "$toggle_name",
+                    "$unchecked_control": "unchecked",
+                    "$checked_control": "checked",
+                    "$unchecked_hover_control": "unchecked_hover",
+                    "$chekced_hover_control": "chekced_hover",
+                    "$unchecked_locked_control": "unchecked_locked",
+                    "$checked_locked_control": "checked_locked",
+                    "$unchecked_locked_hover_control": "unchecked_locked_hover",
+                    "$checked_locked_hover_control": "checked_locked_hover",
+                    "$toggle_focus_enabled|default": true,
+                    "$toggle_group_default_selected|default": 0,
+                    "$toggle_binding_type|default": "global",
+                    "$toggle_binding_condition|default": "visible",
+                    "$toggle_state_binding_name|default": "#toggle_state",
+                    "$toggle_enabled_binding_type|default": "none",
+                    "$toggle_enabled_binding_condition|default": "visible",
+                    "$toggle_enabled_binding_name|default": "#toggle_enabled",
+                    "$toggle_focus_id_binding_type|default": "none",
+                    "$toggle_focus_id_binding_condition|default": "visible",
+                    "$toggle_focus_id_binding_name|default": "#toggle_focus_id",
+                    "$toggle_focus_id_collection_name|default": "",
+                    "$toggle_grid_collection_name|default": "",
+                    "$toggle_collection_details_type|default": "none",
+                    "$toggle_collection_detail_name|default": "",
+                    "$toggle_tts_name|default": "accessibility.toggle.tts.title",
+                    "$toggle_tts_header_binding_type|default": "none",
+                    "$toggle_tts_header_binding_condition|default": "visible",
+                    "$toggle_tts_header_binding_collection_name|default": "",
+                    "$toggle_tts_header|default": "",
+                    "$toggle_tts_value_binding_type|default": "none",
+                    "$toggle_tts_value_binding_condition|default": "visible",
+                    "$toggle_tts_value_binding_collection_name|default": "",
+                    "$toggle_tts_override_toggle_value|default": "",
+                    "$toggle_tts_toggle_on_text|default": "accessibility.state.on",
+                    "$toggle_tts_toggle_off_text|default": "accessibility.state.off",
+                    "$toggle_tts_type_priority|default": -100,
+                    "$toggle_tts_index_priority|default": 150,
+                    "$toggle_tts_inherit_siblings|default": false,
+                    "$toggle_focus_bind|default": "",
+                    "$tts_section_header|default": "",
+                    "$ignore_tts_enabled_bind|default": false,
+                    "$focus_id|default": "",
+                    "$focus_override_down|default": "",
+                    "$focus_override_up|default": "",
+                    "$focus_override_left|default": "",
+                    "$focus_override_right|default": "",
+                    "focus_enabled": "$toggle_focus_enabled",
+                    "focus_magnet_enabled": true,
+                    "focus_identifier": "$focus_id",
+                    "focus_change_down": "$focus_override_down",
+                    "focus_change_up": "$focus_override_up",
+                    "focus_change_left": "$focus_override_left",
+                    "focus_change_right": "$focus_override_right",
+                    "controls": [
+                        {
+                            "unchecked": {
+                                "type": "image",
+                                "texture": "$toggle_unchecked",
+                                "layer": 0
+                            }
+                        },
+                        {
+                            "checked": {
+                                "type": "image",
+                                "texture": "$toggle_checked",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "unchecked_hover": {
+                                "type": "image",
+                                "texture": "$toggle_unchecked_hover",
+                                "layer": 0
+                            }
+                        },
+                        {
+                            "checked_hover": {
+                                "type": "image",
+                                "texture": "$toggle_checked_hover",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "unchecked_locked": {
+                                "type": "image",
+                                "texture": "$toggle_unchecked",
+                                "alpha": 0.7,
+                                "layer": 0
+                            }
+                        },
+                        {
+                            "checked_locked": {
+                                "type": "image",
+                                "texture": "$toggle_checked",
+                                "alpha": 0.7,
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "unchecked_locked_hover": {
+                                "type": "image",
+                                "texture": "$toggle_unchecked_hover",
+                                "alpha": 0.7,
+                                "layer": 0
+                            }
+                        },
+                        {
+                            "checked_locked_hover": {
+                                "type": "image",
+                                "texture": "$toggle_checked_hover",
+                                "alpha": 0.7,
+                                "layer": 1
+                            }
+                        }
+                    ],
+                    "button_mappings": [
+                        {
+                            "from_button_id": "button.menu_select",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.menu_ok",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "pressed"
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "$toggle_binding_type",
+                            "binding_condition": "$toggle_binding_condition",
+                            "binding_collection_name": "$toggle_grid_collection_name",
+                            "binding_name": "$toggle_state_binding_name",
+                            "binding_name_override": "#toggle_state"
+                        },
+                        {
+                            "binding_type": "$toggle_enabled_binding_type",
+                            "binding_condition": "$toggle_enabled_binding_condition",
+                            "binding_collection_name": "$toggle_grid_collection_name",
+                            "binding_name": "$toggle_enabled_binding_name",
+                            "binding_name_override": "#enabled"
+                        },
+                        {
+                            "binding_type": "$toggle_collection_details_type",
+                            "binding_collection_name": "$toggle_collection_detail_name"
+                        },
+                        {
+                            "binding_type": "$toggle_tts_header_binding_type",
+                            "binding_condition": "$toggle_tts_header_binding_condition",
+                            "binding_collection_name": "$toggle_tts_header_binding_collection_name",
+                            "binding_name": "$toggle_tts_header"
+                        },
+                        {
+                            "binding_type": "$toggle_tts_value_binding_type",
+                            "binding_condition": "$toggle_tts_value_binding_condition",
+                            "binding_collection_name": "$toggle_tts_value_binding_collection_name",
+                            "binding_name": "$toggle_tts_override_toggle_value"
+                        },
+                        {
+                            "ignored": "$ignore_tts_enabled_bind",
+                            "binding_type": "$toggle_tts_enabled_binding_type",
+                            "binding_name": "#tts_enabled",
+                            "binding_name_override": "#focus_enabled"
+                        },
+                        {
+                            "ignored": "(($toggle_focus_bind = '') and (not $ignore_tts_enabled_bind))",
+                            "binding_type": "global",
+                            "binding_name": "$toggle_focus_bind",
+                            "binding_name_override": "#focus_enabled"
+                        },
+                        {
+                            "binding_type": "$toggle_focus_id_binding_type",
+                            "binding_condition": "$toggle_focus_id_binding_condition",
+                            "binding_collection_name": "$toggle_focus_id_collection_name",
+                            "binding_name": "$toggle_focus_id_binding_name",
+                            "binding_name_override": "#focus_identifier"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "toggle_button_panel": {
+        "type": "panel",
+        "$panel_control_name|default": "",
+        "$controls|default": [],
+        "controls": [
+            {
+                "toggle_button_panel": {
+                    "type": "collection_panel",
+                    "$item_collection_name": "container_items",
+                    "collection_name": "container_items",
+                    "controls": "$controls",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$panel_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
                     ]
                 }
             }
