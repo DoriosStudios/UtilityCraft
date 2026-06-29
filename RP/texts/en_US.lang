@@ -1087,3 +1087,6 @@ howtoplay.utilitycraft.drop_tables.p4=§bCompressed blocks§r use the same table
 howtoplay.utilitycraft.drop_tables.p5=The §bAutofisher§r uses §eFishing Nets§r. Better nets increase drop chance and add more rolls, making rare loot easier to obtain.
 howtoplay.utilitycraft.drop_tables.p6=This loot table shows the base chance before the fishing net multiplier. Some equipment drops may also roll durability and enchantments.
 howtoplay.utilitycraft.drop_tables.p7=Custom addons may register extra §bSieve§r or §bAutofisher§r drops with script events, so integrated worlds may show more results than these base tables.
+
+ui.utilitycraft:upgrades_panel.name=Upgrades
+ui.utilitycraft:info_panel.name=Information
