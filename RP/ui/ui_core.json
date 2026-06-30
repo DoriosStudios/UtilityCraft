@@ -2212,6 +2212,8 @@
         "$toggle_group|default": false,
         "$toggle_default_state|default": false,
         "$toggle_control_name|default": "",
+        "$toggle_hover_text|default": "",
+        "$toggle_checked_hover_text|default": "",
         "$toggle_unchecked|default": "textures/ui/buttons/unchecked",
         "$toggle_checked|default": "textures/ui/buttons/checked",
         "$toggle_unchecked_hover|default": "textures/ui/buttons/unchecked_hover",
@@ -2295,16 +2297,46 @@
                         },
                         {
                             "unchecked_hover": {
-                                "type": "image",
-                                "texture": "$toggle_unchecked_hover",
-                                "layer": 0
+                                "type": "panel",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked_hover"
+                                        }
+                                    },
+                                    {
+                                        "tooltip@common.hover_text": {
+                                            "layer": 29,
+                                            "property_bag": {
+                                                "#hover_text": "$toggle_hover_text"
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
                             "checked_hover": {
-                                "type": "image",
-                                "texture": "$toggle_checked_hover",
-                                "layer": 1
+                                "type": "panel",
+                                "layer": 1,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked_hover"
+                                        }
+                                    },
+                                    {
+                                        "tooltip@common.hover_text": {
+                                            "layer": 29,
+                                            "property_bag": {
+                                                "#hover_text": "$toggle_checked_hover_text"
+                                            }
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
