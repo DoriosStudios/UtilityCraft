@@ -77,11 +77,12 @@
                     "$toggle_index": 1,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
+                    "$toggle_hover_text": "Upgrades",
                     "$toggle_control_name": "upgrade_toggle_button",
                     "$toggle_unchecked": "textures/ui/toggle_button/unchecked",
                     "$toggle_checked": "textures/ui/toggle_button/checked",
-                    "$toggle_unchecked_hover": "textures/ui/toggle_button/unchecked",
-                    "$toggle_checked_hover": "textures/ui/toggle_button/checked"
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/checked_hover"
                 }
             },
             {
@@ -116,12 +117,14 @@
                     "$toggle_name": "info_toggle_button",
                     "$toggle_layer": -5,
                     "$toggle_group": false,
-                    "$toggle_default_state": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Information",
+                    "$toggle_checked_hover_text": "Close Information",
                     "$toggle_control_name": "info_toggle_button",
                     "$toggle_unchecked": "textures/ui/toggle_button/unchecked",
                     "$toggle_checked": "textures/ui/toggle_button/checked",
-                    "$toggle_unchecked_hover": "textures/ui/toggle_button/unchecked",
-                    "$toggle_checked_hover": "textures/ui/toggle_button/checked"
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/checked_hover"
                 }
             },
             {
@@ -154,7 +157,7 @@
                         -8,
                         56
                     ],
-                    "layer": 30,
+                    "layer": 28,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "bindings": [
@@ -187,10 +190,11 @@
                                     15
                                 ],
                                 "$toggle_name": "upgrade_toggle_button",
-                                "$toggle_layer": 4,
+                                "$toggle_layer": 7,
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": true,
+                                "$toggle_hover_text": "Close Upgrades",
                                 "$toggle_control_name": "upgrade_toggle_button",
                                 "$toggle_unchecked": "textures/ui/close_button/unchecked",
                                 "$toggle_checked": "textures/ui/close_button/checked",

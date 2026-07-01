@@ -16,7 +16,25 @@
             {
                 "upgrades_background": {
                     "type": "image",
-                    "texture": "textures/ui/background/upgrades_background_test",
+                    "texture": "textures/ui/black_background",
+                    "size": [
+                        1000,
+                        1000
+                    ],
+                    "offset": [
+                        6,
+                        -250
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 7,
+                    "alpha": 0.5
+                }
+            },
+            {
+                "upgrades_background": {
+                    "type": "image",
+                    "texture": "textures/ui/background/upgrades_background",
                     "size": [
                         112,
                         58
@@ -28,43 +46,6 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "layer": 7
-                }
-            },
-            {
-                "text_label": {
-                    "type": "label",
-                    "text": "ui.utilitycraft:upgrades_panel.name",
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "offset": [
-                        -8,
-                        -14
-                    ],
-                    "color": [
-                        0.3,
-                        0.3,
-                        0.3
-                    ],
-                    "layer": 8,
-                    "font_scale_factor": 1
-                }
-            },
-            {
-                "upgrades_background": {
-                    "type": "image",
-                    "texture": "textures/ui/black_background",
-                    "size": [
-                        1000,
-                        1000
-                    ],
-                    "offset": [
-                        0,
-                        -250
-                    ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 0,
-                    "alpha": 0.5
                 }
             },
             {
