@@ -373,8 +373,7 @@
                                 "layer": 5,
                                 "controls": [
                                     {
-                                        "assembler_top@assembler.assembler_top": {
-                                        }
+                                        "assembler_top@assembler.assembler_top": {}
                                     },
                                     {
                                         "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
