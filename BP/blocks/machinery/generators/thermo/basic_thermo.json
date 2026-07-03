@@ -36,10 +36,34 @@
 					"rate_speed_base": 20
 				}
 			},
-			"minecraft:geometry": "geometry.utilitycraft_block_2",
+			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_basic_thermo_generator_off",
+					"texture": "utilitycraft_basic_thermo_generator_off_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_basic_thermo_generator_off_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_basic_thermo_generator_off_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_basic_thermo_generator_off_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_basic_thermo_generator_off_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_basic_thermo_generator_off_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_basic_thermo_generator_off_down",
 					"render_method": "alpha_test"
 				}
 			},
@@ -111,11 +135,35 @@
 				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_basic_thermo_generator_on",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_basic_thermo_generator_on_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_basic_thermo_generator_on_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_basic_thermo_generator_on_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_basic_thermo_generator_on_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_basic_thermo_generator_on_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_basic_thermo_generator_on_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_basic_thermo_generator_on_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 4
 				}
 			}
