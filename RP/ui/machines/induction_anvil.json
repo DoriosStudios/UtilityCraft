@@ -1,4 +1,4 @@
-﻿{
+{
     "namespace":  "induction_anvil",
     "induction_anvil_top":  {
                                 "type":  "collection_panel",
@@ -22,11 +22,7 @@
                                                  },
                                                  {
                                                      "energy_bar@uc.energy_bar":  {
-                                                                                      "$has_bg":  true,
-                                                                                      "offset":  [
-                                                                                                     -102,
-                                                                                                     -16
-                                                                                                 ]
+
                                                                                   }
                                                  },
                                                  {
@@ -47,7 +43,7 @@
                                                                                            }
                                                  },
                                                  {
-                                                     "item@uc.input_item":  {
+                                                     "item@uc.input_slot":  {
                                                                                 "anchor_from":  "top_middle",
                                                                                 "anchor_to":  "top_middle",
                                                                                 "offset":  [
@@ -58,220 +54,19 @@
                                                                             }
                                                  },
                                                  {
-                                                     "upgrade_toggle@uc.toggle_button":  {
-                                                                                             "anchor_from":  "top_middle",
-                                                                                             "anchor_to":  "top_middle",
-                                                                                             "offset":  [
-                                                                                                            111,
-                                                                                                            -25
-                                                                                                        ],
-                                                                                             "$toggle_name":  "upgrade_toggle_button",
-                                                                                             "$toggle_layer":  -5,
-                                                                                             "$toggle_index":  1,
-                                                                                             "$toggle_group":  true,
-                                                                                             "$toggle_default_state":  false,
-                                                                                             "$toggle_hover_text":  "Upgrades",
-                                                                                             "$toggle_control_name":  "upgrade_toggle_button",
-                                                                                             "$toggle_size":  [
-                                                                                                                  16,
-                                                                                                                  16
-                                                                                                              ],
-                                                                                             "$toggle_unchecked":  "textures/ui/toggle_button/upgrade_unchecked",
-                                                                                             "$toggle_checked":  "textures/ui/toggle_button/upgrade_checked",
-                                                                                             "$toggle_unchecked_hover":  "textures/ui/toggle_button/upgrade_unchecked_hover",
-                                                                                             "$toggle_checked_hover":  "textures/ui/toggle_button/upgrade_checked_hover",
-                                                                                             "$has_toggle_bg":  true,
-                                                                                             "$toggle_bg_texture":  "textures/ui/background/background_panel",
-                                                                                             "$toggle_bg_size":  [
-                                                                                                                     24,
-                                                                                                                     24
-                                                                                                                 ],
-                                                                                             "$toggle_bg_offset":  [
-                                                                                                                       -2,
-                                                                                                                       0
-                                                                                                                   ]
-                                                                                         }
-                                                 },
-                                                 {
-                                                     "info_toggle@uc.toggle_button":  {
-                                                                                          "anchor_from":  "top_middle",
-                                                                                          "anchor_to":  "top_middle",
-                                                                                          "offset":  [
-                                                                                                         111,
-                                                                                                         5
-                                                                                                     ],
-                                                                                          "$toggle_name":  "info_toggle_button",
-                                                                                          "$toggle_layer":  -5,
-                                                                                          "$toggle_group":  false,
-                                                                                          "$toggle_default_state":  false,
-                                                                                          "$toggle_hover_text":  "Information",
-                                                                                          "$toggle_checked_hover_text":  "Close Information",
-                                                                                          "$toggle_control_name":  "info_toggle_button",
-                                                                                          "$toggle_size":  [
-                                                                                                               16,
-                                                                                                               16
-                                                                                                           ],
-                                                                                          "$toggle_unchecked":  "textures/ui/toggle_button/info_unchecked",
-                                                                                          "$toggle_checked":  "textures/ui/toggle_button/info_checked",
-                                                                                          "$toggle_unchecked_hover":  "textures/ui/toggle_button/info_unchecked_hover",
-                                                                                          "$toggle_checked_hover":  "textures/ui/toggle_button/info_checked_hover",
-                                                                                          "$has_toggle_bg":  true,
-                                                                                          "$toggle_bg_texture":  "textures/ui/background/background_panel",
-                                                                                          "$toggle_bg_size":  [
-                                                                                                                  24,
-                                                                                                                  24
-                                                                                                              ],
-                                                                                          "$toggle_bg_offset":  [
-                                                                                                                    -2,
-                                                                                                                    0
-                                                                                                                ]
+                                                     "upgrades_tab@uc.upgrades_tab":  {
+
                                                                                       }
                                                  },
                                                  {
-                                                     "upgrade_panel":  {
-                                                                           "type":  "collection_panel",
-                                                                           "anchor_from":  "center",
-                                                                           "anchor_to":  "center",
-                                                                           "size":  [
-                                                                                        162,
-                                                                                        72
-                                                                                    ],
-                                                                           "offset":  [
-                                                                                          -8,
-                                                                                          56
-                                                                                      ],
-                                                                           "layer":  28,
-                                                                           "collection_name":  "container_items",
-                                                                           "$item_collection_name":  "container_items",
-                                                                           "bindings":  [
-                                                                                            {
-                                                                                                "binding_type":  "view",
-                                                                                                "source_control_name":  "upgrade_toggle_button",
-                                                                                                "source_property_name":  "#toggle_state",
-                                                                                                "target_property_name":  "#visible",
-                                                                                                "resolve_sibling_scope":  false
-                                                                                            }
-                                                                                        ],
-                                                                           "controls":  [
-                                                                                            {
-                                                                                                "upgrades_panel@uc.upgrades_panel":  {
-                                                                                                                                         "$index_1":  4,
-                                                                                                                                         "$index_2":  5,
-                                                                                                                                         "$has_third":  false
-                                                                                                                                     }
-                                                                                            },
-                                                                                            {
-                                                                                                "upgrade_toggle@uc.toggle_button":  {
-                                                                                                                                        "anchor_from":  "top_middle",
-                                                                                                                                        "anchor_to":  "top_middle",
-                                                                                                                                        "offset":  [
-                                                                                                                                                       62,
-                                                                                                                                                       -44
-                                                                                                                                                   ],
-                                                                                                                                        "$toggle_size":  [
-                                                                                                                                                             15,
-                                                                                                                                                             15
-                                                                                                                                                         ],
-                                                                                                                                        "$toggle_name":  "upgrade_toggle_button",
-                                                                                                                                        "$toggle_layer":  7,
-                                                                                                                                        "$toggle_index":  0,
-                                                                                                                                        "$toggle_group":  true,
-                                                                                                                                        "$toggle_default_state":  true,
-                                                                                                                                        "$toggle_hover_text":  "Close Upgrades",
-                                                                                                                                        "$toggle_control_name":  "upgrade_toggle_button",
-                                                                                                                                        "$toggle_unchecked":  "textures/ui/close_button/unchecked",
-                                                                                                                                        "$toggle_checked":  "textures/ui/close_button/checked",
-                                                                                                                                        "$toggle_unchecked_hover":  "textures/ui/close_button/unchecked_hover",
-                                                                                                                                        "$toggle_checked_hover":  "textures/ui/close_button/checked"
-                                                                                                                                    }
-                                                                                            }
-                                                                                        ]
-                                                                       }
+                                                     "io_tab@uc.io_tab":  {
+
+                                                                          }
                                                  },
                                                  {
-                                                     "info_panel":  {
-                                                                        "type":  "collection_panel",
-                                                                        "anchor_from":  "center",
-                                                                        "anchor_to":  "center",
-                                                                        "size":  [
-                                                                                     162,
-                                                                                     72
-                                                                                 ],
-                                                                        "offset":  [
-                                                                                       -52,
-                                                                                       3
-                                                                                   ],
-                                                                        "layer":  0,
-                                                                        "collection_name":  "container_items",
-                                                                        "$item_collection_name":  "container_items",
-                                                                        "bindings":  [
-                                                                                         {
-                                                                                             "binding_type":  "view",
-                                                                                             "source_control_name":  "info_toggle_button",
-                                                                                             "source_property_name":  "#toggle_state",
-                                                                                             "target_property_name":  "#visible",
-                                                                                             "resolve_sibling_scope":  false
-                                                                                         }
-                                                                                     ],
-                                                                        "controls":  [
-                                                                                         {
-                                                                                             "machine_description@uc.text_label":  {
-                                                                                                                                       "collection_index":  1,
-                                                                                                                                       "anchor_from":  "top_left",
-                                                                                                                                       "anchor_to":  "top_left",
-                                                                                                                                       "$text_scale":  0.55,
-                                                                                                                                       "offset":  [
-                                                                                                                                                      -2,
-                                                                                                                                                      16
-                                                                                                                                                  ]
-                                                                                                                                   }
-                                                                                         },
-                                                                                         {
-                                                                                             "machine_screen@uc.machine_small_screen":  {
-                                                                                                                                            "offset":  [
-                                                                                                                                                           -6,
-                                                                                                                                                           16
-                                                                                                                                                       ]
-                                                                                                                                        }
-                                                                                         },
-                                                                                         {
-                                                                                             "info_background":  {
-                                                                                                                     "type":  "image",
-                                                                                                                     "texture":  "textures/ui/background/background_panel",
-                                                                                                                     "size":  [
-                                                                                                                                  80,
-                                                                                                                                  84
-                                                                                                                              ],
-                                                                                                                     "offset":  [
-                                                                                                                                    -58,
-                                                                                                                                    -4
-                                                                                                                                ],
-                                                                                                                     "anchor_from":  "top_middle",
-                                                                                                                     "anchor_to":  "top_middle",
-                                                                                                                     "layer":  -5
-                                                                                                                 }
-                                                                                         },
-                                                                                         {
-                                                                                             "text_label":  {
-                                                                                                                "type":  "label",
-                                                                                                                "text":  "ui.utilitycraft:info_panel.name",
-                                                                                                                "anchor_from":  "top_middle",
-                                                                                                                "anchor_to":  "top_middle",
-                                                                                                                "offset":  [
-                                                                                                                               -60,
-                                                                                                                               2
-                                                                                                                           ],
-                                                                                                                "color":  [
-                                                                                                                              0.3,
-                                                                                                                              0.3,
-                                                                                                                              0.3
-                                                                                                                          ],
-                                                                                                                "layer":  1,
-                                                                                                                "font_scale_factor":  1
-                                                                                                            }
-                                                                                         }
-                                                                                     ]
-                                                                    }
+                                                     "info_tab@uc.info_tab":  {
+                                                                                  "$info_description":  "ui.utilitycraft:info.induction_anvil"
+                                                                              }
                                                  }
                                              ]
                             },

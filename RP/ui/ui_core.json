@@ -1418,9 +1418,132 @@
             }
         ]
     },
+    "input_slot": {
+        "type": "input_panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/input_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 0
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        0,
+                        0
+                    ],
+                    "layer": 1
+                }
+            }
+        ]
+    },
+    "input_extra_slot": {
+        "type": "input_panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/input_extra_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 0
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        0,
+                        0
+                    ],
+                    "layer": 1
+                }
+            }
+        ]
+    },
+    "upgrade_slot": {
+        "type": "input_panel",
+        "$show_slot_background|default": true,
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/upgrade_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 0,
+                    "visible": "$show_slot_background"
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        0,
+                        0
+                    ],
+                    "layer": 1
+                }
+            }
+        ]
+    },
+    "output_slot": {
+        "type": "input_panel",
+        "size": [
+            26,
+            26
+        ],
+        "controls": [
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/output_slot",
+                    "size": [
+                        26,
+                        26
+                    ],
+                    "layer": 0
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "size": [
+                        26,
+                        26
+                    ],
+                    "$cell_image_size": [
+                        0,
+                        0
+                    ],
+                    "$button_ref": "uc.slot_button_prototype",
+                    "layer": 1
+                }
+            }
+        ]
+    },
     "bar_background": {
         "type": "image",
-        "texture": "textures/ui/background/background_panel",
+        "texture": "textures/ui/toggle_button/left_bg",
         "anchor_from": "center",
         "anchor_to": "center",
         "$cell_image_size": [
@@ -1433,7 +1556,7 @@
         ],
         "offset": [
             10,
-            3
+            6
         ],
         "layer": -1
     },
@@ -1459,7 +1582,7 @@
                     "anchor_to": "top_middle",
                     "offset": [
                         10,
-                        14
+                        17
                     ]
                 }
             },
@@ -1468,12 +1591,12 @@
                     "type": "image",
                     "texture": "textures/ui/energy_border",
                     "size": [
-                        144,
-                        50
+                        16,
+                        48
                     ],
                     "offset": [
                         10,
-                        3
+                        6
                     ],
                     "layer": 9,
                     "visible": "$is_energy"
@@ -1484,12 +1607,12 @@
                     "type": "image",
                     "texture": "textures/ui/liquid_border",
                     "size": [
-                        144,
-                        50
+                        16,
+                        48
                     ],
                     "offset": [
                         10,
-                        3
+                        6
                     ],
                     "layer": 9,
                     "visible": "$is_liquid"
@@ -1780,13 +1903,17 @@
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
+        "offset": [
+            -101,
+            -13
+        ],
         "size": [
             162,
             72
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
-        "$has_bg|default": false,
+        "$has_bg|default": true,
         "$collection_index|default": 0,
         "controls": [
             {
@@ -2261,13 +2388,13 @@
         "$toggle_unchecked_hover|default": "textures/ui/buttons/unchecked_hover",
         "$toggle_checked_hover|default": "textures/ui/buttons/checked_hover",
         "$has_toggle_bg|default": false,
-        "$toggle_bg_texture|default": "textures/ui/background/background_panel",
+        "$toggle_bg_texture|default": "textures/ui/toggle_button/right_bg",
         "$toggle_bg_size|default": [
             24,
             24
         ],
         "$toggle_bg_offset|default": [
-            -2,
+            0,
             0
         ],
         "$toggle_bg_layer|default": -6,
@@ -2619,6 +2746,734 @@
                             "binding_collection_name": "$toggle_focus_id_collection_name",
                             "binding_name": "$toggle_focus_id_binding_name",
                             "binding_name_override": "#focus_identifier"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "upgrades_tab": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$upgrade_index_1|default": 4,
+        "$upgrade_index_2|default": 5,
+        "$upgrade_index_3|default": 6,
+        "$has_first_upgrade|default": true,
+        "$has_second_upgrade|default": true,
+        "$has_third_upgrade|default": false,
+        "controls": [
+            {
+                "upgrade_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        -25
+                    ],
+                    "$toggle_name": "right_machine_tabs",
+                    "$toggle_layer": -5,
+                    "$toggle_index": 1,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Upgrades",
+                    "$toggle_control_name": "upgrade_toggle_button",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/upgrade_unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/upgrade_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/upgrade_unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/upgrade_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "upgrade_toggle_close@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        -25
+                    ],
+                    "$toggle_name": "right_machine_tabs",
+                    "$toggle_layer": -4,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Close Upgrades",
+                    "$toggle_checked_hover_text": "Close Upgrades",
+                    "$toggle_control_name": "upgrade_toggle_button",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/upgrade_checked",
+                    "$toggle_checked": "textures/ui/toggle_button/upgrade_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/upgrade_checked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/upgrade_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "upgrade_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            },
+            {
+                "upgrade_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        162,
+                        72
+                    ],
+                    "offset": [
+                        -8,
+                        56
+                    ],
+                    "layer": 28,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "upgrade_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "upgrades_panel@uc.upgrades_panel": {
+                                "offset": [
+                                    0,
+                                    -29
+                                ],
+                                "$index_1": "$upgrade_index_1",
+                                "$index_2": "$upgrade_index_2",
+                                "$index_3": "$upgrade_index_3",
+                                "$has_first": "$has_first_upgrade",
+                                "$has_second": "$has_second_upgrade",
+                                "$has_third": "$has_third_upgrade"
+                            }
+                        },
+                        {
+                            "upgrade_toggle@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    62,
+                                    -73
+                                ],
+                                "$toggle_size": [
+                                    15,
+                                    15
+                                ],
+                                "$toggle_name": "right_machine_tabs",
+                                "$toggle_layer": 7,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": true,
+                                "$toggle_hover_text": "Close Upgrades",
+                                "$toggle_control_name": "upgrade_toggle_button",
+                                "$toggle_unchecked": "textures/ui/close_button/unchecked",
+                                "$toggle_checked": "textures/ui/close_button/checked",
+                                "$toggle_unchecked_hover": "textures/ui/close_button/unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/close_button/checked"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "io_tab": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$info_description|default": "",
+        "controls": [
+            {
+                "io_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        1
+                    ],
+                    "$toggle_name": "right_machine_tabs",
+                    "$toggle_layer": -5,
+                    "$toggle_index": 2,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Input/Output Config",
+                    "$toggle_checked_hover_text": "Close Input/Output Config",
+                    "$toggle_control_name": "io_toggle_button",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/io_unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/io_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/io_unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/io_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "io_toggle_close@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        1
+                    ],
+                    "$toggle_name": "right_machine_tabs",
+                    "$toggle_layer": -4,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Close Input/Output Config",
+                    "$toggle_checked_hover_text": "Close Input/Output Config",
+                    "$toggle_control_name": "io_toggle_button",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/io_checked",
+                    "$toggle_checked": "textures/ui/toggle_button/io_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/io_checked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/io_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "io_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            },
+            {
+                "io_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        162,
+                        72
+                    ],
+                    "offset": [
+                        -8,
+                        27
+                    ],
+                    "layer": 28,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "controls": [
+                        {
+                            "io_background": {
+                                "type": "image",
+                                "texture": "textures/ui/background/background_panel",
+                                "size": [
+                                    132,
+                                    90
+                                ],
+                                "offset": [
+                                    18,
+                                    -36
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 0
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "type": "label",
+                                "text": "ui.utilitycraft:io_panel.name",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    10
+                                ],
+                                "offset": [
+                                    98,
+                                    -30
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 7,
+                                "font_scale_factor": 1
+                            }
+                        },
+                        {
+                            "io_slot_top": {
+                                "type": "image",
+                                "texture": "textures/ui/slots/upgrade_slot",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "offset": [
+                                    18,
+                                    -12
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "io_slot_left": {
+                                "type": "image",
+                                "texture": "textures/ui/slots/upgrade_slot",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "offset": [
+                                    0,
+                                    6
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "io_slot_center": {
+                                "type": "image",
+                                "texture": "textures/ui/slots/upgrade_slot",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "offset": [
+                                    18,
+                                    6
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "io_slot_right": {
+                                "type": "image",
+                                "texture": "textures/ui/slots/upgrade_slot",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "offset": [
+                                    36,
+                                    6
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "io_slot_bottom": {
+                                "type": "image",
+                                "texture": "textures/ui/slots/upgrade_slot",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "offset": [
+                                    18,
+                                    24
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "io_slot_bottom_right": {
+                                "type": "image",
+                                "texture": "textures/ui/slots/upgrade_slot",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "offset": [
+                                    36,
+                                    24
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 1
+                            }
+                        },
+                        {
+                            "io_panel_close@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    72,
+                                    -60
+                                ],
+                                "$toggle_size": [
+                                    15,
+                                    15
+                                ],
+                                "$toggle_name": "right_machine_tabs",
+                                "$toggle_layer": 7,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": true,
+                                "$toggle_hover_text": "Close Input/Output Config",
+                                "$toggle_control_name": "io_toggle_button",
+                                "$toggle_unchecked": "textures/ui/close_button/unchecked",
+                                "$toggle_checked": "textures/ui/close_button/checked",
+                                "$toggle_unchecked_hover": "textures/ui/close_button/unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/close_button/checked"
+                            }
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "io_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "info_description_scroll_content": {
+        "type": "stack_panel",
+        "size": [
+            "100% - 20px",
+            "default"
+        ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "orientation": "vertical",
+        "$info_description|default": "",
+        "controls": [
+            {
+                "description_body": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "100%c"
+                    ],
+                    "$info_description": "$info_description",
+                    "controls": [
+                        {
+                            "description_label": {
+                                "type": "label",
+                                "text": "$info_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    "100%",
+                                    "default"
+                                ],
+                                "offset": [
+                                    2,
+                                    2
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "font_scale_factor": 0.75,
+                                "layer": -4
+                            }
+                        },
+                        {
+                            "bottom_padding": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    8
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "info_tab": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "controls": [
+            {
+                "info_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        27
+                    ],
+                    "$toggle_name": "right_machine_tabs",
+                    "$toggle_layer": -3,
+                    "$toggle_index": 3,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Information",
+                    "$toggle_checked_hover_text": "Close Information",
+                    "$toggle_control_name": "info_toggle_button",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/info_unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/info_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/info_unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/info_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "info_toggle_close@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        27
+                    ],
+                    "$toggle_name": "right_machine_tabs",
+                    "$toggle_layer": -2,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "Close Information",
+                    "$toggle_checked_hover_text": "Close Information",
+                    "$toggle_control_name": "info_toggle_button",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/info_checked",
+                    "$toggle_checked": "textures/ui/toggle_button/info_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/info_checked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/info_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "info_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            },
+            {
+                "info_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        80,
+                        108
+                    ],
+                    "offset": [
+                        137,
+                        69
+                    ],
+                    "layer": 0,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "info_toggle_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "description_scroll@common.scrolling_panel": {
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    108,
+                                    68
+                                ],
+                                "offset": [
+                                    6,
+                                    26
+                                ],
+                                "$show_background": false,
+                                "$info_description": "$info_description",
+                                "$scroll_size": [
+                                    4,
+                                    "100% - 4px"
+                                ],
+                                "$scrolling_pane_size": [
+                                    "100% + 20px",
+                                    "100% - 2px"
+                                ],
+                                "$scrolling_pane_offset": [
+                                    -5,
+                                    0
+                                ],
+                                "$scroll_view_port_offset": [
+                                    3,
+                                    0
+                                ],
+                                "$scrolling_pane_size_touch": [
+                                    "100% + 20px",
+                                    "100% - 2px"
+                                ],
+                                "$scrolling_pane_offset_touch": [
+                                    -5,
+                                    0
+                                ],
+                                "$scroll_view_port_offset_touch": [
+                                    3,
+                                    0
+                                ],
+                                "$scroll_size_touch": [
+                                    4,
+                                    "100% - 4px"
+                                ],
+                                "$scroll_bar_contained_touch": false,
+                                "$scroll_box_visible_touch": true,
+                                "$use_touch_mode": false,
+                                "$scrolling_content": "uc.info_description_scroll_content"
+                            }
+                        },
+                        {
+                            "info_background": {
+                                "type": "image",
+                                "texture": "textures/ui/toggle_button/right_bg",
+                                "size": [
+                                    120,
+                                    106
+                                ],
+                                "offset": [
+                                    20,
+                                    -1
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "layer": -5
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "type": "label",
+                                "text": "ui.utilitycraft:info_panel.name",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    11,
+                                    7
+                                ],
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": -4,
+                                "font_scale_factor": 1
+                            }
                         }
                     ]
                 }
