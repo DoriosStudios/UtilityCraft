@@ -1420,16 +1420,16 @@
     },
     "bar_background": {
         "type": "image",
-        "texture": "textures/ui/background_image",
+        "texture": "textures/ui/background/background_panel",
         "anchor_from": "center",
         "anchor_to": "center",
         "$cell_image_size": [
             28,
-            64
+            60
         ],
         "size": [
             28,
-            64
+            60
         ],
         "offset": [
             10,
@@ -2260,7 +2260,37 @@
         "$toggle_checked|default": "textures/ui/buttons/checked",
         "$toggle_unchecked_hover|default": "textures/ui/buttons/unchecked_hover",
         "$toggle_checked_hover|default": "textures/ui/buttons/checked_hover",
+        "$has_toggle_bg|default": false,
+        "$toggle_bg_texture|default": "textures/ui/background/background_panel",
+        "$toggle_bg_size|default": [
+            24,
+            24
+        ],
+        "$toggle_bg_offset|default": [
+            -2,
+            0
+        ],
+        "$toggle_bg_layer|default": -6,
+        "$has_toggle_icon|default": false,
+        "$toggle_icon_size|default": [
+            16,
+            16
+        ],
+        "$toggle_icon_unchecked|default": "",
+        "$toggle_icon_checked|default": "",
+        "$toggle_icon_unchecked_hover|default": "",
+        "$toggle_icon_checked_hover|default": "",
         "controls": [
+            {
+                "toggle_background": {
+                    "type": "image",
+                    "texture": "$toggle_bg_texture",
+                    "size": "$toggle_bg_size",
+                    "offset": "$toggle_bg_offset",
+                    "layer": "$toggle_bg_layer",
+                    "visible": "$has_toggle_bg"
+                }
+            },
             {
                 "$toggle_control_name@common.toggle": {
                     "size": "$toggle_size",
@@ -2325,16 +2355,48 @@
                     "controls": [
                         {
                             "unchecked": {
-                                "type": "image",
-                                "texture": "$toggle_unchecked",
-                                "layer": 0
+                                "type": "panel",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
                             "checked": {
-                                "type": "image",
-                                "texture": "$toggle_checked",
-                                "layer": 1
+                                "type": "panel",
+                                "layer": 1,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
@@ -2346,6 +2408,15 @@
                                         "bg_image": {
                                             "type": "image",
                                             "texture": "$toggle_unchecked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
                                         }
                                     },
                                     {
@@ -2371,6 +2442,15 @@
                                         }
                                     },
                                     {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    },
+                                    {
                                         "tooltip@common.hover_text": {
                                             "layer": 29,
                                             "property_bag": {
@@ -2383,34 +2463,98 @@
                         },
                         {
                             "unchecked_locked": {
-                                "type": "image",
-                                "texture": "$toggle_unchecked",
+                                "type": "panel",
                                 "alpha": 0.7,
-                                "layer": 0
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
                             "checked_locked": {
-                                "type": "image",
-                                "texture": "$toggle_checked",
+                                "type": "panel",
                                 "alpha": 0.7,
-                                "layer": 1
+                                "layer": 1,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
                             "unchecked_locked_hover": {
-                                "type": "image",
-                                "texture": "$toggle_unchecked_hover",
+                                "type": "panel",
                                 "alpha": 0.7,
-                                "layer": 0
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {
                             "checked_locked_hover": {
-                                "type": "image",
-                                "texture": "$toggle_checked_hover",
+                                "type": "panel",
                                 "alpha": 0.7,
-                                "layer": 1
+                                "layer": 1,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ],
