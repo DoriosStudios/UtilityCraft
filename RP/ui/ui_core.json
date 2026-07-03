@@ -2930,6 +2930,11 @@
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
         "$info_description|default": "",
+        "$has_io_config|default": true,
+        "$has_item_io|default": true,
+        "$has_fluid_io|default": false,
+        "$io_items_default|default": true,
+        "$io_fluids_default|default": false,
         "controls": [
             {
                 "io_toggle@uc.toggle_button": {
@@ -2939,6 +2944,7 @@
                         109,
                         1
                     ],
+                    "visible": "$has_io_config",
                     "$toggle_name": "right_machine_tabs",
                     "$toggle_layer": -5,
                     "$toggle_index": 2,
@@ -2975,6 +2981,7 @@
                         109,
                         1
                     ],
+                    "visible": "$has_io_config",
                     "$toggle_name": "right_machine_tabs",
                     "$toggle_layer": -4,
                     "$toggle_index": 0,
@@ -3023,7 +3030,7 @@
                     ],
                     "offset": [
                         -8,
-                        27
+                        43
                     ],
                     "layer": 28,
                     "collection_name": "container_items",
@@ -3071,105 +3078,315 @@
                             }
                         },
                         {
-                            "io_slot_top": {
-                                "type": "image",
-                                "texture": "textures/ui/slots/upgrade_slot",
-                                "size": [
-                                    18,
-                                    18
-                                ],
-                                "offset": [
-                                    18,
-                                    -12
-                                ],
+                            "io_items_toggle@uc.toggle_button": {
                                 "anchor_from": "top_middle",
                                 "anchor_to": "top_middle",
-                                "layer": 1
-                            }
-                        },
-                        {
-                            "io_slot_left": {
-                                "type": "image",
-                                "texture": "textures/ui/slots/upgrade_slot",
-                                "size": [
+                                "offset": [
+                                    -59,
+                                    -56
+                                ],
+                                "visible": "$has_item_io",
+                                "$toggle_name": "io_config_tabs",
+                                "$toggle_layer": 7,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": "$io_items_default",
+                                "$toggle_hover_text": "Items",
+                                "$toggle_checked_hover_text": "Items",
+                                "$toggle_control_name": "io_items_toggle_button",
+                                "$toggle_size": [
                                     18,
                                     18
                                 ],
-                                "offset": [
+                                "$has_toggle_bg": true,
+                                "$toggle_bg_size": [
+                                    24,
+                                    24
+                                ],
+                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                "$toggle_bg_offset": [
                                     0,
-                                    6
+                                    0
                                 ],
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
-                                "layer": 1
+                                "$toggle_unchecked": "textures/ui/toggle_button/item_unchecked",
+                                "$toggle_checked": "textures/ui/toggle_button/item_checked",
+                                "$toggle_unchecked_hover": "textures/ui/toggle_button/item_unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/toggle_button/item_checked_hover"
                             }
                         },
                         {
-                            "io_slot_center": {
-                                "type": "image",
-                                "texture": "textures/ui/slots/upgrade_slot",
-                                "size": [
-                                    18,
-                                    18
-                                ],
-                                "offset": [
-                                    18,
-                                    6
-                                ],
+                            "io_fluids_toggle@uc.toggle_button": {
                                 "anchor_from": "top_middle",
                                 "anchor_to": "top_middle",
-                                "layer": 1
-                            }
-                        },
-                        {
-                            "io_slot_right": {
-                                "type": "image",
-                                "texture": "textures/ui/slots/upgrade_slot",
-                                "size": [
+                                "offset": [
+                                    -59,
+                                    -30
+                                ],
+                                "visible": "$has_fluid_io",
+                                "$toggle_name": "io_config_tabs",
+                                "$toggle_layer": 7,
+                                "$toggle_index": 1,
+                                "$toggle_group": true,
+                                "$toggle_default_state": "$io_fluids_default",
+                                "$toggle_hover_text": "Fluids",
+                                "$toggle_checked_hover_text": "Fluids",
+                                "$toggle_control_name": "io_fluids_toggle_button",
+                                "$toggle_size": [
                                     18,
                                     18
                                 ],
-                                "offset": [
-                                    36,
-                                    6
-                                ],
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
-                                "layer": 1
-                            }
-                        },
-                        {
-                            "io_slot_bottom": {
-                                "type": "image",
-                                "texture": "textures/ui/slots/upgrade_slot",
-                                "size": [
-                                    18,
-                                    18
-                                ],
-                                "offset": [
-                                    18,
+                                "$has_toggle_bg": true,
+                                "$toggle_bg_size": [
+                                    24,
                                     24
                                 ],
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
-                                "layer": 1
+                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                "$toggle_bg_offset": [
+                                    0,
+                                    0
+                                ],
+                                "$toggle_unchecked": "textures/ui/toggle_button/fluid_unchecked",
+                                "$toggle_checked": "textures/ui/toggle_button/fluid_checked",
+                                "$toggle_unchecked_hover": "textures/ui/toggle_button/fluid_unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/toggle_button/fluid_checked_hover"
                             }
                         },
                         {
-                            "io_slot_bottom_right": {
-                                "type": "image",
-                                "texture": "textures/ui/slots/upgrade_slot",
-                                "size": [
-                                    18,
-                                    18
+                            "io_items_panel": {
+                                "type": "panel",
+                                "layer": 1,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "io_items_toggle_button",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
                                 ],
-                                "offset": [
-                                    36,
-                                    24
+                                "controls": [
+                                    {
+                                        "io_slot_top": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                18,
+                                                -12
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_slot_left": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                0,
+                                                6
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_slot_center": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                18,
+                                                6
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_slot_right": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                36,
+                                                6
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_slot_bottom": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                18,
+                                                24
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_slot_bottom_right": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                36,
+                                                24
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "io_fluids_panel": {
+                                "type": "panel",
+                                "layer": 1,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "io_fluids_toggle_button",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
                                 ],
-                                "anchor_from": "top_middle",
-                                "anchor_to": "top_middle",
-                                "layer": 1
+                                "controls": [
+                                    {
+                                        "io_fluid_slot_top": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_extra_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                18,
+                                                -12
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_fluid_slot_left": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_extra_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                0,
+                                                6
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_fluid_slot_center": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_extra_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                18,
+                                                6
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_fluid_slot_right": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_extra_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                36,
+                                                6
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_fluid_slot_bottom": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_extra_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                18,
+                                                24
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    },
+                                    {
+                                        "io_fluid_slot_bottom_right": {
+                                            "type": "image",
+                                            "texture": "textures/ui/slots/input_extra_slot",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "offset": [
+                                                36,
+                                                24
+                                            ],
+                                            "anchor_from": "top_middle",
+                                            "anchor_to": "top_middle",
+                                            "layer": 1
+                                        }
+                                    }
+                                ]
                             }
                         },
                         {

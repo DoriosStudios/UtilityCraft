@@ -59,11 +59,6 @@
                                                                                       }
                                                  },
                                                  {
-                                                     "io_tab@uc.io_tab":  {
-
-                                                                          }
-                                                 },
-                                                 {
                                                      "info_tab@uc.info_tab":  {
                                                                                   "$info_description":  "ui.utilitycraft:info.induction_anvil"
                                                                               }

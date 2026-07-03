@@ -82,7 +82,10 @@
                                                   },
                                                   {
                                                       "io_tab@uc.io_tab":  {
-
+                                                                                 "$has_item_io":  true,
+                                                                                 "$has_fluid_io":  true,
+                                                                                 "$io_items_default":  true,
+                                                                                 "$io_fluids_default":  false
                                                                            }
                                                   },
                                                   {
