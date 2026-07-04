@@ -2898,7 +2898,7 @@
                         -8,
                         56
                     ],
-                    "layer": 8,
+                    "layer": 30,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "bindings": [
@@ -3290,7 +3290,7 @@
                         -8,
                         43
                     ],
-                    "layer": 8,
+                    "layer": 30,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "controls": [
@@ -3667,7 +3667,7 @@
                         137,
                         69
                     ],
-                    "layer": 8,
+                    "layer": 30,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "bindings": [

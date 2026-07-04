@@ -1,4 +1,4 @@
-﻿{
+{
     "namespace":  "furnator",
     "furnator_top":  {
                          "type":  "collection_panel",
@@ -80,7 +80,7 @@
                                            },
                                            {
                                                "flying_item_renderer@common.flying_item_renderer":  {
-                                                                                                        "layer":  14
+                                                                                                        "layer":  40
                                                                                                     }
                                            },
                                            {
