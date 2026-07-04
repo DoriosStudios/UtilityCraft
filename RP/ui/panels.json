@@ -29,7 +29,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": -10
+                    "layer": 0
                 }
             },
             {
@@ -65,7 +65,7 @@
                         6
                     ],
                     "collection_index": "$index_1",
-                    "layer": -9,
+                    "layer": -3,
                     "$show_slot_background": false,
                     "visible": "$has_first"
                 }
@@ -79,7 +79,7 @@
                         6
                     ],
                     "collection_index": "$index_2",
-                    "layer": -9,
+                    "layer": -3,
                     "$show_slot_background": false,
                     "visible": "$has_second"
                 }
@@ -95,7 +95,7 @@
                     "collection_index": "$index_3",
                     "$show_slot_background": false,
                     "visible": "$has_third",
-                    "layer": -9
+                    "layer": -3
                 }
             },
             {
@@ -112,7 +112,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 0
+                    "layer": 1
                 }
             },
             {
@@ -129,7 +129,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 0
+                    "layer": 1
                 }
             },
             {
@@ -146,7 +146,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 0
+                    "layer": 1
                 }
             },
             {
@@ -163,7 +163,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": -3,
+                    "layer": 1,
                     "alpha": 0.5,
                     "visible": "$has_second"
                 }
@@ -182,7 +182,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": -3,
+                    "layer": 1,
                     "alpha": 0.5
                 }
             },
@@ -200,7 +200,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": -3,
+                    "layer": 1,
                     "alpha": 0.5,
                     "visible": "$has_third"
                 }
@@ -219,7 +219,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": -3,
+                    "layer": 1,
                     "alpha": 0.5,
                     "visible": "(not ($has_third))"
                 }
