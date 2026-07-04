@@ -2939,7 +2939,7 @@
                     ],
                     "offset": [
                         18,
-                        -12
+                        -14
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -2956,7 +2956,7 @@
                     ],
                     "offset": [
                         18,
-                        -11
+                        -13
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -2972,7 +2972,7 @@
                         18
                     ],
                     "offset": [
-                        0,
+                        -2,
                         6
                     ],
                     "anchor_from": "top_middle",
@@ -2989,7 +2989,7 @@
                         16
                     ],
                     "offset": [
-                        0,
+                        -2,
                         7
                     ],
                     "anchor_from": "top_middle",
@@ -3040,7 +3040,7 @@
                         18
                     ],
                     "offset": [
-                        36,
+                        38,
                         6
                     ],
                     "anchor_from": "top_middle",
@@ -3057,7 +3057,7 @@
                         16
                     ],
                     "offset": [
-                        36,
+                        38,
                         7
                     ],
                     "anchor_from": "top_middle",
@@ -3075,7 +3075,7 @@
                     ],
                     "offset": [
                         18,
-                        24
+                        26
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -3092,7 +3092,7 @@
                     ],
                     "offset": [
                         18,
-                        25
+                        27
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -3108,8 +3108,8 @@
                         18
                     ],
                     "offset": [
-                        36,
-                        24
+                        38,
+                        26
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -3125,8 +3125,8 @@
                         16
                     ],
                     "offset": [
-                        36,
-                        25
+                        38,
+                        27
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -3389,7 +3389,7 @@
                                 "controls": [
                                     {
                                         "item_faces@uc.io_face_slots": {
-                                            "$io_slot_texture": "textures/ui/slots/input_slot",
+                                            "$io_slot_texture": "textures/ui/slots/item_resource_slot",
                                             "$io_top_texture": "$io_top_texture",
                                             "$io_left_texture": "$io_left_texture",
                                             "$io_front_texture": "$io_front_texture",
@@ -3417,7 +3417,7 @@
                                 "controls": [
                                     {
                                         "fluid_faces@uc.io_face_slots": {
-                                            "$io_slot_texture": "textures/ui/slots/input_extra_slot",
+                                            "$io_slot_texture": "textures/ui/slots/liquid_resource_slot",
                                             "$io_top_texture": "$io_top_texture",
                                             "$io_left_texture": "$io_left_texture",
                                             "$io_front_texture": "$io_front_texture",
