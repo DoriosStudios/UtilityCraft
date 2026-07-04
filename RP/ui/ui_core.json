@@ -3618,7 +3618,7 @@
                         27
                     ],
                     "$toggle_name": "right_machine_tabs",
-                    "$toggle_layer": -2,
+                    "$toggle_layer": 31,
                     "$toggle_index": 0,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
