@@ -3386,8 +3386,8 @@
                                 "$toggle_index": 1,
                                 "$toggle_group": true,
                                 "$toggle_default_state": "$io_fluids_default",
-                                "$toggle_hover_text": "Fluids",
-                                "$toggle_checked_hover_text": "Fluids",
+                                "$toggle_hover_text": "Liquids",
+                                "$toggle_checked_hover_text": "Liquids",
                                 "$toggle_control_name": "io_fluids_toggle_button",
                                 "$toggle_size": [
                                     18,

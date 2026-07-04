@@ -40,10 +40,10 @@ tile.utilitycraft:conveyor_declined.name=Cinta Transportadora Declinada\n§o§9@
 tile.utilitycraft:mechanic_hopper.name=Tolva Mecánica\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Elevador Mecánico\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:basic_fluid_tank.name=§eTanque de Fluidos Básico\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cTanque de Fluidos Avanzado\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bTanque de Fluidos Maestro\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Tanque de Fluidos Definitivo\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eTanque de Líquidos Básico\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cTanque de Líquidos Avanzado\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bTanque de Líquidos Maestro\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Tanque de Líquidos Definitivo\n§o§9@UtilityCraft
 
 - Bountiful Bonsais = ## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
@@ -843,7 +843,7 @@ tile.utilitycraft:crucible.name=Crisol\n§o§9@UtilityCraft
 tile.utilitycraft:magmatic_chamber.name=Cámara Magmática\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Dispensador Mecánico\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Bomba de Fluidos\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pump.name=Bomba de Líquidos\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
 
 
 
@@ -903,11 +903,11 @@ tile.utilitycraft:item_conduit_blue.name=Conducto de Ítems (Azul)\n§7- Transpo
 tile.utilitycraft:item_conduit_yellow.name=Conducto de Ítems (Amarillo)\n§7- Transporta ítems\n§o§9@UtilityCraft
 tile.utilitycraft:item_conduit_red.name=Conducto de Ítems (Rojo)\n§7- Transporta ítems\n§o§9@UtilityCraft
 tile.utilitycraft:item_conduit_purple.name=Conducto de Ítems (Morado)\n§7- Transporta ítems\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe.name=Tubería de Fluidos\n§7- Transporta líquidos\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_blue.name=Tubería de Fluidos (Azul)\n§7- Transporta líquidos\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_green.name=Tubería de Fluidos (Verde)\n§7- Transporta líquidos\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_red.name=Tubería de Fluidos (Rojo)\n§7- Transporta líquidos\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_purple.name=Tubería de Fluidos (Morado)\n§7- Transporta líquidos\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe.name=Tubería de Líquidos\n§7- Transporta líquidos\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_blue.name=Tubería de Líquidos (Azul)\n§7- Transporta líquidos\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_green.name=Tubería de Líquidos (Verde)\n§7- Transporta líquidos\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_red.name=Tubería de Líquidos (Rojo)\n§7- Transporta líquidos\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_purple.name=Tubería de Líquidos (Morado)\n§7- Transporta líquidos\n§o§9@UtilityCraft
 dorios:itemGroup.name.pipes=Tuberías
 item.utilitycraft:flint_knife=Cuchillo de Pedernal\n§o§9@UtilityCraft
 item.utilitycraft:fiber=Fibra Vegetal\n§o§9@UtilityCraft
@@ -917,11 +917,11 @@ tile.utilitycraft:item_exporter_purple.name=Exportador de Objetos (Morado)\n§7-
 tile.utilitycraft:item_exporter_red.name=Exportador de Objetos (Rojo)\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_yellow.name=Exportador de Objetos (Amarillo)\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7\n§o§9@UtilityCraft
 item.utilitycraft:mortar=Mortero\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor.name=Extractor de Fluidos \n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_blue.name=Extractor de Fluidos (Azul)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_green.name=Extractor de Fluidos (Verde)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_purple.name=Extractor de Fluidos (Morado)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_red.name=Extractor de Fluidos (Rojo)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor.name=Extractor de Líquidos \n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_blue.name=Extractor de Líquidos (Azul)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_green.name=Extractor de Líquidos (Verde)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_purple.name=Extractor de Líquidos (Morado)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_red.name=Extractor de Líquidos (Rojo)\n§7- Acepta mejoras:\n §aVelocidad§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_importer.name=Importador de Objetos (Predeterminado)\n§7- Acepta mejoras:\n §fFiltro§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_importer_blue.name=Importador de Objetos (Azul)\n§7- Acepta mejoras:\n §fFiltro§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_importer_purple.name=Importador de Objetos (Morado)\n§7- Acepta mejoras:\n §fFiltro§7\n§o§9@UtilityCraft

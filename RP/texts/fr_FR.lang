@@ -27,7 +27,7 @@ tile.utilitycraft:induction_anvil.name=Enclume à induction\n§7- Mises à nivea
 tile.utilitycraft:magmatic_chamber.name=Chambre Magmatique\n§7- Améliorations acceptées :\n §a§7 §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Compte-gouttes mécanique\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Pompe à fluide\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pump.name=Pompe à liquide\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
 
 tile.utilitycraft:machine_case.name=Boîtier de machine\n§o§9@UtilityCraft
 tile.utilitycraft:xp_condenser.name=Condensateur XP\n§o§9@UtilityCraft
@@ -54,10 +54,10 @@ tile.utilitycraft:conveyor_declined.name=Convoyeur refusé\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_hopper.name=Trémie mécanique\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mécanicien supérieur\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de fluide de base\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de fluide avancé\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de fluide expert\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de fluide ultime\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de liquide de base\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de liquide avancé\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de liquide expert\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de liquide ultime\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Bonsaïs abondants
 tile.utilitycraft:bonsai.name=Bonsaï\n§o§9@UtilityCraft
 
@@ -813,11 +813,11 @@ tile.utilitycraft:item_conduit_blue.name=Conduit d'objet (bleu)\n§7- Transporte
 tile.utilitycraft:item_conduit_yellow.name=Conduit d'article (jaune)\n§7- Transporte les articles\n§o§9@UtilityCraft
 tile.utilitycraft:item_conduit_red.name=Conduit d'article (rouge)\n§7- Transporte les articles\n§o§9@UtilityCraft
 tile.utilitycraft:item_conduit_purple.name=Conduit d'objet (violet)\n§7- Transporte les objets\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe.name=Tuyau de fluide (par défaut)\n§7- Transporte les liquides\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_blue.name=Tuyau de fluide (bleu)\n§7- Transporte les liquides\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_green.name=Tuyau de fluide (vert)\n§7- Transporte les liquides\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_red.name=Tuyau de fluide (rouge)\n§7- Transporte les liquides\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pipe_purple.name=Tuyau de fluide (violet)\n§7- Transporte les liquides\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe.name=Tuyau de liquide (par défaut)\n§7- Transporte les liquides\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_blue.name=Tuyau de liquide (bleu)\n§7- Transporte les liquides\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_green.name=Tuyau de liquide (vert)\n§7- Transporte les liquides\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_red.name=Tuyau de liquide (rouge)\n§7- Transporte les liquides\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_pipe_purple.name=Tuyau de liquide (violet)\n§7- Transporte les liquides\n§o§9@UtilityCraft
 
 dorios:itemGroup.name.pipes=Tuyaux
 item.utilitycraft:flint_knife=Couteau en silex \n§7- Sépare les fibres des feuilles\n§o§9@UtilityCraft
@@ -828,11 +828,11 @@ tile.utilitycraft:item_exporter_red.name=Exportateur d'articles (rouge)\n§7- Mi
 tile.utilitycraft:item_exporter_yellow.name=Exportateur d'articles (jaune)\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_purple.name=Exportateur d'articles (violet)\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
 item.utilitycraft:mortar=Mortier\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor.name=Extracteur de fluide (par défaut)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_blue.name=Extracteur de fluide (bleu)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_green.name=Extracteur de fluide (vert)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_red.name=Extracteur de fluide (rouge)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_purple.name=Extracteur de fluide (violet)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor.name=Extracteur de liquide (par défaut)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_blue.name=Extracteur de liquide (bleu)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_green.name=Extracteur de liquide (vert)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_red.name=Extracteur de liquide (rouge)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_purple.name=Extracteur de liquide (violet)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_importer.name=Importateur d'articles (par défaut)\n§7- Mises à niveau acceptées :\n §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_importer_blue.name=Importateur d'articles (bleu)\n§7- Mises à niveau acceptées :\n §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_importer_red.name=Importateur d'articles (rouge)\n§7- Mises à niveau acceptées :\n §f§7\n§o§9@UtilityCraft
