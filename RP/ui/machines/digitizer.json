@@ -133,8 +133,13 @@
                                            },
                                            {
                                                "io_tab@uc.io_tab":  {
-
-                                                                    }
+                                                                                 "$io_top_texture":  "textures/blocks/Machines/digitizer/off/up",
+                                                                                 "$io_left_texture":  "textures/blocks/Machines/digitizer/off/west",
+                                                                                 "$io_front_texture":  "textures/blocks/Machines/digitizer/off/north",
+                                                                                 "$io_right_texture":  "textures/blocks/Machines/digitizer/off/east",
+                                                                                 "$io_bottom_texture":  "textures/blocks/Machines/digitizer/off/down",
+                                                                                 "$io_back_texture":  "textures/blocks/Machines/digitizer/off/south"
+                                                                           }
                                            },
                                            {
                                                "info_tab@uc.info_tab":  {
