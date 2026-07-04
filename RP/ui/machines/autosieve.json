@@ -1,4 +1,4 @@
-{
+﻿{
     "namespace":  "autosieve",
     "flipbook_animation":  {
                                "anim_type":  "flip_book",
@@ -66,25 +66,25 @@
                                            },
                                            {
                                                "item@uc.input_slot":  {
-                                                                                  "anchor_from":  "top_middle",
-                                                                                  "anchor_to":  "top_middle",
-                                                                                  "offset":  [
-                                                                                                 -5,
-                                                                                                 17
-                                                                                             ],
-                                                                                  "collection_index":  3
-                                                                              }
+                                                                          "anchor_from":  "top_middle",
+                                                                          "anchor_to":  "top_middle",
+                                                                          "offset":  [
+                                                                                         -5,
+                                                                                         17
+                                                                                     ],
+                                                                          "collection_index":  3
+                                                                      }
                                            },
                                            {
                                                "item@uc.input_extra_slot":  {
-                                                                                  "anchor_from":  "top_middle",
-                                                                                  "anchor_to":  "top_middle",
-                                                                                  "offset":  [
-                                                                                                 -5,
-                                                                                                 45
-                                                                                             ],
-                                                                                  "collection_index":  6
-                                                                              }
+                                                                                "anchor_from":  "top_middle",
+                                                                                "anchor_to":  "top_middle",
+                                                                                "offset":  [
+                                                                                               -5,
+                                                                                               45
+                                                                                           ],
+                                                                                "collection_index":  6
+                                                                            }
                                            },
                                            {
                                                "output_grid@uc.slot_grid_3x3":  {
@@ -102,7 +102,8 @@
                                                                                     "$collection_index_6":  12,
                                                                                     "$collection_index_7":  13,
                                                                                     "$collection_index_8":  14,
-                                                                                    "$collection_index_9":  15
+                                                                                    "$collection_index_9":  15,
+                                                                                    "$slot_outline_texture":  "textures/ui/slots/output_slot"
                                                                                 }
                                            },
                                            {
@@ -112,13 +113,13 @@
                                            },
                                            {
                                                "io_tab@uc.io_tab":  {
-                                                                                 "$io_top_texture":  "textures/blocks/Machines/autosieve/off/up",
-                                                                                 "$io_left_texture":  "textures/blocks/Machines/autosieve/off/west",
-                                                                                 "$io_front_texture":  "textures/blocks/Machines/autosieve/off/north",
-                                                                                 "$io_right_texture":  "textures/blocks/Machines/autosieve/off/east",
-                                                                                 "$io_bottom_texture":  "textures/blocks/Machines/autosieve/off/down",
-                                                                                 "$io_back_texture":  "textures/blocks/Machines/autosieve/off/south"
-                                                                           }
+                                                                        "$io_top_texture":  "textures/blocks/Machines/autosieve/off/up",
+                                                                        "$io_left_texture":  "textures/blocks/Machines/autosieve/off/west",
+                                                                        "$io_front_texture":  "textures/blocks/Machines/autosieve/off/north",
+                                                                        "$io_right_texture":  "textures/blocks/Machines/autosieve/off/east",
+                                                                        "$io_bottom_texture":  "textures/blocks/Machines/autosieve/off/down",
+                                                                        "$io_back_texture":  "textures/blocks/Machines/autosieve/off/south"
+                                                                    }
                                            },
                                            {
                                                "info_tab@uc.info_tab":  {

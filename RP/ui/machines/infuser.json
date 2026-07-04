@@ -1,4 +1,4 @@
-{
+﻿{
     "namespace":  "infuser",
     "infuser_top":  {
                         "type":  "collection_panel",
@@ -66,36 +66,36 @@
                                          },
                                          {
                                              "item@uc.input_slot":  {
-                                                                       "anchor_from":  "top_middle",
-                                                                       "anchor_to":  "top_middle",
-                                                                       "offset":  [
-                                                                                      14,
-                                                                                      35
-                                                                                  ],
-                                                                       "collection_index":  3
-                                                                   }
-                                         },
-                                         {
-                                             "item@uc.input_extra_slot":  {
-                                                                             "anchor_from":  "top_middle",
-                                                                             "anchor_to":  "top_middle",
-                                                                             "offset":  [
-                                                                                            -4,
-                                                                                            16
-                                                                                        ],
-                                                                             "collection_index":  4
-                                                                         }
-                                         },
-                                         {
-                                             "item@uc.output_slot":  {
                                                                         "anchor_from":  "top_middle",
                                                                         "anchor_to":  "top_middle",
                                                                         "offset":  [
-                                                                                       70,
-                                                                                       31
+                                                                                       14,
+                                                                                       35
                                                                                    ],
-                                                                        "collection_index":  7
+                                                                        "collection_index":  3
                                                                     }
+                                         },
+                                         {
+                                             "item@uc.input_extra_slot":  {
+                                                                              "anchor_from":  "top_middle",
+                                                                              "anchor_to":  "top_middle",
+                                                                              "offset":  [
+                                                                                             -4,
+                                                                                             16
+                                                                                         ],
+                                                                              "collection_index":  4
+                                                                          }
+                                         },
+                                         {
+                                             "item@uc.output_slot":  {
+                                                                         "anchor_from":  "top_middle",
+                                                                         "anchor_to":  "top_middle",
+                                                                         "offset":  [
+                                                                                        70,
+                                                                                        31
+                                                                                    ],
+                                                                         "collection_index":  7
+                                                                     }
                                          },
                                          {
                                              "upgrades_tab@uc.upgrades_tab":  {
@@ -105,13 +105,13 @@
                                          },
                                          {
                                              "io_tab@uc.io_tab":  {
-                                                                                 "$io_top_texture":  "textures/blocks/Machines/infuser/off/up",
-                                                                                 "$io_left_texture":  "textures/blocks/Machines/infuser/off/west",
-                                                                                 "$io_front_texture":  "textures/blocks/Machines/infuser/off/north",
-                                                                                 "$io_right_texture":  "textures/blocks/Machines/infuser/off/east",
-                                                                                 "$io_bottom_texture":  "textures/blocks/Machines/infuser/off/down",
-                                                                                 "$io_back_texture":  "textures/blocks/Machines/infuser/off/south"
-                                                                           }
+                                                                      "$io_top_texture":  "textures/blocks/Machines/infuser/off/up",
+                                                                      "$io_left_texture":  "textures/blocks/Machines/infuser/off/west",
+                                                                      "$io_front_texture":  "textures/blocks/Machines/infuser/off/north",
+                                                                      "$io_right_texture":  "textures/blocks/Machines/infuser/off/east",
+                                                                      "$io_bottom_texture":  "textures/blocks/Machines/infuser/off/down",
+                                                                      "$io_back_texture":  "textures/blocks/Machines/infuser/off/south"
+                                                                  }
                                          },
                                          {
                                              "info_tab@uc.info_tab":  {

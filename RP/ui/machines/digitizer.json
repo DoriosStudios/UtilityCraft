@@ -1,4 +1,4 @@
-{
+﻿{
     "namespace":  "digitizer",
     "digitizer_top":  {
                           "type":  "collection_panel",
@@ -74,14 +74,14 @@
                                            },
                                            {
                                                "item@uc.input_extra_slot":  {
-                                                                                  "anchor_from":  "top_middle",
-                                                                                  "anchor_to":  "top_middle",
-                                                                                  "offset":  [
-                                                                                                 52,
-                                                                                                 10
-                                                                                             ],
-                                                                                  "collection_index":  3
-                                                                              }
+                                                                                "anchor_from":  "top_middle",
+                                                                                "anchor_to":  "top_middle",
+                                                                                "offset":  [
+                                                                                               52,
+                                                                                               10
+                                                                                           ],
+                                                                                "collection_index":  3
+                                                                            }
                                            },
                                            {
                                                "blueprint_overlay@uc.function_panel":  {
@@ -133,13 +133,13 @@
                                            },
                                            {
                                                "io_tab@uc.io_tab":  {
-                                                                                 "$io_top_texture":  "textures/blocks/Machines/digitizer/off/up",
-                                                                                 "$io_left_texture":  "textures/blocks/Machines/digitizer/off/west",
-                                                                                 "$io_front_texture":  "textures/blocks/Machines/digitizer/off/north",
-                                                                                 "$io_right_texture":  "textures/blocks/Machines/digitizer/off/east",
-                                                                                 "$io_bottom_texture":  "textures/blocks/Machines/digitizer/off/down",
-                                                                                 "$io_back_texture":  "textures/blocks/Machines/digitizer/off/south"
-                                                                           }
+                                                                        "$io_top_texture":  "textures/blocks/Machines/digitizer/off/up",
+                                                                        "$io_left_texture":  "textures/blocks/Machines/digitizer/off/west",
+                                                                        "$io_front_texture":  "textures/blocks/Machines/digitizer/off/north",
+                                                                        "$io_right_texture":  "textures/blocks/Machines/digitizer/off/east",
+                                                                        "$io_bottom_texture":  "textures/blocks/Machines/digitizer/off/down",
+                                                                        "$io_back_texture":  "textures/blocks/Machines/digitizer/off/south"
+                                                                    }
                                            },
                                            {
                                                "info_tab@uc.info_tab":  {

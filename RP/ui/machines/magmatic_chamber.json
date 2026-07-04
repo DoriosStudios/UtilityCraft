@@ -1,4 +1,4 @@
-{
+﻿{
     "namespace":  "magmatic_chamber",
     "magmatic_chamber_top":  {
                                  "type":  "collection_panel",
@@ -55,14 +55,14 @@
                                                   },
                                                   {
                                                       "item@uc.input_slot":  {
-                                                                                         "anchor_from":  "top_middle",
-                                                                                         "anchor_to":  "top_middle",
-                                                                                         "offset":  [
-                                                                                                        10,
-                                                                                                        30
-                                                                                                    ],
-                                                                                         "collection_index":  3
-                                                                                     }
+                                                                                 "anchor_from":  "top_middle",
+                                                                                 "anchor_to":  "top_middle",
+                                                                                 "offset":  [
+                                                                                                10,
+                                                                                                30
+                                                                                            ],
+                                                                                 "collection_index":  3
+                                                                             }
                                                   },
                                                   {
                                                       "liquid_bar@uc.fluid_bar":  {
@@ -82,16 +82,16 @@
                                                   },
                                                   {
                                                       "io_tab@uc.io_tab":  {
-                                                                                 "$has_item_io":  true,
-                                                                                 "$has_fluid_io":  true,
-                                                                                 "$io_items_default":  true,
-                                                                                 "$io_fluids_default":  false,
-                                                                                 "$io_top_texture":  "textures/blocks/Machines/magmatic_chamber/base/up",
-                                                                                 "$io_left_texture":  "textures/blocks/Machines/magmatic_chamber/base/west",
-                                                                                 "$io_front_texture":  "textures/blocks/Machines/magmatic_chamber/base/north",
-                                                                                 "$io_right_texture":  "textures/blocks/Machines/magmatic_chamber/base/east",
-                                                                                 "$io_bottom_texture":  "textures/blocks/Machines/magmatic_chamber/base/down",
-                                                                                 "$io_back_texture":  "textures/blocks/Machines/magmatic_chamber/base/south"
+                                                                               "$has_item_io":  true,
+                                                                               "$has_fluid_io":  true,
+                                                                               "$io_items_default":  true,
+                                                                               "$io_fluids_default":  false,
+                                                                               "$io_top_texture":  "textures/blocks/Machines/magmatic_chamber/base/up",
+                                                                               "$io_left_texture":  "textures/blocks/Machines/magmatic_chamber/base/west",
+                                                                               "$io_front_texture":  "textures/blocks/Machines/magmatic_chamber/base/north",
+                                                                               "$io_right_texture":  "textures/blocks/Machines/magmatic_chamber/base/east",
+                                                                               "$io_bottom_texture":  "textures/blocks/Machines/magmatic_chamber/base/down",
+                                                                               "$io_back_texture":  "textures/blocks/Machines/magmatic_chamber/base/south"
                                                                            }
                                                   },
                                                   {

@@ -1426,6 +1426,15 @@
         ],
         "controls": [
             {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
                 "slot_background": {
                     "type": "image",
                     "texture": "textures/ui/slots/input_slot",
@@ -1433,16 +1442,7 @@
                         18,
                         18
                     ],
-                    "layer": 0
-                }
-            },
-            {
-                "item@common.container_item": {
-                    "$cell_image_size": [
-                        0,
-                        0
-                    ],
-                    "layer": 1
+                    "layer": 4
                 }
             }
         ]
@@ -1455,6 +1455,15 @@
         ],
         "controls": [
             {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
                 "slot_background": {
                     "type": "image",
                     "texture": "textures/ui/slots/input_extra_slot",
@@ -1462,16 +1471,7 @@
                         18,
                         18
                     ],
-                    "layer": 0
-                }
-            },
-            {
-                "item@common.container_item": {
-                    "$cell_image_size": [
-                        0,
-                        0
-                    ],
-                    "layer": 1
+                    "layer": 4
                 }
             }
         ]
@@ -1485,6 +1485,15 @@
         ],
         "controls": [
             {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
                 "slot_background": {
                     "type": "image",
                     "texture": "textures/ui/slots/upgrade_slot",
@@ -1492,17 +1501,8 @@
                         18,
                         18
                     ],
-                    "layer": 0,
+                    "layer": 4,
                     "visible": "$show_slot_background"
-                }
-            },
-            {
-                "item@common.container_item": {
-                    "$cell_image_size": [
-                        0,
-                        0
-                    ],
-                    "layer": 1
                 }
             }
         ]
@@ -1515,6 +1515,20 @@
         ],
         "controls": [
             {
+                "item@common.container_item": {
+                    "size": [
+                        26,
+                        26
+                    ],
+                    "$cell_image_size": [
+                        26,
+                        26
+                    ],
+                    "$button_ref": "uc.slot_button_prototype",
+                    "layer": 1
+                }
+            },
+            {
                 "slot_background": {
                     "type": "image",
                     "texture": "textures/ui/slots/output_slot",
@@ -1522,21 +1536,7 @@
                         26,
                         26
                     ],
-                    "layer": 0
-                }
-            },
-            {
-                "item@common.container_item": {
-                    "size": [
-                        26,
-                        26
-                    ],
-                    "$cell_image_size": [
-                        0,
-                        0
-                    ],
-                    "$button_ref": "uc.slot_button_prototype",
-                    "layer": 1
+                    "layer": 4
                 }
             }
         ]
@@ -2117,6 +2117,7 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
+        "$slot_outline_texture|default": "textures/ui/slots/default_slot",
         "$collection_index_1|default": 0,
         "$collection_index_2|default": 1,
         "$collection_index_3|default": 2,
@@ -2225,6 +2226,23 @@
                         36
                     ]
                 }
+            },
+            {
+                "grid_outline": {
+                    "type": "image",
+                    "texture": "$slot_outline_texture",
+                    "size": [
+                        56,
+                        56
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        -1,
+                        -1
+                    ],
+                    "layer": 4
+                }
             }
         ]
     },
@@ -2238,6 +2256,7 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
+        "$slot_outline_texture|default": "textures/ui/slots/default_slot",
         "$collection_index_1|default": 0,
         "$collection_index_2|default": 1,
         "$collection_index_3|default": 2,
@@ -2285,6 +2304,23 @@
                         18,
                         18
                     ]
+                }
+            },
+            {
+                "grid_outline": {
+                    "type": "image",
+                    "texture": "$slot_outline_texture",
+                    "size": [
+                        38,
+                        38
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        -1,
+                        -1
+                    ],
+                    "layer": 4
                 }
             }
         ]
@@ -2506,7 +2542,7 @@
                         {
                             "checked": {
                                 "type": "panel",
-                                "layer": 1,
+                                "layer": 0,
                                 "controls": [
                                     {
                                         "bg_image": {
@@ -2560,7 +2596,7 @@
                         {
                             "checked_hover": {
                                 "type": "panel",
-                                "layer": 1,
+                                "layer": 0,
                                 "controls": [
                                     {
                                         "bg_image": {
@@ -2616,7 +2652,7 @@
                             "checked_locked": {
                                 "type": "panel",
                                 "alpha": 0.7,
-                                "layer": 1,
+                                "layer": 0,
                                 "controls": [
                                     {
                                         "bg_image": {
@@ -2664,7 +2700,7 @@
                             "checked_locked_hover": {
                                 "type": "panel",
                                 "alpha": 0.7,
-                                "layer": 1,
+                                "layer": 0,
                                 "controls": [
                                     {
                                         "bg_image": {
@@ -2862,7 +2898,7 @@
                         -8,
                         56
                     ],
-                    "layer": 28,
+                    "layer": 8,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "bindings": [
@@ -2902,7 +2938,7 @@
                                     15
                                 ],
                                 "$toggle_name": "right_machine_tabs",
-                                "$toggle_layer": 7,
+                                "$toggle_layer": 3,
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": true,
@@ -2943,7 +2979,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 3
                 }
             },
             {
@@ -2977,7 +3013,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 3
                 }
             },
             {
@@ -3011,7 +3047,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 3
                 }
             },
             {
@@ -3045,7 +3081,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 3
                 }
             },
             {
@@ -3079,7 +3115,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 3
                 }
             },
             {
@@ -3113,7 +3149,7 @@
                     ],
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "layer": 1
+                    "layer": 3
                 }
             },
             {
@@ -3254,7 +3290,7 @@
                         -8,
                         43
                     ],
-                    "layer": 28,
+                    "layer": 8,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "controls": [
@@ -3295,7 +3331,7 @@
                                     0.3,
                                     0.3
                                 ],
-                                "layer": 7,
+                                "layer": 3,
                                 "font_scale_factor": 1
                             }
                         },
@@ -3309,7 +3345,7 @@
                                 ],
                                 "visible": "$has_item_io",
                                 "$toggle_name": "io_config_tabs",
-                                "$toggle_layer": 7,
+                                "$toggle_layer": 3,
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": "$io_items_default",
@@ -3346,7 +3382,7 @@
                                 ],
                                 "visible": "$has_fluid_io",
                                 "$toggle_name": "io_config_tabs",
-                                "$toggle_layer": 7,
+                                "$toggle_layer": 3,
                                 "$toggle_index": 1,
                                 "$toggle_group": true,
                                 "$toggle_default_state": "$io_fluids_default",
@@ -3442,7 +3478,7 @@
                                     15
                                 ],
                                 "$toggle_name": "right_machine_tabs",
-                                "$toggle_layer": 7,
+                                "$toggle_layer": 3,
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": true,
@@ -3631,7 +3667,7 @@
                         137,
                         69
                     ],
-                    "layer": 0,
+                    "layer": 8,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "bindings": [
