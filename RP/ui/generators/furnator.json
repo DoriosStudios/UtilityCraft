@@ -70,6 +70,7 @@
                                           },
                                           {
                                               "io_tab@uc.io_tab":  {
+                                                                       "$io_items_modes_description":  "IO Modes:\n§r- §vFuel Input",
                                                                        "$has_item_io":  true,
                                                                        "$has_fluid_io":  false,
                                                                        "$io_top_texture":  "textures/blocks/generators/furnator/basic/off/up",

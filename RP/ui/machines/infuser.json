@@ -105,6 +105,7 @@
                                          },
                                          {
                                              "io_tab@uc.io_tab":  {
+                                                                      "$io_items_modes_description":  "IO Modes:\n§r- §9Input\n§r- §bInput Extra\n§r- §cOutput",
                                                                       "$io_top_texture":  "textures/blocks/Machines/infuser/off/up",
                                                                       "$io_left_texture":  "textures/blocks/Machines/infuser/off/west",
                                                                       "$io_front_texture":  "textures/blocks/Machines/infuser/off/north",

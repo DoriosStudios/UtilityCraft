@@ -3252,11 +3252,11 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_top_index",
                     "$io_button_offset": [
-                        18,
+                        41,
                         -14
                     ],
                     "$io_face_offset": [
-                        18,
+                        41,
                         -13
                     ],
                     "$io_face_texture": "$io_top_texture"
@@ -3267,11 +3267,11 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_left_index",
                     "$io_button_offset": [
-                        -2,
+                        21,
                         6
                     ],
                     "$io_face_offset": [
-                        -2,
+                        21,
                         7
                     ],
                     "$io_face_texture": "$io_left_texture"
@@ -3282,11 +3282,11 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_front_index",
                     "$io_button_offset": [
-                        18,
+                        41,
                         6
                     ],
                     "$io_face_offset": [
-                        18,
+                        41,
                         7
                     ],
                     "$io_face_texture": "$io_front_texture"
@@ -3297,11 +3297,11 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_right_index",
                     "$io_button_offset": [
-                        38,
+                        61,
                         6
                     ],
                     "$io_face_offset": [
-                        38,
+                        61,
                         7
                     ],
                     "$io_face_texture": "$io_right_texture"
@@ -3312,11 +3312,11 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_bottom_index",
                     "$io_button_offset": [
-                        18,
+                        41,
                         26
                     ],
                     "$io_face_offset": [
-                        18,
+                        41,
                         27
                     ],
                     "$io_face_texture": "$io_bottom_texture"
@@ -3327,11 +3327,11 @@
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_back_index",
                     "$io_button_offset": [
-                        38,
+                        61,
                         26
                     ],
                     "$io_face_offset": [
-                        38,
+                        61,
                         27
                     ],
                     "$io_face_texture": "$io_back_texture"
@@ -3355,6 +3355,8 @@
         "$has_fluid_io|default": false,
         "$io_items_default|default": true,
         "$io_fluids_default|default": false,
+        "$io_items_modes_description|default": "IO Modes:\n§r- §9Input\n§r- §bInput Extra\n§r- §cOutput",
+        "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Input\n§r- §cOutput",
         "$io_item_top_index|default": 8,
         "$io_item_left_index|default": 9,
         "$io_item_front_index|default": 10,
@@ -3513,6 +3515,72 @@
                                 ],
                                 "layer": 3,
                                 "font_scale_factor": 1
+                            }
+                        },
+                        {
+                            "item_modes_label": {
+                                "type": "label",
+                                "text": "$io_items_modes_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    40
+                                ],
+                                "offset": [
+                                    100,
+                                    -10
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 3,
+                                "font_scale_factor": 0.75,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "io_items_toggle_button",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "fluid_modes_label": {
+                                "type": "label",
+                                "text": "$io_fluids_modes_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    40
+                                ],
+                                "offset": [
+                                    100,
+                                    -10
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 3,
+                                "font_scale_factor": 0.75,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "io_fluids_toggle_button",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ]
                             }
                         },
                         {
