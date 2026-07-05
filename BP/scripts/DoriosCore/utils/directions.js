@@ -23,8 +23,8 @@ export const OPPOSITE_DIRECTIONS = {
 export const RELATIVE_IO_FACES = ["top", "left", "front", "right", "bottom", "back"];
 
 const HORIZONTAL_RELATIVES = {
-  north: { front: "north", back: "south", left: "west", right: "east", top: "up", bottom: "down" },
-  south: { front: "south", back: "north", left: "east", right: "west", top: "up", bottom: "down" },
+  north: { front: "south", back: "north", left: "east", right: "west", top: "up", bottom: "down" },
+  south: { front: "north", back: "south", left: "west", right: "east", top: "up", bottom: "down" },
   east: { front: "east", back: "west", left: "north", right: "south", top: "up", bottom: "down" },
   west: { front: "west", back: "east", left: "south", right: "north", top: "up", bottom: "down" },
 };
