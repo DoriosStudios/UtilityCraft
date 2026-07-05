@@ -19,10 +19,21 @@ const ioInputCursors = new Map();
 /**
  * Normalizes a slot declaration into an explicit slot list.
  *
- * @param {number|number[]|undefined} slots Slot or slots.
+ * Two-number arrays are treated as inclusive ranges, matching the block JSON
+ * `input_range` and `output_range` declarations.
+ *
+ * @param {number|number[]|undefined} slots Slot, slot list, or inclusive range.
  * @returns {number[]} Valid slot indexes.
  */
 function normalizeIOSlots(slots) {
+  if (Array.isArray(slots) && slots.length === 2) {
+    const start = Math.floor(Number(slots[0]));
+    const end = Math.floor(Number(slots[1]));
+    if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return [];
+
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+  }
+
   const rawSlots = Array.isArray(slots) ? slots : [slots];
   return rawSlots
     .map((slot) => Math.floor(Number(slot)))
@@ -292,7 +303,7 @@ export class Machine extends BasicMachine {
    * through directions that are both enabled by the user and compatible.
    *
    * @param {Object} config Runtime IO handler config.
-   * @param {Object<string, number|number[]>} [config.items] Item slots keyed by mode, e.g. `{ input:[3], input_extra:[4], output:[7] }`.
+   * @param {Object<string, number|number[]>} [config.items] Item slots keyed by mode, e.g. `{ input:[3], input_extra:[4], output:[7, 15] }`.
    * @param {Object<string, FluidStorage>|FluidStorage} [config.liquids] Fluid storage keyed by mode, or one shared tank.
    * @param {Object} [limits] Per-tick transfer limits.
    * @param {number} [limits.maxInputSlotsScannedPerTick=9] External inventory slots scanned for input.

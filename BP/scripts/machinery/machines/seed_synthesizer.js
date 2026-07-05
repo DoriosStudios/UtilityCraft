@@ -54,7 +54,13 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        if (machine.hasOutputItems()) machine.transferItems()
+        machine.processIO({
+            items: {
+                input: [INTPUTSLOT],
+                input_extra: [MESHSLOT],
+                output: settings.entity?.output_range ?? [7, 15]
+            }
+        });
 
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INTPUTSLOT);

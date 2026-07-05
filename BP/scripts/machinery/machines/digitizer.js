@@ -45,6 +45,13 @@ DoriosAPI.register.blockComponent("digitizer", {
         const inv = machine.container;
         const outputSlot = settings.entity?.output_slot ?? inv.size - 1;
         const [inputStart, inputEnd] = settings.entity?.input_range ?? [inv.size - 10, inv.size - 2];
+        machine.processIO({
+            items: {
+                input: [inputStart, inputEnd],
+                input_extra: [BLUEPRINT_SLOT],
+                output: [outputSlot]
+            }
+        });
 
         const blueprint = inv.getItem(BLUEPRINT_SLOT);
         if (!blueprint || blueprint.typeId !== BLUEPRINT_ITEM) {

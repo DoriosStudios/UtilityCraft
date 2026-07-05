@@ -623,7 +623,12 @@ DoriosAPI.register.blockComponent('autofisher', {
         if (!machine.valid) return;
 
         const inv = machine.container;
-        if (machine.hasOutputItems()) machine.transferItems();
+        machine.processIO({
+            items: {
+                input_extra: [NET_SLOT],
+                output: settings.entity?.output_range ?? [7, 15]
+            }
+        });
 
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {

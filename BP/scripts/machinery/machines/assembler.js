@@ -48,10 +48,15 @@ DoriosAPI.register.blockComponent('assembler', {
 
         const OUTPUT_SLOT = settings.entity?.output_slot ?? inv.size - 1;
         const [INPUT_START, INPUT_END] = settings.entity?.input_range ?? [inv.size - 10, inv.size - 2];
+        machine.processIO({
+            items: {
+                input: [INPUT_START, INPUT_END],
+                input_extra: [BLUEPRINT_SLOT],
+                output: [OUTPUT_SLOT]
+            }
+        });
+
         let outputSlot = inv.getItem(OUTPUT_SLOT);
-        if (outputSlot && machine.transferItems()) {
-            outputSlot = inv.getItem(OUTPUT_SLOT);
-        }
 
         const speedFactor = machine.upgrades.speed <= 1
             ? machine.upgrades.speed + 1

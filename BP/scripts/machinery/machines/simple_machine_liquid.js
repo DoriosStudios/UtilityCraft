@@ -44,7 +44,14 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
 
         /** @type {FluidStorage} */
         const liquid = FluidStorage.initializeSingle(machine.entity);
-        liquid.transferFluids(block)
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT]
+            },
+            liquids: {
+                output: liquid
+            }
+        });
 
         const inv = machine.container;
 

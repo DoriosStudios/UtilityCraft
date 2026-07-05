@@ -46,10 +46,14 @@ DoriosAPI.register.blockComponent('simple_machine', {
         if (!machine.valid) return
 
         const inv = machine.container;
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT],
+                output: [OUTPUTSLOT]
+            }
+        });
+
         let outputSlot = inv.getItem(OUTPUTSLOT);
-        if (outputSlot && machine.transferItems()) {
-            outputSlot = inv.getItem(OUTPUTSLOT);
-        }
 
         //#region Comprobations
         // Get the input slot (slot 3 in this case)

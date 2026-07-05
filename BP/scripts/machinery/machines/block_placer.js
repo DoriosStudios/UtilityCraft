@@ -38,6 +38,11 @@ DoriosAPI.register.blockComponent('block_placer', {
         let progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;
         const inv = machine.container;
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT]
+            }
+        });
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
