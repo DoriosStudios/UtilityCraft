@@ -38,14 +38,17 @@ DoriosAPI.register.blockComponent('double_machine', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.pullItemsFromAbove(CATALYSTSLOT)
-
         const inv = machine.container;
         const OUTPUTSLOT = settings.entity?.output_slot ?? inv.size - 1
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT],
+                input_extra: [CATALYSTSLOT],
+                output: [OUTPUTSLOT]
+            }
+        });
+
         let outputSlot = inv.getItem(OUTPUTSLOT);
-        if (outputSlot && machine.transferItems()) {
-            outputSlot = inv.getItem(OUTPUTSLOT);
-        }
 
         //#region Comprobations
         // Get the catalyst slot

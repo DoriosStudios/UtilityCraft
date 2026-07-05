@@ -1,8 +1,15 @@
 import { InterfaceManager } from "./index.js";
+import { RELATIVE_IO_FACES, resolveRelativeFaceDirection } from "../utils/directions.js";
+import {
+  DEFAULT_IO_MODE,
+  ensureIOGroup,
+  getIODirectionMode,
+  readIOConfig,
+  setIODirectionMode,
+  writeIOConfig,
+} from "./ioState.js";
 
-const IO_CONFIG_PROPERTY = "utilitycraft:io_config";
-const DEFAULT_MODE = "disabled";
-const FACES = ["top", "left", "front", "right", "bottom", "back"];
+const FACES = RELATIVE_IO_FACES;
 
 /**
  * @typedef {"top"|"left"|"front"|"right"|"bottom"|"back"} IOFace
@@ -32,59 +39,35 @@ const FACES = ["top", "left", "front", "right", "bottom", "back"];
  */
 
 /**
- * Reads the persisted IO state map from a machine entity.
+ * Resolves the current mode for a visual face.
  *
  * @param {import("@minecraft/server").Entity|undefined} entity Machine entity.
- * @returns {Record<string, Record<string, string>>} Stored state by group and face.
- */
-function readConfig(entity) {
-  const raw = entity?.getDynamicProperty?.(IO_CONFIG_PROPERTY);
-  if (typeof raw !== "string" || raw.length === 0) return {};
-
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return {};
-  }
-}
-
-/**
- * Persists the IO state map on a machine entity.
- *
- * @param {import("@minecraft/server").Entity|undefined} entity Machine entity.
- * @param {Record<string, Record<string, string>>} config State map to store.
- * @returns {void}
- */
-function writeConfig(entity, config) {
-  entity?.setDynamicProperty?.(IO_CONFIG_PROPERTY, JSON.stringify(config));
-}
-
-/**
- * Gets the current mode for one IO button.
- *
- * @param {import("@minecraft/server").Entity|undefined} entity Machine entity.
+ * @param {import("@minecraft/server").Block|undefined} block Machine block.
  * @param {IOGroup} group IO group.
- * @param {IOFace} face Machine face.
+ * @param {IOFace} face Visual machine face.
+ * @param {IOMode[]} modes Allowed group modes.
  * @returns {IOMode} Current mode, defaulting to `"disabled"`.
  */
-function getState(entity, group, face) {
-  return readConfig(entity)?.[group]?.[face] ?? DEFAULT_MODE;
+function getState(entity, block, group, face, modes) {
+  const direction = resolveRelativeFaceDirection(block, face);
+  const state = getIODirectionMode(entity, group, direction);
+  return modes.includes(state) ? state : DEFAULT_IO_MODE;
 }
 
 /**
  * Stores the current mode for one IO button.
  *
  * @param {import("@minecraft/server").Entity|undefined} entity Machine entity.
+ * @param {import("@minecraft/server").Block|undefined} block Machine block.
  * @param {IOGroup} group IO group.
- * @param {IOFace} face Machine face.
+ * @param {IOFace} face Visual machine face.
  * @param {IOMode} state New mode.
+ * @param {IOMode[]} modes Allowed group modes.
  * @returns {void}
  */
-function setState(entity, group, face, state) {
-  const config = readConfig(entity);
-  config[group] = config[group] ?? {};
-  config[group][face] = state;
-  writeConfig(entity, config);
+function setState(entity, block, group, face, state, modes) {
+  const direction = resolveRelativeFaceDirection(block, face);
+  setIODirectionMode(entity, group, direction, state, modes);
 }
 
 /**
@@ -121,7 +104,25 @@ function normalizeModes(modes) {
     ? modes.map((mode) => String(mode)).filter((mode) => mode.length > 0)
     : [];
 
-  return normalized.includes(DEFAULT_MODE) ? normalized : [DEFAULT_MODE, ...normalized];
+  return normalized.includes(DEFAULT_IO_MODE) ? normalized : [DEFAULT_IO_MODE, ...normalized];
+}
+
+/**
+ * Writes the default six-direction state for a group when the entity has none.
+ *
+ * @param {import("@minecraft/server").Entity|undefined} entity Machine entity.
+ * @param {IOGroup} group IO group name.
+ * @param {IOMode[]} modes Allowed modes for this group.
+ * @returns {void}
+ */
+function ensurePersistedGroup(entity, group, modes) {
+  const config = readIOConfig(entity);
+  const before = JSON.stringify(config[group] ?? {});
+  ensureIOGroup(config, group, modes);
+
+  if (before !== JSON.stringify(config[group] ?? {})) {
+    writeIOConfig(entity, config);
+  }
 }
 
 /**
@@ -143,12 +144,15 @@ function addButtons(buttons, group, definition) {
       group,
       face,
       modes,
-      nameTag: ({ entity, button }) => getState(entity, button.group, button.face),
-      onPress: ({ entity, button }) => {
-        const current = getState(entity, button.group, button.face);
+      nameTag: ({ entity, block, button }) => {
+        ensurePersistedGroup(entity, button.group, button.modes);
+        return getState(entity, block, button.group, button.face, button.modes);
+      },
+      onPress: ({ entity, block, button }) => {
+        const current = getState(entity, block, button.group, button.face, button.modes);
         const currentIndex = button.modes.indexOf(current);
-        const next = button.modes[(currentIndex + 1) % button.modes.length] ?? DEFAULT_MODE;
-        setState(entity, button.group, button.face, next);
+        const next = button.modes[(currentIndex + 1) % button.modes.length] ?? DEFAULT_IO_MODE;
+        setState(entity, block, button.group, button.face, next, button.modes);
         return next;
       },
     };
