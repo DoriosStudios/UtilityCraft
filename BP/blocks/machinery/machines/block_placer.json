@@ -32,7 +32,7 @@
 				"rotation": "facing",
 				"entity": {
 					"type": "machine",
-					"inventory_size": 6,
+					"inventory_size": 12,
 					"input_slot": 3
 				},
 				"machine": {

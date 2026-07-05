@@ -47,19 +47,19 @@
                                                                                                     ]
                                                                                      }
                                            },
-                                           {
-                                               "upgrades_tab@uc.upgrades_tab":  {
-                                                                                    "$upgrade_index_1":  2,
-                                                                                    "$upgrade_index_2":  3,
-                                                                                    "$upgrade_index_3":  4,
-                                                                                    "$has_third_upgrade":  true
-                                                                                }
-                                           },
-                                           {
-                                               "info_tab@uc.info_tab":  {
-                                                                            "$info_description":  "ui.utilitycraft:info.harvester"
-                                                                        }
-                                           }
+                                               {
+                                                   "upgrades_tab@uc.upgrades_tab":  {
+                                                                                        "$upgrade_index_1":  2,
+                                                                                        "$upgrade_index_2":  3,
+                                                                                        "$upgrade_index_3":  4,
+                                                                                        "$has_third_upgrade":  true
+                                                                                    }
+                                               },
+                                               {
+                                                   "info_tab@uc.info_tab":  {
+                                                                                "$info_description":  "ui.utilitycraft:info.harvester"
+                                                                            }
+                                               }
                                        ]
                       },
     "utility_panel":  {

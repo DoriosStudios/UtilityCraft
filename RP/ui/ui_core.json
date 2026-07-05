@@ -2955,9 +2955,262 @@
             }
         ]
     },
+    "io_state_outline": {
+        "type": "image",
+        "texture": "$io_outline_texture",
+        "size": [
+            18,
+            18
+        ],
+        "offset": "$io_button_offset",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "collection_index": "$io_button_index",
+        "layer": 3,
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not ((#hover_text - $io_state_name) = #hover_text))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "io_state_outline_without": {
+        "type": "image",
+        "texture": "$io_outline_texture",
+        "size": [
+            18,
+            18
+        ],
+        "offset": "$io_button_offset",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "collection_index": "$io_button_index",
+        "layer": 3,
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((not ((#hover_text - $io_state_name) = #hover_text)) and ((#hover_text - $io_excluded_state_name) = #hover_text))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "io_face_outline": {
+        "type": "collection_panel",
+        "collection_name": "container_items",
+        "$item_collection_name|default": "container_items",
+        "$io_button_index|default": 0,
+        "$io_button_offset|default": [
+            0,
+            0
+        ],
+        "$io_default_texture|default": "textures/ui/slots/default_slot",
+        "$io_disabled_texture|default": "textures/ui/slots/none_slot",
+        "$io_none_texture|default": "textures/ui/slots/none_slot",
+        "$io_normal_texture|default": "textures/ui/slots/normal_slot",
+        "$io_input_texture|default": "textures/ui/slots/input_slot",
+        "$io_input_extra_texture|default": "textures/ui/slots/input_extra_slot",
+        "$io_output_texture|default": "textures/ui/slots/output_slot",
+        "$io_both_texture|default": "textures/ui/slots/both_slot",
+        "$io_upgrade_texture|default": "textures/ui/slots/upgrade_slot",
+        "$io_fuel_texture|default": "textures/ui/slots/fuel_slot",
+        "$io_item_resource_texture|default": "textures/ui/slots/item_resource_slot",
+        "$io_liquid_resource_texture|default": "textures/ui/slots/liquid_resource_slot",
+        "$io_gas_resource_texture|default": "textures/ui/slots/gas_resource_slot",
+        "$io_energy_texture|default": "textures/ui/slots/energy_slot",
+        "controls": [
+            {
+                "default_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "default",
+                    "$io_outline_texture": "$io_default_texture"
+                }
+            },
+            {
+                "disabled_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "disabled",
+                    "$io_outline_texture": "$io_disabled_texture"
+                }
+            },
+            {
+                "none_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "none",
+                    "$io_outline_texture": "$io_none_texture"
+                }
+            },
+            {
+                "normal_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "normal",
+                    "$io_outline_texture": "$io_normal_texture"
+                }
+            },
+            {
+                "input_outline@uc.io_state_outline_without": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input",
+                    "$io_excluded_state_name": "input_extra",
+                    "$io_outline_texture": "$io_input_texture"
+                }
+            },
+            {
+                "input_extra_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_extra",
+                    "$io_outline_texture": "$io_input_extra_texture"
+                }
+            },
+            {
+                "output_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output",
+                    "$io_outline_texture": "$io_output_texture"
+                }
+            },
+            {
+                "both_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "both",
+                    "$io_outline_texture": "$io_both_texture"
+                }
+            },
+            {
+                "upgrade_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "upgrade",
+                    "$io_outline_texture": "$io_upgrade_texture"
+                }
+            },
+            {
+                "fuel_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "fuel",
+                    "$io_outline_texture": "$io_fuel_texture"
+                }
+            },
+            {
+                "item_resource_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "item_resource",
+                    "$io_outline_texture": "$io_item_resource_texture"
+                }
+            },
+            {
+                "liquid_resource_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "liquid_resource",
+                    "$io_outline_texture": "$io_liquid_resource_texture"
+                }
+            },
+            {
+                "gas_resource_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "gas_resource",
+                    "$io_outline_texture": "$io_gas_resource_texture"
+                }
+            },
+            {
+                "energy_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "energy",
+                    "$io_outline_texture": "$io_energy_texture"
+                }
+            }
+        ]
+    },
+    "io_face_button": {
+        "type": "collection_panel",
+        "collection_name": "container_items",
+        "$item_collection_name|default": "container_items",
+        "$io_button_index|default": 0,
+        "$io_button_offset|default": [
+            0,
+            0
+        ],
+        "$io_face_offset|default": [
+            0,
+            1
+        ],
+        "$io_face_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
+        "controls": [
+            {
+                "outline@uc.io_face_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset"
+                }
+            },
+            {
+                "face_button@uc.machine_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": "$io_face_offset",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "$item_collection_name": "$item_collection_name",
+                    "$index": "$io_button_index",
+                    "$button_size": [
+                        16,
+                        16
+                    ],
+                    "$button_text": "",
+                    "$default_texture": "$io_face_texture",
+                    "$hover_texture": "$io_face_texture",
+                    "$pressed_texture": "$io_face_texture"
+                }
+            }
+        ]
+    },
     "io_face_slots": {
         "type": "panel",
-        "$io_slot_texture|default": "textures/ui/slots/input_slot",
+        "$io_top_index|default": 8,
+        "$io_left_index|default": 9,
+        "$io_front_index|default": 10,
+        "$io_right_index|default": 11,
+        "$io_bottom_index|default": 12,
+        "$io_back_index|default": 13,
         "$io_top_texture|default": "textures/blocks/Machines/ehxibitor/base/up",
         "$io_left_texture|default": "textures/blocks/Machines/ehxibitor/base/west",
         "$io_front_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
@@ -2966,207 +3219,93 @@
         "$io_back_texture|default": "textures/blocks/Machines/ehxibitor/base/south",
         "controls": [
             {
-                "top_slot": {
-                    "type": "image",
-                    "texture": "$io_slot_texture",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "offset": [
+                "top_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_top_index",
+                    "$io_button_offset": [
                         18,
                         -14
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 3
-                }
-            },
-            {
-                "top_face": {
-                    "type": "image",
-                    "texture": "$io_top_texture",
-                    "size": [
-                        16,
-                        16
-                    ],
-                    "offset": [
+                    "$io_face_offset": [
                         18,
                         -13
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 2
+                    "$io_face_texture": "$io_top_texture"
                 }
             },
             {
-                "left_slot": {
-                    "type": "image",
-                    "texture": "$io_slot_texture",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "offset": [
+                "left_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_left_index",
+                    "$io_button_offset": [
                         -2,
                         6
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 3
-                }
-            },
-            {
-                "left_face": {
-                    "type": "image",
-                    "texture": "$io_left_texture",
-                    "size": [
-                        16,
-                        16
-                    ],
-                    "offset": [
+                    "$io_face_offset": [
                         -2,
                         7
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 2
+                    "$io_face_texture": "$io_left_texture"
                 }
             },
             {
-                "front_slot": {
-                    "type": "image",
-                    "texture": "$io_slot_texture",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "offset": [
+                "front_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_front_index",
+                    "$io_button_offset": [
                         18,
                         6
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 3
-                }
-            },
-            {
-                "front_face": {
-                    "type": "image",
-                    "texture": "$io_front_texture",
-                    "size": [
-                        16,
-                        16
-                    ],
-                    "offset": [
+                    "$io_face_offset": [
                         18,
                         7
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 2
+                    "$io_face_texture": "$io_front_texture"
                 }
             },
             {
-                "right_slot": {
-                    "type": "image",
-                    "texture": "$io_slot_texture",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "offset": [
+                "right_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_right_index",
+                    "$io_button_offset": [
                         38,
                         6
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 3
-                }
-            },
-            {
-                "right_face": {
-                    "type": "image",
-                    "texture": "$io_right_texture",
-                    "size": [
-                        16,
-                        16
-                    ],
-                    "offset": [
+                    "$io_face_offset": [
                         38,
                         7
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 2
+                    "$io_face_texture": "$io_right_texture"
                 }
             },
             {
-                "bottom_slot": {
-                    "type": "image",
-                    "texture": "$io_slot_texture",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "offset": [
+                "bottom_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_bottom_index",
+                    "$io_button_offset": [
                         18,
                         26
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 3
-                }
-            },
-            {
-                "bottom_face": {
-                    "type": "image",
-                    "texture": "$io_bottom_texture",
-                    "size": [
-                        16,
-                        16
-                    ],
-                    "offset": [
+                    "$io_face_offset": [
                         18,
                         27
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 2
+                    "$io_face_texture": "$io_bottom_texture"
                 }
             },
             {
-                "back_slot": {
-                    "type": "image",
-                    "texture": "$io_slot_texture",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "offset": [
+                "back_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_back_index",
+                    "$io_button_offset": [
                         38,
                         26
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 3
-                }
-            },
-            {
-                "back_face": {
-                    "type": "image",
-                    "texture": "$io_back_texture",
-                    "size": [
-                        16,
-                        16
-                    ],
-                    "offset": [
+                    "$io_face_offset": [
                         38,
                         27
                     ],
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 2
+                    "$io_face_texture": "$io_back_texture"
                 }
             }
         ]
@@ -3187,6 +3326,18 @@
         "$has_fluid_io|default": false,
         "$io_items_default|default": true,
         "$io_fluids_default|default": false,
+        "$io_item_top_index|default": 8,
+        "$io_item_left_index|default": 9,
+        "$io_item_front_index|default": 10,
+        "$io_item_right_index|default": 11,
+        "$io_item_bottom_index|default": 12,
+        "$io_item_back_index|default": 13,
+        "$io_fluid_top_index|default": 14,
+        "$io_fluid_left_index|default": 15,
+        "$io_fluid_front_index|default": 16,
+        "$io_fluid_right_index|default": 17,
+        "$io_fluid_bottom_index|default": 18,
+        "$io_fluid_back_index|default": 19,
         "$io_top_texture|default": "textures/blocks/Machines/ehxibitor/base/up",
         "$io_left_texture|default": "textures/blocks/Machines/ehxibitor/base/west",
         "$io_front_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
@@ -3425,7 +3576,12 @@
                                 "controls": [
                                     {
                                         "item_faces@uc.io_face_slots": {
-                                            "$io_slot_texture": "textures/ui/slots/item_resource_slot",
+                                            "$io_top_index": "$io_item_top_index",
+                                            "$io_left_index": "$io_item_left_index",
+                                            "$io_front_index": "$io_item_front_index",
+                                            "$io_right_index": "$io_item_right_index",
+                                            "$io_bottom_index": "$io_item_bottom_index",
+                                            "$io_back_index": "$io_item_back_index",
                                             "$io_top_texture": "$io_top_texture",
                                             "$io_left_texture": "$io_left_texture",
                                             "$io_front_texture": "$io_front_texture",
@@ -3453,7 +3609,12 @@
                                 "controls": [
                                     {
                                         "fluid_faces@uc.io_face_slots": {
-                                            "$io_slot_texture": "textures/ui/slots/liquid_resource_slot",
+                                            "$io_top_index": "$io_fluid_top_index",
+                                            "$io_left_index": "$io_fluid_left_index",
+                                            "$io_front_index": "$io_fluid_front_index",
+                                            "$io_right_index": "$io_fluid_right_index",
+                                            "$io_bottom_index": "$io_fluid_bottom_index",
+                                            "$io_back_index": "$io_fluid_back_index",
                                             "$io_top_texture": "$io_top_texture",
                                             "$io_left_texture": "$io_left_texture",
                                             "$io_front_texture": "$io_front_texture",

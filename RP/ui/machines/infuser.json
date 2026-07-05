@@ -110,7 +110,13 @@
                                                                       "$io_front_texture":  "textures/blocks/Machines/infuser/off/north",
                                                                       "$io_right_texture":  "textures/blocks/Machines/infuser/off/east",
                                                                       "$io_bottom_texture":  "textures/blocks/Machines/infuser/off/down",
-                                                                      "$io_back_texture":  "textures/blocks/Machines/infuser/off/south"
+                                                                      "$io_back_texture":  "textures/blocks/Machines/infuser/off/south",
+                                                                      "$io_item_top_index":  8,
+                                                                      "$io_item_left_index":  9,
+                                                                      "$io_item_front_index":  10,
+                                                                      "$io_item_right_index":  11,
+                                                                      "$io_item_bottom_index":  12,
+                                                                      "$io_item_back_index":  13
                                                                   }
                                          },
                                          {
@@ -119,8 +125,7 @@
                                                                       }
                                          }
                                      ]
-                    },
-    "infuser_slots":  {
+                    },    "infuser_slots":  {
                           "type":  "image",
                           "layer":  2,
                           "size":  [

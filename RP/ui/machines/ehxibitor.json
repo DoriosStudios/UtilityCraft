@@ -23,8 +23,8 @@
                                                                                                 ]
                                                                                  }
                                            },
-                                           {
-                                               "item@common.container_item":  {
+                                          {
+                                              "item@common.container_item":  {
                                                                                   "anchor_from":  "top_middle",
                                                                                   "anchor_to":  "top_middle",
                                                                                   "offset":  [
@@ -45,7 +45,7 @@
                                                                                                           ],
                                                                                   "collection_index":  3
                                                                               }
-                                           }
+                                          }
                                        ]
                       },
     "utility_panel":  {

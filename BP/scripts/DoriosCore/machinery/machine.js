@@ -7,6 +7,7 @@ import { OutputTracker } from "./outputTracker.js";
 import { TickScheduler } from "./tickScheduler.js";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
+import { InterfaceManager } from "../interfaces/index.js";
 
 export class Machine extends BasicMachine {
   /**
@@ -106,6 +107,8 @@ export class Machine extends BasicMachine {
   /**
    * Spawns a machine entity at the specified block location and initializes
    * its energy and optional fluid storage based on the item held by the player.
+   * Registered InterfaceManager buttons are also written after the caller's
+   * placement callback, so UI-owned slots are reserved before machine ticks.
    *
    * Handles optional rotation logic before placing the machine.
    *
@@ -161,6 +164,7 @@ export class Machine extends BasicMachine {
         if (callback) {
           callback(entity);
         }
+        InterfaceManager.ensureEntityInterfaces(entity);
       });
     });
     Utils.updateAdjacentNetwork(block, permutationToPlace);

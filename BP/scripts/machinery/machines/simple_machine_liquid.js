@@ -1,7 +1,18 @@
-import { Machine, FluidStorage } from "DoriosCore/index.js"
+import { Machine, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 import { melterRecipes } from "../../config/recipes/melter.js";
 
 const INPUTSLOT = 3
+
+registerIOInterface("utilitycraft:magmatic_chamber", {
+    items: {
+        slots: [7, 12],
+        modes: ["disabled", "input"]
+    },
+    liquids: {
+        slots: [13, 18],
+        modes: ["disabled", "output"]
+    }
+});
 
 DoriosAPI.register.blockComponent('simple_machine_liquid', {
     /**

@@ -1,4 +1,4 @@
-import { Machine, EnergyStorage } from "DoriosCore/index.js"
+import { Machine, EnergyStorage, registerIOInterface } from "DoriosCore/index.js"
 const COLORS = DoriosAPI.constants.textColors
 /**
  * Auto Assembler Machine Component
@@ -9,6 +9,13 @@ const COLORS = DoriosAPI.constants.textColors
  */
 
 const BLUEPRINT_SLOT = 3;
+
+registerIOInterface("utilitycraft:assembler", {
+    items: {
+        slots: [16, 21],
+        modes: ["disabled", "input", "output", "input_extra"]
+    }
+});
 
 DoriosAPI.register.blockComponent('assembler', {
     /**
@@ -39,10 +46,8 @@ DoriosAPI.register.blockComponent('assembler', {
 
         const inv = machine.container;
 
-        const size = inv.size;
-        const OUTPUT_SLOT = size - 1;
-        const INPUT_START = size - 10;
-        const INPUT_END = size - 2;
+        const OUTPUT_SLOT = settings.entity?.output_slot ?? inv.size - 1;
+        const [INPUT_START, INPUT_END] = settings.entity?.input_range ?? [inv.size - 10, inv.size - 2];
         let outputSlot = inv.getItem(OUTPUT_SLOT);
         if (outputSlot && machine.transferItems()) {
             outputSlot = inv.getItem(OUTPUT_SLOT);
@@ -121,7 +126,7 @@ DoriosAPI.register.blockComponent('assembler', {
                 speedFactor
             );
 
-            const craftCount = amountToCraft(blueprint, inv, maxCraftAmount);
+            const craftCount = amountToCraft(blueprint, inv, maxCraftAmount, INPUT_START, INPUT_END);
             if (craftCount <= 0) {
                 showWarning(machine, speedFactor, 'Missing Materials', false);
                 return;
@@ -165,13 +170,13 @@ DoriosAPI.register.blockComponent('assembler', {
  * @param {number} maxCraftAmount The max number of times to craft.
  * @returns {number} The number of crafts performed (0 if not possible).
  */
-function amountToCraft(blueprint, inventory, maxCraftAmount) {
+function amountToCraft(blueprint, inventory, maxCraftAmount, inputStart = inventory.size - 10, inputEnd = inventory.size - 2) {
     // Parse the recipe materials from the blueprint dynamic property
     const recipe = JSON.parse(blueprint.getDynamicProperty('materials') || '[]');
 
     // Map of available materials
     const materialMap = {};
-    for (let slot = inventory.size - 10; slot < inventory.size - 1; slot++) {
+    for (let slot = inputStart; slot <= inputEnd; slot++) {
         const item = inventory.getItem(slot);
         if (item) {
             materialMap[item.typeId] = (materialMap[item.typeId] || 0) + item.amount;
@@ -195,7 +200,7 @@ function amountToCraft(blueprint, inventory, maxCraftAmount) {
     for (const mat of recipe) {
         let remainingToConsume = mat.amount * craftsToDo;
 
-        for (let slot = inventory.size - 10; slot < inventory.size - 1 && remainingToConsume > 0; slot++) {
+        for (let slot = inputStart; slot <= inputEnd && remainingToConsume > 0; slot++) {
             const item = inventory.getItem(slot);
             if (item && item.typeId === mat.id) {
                 if (item.amount <= remainingToConsume) {

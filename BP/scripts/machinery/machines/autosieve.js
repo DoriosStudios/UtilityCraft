@@ -1,8 +1,15 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { sieveRecipes } from "../../config/recipes/sieve.js";
 
 const INTPUTSLOT = 3
 const MESHSLOT = 6
+
+registerIOInterface("utilitycraft:autosieve", {
+    items: {
+        slots: [16, 21],
+        modes: ["disabled", "input", "output", "input_extra"]
+    }
+});
 
 DoriosAPI.register.blockComponent('autosieve', {
     /**

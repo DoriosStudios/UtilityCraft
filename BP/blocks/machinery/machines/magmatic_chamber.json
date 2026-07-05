@@ -33,7 +33,7 @@
 				"rotation": "facing",
 				"entity": {
 					"type": "fluid_machine",
-					"inventory_size": 7,
+					"inventory_size": 19,
 					"input_slot": 3
 				},
 				"machine": {

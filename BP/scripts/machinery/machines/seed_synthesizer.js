@@ -1,8 +1,15 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
 const INTPUTSLOT = 3
 const MESHSLOT = 6
+
+registerIOInterface("utilitycraft:seed_synthesizer", {
+    items: {
+        slots: [16, 21],
+        modes: ["disabled", "input", "output", "input_extra"]
+    }
+});
 
 /**
  * A registry of all accepted soils with their properties.

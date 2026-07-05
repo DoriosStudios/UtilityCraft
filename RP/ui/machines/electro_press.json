@@ -87,7 +87,13 @@
                                                                             "$io_front_texture":  "textures/blocks/Machines/electro_press/off/north",
                                                                             "$io_right_texture":  "textures/blocks/Machines/electro_press/off/east",
                                                                             "$io_bottom_texture":  "textures/blocks/Machines/electro_press/off/down",
-                                                                            "$io_back_texture":  "textures/blocks/Machines/electro_press/off/south"
+                                                                            "$io_back_texture":  "textures/blocks/Machines/electro_press/off/south",
+                                                                            "$io_item_top_index":  7,
+                                                                            "$io_item_left_index":  8,
+                                                                            "$io_item_front_index":  9,
+                                                                            "$io_item_right_index":  10,
+                                                                            "$io_item_bottom_index":  11,
+                                                                            "$io_item_back_index":  12
                                                                         }
                                                },
                                                {

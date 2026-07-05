@@ -512,3 +512,5 @@ world.afterEvents.entityContainerOpened.subscribe((event) => {
 world.afterEvents.entityItemDrop.subscribe((event) => {
   InterfaceManager.handleEntityItemDrop(event);
 });
+
+export { IOInterface, registerIOInterface } from "./IOInterface.js";
