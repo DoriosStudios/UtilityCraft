@@ -47,7 +47,7 @@
                                                                                     }
                                           },
                                           {
-                                              "item@uc.input_item":  {
+                                              "item@uc.fuel_slot":  {
                                                                          "anchor_from":  "top_middle",
                                                                          "anchor_to":  "top_middle",
                                                                          "offset":  [
@@ -67,6 +67,29 @@
                                                                                            ],
                                                                                 "collection_index":  2
                                                                             }
+                                          },
+                                          {
+                                              "io_tab@uc.io_tab":  {
+                                                                       "$has_item_io":  true,
+                                                                       "$has_fluid_io":  false,
+                                                                       "$io_top_texture":  "textures/blocks/generators/furnator/basic/off/up",
+                                                                       "$io_left_texture":  "textures/blocks/generators/furnator/basic/off/west",
+                                                                       "$io_front_texture":  "textures/blocks/generators/furnator/basic/off/north",
+                                                                       "$io_right_texture":  "textures/blocks/generators/furnator/basic/off/east",
+                                                                       "$io_bottom_texture":  "textures/blocks/generators/furnator/basic/off/down",
+                                                                       "$io_back_texture":  "textures/blocks/generators/furnator/basic/off/south",
+                                                                       "$io_item_top_index":  4,
+                                                                       "$io_item_left_index":  5,
+                                                                       "$io_item_front_index":  6,
+                                                                       "$io_item_right_index":  7,
+                                                                       "$io_item_bottom_index":  8,
+                                                                       "$io_item_back_index":  9
+                                                                   }
+                                          },
+                                          {
+                                              "info_tab@uc.info_tab":  {
+                                                                           "$info_description":  "ui.utilitycraft:info.furnator"
+                                                                       }
                                           }
                                       ]
                      },

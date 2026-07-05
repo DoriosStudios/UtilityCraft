@@ -23,6 +23,21 @@ const OUTPUT_OFFSETS = {
   down: DIRECTION_OFFSETS.up,
 };
 
+/**
+ * Returns whether a block owns the six-direction IO cache.
+ *
+ * Machines keep the legacy behavior. Generators must opt in explicitly so
+ * UI-only energy generators are not treated as IO machines.
+ *
+ * @param {import("@minecraft/server").Block|undefined} block Block to inspect.
+ * @returns {boolean} Whether the block should store `dorios:io_targets`.
+ */
+function isIOOwnerBlock(block) {
+  if (!block) return false;
+  if (block.hasTag?.("dorios:machine")) return true;
+  return block.hasTag?.("dorios:generator") && block.hasTag?.("dorios:io");
+}
+
 function getPropertyId(type) {
   return OUTPUT_TARGET_PROPERTY_IDS[type];
 }
@@ -40,7 +55,9 @@ function getOutputDirection(block) {
  * @returns {boolean} Whether the entity belongs to a machine.
  */
 function isMachineEntity(entity) {
-  return entity?.getComponent?.("minecraft:type_family")?.hasTypeFamily("dorios:machine") === true;
+  const typeFamily = entity?.getComponent?.("minecraft:type_family");
+  return typeFamily?.hasTypeFamily("dorios:machine") === true
+    || typeFamily?.hasTypeFamily("dorios:generator") === true;
 }
 
 /**
@@ -163,7 +180,7 @@ export class OutputTracker {
    * @returns {Record<string, Record<string, boolean>>|undefined} Refreshed target map.
    */
   static refreshIOTargets(block) {
-    if (!block?.hasTag?.("dorios:machine")) return undefined;
+    if (!isIOOwnerBlock(block)) return undefined;
 
     const entity = tryGetEntityFromBlock(block);
     if (!isMachineEntity(entity)) return undefined;
@@ -202,7 +219,7 @@ export class OutputTracker {
 
     for (const direction of DIRECTIONS) {
       const neighbor = block.dimension.getBlock(offsetLocation(block.location, DIRECTION_OFFSETS[direction]));
-      if (neighbor?.hasTag?.("dorios:machine")) {
+      if (isIOOwnerBlock(neighbor)) {
         OutputTracker.refreshIOTargets(neighbor);
       }
     }
@@ -341,8 +358,11 @@ export class OutputTracker {
 
 world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
   system.runTimeout(() => {
-    if (block.hasTag("dorios:machine")) {
+    if (isIOOwnerBlock(block)) {
       OutputTracker.refreshIOTargets(block);
+    }
+
+    if (block.hasTag("dorios:machine")) {
       OutputTracker.refreshOutput(block, "item");
       OutputTracker.refreshOutput(block, "fluid");
     }

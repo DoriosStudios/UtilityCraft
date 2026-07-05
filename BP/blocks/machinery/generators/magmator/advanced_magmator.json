@@ -27,7 +27,7 @@
 				"entity": {
 					"name": "magmator",
 					"type": "fluid_generator",
-					"inventory_size": 3
+					"inventory_size": 9
 				},
 				"generator": {
 					"energy_cap": 320000,
@@ -78,6 +78,7 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:generator": {},
+			"tag:dorios:io": {},
 			"tag:dorios:energy": {},
 			"tag:dorios:fluid": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}

@@ -1,5 +1,19 @@
-import { Generator, EnergyStorage } from "DoriosCore/index.js"
+import { Generator, EnergyStorage, registerIOInterface } from "DoriosCore/index.js"
 import { solidFuels } from "../../config/recipes/fuel.js";
+
+for (const blockTypeId of [
+    "utilitycraft:basic_furnator",
+    "utilitycraft:advanced_furnator",
+    "utilitycraft:expert_furnator",
+    "utilitycraft:ultimate_furnator"
+]) {
+    registerIOInterface(blockTypeId, {
+        items: {
+            slots: [4, 9],
+            modes: ["disabled", "fuel"]
+        }
+    });
+}
 
 DoriosAPI.register.blockComponent('furnator', {
     /**
@@ -25,6 +39,12 @@ DoriosAPI.register.blockComponent('furnator', {
         const generator = new Generator(block, settings);
         if (!generator.valid) return
         const { entity, energy, rate } = generator
+        generator.processIO({
+            items: {
+                fuel: [3]
+            }
+        });
+
         generator.energy.transferToNetwork(rate * 4)
 
         let energyR = entity.getDynamicProperty("utilitycraft:energyR") ?? 0;

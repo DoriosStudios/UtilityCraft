@@ -65,6 +65,11 @@
                                                                                                      0
                                                                                                  ]
                                                                                   }
+                                                  },
+                                                  {
+                                                      "info_tab@uc.info_tab":  {
+                                                                                   "$info_description":  "ui.utilitycraft:info.thermo_generator"
+                                                                               }
                                                   }
                                               ]
                              },

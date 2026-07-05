@@ -43,8 +43,13 @@
                                                                                            "offset":  [
                                                                                                           14,
                                                                                                           12
-                                                                                                     ]
+                                                                                                          ]
                                                                                        }
+                                             },
+                                             {
+                                                 "info_tab@uc.info_tab":  {
+                                                                              "$info_description":  "ui.utilitycraft:info.solar_panel"
+                                                                          }
                                              }
                                          ]
                         },

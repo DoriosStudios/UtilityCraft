@@ -1,8 +1,22 @@
-import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/index.js"
+import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
 
 const MAGMATOR_MACHINE_ID = "magmator"
+
+for (const blockTypeId of [
+    "utilitycraft:basic_magmator",
+    "utilitycraft:advanced_magmator",
+    "utilitycraft:expert_magmator",
+    "utilitycraft:ultimate_magmator"
+]) {
+    registerIOInterface(blockTypeId, {
+        liquids: {
+            slots: [3, 8],
+            modes: ["disabled", "input"]
+        }
+    });
+}
 
 DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
     /**
@@ -32,6 +46,11 @@ DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
+        generator.processIO({
+            liquids: {
+                input: fluid
+            }
+        });
 
         if (fluid.type == 'empty') {
             updateMagmatorState(generator, fluid, "No Fuel")

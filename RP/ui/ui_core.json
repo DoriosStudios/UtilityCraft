@@ -1476,6 +1476,35 @@
             }
         ]
     },
+    "fuel_slot": {
+        "type": "input_panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/fuel_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 4
+                }
+            }
+        ]
+    },
     "upgrade_slot": {
         "type": "input_panel",
         "$show_slot_background|default": true,

@@ -23,9 +23,10 @@
                                          {
                                              "energy_bar@uc.energy_bar":  {
                                                                               "offset":  [
-                                                                                             55,
-                                                                                             -13
-                                                                                         ]
+                                                                                             54,
+                                                                                             0
+                                                                                         ],
+                                                                              "$has_bg":  false
                                                                           }
                                          },
                                          {
@@ -44,6 +45,11 @@
                                                                                                       12
                                                                                                   ]
                                                                                    }
+                                         },
+                                         {
+                                             "info_tab@uc.info_tab":  {
+                                                                          "$info_description":  "ui.utilitycraft:info.battery"
+                                                                      }
                                          }
                                      ]
                     },

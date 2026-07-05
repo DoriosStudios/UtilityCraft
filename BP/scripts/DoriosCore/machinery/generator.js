@@ -6,6 +6,7 @@ import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { TickScheduler } from "./tickScheduler.js";
 import * as Utils from "../utils/entity";
+import { InterfaceManager } from "../interfaces/index.js";
 
 export class Generator extends BasicMachine {
   /**
@@ -130,6 +131,7 @@ export class Generator extends BasicMachine {
         if (callback) {
           callback(entity);
         }
+        InterfaceManager.ensureEntityInterfaces(entity);
       });
     });
 
