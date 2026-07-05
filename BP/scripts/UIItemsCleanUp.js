@@ -1,4 +1,4 @@
-import { world } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 
 world.afterEvents.entitySpawn.subscribe((event) => {
     const { entity } = event;
@@ -21,7 +21,9 @@ world.afterEvents.entitySpawn.subscribe((event) => {
     } catch { }
     if (!isUiItem) return;
 
-    try {
-        entity.remove();
-    } catch { }
+    system.runTimeout(() => {
+        try {
+            entity.remove();
+        } catch { }
+    }, 1);
 });
