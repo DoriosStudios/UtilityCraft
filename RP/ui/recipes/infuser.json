@@ -1,5 +1,27 @@
 {
     "namespace": "uc",
+    "stabilized_obsidian_input_animation": {
+        "anim_type": "flip_book",
+        "frame_count": 2,
+        "frame_step": 0,
+        "fps": 1,
+        "easing": "linear",
+        "initial_uv": [
+            0,
+            0
+        ]
+    },
+    "steel_catalyst_animation": {
+        "anim_type": "flip_book",
+        "frame_count": 4,
+        "frame_step": 0,
+        "fps": 1,
+        "easing": "linear",
+        "initial_uv": [
+            0,
+            0
+        ]
+    },
     "infuser_recipe_toggle@uc.recipe_toggle": {
         "$toggle_name": "infuser_recipes"
     },
@@ -65,60 +87,48 @@
         ],
         "controls": [
             {
-                "energized_iron_toggle@uc.infuser_recipe_toggle": {
+                "stabilized_obsidian_dust_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
                         -1,
                         -26
                     ],
                     "$toggle_index": 0,
+                    "$toggle_hover_text": "Stabilized Obsidian Dust",
+                    "$toggle_control_name": "stabilized_obsidian_dust_recipe",
+                    "$recipe_icon": "textures/items/dusts/stabilized_obsidian_dust"
+                }
+            },
+            {
+                "energized_iron_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        17,
+                        -26
+                    ],
+                    "$toggle_index": 1,
                     "$toggle_hover_text": "Energized Iron",
                     "$toggle_control_name": "energized_iron_recipe",
                     "$recipe_icon": "textures/items/ores/energized_iron_ingot"
                 }
             },
             {
-                "steel_toggle@uc.infuser_recipe_toggle": {
-                    "offset": [
-                        17,
-                        -26
-                    ],
-                    "$toggle_index": 1,
-                    "$toggle_hover_text": "Steel",
-                    "$toggle_control_name": "steel_recipe",
-                    "$recipe_icon": "textures/items/ores/steel_ingot"
-                }
-            },
-            {
-                "basic_chip_toggle@uc.infuser_recipe_toggle": {
+                "energized_iron_dust_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
                         35,
                         -26
                     ],
                     "$toggle_index": 2,
-                    "$toggle_hover_text": "Basic Chip",
-                    "$toggle_control_name": "basic_chip_recipe",
-                    "$recipe_icon": "textures/items/machinery/basic_chip"
-                }
-            },
-            {
-                "chip_toggle@uc.infuser_recipe_toggle": {
-                    "offset": [
-                        53,
-                        -26
-                    ],
-                    "$toggle_index": 3,
-                    "$toggle_hover_text": "Chip",
-                    "$toggle_control_name": "chip_recipe",
-                    "$recipe_icon": "textures/items/machinery/chip"
+                    "$toggle_hover_text": "Energized Iron Dust",
+                    "$toggle_control_name": "energized_iron_dust_recipe",
+                    "$recipe_icon": "textures/items/dusts/energized_iron_dust"
                 }
             },
             {
                 "raw_energized_iron_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        71,
+                        53,
                         -26
                     ],
-                    "$toggle_index": 4,
+                    "$toggle_index": 3,
                     "$toggle_hover_text": "Raw Energized Iron",
                     "$toggle_control_name": "raw_energized_iron_recipe",
                     "$recipe_icon": "textures/items/ores/brute_energized_iron"
@@ -127,13 +137,121 @@
             {
                 "raw_energized_iron_dust_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
+                        71,
+                        -26
+                    ],
+                    "$toggle_index": 4,
+                    "$toggle_hover_text": "Raw Energized Iron Dust",
+                    "$toggle_control_name": "raw_energized_iron_dust_recipe",
+                    "$recipe_icon": "textures/items/dusts/energized_iron_dust"
+                }
+            },
+            {
+                "chip_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
                         89,
                         -26
                     ],
                     "$toggle_index": 5,
-                    "$toggle_hover_text": "Raw Energized Iron Dust",
-                    "$toggle_control_name": "raw_energized_iron_dust_recipe",
-                    "$recipe_icon": "textures/items/dusts/energized_iron_dust"
+                    "$toggle_hover_text": "Chip",
+                    "$toggle_control_name": "chip_recipe",
+                    "$recipe_icon": "textures/items/machinery/chip"
+                }
+            },
+            {
+                "basic_chip_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        -1,
+                        -8
+                    ],
+                    "$toggle_index": 6,
+                    "$toggle_hover_text": "Basic Chip",
+                    "$toggle_control_name": "basic_chip_recipe",
+                    "$recipe_icon": "textures/items/machinery/basic_chip"
+                }
+            },
+            {
+                "advanced_chip_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        17,
+                        -8
+                    ],
+                    "$toggle_index": 7,
+                    "$toggle_hover_text": "Advanced Chip",
+                    "$toggle_control_name": "advanced_chip_recipe",
+                    "$recipe_icon": "textures/items/machinery/advanced_chip"
+                }
+            },
+            {
+                "expert_chip_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        35,
+                        -8
+                    ],
+                    "$toggle_index": 8,
+                    "$toggle_hover_text": "Expert Chip",
+                    "$toggle_control_name": "expert_chip_recipe",
+                    "$recipe_icon": "textures/items/machinery/expert_chip"
+                }
+            },
+            {
+                "ultimate_chip_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        53,
+                        -8
+                    ],
+                    "$toggle_index": 9,
+                    "$toggle_hover_text": "Ultimate Chip",
+                    "$toggle_control_name": "ultimate_chip_recipe",
+                    "$recipe_icon": "textures/items/machinery/ultimate_chip"
+                }
+            },
+            {
+                "steel_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        71,
+                        -8
+                    ],
+                    "$toggle_index": 10,
+                    "$toggle_hover_text": "Steel",
+                    "$toggle_control_name": "steel_recipe",
+                    "$recipe_icon": "textures/items/ores/steel_ingot"
+                }
+            },
+            {
+                "steel_dust_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        89,
+                        -8
+                    ],
+                    "$toggle_index": 11,
+                    "$toggle_hover_text": "Steel Dust",
+                    "$toggle_control_name": "steel_dust_recipe",
+                    "$recipe_icon": "textures/items/dusts/steel_dust"
+                }
+            },
+            {
+                "netherite_ingot_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        -1,
+                        10
+                    ],
+                    "$toggle_index": 12,
+                    "$toggle_hover_text": "Netherite Ingot",
+                    "$toggle_control_name": "netherite_ingot_recipe",
+                    "$recipe_icon": "textures/items/netherite_ingot"
+                }
+            },
+            {
+                "netherite_dust_toggle@uc.infuser_recipe_toggle": {
+                    "offset": [
+                        17,
+                        10
+                    ],
+                    "$toggle_index": 13,
+                    "$toggle_hover_text": "Netherite Dust",
+                    "$toggle_control_name": "netherite_dust_recipe",
+                    "$recipe_icon": "textures/items/dusts/netherite_dust"
                 }
             }
         ]
@@ -202,29 +320,32 @@
                     ],
                     "controls": [
                         {
-                            "steel_panel@uc.recipe_panel": {
-                                "$recipe_control_name": "steel_recipe",
+                            "stabilized_obsidian_dust_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "stabilized_obsidian_dust_recipe",
                                 "controls": [
                                     {
                                         "catalyst@uc.infuser_recipe_catalyst": {
-                                            "$slot_item_texture": "textures/items/coal"
+                                            "$slot_item_texture": "textures/items/dusts/amethyst_dust"
                                         }
                                     },
                                     {
                                         "input@uc.infuser_recipe_input": {
-                                            "$slot_item_texture": "textures/items/iron_ingot"
+                                            "$has_slot_item": false,
+                                            "$has_slot_flipbook": true,
+                                            "$slot_item_flipbook_texture": "textures/ui/recipes/stabilized_obsidian_input_flipbook",
+                                            "$slot_item_flipbook_uv": "@uc.stabilized_obsidian_input_animation"
                                         }
                                     },
                                     {
                                         "output@uc.infuser_recipe_output": {
-                                            "$slot_item_texture": "textures/items/ores/steel_ingot"
+                                            "$slot_item_texture": "textures/items/dusts/stabilized_obsidian_dust"
                                         }
                                     }
                                 ]
                             }
                         },
                         {
-                            "energized_panel@uc.recipe_panel": {
+                            "energized_iron_panel@uc.recipe_panel": {
                                 "$recipe_control_name": "energized_iron_recipe",
                                 "controls": [
                                     {
@@ -246,30 +367,8 @@
                             }
                         },
                         {
-                            "basic_chip_panel@uc.recipe_panel": {
-                                "$recipe_control_name": "basic_chip_recipe",
-                                "controls": [
-                                    {
-                                        "catalyst@uc.infuser_recipe_catalyst": {
-                                            "$slot_item_texture": "textures/items/dusts/gold_dust"
-                                        }
-                                    },
-                                    {
-                                        "input@uc.infuser_recipe_input": {
-                                            "$slot_item_texture": "textures/items/machinery/chip"
-                                        }
-                                    },
-                                    {
-                                        "output@uc.infuser_recipe_output": {
-                                            "$slot_item_texture": "textures/items/machinery/basic_chip"
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "chip_panel@uc.recipe_panel": {
-                                "$recipe_control_name": "chip_recipe",
+                            "energized_iron_dust_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "energized_iron_dust_recipe",
                                 "controls": [
                                     {
                                         "catalyst@uc.infuser_recipe_catalyst": {
@@ -278,12 +377,12 @@
                                     },
                                     {
                                         "input@uc.infuser_recipe_input": {
-                                            "$slot_item_texture": "textures/items/plates/steel_plate"
+                                            "$slot_item_texture": "textures/items/dusts/iron_dust"
                                         }
                                     },
                                     {
                                         "output@uc.infuser_recipe_output": {
-                                            "$slot_item_texture": "textures/items/machinery/chip"
+                                            "$slot_item_texture": "textures/items/dusts/energized_iron_dust"
                                         }
                                     }
                                 ]
@@ -328,6 +427,210 @@
                                     {
                                         "output@uc.infuser_recipe_output": {
                                             "$slot_item_texture": "textures/items/dusts/energized_iron_dust"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "chip_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "chip_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/redstone_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/plates/steel_plate"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/machinery/chip"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "basic_chip_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "basic_chip_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/dusts/gold_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/machinery/chip"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/machinery/basic_chip"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "advanced_chip_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "advanced_chip_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/dusts/energized_iron_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/machinery/basic_chip"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/machinery/advanced_chip"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "expert_chip_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "expert_chip_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/dusts/diamond_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/machinery/advanced_chip"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/machinery/expert_chip"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "ultimate_chip_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "ultimate_chip_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/dusts/netherite_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/machinery/expert_chip"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/machinery/ultimate_chip"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "steel_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "steel_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$has_slot_item": false,
+                                            "$has_slot_flipbook": true,
+                                            "$slot_item_flipbook_texture": "textures/ui/recipes/steel_catalyst_flipbook",
+                                            "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/iron_ingot"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/ores/steel_ingot"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "steel_dust_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "steel_dust_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$has_slot_item": false,
+                                            "$has_slot_flipbook": true,
+                                            "$slot_item_flipbook_texture": "textures/ui/recipes/steel_catalyst_flipbook",
+                                            "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/dusts/iron_dust"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/dusts/steel_dust"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "netherite_ingot_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "netherite_ingot_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/dusts/netherite_scrap_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/gold_ingot"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/netherite_ingot"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "netherite_dust_panel@uc.recipe_panel": {
+                                "$recipe_control_name": "netherite_dust_recipe",
+                                "controls": [
+                                    {
+                                        "catalyst@uc.infuser_recipe_catalyst": {
+                                            "$slot_item_texture": "textures/items/dusts/netherite_scrap_dust"
+                                        }
+                                    },
+                                    {
+                                        "input@uc.infuser_recipe_input": {
+                                            "$slot_item_texture": "textures/items/dusts/gold_dust"
+                                        }
+                                    },
+                                    {
+                                        "output@uc.infuser_recipe_output": {
+                                            "$slot_item_texture": "textures/items/dusts/netherite_dust"
                                         }
                                     }
                                 ]

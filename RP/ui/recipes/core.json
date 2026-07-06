@@ -29,7 +29,11 @@
             16,
             16
         ],
+        "$has_slot_item|default": true,
+        "$has_slot_flipbook|default": false,
         "$slot_item_texture|default": "",
+        "$slot_item_flipbook_texture|default": "",
+        "$slot_item_flipbook_uv|default": "",
         "$slot_item_offset|default": [
             0,
             0
@@ -46,11 +50,32 @@
             {
                 "recipe_item": {
                     "type": "image",
+                    "visible": "$has_slot_item",
                     "texture": "$slot_item_texture",
                     "size": [
                         16,
                         16
                     ],
+                    "offset": "$slot_item_offset",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 6
+                }
+            },
+            {
+                "recipe_item_flipbook": {
+                    "type": "image",
+                    "visible": "$has_slot_flipbook",
+                    "texture": "$slot_item_flipbook_texture",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "uv_size": [
+                        16,
+                        16
+                    ],
+                    "uv": "$slot_item_flipbook_uv",
                     "offset": "$slot_item_offset",
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
@@ -213,7 +238,7 @@
                     "anchor_to": "center",
                     "size": [
                         80,
-                        108
+                        106
                     ],
                     "offset": [
                         137,
@@ -237,8 +262,8 @@
                                 "anchor_from": "top_left",
                                 "anchor_to": "top_left",
                                 "size": [
-                                    108,
-                                    68
+                                    110,
+                                    74
                                 ],
                                 "offset": [
                                     6,
@@ -251,8 +276,8 @@
                                     "100% - 4px"
                                 ],
                                 "$scrolling_pane_size": [
-                                    "100% + 20px",
-                                    54
+                                    "100% + 22px",
+                                    60
                                 ],
                                 "$scrolling_pane_offset": [
                                     -5,
@@ -263,7 +288,7 @@
                                     -4
                                 ],
                                 "$scrolling_pane_size_touch": [
-                                    "100% + 20px",
+                                    "100% + 22px",
                                     "100% - 2px"
                                 ],
                                 "$scrolling_pane_offset_touch": [
@@ -290,7 +315,7 @@
                                 "texture": "textures/ui/toggle_button/right_bg",
                                 "size": [
                                     120,
-                                    82
+                                    80
                                 ],
                                 "offset": [
                                     20,
@@ -307,7 +332,7 @@
                                 "texture": "textures/ui/toggle_button/recipes_bg",
                                 "size": [
                                     110,
-                                    56
+                                    54
                                 ],
                                 "offset": [
                                     20,
