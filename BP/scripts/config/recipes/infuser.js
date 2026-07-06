@@ -32,10 +32,6 @@ const infuserRecipesRegister = {
     output: "utilitycraft:raw_energized_iron",
     required: 4,
   },
-  "minecraft:redstone|utilitycraft:raw_iron_dust": { // Raw Energized Iron Dust
-    output: "utilitycraft:raw_energized_iron_dust",
-    required: 4,
-  },
   "minecraft:redstone|utilitycraft:steel_plate": { // Base/Simple Chip
     output: "utilitycraft:chip",
     required: 2,
