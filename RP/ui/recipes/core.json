@@ -100,7 +100,7 @@
         "anchor_to": "center",
         "$recipe_icon|default": "",
         "$toggle_layer": -2,
-        "$toggle_lost_reset": false,
+        "$toggle_lost_reset": true,
         "$toggle_group": true,
         "$toggle_default_state": false,
         "$toggle_size": [
@@ -137,24 +137,24 @@
         "$machine_toggle_default_state|default": true,
         "$recipes_toggle_default_state|default": false,
         "$machine_toggle_unchecked|default": "textures/gui/newgui/portfolio/grey_button_default",
-        "$machine_toggle_checked|default": "textures/gui/newgui/portfolio/grey_button_pressed",
+        "$machine_toggle_checked|default": "textures/gui/newgui/portfolio/grey_button_pressed_hover",
         "$machine_toggle_unchecked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
-        "$machine_toggle_checked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
+        "$machine_toggle_checked_hover|default": "textures/gui/newgui/portfolio/grey_button_pressed",
         "$recipes_toggle_unchecked|default": "textures/gui/newgui/portfolio/grey_button_default",
-        "$recipes_toggle_checked|default": "textures/gui/newgui/portfolio/grey_button_pressed",
+        "$recipes_toggle_checked|default": "textures/gui/newgui/portfolio/grey_button_pressed_hover",
         "$recipes_toggle_unchecked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
-        "$recipes_toggle_checked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
+        "$recipes_toggle_checked_hover|default": "textures/gui/newgui/portfolio/grey_button_pressed",
         "controls": [
             {
                 "top_bg": {
                     "type": "image",
                     "texture": "textures/ui/toolbar_background",
                     "size": [
-                        102,
+                        79,
                         26
                     ],
                     "offset": [
-                        0,
+                        11.5,
                         -2
                     ],
                     "layer": -4
@@ -165,7 +165,7 @@
                     "anchor_from": "center",
                     "anchor_to": "center",
                     "offset": [
-                        0,
+                        15,
                         -2
                     ],
                     "$toggle_name": "machine_view_tabs",
@@ -190,10 +190,10 @@
                         19,
                         13
                     ],
-                    "$toggle_icon_unchecked": "textures/ui/recipe_book_icon",
-                    "$toggle_icon_checked": "textures/ui/recipe_book_icon",
-                    "$toggle_icon_unchecked_hover": "textures/ui/recipe_book_icon",
-                    "$toggle_icon_checked_hover": "textures/ui/recipe_book_icon"
+                    "$toggle_icon_unchecked": "textures/ui/inventory_icon",
+                    "$toggle_icon_checked": "textures/ui/inventory_icon",
+                    "$toggle_icon_unchecked_hover": "textures/ui/inventory_icon",
+                    "$toggle_icon_checked_hover": "textures/ui/inventory_icon"
                 }
             },
             {
@@ -201,7 +201,7 @@
                     "anchor_from": "center",
                     "anchor_to": "center",
                     "offset": [
-                        -26,
+                        -11,
                         -2
                     ],
                     "$toggle_name": "machine_view_tabs",
@@ -226,10 +226,10 @@
                         19,
                         13
                     ],
-                    "$toggle_icon_unchecked": "textures/ui/inventory_icon",
-                    "$toggle_icon_checked": "textures/ui/inventory_icon",
-                    "$toggle_icon_unchecked_hover": "textures/ui/inventory_icon",
-                    "$toggle_icon_checked_hover": "textures/ui/inventory_icon"
+                    "$toggle_icon_unchecked": "textures/ui/recipe_book_icon",
+                    "$toggle_icon_checked": "textures/ui/recipe_book_icon",
+                    "$toggle_icon_unchecked_hover": "textures/ui/recipe_book_icon",
+                    "$toggle_icon_checked_hover": "textures/ui/recipe_book_icon"
                 }
             },
             {
@@ -242,8 +242,8 @@
                     "anchor_from": "center",
                     "anchor_to": "center",
                     "offset": [
-                        37,
-                        0
+                        38,
+                        -2
                     ],
                     "layer": 2,
                     "controls": [
@@ -385,7 +385,7 @@
                         137,
                         69
                     ],
-                    "layer": 0,
+                    "layer": -8,
                     "collection_name": "container_items",
                     "$item_collection_name": "container_items",
                     "bindings": [
