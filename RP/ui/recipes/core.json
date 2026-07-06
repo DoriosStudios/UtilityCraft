@@ -31,10 +31,16 @@
         ],
         "$has_slot_item|default": true,
         "$has_slot_flipbook|default": false,
+        "$has_slot_block": false,
         "$slot_item_texture|default": "",
         "$slot_item_flipbook_texture|default": "",
         "$slot_item_flipbook_uv|default": "",
+        "$slot_block_id|default": 294912,
         "$slot_item_offset|default": [
+            0,
+            0
+        ],
+        "$slot_item_block_offset|default": [
             0,
             0
         ],
@@ -60,6 +66,24 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "layer": 6
+                }
+            },
+            {
+                "recipe_block": {
+                    "type": "custom",
+                    "visible": "$has_slot_block",
+                    "renderer": "inventory_item_renderer",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": "$slot_item_block_offset",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 6,
+                    "property_bag": {
+                        "#item_id_aux": "$slot_block_id"
+                    }
                 }
             },
             {
