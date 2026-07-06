@@ -1576,16 +1576,16 @@
         "anchor_from": "center",
         "anchor_to": "center",
         "$cell_image_size": [
-            28,
-            60
+            24,
+            56
         ],
         "size": [
-            28,
-            60
+            24,
+            56
         ],
         "offset": [
-            10,
-            6
+            12.1,
+            5
         ],
         "layer": -1
     },
@@ -1610,8 +1610,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        10,
-                        17
+                        12.1,
+                        16
                     ]
                 }
             },
@@ -1624,8 +1624,8 @@
                         48
                     ],
                     "offset": [
-                        10,
-                        6
+                        12.1,
+                        5
                     ],
                     "layer": 9,
                     "visible": "$is_energy"
@@ -1640,8 +1640,8 @@
                         48
                     ],
                     "offset": [
-                        10,
-                        6
+                        12.1,
+                        5
                     ],
                     "layer": 9,
                     "visible": "$is_liquid"
