@@ -124,6 +124,10 @@
                                              "info_tab@uc.info_tab":  {
                                                                           "$info_description":  "ui.utilitycraft:info.infuser"
                                                                       }
+                                         },
+                                         {
+                                             "recipe_book@uc.infuser_recipe_book":  {
+                                                                                   }
                                          }
                                      ]
                     },    "infuser_slots":  {

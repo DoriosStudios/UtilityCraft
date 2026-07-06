@@ -30,6 +30,8 @@
         "ui/machines/induction_anvil.json",
         "ui/machines/assembler.json",
         "ui/machines/digitizer.json",
-        "ui/machines/ehxibitor.json"
+        "ui/machines/ehxibitor.json",
+        "ui/recipes/core.json",
+        "ui/recipes/infuser.json"
     ]
 }
