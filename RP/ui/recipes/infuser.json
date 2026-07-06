@@ -71,7 +71,7 @@
             54.1
         ],
         "offset": [
-            -60,
+            -62,
             12
         ],
         "collection_name": "container_items",
@@ -161,8 +161,8 @@
             {
                 "advanced_chip_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        -1,
-                        -8
+                        107,
+                        -26
                     ],
                     "$toggle_index": 6,
                     "$toggle_hover_text": "Advanced Chip",
@@ -173,7 +173,7 @@
             {
                 "expert_chip_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        17,
+                        -1,
                         -8
                     ],
                     "$toggle_index": 7,
@@ -185,7 +185,7 @@
             {
                 "ultimate_chip_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        35,
+                        17,
                         -8
                     ],
                     "$toggle_index": 8,
@@ -197,7 +197,7 @@
             {
                 "steel_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        53,
+                        35,
                         -8
                     ],
                     "$toggle_index": 9,
@@ -209,7 +209,7 @@
             {
                 "steel_dust_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        71,
+                        53,
                         -8
                     ],
                     "$toggle_index": 10,
@@ -221,7 +221,7 @@
             {
                 "netherite_ingot_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        89,
+                        71,
                         -8
                     ],
                     "$toggle_index": 11,
@@ -233,8 +233,8 @@
             {
                 "netherite_dust_toggle@uc.infuser_recipe_toggle": {
                     "offset": [
-                        -1,
-                        10
+                        89,
+                        -8
                     ],
                     "$toggle_index": 12,
                     "$toggle_hover_text": "Netherite Dust",
@@ -244,23 +244,164 @@
             }
         ]
     },
-    "infuser_recipe_book": {
+    "infuser_recipes_side_panel": {
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
         "size": [
-            162,
-            72
+            150,
+            166
         ],
+        "offset": [
+            -91,
+            0
+        ],
+        "layer": 40,
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "recipes_toggle_button",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible",
+                "resolve_sibling_scope": false
+            }
+        ],
         "controls": [
             {
-                "overlays@uc.infuser_recipes_panel": {}
+                "panel_bg": {
+                    "type": "image",
+                    "texture": "textures/ui/background/background_panel",
+                    "size": [
+                        150,
+                        166
+                    ],
+                    "layer": -5
+                }
             },
             {
-                "recipes_tab@uc.recipes_tab": {
+                "top_bg": {
+                    "type": "image",
+                    "texture": "textures/ui/background/dark_top_tab",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [
+                        150,
+                        24
+                    ],
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "layer": -4
+                }
+            },
+            {
+                "title": {
+                    "type": "label",
+                    "text": "Recipes",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        7
+                    ],
+                    "color": [
+                        0.9,
+                        0.9,
+                        0.9
+                    ],
+                    "layer": -3,
+                    "font_scale_factor": 1
+                }
+            },
+            {
+                "recipes_scroll@common.scrolling_panel": {
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": [
+                        138,
+                        130
+                    ],
+                    "offset": [
+                        4,
+                        -6
+                    ],
+                    "$show_background": false,
+                    "layer": -2,
+                    "$scroll_size": [
+                        4,
+                        "100% - 4px"
+                    ],
+                    "$scrolling_pane_size": [
+                        "100% + 6px",
+                        64
+                    ],
+                    "$scrolling_pane_offset": [
+                        -5,
+                        30
+                    ],
+                    "$scroll_view_port_offset": [
+                        3,
+                        0
+                    ],
+                    "$scrolling_pane_size_touch": [
+                        "100% + 24px",
+                        "100% - 2px"
+                    ],
+                    "$scrolling_pane_offset_touch": [
+                        -5,
+                        0
+                    ],
+                    "$scroll_view_port_offset_touch": [
+                        3,
+                        0
+                    ],
+                    "$scroll_size_touch": [
+                        4,
+                        "100% - 4px"
+                    ],
+                    "$scroll_bar_contained_touch": false,
+                    "$scroll_box_visible_touch": true,
+                    "$use_touch_mode": false,
                     "$scrolling_content": "uc.infuser_recipes_buttons"
+                }
+            }
+        ]
+    },
+    "infuser_recipes_connector": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            12,
+            160
+        ],
+        "offset": [
+            -14,
+            0
+        ],
+        "layer": -20,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "recipes_toggle_button",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible",
+                "resolve_sibling_scope": false
+            }
+        ],
+        "controls": [
+            {
+                "connector_bg": {
+                    "type": "image",
+                    "texture": "textures/ui/recipe_book_side_toggle_dark",
+                    "size": [
+                        12,
+                        160
+                    ],
+                    "layer": 0
                 }
             }
         ]
@@ -275,15 +416,6 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
-        "bindings": [
-            {
-                "binding_type": "view",
-                "source_control_name": "info_toggle_button",
-                "source_property_name": "(not (#toggle_state))",
-                "target_property_name": "#visible",
-                "resolve_sibling_scope": false
-            }
-        ],
         "controls": [
             {
                 "recipes_panel": {

@@ -107,10 +107,10 @@
             18,
             18
         ],
-        "$toggle_unchecked": "textures/ui/toggle_button/recipe_base_unchecked",
-        "$toggle_checked": "textures/ui/toggle_button/recipe_base_checked",
-        "$toggle_unchecked_hover": "textures/ui/toggle_button/recipe_base_unchecked_hover",
-        "$toggle_checked_hover": "textures/ui/toggle_button/recipe_base_checked_hover",
+        "$toggle_unchecked": "textures/ui/recipe_book_item_bg",
+        "$toggle_checked": "textures/gui/newgui/buttons/borderless/lighthover",
+        "$toggle_unchecked_hover": "textures/ui/slot_enabled_hover",
+        "$toggle_checked_hover": "textures/gui/newgui/buttons/borderless/lighthover",
         "$has_toggle_icon": true,
         "$toggle_icon_size": [
             14,
@@ -120,6 +120,147 @@
         "$toggle_icon_checked": "$recipe_icon",
         "$toggle_icon_unchecked_hover": "$recipe_icon",
         "$toggle_icon_checked_hover": "$recipe_icon"
+    },
+    "machine_recipe_view_top_bar": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            96,
+            24
+        ],
+        "offset": [
+            37,
+            -91
+        ],
+        "layer": 50,
+        "$machine_toggle_default_state|default": true,
+        "$recipes_toggle_default_state|default": false,
+        "$machine_toggle_unchecked|default": "textures/gui/newgui/portfolio/grey_button_default",
+        "$machine_toggle_checked|default": "textures/gui/newgui/portfolio/grey_button_pressed",
+        "$machine_toggle_unchecked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
+        "$machine_toggle_checked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
+        "$recipes_toggle_unchecked|default": "textures/gui/newgui/portfolio/grey_button_default",
+        "$recipes_toggle_checked|default": "textures/gui/newgui/portfolio/grey_button_pressed",
+        "$recipes_toggle_unchecked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
+        "$recipes_toggle_checked_hover|default": "textures/gui/newgui/portfolio/grey_button_hover",
+        "controls": [
+            {
+                "top_bg": {
+                    "type": "image",
+                    "texture": "textures/ui/toolbar_background",
+                    "size": [
+                        102,
+                        26
+                    ],
+                    "offset": [
+                        0,
+                        -2
+                    ],
+                    "layer": -4
+                }
+            },
+            {
+                "normal_toggle@uc.toggle_button": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        -2
+                    ],
+                    "$toggle_name": "machine_view_tabs",
+                    "$toggle_layer": 1,
+                    "$toggle_lost_reset": false,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": "$machine_toggle_default_state",
+                    "$toggle_hover_text": "Machine",
+                    "$toggle_checked_hover_text": "Machine",
+                    "$toggle_control_name": "machine_view_toggle_button",
+                    "$toggle_size": [
+                        25,
+                        18
+                    ],
+                    "$toggle_unchecked": "$machine_toggle_unchecked",
+                    "$toggle_checked": "$machine_toggle_checked",
+                    "$toggle_unchecked_hover": "$machine_toggle_unchecked_hover",
+                    "$toggle_checked_hover": "$machine_toggle_checked_hover",
+                    "$has_toggle_icon": true,
+                    "$toggle_icon_size": [
+                        19,
+                        13
+                    ],
+                    "$toggle_icon_unchecked": "textures/ui/recipe_book_icon",
+                    "$toggle_icon_checked": "textures/ui/recipe_book_icon",
+                    "$toggle_icon_unchecked_hover": "textures/ui/recipe_book_icon",
+                    "$toggle_icon_checked_hover": "textures/ui/recipe_book_icon"
+                }
+            },
+            {
+                "recipes_toggle@uc.toggle_button": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        -26,
+                        -2
+                    ],
+                    "$toggle_name": "machine_view_tabs",
+                    "$toggle_layer": 1,
+                    "$toggle_lost_reset": false,
+                    "$toggle_index": 1,
+                    "$toggle_group": true,
+                    "$toggle_default_state": "$recipes_toggle_default_state",
+                    "$toggle_hover_text": "Recipes",
+                    "$toggle_checked_hover_text": "Recipes",
+                    "$toggle_control_name": "recipes_toggle_button",
+                    "$toggle_size": [
+                        25,
+                        18
+                    ],
+                    "$toggle_unchecked": "$recipes_toggle_unchecked",
+                    "$toggle_checked": "$recipes_toggle_checked",
+                    "$toggle_unchecked_hover": "$recipes_toggle_unchecked_hover",
+                    "$toggle_checked_hover": "$recipes_toggle_checked_hover",
+                    "$has_toggle_icon": true,
+                    "$toggle_icon_size": [
+                        19,
+                        13
+                    ],
+                    "$toggle_icon_unchecked": "textures/ui/inventory_icon",
+                    "$toggle_icon_checked": "textures/ui/inventory_icon",
+                    "$toggle_icon_unchecked_hover": "textures/ui/inventory_icon",
+                    "$toggle_icon_checked_hover": "textures/ui/inventory_icon"
+                }
+            },
+            {
+                "close_button_panel": {
+                    "type": "panel",
+                    "size": [
+                        15,
+                        20
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        37,
+                        0
+                    ],
+                    "layer": 2,
+                    "controls": [
+                        {
+                            "close_button@common.light_close_button": {
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "offset": [
+                                    0,
+                                    0
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
     },
     "recipes_tab": {
         "type": "collection_panel",
