@@ -317,6 +317,23 @@
                 }
             },
             {
+                "recipes_grid_bg": {
+                    "type": "image",
+                    "texture": "textures/ui/recipe_grid_bg",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": [
+                        138,
+                        134
+                    ],
+                    "offset": [
+                        6,
+                        27
+                    ],
+                    "layer": -4
+                }
+            },
+            {
                 "recipes_scroll@common.scrolling_panel": {
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",

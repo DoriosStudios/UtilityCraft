@@ -110,7 +110,7 @@
         "$toggle_unchecked": "textures/ui/recipe_book_item_bg",
         "$toggle_checked": "textures/gui/newgui/buttons/borderless/lighthover",
         "$toggle_unchecked_hover": "textures/ui/slot_enabled_hover",
-        "$toggle_checked_hover": "textures/gui/newgui/buttons/borderless/lighthover",
+        "$toggle_checked_hover": "textures/ui/slot_enabled_hover",
         "$has_toggle_icon": true,
         "$toggle_icon_size": [
             14,
@@ -133,7 +133,7 @@
             37,
             -91
         ],
-        "layer": 50,
+        "layer": 10,
         "$machine_toggle_default_state|default": true,
         "$recipes_toggle_default_state|default": false,
         "$machine_toggle_unchecked|default": "textures/gui/newgui/portfolio/grey_button_default",
