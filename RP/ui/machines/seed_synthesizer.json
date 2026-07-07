@@ -91,7 +91,8 @@
                                                                                            "$collection_index_6":  12,
                                                                                            "$collection_index_7":  13,
                                                                                            "$collection_index_8":  14,
-                                                                                           "$collection_index_9":  15
+                                                                                           "$collection_index_9":  15,
+                                                                                           "$slot_outline_texture":  "textures/ui/slots/output_slot"
                                                                                        }
                                                   },
                                                   {
