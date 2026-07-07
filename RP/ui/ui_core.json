@@ -2477,6 +2477,10 @@
         "$toggle_icon_checked|default": "",
         "$toggle_icon_unchecked_hover|default": "",
         "$toggle_icon_checked_hover|default": "",
+        "$toggle_icon_uv_size|default": [
+            16,
+            16
+        ],
         "controls": [
             {
                 "toggle_background": {
@@ -2566,6 +2570,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_unchecked",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2589,6 +2594,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_checked",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2612,6 +2618,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_unchecked_hover",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2643,6 +2650,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_checked_hover",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2675,6 +2683,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_unchecked",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2699,6 +2708,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_checked",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2723,6 +2733,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_unchecked_hover",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }
@@ -2747,6 +2758,7 @@
                                             "type": "image",
                                             "texture": "$toggle_icon_checked_hover",
                                             "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
                                             "layer": 1,
                                             "visible": "$has_toggle_icon"
                                         }

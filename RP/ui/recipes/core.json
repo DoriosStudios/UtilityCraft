@@ -140,6 +140,10 @@
             14,
             14
         ],
+        "$toggle_icon_uv_size": [
+            16,
+            16
+        ],
         "$toggle_icon_unchecked": "$recipe_icon",
         "$toggle_icon_checked": "$recipe_icon",
         "$toggle_icon_unchecked_hover": "$recipe_icon",
@@ -214,6 +218,10 @@
                         19,
                         13
                     ],
+                    "$toggle_icon_uv_size": [
+                        19,
+                        13
+                    ],
                     "$toggle_icon_unchecked": "textures/ui/inventory_icon",
                     "$toggle_icon_checked": "textures/ui/inventory_icon",
                     "$toggle_icon_unchecked_hover": "textures/ui/inventory_icon",
@@ -247,6 +255,10 @@
                     "$toggle_checked_hover": "$recipes_toggle_checked_hover",
                     "$has_toggle_icon": true,
                     "$toggle_icon_size": [
+                        19,
+                        13
+                    ],
+                    "$toggle_icon_uv_size": [
                         19,
                         13
                     ],
