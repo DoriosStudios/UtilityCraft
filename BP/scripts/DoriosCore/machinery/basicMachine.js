@@ -234,8 +234,8 @@ export class BasicMachine {
    * @param {Object<string, number|number[]>} [config.items] Item slots keyed by mode.
    * @param {Object<string, FluidStorage>|FluidStorage} [config.liquids] Fluid storage keyed by mode, or one shared tank.
    * @param {Object} [limits] Per-tick transfer limits.
-   * @param {number} [limits.maxInputSlotsScannedPerTick=9] External inventory slots scanned for input.
-   * @param {number} [limits.maxOutputSlotsMovedPerTick=9] Output slots moved as full stacks.
+   * @param {number} [limits.maxInputSlotsScannedPerTick=9] External inventory slots scanned per input face.
+   * @param {number} [limits.maxOutputSlotsMovedPerTick=9] Output slots moved per output face as full stacks.
    * @param {number} [limits.maxFluidMovedPerTick=2500] Fluid mB moved per tick.
    * @returns {{itemsMoved:number, inputSlotsScanned:number, fluidMoved:number}} Transfer summary.
    */
@@ -265,9 +265,6 @@ export class BasicMachine {
   }
 
   #processItemIO(itemConfig, ioModes, targets, maxInputScans, maxOutputSlots, summary) {
-    let outputSlotsMoved = 0;
-    let inputSlotsScanned = 0;
-
     for (const direction of DIRECTIONS) {
       if (targets[direction] !== true) continue;
 
@@ -277,19 +274,19 @@ export class BasicMachine {
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       if (!neighborLocation) continue;
 
-      if (mode === "output" && outputSlotsMoved < maxOutputSlots) {
+      if (mode === "output") {
+        if (maxOutputSlots <= 0) continue;
+
         const slots = normalizeIOSlots(itemConfig.output);
-        const result = this.#pushOutputItems(neighborLocation, slots, maxOutputSlots - outputSlotsMoved);
-        outputSlotsMoved += result.slotsMoved;
+        const result = this.#pushOutputItems(neighborLocation, slots, maxOutputSlots);
         summary.itemsMoved += result.itemsMoved;
         continue;
       }
 
       const inputSlots = normalizeIOSlots(itemConfig[mode]);
-      if (inputSlots.length === 0 || inputSlotsScanned >= maxInputScans) continue;
+      if (inputSlots.length === 0 || maxInputScans <= 0) continue;
 
-      const result = this.#pullInputItems(neighborLocation, inputSlots, direction, mode, maxInputScans - inputSlotsScanned);
-      inputSlotsScanned += result.slotsScanned;
+      const result = this.#pullInputItems(neighborLocation, inputSlots, direction, mode, maxInputScans);
       summary.inputSlotsScanned += result.slotsScanned;
       summary.itemsMoved += result.itemsMoved;
     }
