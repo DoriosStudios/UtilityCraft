@@ -31,6 +31,10 @@
         ],
         "$has_slot_item|default": true,
         "$has_slot_flipbook|default": false,
+        "$has_slot_hover|default": false,
+        "$has_slot_count|default": false,
+        "$slot_hover_text|default": "",
+        "$slot_count_text|default": "",
         "$slot_item_texture|default": "",
         "$slot_item_flipbook_texture|default": "",
         "$slot_item_flipbook_uv|default": "",
@@ -92,6 +96,29 @@
                     "anchor_to": "top_middle",
                     "layer": 5
                 }
+            },
+            {
+                "recipe_item_count": {
+                    "type": "label",
+                    "visible": "$has_slot_count",
+                    "text": "$slot_count_text",
+                    "size": [
+                        16,
+                        8
+                    ],
+                    "offset": "$slot_item_offset",
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "text_alignment": "right",
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "shadow": true,
+                    "font_scale_factor": 1,
+                    "layer": 7
+                }
             }
         ]
     },
@@ -103,6 +130,9 @@
         "$toggle_lost_reset": true,
         "$toggle_group": true,
         "$toggle_default_state": false,
+        "$toggle_hover_text_localize": true,
+        "$toggle_checked_hover_text_localize": true,
+        "$toggle_checked_hover_text_from_hover": true,
         "$toggle_size": [
             18,
             18
@@ -178,8 +208,10 @@
                     "$toggle_index": 0,
                     "$toggle_group": true,
                     "$toggle_default_state": "$machine_toggle_default_state",
-                    "$toggle_hover_text": "Machine",
-                    "$toggle_checked_hover_text": "Machine",
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.machine",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.machine",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "machine_view_toggle_button",
                     "$toggle_size": [
                         25,
@@ -218,8 +250,10 @@
                     "$toggle_index": 1,
                     "$toggle_group": true,
                     "$toggle_default_state": "$recipes_toggle_default_state",
-                    "$toggle_hover_text": "Recipes",
-                    "$toggle_checked_hover_text": "Recipes",
+                    "$toggle_hover_text": "ui.utilitycraft:recipes_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:recipes_panel.name",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "recipes_toggle_button",
                     "$toggle_size": [
                         25,
@@ -307,8 +341,10 @@
                     "$toggle_index": 3,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Recipes",
-                    "$toggle_checked_hover_text": "Recipes",
+                    "$toggle_hover_text": "ui.utilitycraft:recipes_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:recipes_panel.name",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "recipes_toggle_button",
                     "$toggle_size": [
                         16,
@@ -348,12 +384,14 @@
                         53
                     ],
                     "$toggle_name": "right_machine_tabs",
-                    "$toggle_layer": 31,
+                    "$toggle_layer": 10,
                     "$toggle_index": 0,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Close Recipes",
-                    "$toggle_checked_hover_text": "Close Recipes",
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_recipes",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_recipes",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "recipes_toggle_button",
                     "$toggle_size": [
                         16,
@@ -497,7 +535,7 @@
                         {
                             "text_label": {
                                 "type": "label",
-                                "text": "Recipes",
+                                "text": "ui.utilitycraft:recipes_panel.name",
                                 "anchor_from": "top_middle",
                                 "anchor_to": "top_middle",
                                 "offset": [

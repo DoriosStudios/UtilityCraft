@@ -833,6 +833,18 @@ dorios:itemGroup.name.meshes=Mallas
 dorios:itemGroup.name.essences=Esencias\n§7- Usadas en el Generador Mecánico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Mejoras de Máquinas
+
+ui.utilitycraft:machine_view.machine=Máquina
+ui.utilitycraft:recipes_panel.name=Recetas
+ui.utilitycraft:upgrades_panel.name=Mejoras
+ui.utilitycraft:io_panel.name=Config. de Entrada/Salida
+ui.utilitycraft:info_panel.name=Información
+ui.utilitycraft:machine_view.close_recipes=Cerrar Recetas
+ui.utilitycraft:machine_view.close_upgrades=Cerrar Mejoras
+ui.utilitycraft:machine_view.close_io_config=Cerrar Config. de Entrada/Salida
+ui.utilitycraft:machine_view.close_information=Cerrar Información
+ui.utilitycraft:machine_view.items=Objetos
+ui.utilitycraft:machine_view.liquids=Líquidos
 dorios:itemGroup.name.removed=Eliminados
 dorios:itemGroup.name.elevators=Ascensores
 

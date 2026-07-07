@@ -866,6 +866,18 @@ dorios:itemGroup.name.fishing_nets=Redes de Pesca
 dorios:itemGroup.name.essences=Essências\n§7- Usado no Invocador Mecânico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Módulos de Melhoria
+
+ui.utilitycraft:machine_view.machine=Máquina
+ui.utilitycraft:recipes_panel.name=Receitas
+ui.utilitycraft:upgrades_panel.name=Melhorias
+ui.utilitycraft:io_panel.name=Config. de Entrada/Saída
+ui.utilitycraft:info_panel.name=Informação
+ui.utilitycraft:machine_view.close_recipes=Fechar Receitas
+ui.utilitycraft:machine_view.close_upgrades=Fechar Melhorias
+ui.utilitycraft:machine_view.close_io_config=Fechar Config. de Entrada/Saída
+ui.utilitycraft:machine_view.close_information=Fechar Informação
+ui.utilitycraft:machine_view.items=Itens
+ui.utilitycraft:machine_view.liquids=Líquidos
 dorios:itemGroup.name.removed=Removidos
 dorios:itemGroup.name.elevators=Elevadores
 

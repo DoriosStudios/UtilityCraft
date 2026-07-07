@@ -1088,9 +1088,17 @@ howtoplay.utilitycraft.drop_tables.p5=The §bAutofisher§r uses §eFishing Nets�
 howtoplay.utilitycraft.drop_tables.p6=This loot table shows the base chance before the fishing net multiplier. Some equipment drops may also roll durability and enchantments.
 howtoplay.utilitycraft.drop_tables.p7=Custom addons may register extra §bSieve§r or §bAutofisher§r drops with script events, so integrated worlds may show more results than these base tables.
 
+ui.utilitycraft:machine_view.machine=Machine
+ui.utilitycraft:recipes_panel.name=Recipes
 ui.utilitycraft:upgrades_panel.name=Upgrades
 ui.utilitycraft:io_panel.name=Input/Output Config
 ui.utilitycraft:info_panel.name=Information
+ui.utilitycraft:machine_view.close_recipes=Close Recipes
+ui.utilitycraft:machine_view.close_upgrades=Close Upgrades
+ui.utilitycraft:machine_view.close_io_config=Close Input/Output Config
+ui.utilitycraft:machine_view.close_information=Close Information
+ui.utilitycraft:machine_view.items=Items
+ui.utilitycraft:machine_view.liquids=Liquids
 ui.utilitycraft:info.assembler=Crafts saved recipes\nfrom §bBlueprints§8 using\nstored materials.\n\n§8Slots:\n- §bBlueprint§8: recipe pattern.\n- §9Materials§8: items consumed.\n- §cOutput§8: crafted result.\n\n§8Accepted Upgrades:\n§d §8(8), §d §8(8)
 ui.utilitycraft:info.autosieve=Sifts blocks through\na §bMesh§8 to roll resource\ndrops.\n\n§8Slots:\n- §9Input§8: sieveable block.\n- §bMesh§8: controls drop tier.\n- §cOutputs§8: generated loot.\n\n§8Accepted Upgrades:\n§d §8(8), §d §8(8)
 ui.utilitycraft:info.autofisher=Runs §bFishing Nets§8 to\nproduce fish, treasure,\nand junk loot.\n\n§8Slots:\n- §bNet§8: fishing net item.\n- §cOutputs§8: fishing loot.\n\n§8Accepted Upgrades:\n§d §8(8), §d §8(8)

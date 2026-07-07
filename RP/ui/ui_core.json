@@ -56,6 +56,86 @@
             }
         ]
     },
+    "fake_hover_text": {
+        "type": "image",
+        "texture": "textures/ui/purpleBorder",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+            23,
+            2
+        ],
+        "size": [
+            "100%c",
+            "100%c"
+        ],
+        "layer": 80,
+        "allow_clipping": false,
+        "$hover_text|default": "",
+        "controls": [
+            {
+                "content": {
+                    "type": "panel",
+                    "size": [
+                        "100%c + 12px",
+                        "100%c + 8px"
+                    ],
+                    "controls": [
+                        {
+                            "label": {
+                                "type": "label",
+                                "text": "$hover_text",
+                                "localize": true,
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "offset": [
+                                    6,
+                                    4
+                                ],
+                                "size": [
+                                    "default",
+                                    "default"
+                                ],
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "font_scale_factor": 1,
+                                "text_alignment": "left",
+                                "shadow": true,
+                                "layer": 81
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "fake_hover_button": {
+        "type": "button",
+        "size": [
+            16,
+            16
+        ],
+        "hover_control": "hover",
+        "layer": 80,
+        "$hover_text|default": "",
+        "controls": [
+            {
+                "hover": {
+                    "type": "panel",
+                    "controls": [
+                        {
+                            "tooltip@uc.fake_hover_text": {
+                                "$hover_text": "$hover_text"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "slot_button_prototype@common.container_slot_button_prototype": {
         "button_mappings": [
             {
@@ -2453,6 +2533,9 @@
         "$toggle_control_name|default": "",
         "$toggle_hover_text|default": "",
         "$toggle_checked_hover_text|default": "",
+        "$toggle_hover_text_localize|default": false,
+        "$toggle_checked_hover_text_localize|default": false,
+        "$toggle_checked_hover_text_from_hover|default": false,
         "$toggle_unchecked|default": "textures/ui/buttons/unchecked",
         "$toggle_checked|default": "textures/ui/buttons/checked",
         "$toggle_unchecked_hover|default": "textures/ui/buttons/unchecked_hover",
@@ -2504,7 +2587,7 @@
                     "$unchecked_control": "unchecked",
                     "$checked_control": "checked",
                     "$unchecked_hover_control": "unchecked_hover",
-                    "$chekced_hover_control": "chekced_hover",
+                    "$checked_hover_control": "checked_hover",
                     "$unchecked_locked_control": "unchecked_locked",
                     "$checked_locked_control": "checked_locked",
                     "$unchecked_locked_hover_control": "unchecked_locked_hover",
@@ -2626,9 +2709,16 @@
                                     {
                                         "tooltip@common.hover_text": {
                                             "layer": 29,
+                                            "ignored": "$toggle_hover_text_localize",
                                             "property_bag": {
                                                 "#hover_text": "$toggle_hover_text"
                                             }
+                                        }
+                                    },
+                                    {
+                                        "localized_tooltip@uc.fake_hover_text": {
+                                            "$hover_text": "$toggle_hover_text",
+                                            "ignored": "(not $toggle_hover_text_localize)"
                                         }
                                     }
                                 ]
@@ -2658,9 +2748,31 @@
                                     {
                                         "tooltip@common.hover_text": {
                                             "layer": 29,
+                                            "ignored": "($toggle_checked_hover_text_from_hover or $toggle_checked_hover_text_localize)",
                                             "property_bag": {
                                                 "#hover_text": "$toggle_checked_hover_text"
                                             }
+                                        }
+                                    },
+                                    {
+                                        "localized_tooltip@uc.fake_hover_text": {
+                                            "$hover_text": "$toggle_checked_hover_text",
+                                            "ignored": "($toggle_checked_hover_text_from_hover or (not $toggle_checked_hover_text_localize))"
+                                        }
+                                    },
+                                    {
+                                        "tooltip_from_hover@common.hover_text": {
+                                            "layer": 29,
+                                            "ignored": "((not $toggle_checked_hover_text_from_hover) or $toggle_hover_text_localize)",
+                                            "property_bag": {
+                                                "#hover_text": "$toggle_hover_text"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "localized_tooltip_from_hover@uc.fake_hover_text": {
+                                            "$hover_text": "$toggle_hover_text",
+                                            "ignored": "((not $toggle_checked_hover_text_from_hover) or (not $toggle_hover_text_localize))"
                                         }
                                     }
                                 ]
@@ -2866,7 +2978,10 @@
                     "$toggle_index": 1,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Upgrades",
+                    "$toggle_hover_text": "ui.utilitycraft:upgrades_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "$upgrade_toggle_control_name",
                     "$toggle_size": [
                         16,
@@ -2901,8 +3016,10 @@
                     "$toggle_index": 0,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Close Upgrades",
-                    "$toggle_checked_hover_text": "Close Upgrades",
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "$upgrade_toggle_control_name",
                     "$toggle_size": [
                         16,
@@ -2990,7 +3107,10 @@
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": true,
-                                "$toggle_hover_text": "Close Upgrades",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
                                 "$toggle_control_name": "$upgrade_toggle_control_name",
                                 "$toggle_unchecked": "textures/ui/close_button/unchecked",
                                 "$toggle_checked": "textures/ui/close_button/checked",
@@ -3414,8 +3534,10 @@
                     "$toggle_index": 2,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Input/Output Config",
-                    "$toggle_checked_hover_text": "Close Input/Output Config",
+                    "$toggle_hover_text": "ui.utilitycraft:io_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "$io_toggle_control_name",
                     "$toggle_size": [
                         16,
@@ -3451,8 +3573,10 @@
                     "$toggle_index": 0,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Close Input/Output Config",
-                    "$toggle_checked_hover_text": "Close Input/Output Config",
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "$io_toggle_control_name",
                     "$toggle_size": [
                         16,
@@ -3621,8 +3745,10 @@
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": "$io_items_default",
-                                "$toggle_hover_text": "Items",
-                                "$toggle_checked_hover_text": "Items",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.items",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.items",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
                                 "$toggle_control_name": "$io_items_toggle_control_name",
                                 "$toggle_size": [
                                     18,
@@ -3658,8 +3784,10 @@
                                 "$toggle_index": 1,
                                 "$toggle_group": true,
                                 "$toggle_default_state": "$io_fluids_default",
-                                "$toggle_hover_text": "Liquids",
-                                "$toggle_checked_hover_text": "Liquids",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.liquids",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.liquids",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
                                 "$toggle_control_name": "$io_fluids_toggle_control_name",
                                 "$toggle_size": [
                                     18,
@@ -3764,7 +3892,10 @@
                                 "$toggle_index": 0,
                                 "$toggle_group": true,
                                 "$toggle_default_state": true,
-                                "$toggle_hover_text": "Close Input/Output Config",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
                                 "$toggle_control_name": "$io_toggle_control_name",
                                 "$toggle_unchecked": "textures/ui/close_button/unchecked",
                                 "$toggle_checked": "textures/ui/close_button/checked",
@@ -3870,8 +4001,10 @@
                     "$toggle_index": 3,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Information",
-                    "$toggle_checked_hover_text": "Close Information",
+                    "$toggle_hover_text": "ui.utilitycraft:info_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_information",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "$info_toggle_control_name",
                     "$toggle_size": [
                         16,
@@ -3906,8 +4039,10 @@
                     "$toggle_index": 0,
                     "$toggle_group": true,
                     "$toggle_default_state": false,
-                    "$toggle_hover_text": "Close Information",
-                    "$toggle_checked_hover_text": "Close Information",
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_information",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_information",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
                     "$toggle_control_name": "$info_toggle_control_name",
                     "$toggle_size": [
                         16,
@@ -3977,6 +4112,7 @@
                                     26
                                 ],
                                 "$show_background": false,
+                                "layer": -2,
                                 "$info_description": "$info_description",
                                 "$scroll_size": [
                                     4,

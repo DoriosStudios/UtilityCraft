@@ -985,3 +985,15 @@ ui.utilitycraft:info.wind_turbine=Genera §sDorios Energy§8\ncon exposicion al 
 ui.utilitycraft:info.battery=Almacena §sDorios Energy§8 y\nla envia a redes de energia\nconectadas.\n\nLas conexiones de §senergia§8\nmanejan la transferencia\nautomaticamente.
 ui.utilitycraft:info.receiver=Recibe §sDorios Energy§8\nde transmitters vinculados y\nla pasa a la red.\n\n§8Usa wrench/herramientas\nde red para configurar enlaces.
 ui.utilitycraft:info.transmitter=Envia §sDorios Energy§8\nalmacenada a receivers vinculados\nen rango.\n\n§8Usa wrench/herramientas\nde red para configurar enlaces.
+
+ui.utilitycraft:machine_view.machine=Máquina
+ui.utilitycraft:recipes_panel.name=Recetas
+ui.utilitycraft:upgrades_panel.name=Mejoras
+ui.utilitycraft:io_panel.name=Config. de Entrada/Salida
+ui.utilitycraft:info_panel.name=Información
+ui.utilitycraft:machine_view.close_recipes=Cerrar Recetas
+ui.utilitycraft:machine_view.close_upgrades=Cerrar Mejoras
+ui.utilitycraft:machine_view.close_io_config=Cerrar Config. de Entrada/Salida
+ui.utilitycraft:machine_view.close_information=Cerrar Información
+ui.utilitycraft:machine_view.items=Objetos
+ui.utilitycraft:machine_view.liquids=Líquidos

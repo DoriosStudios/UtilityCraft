@@ -140,10 +140,6 @@ const infuserRecipesRegister = {
     output: "minecraft:gilded_blackstone",
     required: 1,
   },
-  "minecraft:wheat_seeds|minecraft:dirt": { // Grass Block (seeds route)
-    output: "minecraft:grass_block",
-    required: 9,
-  },
   "minecraft:coal_block|minecraft:iron_block": { // Steel Block
     output: "utilitycraft:steel_block",
     required: 1,
