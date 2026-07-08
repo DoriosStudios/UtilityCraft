@@ -27,6 +27,8 @@ const types = {
     fluid: startRescanFluid
 }
 
+const MAX_ITEM_SLOT_ATTEMPTS_PER_TICK = 3;
+
 //#region Utils
 
 /**
@@ -723,9 +725,10 @@ DoriosAPI.register.blockComponent('exporter', {
         // ─────────────────────────────────────────────────────────
         const moved = { total: 0 }
         const LIMIT = 64
+        let attempts = 0
 
         for (let i = startSlot; i <= endSlot; i++) {
-            if (moved.total >= LIMIT) break
+            if (moved.total >= LIMIT || attempts >= MAX_ITEM_SLOT_ATTEMPTS_PER_TICK) break
 
             const it = sourceInv.getItem(i)
             if (!it) continue
@@ -734,11 +737,13 @@ DoriosAPI.register.blockComponent('exporter', {
 
             if (hasFilter && (exporter.hasTag(`${it.typeId}`) !== whiteList)) continue
 
-            const didMove = tryPushSlotToTargets(sourceLoc, i, orderedTargets, dimension, exporter, moved, LIMIT, sourceInv)
+            attempts++
+            const didMove = tryPushSlotToTargets(sourceLoc, i, orderedTargets, dimension, exporter, moved, sourceInv)
             if (didMove && mode === 'round') {
                 let idx = Number(exporter.getDynamicProperty('dorios:item_round_idx') || 0)
                 exporter.setDynamicProperty('dorios:item_round_idx', (idx + 1) % targets.length)
             }
+            if (didMove) break
         }
     },
 })
@@ -753,7 +758,10 @@ DoriosAPI.register.blockComponent('exporter', {
  * @param {Entity} exporter
  * @returns {boolean} true if a transfer occurred
  */
-function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, moved, LIMIT, sourceInv) {
+function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, moved, sourceInv) {
+    const sourceItem = sourceInv?.getItem(slotIndex);
+    if (!sourceItem) return false;
+
     for (let loc of targets) {
         let targetBlock = dim.getBlock(loc)
         let targetEntity = dim.getEntitiesAtBlockLocation(loc)[0]
@@ -762,10 +770,6 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
             // Load importer config from WORLD dynamic property
             const key = `imp:${loc.x},${loc.y},${loc.z}`;
             const data = world.getDynamicProperty(key);
-
-            // Get current item in source
-            const item = sourceInv?.getItem(slotIndex);
-            if (!item) return false;
 
             // Determine real container in front of importer
             const face = targetBlock.permutation.getState("minecraft:block_face");
@@ -780,22 +784,27 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
             const target = DoriosAPI.containers.getContainerAt(loc, dim)
 
             if (!target.container) continue
+
             // Apply importer whitelist / blacklist
             if (data) {
                 const cfg = JSON.parse(data);  // { mode, items }
                 // Smart Importer
                 if (cfg.version == 1) {
                     if (!cfg.blockId || cfg.blockId != target.block.typeId) continue
-                    const targetSlots = cfg?.itemMap[item.typeId]
+                    const targetSlots = cfg?.itemMap[sourceItem.typeId]
                     if (targetSlots) {
-                        moved.total += DoriosAPI.containers.transferItemToSlots(sourceInv, slotIndex, target.container, targetSlots) ?? 0
-                        if (moved.total >= LIMIT) return true
+                        const movedCount = DoriosAPI.containers.transferItemToSlots(sourceInv, slotIndex, target.container, targetSlots) ?? 0
+                        if (movedCount > 0) {
+                            moved.total += movedCount
+                            return true
+                        }
+
                         continue
                     }
                     continue
                 }
                 if (cfg.items.length > 0) {
-                    const listed = cfg.items.includes(item.typeId);
+                    const listed = cfg.items.includes(sourceItem.typeId);
                     if (cfg.mode === "whitelist" && !listed) continue;
                     if (cfg.mode === "blacklist" && listed) continue;
                 }
@@ -805,15 +814,14 @@ function tryPushSlotToTargets(sourceLoc, slotIndex, targets, dim, exporter, move
         const targetHasFilter = targetBlock?.permutation?.getState?.('utilitycraft:filter') == 1
 
         if (targetHasFilter && targetEntity) {
-            const item = sourceInv?.getItem(slotIndex)
-            if (!item) return false
             const targetWhite = targetEntity.getDynamicProperty('utilitycraft:whitelistOn') ?? true
-            if ((targetEntity.hasTag(`${item.typeId}`) !== targetWhite)) continue
+            if ((targetEntity.hasTag(`${sourceItem.typeId}`) !== targetWhite)) continue
         }
+
         const movedCount = DoriosAPI.containers.transferItemsBetween(sourceLoc, loc, dim, slotIndex)
         if (typeof movedCount === 'number' && movedCount > 0) {
             moved.total += movedCount
-            if (moved.total >= LIMIT) return true
+            return true
         }
     }
     return false
