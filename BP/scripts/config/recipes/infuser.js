@@ -56,7 +56,15 @@ const infuserRecipesRegister = {
     output: "utilitycraft:steel_ingot",
     required: 1,
   },
+  "utilitycraft:coal_dust|minecraft:iron_ingot": { // Steel Ingot (coal dust)
+    output: "utilitycraft:steel_ingot",
+    required: 1,
+  },
   "minecraft:coal|utilitycraft:iron_dust": { // Steel Dust (coal)
+    output: "utilitycraft:steel_dust",
+    required: 1,
+  },
+  "utilitycraft:coal_dust|utilitycraft:iron_dust": { // Steel Dust (coal dust)
     output: "utilitycraft:steel_dust",
     required: 1,
   },
@@ -65,14 +73,6 @@ const infuserRecipesRegister = {
     required: 1,
   },
   "minecraft:charcoal|utilitycraft:iron_dust": { // Steel Dust (charcoal)
-    output: "utilitycraft:steel_dust",
-    required: 1,
-  },
-  "utilitycraft:coal_dust|minecraft:iron_ingot": { // Steel Ingot (coal dust)
-    output: "utilitycraft:steel_ingot",
-    required: 1,
-  },
-  "utilitycraft:coal_dust|utilitycraft:iron_dust": { // Steel Dust (coal dust)
     output: "utilitycraft:steel_dust",
     required: 1,
   },
@@ -88,11 +88,11 @@ const infuserRecipesRegister = {
     output: "utilitycraft:raw_steel",
     required: 1,
   },
-  "minecraft:charcoal|minecraft:raw_iron": { // Brute Steel (charcoal)
+  "utilitycraft:coal_dust|minecraft:raw_iron": { // Brute Steel (coal dust)
     output: "utilitycraft:raw_steel",
     required: 1,
   },
-  "utilitycraft:coal_dust|minecraft:raw_iron": { // Brute Steel (coal dust)
+  "minecraft:charcoal|minecraft:raw_iron": { // Brute Steel (charcoal)
     output: "utilitycraft:raw_steel",
     required: 1,
   },
@@ -218,6 +218,14 @@ const infuserRecipesRegister = {
     output: "minecraft:end_stone",
     required: 1,
   },
+  "utilitycraft:bag_of_blaze_powder|utilitycraft:compressed_cobblestone": { // Compressed Netherrack
+    output: "utilitycraft:compressed_netherrack",
+    required: 1,
+  },
+  "minecraft:mangrove_roots|minecraft:dirt": { // Rooted Dirt
+    output: "minecraft:rooted_dirt",
+    required: 1,
+  },
   // ---------- Integrated Storage ----------
   "minecraft:blaze_powder|ae2be:certus_quartz_crystal": { // Charged Certus Quartz Crystal
     output: "ae2be:charged_certus_quartz_crystal",
@@ -242,14 +250,6 @@ const infuserRecipesRegister = {
   "ae2be:silicon|ae2be:charged_certus_quartz_crystal": { // Calculation Processor Press
     output: "ae2be:calculation_processor_press",
     required: 4,
-  },
-  "utilitycraft:bag_of_blaze_powder|utilitycraft:compressed_cobblestone": { // Compressed Netherrack
-    output: "utilitycraft:compressed_netherrack",
-    required: 1,
-  },
-  "minecraft:mangrove_roots|minecraft:dirt": { // Rooted Dirt
-    output: "minecraft:rooted_dirt",
-    required: 1,
   },
   // Color pattern templates (placeholders will be expanded at load time)
   "minecraft:{x}_dye|minecraft:{y}_terracotta": { output: "minecraft:{x}_terracotta", required: 1 }, // Terracotta recolor template
