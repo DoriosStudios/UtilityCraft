@@ -37,7 +37,7 @@
  *     version: "0.3.0",
  *     dependencies: {
  *         "utilitycraft": {
- *             version: "3.3.5",  // Required version
+ *             version: "3.5.0",  // Required version
  *             name: "UtilityCraft",  // Custom name to display
  *             warning: "Please update to the latest version."  // Custom warning message
  *         }
@@ -49,7 +49,7 @@ export const addonData = {
   name: "UtilityCraft",
   author: "Dorios Studios",
   identifier: "utilitycraft",
-  version: "3.4.5",
+  version: "3.5.0",
 };
 
 /**
