@@ -1,172 +1,130 @@
 {
-    "namespace":  "magmator",
-    "magmator_top":  {
-                         "type":  "collection_panel",
-                         "anchor_from":  "center",
-                         "anchor_to":  "center",
-                         "size":  [
-                                      162,
-                                      72
-                                  ],
-                         "offset":  [
-                                        -10,
-                                        -40
-                                    ],
-                         "collection_name":  "container_items",
-                         "$item_collection_name":  "container_items",
-                         "controls":  [
-                                          {
-                                              "machine_name@uc.machine_name":  {
-
-                                                                               }
-                                          },
-                                          {
-                                              "energy_bar@uc.energy_bar":  {
-                                                                               "offset":  [
-                                                                                              54,
-                                                                                              0
-                                                                                          ],
-                                                                               "$has_bg":  false
-                                                                           }
-                                          },
-                                          {
-                                              "machine_screen@uc.machine_small_screen":  {
-
-                                                                                         }
-                                          },
-                                          {
-                                              "machine_description@uc.text_label":  {
-                                                                                        "collection_index":  1,
-                                                                                        "anchor_from":  "top_left",
-                                                                                        "anchor_to":  "top_left",
-                                                                                        "$text_scale":  0.55,
-                                                                                        "offset":  [
-                                                                                                       14,
-                                                                                                       12
-                                                                                                   ]
-                                                                                    }
-                                          },
-                                          {
-                                              "machinery@uc.progress_display":  {
-                                                                                    "anchor_from":  "top_middle",
-                                                                                    "anchor_to":  "top_middle",
-                                                                                    "offset":  [
-                                                                                                   37,
-                                                                                                   23
-                                                                                               ],
-                                                                                    "collection_index":  1
-                                                                                }
-                                          },
-                                          {
-                                              "liquid_bar@uc.fluid_bar":  {
-                                                                              "$collection_index":  2,
-                                                                              "offset":  [
-                                                                                             0,
-                                                                                             0
-                                                                                         ]
-                                                                          }
-                                          },
-                                          {
-                                              "io_tab@uc.io_tab":  {
-                                                                       "$io_fluids_modes_description":  "IO Modes:\n§r- §9Input",
-                                                                       "$has_item_io":  false,
-                                                                       "$has_fluid_io":  true,
-                                                                       "$io_items_default":  false,
-                                                                       "$io_fluids_default":  true,
-                                                                       "$io_top_texture":  "textures/blocks/generators/magmator/basic/off/up",
-                                                                       "$io_left_texture":  "textures/blocks/generators/magmator/basic/off/west",
-                                                                       "$io_front_texture":  "textures/blocks/generators/magmator/basic/off/north",
-                                                                       "$io_right_texture":  "textures/blocks/generators/magmator/basic/off/east",
-                                                                       "$io_bottom_texture":  "textures/blocks/generators/magmator/basic/off/down",
-                                                                       "$io_back_texture":  "textures/blocks/generators/magmator/basic/off/south",
-                                                                       "$io_fluid_top_index":  3,
-                                                                       "$io_fluid_left_index":  4,
-                                                                       "$io_fluid_front_index":  5,
-                                                                       "$io_fluid_right_index":  6,
-                                                                       "$io_fluid_bottom_index":  7,
-                                                                       "$io_fluid_back_index":  8
-                                                                   }
-                                          },
-                                          {
-                                              "info_tab@uc.info_tab":  {
-                                                                           "$info_description":  "ui.utilitycraft:info.magmator"
-                                                                       }
-                                          }
-                                      ]
-                     },
-    "utility_panel":  {
-                          "type":  "panel",
-                          "controls":  [
-                                           {
-                                               "container_gamepad_helpers@common.container_gamepad_helpers":  {
-
-                                                                                                              }
-                                           },
-                                           {
-                                               "flying_item_renderer@common.flying_item_renderer":  {
-                                                                                                        "layer":  40
-                                                                                                    }
-                                           },
-                                           {
-                                               "selected_item_details_factory@common.selected_item_details_factory":  {
-
-                                                                                                                      }
-                                           },
-                                           {
-                                               "item_lock_notification_factory@common.item_lock_notification_factory":  {
-
-                                                                                                                        }
-                                           },
-                                           {
-                                               "root_panel@common.root_panel":  {
-                                                                                    "layer":  1,
-                                                                                    "controls":  [
-                                                                                                     {
-                                                                                                         "common_panel@common.common_panel":  {
-
-                                                                                                                                              }
-                                                                                                     },
-                                                                                                     {
-                                                                                                         "chest_panel":  {
-                                                                                                                             "type":  "panel",
-                                                                                                                             "layer":  5,
-                                                                                                                             "controls":  [
-                                                                                                                                              {
-                                                                                                                                                  "magmator_top@magmator.magmator_top":  {
-
-                                                                                                                                                                                         }
-                                                                                                                                              },
-                                                                                                                                              {
-                                                                                                                                                  "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label":  {
-
-                                                                                                                                                                                                                                           }
-                                                                                                                                              },
-                                                                                                                                              {
-                                                                                                                                                  "hotbar_grid@common.hotbar_grid_template":  {
-
-                                                                                                                                                                                              }
-                                                                                                                                              },
-                                                                                                                                              {
-                                                                                                                                                  "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button":  {
-
-                                                                                                                                                                                                                                     }
-                                                                                                                                              }
-                                                                                                                                          ]
-                                                                                                                         }
-                                                                                                     },
-                                                                                                     {
-                                                                                                         "inventory_selected_icon_button@common.inventory_selected_icon_button":  {
-
-                                                                                                                                                                                  }
-                                                                                                     },
-                                                                                                     {
-                                                                                                         "gamepad_cursor@common.gamepad_cursor_button":  {
-
-                                                                                                                                                         }
-                                                                                                     }
-                                                                                                 ]
-                                                                                }
-                                           }
-                                       ]
-                      }
+  "namespace": "magmator",
+  "magmator_top": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [162, 72],
+    "offset": [-10, -40],
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "controls": [
+      {
+        "machine_name@uc.machine_name": {}
+      },
+      {
+        "energy_bar@uc.energy_bar": {
+          "offset": [54, 0],
+          "$has_bg": false
+        }
+      },
+      {
+        "machine_screen@uc.machine_small_screen": {}
+      },
+      {
+        "machine_description@uc.text_label": {
+          "collection_index": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$text_scale": 0.55,
+          "offset": [14, 12]
+        }
+      },
+      {
+        "machinery@uc.progress_display": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [37, 23],
+          "collection_index": 1
+        }
+      },
+      {
+        "liquid_bar@uc.fluid_bar": {
+          "$collection_index": 2,
+          "offset": [0, 0]
+        }
+      },
+      {
+        "io_tab@uc.io_tab": {
+          "$io_fluids_modes_description": "IO Modes:\n§r- §9Input",
+          "$has_item_io": false,
+          "$has_fluid_io": true,
+          "$io_items_default": false,
+          "$io_fluids_default": true,
+          "$io_top_texture": "textures/blocks/generators/magmator/basic/off/up",
+          "$io_left_texture": "textures/blocks/generators/magmator/basic/off/west",
+          "$io_front_texture": "textures/blocks/generators/magmator/basic/off/north",
+          "$io_right_texture": "textures/blocks/generators/magmator/basic/off/east",
+          "$io_bottom_texture": "textures/blocks/generators/magmator/basic/off/down",
+          "$io_back_texture": "textures/blocks/generators/magmator/basic/off/south",
+          "$io_fluid_top_index": 3,
+          "$io_fluid_left_index": 4,
+          "$io_fluid_front_index": 5,
+          "$io_fluid_right_index": 6,
+          "$io_fluid_bottom_index": 7,
+          "$io_fluid_back_index": 8
+        }
+      },
+      {
+        "info_tab@uc.info_tab": {
+          "$info_description": "ui.utilitycraft:info.magmator"
+        }
+      }
+    ]
+  },
+  "utility_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "flying_item_renderer@common.flying_item_renderer": {
+          "layer": 40
+        }
+      },
+      {
+        "selected_item_details_factory@common.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      },
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "controls": [
+            {
+              "common_panel@common.common_panel": {}
+            },
+            {
+              "chest_panel": {
+                "type": "panel",
+                "layer": 5,
+                "controls": [
+                  {
+                    "magmator_top@magmator.magmator_top": {}
+                  },
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {}
+                  },
+                  {
+                    "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                  }
+                ]
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

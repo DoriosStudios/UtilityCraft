@@ -1,131 +1,95 @@
 {
-    "namespace":  "transmitter",
-    "transmitter_top":  {
-                            "type":  "collection_panel",
-                            "anchor_from":  "center",
-                            "anchor_to":  "center",
-                            "size":  [
-                                         162,
-                                         72
-                                     ],
-                            "offset":  [
-                                           -10,
-                                           -40
-                                       ],
-                            "collection_name":  "container_items",
-                            "$item_collection_name":  "container_items",
-                            "controls":  [
-                                             {
-                                                 "machine_name@uc.machine_name":  {
-
-                                                                                  }
-                                             },
-                                             {
-                                                 "energy_bar@uc.energy_bar":  {
-                                                                                  "offset":  [
-                                                                                                 54,
-                                                                                                 0
-                                                                                             ],
-                                                                                  "$has_bg":  false
-                                                                              }
-                                             },
-                                             {
-                                                 "machine_screen@uc.big_machine_screen":  {
-
-                                                                                          }
-                                             },
-                                             {
-                                                 "machine_description@uc.text_label":  {
-                                                                                           "collection_index":  1,
-                                                                                           "anchor_from":  "top_left",
-                                                                                           "anchor_to":  "top_left",
-                                                                                           "$text_scale":  0.55,
-                                                                                           "offset":  [
-                                                                                                          14,
-                                                                                                          12
-                                                                                                      ]
-                                                                                       }
-                                             },
-                                             {
-                                                 "info_tab@uc.info_tab":  {
-                                                                              "$info_description":  "ui.utilitycraft:info.transmitter"
-                                                                          }
-                                             }
-                                         ]
-                        },
-    "utility_panel":  {
-                          "type":  "panel",
-                          "controls":  [
-                                           {
-                                               "container_gamepad_helpers@common.container_gamepad_helpers":  {
-
-                                                                                                              }
-                                           },
-                                           {
-                                               "flying_item_renderer@common.flying_item_renderer":  {
-                                                                                                        "layer":  40
-                                                                                                    }
-                                           },
-                                           {
-                                               "selected_item_details_factory@common.selected_item_details_factory":  {
-
-                                                                                                                      }
-                                           },
-                                           {
-                                               "item_lock_notification_factory@common.item_lock_notification_factory":  {
-
-                                                                                                                        }
-                                           },
-                                           {
-                                               "root_panel@common.root_panel":  {
-                                                                                    "layer":  1,
-                                                                                    "controls":  [
-                                                                                                     {
-                                                                                                         "common_panel@common.common_panel":  {
-
-                                                                                                                                              }
-                                                                                                     },
-                                                                                                     {
-                                                                                                         "chest_panel":  {
-                                                                                                                             "type":  "panel",
-                                                                                                                             "layer":  5,
-                                                                                                                             "controls":  [
-                                                                                                                                              {
-                                                                                                                                                  "transmitter_top@transmitter.transmitter_top":  {
-
-                                                                                                                                                                                                  }
-                                                                                                                                              },
-                                                                                                                                              {
-                                                                                                                                                  "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label":  {
-
-                                                                                                                                                                                                                                           }
-                                                                                                                                              },
-                                                                                                                                              {
-                                                                                                                                                  "hotbar_grid@common.hotbar_grid_template":  {
-
-                                                                                                                                                                                              }
-                                                                                                                                              },
-                                                                                                                                              {
-                                                                                                                                                  "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button":  {
-
-                                                                                                                                                                                                                                     }
-                                                                                                                                              }
-                                                                                                                                          ]
-                                                                                                                         }
-                                                                                                     },
-                                                                                                     {
-                                                                                                         "inventory_selected_icon_button@common.inventory_selected_icon_button":  {
-
-                                                                                                                                                                                  }
-                                                                                                     },
-                                                                                                     {
-                                                                                                         "gamepad_cursor@common.gamepad_cursor_button":  {
-
-                                                                                                                                                         }
-                                                                                                     }
-                                                                                                 ]
-                                                                                }
-                                           }
-                                       ]
-                      }
+  "namespace": "transmitter",
+  "transmitter_top": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [162, 72],
+    "offset": [-10, -40],
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "controls": [
+      {
+        "machine_name@uc.machine_name": {}
+      },
+      {
+        "energy_bar@uc.energy_bar": {
+          "offset": [54, 0],
+          "$has_bg": false
+        }
+      },
+      {
+        "machine_screen@uc.big_machine_screen": {}
+      },
+      {
+        "machine_description@uc.text_label": {
+          "collection_index": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$text_scale": 0.55,
+          "offset": [14, 12]
+        }
+      },
+      {
+        "info_tab@uc.info_tab": {
+          "$info_description": "ui.utilitycraft:info.transmitter"
+        }
+      }
+    ]
+  },
+  "utility_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "flying_item_renderer@common.flying_item_renderer": {
+          "layer": 40
+        }
+      },
+      {
+        "selected_item_details_factory@common.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      },
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "controls": [
+            {
+              "common_panel@common.common_panel": {}
+            },
+            {
+              "chest_panel": {
+                "type": "panel",
+                "layer": 5,
+                "controls": [
+                  {
+                    "transmitter_top@transmitter.transmitter_top": {}
+                  },
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {}
+                  },
+                  {
+                    "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                  }
+                ]
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
