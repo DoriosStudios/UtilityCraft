@@ -1,0 +1,2755 @@
+﻿{
+  "namespace": "uc",
+  "electro_press_packed_ice_input_animation": {
+    "anim_type": "flip_book",
+    "frame_count": 2,
+    "frame_step": 0,
+    "fps": 1,
+    "easing": "linear",
+    "initial_uv": [0, 0]
+  },
+  "electro_press_recipe_toggle@uc.recipe_toggle": {
+    "$toggle_name": "electro_press_recipes"
+  },
+  "electro_press_recipe_input@uc.recipe_slot_overlay": {
+    "collection_index": 3,
+    "$slot_item_offset": [4, 3],
+    "$slot_red_offset": [4, 3]
+  },
+  "electro_press_recipe_output@uc.recipe_slot_overlay": {
+    "collection_index": 6,
+    "$slot_item_offset": [60, 3],
+    "$slot_red_size": [24, 24],
+    "$slot_red_offset": [60, -1]
+  },
+  "electro_press_recipes_buttons": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [126, "100%c"],
+    "offset": [0, 0],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "recipe_row_0": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "iron_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 0,
+                "$toggle_hover_text": "item.utilitycraft:iron_plate",
+                "$toggle_control_name": "iron_plate_recipe",
+                "$recipe_icon": "textures/items/plates/iron_plate",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "gold_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 1,
+                "$toggle_hover_text": "item.utilitycraft:gold_plate",
+                "$toggle_control_name": "gold_plate_recipe",
+                "$recipe_icon": "textures/items/plates/gold_plate",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "copper_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 2,
+                "$toggle_hover_text": "item.utilitycraft:copper_plate",
+                "$toggle_control_name": "copper_plate_recipe",
+                "$recipe_icon": "textures/items/plates/copper_plate",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "netherite_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 3,
+                "$toggle_hover_text": "item.utilitycraft:netherite_plate",
+                "$toggle_control_name": "netherite_plate_recipe",
+                "$recipe_icon": "textures/items/plates/netherite_plate",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "steel_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 4,
+                "$toggle_hover_text": "item.utilitycraft:steel_plate",
+                "$toggle_control_name": "steel_plate_recipe",
+                "$recipe_icon": "textures/items/plates/steel_plate",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "energized_iron_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 5,
+                "$toggle_hover_text": "item.utilitycraft:energized_iron_plate",
+                "$toggle_control_name": "energized_iron_plate_recipe",
+                "$recipe_icon": "textures/items/plates/energized_iron_plate",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "blaze_rod_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 6,
+                "$toggle_hover_text": "item.blaze_rod.name",
+                "$toggle_control_name": "blaze_rod_recipe",
+                "$recipe_icon": "textures/items/blaze_rod",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_1": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "diamond_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 7,
+                "$toggle_hover_text": "item.diamond.name",
+                "$toggle_control_name": "diamond_recipe",
+                "$recipe_icon": "textures/items/diamond",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "emerald_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 8,
+                "$toggle_hover_text": "item.emerald.name",
+                "$toggle_control_name": "emerald_recipe",
+                "$recipe_icon": "textures/items/emerald",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "nether_star_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 9,
+                "$toggle_hover_text": "item.netherStar.name",
+                "$toggle_control_name": "nether_star_recipe",
+                "$recipe_icon": "textures/items/nether_star",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "shulker_shell_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 10,
+                "$toggle_hover_text": "item.shulker_shell.name",
+                "$toggle_control_name": "shulker_shell_recipe",
+                "$recipe_icon": "textures/items/shulker_shell",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "totem_of_undying_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 11,
+                "$toggle_hover_text": "item.totem.name",
+                "$toggle_control_name": "totem_of_undying_recipe",
+                "$recipe_icon": "textures/items/totem",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "wither_skeleton_skull_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 12,
+                "$toggle_hover_text": "item.skull.wither.name",
+                "$toggle_control_name": "wither_skeleton_skull_recipe",
+                "$recipe_icon": "textures/ui/recipes/wither_skull",
+                "offset": [90, 0],
+                "$toggle_icon_uv_size": [64, 64]
+              }
+            },
+            {
+              "bone_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 13,
+                "$toggle_hover_text": "tile.bone_block.name",
+                "$toggle_control_name": "bone_block_recipe",
+                "$recipe_icon": "textures/blocks/bone_block_top",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_2": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "dried_kelp_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 14,
+                "$toggle_hover_text": "tile.dried_kelp_block.name",
+                "$toggle_control_name": "dried_kelp_block_recipe",
+                "$recipe_icon": "textures/blocks/dried_kelp_top",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "hay_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 15,
+                "$toggle_hover_text": "tile.hay_block.name",
+                "$toggle_control_name": "hay_block_recipe",
+                "$recipe_icon": "textures/blocks/hay_block_side",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "wool_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 16,
+                "$toggle_hover_text": "tile.wool.name",
+                "$toggle_control_name": "wool_recipe",
+                "$recipe_icon": "textures/blocks/wool_colored_white",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "clay_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 17,
+                "$toggle_hover_text": "tile.clay.name",
+                "$toggle_control_name": "clay_recipe",
+                "$recipe_icon": "textures/blocks/clay",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "brick_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 18,
+                "$toggle_hover_text": "tile.brick_block.name",
+                "$toggle_control_name": "brick_block_recipe",
+                "$recipe_icon": "textures/blocks/brick",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "nether_brick_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 19,
+                "$toggle_hover_text": "tile.nether_brick.name",
+                "$toggle_control_name": "nether_brick_recipe",
+                "$recipe_icon": "textures/blocks/nether_brick",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "glowstone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 20,
+                "$toggle_hover_text": "tile.glowstone.name",
+                "$toggle_control_name": "glowstone_recipe",
+                "$recipe_icon": "textures/blocks/glowstone",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_3": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "quartz_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 21,
+                "$toggle_hover_text": "tile.quartz_block.name",
+                "$toggle_control_name": "quartz_block_recipe",
+                "$recipe_icon": "textures/blocks/quartz_block_side",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "amethyst_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 22,
+                "$toggle_hover_text": "tile.amethyst_block.name",
+                "$toggle_control_name": "amethyst_block_recipe",
+                "$recipe_icon": "textures/blocks/amethyst_block",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "snow_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 23,
+                "$toggle_hover_text": "tile.snow.name",
+                "$toggle_control_name": "snow_recipe",
+                "$recipe_icon": "textures/blocks/snow",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "packed_ice_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 24,
+                "$toggle_hover_text": "tile.packed_ice.name",
+                "$toggle_control_name": "packed_ice_recipe",
+                "$recipe_icon": "textures/blocks/ice_packed",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "blue_ice_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 25,
+                "$toggle_hover_text": "tile.blue_ice.name",
+                "$toggle_control_name": "blue_ice_recipe",
+                "$recipe_icon": "textures/blocks/blue_ice",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "slime_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 26,
+                "$toggle_hover_text": "tile.slime.name",
+                "$toggle_control_name": "slime_recipe",
+                "$recipe_icon": "textures/blocks/slime",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "magma_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 27,
+                "$toggle_hover_text": "tile.magma.name",
+                "$toggle_control_name": "magma_recipe",
+                "$recipe_icon": "textures/ui/recipes/magma",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_4": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 28,
+                "$toggle_hover_text": "tile.cobblestone.name",
+                "$toggle_control_name": "cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/cobblestone",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 29,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
+                "$toggle_control_name": "compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "double_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 30,
+                "$toggle_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
+                "$toggle_control_name": "double_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_2",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "triple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 31,
+                "$toggle_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
+                "$toggle_control_name": "triple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_3",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "quadruple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 32,
+                "$toggle_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
+                "$toggle_control_name": "quadruple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_4",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "quintuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 33,
+                "$toggle_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
+                "$toggle_control_name": "quintuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_5",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "sextuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 34,
+                "$toggle_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
+                "$toggle_control_name": "sextuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_6",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_5": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "septuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 35,
+                "$toggle_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
+                "$toggle_control_name": "septuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_7",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "octuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 36,
+                "$toggle_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
+                "$toggle_control_name": "octuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_8",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "nonuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 37,
+                "$toggle_hover_text": "tile.utilitycraft:nonuple_compressed_cobblestone.name",
+                "$toggle_control_name": "nonuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_9",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "deepslate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 38,
+                "$toggle_hover_text": "tile.deepslate.name",
+                "$toggle_control_name": "deepslate_recipe",
+                "$recipe_icon": "textures/blocks/deepslate/deepslate",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "compressed_deepslate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 39,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate.name",
+                "$toggle_control_name": "compressed_deepslate_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "compressed_deepslate_2_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 40,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
+                "$toggle_control_name": "compressed_deepslate_2_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_2",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "compressed_deepslate_3_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 41,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
+                "$toggle_control_name": "compressed_deepslate_3_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_3",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_6": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "compressed_deepslate_4_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 42,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
+                "$toggle_control_name": "compressed_deepslate_4_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_4",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "cobbled_deepslate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 43,
+                "$toggle_hover_text": "tile.cobbled_deepslate.name",
+                "$toggle_control_name": "cobbled_deepslate_recipe",
+                "$recipe_icon": "textures/blocks/deepslate/cobbled_deepslate",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "crushed_cobbled_deepslate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 44,
+                "$toggle_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
+                "$toggle_control_name": "crushed_cobbled_deepslate_recipe",
+                "$recipe_icon": "textures/blocks/crushed_cobbled_deepslate",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "gravel_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 45,
+                "$toggle_hover_text": "tile.gravel.name",
+                "$toggle_control_name": "gravel_recipe",
+                "$recipe_icon": "textures/blocks/gravel",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "compressed_gravel_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 46,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
+                "$toggle_control_name": "compressed_gravel_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "dirt_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 47,
+                "$toggle_hover_text": "tile.dirt.name",
+                "$toggle_control_name": "dirt_recipe",
+                "$recipe_icon": "textures/blocks/dirt",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "compressed_dirt_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 48,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_dirt.name",
+                "$toggle_control_name": "compressed_dirt_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_7": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "mud_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 49,
+                "$toggle_hover_text": "tile.mud.name",
+                "$toggle_control_name": "mud_recipe",
+                "$recipe_icon": "textures/blocks/mud",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "sand_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 50,
+                "$toggle_hover_text": "tile.sand.name",
+                "$toggle_control_name": "sand_recipe",
+                "$recipe_icon": "textures/blocks/sand",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "compressed_sand_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 51,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_sand.name",
+                "$toggle_control_name": "compressed_sand_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "red_sand_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 52,
+                "$toggle_hover_text": "tile.sand.red.name",
+                "$toggle_control_name": "red_sand_recipe",
+                "$recipe_icon": "textures/blocks/red_sand",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "soul_sand_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 53,
+                "$toggle_hover_text": "tile.soul_sand.name",
+                "$toggle_control_name": "soul_sand_recipe",
+                "$recipe_icon": "textures/blocks/soul_sand",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "netherrack_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 54,
+                "$toggle_hover_text": "tile.netherrack.name",
+                "$toggle_control_name": "netherrack_recipe",
+                "$recipe_icon": "textures/blocks/netherrack",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "compressed_netherrack_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 55,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
+                "$toggle_control_name": "compressed_netherrack_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_8": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "crushed_netherrack_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 56,
+                "$toggle_hover_text": "tile.utilitycraft:crushed_netherrack.name",
+                "$toggle_control_name": "crushed_netherrack_recipe",
+                "$recipe_icon": "textures/blocks/crushed_netherrack",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "nether_wart_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 57,
+                "$toggle_hover_text": "tile.nether_wart_block.name",
+                "$toggle_control_name": "nether_wart_block_recipe",
+                "$recipe_icon": "textures/blocks/nether_wart_block",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "basalt_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 58,
+                "$toggle_hover_text": "tile.basalt.name",
+                "$toggle_control_name": "basalt_recipe",
+                "$recipe_icon": "textures/blocks/basalt_side",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "blackstone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 59,
+                "$toggle_hover_text": "tile.blackstone.name",
+                "$toggle_control_name": "blackstone_recipe",
+                "$recipe_icon": "textures/blocks/blackstone",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "gilded_blackstone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 60,
+                "$toggle_hover_text": "tile.gilded_blackstone.name",
+                "$toggle_control_name": "gilded_blackstone_recipe",
+                "$recipe_icon": "textures/blocks/gilded_blackstone",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "end_stone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 61,
+                "$toggle_hover_text": "tile.end_stone.name",
+                "$toggle_control_name": "end_stone_recipe",
+                "$recipe_icon": "textures/blocks/end_stone",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "crushed_endstone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 62,
+                "$toggle_hover_text": "tile.utilitycraft:crushed_endstone.name",
+                "$toggle_control_name": "crushed_endstone_recipe",
+                "$recipe_icon": "textures/blocks/Crushed_endstone",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_9": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "andesite_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 63,
+                "$toggle_hover_text": "tile.stone.andesite.name",
+                "$toggle_control_name": "andesite_recipe",
+                "$recipe_icon": "textures/blocks/stone_andesite",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "diorite_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 64,
+                "$toggle_hover_text": "tile.stone.diorite.name",
+                "$toggle_control_name": "diorite_recipe",
+                "$recipe_icon": "textures/blocks/stone_diorite",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "granite_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 65,
+                "$toggle_hover_text": "tile.stone.granite.name",
+                "$toggle_control_name": "granite_recipe",
+                "$recipe_icon": "textures/blocks/stone_granite",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "calcite_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 66,
+                "$toggle_hover_text": "tile.calcite.name",
+                "$toggle_control_name": "calcite_recipe",
+                "$recipe_icon": "textures/blocks/calcite",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "tuff_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 67,
+                "$toggle_hover_text": "tile.tuff.name",
+                "$toggle_control_name": "tuff_recipe",
+                "$recipe_icon": "textures/blocks/tuff",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "dripstone_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 68,
+                "$toggle_hover_text": "tile.dripstone_block.name",
+                "$toggle_control_name": "dripstone_block_recipe",
+                "$recipe_icon": "textures/blocks/dripstone_block",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "compressed_coal_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 69,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_coal_block.name",
+                "$toggle_control_name": "compressed_coal_block_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_coal_block",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_10": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "compressed_iron_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 70,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_iron_block.name",
+                "$toggle_control_name": "compressed_iron_block_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_iron_block",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "compressed_diamond_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 71,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_diamond_block.name",
+                "$toggle_control_name": "compressed_diamond_block_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_diamond_block",
+                "offset": [18, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [126, "100%c"],
+          "orientation": "vertical",
+          "controls": []
+        }
+      },
+      {
+        "recipes_bottom_padding": {
+          "type": "panel",
+          "size": [126, 8]
+        }
+      }
+    ]
+  },
+  "electro_press_recipes_side_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [154, 166],
+    "offset": [-91, 0],
+    "layer": 10,
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "panel_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/background_panel",
+          "size": [140, 145],
+          "offset": [7, 10.5],
+          "layer": -5
+        }
+      },
+      {
+        "top_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/dark_top_tab",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [140, 24],
+          "offset": [7, 0],
+          "layer": -6
+        }
+      },
+      {
+        "title": {
+          "type": "label",
+          "text": "ui.utilitycraft:recipes_panel.name",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [7, 7],
+          "color": [0.9, 0.9, 0.9],
+          "layer": -3,
+          "font_scale_factor": 1
+        }
+      },
+      {
+        "recipes_grid_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_grid_bg",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [128, 134],
+          "offset": [20, 27],
+          "layer": -4
+        }
+      },
+      {
+        "recipes_grid_border": {
+          "type": "image",
+          "texture": "textures/ui/background_border",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [128, 134],
+          "offset": [20, 27],
+          "layer": 4
+        }
+      },
+      {
+        "recipes_scroll@common.scrolling_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [142, 130],
+          "offset": [13, -2],
+          "$show_background": false,
+          "layer": -2,
+          "$scroll_size": [4, "100% - 4px"],
+          "$scrolling_pane_size": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset": [-2, 30],
+          "$scroll_view_port_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset": [-44, 0],
+          "$scrolling_pane_size_touch": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset_touch": [0, 30],
+          "$scroll_view_port_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset_touch": [-46, 0],
+          "$scroll_size_touch": [4, "100% - 4px"],
+          "$scroll_box_visible_touch": true,
+          "$use_touch_mode": false,
+          "$scrolling_content": "uc.electro_press_recipes_buttons",
+          "$scroll_track_image_control": "common.empty_image"
+        }
+      }
+    ]
+  },
+  "electro_press_recipes_connector": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [12, 160],
+    "offset": [-14, 0],
+    "layer": -20,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "connector_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_book_side_toggle_dark",
+          "size": [12, 160],
+          "layer": 0
+        }
+      }
+    ]
+  },
+  "electro_press_recipes_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [162, 72],
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "controls": [
+      {
+        "recipes_panel": {
+          "type": "collection_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [80, 108],
+          "layer": 0,
+          "collection_name": "container_items",
+          "$item_collection_name": "container_items",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "recipes_toggle_button",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible",
+              "resolve_sibling_scope": false
+            }
+          ],
+          "controls": [
+            {
+              "iron_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "iron_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.iron_ingot.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/items/iron_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/plates/iron_plate",
+                      "$slot_hover_text": "item.utilitycraft:iron_plate",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "gold_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "gold_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.gold_ingot.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/items/gold_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/plates/gold_plate",
+                      "$slot_hover_text": "item.utilitycraft:gold_plate",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "copper_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "copper_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.copper_ingot.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/items/copper_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/plates/copper_plate",
+                      "$slot_hover_text": "item.utilitycraft:copper_plate",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "netherite_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "netherite_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.netherite_ingot.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/items/netherite_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/plates/netherite_plate",
+                      "$slot_hover_text": "item.utilitycraft:netherite_plate",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "steel_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "steel_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:steel_ingot",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/items/steel_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/plates/steel_plate",
+                      "$slot_hover_text": "item.utilitycraft:steel_plate",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "energized_iron_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "energized_iron_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:energized_iron_ingot",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/items/ores/energized_iron_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/plates/energized_iron_plate",
+                      "$slot_hover_text": "item.utilitycraft:energized_iron_plate",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "blaze_rod_panel@uc.recipe_panel": {
+                "$recipe_control_name": "blaze_rod_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.blaze_powder.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "2",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/blaze_powder"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/blaze_rod",
+                      "$slot_hover_text": "item.blaze_rod.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "diamond_panel@uc.recipe_panel": {
+                "$recipe_control_name": "diamond_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:diamond_shard",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/diamond_shard"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/diamond",
+                      "$slot_hover_text": "item.diamond.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "emerald_panel@uc.recipe_panel": {
+                "$recipe_control_name": "emerald_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:emerald_shard",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/emerald_shard"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/emerald",
+                      "$slot_hover_text": "item.emerald.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "nether_star_panel@uc.recipe_panel": {
+                "$recipe_control_name": "nether_star_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:nether_star_fragment",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/Nether_star_fragment"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/nether_star",
+                      "$slot_hover_text": "item.netherStar.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "shulker_shell_panel@uc.recipe_panel": {
+                "$recipe_control_name": "shulker_shell_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:shulker_shell_shard",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/shulker_shell_shard"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/shulker_shell",
+                      "$slot_hover_text": "item.shulker_shell.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "totem_of_undying_panel@uc.recipe_panel": {
+                "$recipe_control_name": "totem_of_undying_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:totem_shard",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/totem_shard"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/totem",
+                      "$slot_hover_text": "item.totem.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "wither_skeleton_skull_panel@uc.recipe_panel": {
+                "$recipe_control_name": "wither_skeleton_skull_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:wither_skull_shard",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/wither_skull_shard"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/ui/recipes/wither_skull",
+                      "$slot_hover_text": "item.skull.wither.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "bone_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "bone_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.dye.white.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/dye_powder_white"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/bone_block_top",
+                      "$slot_hover_text": "tile.bone_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "dried_kelp_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "dried_kelp_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.dried_kelp.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/dried_kelp"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/dried_kelp_top",
+                      "$slot_hover_text": "tile.dried_kelp_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "hay_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "hay_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.wheat.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/wheat"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.hay_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/hay_block_side"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "wool_panel@uc.recipe_panel": {
+                "$recipe_control_name": "wool_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.string.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/string"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/wool_colored_white",
+                      "$slot_hover_text": "tile.wool.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "clay_panel@uc.recipe_panel": {
+                "$recipe_control_name": "clay_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.clay_ball.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/clay_ball"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.clay.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/clay"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "brick_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "brick_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.brick.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/brick"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.brick_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/brick"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "nether_brick_panel@uc.recipe_panel": {
+                "$recipe_control_name": "nether_brick_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.netherbrick.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/netherbrick"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.nether_brick.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/nether_brick"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "glowstone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "glowstone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.glowstone_dust.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/glowstone_dust"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.glowstone.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/glowstone"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "quartz_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "quartz_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.quartz.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/quartz"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.quartz_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/quartz_block_side"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "amethyst_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "amethyst_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.amethyst_shard.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/amethyst_shard"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.amethyst_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/amethyst_block"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "snow_panel@uc.recipe_panel": {
+                "$recipe_control_name": "snow_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.snowball.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/snowball"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.snow.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/snow"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "packed_ice_panel@uc.recipe_panel": {
+                "$recipe_control_name": "packed_ice_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.ice.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$has_slot_item": false,
+                      "$has_slot_flipbook": true,
+                      "$slot_item_flipbook_texture": "textures/ui/recipes/electro_press_packed_ice_input_flipbook",
+                      "$slot_item_flipbook_uv": "@uc.electro_press_packed_ice_input_animation"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/ice_packed",
+                      "$slot_hover_text": "tile.packed_ice.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "blue_ice_panel@uc.recipe_panel": {
+                "$recipe_control_name": "blue_ice_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.packed_ice.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/ice_packed"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/blue_ice",
+                      "$slot_hover_text": "tile.blue_ice.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "slime_panel@uc.recipe_panel": {
+                "$recipe_control_name": "slime_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.slime_ball.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/slimeball"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/slime",
+                      "$slot_hover_text": "tile.slime.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "magma_panel@uc.recipe_panel": {
+                "$recipe_control_name": "magma_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.magma_cream.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/magma_cream"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/ui/recipes/magma",
+                      "$slot_hover_text": "tile.magma.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:stone_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/stone_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/cobblestone",
+                      "$slot_hover_text": "tile.cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/cobblestone"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "double_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "double_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_2",
+                      "$slot_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "triple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "triple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_2"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_3",
+                      "$slot_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "quadruple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "quadruple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_3"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_4",
+                      "$slot_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "quintuple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "quintuple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_4"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_5",
+                      "$slot_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "sextuple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "sextuple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_5"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_6",
+                      "$slot_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "septuple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "septuple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_6"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_7",
+                      "$slot_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "octuple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "octuple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_7"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_8",
+                      "$slot_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "nonuple_compressed_cobblestone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "nonuple_compressed_cobblestone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_8"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_9",
+                      "$slot_hover_text": "tile.utilitycraft:nonuple_compressed_cobblestone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.stone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/stone"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/deepslate/deepslate",
+                      "$slot_hover_text": "tile.deepslate.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_deepslate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_deepslate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:compressed_stone.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_deepslate.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_deepslate_2_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_deepslate_2_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:compressed_stone_2.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone_2"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_2",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_deepslate_3_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_deepslate_3_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:compressed_stone_3.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone_3"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_3",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_deepslate_4_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_deepslate_4_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.utilitycraft:compressed_stone_4.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone_4"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_4",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "cobbled_deepslate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "cobbled_deepslate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:deepslate_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/deepslate_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/deepslate/cobbled_deepslate",
+                      "$slot_hover_text": "tile.cobbled_deepslate.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "crushed_cobbled_deepslate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "crushed_cobbled_deepslate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:crushed_deepslate_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/crushed_deepslate_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/crushed_cobbled_deepslate",
+                      "$slot_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "gravel_panel@uc.recipe_panel": {
+                "$recipe_control_name": "gravel_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:gravel_fragments",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/gravel_fragments"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/gravel",
+                      "$slot_hover_text": "tile.gravel.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_gravel_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_gravel_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.gravel.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/gravel"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_gravel.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "dirt_panel@uc.recipe_panel": {
+                "$recipe_control_name": "dirt_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:dirt_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/dirt_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/dirt",
+                      "$slot_hover_text": "tile.dirt.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_dirt_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_dirt_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.dirt.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/dirt"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_dirt.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "mud_panel@uc.recipe_panel": {
+                "$recipe_control_name": "mud_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:mud_ball",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/mud_ball"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/mud",
+                      "$slot_hover_text": "tile.mud.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "sand_panel@uc.recipe_panel": {
+                "$recipe_control_name": "sand_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:sand_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/sand_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/sand",
+                      "$slot_hover_text": "tile.sand.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_sand_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_sand_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.sand.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/sand"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_sand",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_sand.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "red_sand_panel@uc.recipe_panel": {
+                "$recipe_control_name": "red_sand_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:red_sand_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/red_sand_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/red_sand",
+                      "$slot_hover_text": "tile.sand.red.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "soul_sand_panel@uc.recipe_panel": {
+                "$recipe_control_name": "soul_sand_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:souls_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/souls_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/soul_sand",
+                      "$slot_hover_text": "tile.soul_sand.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "netherrack_panel@uc.recipe_panel": {
+                "$recipe_control_name": "netherrack_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:netherrack_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/Netherrack_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/netherrack",
+                      "$slot_hover_text": "tile.netherrack.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_netherrack_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_netherrack_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.netherrack.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/netherrack"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_netherrack.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "crushed_netherrack_panel@uc.recipe_panel": {
+                "$recipe_control_name": "crushed_netherrack_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:crushed_netherrack_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/crushed_netherrack_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/crushed_netherrack",
+                      "$slot_hover_text": "tile.utilitycraft:crushed_netherrack.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "nether_wart_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "nether_wart_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.nether_wart.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/nether_wart"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/nether_wart_block",
+                      "$slot_hover_text": "tile.nether_wart_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "basalt_panel@uc.recipe_panel": {
+                "$recipe_control_name": "basalt_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:basalt_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/basalt_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/basalt_side",
+                      "$slot_hover_text": "tile.basalt.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "blackstone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "blackstone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:blackstone_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/blackstone_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/blackstone",
+                      "$slot_hover_text": "tile.blackstone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "gilded_blackstone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "gilded_blackstone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:gilded_blackstone_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/gilded_blackstone_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/gilded_blackstone",
+                      "$slot_hover_text": "tile.gilded_blackstone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "end_stone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "end_stone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:endstone_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/Endstone_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/end_stone",
+                      "$slot_hover_text": "tile.end_stone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "crushed_endstone_panel@uc.recipe_panel": {
+                "$recipe_control_name": "crushed_endstone_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:crushed_endstone_handful",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/crushed_endstone_handful"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/Crushed_endstone",
+                      "$slot_hover_text": "tile.utilitycraft:crushed_endstone.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "andesite_panel@uc.recipe_panel": {
+                "$recipe_control_name": "andesite_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:andesite_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/andresite_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/stone_andesite",
+                      "$slot_hover_text": "tile.stone.andesite.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "diorite_panel@uc.recipe_panel": {
+                "$recipe_control_name": "diorite_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:diorite_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/diorite_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/stone_diorite",
+                      "$slot_hover_text": "tile.stone.diorite.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "granite_panel@uc.recipe_panel": {
+                "$recipe_control_name": "granite_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:granite_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/granite_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/stone_granite",
+                      "$slot_hover_text": "tile.stone.granite.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "calcite_panel@uc.recipe_panel": {
+                "$recipe_control_name": "calcite_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:calcite_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/calcite_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/calcite",
+                      "$slot_hover_text": "tile.calcite.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "tuff_panel@uc.recipe_panel": {
+                "$recipe_control_name": "tuff_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:tuff_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/tuff_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/tuff",
+                      "$slot_hover_text": "tile.tuff.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "dripstone_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "dripstone_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:dripstone_pebble",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/dripstone_pebble"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/dripstone_block",
+                      "$slot_hover_text": "tile.dripstone_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_coal_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_coal_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.coal_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/coal_block"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_coal_block",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_coal_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_iron_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_iron_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.iron_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/iron_block"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_iron_block",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_iron_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "compressed_diamond_block_panel@uc.recipe_panel": {
+                "$recipe_control_name": "compressed_diamond_block_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.diamond_block.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "9",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/diamond_block"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_diamond_block",
+                      "$slot_hover_text": "tile.utilitycraft:compressed_diamond_block.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "addon_recipe_panels": {
+                "type": "panel",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [80, 108],
+                "controls": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

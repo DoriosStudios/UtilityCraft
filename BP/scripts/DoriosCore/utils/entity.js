@@ -81,34 +81,6 @@ export function tryGetBlockFromEntity(entity) {
 }
 
 /**
- * Returns the block type id represented by a machine helper entity.
- *
- * Preference order:
- * 1. Current block under the entity (keeps renamed/swapped machines accurate)
- * 2. Persisted dynamic property written at spawn time
- *
- * @param {import("@minecraft/server").Entity} entity The helper entity to inspect.
- * @returns {string | undefined} Represented block type id.
- */
-export function getRepresentedBlockId(entity) {
-  const block = tryGetBlockFromEntity(entity);
-  if (typeof block?.typeId === "string" && block.typeId.length > 0 && block.typeId !== "minecraft:air") {
-    return block.typeId;
-  }
-
-  try {
-    const storedBlockId = entity?.getDynamicProperty?.(GlobalConstants.MACHINE_BLOCK_ID_PROPERTY_ID);
-    if (typeof storedBlockId === "string" && storedBlockId.trim().length > 0) {
-      return storedBlockId.trim();
-    }
-  } catch {
-    // Ignore dynamic property access failures.
-  }
-
-  return undefined;
-}
-
-/**
  * Returns how many players currently have this entity container UI open.
  *
  * @param {import("@minecraft/server").Entity} entity The machine entity to inspect.
@@ -173,18 +145,6 @@ export function removeOpenUICount(entity) {
   return setOpenUICount(entity, getOpenUICount(entity) - 1);
 }
 
-function persistRepresentedBlockId(entity, blockId) {
-  if (!entity || typeof blockId !== "string" || blockId.length === 0) {
-    return;
-  }
-
-  try {
-    entity.setDynamicProperty(GlobalConstants.MACHINE_BLOCK_ID_PROPERTY_ID, blockId);
-  } catch {
-    // Ignore environments where the property is not registered yet.
-  }
-}
-
 /**
  * Spawns a UtilityCraft machine entity at the given block location
  * and initializes its inventory size and name tag.
@@ -234,7 +194,6 @@ export function spawnEntity(block, config) {
 
   const name = entityData.name ?? block.typeId.split(":")[1];
   entity.nameTag = `entity.utilitycraft:${name}.name`;
-  persistRepresentedBlockId(entity, block.typeId);
   TickScheduler.assignTickGroup(entity);
 
   // Normalize slot config independently

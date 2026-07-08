@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/index.js";
+import { Machine, registerIOInterface } from "DoriosCore/index.js";
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from "@minecraft/server";
 import { writeBlueprintData, sendBlueprintDataEvent } from "../blueprint.js";
@@ -6,6 +6,13 @@ import { writeBlueprintData, sendBlueprintDataEvent } from "../blueprint.js";
 const BLUEPRINT_SLOT = 3;
 const BLUEPRINT_ITEM = "utilitycraft:blueprint_paper";
 const OUTPUT_BLUEPRINT_ITEM = "utilitycraft:blueprint";
+
+registerIOInterface("utilitycraft:digitizer", {
+    items: {
+        slots: [16, 21],
+        modes: ["disabled", "input", "output", "input_extra"]
+    }
+});
 const MIN_Y_MAP = {
     "minecraft:overworld": DoriosAPI.constants.dimensions.overworld.minY,
     "minecraft:nether": DoriosAPI.constants.dimensions.nether.minY,
@@ -36,10 +43,15 @@ DoriosAPI.register.blockComponent("digitizer", {
         if (!machine.valid) return;
 
         const inv = machine.container;
-        const size = inv.size;
-        const outputSlot = size - 1;
-        const inputStart = size - 10;
-        const inputEnd = size - 2;
+        const outputSlot = settings.entity?.output_slot ?? inv.size - 1;
+        const [inputStart, inputEnd] = settings.entity?.input_range ?? [inv.size - 10, inv.size - 2];
+        machine.processIO({
+            items: {
+                input: [inputStart, inputEnd],
+                input_extra: [BLUEPRINT_SLOT],
+                output: [outputSlot]
+            }
+        });
 
         const blueprint = inv.getItem(BLUEPRINT_SLOT);
         if (!blueprint || blueprint.typeId !== BLUEPRINT_ITEM) {

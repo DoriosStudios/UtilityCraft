@@ -23,10 +23,34 @@
 				"energy_cap": 25600000,
 				"rate_speed_base": 10000
 			},
-			"minecraft:geometry": "geometry.utilitycraft_battery",
+			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_battery_ultimate_0",
+					"texture": "utilitycraft_battery_ultimate_0_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_0_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_0_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_0_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_0_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_0_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_0_down",
 					"render_method": "alpha_test"
 				}
 			},
@@ -49,22 +73,70 @@
 				"condition": "q.block_state('utilitycraft:capacity') == 0",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_0",
-							"render_method": "alpha_test"
-						}
-					}
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_0_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_0_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_0_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_0_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_0_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_0_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_0_down",
+					"render_method": "alpha_test"
+				}
+			}
 				}
 			},
 			{
 				"condition": "q.block_state('utilitycraft:capacity') == 1",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_1",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_1_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_1_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_1_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_1_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_1_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_1_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_1_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 1
 				}
 			},
@@ -72,11 +144,35 @@
 				"condition": "q.block_state('utilitycraft:capacity') == 2",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_2",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_2_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_2_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_2_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_2_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_2_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_2_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_2_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 2
 				}
 			},
@@ -84,11 +180,35 @@
 				"condition": "q.block_state('utilitycraft:capacity') == 3",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_3",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_3_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_3_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_3_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_3_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_3_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_3_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_3_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 3
 				}
 			},
@@ -96,11 +216,35 @@
 				"condition": "q.block_state('utilitycraft:capacity') == 4",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_4",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_4_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_4_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_4_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_4_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_4_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_4_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_4_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 4
 				}
 			},
@@ -108,11 +252,35 @@
 				"condition": "q.block_state('utilitycraft:capacity') == 5",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_5",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_5_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_5_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_5_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_5_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_5_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_5_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_5_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 5
 				}
 			},
@@ -120,11 +288,35 @@
 				"condition": "q.block_state('utilitycraft:capacity') == 6",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_battery_ultimate_6",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_battery_ultimate_6_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_battery_ultimate_6_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_battery_ultimate_6_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_battery_ultimate_6_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_battery_ultimate_6_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_ultimate_6_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_ultimate_6_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 6
 				}
 			}

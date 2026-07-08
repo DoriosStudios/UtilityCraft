@@ -27,7 +27,7 @@
 				"entity": {
 					"name": "magmator",
 					"type": "fluid_generator",
-					"inventory_size": 3
+					"inventory_size": 9
 				},
 				"generator": {
 					"energy_cap": 320000,
@@ -36,10 +36,34 @@
 					"rate_speed_base": 200
 				}
 			},
-			"minecraft:geometry": "geometry.utilitycraft_block_2",
+			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_advanced_magmator_off",
+					"texture": "utilitycraft_advanced_magmator_off_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_advanced_magmator_off_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_advanced_magmator_off_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_advanced_magmator_off_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_advanced_magmator_off_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_advanced_magmator_off_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_advanced_magmator_off_down",
 					"render_method": "alpha_test"
 				}
 			},
@@ -54,6 +78,7 @@
 			},
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:generator": {},
+			"tag:dorios:io": {},
 			"tag:dorios:energy": {},
 			"tag:dorios:fluid": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}
@@ -111,11 +136,35 @@
 				"condition": "q.block_state('utilitycraft:on') == true ",
 				"components": {
 					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_advanced_magmator_on",
-							"render_method": "alpha_test"
-						}
-					},
+				"*": {
+					"texture": "utilitycraft_advanced_magmator_on_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_advanced_magmator_on_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_advanced_magmator_on_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_advanced_magmator_on_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_advanced_magmator_on_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_advanced_magmator_on_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_advanced_magmator_on_down",
+					"render_method": "alpha_test"
+				}
+			},
 					"minecraft:light_emission": 4
 				}
 			}

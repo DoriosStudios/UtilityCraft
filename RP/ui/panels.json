@@ -1,0 +1,229 @@
+{
+    "namespace": "uc",
+    "upgrades_panel": {
+        "type": "collection_panel",
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "size": [
+            162,
+            72
+        ],
+        "$index_1|default": 0,
+        "$index_2|default": 1,
+        "$index_3|default": 2,
+        "$has_first|default": true,
+        "$has_second|default": true,
+        "$has_third|default": false,
+        "controls": [
+            {
+                "upgrades_background": {
+                    "type": "image",
+                    "texture": "textures/ui/background/background_panel",
+                    "size": [
+                        112,
+                        58
+                    ],
+                    "offset": [
+                        18,
+                        -20
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 0
+                }
+            },
+            {
+                "text_label": {
+                    "type": "label",
+                    "text": "ui.utilitycraft:upgrades_panel.name",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_middle",
+                    "size": [
+                        100,
+                        10
+                    ],
+                    "offset": [
+                        98,
+                        -14
+                    ],
+                    "text_alignment": "left",
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "layer": 3,
+                    "font_scale_factor": 1
+                }
+            },
+            {
+                "item@uc.upgrade_slot": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        6
+                    ],
+                    "collection_index": "$index_1",
+                    "layer": -3,
+                    "$show_slot_background": false,
+                    "visible": "$has_first"
+                }
+            },
+            {
+                "item@uc.upgrade_slot": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        18,
+                        6
+                    ],
+                    "collection_index": "$index_2",
+                    "layer": -3,
+                    "$show_slot_background": false,
+                    "visible": "$has_second"
+                }
+            },
+            {
+                "item@uc.upgrade_slot": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        36,
+                        6
+                    ],
+                    "collection_index": "$index_3",
+                    "$show_slot_background": false,
+                    "visible": "$has_third",
+                    "layer": -3
+                }
+            },
+            {
+                "upgrade_outline_1": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/upgrade_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        0,
+                        6
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1
+                }
+            },
+            {
+                "upgrade_outline_2": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/upgrade_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        18,
+                        6
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1
+                }
+            },
+            {
+                "upgrade_outline_3": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/upgrade_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        36,
+                        6
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1
+                }
+            },
+            {
+                "upgrade_overlay_1": {
+                    "type": "image",
+                    "texture": "textures/items/machinery/speed_upgrade",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        0,
+                        7
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1,
+                    "alpha": 0.5,
+                    "visible": "$has_second"
+                }
+            },
+            {
+                "upgrade_overlay_2": {
+                    "type": "image",
+                    "texture": "textures/items/machinery/energy_upgrade",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        18,
+                        7
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1,
+                    "alpha": 0.5
+                }
+            },
+            {
+                "upgrade_overlay_3": {
+                    "type": "image",
+                    "texture": "textures/items/machinery/range_upgrade",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "offset": [
+                        36,
+                        7
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1,
+                    "alpha": 0.5,
+                    "visible": "$has_third"
+                }
+            },
+            {
+                "upgrade_disabled_overlay": {
+                    "type": "image",
+                    "texture": "textures/ui/icons/disabled",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "offset": [
+                        36,
+                        6
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "layer": 1,
+                    "alpha": 0.5,
+                    "visible": "(not ($has_third))"
+                }
+            }
+        ]
+    }
+}

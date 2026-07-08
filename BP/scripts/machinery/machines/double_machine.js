@@ -1,8 +1,15 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
 const INPUTSLOT = 3
 const CATALYSTSLOT = 4
+
+registerIOInterface("utilitycraft:infuser", {
+    items: {
+        slots: [8, 13],
+        modes: ["disabled", "input", "output", "input_extra"]
+    }
+});
 
 DoriosAPI.register.blockComponent('double_machine', {
     /**
@@ -31,14 +38,17 @@ DoriosAPI.register.blockComponent('double_machine', {
         const machine = new Machine(block, settings);
         if (!machine.valid) return
 
-        machine.pullItemsFromAbove(CATALYSTSLOT)
-
         const inv = machine.container;
-        const OUTPUTSLOT = inv.size - 1
+        const OUTPUTSLOT = settings.entity?.output_slot ?? inv.size - 1
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT],
+                input_extra: [CATALYSTSLOT],
+                output: [OUTPUTSLOT]
+            }
+        });
+
         let outputSlot = inv.getItem(OUTPUTSLOT);
-        if (outputSlot && machine.transferItems()) {
-            outputSlot = inv.getItem(OUTPUTSLOT);
-        }
 
         //#region Comprobations
         // Get the catalyst slot

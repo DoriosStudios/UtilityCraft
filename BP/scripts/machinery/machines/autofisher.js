@@ -1,5 +1,5 @@
 import { ItemStack, EnchantmentTypes } from '@minecraft/server';
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { autoFisherConfig, autoFisherLoot } from '../../config/recipes/fisher.js';
 
 const NET_SLOT = 6;
@@ -15,6 +15,13 @@ const WATER_TYPES = new Set([
 const DEFAULT_ROLLS = 1;
 const DEFAULT_SPEED = 1;
 const DEFAULT_CHANCE = 1;
+
+registerIOInterface("utilitycraft:autofisher", {
+    items: {
+        slots: [16, 21],
+        modes: ["disabled", "output", "input_extra"]
+    }
+});
 
 const BOOK_ITEM_ID = 'minecraft:book';
 const ENCHANTED_BOOK_ITEM_ID = 'minecraft:enchanted_book';
@@ -616,7 +623,12 @@ DoriosAPI.register.blockComponent('autofisher', {
         if (!machine.valid) return;
 
         const inv = machine.container;
-        if (machine.hasOutputItems()) machine.transferItems();
+        machine.processIO({
+            items: {
+                input_extra: [NET_SLOT],
+                output: settings.entity?.output_range ?? [7, 15]
+            }
+        });
 
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {

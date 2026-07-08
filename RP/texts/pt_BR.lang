@@ -7,10 +7,10 @@ tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Use para criar tudo
 tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada\n§7- Use para criar ferramentas superiores\n§o§9@UtilityCraft
 
 ### Tanks and Pumps | Tanques e Bombas
-tile.utilitycraft:basic_fluid_tank.name=Tanque de Fluidos §eBásico§7\n Capacidade: 8000mB\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=Tanque de Fluidos §cAvançado§7\n Capacidade: 32000mB\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=Tanque de Fluidos §3Expert§7\n Capacidade: 128000mB\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Fluidos §8Supremo§7\n Capacidade: 512000mB\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n Capacidade: 8000mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n Capacidade: 32000mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Expert§7\n Capacidade: 128000mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n Capacidade: 512000mB\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §a§7\n§o§9@UtilityCraft
 
 ### Machines and Similiar | Máquinas e Similares
@@ -112,11 +112,11 @@ tile.utilitycraft:ultimate_energy_transmitter.name=§8Transmissor de Energia Sup
 tile.utilitycraft:ultimate_energy_receiver.name=§8Receptor de Energia Supremo\n §7 Velocidade: 100 kDE/t\n §7 Capacidade: 6.4 MDE\n§o§9@UtilityCraft
 
 ### Fluid Importers and Exporters | Importadores e Exportadores de Fluidos
-tile.utilitycraft:fluid_extractor.name=Extrator de Fluidos (Padrão)\n§7- Aceita melhorias:\n §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_blue.name=Extrator de Fluido (Azul)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_green.name=Extrator de Fluido (Verde)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_purple.name=Extrator de Fluido (Roxo)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_extractor_red.name=Extrator de Fluido (Vermelho)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor.name=Extrator de Líquidos (Padrão)\n§7- Aceita melhorias:\n §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_blue.name=Extrator de Líquido (Azul)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_green.name=Extrator de Líquido (Verde)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_purple.name=Extrator de Líquido (Roxo)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:fluid_extractor_red.name=Extrator de Líquido (Vermelho)\n§7- Aceita melhorias:\n   §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe.name=Cano \n§7- Transporta líquidos\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe_blue.name=Cano (Azul)\n§7- Transporta líquidos\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe_green.name=Cano (Verde)\n§7- Transporta líquidos\n§o§9@UtilityCraft
@@ -846,7 +846,7 @@ dorios:itemGroup.name.bags=Bolsas
 dorios:itemGroup.name.bundles=Pacotes
 dorios:itemGroup.name.vases=Vasos
 dorios:itemGroup.name.jars=Frascos
-dorios:itemGroup.name.tanks=Tanques de Fluidos
+dorios:itemGroup.name.tanks=Tanques de Líquidos
 dorios:itemGroup.name.cobble_gens=Geradores de Pedregulho
 dorios:itemGroup.name.soils=Terras Aradas / Solos Férteis
 dorios:itemGroup.name.indicators=Indicadores
@@ -866,6 +866,18 @@ dorios:itemGroup.name.fishing_nets=Redes de Pesca
 dorios:itemGroup.name.essences=Essências\n§7- Usado no Invocador Mecânico
 dorios:itemGroup.name.plates=Placas
 dorios:itemGroup.name.upgrades=Módulos de Melhoria
+
+ui.utilitycraft:machine_view.machine=Máquina
+ui.utilitycraft:recipes_panel.name=Receitas
+ui.utilitycraft:upgrades_panel.name=Melhorias
+ui.utilitycraft:io_panel.name=Config. de Entrada/Saída
+ui.utilitycraft:info_panel.name=Informação
+ui.utilitycraft:machine_view.close_recipes=Fechar Receitas
+ui.utilitycraft:machine_view.close_upgrades=Fechar Melhorias
+ui.utilitycraft:machine_view.close_io_config=Fechar Config. de Entrada/Saída
+ui.utilitycraft:machine_view.close_information=Fechar Informação
+ui.utilitycraft:machine_view.items=Itens
+ui.utilitycraft:machine_view.liquids=Líquidos
 dorios:itemGroup.name.removed=Removidos
 dorios:itemGroup.name.elevators=Elevadores
 
@@ -902,10 +914,10 @@ entity.utilitycraft:thermo_generator.name=Gerador Térmico
 entity.utilitycraft:wind_turbine.name=Gerador Eólico
 
 ## Extras
-entity.utilitycraft:fluid_tank_lava.name=Tanque de Fluidos\n- §6Lava
-entity.utilitycraft:fluid_tank_milk.name=Tanque de Fluidos\n- Leite
-entity.utilitycraft:fluid_tank_water.name=Tanque de Fluidos\n- §9Água
-entity.utilitycraft:fluid_tank_xp.name=Tanque de Fluidos\n- §aExperiência
+entity.utilitycraft:fluid_tank_lava.name=Tanque de Líquidos\n- §6Lava
+entity.utilitycraft:fluid_tank_milk.name=Tanque de Líquidos\n- Leite
+entity.utilitycraft:fluid_tank_water.name=Tanque de Líquidos\n- §9Água
+entity.utilitycraft:fluid_tank_xp.name=Tanque de Líquidos\n- §aExperiência
 
 entity.utilitycraft:mechanic_hopper.name=Funil Mecânico
 

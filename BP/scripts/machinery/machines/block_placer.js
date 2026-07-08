@@ -1,6 +1,13 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 
 const INPUTSLOT = 3
+
+registerIOInterface("utilitycraft:block_placer", {
+    items: {
+        slots: [6, 11],
+        modes: ["disabled", "input"]
+    }
+});
 
 DoriosAPI.register.blockComponent('block_placer', {
     /**
@@ -31,6 +38,11 @@ DoriosAPI.register.blockComponent('block_placer', {
         let progress = machine.getProgress();
         const energyCost = settings.machine.energy_cost;
         const inv = machine.container;
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT]
+            }
+        });
 
         // Check energy availability
         if (machine.energy.get() <= 0) {

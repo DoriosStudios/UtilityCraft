@@ -1,4 +1,4 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
 import { pressRecipes } from "../../config/recipes/press.js";
@@ -11,6 +11,15 @@ const UTILITYCRAFT_RECIPES = {
 
 const INPUTSLOT = 3
 const OUTPUTSLOT = 6
+
+for (const blockTypeId of ["utilitycraft:crusher", "utilitycraft:electro_press", "utilitycraft:incinerator"]) {
+    registerIOInterface(blockTypeId, {
+        items: {
+            slots: [7, 12],
+            modes: ["disabled", "input", "output"]
+        }
+    });
+}
 
 DoriosAPI.register.blockComponent('simple_machine', {
     /**
@@ -37,10 +46,14 @@ DoriosAPI.register.blockComponent('simple_machine', {
         if (!machine.valid) return
 
         const inv = machine.container;
+        machine.processIO({
+            items: {
+                input: [INPUTSLOT],
+                output: [OUTPUTSLOT]
+            }
+        });
+
         let outputSlot = inv.getItem(OUTPUTSLOT);
-        if (outputSlot && machine.transferItems()) {
-            outputSlot = inv.getItem(OUTPUTSLOT);
-        }
 
         //#region Comprobations
         // Get the input slot (slot 3 in this case)

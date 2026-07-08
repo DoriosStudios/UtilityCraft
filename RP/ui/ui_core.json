@@ -1,5 +1,185 @@
 {
     "namespace": "uc",
+    "function_panel": {
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#item_id_aux < 1)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "second_function_panel": {
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not (#item_id_aux < 1))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "hover_text_function_panel": {
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#hover_text - $function_item_name) = #hover_text)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "second_hover_text_function_panel": {
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "container_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not ((#hover_text - $function_item_name) = #hover_text))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "fake_hover_text": {
+        "type": "image",
+        "texture": "textures/ui/purpleBorder",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [
+            23,
+            2
+        ],
+        "size": [
+            "100%c",
+            "100%c"
+        ],
+        "layer": 80,
+        "allow_clipping": false,
+        "$hover_text|default": "",
+        "controls": [
+            {
+                "content": {
+                    "type": "panel",
+                    "size": [
+                        "100%c + 12px",
+                        "100%c + 8px"
+                    ],
+                    "controls": [
+                        {
+                            "label": {
+                                "type": "label",
+                                "text": "$hover_text",
+                                "localize": true,
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "offset": [
+                                    6,
+                                    4
+                                ],
+                                "size": [
+                                    "default",
+                                    "default"
+                                ],
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "font_scale_factor": 1,
+                                "text_alignment": "left",
+                                "shadow": true,
+                                "layer": 81
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "fake_hover_button": {
+        "type": "button",
+        "size": [
+            16,
+            16
+        ],
+        "hover_control": "hover",
+        "layer": 80,
+        "$hover_text|default": "",
+        "controls": [
+            {
+                "hover": {
+                    "type": "panel",
+                    "controls": [
+                        {
+                            "tooltip@uc.fake_hover_text": {
+                                "$hover_text": "$hover_text"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "slot_button_prototype@common.container_slot_button_prototype": {
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_secondary_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_auto_place",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_secondary_select",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop_all",
+                "to_button_id": "button.container_auto_place",
+                "mapping_type": "pressed"
+            }
+        ]
+    },
     "slot_button": {
         "type": "button",
         "$highlight_control|default": "uc.slot_highlight",
@@ -38,7 +218,10 @@
                 "label_v1@uc._text_label_v1": {
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "offset": [0, 0],
+                    "offset": [
+                        0,
+                        0
+                    ],
                     "$text_scale": "$text_scale"
                 }
             },
@@ -46,7 +229,10 @@
                 "label_v2@uc._text_label_v2": {
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "offset": [0, 0],
+                    "offset": [
+                        0,
+                        0
+                    ],
                     "$text_scale": "$text_scale"
                 }
             }
@@ -70,7 +256,7 @@
                 "binding_collection_name": "container_items"
             }
         ]
-    },    
+    },
     "_text_label_v2": {
         "type": "label",
         "text": "#displaying_text",
@@ -123,7 +309,6 @@
             }
         ]
     },
-    
     "_slot_visual": {
         "type": "input_panel",
         "layer": 1,
@@ -1295,7 +1480,8 @@
                         26,
                         26
                     ],
-                    "$cell_image_size": "$cell_image_size"
+                    "$cell_image_size": "$cell_image_size",
+                    "$button_ref": "uc.slot_button_prototype"
                 }
             }
         ]
@@ -1312,22 +1498,175 @@
             }
         ]
     },
+    "input_slot": {
+        "type": "input_panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/input_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 4
+                }
+            }
+        ]
+    },
+    "input_extra_slot": {
+        "type": "input_panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/input_extra_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 4
+                }
+            }
+        ]
+    },
+    "fuel_slot": {
+        "type": "input_panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/fuel_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 4
+                }
+            }
+        ]
+    },
+    "upgrade_slot": {
+        "type": "input_panel",
+        "$show_slot_background|default": true,
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "item@common.container_item": {
+                    "$cell_image_size": [
+                        18,
+                        18
+                    ],
+                    "layer": 1
+                }
+            },
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/upgrade_slot",
+                    "size": [
+                        18,
+                        18
+                    ],
+                    "layer": 4,
+                    "visible": "$show_slot_background"
+                }
+            }
+        ]
+    },
+    "output_slot": {
+        "type": "input_panel",
+        "size": [
+            26,
+            26
+        ],
+        "controls": [
+            {
+                "item@common.container_item": {
+                    "size": [
+                        26,
+                        26
+                    ],
+                    "$cell_image_size": [
+                        26,
+                        26
+                    ],
+                    "$button_ref": "uc.slot_button_prototype",
+                    "layer": 1
+                }
+            },
+            {
+                "slot_background": {
+                    "type": "image",
+                    "texture": "textures/ui/slots/output_slot",
+                    "size": [
+                        26,
+                        26
+                    ],
+                    "layer": 4
+                }
+            }
+        ]
+    },
     "bar_background": {
         "type": "image",
-        "texture": "textures/ui/background_image",
+        "$bar_bg_texture|default": "textures/ui/toggle_button/left_bg",
+        "texture": "$bar_bg_texture",
         "anchor_from": "center",
         "anchor_to": "center",
         "$cell_image_size": [
-            28,
-            64
+            24,
+            56
         ],
         "size": [
-            28,
-            64
+            24,
+            56
         ],
         "offset": [
-            10,
-            3
+            12.1,
+            5
         ],
         "layer": -1
     },
@@ -1344,6 +1683,7 @@
         "$is_energy|default": false,
         "$is_liquid|default": false,
         "$has_bg|default": false,
+        "$bar_bg_texture|default": "textures/ui/toggle_button/left_bg",
         "$collection_index|default": 0,
         "controls": [
             {
@@ -1352,8 +1692,8 @@
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
                     "offset": [
-                        10,
-                        14
+                        12.1,
+                        16
                     ]
                 }
             },
@@ -1362,12 +1702,12 @@
                     "type": "image",
                     "texture": "textures/ui/energy_border",
                     "size": [
-                        144,
-                        50
+                        16,
+                        48
                     ],
                     "offset": [
-                        10,
-                        3
+                        12.1,
+                        5
                     ],
                     "layer": 9,
                     "visible": "$is_energy"
@@ -1378,12 +1718,12 @@
                     "type": "image",
                     "texture": "textures/ui/liquid_border",
                     "size": [
-                        144,
-                        50
+                        16,
+                        48
                     ],
                     "offset": [
-                        10,
-                        3
+                        12.1,
+                        5
                     ],
                     "layer": 9,
                     "visible": "$is_liquid"
@@ -1391,6 +1731,7 @@
             },
             {
                 "background@uc.bar_background": {
+                    "$bar_bg_texture": "$bar_bg_texture",
                     "visible": "$has_bg"
                 }
             }
@@ -1674,13 +2015,18 @@
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
+        "offset": [
+            -101,
+            -13
+        ],
         "size": [
             162,
             72
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
-        "$has_bg|default": false,
+        "$has_bg|default": true,
+        "$bar_bg_texture|default": "textures/ui/toggle_button/left_bg",
         "$collection_index|default": 0,
         "controls": [
             {
@@ -1688,6 +2034,7 @@
                     "$is_energy": true,
                     "$is_liquid": false,
                     "$has_bg": "$has_bg",
+                    "$bar_bg_texture": "$bar_bg_texture",
                     "$collection_index": "$collection_index"
                 }
             }
@@ -1884,6 +2231,7 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
+        "$slot_outline_texture|default": "textures/ui/slots/default_slot",
         "$collection_index_1|default": 0,
         "$collection_index_2|default": 1,
         "$collection_index_3|default": 2,
@@ -1992,6 +2340,23 @@
                         36
                     ]
                 }
+            },
+            {
+                "grid_outline": {
+                    "type": "image",
+                    "texture": "$slot_outline_texture",
+                    "size": [
+                        56,
+                        56
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        -1,
+                        -1
+                    ],
+                    "layer": 4
+                }
             }
         ]
     },
@@ -2005,6 +2370,7 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
+        "$slot_outline_texture|default": "textures/ui/slots/default_slot",
         "$collection_index_1|default": 0,
         "$collection_index_2|default": 1,
         "$collection_index_3|default": 2,
@@ -2052,6 +2418,23 @@
                         18,
                         18
                     ]
+                }
+            },
+            {
+                "grid_outline": {
+                    "type": "image",
+                    "texture": "$slot_outline_texture",
+                    "size": [
+                        38,
+                        38
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        -1,
+                        -1
+                    ],
+                    "layer": 4
                 }
             }
         ]
@@ -2130,6 +2513,1705 @@
                     "offset": [
                         0,
                         0
+                    ]
+                }
+            }
+        ]
+    },
+    "toggle_button": {
+        "type": "panel",
+        "$toggle_layer|default": 0,
+        "$toggle_lost_reset|default": true,
+        "$toggle_size|default": [
+            18,
+            18
+        ],
+        "$toggle_name|default": "toggle_button",
+        "$toggle_index|default": 0,
+        "$toggle_group|default": false,
+        "$toggle_default_state|default": false,
+        "$toggle_control_name|default": "",
+        "$toggle_hover_text|default": "",
+        "$toggle_checked_hover_text|default": "",
+        "$toggle_hover_text_localize|default": false,
+        "$toggle_checked_hover_text_localize|default": false,
+        "$toggle_checked_hover_text_from_hover|default": false,
+        "$toggle_unchecked|default": "textures/ui/buttons/unchecked",
+        "$toggle_checked|default": "textures/ui/buttons/checked",
+        "$toggle_unchecked_hover|default": "textures/ui/buttons/unchecked_hover",
+        "$toggle_checked_hover|default": "textures/ui/buttons/checked_hover",
+        "$has_toggle_bg|default": false,
+        "$toggle_bg_texture|default": "textures/ui/toggle_button/right_bg",
+        "$toggle_bg_size|default": [
+            24,
+            24
+        ],
+        "$toggle_bg_offset|default": [
+            0,
+            0
+        ],
+        "$toggle_bg_layer|default": -6,
+        "$has_toggle_icon|default": false,
+        "$toggle_icon_size|default": [
+            16,
+            16
+        ],
+        "$toggle_icon_unchecked|default": "",
+        "$toggle_icon_checked|default": "",
+        "$toggle_icon_unchecked_hover|default": "",
+        "$toggle_icon_checked_hover|default": "",
+        "$toggle_icon_uv_size|default": [
+            16,
+            16
+        ],
+        "controls": [
+            {
+                "toggle_background": {
+                    "type": "image",
+                    "texture": "$toggle_bg_texture",
+                    "size": "$toggle_bg_size",
+                    "offset": "$toggle_bg_offset",
+                    "layer": "$toggle_bg_layer",
+                    "visible": "$has_toggle_bg"
+                }
+            },
+            {
+                "$toggle_control_name@common.toggle": {
+                    "size": "$toggle_size",
+                    "layer": "$toggle_layer",
+                    "$reset_on_focus_lost": "$toggle_lost_reset",
+                    "$default_toggle_state": "$toggle_default_state",
+                    "$radio_toggle_group": "$toggle_group",
+                    "$toggle_group_forced_index": "$toggle_index",
+                    "$toggle_name": "$toggle_name",
+                    "$unchecked_control": "unchecked",
+                    "$checked_control": "checked",
+                    "$unchecked_hover_control": "unchecked_hover",
+                    "$checked_hover_control": "checked_hover",
+                    "$unchecked_locked_control": "unchecked_locked",
+                    "$checked_locked_control": "checked_locked",
+                    "$unchecked_locked_hover_control": "unchecked_locked_hover",
+                    "$checked_locked_hover_control": "checked_locked_hover",
+                    "$toggle_focus_enabled|default": true,
+                    "$toggle_group_default_selected|default": 0,
+                    "$toggle_binding_type|default": "global",
+                    "$toggle_binding_condition|default": "visible",
+                    "$toggle_state_binding_name|default": "#toggle_state",
+                    "$toggle_enabled_binding_type|default": "none",
+                    "$toggle_enabled_binding_condition|default": "visible",
+                    "$toggle_enabled_binding_name|default": "#toggle_enabled",
+                    "$toggle_focus_id_binding_type|default": "none",
+                    "$toggle_focus_id_binding_condition|default": "visible",
+                    "$toggle_focus_id_binding_name|default": "#toggle_focus_id",
+                    "$toggle_focus_id_collection_name|default": "",
+                    "$toggle_grid_collection_name|default": "",
+                    "$toggle_collection_details_type|default": "none",
+                    "$toggle_collection_detail_name|default": "",
+                    "$toggle_tts_name|default": "accessibility.toggle.tts.title",
+                    "$toggle_tts_header_binding_type|default": "none",
+                    "$toggle_tts_header_binding_condition|default": "visible",
+                    "$toggle_tts_header_binding_collection_name|default": "",
+                    "$toggle_tts_header|default": "",
+                    "$toggle_tts_value_binding_type|default": "none",
+                    "$toggle_tts_value_binding_condition|default": "visible",
+                    "$toggle_tts_value_binding_collection_name|default": "",
+                    "$toggle_tts_override_toggle_value|default": "",
+                    "$toggle_tts_toggle_on_text|default": "accessibility.state.on",
+                    "$toggle_tts_toggle_off_text|default": "accessibility.state.off",
+                    "$toggle_tts_type_priority|default": -100,
+                    "$toggle_tts_index_priority|default": 150,
+                    "$toggle_tts_inherit_siblings|default": false,
+                    "$toggle_focus_bind|default": "",
+                    "$tts_section_header|default": "",
+                    "$ignore_tts_enabled_bind|default": false,
+                    "$focus_id|default": "",
+                    "$focus_override_down|default": "",
+                    "$focus_override_up|default": "",
+                    "$focus_override_left|default": "",
+                    "$focus_override_right|default": "",
+                    "focus_enabled": "$toggle_focus_enabled",
+                    "focus_magnet_enabled": true,
+                    "focus_identifier": "$focus_id",
+                    "focus_change_down": "$focus_override_down",
+                    "focus_change_up": "$focus_override_up",
+                    "focus_change_left": "$focus_override_left",
+                    "focus_change_right": "$focus_override_right",
+                    "controls": [
+                        {
+                            "unchecked": {
+                                "type": "panel",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "checked": {
+                                "type": "panel",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "unchecked_hover": {
+                                "type": "panel",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    },
+                                    {
+                                        "tooltip@common.hover_text": {
+                                            "layer": 29,
+                                            "ignored": "$toggle_hover_text_localize",
+                                            "property_bag": {
+                                                "#hover_text": "$toggle_hover_text"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "localized_tooltip@uc.fake_hover_text": {
+                                            "$hover_text": "$toggle_hover_text",
+                                            "ignored": "(not $toggle_hover_text_localize)"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "checked_hover": {
+                                "type": "panel",
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    },
+                                    {
+                                        "tooltip@common.hover_text": {
+                                            "layer": 29,
+                                            "ignored": "($toggle_checked_hover_text_from_hover or $toggle_checked_hover_text_localize)",
+                                            "property_bag": {
+                                                "#hover_text": "$toggle_checked_hover_text"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "localized_tooltip@uc.fake_hover_text": {
+                                            "$hover_text": "$toggle_checked_hover_text",
+                                            "ignored": "($toggle_checked_hover_text_from_hover or (not $toggle_checked_hover_text_localize))"
+                                        }
+                                    },
+                                    {
+                                        "tooltip_from_hover@common.hover_text": {
+                                            "layer": 29,
+                                            "ignored": "((not $toggle_checked_hover_text_from_hover) or $toggle_hover_text_localize)",
+                                            "property_bag": {
+                                                "#hover_text": "$toggle_hover_text"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "localized_tooltip_from_hover@uc.fake_hover_text": {
+                                            "$hover_text": "$toggle_hover_text",
+                                            "ignored": "((not $toggle_checked_hover_text_from_hover) or (not $toggle_hover_text_localize))"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "unchecked_locked": {
+                                "type": "panel",
+                                "alpha": 0.7,
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "checked_locked": {
+                                "type": "panel",
+                                "alpha": 0.7,
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "unchecked_locked_hover": {
+                                "type": "panel",
+                                "alpha": 0.7,
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_unchecked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_unchecked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "checked_locked_hover": {
+                                "type": "panel",
+                                "alpha": 0.7,
+                                "layer": 0,
+                                "controls": [
+                                    {
+                                        "bg_image": {
+                                            "type": "image",
+                                            "texture": "$toggle_checked_hover"
+                                        }
+                                    },
+                                    {
+                                        "icon": {
+                                            "type": "image",
+                                            "texture": "$toggle_icon_checked_hover",
+                                            "size": "$toggle_icon_size",
+                                            "uv_size": "$toggle_icon_uv_size",
+                                            "layer": 1,
+                                            "visible": "$has_toggle_icon"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "button_mappings": [
+                        {
+                            "from_button_id": "button.menu_select",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.menu_ok",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "pressed"
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "$toggle_binding_type",
+                            "binding_condition": "$toggle_binding_condition",
+                            "binding_collection_name": "$toggle_grid_collection_name",
+                            "binding_name": "$toggle_state_binding_name",
+                            "binding_name_override": "#toggle_state"
+                        },
+                        {
+                            "binding_type": "$toggle_enabled_binding_type",
+                            "binding_condition": "$toggle_enabled_binding_condition",
+                            "binding_collection_name": "$toggle_grid_collection_name",
+                            "binding_name": "$toggle_enabled_binding_name",
+                            "binding_name_override": "#enabled"
+                        },
+                        {
+                            "binding_type": "$toggle_collection_details_type",
+                            "binding_collection_name": "$toggle_collection_detail_name"
+                        },
+                        {
+                            "binding_type": "$toggle_tts_header_binding_type",
+                            "binding_condition": "$toggle_tts_header_binding_condition",
+                            "binding_collection_name": "$toggle_tts_header_binding_collection_name",
+                            "binding_name": "$toggle_tts_header"
+                        },
+                        {
+                            "binding_type": "$toggle_tts_value_binding_type",
+                            "binding_condition": "$toggle_tts_value_binding_condition",
+                            "binding_collection_name": "$toggle_tts_value_binding_collection_name",
+                            "binding_name": "$toggle_tts_override_toggle_value"
+                        },
+                        {
+                            "ignored": "$ignore_tts_enabled_bind",
+                            "binding_type": "$toggle_tts_enabled_binding_type",
+                            "binding_name": "#tts_enabled",
+                            "binding_name_override": "#focus_enabled"
+                        },
+                        {
+                            "ignored": "(($toggle_focus_bind = '') and (not $ignore_tts_enabled_bind))",
+                            "binding_type": "global",
+                            "binding_name": "$toggle_focus_bind",
+                            "binding_name_override": "#focus_enabled"
+                        },
+                        {
+                            "binding_type": "$toggle_focus_id_binding_type",
+                            "binding_condition": "$toggle_focus_id_binding_condition",
+                            "binding_collection_name": "$toggle_focus_id_collection_name",
+                            "binding_name": "$toggle_focus_id_binding_name",
+                            "binding_name_override": "#focus_identifier"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "upgrades_tab": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$upgrade_index_1|default": 4,
+        "$upgrade_index_2|default": 5,
+        "$upgrade_index_3|default": 6,
+        "$has_first_upgrade|default": true,
+        "$has_second_upgrade|default": true,
+        "$has_third_upgrade|default": false,
+        "$right_machine_tabs_name|default": "right_machine_tabs",
+        "$upgrade_toggle_control_name|default": "upgrade_toggle_button",
+        "controls": [
+            {
+                "upgrade_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        -25
+                    ],
+                    "$toggle_name": "$right_machine_tabs_name",
+                    "$toggle_layer": -5,
+                    "$toggle_index": 1,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "ui.utilitycraft:upgrades_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
+                    "$toggle_control_name": "$upgrade_toggle_control_name",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/upgrade_unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/upgrade_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/upgrade_unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/upgrade_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "upgrade_toggle_close@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        -25
+                    ],
+                    "$toggle_name": "$right_machine_tabs_name",
+                    "$toggle_layer": -4,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
+                    "$toggle_control_name": "$upgrade_toggle_control_name",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/upgrade_checked",
+                    "$toggle_checked": "textures/ui/toggle_button/upgrade_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/upgrade_checked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/upgrade_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$upgrade_toggle_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            },
+            {
+                "upgrade_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        162,
+                        72
+                    ],
+                    "offset": [
+                        -8,
+                        56
+                    ],
+                    "layer": 30,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$upgrade_toggle_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "upgrades_panel@uc.upgrades_panel": {
+                                "offset": [
+                                    0,
+                                    -29
+                                ],
+                                "$index_1": "$upgrade_index_1",
+                                "$index_2": "$upgrade_index_2",
+                                "$index_3": "$upgrade_index_3",
+                                "$has_first": "$has_first_upgrade",
+                                "$has_second": "$has_second_upgrade",
+                                "$has_third": "$has_third_upgrade"
+                            }
+                        },
+                        {
+                            "upgrade_toggle@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    62,
+                                    -73
+                                ],
+                                "$toggle_size": [
+                                    15,
+                                    15
+                                ],
+                                "$toggle_name": "$right_machine_tabs_name",
+                                "$toggle_layer": 3,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": true,
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_upgrades",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
+                                "$toggle_control_name": "$upgrade_toggle_control_name",
+                                "$toggle_unchecked": "textures/ui/close_button/unchecked",
+                                "$toggle_checked": "textures/ui/close_button/checked",
+                                "$toggle_unchecked_hover": "textures/ui/close_button/unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/close_button/checked"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "io_state_outline": {
+        "type": "image",
+        "texture": "$io_outline_texture",
+        "size": [
+            18,
+            18
+        ],
+        "offset": "$io_button_offset",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "collection_index": "$io_button_index",
+        "layer": 3,
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not ((#hover_text - $io_state_name) = #hover_text))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "io_state_outline_without": {
+        "type": "image",
+        "texture": "$io_outline_texture",
+        "size": [
+            18,
+            18
+        ],
+        "offset": "$io_button_offset",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "collection_index": "$io_button_index",
+        "layer": 3,
+        "bindings": [
+            {
+                "binding_name": "#hover_text",
+                "binding_type": "collection",
+                "binding_collection_name": "$item_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((not ((#hover_text - $io_state_name) = #hover_text)) and ((#hover_text - $io_excluded_state_name) = #hover_text))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "io_face_outline": {
+        "type": "collection_panel",
+        "collection_name": "container_items",
+        "$item_collection_name|default": "container_items",
+        "$io_button_index|default": 0,
+        "$io_button_offset|default": [
+            0,
+            0
+        ],
+        "$io_default_texture|default": "textures/ui/slots/default_slot",
+        "$io_disabled_texture|default": "textures/ui/slots/none_slot",
+        "$io_none_texture|default": "textures/ui/slots/none_slot",
+        "$io_normal_texture|default": "textures/ui/slots/normal_slot",
+        "$io_input_texture|default": "textures/ui/slots/input_slot",
+        "$io_input_extra_texture|default": "textures/ui/slots/input_extra_slot",
+        "$io_output_texture|default": "textures/ui/slots/output_slot",
+        "$io_both_texture|default": "textures/ui/slots/both_slot",
+        "$io_upgrade_texture|default": "textures/ui/slots/upgrade_slot",
+        "$io_fuel_texture|default": "textures/ui/slots/fuel_slot",
+        "$io_item_resource_texture|default": "textures/ui/slots/item_resource_slot",
+        "$io_liquid_resource_texture|default": "textures/ui/slots/liquid_resource_slot",
+        "$io_gas_resource_texture|default": "textures/ui/slots/gas_resource_slot",
+        "$io_energy_texture|default": "textures/ui/slots/energy_slot",
+        "controls": [
+            {
+                "default_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "default",
+                    "$io_outline_texture": "$io_default_texture"
+                }
+            },
+            {
+                "disabled_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "disabled",
+                    "$io_outline_texture": "$io_disabled_texture"
+                }
+            },
+            {
+                "none_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "none",
+                    "$io_outline_texture": "$io_none_texture"
+                }
+            },
+            {
+                "normal_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "normal",
+                    "$io_outline_texture": "$io_normal_texture"
+                }
+            },
+            {
+                "input_outline@uc.io_state_outline_without": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input",
+                    "$io_excluded_state_name": "input_extra",
+                    "$io_outline_texture": "$io_input_texture"
+                }
+            },
+            {
+                "input_extra_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_extra",
+                    "$io_outline_texture": "$io_input_extra_texture"
+                }
+            },
+            {
+                "output_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output",
+                    "$io_outline_texture": "$io_output_texture"
+                }
+            },
+            {
+                "both_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "both",
+                    "$io_outline_texture": "$io_both_texture"
+                }
+            },
+            {
+                "upgrade_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "upgrade",
+                    "$io_outline_texture": "$io_upgrade_texture"
+                }
+            },
+            {
+                "fuel_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "fuel",
+                    "$io_outline_texture": "$io_fuel_texture"
+                }
+            },
+            {
+                "item_resource_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "item_resource",
+                    "$io_outline_texture": "$io_item_resource_texture"
+                }
+            },
+            {
+                "liquid_resource_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "liquid_resource",
+                    "$io_outline_texture": "$io_liquid_resource_texture"
+                }
+            },
+            {
+                "gas_resource_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "gas_resource",
+                    "$io_outline_texture": "$io_gas_resource_texture"
+                }
+            },
+            {
+                "energy_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "energy",
+                    "$io_outline_texture": "$io_energy_texture"
+                }
+            }
+        ]
+    },
+    "io_face_button": {
+        "type": "collection_panel",
+        "collection_name": "container_items",
+        "$item_collection_name|default": "container_items",
+        "$io_button_index|default": 0,
+        "$io_button_offset|default": [
+            0,
+            0
+        ],
+        "$io_face_offset|default": [
+            0,
+            1
+        ],
+        "$io_face_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
+        "controls": [
+            {
+                "outline@uc.io_face_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset"
+                }
+            },
+            {
+                "face_button@uc.machine_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": "$io_face_offset",
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "$item_collection_name": "$item_collection_name",
+                    "$index": "$io_button_index",
+                    "$button_size": [
+                        16,
+                        16
+                    ],
+                    "$button_text": "",
+                    "$default_texture": "$io_face_texture",
+                    "$hover_texture": "$io_face_texture",
+                    "$pressed_texture": "$io_face_texture"
+                }
+            }
+        ]
+    },
+    "io_face_slots": {
+        "type": "panel",
+        "$io_top_index|default": 8,
+        "$io_left_index|default": 9,
+        "$io_front_index|default": 10,
+        "$io_right_index|default": 11,
+        "$io_bottom_index|default": 12,
+        "$io_back_index|default": 13,
+        "$io_top_texture|default": "textures/blocks/Machines/ehxibitor/base/up",
+        "$io_left_texture|default": "textures/blocks/Machines/ehxibitor/base/west",
+        "$io_front_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
+        "$io_right_texture|default": "textures/blocks/Machines/ehxibitor/base/east",
+        "$io_bottom_texture|default": "textures/blocks/Machines/ehxibitor/base/down",
+        "$io_back_texture|default": "textures/blocks/Machines/ehxibitor/base/south",
+        "controls": [
+            {
+                "top_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_top_index",
+                    "$io_button_offset": [
+                        44,
+                        -14
+                    ],
+                    "$io_face_offset": [
+                        44,
+                        -13
+                    ],
+                    "$io_face_texture": "$io_top_texture"
+                }
+            },
+            {
+                "left_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_left_index",
+                    "$io_button_offset": [
+                        24,
+                        6
+                    ],
+                    "$io_face_offset": [
+                        24,
+                        7
+                    ],
+                    "$io_face_texture": "$io_left_texture"
+                }
+            },
+            {
+                "front_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_front_index",
+                    "$io_button_offset": [
+                        44,
+                        6
+                    ],
+                    "$io_face_offset": [
+                        44,
+                        7
+                    ],
+                    "$io_face_texture": "$io_front_texture"
+                }
+            },
+            {
+                "right_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_right_index",
+                    "$io_button_offset": [
+                        64,
+                        6
+                    ],
+                    "$io_face_offset": [
+                        64,
+                        7
+                    ],
+                    "$io_face_texture": "$io_right_texture"
+                }
+            },
+            {
+                "bottom_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_bottom_index",
+                    "$io_button_offset": [
+                        44,
+                        26
+                    ],
+                    "$io_face_offset": [
+                        44,
+                        27
+                    ],
+                    "$io_face_texture": "$io_bottom_texture"
+                }
+            },
+            {
+                "back_button@uc.io_face_button": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_back_index",
+                    "$io_button_offset": [
+                        64,
+                        26
+                    ],
+                    "$io_face_offset": [
+                        64,
+                        27
+                    ],
+                    "$io_face_texture": "$io_back_texture"
+                }
+            }
+        ]
+    },
+    "io_tab": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$info_description|default": "",
+        "$has_io_config|default": true,
+        "$has_item_io|default": true,
+        "$has_fluid_io|default": false,
+        "$io_items_default|default": true,
+        "$io_fluids_default|default": false,
+        "$right_machine_tabs_name|default": "right_machine_tabs",
+        "$io_toggle_control_name|default": "io_toggle_button",
+        "$io_config_tabs_name|default": "io_config_tabs",
+        "$io_items_toggle_control_name|default": "io_items_toggle_button",
+        "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
+        "$io_items_modes_description|default": "IO Modes:\n§r- §9Input\n§r- §bInput Extra\n§r- §cOutput",
+        "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Input\n§r- §cOutput",
+        "$io_item_top_index|default": 8,
+        "$io_item_left_index|default": 9,
+        "$io_item_front_index|default": 10,
+        "$io_item_right_index|default": 11,
+        "$io_item_bottom_index|default": 12,
+        "$io_item_back_index|default": 13,
+        "$io_fluid_top_index|default": 14,
+        "$io_fluid_left_index|default": 15,
+        "$io_fluid_front_index|default": 16,
+        "$io_fluid_right_index|default": 17,
+        "$io_fluid_bottom_index|default": 18,
+        "$io_fluid_back_index|default": 19,
+        "$io_top_texture|default": "textures/blocks/Machines/ehxibitor/base/up",
+        "$io_left_texture|default": "textures/blocks/Machines/ehxibitor/base/west",
+        "$io_front_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
+        "$io_right_texture|default": "textures/blocks/Machines/ehxibitor/base/east",
+        "$io_bottom_texture|default": "textures/blocks/Machines/ehxibitor/base/down",
+        "$io_back_texture|default": "textures/blocks/Machines/ehxibitor/base/south",
+        "controls": [
+            {
+                "io_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        1
+                    ],
+                    "visible": "$has_io_config",
+                    "$toggle_name": "$right_machine_tabs_name",
+                    "$toggle_layer": -5,
+                    "$toggle_index": 2,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "ui.utilitycraft:io_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
+                    "$toggle_control_name": "$io_toggle_control_name",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/io_unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/io_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/io_unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/io_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "io_toggle_close@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        1
+                    ],
+                    "visible": "$has_io_config",
+                    "$toggle_name": "$right_machine_tabs_name",
+                    "$toggle_layer": -4,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
+                    "$toggle_control_name": "$io_toggle_control_name",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/io_checked",
+                    "$toggle_checked": "textures/ui/toggle_button/io_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/io_checked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/io_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$io_toggle_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            },
+            {
+                "io_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        162,
+                        72
+                    ],
+                    "offset": [
+                        -8,
+                        43
+                    ],
+                    "layer": 30,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "controls": [
+                        {
+                            "io_background": {
+                                "type": "image",
+                                "texture": "textures/ui/background/background_panel",
+                                "size": [
+                                    132,
+                                    90
+                                ],
+                                "offset": [
+                                    18,
+                                    -36
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "layer": 0
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "type": "label",
+                                "text": "ui.utilitycraft:io_panel.name",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    10
+                                ],
+                                "offset": [
+                                    98,
+                                    -30
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 3,
+                                "font_scale_factor": 1
+                            }
+                        },
+                        {
+                            "item_modes_label": {
+                                "type": "label",
+                                "text": "$io_items_modes_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    40
+                                ],
+                                "offset": [
+                                    103,
+                                    -14
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 3,
+                                "font_scale_factor": 0.75,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "$io_items_toggle_control_name",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "fluid_modes_label": {
+                                "type": "label",
+                                "text": "$io_fluids_modes_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    40
+                                ],
+                                "offset": [
+                                    103,
+                                    -14
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 3,
+                                "font_scale_factor": 0.75,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "$io_fluids_toggle_control_name",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "io_items_toggle@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    -59,
+                                    -56
+                                ],
+                                "visible": "$has_item_io",
+                                "$toggle_name": "$io_config_tabs_name",
+                                "$toggle_layer": 3,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": "$io_items_default",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.items",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.items",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
+                                "$toggle_control_name": "$io_items_toggle_control_name",
+                                "$toggle_size": [
+                                    18,
+                                    18
+                                ],
+                                "$has_toggle_bg": true,
+                                "$toggle_bg_size": [
+                                    24,
+                                    24
+                                ],
+                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                "$toggle_bg_offset": [
+                                    0,
+                                    0
+                                ],
+                                "$toggle_unchecked": "textures/ui/toggle_button/item_unchecked",
+                                "$toggle_checked": "textures/ui/toggle_button/item_checked",
+                                "$toggle_unchecked_hover": "textures/ui/toggle_button/item_unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/toggle_button/item_checked_hover"
+                            }
+                        },
+                        {
+                            "io_fluids_toggle@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    -59,
+                                    -30
+                                ],
+                                "visible": "$has_fluid_io",
+                                "$toggle_name": "$io_config_tabs_name",
+                                "$toggle_layer": 3,
+                                "$toggle_index": 1,
+                                "$toggle_group": true,
+                                "$toggle_default_state": "$io_fluids_default",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.liquids",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.liquids",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
+                                "$toggle_control_name": "$io_fluids_toggle_control_name",
+                                "$toggle_size": [
+                                    18,
+                                    18
+                                ],
+                                "$has_toggle_bg": true,
+                                "$toggle_bg_size": [
+                                    24,
+                                    24
+                                ],
+                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                "$toggle_bg_offset": [
+                                    0,
+                                    0
+                                ],
+                                "$toggle_unchecked": "textures/ui/toggle_button/fluid_unchecked",
+                                "$toggle_checked": "textures/ui/toggle_button/fluid_checked",
+                                "$toggle_unchecked_hover": "textures/ui/toggle_button/fluid_unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/toggle_button/fluid_checked_hover"
+                            }
+                        },
+                        {
+                            "io_items_panel": {
+                                "type": "panel",
+                                "layer": 1,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "$io_items_toggle_control_name",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "item_faces@uc.io_face_slots": {
+                                            "$io_top_index": "$io_item_top_index",
+                                            "$io_left_index": "$io_item_left_index",
+                                            "$io_front_index": "$io_item_front_index",
+                                            "$io_right_index": "$io_item_right_index",
+                                            "$io_bottom_index": "$io_item_bottom_index",
+                                            "$io_back_index": "$io_item_back_index",
+                                            "$io_top_texture": "$io_top_texture",
+                                            "$io_left_texture": "$io_left_texture",
+                                            "$io_front_texture": "$io_front_texture",
+                                            "$io_right_texture": "$io_right_texture",
+                                            "$io_bottom_texture": "$io_bottom_texture",
+                                            "$io_back_texture": "$io_back_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "io_fluids_panel": {
+                                "type": "panel",
+                                "layer": 1,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "$io_fluids_toggle_control_name",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "fluid_faces@uc.io_face_slots": {
+                                            "$io_top_index": "$io_fluid_top_index",
+                                            "$io_left_index": "$io_fluid_left_index",
+                                            "$io_front_index": "$io_fluid_front_index",
+                                            "$io_right_index": "$io_fluid_right_index",
+                                            "$io_bottom_index": "$io_fluid_bottom_index",
+                                            "$io_back_index": "$io_fluid_back_index",
+                                            "$io_top_texture": "$io_top_texture",
+                                            "$io_left_texture": "$io_left_texture",
+                                            "$io_front_texture": "$io_front_texture",
+                                            "$io_right_texture": "$io_right_texture",
+                                            "$io_bottom_texture": "$io_bottom_texture",
+                                            "$io_back_texture": "$io_back_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "io_panel_close@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    72,
+                                    -60
+                                ],
+                                "$toggle_size": [
+                                    15,
+                                    15
+                                ],
+                                "$toggle_name": "$right_machine_tabs_name",
+                                "$toggle_layer": 3,
+                                "$toggle_index": 0,
+                                "$toggle_group": true,
+                                "$toggle_default_state": true,
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_io_config",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
+                                "$toggle_control_name": "$io_toggle_control_name",
+                                "$toggle_unchecked": "textures/ui/close_button/unchecked",
+                                "$toggle_checked": "textures/ui/close_button/checked",
+                                "$toggle_unchecked_hover": "textures/ui/close_button/unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/close_button/checked"
+                            }
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$io_toggle_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "info_description_scroll_content": {
+        "type": "stack_panel",
+        "size": [
+            "100% - 20px",
+            "default"
+        ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "orientation": "vertical",
+        "$info_description|default": "",
+        "controls": [
+            {
+                "description_body": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "100%c"
+                    ],
+                    "$info_description": "$info_description",
+                    "controls": [
+                        {
+                            "description_label": {
+                                "type": "label",
+                                "text": "$info_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    "100%",
+                                    "default"
+                                ],
+                                "offset": [
+                                    2,
+                                    2
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "font_scale_factor": 0.75,
+                                "layer": -4
+                            }
+                        },
+                        {
+                            "bottom_padding": {
+                                "type": "panel",
+                                "size": [
+                                    "100%",
+                                    8
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "info_tab": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$right_machine_tabs_name|default": "right_machine_tabs",
+        "$info_toggle_control_name|default": "info_toggle_button",
+        "controls": [
+            {
+                "info_toggle@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        27
+                    ],
+                    "$toggle_name": "$right_machine_tabs_name",
+                    "$toggle_layer": -3,
+                    "$toggle_index": 3,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "ui.utilitycraft:info_panel.name",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_information",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
+                    "$toggle_control_name": "$info_toggle_control_name",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/info_unchecked",
+                    "$toggle_checked": "textures/ui/toggle_button/info_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/info_unchecked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/info_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ]
+                }
+            },
+            {
+                "info_toggle_close@uc.toggle_button": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        109,
+                        27
+                    ],
+                    "$toggle_name": "$right_machine_tabs_name",
+                    "$toggle_layer": 31,
+                    "$toggle_index": 0,
+                    "$toggle_group": true,
+                    "$toggle_default_state": false,
+                    "$toggle_hover_text": "ui.utilitycraft:machine_view.close_information",
+                    "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.close_information",
+                    "$toggle_hover_text_localize": true,
+                    "$toggle_checked_hover_text_localize": true,
+                    "$toggle_control_name": "$info_toggle_control_name",
+                    "$toggle_size": [
+                        16,
+                        16
+                    ],
+                    "$toggle_unchecked": "textures/ui/toggle_button/info_checked",
+                    "$toggle_checked": "textures/ui/toggle_button/info_checked",
+                    "$toggle_unchecked_hover": "textures/ui/toggle_button/info_checked_hover",
+                    "$toggle_checked_hover": "textures/ui/toggle_button/info_checked_hover",
+                    "$has_toggle_bg": true,
+                    "$toggle_bg_size": [
+                        24,
+                        24
+                    ],
+                    "$toggle_bg_texture": "textures/ui/toggle_button/right_bg",
+                    "$toggle_bg_offset": [
+                        0,
+                        0
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$info_toggle_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ]
+                }
+            },
+            {
+                "info_panel": {
+                    "type": "collection_panel",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        80,
+                        108
+                    ],
+                    "offset": [
+                        137,
+                        69
+                    ],
+                    "layer": 30,
+                    "collection_name": "container_items",
+                    "$item_collection_name": "container_items",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$info_toggle_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "description_scroll@common.scrolling_panel": {
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_left",
+                                "size": [
+                                    108,
+                                    68
+                                ],
+                                "offset": [
+                                    6,
+                                    26
+                                ],
+                                "$show_background": false,
+                                "layer": -2,
+                                "$info_description": "$info_description",
+                                "$scroll_size": [
+                                    4,
+                                    "100% - 4px"
+                                ],
+                                "$scrolling_pane_size": [
+                                    "100% + 20px",
+                                    "100% - 2px"
+                                ],
+                                "$scrolling_pane_offset": [
+                                    -5,
+                                    0
+                                ],
+                                "$scroll_view_port_offset": [
+                                    3,
+                                    0
+                                ],
+                                "$scrolling_pane_size_touch": [
+                                    "100% + 20px",
+                                    "100% - 2px"
+                                ],
+                                "$scrolling_pane_offset_touch": [
+                                    -5,
+                                    0
+                                ],
+                                "$scroll_view_port_offset_touch": [
+                                    3,
+                                    0
+                                ],
+                                "$scroll_size_touch": [
+                                    4,
+                                    "100% - 4px"
+                                ],
+                                "$scroll_bar_contained_touch": false,
+                                "$scroll_box_visible_touch": true,
+                                "$use_touch_mode": false,
+                                "$scrolling_content": "uc.info_description_scroll_content"
+                            }
+                        },
+                        {
+                            "info_background": {
+                                "type": "image",
+                                "texture": "textures/ui/toggle_button/right_bg",
+                                "size": [
+                                    120,
+                                    106
+                                ],
+                                "offset": [
+                                    20,
+                                    -1
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "layer": -5
+                            }
+                        },
+                        {
+                            "text_label": {
+                                "type": "label",
+                                "text": "ui.utilitycraft:info_panel.name",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    11,
+                                    7
+                                ],
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": -4,
+                                "font_scale_factor": 1
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "toggle_button_panel": {
+        "type": "panel",
+        "$panel_control_name|default": "",
+        "$controls|default": [],
+        "controls": [
+            {
+                "toggle_button_panel": {
+                    "type": "collection_panel",
+                    "$item_collection_name": "container_items",
+                    "collection_name": "container_items",
+                    "controls": "$controls",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$panel_control_name",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible",
+                            "resolve_sibling_scope": false
+                        }
                     ]
                 }
             }

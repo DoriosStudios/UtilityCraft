@@ -32,10 +32,6 @@ const infuserRecipesRegister = {
     output: "utilitycraft:raw_energized_iron",
     required: 4,
   },
-  "minecraft:redstone|utilitycraft:raw_iron_dust": { // Raw Energized Iron Dust
-    output: "utilitycraft:raw_energized_iron_dust",
-    required: 4,
-  },
   "minecraft:redstone|utilitycraft:steel_plate": { // Base/Simple Chip
     output: "utilitycraft:chip",
     required: 2,
@@ -88,6 +84,30 @@ const infuserRecipesRegister = {
     output: "utilitycraft:steel_dust",
     required: 1,
   },
+  "minecraft:coal|minecraft:raw_iron": { // Brute Steel (coal)
+    output: "utilitycraft:raw_steel",
+    required: 1,
+  },
+  "minecraft:charcoal|minecraft:raw_iron": { // Brute Steel (charcoal)
+    output: "utilitycraft:raw_steel",
+    required: 1,
+  },
+  "utilitycraft:coal_dust|minecraft:raw_iron": { // Brute Steel (coal dust)
+    output: "utilitycraft:raw_steel",
+    required: 1,
+  },
+  "utilitycraft:charcoal_dust|minecraft:raw_iron": { // Brute Steel (charcoal dust)
+    output: "utilitycraft:raw_steel",
+    required: 1,
+  },
+  "minecraft:blaze_powder|minecraft:ender_pearl": { // Eye of Ender
+    output: "minecraft:ender_eye",
+    required: 1,
+  },
+  "minecraft:blaze_powder|minecraft:slime_ball": { // Magma Cream
+    output: "minecraft:magma_cream",
+    required: 1,
+  },
   "minecraft:blaze_powder|minecraft:sand": { // Soul Sand
     output: "minecraft:soul_sand",
     required: 1,
@@ -96,9 +116,29 @@ const infuserRecipesRegister = {
     output: "minecraft:soul_soil",
     required: 1,
   },
-  "minecraft:wheat_seeds|minecraft:dirt": { // Grass Block (seeds route)
-    output: "minecraft:grass_block",
-    required: 9,
+  "minecraft:redstone|minecraft:sand": { // Red Sand
+    output: "minecraft:red_sand",
+    required: 1,
+  },
+  "minecraft:redstone|minecraft:stone": { // Cinnabar
+    output: "minecraft:cinnabar",
+    required: 1,
+  },
+  "minecraft:warped_wart_block|minecraft:netherrack": { // Warped Nylium
+    output: "minecraft:warped_nylium",
+    required: 1,
+  },
+  "minecraft:nether_wart_block|minecraft:netherrack": { // Crimson Nylium
+    output: "minecraft:crimson_nylium",
+    required: 1,
+  },
+  "minecraft:echo_shard|minecraft:dirt": { // Sculk
+    output: "minecraft:sculk",
+    required: 1,
+  },
+  "minecraft:gold_ingot|minecraft:blackstone": { // Gilded Blackstone
+    output: "minecraft:gilded_blackstone",
+    required: 1,
   },
   "minecraft:coal_block|minecraft:iron_block": { // Steel Block
     output: "utilitycraft:steel_block",
@@ -136,10 +176,6 @@ const infuserRecipesRegister = {
   "minecraft:vine|minecraft:rooted_dirt": { // Moss Block
     output: "minecraft:moss_block",
     required: 4,
-  },
-  "minecraft:gravel|minecraft:cobblestone": { // Tuff
-    output: "minecraft:tuff",
-    required: 1,
   },
   "minecraft:moss_block|minecraft:cobblestone": { // Mossy Cobblestone
     output: "minecraft:mossy_cobblestone",

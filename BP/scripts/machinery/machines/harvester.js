@@ -63,8 +63,16 @@ DoriosAPI.register.blockComponent("harvester", {
             let adjustedSide = (side === 11) ? 9 : side;
 
             // Facing direction handling
-
-            const axis = block.getState('utilitycraft:axis')
+            const opposite = {
+                up: "down",
+                down: "up",
+                north: "south",
+                south: "north",
+                east: "west",
+                west: "east"
+            };
+            const facingDirection = block.getState("minecraft:facing_direction");
+            const axis = opposite[facingDirection] ?? block.getState("utilitycraft:axis");
             switch (axis) {
                 case "up":
                     y--;
