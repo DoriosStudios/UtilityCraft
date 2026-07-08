@@ -1,4 +1,4 @@
-import { world, system } from "@minecraft/server";
+﻿import { world, system } from "@minecraft/server";
 
 /**
  * Pressing and compression recipes for the Electro Press machine.
@@ -42,8 +42,8 @@ const pressRecipesRegister = {
   "minecraft:ice": { output: "minecraft:packed_ice", required: 9 },
   "minecraft:string": { output: "minecraft:wool", required: 4 },
   "minecraft:nether_wart": { output: "minecraft:nether_wart_block", required: 4 },
-  "minecraft:magma_cream": { output: "minecraft:magma_block", required: 4 },
-  "minecraft:slime_ball": { output: "minecraft:slime_block", required: 4 },
+  "minecraft:magma_cream": { output: "minecraft:magma", required: 4 },
+  "minecraft:slime_ball": { output: "minecraft:slime", required: 4 },
   "minecraft:stone": { output: "minecraft:deepslate", required: 4 },
   "utilitycraft:compressed_stone": { output: "utilitycraft:compressed_deepslate", required: 4, cost: 7200 },
   "utilitycraft:compressed_stone_2": { output: "utilitycraft:compressed_deepslate_2", required: 4, cost: 64800 },
@@ -53,6 +53,14 @@ const pressRecipesRegister = {
   "minecraft:blaze_powder": { output: "minecraft:blaze_rod", required: 2 },
   "minecraft:dried_kelp": { output: "minecraft:dried_kelp_block", required: 9 },
   "minecraft:blue_ice": { output: "minecraft:packed_ice", required: 9 },
+  "minecraft:wheat": { output: "minecraft:hay_block", required: 9 },
+  "minecraft:clay_ball": { output: "minecraft:clay", required: 4 },
+  "minecraft:brick": { output: "minecraft:brick_block", required: 4 },
+  "minecraft:netherbrick": { output: "minecraft:nether_brick", required: 4 },
+  "minecraft:glowstone_dust": { output: "minecraft:glowstone", required: 4 },
+  "minecraft:quartz": { output: "minecraft:quartz_block", required: 4 },
+  "minecraft:amethyst_shard": { output: "minecraft:amethyst_block", required: 4 },
+  "minecraft:snowball": { output: "minecraft:snow", required: 4 },
 };
 
 world.afterEvents.worldLoad.subscribe(() => {
@@ -105,7 +113,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 });
 
 // ==================================================
-// EXAMPLES – How to register custom Electro Press recipes
+// EXAMPLES â€“ How to register custom Electro Press recipes
 // ==================================================
 /*
 import { system, world } from "@minecraft/server";
@@ -129,3 +137,4 @@ world.afterEvents.worldLoad.subscribe(() => {
 Command:
 /scriptevent utilitycraft:register_press_recipe {"minecraft:stone":{"output":"minecraft:deepslate","required":4},"minecraft:sand":{"output":"utilitycraft:compressed_glass","required":9}}
 */
+

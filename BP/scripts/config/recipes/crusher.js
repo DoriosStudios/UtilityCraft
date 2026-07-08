@@ -1,4 +1,4 @@
-import { world, system } from "@minecraft/server";
+﻿import { world, system } from "@minecraft/server";
 
 /**
  * Recipes for the Crusher machine.
@@ -143,11 +143,22 @@ const crusherRecipesRegister = {
     'minecraft:blue_ice': { output: 'minecraft:packed_ice', amount: 9 },
     'minecraft:packed_ice': { output: 'minecraft:ice', amount: 9 },
     'minecraft:nether_wart_block': { output: 'minecraft:nether_wart', amount: 4 },
-    'minecraft:magma_block': { output: 'minecraft:magma_cream', amount: 4 },
-    'minecraft:slime_block': { output: 'minecraft:slime_ball', amount: 9 },
+    'minecraft:magma': { output: 'minecraft:magma_cream', amount: 4 },
+    'minecraft:slime': { output: 'minecraft:slime_ball', amount: 9 },
     'minecraft:bone': { output: 'minecraft:bone_meal', amount: 3 },
     'minecraft:bone_block': { output: 'minecraft:bone_meal', amount: 9 },
     'minecraft:blaze_rod': { output: 'minecraft:blaze_powder', amount: 2 },
+    'minecraft:clay': { output: 'minecraft:clay_ball', amount: 4 },
+    'minecraft:glowstone': { output: 'minecraft:glowstone_dust', amount: 4 },
+    'minecraft:quartz_block': { output: 'minecraft:quartz', amount: 4 },
+    'minecraft:amethyst_block': { output: 'minecraft:amethyst_shard', amount: 4 },
+    'minecraft:sandstone': { output: 'minecraft:sand', amount: 4 },
+    'minecraft:red_sandstone': { output: 'minecraft:red_sand', amount: 4 },
+    'minecraft:brick_block': { output: 'minecraft:brick', amount: 4 },
+    'minecraft:nether_brick': { output: 'minecraft:netherbrick', amount: 4 },
+    'minecraft:hay_block': { output: 'minecraft:wheat', amount: 9 },
+    'minecraft:melon_block': { output: 'minecraft:melon_slice', amount: 9 },
+    'minecraft:snow': { output: 'minecraft:snowball', amount: 4 },
     // Wool
     "minecraft:black_wool": { output: "minecraft:string", amount: 4 },
     "minecraft:blue_wool": { output: "minecraft:string", amount: 4 },
@@ -165,7 +176,7 @@ const crusherRecipesRegister = {
     "minecraft:red_wool": { output: "minecraft:string", amount: 4 },
     "minecraft:white_wool": { output: "minecraft:string", amount: 4 },
     "minecraft:yellow_wool": { output: "minecraft:string", amount: 4 },
-    // Integrated
+    // Integrated (Do not consider for JSON UI Recipes)
     "ae2be:certus_quartz_crystal": { output: "ae2be:certus_quartz_dust", amount: 1 },
     "ae2be:charged_certus_quartz_crystal": { output: "ae2be:certus_quartz_dust", amount: 1 },
     "ae2be:fluix_crystal": { output: "ae2be:fluix_dust", amount: 1 },
@@ -223,7 +234,7 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 });
 
 // ==================================================
-// EXAMPLES – How to register custom crusher recipes
+// EXAMPLES â€“ How to register custom crusher recipes
 // ==================================================
 /*
 import { system, world } from "@minecraft/server";
