@@ -653,8 +653,8 @@ entity.utilitycraft:apple_tree.name=Apple Tree
 - Items 2 = ##| To format
 
 tile.utilitycraft:pedestal.name=Pedestal\n§7- Used as a base for the Accelerator Clock\n§o§9@UtilityCraft
-entity.utilitycraft:accelerator_clock.name=Accelerator Clock\n§7- Speeds up the game
-item.utilitycraft:accelerator_clock=Accelerator Clock\n§7- Speeds up the game\n§o§9@UtilityCraft
+entity.utilitycraft:accelerator_clock.name=Accelerator Clock\n§7- Speeds up the growth of plants
+item.utilitycraft:accelerator_clock=Accelerator Clock\n§7- Speeds up the growth of plants\n§o§9@UtilityCraft
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Summon Accelerator Clock\n§o§9@UtilityCraft
 
 - Progress Bars = Barras de Progressão ##///////////////////////////////////////////////////////////////

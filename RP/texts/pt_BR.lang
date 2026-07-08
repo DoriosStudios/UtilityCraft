@@ -766,8 +766,8 @@ entity.utilitycraft:grenade.name=Granada
 
 ## Uncategorized Blocks & Items | Blocos e Itens Não-Categorizados
 ### Temporal Devices | Dispositivos Temporais
-entity.utilitycraft:accelerator_clock.name=Relógio Temporal\n§7- Acelera a velocidade do jogo
-item.utilitycraft:accelerator_clock=Relógio Temporal\n§7- Acelera a velocidade do jogo\n§o§9@UtilityCraft
+entity.utilitycraft:accelerator_clock.name=Relógio Temporal\n§7- Acelera a velocidade de crescimento das plantas ao redor
+item.utilitycraft:accelerator_clock=Relógio Temporal\n§7- Acelera a velocidade de cresc-\n-mento das plantas ao redor\n§o§9@UtilityCraft
 tile.utilitycraft:pedestal.name=Pedestal\n§7- Usado como base para o Relógio Temporal\n§o§9@UtilityCraft
 item.spawn_egg.entity.utilitycraft:accelerator_clock.name=Invocar Relógio Temporal\n§o§9@UtilityCraft
 
@@ -922,29 +922,6 @@ entity.utilitycraft:fluid_tank_xp.name=Tanque de Líquidos\n- §aExperiência
 entity.utilitycraft:mechanic_hopper.name=Funil Mecânico
 
 ### Manuals | Manuais
-item.utilitycraft:utility_book_1=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_2=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_3=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_4=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_5=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_6=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_7=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_8=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_9=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_10=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_11=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_12=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_13=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_14=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_15=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_16=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_17=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_18=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_19=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_20=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_21=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_22=Manual do UtilityCraft\n§o§9@UtilityCraft
-item.utilitycraft:utility_book_23=Manual do UtilityCraft\n§o§9@UtilityCraft
 item.utilitycraft:settings=Configurações\n §7 Interaja para abrir as configurações do UtilityCraft\n§o§9@UtilityCraft
 
 ## Indicators & Progress Bars | Indicadores e Barras de Progresso
