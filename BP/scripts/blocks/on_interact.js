@@ -64,6 +64,10 @@ const interactHandlers = {
             player.runCommand('clear @s water_bucket 0 1')
             player.giveItem('minecraft:bucket', 1)
             player.playSound('cauldron.takewater')
+        } else if (heldItem.typeId === 'utilitycraft:empty_fluid_capsule') {
+            player.runCommand('clear @s utilitycraft:empty_fluid_capsule 0 1')
+            player.giveItem('utilitycraft:water_capsule_8', 1)
+            player.playSound('cauldron.fillwater')
         }
     },
 
