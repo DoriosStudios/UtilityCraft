@@ -19,7 +19,9 @@ const ORE_PREFIXES = new Set([
 const EXCEPTIONS = new Map(Object.entries({
     'minecraft:ancient_debris': 'minecraft:netherite_scrap',
     'minecraft:cobblestone': 'minecraft:stone',
-    'minecraft:cobbled_deepslate': 'minecraft:deepslate'
+    'minecraft:stone': 'minecraft:smooth_stone',
+    'minecraft:cobbled_deepslate': 'minecraft:deepslate',
+    'minecraft:deepslate': 'minecraft:deepslate'
 }))
 
 /** @type {Array<(rawId: string, namespace: string, name: string) => string | undefined>} */
