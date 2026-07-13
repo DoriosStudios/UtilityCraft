@@ -39,14 +39,14 @@
         }
       },
       {
-        "liquid_bar@uc.fluid_bar": {
+        "liquid_bar@uc.liquid_fuel_bar": {
           "$collection_index": 2,
           "offset": [0, 0]
         }
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_fluids_modes_description": "IO Modes:\n§r- §9Input",
+          "$io_fluids_modes_description": "IO Modes:\n§r- §9Input 1",
           "$has_item_io": false,
           "$has_fluid_io": true,
           "$io_items_default": false,

@@ -13,7 +13,7 @@ const BLUEPRINT_SLOT = 3;
 registerIOInterface("utilitycraft:assembler", {
     items: {
         slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_extra"]
+        modes: ["disabled", "input", "output", "input_2"]
     }
 });
 
@@ -51,7 +51,7 @@ DoriosAPI.register.blockComponent('assembler', {
         machine.processIO({
             items: {
                 input: [INPUT_START, INPUT_END],
-                input_extra: [BLUEPRINT_SLOT],
+                input_2: [BLUEPRINT_SLOT],
                 output: [OUTPUT_SLOT]
             }
         });

@@ -1500,6 +1500,7 @@
     },
     "input_slot": {
         "type": "input_panel",
+        "$slot_background_texture|default": "textures/ui/slots/input_1_slot",
         "size": [
             18,
             18
@@ -1517,7 +1518,7 @@
             {
                 "slot_background": {
                     "type": "image",
-                    "texture": "textures/ui/slots/input_slot",
+                    "texture": "$slot_background_texture",
                     "size": [
                         18,
                         18
@@ -1527,34 +1528,32 @@
             }
         ]
     },
-    "input_extra_slot": {
-        "type": "input_panel",
-        "size": [
-            18,
-            18
-        ],
-        "controls": [
-            {
-                "item@common.container_item": {
-                    "$cell_image_size": [
-                        18,
-                        18
-                    ],
-                    "layer": 1
-                }
-            },
-            {
-                "slot_background": {
-                    "type": "image",
-                    "texture": "textures/ui/slots/input_extra_slot",
-                    "size": [
-                        18,
-                        18
-                    ],
-                    "layer": 4
-                }
-            }
-        ]
+    "input_1_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_1_slot"
+    },
+    "input_2_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_2_slot"
+    },
+    "input_3_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_3_slot"
+    },
+    "input_4_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_4_slot"
+    },
+    "input_5_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_5_slot"
+    },
+    "input_6_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_6_slot"
+    },
+    "input_7_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_7_slot"
+    },
+    "input_8_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_8_slot"
+    },
+    "input_9_slot@uc.input_slot": {
+        "$slot_background_texture": "textures/ui/slots/input_9_slot"
     },
     "fuel_slot": {
         "type": "input_panel",
@@ -1618,6 +1617,7 @@
     },
     "output_slot": {
         "type": "input_panel",
+        "$slot_background_texture|default": "textures/ui/slots/output_1_slot",
         "size": [
             26,
             26
@@ -1639,7 +1639,7 @@
             {
                 "slot_background": {
                     "type": "image",
-                    "texture": "textures/ui/slots/output_slot",
+                    "texture": "$slot_background_texture",
                     "size": [
                         26,
                         26
@@ -1648,6 +1648,33 @@
                 }
             }
         ]
+    },
+    "output_1_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_1_slot"
+    },
+    "output_2_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_2_slot"
+    },
+    "output_3_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_3_slot"
+    },
+    "output_4_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_4_slot"
+    },
+    "output_5_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_5_slot"
+    },
+    "output_6_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_6_slot"
+    },
+    "output_7_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_7_slot"
+    },
+    "output_8_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_8_slot"
+    },
+    "output_9_slot@uc.output_slot": {
+        "$slot_background_texture": "textures/ui/slots/output_9_slot"
     },
     "bar_background": {
         "type": "image",
@@ -2082,6 +2109,148 @@
                 }
             }
         ]
+    },
+    "liquid_bar": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "$has_bg|default": false,
+        "$bar_bg_texture|default": "textures/ui/toggle_button/left_bg",
+        "$collection_index|default": 0,
+        "$show_liquid_outline|default": false,
+        "$liquid_outline_texture|default": "textures/ui/slots/input_1_slot",
+        "controls": [
+            {
+                "fill@uc.item_display_hover_large": {
+                    "collection_index": "$collection_index",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        12.1,
+                        16
+                    ]
+                }
+            },
+            {
+                "liquid_border": {
+                    "type": "image",
+                    "texture": "textures/ui/liquid_border",
+                    "size": [
+                        16,
+                        48
+                    ],
+                    "offset": [
+                        12.1,
+                        5
+                    ],
+                    "layer": 9
+                }
+            },
+            {
+                "liquid_io_outline": {
+                    "type": "image",
+                    "texture": "$liquid_outline_texture",
+                    "size": [
+                        18,
+                        50
+                    ],
+                    "offset": [
+                        12.1,
+                        5
+                    ],
+                    "layer": 10,
+                    "visible": "$show_liquid_outline"
+                }
+            },
+            {
+                "background@uc.bar_background": {
+                    "$bar_bg_texture": "$bar_bg_texture",
+                    "visible": "$has_bg"
+                }
+            }
+        ]
+    },
+    "liquid_input_1_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_1_slot"
+    },
+    "liquid_input_2_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_2_slot"
+    },
+    "liquid_input_3_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_3_slot"
+    },
+    "liquid_input_4_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_4_slot"
+    },
+    "liquid_input_5_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_5_slot"
+    },
+    "liquid_input_6_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_6_slot"
+    },
+    "liquid_input_7_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_7_slot"
+    },
+    "liquid_input_8_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_8_slot"
+    },
+    "liquid_input_9_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/input_9_slot"
+    },
+    "liquid_output_1_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_1_slot"
+    },
+    "liquid_output_2_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_2_slot"
+    },
+    "liquid_output_3_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_3_slot"
+    },
+    "liquid_output_4_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_4_slot"
+    },
+    "liquid_output_5_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_5_slot"
+    },
+    "liquid_output_6_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_6_slot"
+    },
+    "liquid_output_7_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_7_slot"
+    },
+    "liquid_output_8_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_8_slot"
+    },
+    "liquid_output_9_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/output_9_slot"
+    },
+    "liquid_fuel_bar@uc.liquid_bar": {
+        "$show_liquid_outline": true,
+        "$liquid_outline_texture": "textures/ui/slots/fuel_slot"
     },
     "big_fluid_bar": {
         "type": "collection_panel",
@@ -3147,31 +3316,6 @@
             }
         ]
     },
-    "io_state_outline_without": {
-        "type": "image",
-        "texture": "$io_outline_texture",
-        "size": [
-            18,
-            18
-        ],
-        "offset": "$io_button_offset",
-        "anchor_from": "top_middle",
-        "anchor_to": "top_middle",
-        "collection_index": "$io_button_index",
-        "layer": 3,
-        "bindings": [
-            {
-                "binding_name": "#hover_text",
-                "binding_type": "collection",
-                "binding_collection_name": "$item_collection_name"
-            },
-            {
-                "binding_type": "view",
-                "source_property_name": "((not ((#hover_text - $io_state_name) = #hover_text)) and ((#hover_text - $io_excluded_state_name) = #hover_text))",
-                "target_property_name": "#visible"
-            }
-        ]
-    },
     "io_face_outline": {
         "type": "collection_panel",
         "collection_name": "container_items",
@@ -3185,9 +3329,24 @@
         "$io_disabled_texture|default": "textures/ui/slots/none_slot",
         "$io_none_texture|default": "textures/ui/slots/none_slot",
         "$io_normal_texture|default": "textures/ui/slots/normal_slot",
-        "$io_input_texture|default": "textures/ui/slots/input_slot",
-        "$io_input_extra_texture|default": "textures/ui/slots/input_extra_slot",
-        "$io_output_texture|default": "textures/ui/slots/output_slot",
+        "$io_input_1_texture|default": "textures/ui/slots/input_1_slot",
+        "$io_input_2_texture|default": "textures/ui/slots/input_2_slot",
+        "$io_input_3_texture|default": "textures/ui/slots/input_3_slot",
+        "$io_input_4_texture|default": "textures/ui/slots/input_4_slot",
+        "$io_input_5_texture|default": "textures/ui/slots/input_5_slot",
+        "$io_input_6_texture|default": "textures/ui/slots/input_6_slot",
+        "$io_input_7_texture|default": "textures/ui/slots/input_7_slot",
+        "$io_input_8_texture|default": "textures/ui/slots/input_8_slot",
+        "$io_input_9_texture|default": "textures/ui/slots/input_9_slot",
+        "$io_output_1_texture|default": "textures/ui/slots/output_1_slot",
+        "$io_output_2_texture|default": "textures/ui/slots/output_2_slot",
+        "$io_output_3_texture|default": "textures/ui/slots/output_3_slot",
+        "$io_output_4_texture|default": "textures/ui/slots/output_4_slot",
+        "$io_output_5_texture|default": "textures/ui/slots/output_5_slot",
+        "$io_output_6_texture|default": "textures/ui/slots/output_6_slot",
+        "$io_output_7_texture|default": "textures/ui/slots/output_7_slot",
+        "$io_output_8_texture|default": "textures/ui/slots/output_8_slot",
+        "$io_output_9_texture|default": "textures/ui/slots/output_9_slot",
         "$io_both_texture|default": "textures/ui/slots/both_slot",
         "$io_upgrade_texture|default": "textures/ui/slots/upgrade_slot",
         "$io_fuel_texture|default": "textures/ui/slots/fuel_slot",
@@ -3233,31 +3392,165 @@
                 }
             },
             {
-                "input_outline@uc.io_state_outline_without": {
+                "input_1_outline@uc.io_state_outline": {
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_button_index",
                     "$io_button_offset": "$io_button_offset",
-                    "$io_state_name": "input",
-                    "$io_excluded_state_name": "input_extra",
-                    "$io_outline_texture": "$io_input_texture"
+                    "$io_state_name": "input_1",
+                    "$io_outline_texture": "$io_input_1_texture"
                 }
             },
             {
-                "input_extra_outline@uc.io_state_outline": {
+                "input_2_outline@uc.io_state_outline": {
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_button_index",
                     "$io_button_offset": "$io_button_offset",
-                    "$io_state_name": "input_extra",
-                    "$io_outline_texture": "$io_input_extra_texture"
+                    "$io_state_name": "input_2",
+                    "$io_outline_texture": "$io_input_2_texture"
                 }
             },
             {
-                "output_outline@uc.io_state_outline": {
+                "input_3_outline@uc.io_state_outline": {
                     "$item_collection_name": "$item_collection_name",
                     "$io_button_index": "$io_button_index",
                     "$io_button_offset": "$io_button_offset",
-                    "$io_state_name": "output",
-                    "$io_outline_texture": "$io_output_texture"
+                    "$io_state_name": "input_3",
+                    "$io_outline_texture": "$io_input_3_texture"
+                }
+            },
+            {
+                "input_4_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_4",
+                    "$io_outline_texture": "$io_input_4_texture"
+                }
+            },
+            {
+                "input_5_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_5",
+                    "$io_outline_texture": "$io_input_5_texture"
+                }
+            },
+            {
+                "input_6_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_6",
+                    "$io_outline_texture": "$io_input_6_texture"
+                }
+            },
+            {
+                "input_7_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_7",
+                    "$io_outline_texture": "$io_input_7_texture"
+                }
+            },
+            {
+                "input_8_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_8",
+                    "$io_outline_texture": "$io_input_8_texture"
+                }
+            },
+            {
+                "input_9_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "input_9",
+                    "$io_outline_texture": "$io_input_9_texture"
+                }
+            },
+            {
+                "output_1_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_1",
+                    "$io_outline_texture": "$io_output_1_texture"
+                }
+            },
+            {
+                "output_2_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_2",
+                    "$io_outline_texture": "$io_output_2_texture"
+                }
+            },
+            {
+                "output_3_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_3",
+                    "$io_outline_texture": "$io_output_3_texture"
+                }
+            },
+            {
+                "output_4_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_4",
+                    "$io_outline_texture": "$io_output_4_texture"
+                }
+            },
+            {
+                "output_5_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_5",
+                    "$io_outline_texture": "$io_output_5_texture"
+                }
+            },
+            {
+                "output_6_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_6",
+                    "$io_outline_texture": "$io_output_6_texture"
+                }
+            },
+            {
+                "output_7_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_7",
+                    "$io_outline_texture": "$io_output_7_texture"
+                }
+            },
+            {
+                "output_8_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_8",
+                    "$io_outline_texture": "$io_output_8_texture"
+                }
+            },
+            {
+                "output_9_outline@uc.io_state_outline": {
+                    "$item_collection_name": "$item_collection_name",
+                    "$io_button_index": "$io_button_index",
+                    "$io_button_offset": "$io_button_offset",
+                    "$io_state_name": "output_9",
+                    "$io_outline_texture": "$io_output_9_texture"
                 }
             },
             {
@@ -3498,8 +3791,8 @@
         "$io_config_tabs_name|default": "io_config_tabs",
         "$io_items_toggle_control_name|default": "io_items_toggle_button",
         "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
-        "$io_items_modes_description|default": "IO Modes:\n§r- §9Input\n§r- §bInput Extra\n§r- §cOutput",
-        "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Input\n§r- §cOutput",
+        "$io_items_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
+        "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
         "$io_item_top_index|default": 8,
         "$io_item_left_index|default": 9,
         "$io_item_front_index|default": 10,

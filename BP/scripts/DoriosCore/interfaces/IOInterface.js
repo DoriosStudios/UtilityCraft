@@ -101,10 +101,14 @@ function normalizeSlots(slots) {
  */
 function normalizeModes(modes) {
   const normalized = Array.isArray(modes)
-    ? modes.map((mode) => String(mode)).filter((mode) => mode.length > 0)
+    ? modes
+        .map((mode) => String(mode))
+        .map((mode) => (mode === "input" ? "input_1" : mode === "output" ? "output_1" : mode))
+        .filter((mode) => mode.length > 0)
     : [];
 
-  return normalized.includes(DEFAULT_IO_MODE) ? normalized : [DEFAULT_IO_MODE, ...normalized];
+  const uniqueModes = [...new Set(normalized)];
+  return uniqueModes.includes(DEFAULT_IO_MODE) ? uniqueModes : [DEFAULT_IO_MODE, ...uniqueModes];
 }
 
 /**

@@ -44,7 +44,7 @@
         }
       },
       {
-        "liquid_bar@uc.fluid_bar": {
+        "liquid_bar@uc.liquid_output_1_bar": {
           "$collection_index": 4,
           "$has_bg": false,
           "offset": [54, 0]
@@ -58,8 +58,8 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_items_modes_description": "IO Modes:\n§r- §9Input",
-          "$io_fluids_modes_description": "IO Modes:\n§r- §cOutput",
+          "$io_items_modes_description": "IO Modes:\n§r- §9Input 1",
+          "$io_fluids_modes_description": "IO Modes:\n§r- §cOutput 1",
           "$has_item_io": true,
           "$has_fluid_io": true,
           "$io_items_default": true,

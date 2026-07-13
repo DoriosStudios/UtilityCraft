@@ -44,7 +44,7 @@
         }
       },
       {
-        "item@uc.input_extra_slot": {
+        "item@uc.input_2_slot": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "offset": [-5, 45],
@@ -73,7 +73,7 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_items_modes_description": "IO Modes:\n§r- §9Input\n§r- §bInput Extra\n§r- §cOutput",
+          "$io_items_modes_description": "IO Modes:\n§r- §9Input 1\n§r- §bInput 2\n§r- §cOutput 1",
           "$io_top_texture": "textures/blocks/Machines/seed_synthesizer/off/up",
           "$io_left_texture": "textures/blocks/Machines/seed_synthesizer/off/west",
           "$io_front_texture": "textures/blocks/Machines/seed_synthesizer/off/north",

@@ -7,7 +7,7 @@ const CATALYSTSLOT = 4
 registerIOInterface("utilitycraft:infuser", {
     items: {
         slots: [8, 13],
-        modes: ["disabled", "input", "output", "input_extra"]
+        modes: ["disabled", "input", "output", "input_2"]
     }
 });
 
@@ -43,7 +43,7 @@ DoriosAPI.register.blockComponent('double_machine', {
         machine.processIO({
             items: {
                 input: [INPUTSLOT],
-                input_extra: [CATALYSTSLOT],
+                input_2: [CATALYSTSLOT],
                 output: [OUTPUTSLOT]
             }
         });

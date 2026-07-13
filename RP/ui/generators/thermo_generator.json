@@ -39,7 +39,7 @@
         }
       },
       {
-        "liquid_bar@uc.fluid_bar": {
+        "liquid_bar@uc.liquid_input_1_bar": {
           "$collection_index": 2,
           "offset": [0, 0]
         }

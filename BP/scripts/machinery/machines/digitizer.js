@@ -10,7 +10,7 @@ const OUTPUT_BLUEPRINT_ITEM = "utilitycraft:blueprint";
 registerIOInterface("utilitycraft:digitizer", {
     items: {
         slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_extra"]
+        modes: ["disabled", "input", "output", "input_2"]
     }
 });
 const MIN_Y_MAP = {
@@ -48,7 +48,7 @@ DoriosAPI.register.blockComponent("digitizer", {
         machine.processIO({
             items: {
                 input: [inputStart, inputEnd],
-                input_extra: [BLUEPRINT_SLOT],
+                input_2: [BLUEPRINT_SLOT],
                 output: [outputSlot]
             }
         });

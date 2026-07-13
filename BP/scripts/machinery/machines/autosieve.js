@@ -7,7 +7,7 @@ const MESHSLOT = 6
 registerIOInterface("utilitycraft:autosieve", {
     items: {
         slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_extra"]
+        modes: ["disabled", "input", "output", "input_2"]
     }
 });
 
@@ -42,7 +42,7 @@ DoriosAPI.register.blockComponent('autosieve', {
         machine.processIO({
             items: {
                 input: [INTPUTSLOT],
-                input_extra: [MESHSLOT],
+                input_2: [MESHSLOT],
                 output: settings.entity?.output_range ?? [7, 15]
             }
         });

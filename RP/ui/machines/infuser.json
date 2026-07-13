@@ -66,7 +66,7 @@
         }
       },
       {
-        "item@uc.input_extra_slot": {
+        "item@uc.input_2_slot": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "offset": [-4, 16],
@@ -96,7 +96,7 @@
           "$io_config_tabs_name": "$io_config_tabs_name",
           "$io_items_toggle_control_name": "$io_items_toggle_control_name",
           "$io_fluids_toggle_control_name": "$io_fluids_toggle_control_name",
-          "$io_items_modes_description": "IO Modes:\n§r- §9Input\n§r- §bInput Extra\n§r- §cOutput",
+          "$io_items_modes_description": "IO Modes:\n§r- §9Input 1\n§r- §bInput 2\n§r- §cOutput 1",
           "$io_top_texture": "textures/blocks/Machines/infuser/off/up",
           "$io_left_texture": "textures/blocks/Machines/infuser/off/west",
           "$io_front_texture": "textures/blocks/Machines/infuser/off/north",

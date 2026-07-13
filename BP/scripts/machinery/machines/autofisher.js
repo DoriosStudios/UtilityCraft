@@ -19,7 +19,7 @@ const DEFAULT_CHANCE = 1;
 registerIOInterface("utilitycraft:autofisher", {
     items: {
         slots: [16, 21],
-        modes: ["disabled", "output", "input_extra"]
+        modes: ["disabled", "output", "input_2"]
     }
 });
 
@@ -625,7 +625,7 @@ DoriosAPI.register.blockComponent('autofisher', {
         const inv = machine.container;
         machine.processIO({
             items: {
-                input_extra: [NET_SLOT],
+                input_2: [NET_SLOT],
                 output: settings.entity?.output_range ?? [7, 15]
             }
         });

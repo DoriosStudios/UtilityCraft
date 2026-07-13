@@ -32,6 +32,18 @@ function getIOCursorKey(entity, direction, mode) {
   return `${entity.id}:items:${direction}:${mode}`;
 }
 
+function getIOModeConfig(config, mode) {
+  if (!config || typeof config !== "object") return undefined;
+  if (config[mode] !== undefined) return config[mode];
+  if (mode === "input_1") return config.input;
+  if (mode === "output_1") return config.output;
+  return undefined;
+}
+
+function isOutputIOMode(mode) {
+  return mode === "output" || /^output_[1-9]$/.test(mode);
+}
+
 function getItemInsertTarget(target) {
   return target?.entity ?? target?.block ?? target?.container ?? undefined;
 }
@@ -274,16 +286,16 @@ export class BasicMachine {
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       if (!neighborLocation) continue;
 
-      if (mode === "output") {
+      if (isOutputIOMode(mode)) {
         if (maxOutputSlots <= 0) continue;
 
-        const slots = normalizeIOSlots(itemConfig.output);
+        const slots = normalizeIOSlots(getIOModeConfig(itemConfig, mode));
         const result = this.#pushOutputItems(neighborLocation, slots, maxOutputSlots);
         summary.itemsMoved += result.itemsMoved;
         continue;
       }
 
-      const inputSlots = normalizeIOSlots(itemConfig[mode]);
+      const inputSlots = normalizeIOSlots(getIOModeConfig(itemConfig, mode));
       if (inputSlots.length === 0 || maxInputScans <= 0) continue;
 
       const result = this.#pullInputItems(neighborLocation, inputSlots, direction, mode, maxInputScans);
@@ -383,13 +395,13 @@ export class BasicMachine {
       const mode = ioModes[direction];
       if (!mode || mode === "disabled") continue;
 
-      const storage = liquidConfig?.[mode] ?? liquidConfig?.storage ?? liquidConfig;
+      const storage = getIOModeConfig(liquidConfig, mode) ?? liquidConfig?.storage ?? liquidConfig;
       if (!storage?.transferTo && !storage?.receiveFrom) continue;
 
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       const remaining = maxFluid - summary.fluidMoved;
 
-      if (mode === "output") {
+      if (isOutputIOMode(mode)) {
         summary.fluidMoved += this.#pushOutputLiquid(storage, neighborLocation, remaining);
       } else {
         summary.fluidMoved += this.#pullInputLiquid(storage, neighborLocation, remaining);
