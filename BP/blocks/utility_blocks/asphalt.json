@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:asphalt",
@@ -20,10 +20,20 @@
 		},
 		"components": {
 			"minecraft:geometry": "geometry.utilitycraft_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_asphalt"
+				}
+			},
 			"utilitycraft:asphalt": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1.5
-			}
+			},
+			"minecraft:tags": [
+				"minecraft:is_pickaxe_item_destructible",
+				"minecraft:is_shovel_item_destructible",
+				"utilitycraft:is_aiot_item_destructible"
+			]
 		},
 		"permutations": [
 			{
