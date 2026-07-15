@@ -16,7 +16,6 @@ import { system } from "@minecraft/server";
  * @type {SolidFuel[]}
  */
 export const solidFuels = [
-    // Compressed Coal
     { id: "compressed_charcoal_block_4", de: 800000000 },
     { id: "compressed_coal_block_4", de: 800000000 },
     { id: "compressed_charcoal_block_3", de: 80000000 },
@@ -25,30 +24,20 @@ export const solidFuels = [
     { id: "compressed_coal_block_2", de: 8000000 },
     { id: "compressed_charcoal_block", de: 800000 },
     { id: "compressed_coal_block", de: 800000 },
-
-    // Compressed Wood
     { id: "utilitycraft:compressed_*_wood_4", de: 15000000 },
     { id: "utilitycraft:compressed_*_wood_3", de: 1500000 },
     { id: "utilitycraft:compressed_*_wood_2", de: 150000 },
     { id: "utilitycraft:compressed_*_wood", de: 15000 },
-
-    // Special Fuels
     { id: "bundle_of_blaze_rods", de: 108000 },
     { id: "lava_ball", de: 100000 },
-
-    // Base Blocks
     { id: "charcoal_block", de: 80000 },
     { id: "coal_block", de: 80000 },
     { id: "dried_kelp_block", de: 20000 },
-
-    // High-Value Items
     { id: "blaze_rod", de: 12000 },
     { id: "coal", de: 8000 },
     { id: "charcoal", de: 8000 },
     { id: "boat", de: 6000 },
     { id: "chest", de: 3000 },
-
-    // Wood & Derivatives
     { id: "plank", de: 1500 },
     { id: "stair", de: 1500 },
     { id: "fence", de: 1500 },
@@ -60,8 +49,6 @@ export const solidFuels = [
     { id: "wooden", de: 1000 },
     { id: "_door", de: 1000 },
     { id: "ladder", de: 750 },
-
-    // Low-Value Items
     { id: "stick", de: 500 },
     { id: "sapling", de: 500 },
     { id: "button", de: 500 },
