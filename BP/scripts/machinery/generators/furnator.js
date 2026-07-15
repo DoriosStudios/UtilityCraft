@@ -83,7 +83,16 @@ DoriosAPI.register.blockComponent('furnator', {
                     generator.displayEnergy()
                     return
                 }
-                const fuel = solidFuels.find(f => item?.typeId.includes(f.id));
+                const fuel = solidFuels.find(f => {
+                    // If the fuel ID contains a wildcard (*), treat it as a Regex pattern.
+                    if (f.id.includes('*')) {
+                        // Converts the pattern into a safe regular expression.
+                        const pattern = new RegExp(`^${f.id.replace(/\*/g, '.*')}$`);
+                        return pattern.test(item?.typeId);
+                    }
+                    // If there's no wildcard, uses the regular format.
+                    return item?.typeId.includes(f.id);
+                });
                 if (!fuel) {
                     generator.setLabel(`
 §r§eInvalid Fuel
