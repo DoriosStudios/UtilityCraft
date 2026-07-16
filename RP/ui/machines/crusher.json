@@ -78,7 +78,7 @@
           "$io_config_tabs_name": "$io_config_tabs_name",
           "$io_items_toggle_control_name": "$io_items_toggle_control_name",
           "$io_fluids_toggle_control_name": "$io_fluids_toggle_control_name",
-          "$io_items_modes_description": "IO Modes:\nÂ§r- Â§9Input\nÂ§r- Â§cOutput",
+          "$io_items_modes_description": "IO Modes:\n§r- §9Input\n§r- §cOutput",
           "$io_top_texture": "textures/blocks/Machines/crusher/off/up",
           "$io_left_texture": "textures/blocks/Machines/crusher/off/west",
           "$io_front_texture": "textures/blocks/Machines/crusher/off/north",

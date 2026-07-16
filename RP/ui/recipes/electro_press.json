@@ -1183,7 +1183,7 @@
                     "input@uc.electro_press_recipe_input": {
                       "$slot_hover_text": "item.utilitycraft:steel_ingot",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/items/steel_ingot"
+                      "$slot_item_texture": "textures/items/ores/steel_ingot"
                     }
                   },
                   {
