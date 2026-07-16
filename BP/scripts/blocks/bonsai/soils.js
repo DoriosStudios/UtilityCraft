@@ -58,7 +58,7 @@ const soilByTypeId = new Map([
         universal: true
     }],
     ["utilitycraft:black_soil", {
-        speedMultiplier: 2,
+        speedMultiplier: 6,
         yieldMultiplier: 4,
         tillable: false,
         universal: true
