@@ -1,4 +1,4 @@
-import { ItemStack, world } from "@minecraft/server"
+import { world } from "@minecraft/server"
 import {
     BONSAI_HEARTBEAT_TICKS,
     getBonsaiDefinitionByInput,
@@ -196,16 +196,6 @@ function scaleAmount(amount, multiplier) {
     return guaranteed + (Math.random() < scaled - guaranteed ? 1 : 0)
 }
 
-function dropFallbackStacks(entity, itemTypeId, amount) {
-    let remaining = amount
-    while (remaining > 0) {
-        const probe = new ItemStack(itemTypeId, 1)
-        const stackAmount = Math.min(remaining, probe.maxAmount)
-        entity.dimension.spawnItem(new ItemStack(itemTypeId, stackAmount), entity.location)
-        remaining -= stackAmount
-    }
-}
-
 export function produceBonsaiDrops(entity, block, definition, yieldMultiplier) {
     if (!entity || !block || !definition) return false
 
@@ -225,26 +215,14 @@ export function produceBonsaiDrops(entity, block, definition, yieldMultiplier) {
         )
         if (amount <= 0) continue
 
-        let remaining = amount
         try {
-            const inserted = DoriosAPI.containers.addItemAt(
+            DoriosAPI.containers.addItemAt(
                 dropLocation,
                 entity.dimension,
                 drop.item,
                 amount
             )
-
-            if (inserted === true) remaining = 0
-            else if (Number.isFinite(inserted)) {
-                remaining = Math.max(0, amount - Math.max(0, inserted))
-            }
         } catch { }
-
-        if (remaining > 0) {
-            try {
-                dropFallbackStacks(entity, drop.item, remaining)
-            } catch { }
-        }
     }
 
     return true
