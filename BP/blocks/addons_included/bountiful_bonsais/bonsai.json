@@ -6,7 +6,6 @@
 			"menu_category": {
 				"category": "construction"
 			},
-			//Here is where you add the new soils, if you add one here make sure to add in on the script
 			"states": {
 				"utilitycraft:soil": [
 					"empty",
@@ -70,12 +69,6 @@
 					14
 				]
 			},
-			"minecraft:tick": {
-				"interval_range": [
-					1000000,
-					1000000
-				]
-			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			},
@@ -91,12 +84,6 @@
 							"render_method": "opaque"
 						},
 						"tag:minecraft:is_pickaxe_item_destructible": {}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -108,12 +95,6 @@
 							"texture": "utilitycraft_bonsai_dirt",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1200,
-							1200
-						]
 					}
 				}
 			},
@@ -125,12 +106,6 @@
 							"texture": "utilitycraft_bonsai_sand",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1200,
-							1200
-						]
 					}
 				}
 			},
@@ -142,12 +117,6 @@
 							"texture": "utilitycraft_bonsai_redsand",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -159,12 +128,6 @@
 							"texture": "utilitycraft_bonsai_warped",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1200,
-							1200
-						]
 					}
 				}
 			},
@@ -176,12 +139,6 @@
 							"texture": "utilitycraft_bonsai_crimson",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1200,
-							1200
-						]
 					}
 				}
 			},
@@ -193,12 +150,6 @@
 							"texture": "utilitycraft_bonsai_soulsand",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1200,
-							1200
-						]
 					}
 				}
 			},
@@ -210,12 +161,6 @@
 							"texture": "utilitycraft_bonsai_endstone",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1200,
-							1200
-						]
 					}
 				}
 			},
@@ -227,12 +172,6 @@
 							"texture": "utilitycraft_bonsai_grass_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							800,
-							800
-						]
 					}
 				}
 			},
@@ -244,12 +183,6 @@
 							"texture": "utilitycraft_bonsai_dirt_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -261,12 +194,6 @@
 							"texture": "utilitycraft_bonsai_sand_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -278,12 +205,6 @@
 							"texture": "utilitycraft_bonsai_redsand_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							800,
-							800
-						]
 					}
 				}
 			},
@@ -295,12 +216,6 @@
 							"texture": "utilitycraft_bonsai_warped_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -312,12 +227,6 @@
 							"texture": "utilitycraft_bonsai_crimson_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -329,12 +238,6 @@
 							"texture": "utilitycraft_bonsai_soulsand_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -346,12 +249,6 @@
 							"texture": "utilitycraft_bonsai_endstone_farm",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							1000,
-							1000
-						]
 					}
 				}
 			},
@@ -363,12 +260,6 @@
 							"texture": "utilitycraft_bonsai_soil_1",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							900,
-							900
-						]
 					}
 				}
 			},
@@ -380,12 +271,6 @@
 							"texture": "utilitycraft_bonsai_soil_2",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							600,
-							600
-						]
 					}
 				}
 			},
@@ -397,12 +282,6 @@
 							"texture": "utilitycraft_bonsai_soil_3",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							600,
-							600
-						]
 					}
 				}
 			},
@@ -414,12 +293,6 @@
 							"texture": "utilitycraft_bonsai_soil_4",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [
-							200,
-							200
-						]
 					}
 				}
 			}

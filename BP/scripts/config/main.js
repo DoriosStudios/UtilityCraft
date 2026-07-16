@@ -31,3 +31,4 @@ import './recipes/press.js';
 import './recipes/sieve.js';
 import './recipes/fisher.js';
 import './recipes/plants.js';
+import './recipes/plantRegistry.js';

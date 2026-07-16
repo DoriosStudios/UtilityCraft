@@ -1,0 +1,32 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.utilitycraft_bonsai.grow_dynamic": {
+            "loop": false,
+            "animation_length": 1,
+            "anim_time_update": "query.anim_time + query.delta_time / query.property('utilitycraft:growth_duration')",
+            "bones": {
+                "tree": {
+                    "scale": {
+                        "0.0": {
+                            "post": [
+                                1,
+                                1,
+                                1
+                            ],
+                            "lerp_mode": "catmullrom"
+                        },
+                        "1.0": {
+                            "post": [
+                                7.5,
+                                7.5,
+                                7.5
+                            ],
+                            "lerp_mode": "catmullrom"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

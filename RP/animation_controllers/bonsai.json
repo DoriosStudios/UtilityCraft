@@ -39,6 +39,63 @@
                     ]
                 }
             }
+        },
+        "controller.animation.utilitycraft_bonsai_dynamic": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "decorative": "q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_a": "!q.property('dorios:is_slimed') && !q.property('utilitycraft:animation_reset')"
+                        },
+                        {
+                            "grow_b": "!q.property('dorios:is_slimed') && q.property('utilitycraft:animation_reset')"
+                        }
+                    ]
+                },
+                "grow_a": {
+                    "animations": [
+                        "grow_dynamic"
+                    ],
+                    "transitions": [
+                        {
+                            "decorative": "q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_b": "q.property('utilitycraft:animation_reset')"
+                        },
+                        {
+                            "default": "query.all_animations_finished"
+                        }
+                    ]
+                },
+                "grow_b": {
+                    "animations": [
+                        "grow_dynamic"
+                    ],
+                    "transitions": [
+                        {
+                            "decorative": "q.property('dorios:is_slimed')"
+                        },
+                        {
+                            "grow_a": "!q.property('utilitycraft:animation_reset')"
+                        },
+                        {
+                            "default": "query.all_animations_finished"
+                        }
+                    ]
+                },
+                "decorative": {
+                    "transitions": [
+                        {
+                            "default": "!q.property('dorios:is_slimed')"
+                        }
+                    ]
+                }
+            }
         }
     }
 }

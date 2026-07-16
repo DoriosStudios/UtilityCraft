@@ -7,7 +7,7 @@ import './machinery/main.js'
 
 // Blocks
 import './blocks/asphalt.js'
-import './blocks/bonsai.js'
+import './blocks/bonsai/bonsai.js'
 import './blocks/cobble_generators.js'
 import './blocks/crops.js'
 import './blocks/crucible.js'
