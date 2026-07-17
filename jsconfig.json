@@ -9,6 +9,9 @@
     "paths": {
       "DoriosCore": ["types/DoriosCore/index.d.ts"],
       "DoriosCore/index.js": ["types/DoriosCore/index.d.ts"],
+      "DoriosLib": ["BP/scripts/DoriosLib/index.js"],
+      "DoriosLib/index.js": ["BP/scripts/DoriosLib/index.js"],
+      "DoriosLib/*": ["BP/scripts/DoriosLib/*"],
       "@utilitycraft/core": ["BP/scripts/DoriosCore/index.js"],
       "@utilitycraft/core/*": ["BP/scripts/DoriosCore/*"],
       "@utilitycraft/api": ["BP/scripts/DoriosAPI/index.js"],
