@@ -1,7 +1,8 @@
+import * as DoriosLib from "DoriosLib/index.js";
 /**
  * Shared UtilityCraft text colors used by machine status labels.
  */
-export const MACHINE_TEXT_COLORS = DoriosAPI.constants.textColors;
+export const MACHINE_TEXT_COLORS = DoriosLib.text.FORMAT;
 
 /**
  * Placeholder item used to render text labels inside machine inventories.

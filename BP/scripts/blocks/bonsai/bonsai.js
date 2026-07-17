@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server"
 import {
   getBonsaiDefinitionByInput
@@ -61,8 +62,8 @@ function clearBonsaiPlant(block, location) {
     despawnBonsaiEntity(entity)
   }
 
-  block.setState("utilitycraft:hasBonsai", false)
-  block.setState("utilitycraft:isSlimed", false)
+  DoriosLib.block.setState(block, "utilitycraft:hasBonsai", false)
+  DoriosLib.block.setState(block, "utilitycraft:isSlimed", false)
 }
 
 function damageHoe(player, itemStack, location) {
@@ -84,7 +85,7 @@ function damageHoe(player, itemStack, location) {
   player.playSound("random.break")
 }
 
-DoriosAPI.register.blockComponent("bonsai", {
+DoriosLib.registry.blockComponent("utilitycraft:bonsai", {
   onPlayerInteract({ player, block }) {
     const location = getBonsaiItemLocation(block)
     const equippable = player.getComponent("equippable")
@@ -93,13 +94,13 @@ DoriosAPI.register.blockComponent("bonsai", {
     if (player.isSneaking && !heldItem) {
       clearBonsaiPlant(block, location)
 
-      const soilTypeId = block.getState("utilitycraft:soil")
+      const soilTypeId = DoriosLib.block.getState(block, "utilitycraft:soil")
       if (soilTypeId !== "empty") {
         dropBonsaiItem(block.dimension, soilTypeId, location)
-        block.setState("utilitycraft:soil", "empty")
+        DoriosLib.block.setState(block, "utilitycraft:soil", "empty")
       }
 
-      block.setState("utilitycraft:isFarm", false)
+      DoriosLib.block.setState(block, "utilitycraft:isFarm", false)
       return
     }
 
@@ -111,8 +112,8 @@ DoriosAPI.register.blockComponent("bonsai", {
       if (entity) {
         returnPlantedInput(block, entity, location)
         despawnBonsaiEntity(entity)
-        block.setState("utilitycraft:hasBonsai", false)
-        block.setState("utilitycraft:isSlimed", false)
+        DoriosLib.block.setState(block, "utilitycraft:hasBonsai", false)
+        DoriosLib.block.setState(block, "utilitycraft:isSlimed", false)
         player.playSound("mob.sheep.shear")
       }
       return
@@ -122,18 +123,18 @@ DoriosAPI.register.blockComponent("bonsai", {
       const entity = findBonsaiEntityAtBlock(block)
       if (!entity) return
 
-      const paused = !block.getState("utilitycraft:isSlimed")
-      block.setState("utilitycraft:isSlimed", paused)
+      const paused = !DoriosLib.block.getState(block, "utilitycraft:isSlimed")
+      DoriosLib.block.setState(block, "utilitycraft:isSlimed", paused)
       setBonsaiDecorativePaused(entity, block, paused)
       return
     }
 
     if (itemTypeId.includes("hoe") || itemTypeId.includes("aiot")) {
-      const soilTypeId = block.getState("utilitycraft:soil")
+      const soilTypeId = DoriosLib.block.getState(block, "utilitycraft:soil")
       const soil = getBonsaiSoil(soilTypeId)
-      if (!soil?.tillable || block.getState("utilitycraft:isFarm")) return
+      if (!soil?.tillable || DoriosLib.block.getState(block, "utilitycraft:isFarm")) return
 
-      block.setState("utilitycraft:isFarm", true)
+      DoriosLib.block.setState(block, "utilitycraft:isFarm", true)
       damageHoe(player, heldItem, location)
 
       const entity = findBonsaiEntityAtBlock(block)
@@ -143,9 +144,9 @@ DoriosAPI.register.blockComponent("bonsai", {
 
     const definition = getBonsaiDefinitionByInput(itemTypeId)
     if (definition) {
-      const soilTypeId = block.getState("utilitycraft:soil")
+      const soilTypeId = DoriosLib.block.getState(block, "utilitycraft:soil")
       if (
-        !block.getState("utilitycraft:hasBonsai") &&
+        !DoriosLib.block.getState(block, "utilitycraft:hasBonsai") &&
         canPlantOnSoil(definition, soilTypeId)
       ) {
         const entity = block.dimension.spawnEntity(definition.entityTypeId, location)
@@ -154,14 +155,14 @@ DoriosAPI.register.blockComponent("bonsai", {
           return
         }
 
-        block.setState("utilitycraft:hasBonsai", true)
+        DoriosLib.block.setState(block, "utilitycraft:hasBonsai", true)
         consumeHeldItem(player, heldItem)
       }
       return
     }
 
-    if (isBonsaiSoil(itemTypeId) && block.getState("utilitycraft:soil") === "empty") {
-      block.setState("utilitycraft:soil", itemTypeId)
+    if (isBonsaiSoil(itemTypeId) && DoriosLib.block.getState(block, "utilitycraft:soil") === "empty") {
+      DoriosLib.block.setState(block, "utilitycraft:soil", itemTypeId)
       consumeHeldItem(player, heldItem)
     }
   },
@@ -200,8 +201,8 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, sourceEntity }) => {
   else if (id === LEGACY_BONSAI_LOOT_EVENT) processLegacyBonsaiLoot(sourceEntity)
 })
 
-DoriosAPI.register.command({
-  name: "updatebonsais",
+DoriosLib.registry.customCommand({
+  name: "utilitycraft:updatebonsais",
   description: "Recalculates loaded UtilityCraft bonsais",
   permissionLevel: "admin",
   cheatsRequired: true,

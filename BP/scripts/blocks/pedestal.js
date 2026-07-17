@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { system, ItemStack } from "@minecraft/server";
 
 /**
@@ -123,7 +124,7 @@ function tryGrowCrop(block, baseChance, globalMultiplier) {
 /**
  * Pedestal block logic
  */
-DoriosAPI.register.blockComponent("pedestal", {
+DoriosLib.registry.blockComponent("utilitycraft:pedestal", {
     /**
      * Handles the ticking of the pedestal
      * @param {import("@minecraft/server").BlockComponentTickEvent} e

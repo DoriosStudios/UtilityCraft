@@ -1,6 +1,5 @@
-import './DoriosAPI/index.js'
 import './DoriosCore/index.js'
-import { container as DoriosContainer } from './DoriosLib/index.js'
+import * as DoriosLib from './DoriosLib/index.js'
 import './UIItemsCleanUp.js'
 
 import './config/main.js'
@@ -38,5 +37,6 @@ import './items/smelting.js'
 // Systems
 import './stack_refill.js'
 
-DoriosContainer.initialize()
+DoriosLib.registry.install()
+DoriosLib.container.initialize()
 

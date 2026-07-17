@@ -1,5 +1,6 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, EnergyStorage, registerIOInterface } from "DoriosCore/index.js"
-const COLORS = DoriosAPI.constants.textColors
+const COLORS = DoriosLib.text.FORMAT
 /**
  * Auto Assembler Machine Component
  * - Uses blueprints created by the Digitizer.
@@ -28,7 +29,7 @@ registerIOInterface("utilitycraft:assembler", {
     }
 });
 
-DoriosAPI.register.blockComponent('assembler', {
+DoriosLib.registry.blockComponent('utilitycraft:assembler', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -40,7 +41,7 @@ DoriosAPI.register.blockComponent('assembler', {
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
             // Visual filler slot (optional, same as autosieve)
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ");
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " });
         });
     },
 
@@ -141,14 +142,14 @@ DoriosAPI.register.blockComponent('assembler', {
             }
             // Add crafted items to output
             if (!outputSlot) {
-                machine.entity.setItem(OUTPUT_SLOT, resultItem, craftCount * resultAmount);
+                DoriosLib.entity.setNewItem(machine.entity, { slot: OUTPUT_SLOT, typeId: resultItem, amount: craftCount * resultAmount });
             } else {
-                machine.entity.changeItemAmount(OUTPUT_SLOT, craftCount * resultAmount);
+                DoriosLib.entity.changeItemAmount(machine.entity, { slot: OUTPUT_SLOT, amount: craftCount * resultAmount });
             }
 
             // Add leftover item if exists
             if (leftover !== false) {
-                machine.entity.tryAddItem(leftover, 1);
+                DoriosLib.entity.tryAddItem(machine.entity, { item: leftover, amount: 1 });
             }
 
             // Consume progress

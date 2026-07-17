@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { system, world } from "@minecraft/server";
 
 const POTION_SIGNATURE = Object.freeze({
@@ -253,7 +254,7 @@ const EFFECT_DURATION_TIER_HINTS = Object.freeze({
     luck: { normal: [6000], extended: [] }
 });
 
-DoriosAPI.register.itemComponent("potion", {
+DoriosLib.registry.itemComponent("utilitycraft:potion", {
     onUse({ source, itemStack }) {
         if (!source || source.typeId !== "minecraft:player") return;
 
@@ -262,7 +263,7 @@ DoriosAPI.register.itemComponent("potion", {
 
         target.triggerEvent("villager_converted");
 
-        if (source.isInCreative?.()) return;
+        if (DoriosLib.player.isCreative(source)) return;
 
         consumeOneFromSelectedSlot(source, itemStack?.typeId ?? "utilitycraft:antidote_potion");
     }
@@ -490,16 +491,7 @@ function resolveEffectLabel(effectKey) {
         return "No Effect";
     }
 
-    const formatIdToText = globalThis.DoriosAPI?.utils?.formatIdToText;
-    if (typeof formatIdToText === "function") {
-        return formatIdToText(effectKey);
-    }
-
-    return effectKey
-        .split("_")
-        .filter(Boolean)
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ") || "Unknown";
+    return DoriosLib.text.formatIdentifier(effectKey) || "Unknown";
 }
 
 function resolveTimeTier(parsedEffect, durationTicks) {
@@ -532,14 +524,7 @@ function resolveTimeLabel(parsedEffect, durationTicks) {
     if (duration <= 0) return "Unknown";
 
     const totalSeconds = Math.floor(duration / 20);
-    const formatTimeFull = globalThis.DoriosAPI?.utils?.formatTimeFull;
-    if (typeof formatTimeFull === "function") {
-        return formatTimeFull(totalSeconds);
-    }
-
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    return `${minutes}:${String(seconds).padStart(2, "0")}`;
+    return DoriosLib.time.formatClock(totalSeconds);
 }
 
 function resolveExtraDigit(typeId, rawEffectId, timeTier, potencyTier, typeDigit) {

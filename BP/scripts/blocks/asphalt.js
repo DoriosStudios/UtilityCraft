@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 /**
  * Maps item identifiers to their corresponding texture state for the asphalt block.
  * Safer as a hardcoded map.
@@ -12,7 +13,7 @@ const textureMap = {
     "minecraft:gravel": 6
 };
 
-DoriosAPI.register.blockComponent('asphalt', {
+DoriosLib.registry.blockComponent('utilitycraft:asphalt', {
     onPlayerInteract({ block, player }) {
         const mainHandItem = player.getComponent('equippable').getEquipment('Mainhand');
         if (!mainHandItem) return;

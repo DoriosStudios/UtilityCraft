@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
@@ -99,14 +100,14 @@ export class BasicMachine {
    * Changes the texture of the block to the on version.
    */
   on() {
-    this.block.setState("utilitycraft:on", true);
+    DoriosLib.block.setState(this.block, "utilitycraft:on", true);
   }
 
   /**
    * Changes the texture of the block to the off version.
    */
   off() {
-    this.block.setState("utilitycraft:on", false);
+    DoriosLib.block.setState(this.block, "utilitycraft:on", false);
   }
 
   /**

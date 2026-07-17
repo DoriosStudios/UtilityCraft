@@ -21,7 +21,7 @@ export function resolveItemContainerAt(dimension, location) {
     return undefined;
   }
 
-  // A real block inventory always wins, matching DoriosLib.resolveAt().
+  // A real block inventory always wins, matching the container resolver.
   const blockContainer = block ? DoriosContainer.resolve(block) : undefined;
   if (blockContainer) return blockContainer;
 

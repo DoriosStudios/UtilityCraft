@@ -2,7 +2,7 @@
 // UtilityCraft – Main Recipe Loader
 // ==================================================
 // Central file that imports all recipe definitions
-// and registers them into DoriosAPI.
+// and registers their components through the shared UtilityCraft registrar.
 //
 // Folder structure:
 //   config/

@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Generator, EnergyStorage, registerIOInterface } from "DoriosCore/index.js"
 import { solidFuels } from "../../config/recipes/fuel.js";
 
@@ -20,7 +21,7 @@ for (const blockTypeId of [
     });
 }
 
-DoriosAPI.register.blockComponent('furnator', {
+DoriosLib.registry.blockComponent('utilitycraft:furnator', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -29,7 +30,7 @@ DoriosAPI.register.blockComponent('furnator', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
-            entity.setItem(2, "utilitycraft:fuel_bar_0", 1, " ")
+            DoriosLib.entity.setNewItem(entity, { slot: 2, typeId: "utilitycraft:fuel_bar_0", amount: 1, nameTag: " " })
         });
     },
 
@@ -53,7 +54,7 @@ DoriosAPI.register.blockComponent('furnator', {
 
         // Update fuel bar (0–13)
         let fuelP = energyF > 0 ? Math.floor((energyR / energyF) * 13) : 0;
-        entity.setItem(2, `utilitycraft:fuel_bar_${fuelP}`);
+        DoriosLib.entity.setNewItem(entity, { slot: 2, typeId: `utilitycraft:fuel_bar_${fuelP}` });
 
 
         // If generator has space for energy
@@ -116,7 +117,7 @@ DoriosAPI.register.blockComponent('furnator', {
                 generator.on();
 
                 // Consume one fuel item
-                entity.changeItemAmount(3, -1);
+                DoriosLib.entity.changeItemAmount(entity, { slot: 3, amount: -1 });
                 // Store full fuel value for the cycle
                 entity.setDynamicProperty("utilitycraft:energyF", fuel.de);
             }
@@ -128,7 +129,7 @@ DoriosAPI.register.blockComponent('furnator', {
 §r§eEnergy Full
 
 §r§eFuel Information
- §eTime: §f${DoriosAPI.utils.formatTime((energyR / rate) / 10)}
+ §eTime: §f${DoriosLib.time.formatDuration((energyR / rate) / 10)}
  §eValue: §f${EnergyStorage.formatEnergyToText(energyF)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%
@@ -146,7 +147,7 @@ DoriosAPI.register.blockComponent('furnator', {
 §r§aRunning
 
 §r§eFuel Information
- §eTime: §f${DoriosAPI.utils.formatTime((energyR / rate) / 10)}
+ §eTime: §f${DoriosLib.time.formatDuration((energyR / rate) / 10)}
  §eValue: §f${EnergyStorage.formatEnergyToText(energyF)}
 
 §r§bEnergy at ${Math.floor(energy.getPercent())}%%

@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 
 const INPUTSLOT = 3
@@ -14,7 +15,7 @@ registerIOInterface("utilitycraft:block_placer", {
     }
 });
 
-DoriosAPI.register.blockComponent('block_placer', {
+DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -25,7 +26,7 @@ DoriosAPI.register.blockComponent('block_placer', {
         Machine.spawnEntity(e, settings, () => {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
-            machine.entity.setItem(2, 'utilitycraft:arrow_right_0', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 2, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
         });
     },
 
@@ -59,7 +60,7 @@ DoriosAPI.register.blockComponent('block_placer', {
         }
 
         if (progress >= energyCost) {
-            const facing = machine.block.getFacingBlock();
+            const facing = DoriosLib.block.getFacingBlock(machine.block);
             if (!facing) return;
 
             // Si no es aire => warning
@@ -79,7 +80,7 @@ DoriosAPI.register.blockComponent('block_placer', {
                 facing.setType(`${stack.typeId}`)
 
                 // Consumir 1 ítem si se colocó bien
-                machine.entity.changeItemAmount(INPUTSLOT, -1);
+                DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUTSLOT, amount: -1 });
 
                 // Resetear progreso
                 machine.setProgress(0, { display: false });

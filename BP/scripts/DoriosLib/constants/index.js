@@ -39,12 +39,19 @@ export const EQUIPMENT_SLOTS = Object.values(EquipmentSlot);
 
 /** Unit vectors for the six Minecraft block directions. */
 export const DIRECTION_VECTORS = {
-  north: { x: 0, y: 0, z: 1 },
-  south: { x: 0, y: 0, z: -1 },
+  north: { x: 0, y: 0, z: -1 },
+  south: { x: 0, y: 0, z: 1 },
   east: { x: 1, y: 0, z: 0 },
   west: { x: -1, y: 0, z: 0 },
   up: { x: 0, y: 1, z: 0 },
   down: { x: 0, y: -1, z: 0 },
+};
+
+/** Dimension identifiers and build-height bounds used by UtilityCraft logic. */
+export const DIMENSIONS = {
+  overworld: { id: "minecraft:overworld", minY: -64, maxY: 320 },
+  nether: { id: "minecraft:nether", minY: 0, maxY: 128 },
+  end: { id: "minecraft:the_end", minY: 0, maxY: 256 },
 };
 
 /**

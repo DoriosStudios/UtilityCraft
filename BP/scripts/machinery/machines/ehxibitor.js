@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 
 const DISPLAY_SLOT = 3
@@ -13,7 +14,7 @@ registerIOInterface("utilitycraft:ehxibitor", {
     }
 })
 
-DoriosAPI.register.blockComponent("ehxibitor", {
+DoriosLib.registry.blockComponent("utilitycraft:ehxibitor", {
     /**
      * Spawns the backing machine entity.
      *

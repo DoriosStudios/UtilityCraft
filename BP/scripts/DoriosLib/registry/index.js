@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 // @ts-check
 
 import {
@@ -14,6 +15,10 @@ export { COMMAND_PARAMETER_TYPES, PERMISSION_LEVELS };
 
 /** Alias kept for concise command-definition terminology. */
 export const PARAMETER_TYPES = COMMAND_PARAMETER_TYPES;
+
+/** @type {Map<string, Registrar>} */
+const sharedRegistrars = new Map();
+let sharedRegistryInstalled = false;
 
 /** @typedef {import("@minecraft/server").BlockCustomComponent} BlockCustomComponent */
 /** @typedef {import("@minecraft/server").ItemCustomComponent} ItemCustomComponent */
@@ -122,6 +127,82 @@ export function createRegistrar(options) {
   };
 
   return registrar;
+}
+
+/**
+ * Registers a block component in DoriosLib's shared registry.
+ * The identifier must include its namespace.
+ *
+ * @param {string} id
+ * @param {BlockCustomComponent} handlers
+ */
+export function blockComponent(id, handlers) {
+  assertSharedMutable();
+  const namespace = getIdentifierNamespace(id);
+  getSharedRegistrar(namespace).block(id, handlers);
+}
+
+/**
+ * Registers an item component in DoriosLib's shared registry.
+ * The identifier must include its namespace.
+ *
+ * @param {string} id
+ * @param {ItemCustomComponent} handlers
+ */
+export function itemComponent(id, handlers) {
+  assertSharedMutable();
+  const namespace = getIdentifierNamespace(id);
+  getSharedRegistrar(namespace).item(id, handlers);
+}
+
+/**
+ * Registers a custom command in DoriosLib's shared registry.
+ * The command name must include its namespace.
+ *
+ * @param {CommandDefinition} definition
+ */
+export function customCommand(definition) {
+  assertSharedMutable();
+  const namespace = getIdentifierNamespace(definition?.name);
+  getSharedRegistrar(namespace).command(definition);
+}
+
+/**
+ * Installs every namespace collected by the shared registry.
+ * Call once after all feature modules have been evaluated.
+ *
+ * @returns {boolean} Whether the registry was installed now.
+ */
+export function install() {
+  if (sharedRegistryInstalled) return false;
+  sharedRegistryInstalled = true;
+  for (const registrar of sharedRegistrars.values()) registrar.install();
+  return true;
+}
+
+/** @param {string} namespace */
+function getSharedRegistrar(namespace) {
+  let registrar = sharedRegistrars.get(namespace);
+  if (!registrar) {
+    registrar = createRegistrar(namespace);
+    sharedRegistrars.set(namespace, registrar);
+  }
+  return registrar;
+}
+
+/** @param {string} id */
+function getIdentifierNamespace(id) {
+  const separator = typeof id === "string" ? id.indexOf(":") : -1;
+  if (separator <= 0 || separator === id.length - 1) {
+    throw new TypeError(`A fully qualified identifier is required: ${id}`);
+  }
+  return validateNamespace(id.slice(0, separator));
+}
+
+function assertSharedMutable() {
+  if (sharedRegistryInstalled) {
+    throw new Error("Cannot add definitions after DoriosLib.registry.install()");
+  }
 }
 
 /**

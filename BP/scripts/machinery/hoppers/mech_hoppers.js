@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
@@ -56,7 +57,7 @@ function findChestMinecartForHopper(dimension, blockLocation, pullFromAbove) {
 }
 
 function getMoveCount(block) {
-  const speed = Math.max(0, Math.min(4, Math.floor(Number(block.getState("utilitycraft:speed") ?? 0))));
+  const speed = Math.max(0, Math.min(4, Math.floor(Number(DoriosLib.block.getState(block, "utilitycraft:speed") ?? 0))));
   return speed + 1;
 }
 
@@ -228,7 +229,7 @@ function dropFromHopper(source, dimension, dir, blockLocation, entity, hasFilter
   return moved;
 }
 
-DoriosAPI.register.blockComponent("mechanic_hopper", {
+DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
   onTick({ block, dimension }, { params }) {
     if (!worldLoaded) return;
     if (!block.isValid || block.isAir) return;
@@ -242,14 +243,14 @@ DoriosAPI.register.blockComponent("mechanic_hopper", {
     const isDropper = params.type === "dropper";
 
     /** @type {Entity} */
-    const entity = block.getEntity();
+    const entity = DoriosLib.block.getEntity(block);
     if (!entity) return;
     if (entity.getDynamicProperty("isOff")) return;
 
     const hopperContainer = DoriosContainer.resolve(entity);
     if (!hopperContainer) return;
 
-    const hasFilter = block.getState("utilitycraft:filter") == 1;
+    const hasFilter = DoriosLib.block.getState(block, "utilitycraft:filter") == 1;
     const whiteList = entity.getDynamicProperty("utilitycraft:whitelistOn");
     const minecartPullEnabled = isMinecartPullEnabled(entity);
     const moveCount = getMoveCount(block);
@@ -403,7 +404,7 @@ function openMenu(block, player) {
 
   if (acceptedItems) {
     for (let item of acceptedItems) {
-      menu.button(`${DoriosAPI.utils.formatIdToText(item)}`);
+      menu.button(`${DoriosLib.text.formatIdentifier(item)}`);
     }
   }
 
@@ -446,7 +447,7 @@ function openEnderHopperMenu(block, player) {
 
   const equipment = player.getComponent("equippable");
   const mainHand = equipment.getEquipment("Mainhand");
-  const range = block.getState("utilitycraft:range") ?? 0;
+  const range = DoriosLib.block.getState(block, "utilitycraft:range") ?? 0;
 
   // Read stored dynamic properties
   const isOff = hopperEntity.getDynamicProperty("isOff") ?? false;

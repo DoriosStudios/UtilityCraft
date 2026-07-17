@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 /**
 * Runs a cubic drill operation, skipping unbreakable, air, and liquid blocks.
 *
@@ -19,8 +20,8 @@ function runCubicDrill(location, size, dimension) {
     const minZ = z - radius
     const maxZ = z + radius
 
-    const unbreakables = Array.isArray(DoriosAPI?.constants?.unbreakableBlocks)
-        ? DoriosAPI.constants.unbreakableBlocks
+    const unbreakables = Array.isArray(DoriosLib.constants.UNBREAKABLE_BLOCKS)
+        ? DoriosLib.constants.UNBREAKABLE_BLOCKS
         : []
 
     for (let dx = minX; dx <= maxX; dx++) {
@@ -42,7 +43,7 @@ function runCubicDrill(location, size, dimension) {
     }
 }
 
-DoriosAPI.register.itemComponent("drill", {
+DoriosLib.registry.itemComponent("utilitycraft:drill", {
     /**
      * Custom drill behavior when mining a block.
      */

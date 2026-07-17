@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui"
 
 /**
@@ -5,7 +6,7 @@ import { ModalFormData } from "@minecraft/server-ui"
  * - Pulls nearby XP orbs into its position.
  * - Allows players to configure radius and on/off state via UI.
  */
-DoriosAPI.register.blockComponent("xp_magnet", {
+DoriosLib.registry.blockComponent("utilitycraft:xp_magnet", {
     onTick(e) {
         const { block } = e
         const { x, y, z } = block.location

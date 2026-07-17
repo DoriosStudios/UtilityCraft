@@ -1,37 +1,67 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack } from '@minecraft/server'
 
-DoriosAPI.register.blockComponent("upgradeable", {
+/**
+ * Builds a localized action-bar message whose first substitution is the
+ * localized short name of an upgrade.
+ *
+ * @param {string} messageKey
+ * @param {string} upgradeTypeId
+ * @param {(string|number)[]} [values]
+ * @returns {import('@minecraft/server').RawMessage}
+ */
+function upgradeMessage(messageKey, upgradeTypeId, values = []) {
+    return {
+        translate: messageKey,
+        with: {
+            rawtext: [
+                { translate: `upgrade.${upgradeTypeId}.name` },
+                ...values.map(value => ({ text: `${value}` }))
+            ]
+        }
+    }
+}
+
+DoriosLib.registry.blockComponent("utilitycraft:upgradeable", {
     onPlayerInteract({ player, block }) {
         /** @type {import('@minecraft/server').ItemStack} */
-        const mainHand = player.getEquipment("Mainhand")
+        const mainHand = DoriosLib.entity.getEquipment(player, "Mainhand")
         if (!mainHand || !mainHand?.typeId.endsWith("_upgrade")) return
 
         const upgradeKey = mainHand.typeId.replace("_upgrade", "");
 
         const current = block.permutation.getState(upgradeKey);
         if (current === undefined) {
-            player.onScreenDisplay.setActionBar(`§cBlock does not support upgrade ${DoriosAPI.utils.formatIdToText(upgradeKey)}`);
+            player.onScreenDisplay.setActionBar(
+                upgradeMessage("message.utilitycraft.upgrade.unsupported", mainHand.typeId)
+            );
             return;
         }
 
         const max = getMaxState(block, upgradeKey);
 
         if (current >= max) {
-            player.onScreenDisplay.setActionBar(`§c${upgradeKey} is already at max (${max})`)
+            player.onScreenDisplay.setActionBar(
+                upgradeMessage("message.utilitycraft.upgrade.max", mainHand.typeId, [max])
+            )
             return;
         }
 
         const nextLevel = current + 1;
         const nextPermutation = tryCreateStatePermutation(block.permutation, upgradeKey, nextLevel);
         if (!nextPermutation) {
-            player.onScreenDisplay.setActionBar(`§cCould not apply ${DoriosAPI.utils.formatIdToText(upgradeKey)} upgrade`);
+            player.onScreenDisplay.setActionBar(
+                upgradeMessage("message.utilitycraft.upgrade.failed", mainHand.typeId)
+            );
             return;
         }
 
         block.setPermutation(nextPermutation);
         player.runCommand(`clear @s ${mainHand.typeId} 0 1`);
 
-        player.onScreenDisplay.setActionBar(`§aApplied ${upgradeKey} upgrade (${nextLevel}/${max})`);
+        player.onScreenDisplay.setActionBar(
+            upgradeMessage("message.utilitycraft.upgrade.applied", mainHand.typeId, [nextLevel, max])
+        );
     },
     /**
      * Drop upgrade items when the block is broken

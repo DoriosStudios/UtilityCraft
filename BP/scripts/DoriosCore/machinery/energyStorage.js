@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world, ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { loadObjectives } from "../utils/scoreboards.js";
@@ -628,7 +629,7 @@ export class EnergyStorage {
         .filter((tag) => tag.startsWith("pos:[") || tag.startsWith("net:["))
         .map(parseNetworkTag)
         .filter(Boolean)
-        .sort((a, b) => DoriosAPI.math.distanceBetween(pos, a) - DoriosAPI.math.distanceBetween(pos, b));
+        .sort((a, b) => DoriosLib.math.distance(pos, a) - DoriosLib.math.distance(pos, b));
 
       this.entity.setDynamicProperty(ENERGY_NETWORK_NODES_PROPERTY_ID, JSON.stringify(positions));
       this.entity.removeTag("updateNetwork");

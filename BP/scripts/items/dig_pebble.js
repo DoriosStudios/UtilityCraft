@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack } from "@minecraft/server";
 
 const DEFAULT_DIG_DROPS = [
@@ -44,7 +45,7 @@ function normalizeBlocks(blocks) {
     return valid.length > 0 ? valid : DEFAULT_DIG_BLOCKS;
 }
 
-DoriosAPI.register.itemComponent("dig_pebble", {
+DoriosLib.registry.itemComponent("utilitycraft:dig_pebble", {
     onUseOn({ block, source, itemStack }, { params }) {
         if (!block || !source) return;
 
@@ -66,22 +67,23 @@ DoriosAPI.register.itemComponent("dig_pebble", {
         for (const drop of drops) {
             if (Math.random() * 100 > drop.prob) continue;
 
-            const amount = DoriosAPI.math.randomInterval(drop.min, drop.max);
+            const amount = DoriosLib.math.randomInt(drop.min, drop.max);
             if (amount <= 0) continue;
             block.dimension.spawnItem(new ItemStack(drop.drop, amount), location);
         }
 
-        if (source.isInCreative() || !itemStack) return;
+        if (DoriosLib.player.isCreative(source) || !itemStack) return;
 
         const durabilityCost = Math.max(0, Math.floor(Number(params?.durabilityCost ?? 1)));
         if (durabilityCost <= 0) return;
 
         const durabilityChance = normalizeChance(params?.durabilityChance ?? 1, 1);
 
-        if (itemStack.durability?.damage?.(durabilityCost, durabilityChance)) {
-            source.setEquipment("Mainhand", itemStack)
+        const result = DoriosLib.item.durability.damage(itemStack, durabilityCost, durabilityChance);
+        if (!result.broken) {
+            DoriosLib.entity.setEquipment(source, { slot: "Mainhand", item: itemStack })
         } else {
-            source.setEquipment("Mainhand",)
+            DoriosLib.entity.setEquipment(source, { slot: "Mainhand", item: undefined })
             source.playSound('random.break')
         }
     }

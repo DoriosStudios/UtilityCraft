@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system } from "@minecraft/server";
 import { Generator } from "../machinery/generator.js";
 import { EnergyStorage } from "../machinery/energyStorage.js";
@@ -104,7 +105,7 @@ export class MultiblockGenerator extends Generator {
     } = handlers;
     const { block, player } = e;
     const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
-    const mainHandTypeId = player.getEquipment("Mainhand")?.typeId ?? "";
+    const mainHandTypeId = DoriosLib.entity.getEquipment(player, "Mainhand")?.typeId ?? "";
     const isUsingWrench = mainHandTypeId.includes("wrench");
 
     if (!isUsingWrench) {

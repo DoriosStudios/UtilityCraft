@@ -51,6 +51,7 @@
           "$has_fluid_io": true,
           "$io_items_default": false,
           "$io_fluids_default": true,
+          "$io_default_tab_index": 1,
           "$io_top_texture": "textures/blocks/generators/magmator/basic/off/up",
           "$io_left_texture": "textures/blocks/generators/magmator/basic/off/west",
           "$io_front_texture": "textures/blocks/generators/magmator/basic/off/north",

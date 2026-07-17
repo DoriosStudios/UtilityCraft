@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js";
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from "@minecraft/server";
@@ -25,12 +26,12 @@ registerIOInterface("utilitycraft:digitizer", {
     }
 });
 const MIN_Y_MAP = {
-    "minecraft:overworld": DoriosAPI.constants.dimensions.overworld.minY,
-    "minecraft:nether": DoriosAPI.constants.dimensions.nether.minY,
-    "minecraft:the_end": DoriosAPI.constants.dimensions.end.minY,
+    "minecraft:overworld": DoriosLib.constants.DIMENSIONS.overworld.minY,
+    "minecraft:nether": DoriosLib.constants.DIMENSIONS.nether.minY,
+    "minecraft:the_end": DoriosLib.constants.DIMENSIONS.end.minY,
 };
 
-DoriosAPI.register.blockComponent("digitizer", {
+DoriosLib.registry.blockComponent("utilitycraft:digitizer", {
     /**
      * @param {{ params: MachineSettings }} ctx
      */
@@ -39,7 +40,7 @@ DoriosAPI.register.blockComponent("digitizer", {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true }, true);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
-            machine.entity.setItem(1, "utilitycraft:arrow_right_0", 1, "");
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: "utilitycraft:arrow_right_0", amount: 1, nameTag: "" });
             machine.entity.setDynamicProperty("crafting", false);
         });
     },

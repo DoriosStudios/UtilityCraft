@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
@@ -34,7 +35,7 @@ const acceptedSoils = {
 };
 
 
-DoriosAPI.register.blockComponent('seed_synthesizer', {
+DoriosLib.registry.blockComponent('utilitycraft:seed_synthesizer', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -46,7 +47,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
         });
     },
 
@@ -140,17 +141,17 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             recipe.drops.forEach(loot => {
                 if (Math.random() <= loot.chance) {
                     let qty = Array.isArray(loot.amount)
-                        ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
+                        ? DoriosLib.math.randomInt(loot.amount[0], loot.amount[1])
                         : loot.amount;
 
 
                     // if (!loot.item.endsWith('_seeds')) qty *= soil.multi;
 
                     try {
-                        machine.entity.tryAddItem(
-                            loot.item,
-                            processCount * Math.ceil(Math.random() * qty)
-                        );
+                        DoriosLib.entity.tryAddItem(machine.entity, {
+                            item: loot.item,
+                            amount: processCount * Math.ceil(Math.random() * qty),
+                        });
                     } catch { }
                 }
             });

@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 /**
 * Dimension Y-limits for elevator scanning.
 * @type {Record<string, { ymin: number, ymax: number }>}}
@@ -85,7 +86,7 @@ function tryTeleportToMatchingElevator({ block, player, startY, endY, step, soun
     }
 }
 
-DoriosAPI.register.blockComponent("elevator", {
+DoriosLib.registry.blockComponent("utilitycraft:elevator", {
     onStepOff(e) {
         const { block } = e;
         const dim = block.dimension;

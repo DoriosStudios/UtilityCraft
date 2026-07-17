@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
 import { world, system } from "@minecraft/server";
 
@@ -15,13 +16,13 @@ import { world, system } from "@minecraft/server";
  * - Accepts range and (upcoming) damage upgrades
  * - Allows players to configure radius, damage and on/off state via UI.
  */
-DoriosAPI.register.blockComponent("mob_grinder", {
+DoriosLib.registry.blockComponent("utilitycraft:mob_grinder", {
     onTick({ block: grinder, dimension }) {
         const { x, y, z } = grinder.location;
         const id = `mob_grinder_${x}_${y}_${z}`;
 
         // isOn pode vir como boolean ou string "true"
-        const isOnState = grinder.getState('utilitycraft:isOn');
+        const isOnState = DoriosLib.block.getState(grinder, 'utilitycraft:isOn');
         const isOn = isOnState === true || isOnState === "true";
         if (!isOn) return
 
@@ -65,7 +66,7 @@ DoriosAPI.register.blockComponent("mob_grinder", {
 
         // Only open menu if empty-handed and not sneaking
         if (!hand) {
-            let isOn = block.getState('utilitycraft:isOn')
+            let isOn = DoriosLib.block.getState(block, 'utilitycraft:isOn')
 
             // teto (upgrades)
             let rangeUpgrade = Number(block.permutation.getState("utilitycraft:range"));
@@ -102,7 +103,7 @@ DoriosAPI.register.blockComponent("mob_grinder", {
                     const [newOn, newRangeSelected, newDamageSelected] = formData.formValues;
 
                     // salva apenas os valores selecionados — não sobrescreve os tetos (upgrades)
-                    block.setState('utilitycraft:isOn', newOn)
+                    DoriosLib.block.setState(block, 'utilitycraft:isOn', newOn)
                     world.setDynamicProperty(`${id}_rangeSelected`, newRangeSelected);
                     world.setDynamicProperty(`${id}_damageSelected`, newDamageSelected);
                 }

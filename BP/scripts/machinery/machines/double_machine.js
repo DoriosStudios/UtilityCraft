@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
@@ -19,7 +20,7 @@ registerIOInterface("utilitycraft:infuser", {
     }
 });
 
-DoriosAPI.register.blockComponent('double_machine', {
+DoriosLib.registry.blockComponent('utilitycraft:double_machine', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -31,7 +32,7 @@ DoriosAPI.register.blockComponent('double_machine', {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_indicator_90', amount: 1, nameTag: " " })
         });
     },
 
@@ -144,16 +145,16 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (processCount > 0) {
             // Add the processed items to the output
             if (!outputSlot) {
-                machine.entity.setItem(OUTPUT_SLOT, recipe.output, processCount * recipeAmount);
+                DoriosLib.entity.setNewItem(machine.entity, { slot: OUTPUT_SLOT, typeId: recipe.output, amount: processCount * recipeAmount });
             } else {
-                machine.entity.changeItemAmount(OUTPUT_SLOT, processCount * recipeAmount);
+                DoriosLib.entity.changeItemAmount(machine.entity, { slot: OUTPUT_SLOT, amount: processCount * recipeAmount });
             }
 
             // Deduct progress and input items while preserving leftover progress.
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INPUT_SLOT, -processCount * requiredInput);
-            machine.entity.changeItemAmount(CATALYST_SLOT, -processCount * requiredCatalyst);
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUT_SLOT, amount: -processCount * requiredInput });
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: CATALYST_SLOT, amount: -processCount * requiredCatalyst });
         }
 
         // Update machine visuals and state

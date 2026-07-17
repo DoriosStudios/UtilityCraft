@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system } from "@minecraft/server";
 import { crusherRecipes } from "../config/recipes/crusher.js";
 
@@ -58,7 +59,7 @@ function hasRequiredTier(hammerTier, recipeTier) {
     return hammerTier >= requiredTier;
 }
 
-DoriosAPI.register.itemComponent("hammer", {
+DoriosLib.registry.itemComponent("utilitycraft:hammer", {
     onMineBlock({ block, minedBlockPermutation }, { params }) {
         if (!block) return;
 

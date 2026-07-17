@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 
 const INPUTSLOT = 3
@@ -13,7 +14,7 @@ registerIOInterface("utilitycraft:induction_anvil", {
     }
 })
 
-DoriosAPI.register.blockComponent('induction_anvil', {
+DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -24,7 +25,7 @@ DoriosAPI.register.blockComponent('induction_anvil', {
         Machine.spawnEntity(e, settings, () => {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
-            machine.entity.setItem(2, 'utilitycraft:arrow_right_0', 1, " ");
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 2, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " });
         });
     },
 
@@ -49,15 +50,15 @@ DoriosAPI.register.blockComponent('induction_anvil', {
         }
 
         // Must be a durable item
-        let durability = stack.durability
+        const durability = DoriosLib.item.durability.getInfo(stack)
 
         if (!durability) {
             machine.showWarning("Invalid Item", { displayProgress: false });
             return;
         }
 
-        const remaining = durability.getRemaining();     // you already noticed: 0 = almost broken
-        const max = durability.getMax();            // full health is remaining == max
+        const remaining = durability.remaining;     // 0 = almost broken
+        const max = durability.max;                  // full health is remaining == max
 
         // Fully repaired
         if (remaining >= max) {
@@ -91,7 +92,7 @@ DoriosAPI.register.blockComponent('induction_anvil', {
         const energyToConsume = repairAmount * ENERGY_PER_DURABILITY;
 
         try {
-            durability.repair(repairAmount);
+            DoriosLib.item.durability.repair(stack, repairAmount);
             inv.setItem(INPUTSLOT, stack);
             machine.energy.consume(energyToConsume);
         } catch {

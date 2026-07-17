@@ -141,6 +141,57 @@ export function setNewItem(entity, options) {
 }
 
 /**
+ * Adds an item to an entity inventory and optionally drops any remainder.
+ *
+ * @param {Entity} entity
+ * @param {{item: string|ItemStack, amount?: number, dropRemainder?: boolean}} options
+ * @returns {{added: number, remainder: ItemStack|undefined, dropped: boolean}}
+ */
+export function tryAddItem(entity, options) {
+  const stack = typeof options.item === "string"
+    ? createItem({ typeId: options.item, amount: options.amount })
+    : options.item.clone();
+  const container = getInventory(entity);
+  if (!container) return { added: 0, remainder: stack, dropped: false };
+
+  const remainder = container.addItem(stack);
+  const added = stack.amount - (remainder?.amount ?? 0);
+  if (remainder && options.dropRemainder) {
+    entity.dimension.spawnItem(remainder, entity.location);
+    return { added, remainder: undefined, dropped: true };
+  }
+
+  return { added, remainder, dropped: false };
+}
+
+/**
+ * Changes the amount stored in one occupied inventory slot.
+ *
+ * @param {Entity} entity
+ * @param {{slot: number, amount: number}} options
+ * @returns {boolean}
+ */
+export function changeItemAmount(entity, options) {
+  const container = getInventory(entity);
+  const item = container?.getItem(options.slot);
+  if (!container || !item || !Number.isInteger(options.amount)) return false;
+
+  const nextAmount = item.amount + options.amount;
+  if (nextAmount < 0 || nextAmount > item.maxAmount) return false;
+
+  try {
+    if (nextAmount === 0) container.setItem(options.slot, undefined);
+    else {
+      item.amount = nextAmount;
+      container.setItem(options.slot, item);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Finds the first matching item.
  *
  * String searches match by type identifier. ItemStack searches use native
@@ -279,6 +330,26 @@ export function findFirstEmptySlot(entity) {
 }
 
 /**
+ * Places an item in the first empty inventory slot.
+ *
+ * @param {Entity} entity
+ * @param {ItemStack} item
+ * @returns {number|undefined} Used slot, or undefined when none is available.
+ */
+export function setInFirstEmptySlot(entity, item) {
+  const container = getInventory(entity);
+  const slot = container?.firstEmptySlot();
+  if (!container || slot === undefined) return undefined;
+
+  try {
+    container.setItem(slot, item);
+    return slot;
+  } catch {
+    return undefined;
+  }
+}
+
+/**
  * Checks whether an inventory has no empty slots.
  *
  * @param {Entity} entity
@@ -323,7 +394,8 @@ export function setHealth(entity, value) {
   if (!health || !Number.isFinite(value)) return false;
 
   try {
-    return health.setCurrentValue(Math.max(health.effectiveMin, Math.min(health.effectiveMax, value)));
+    health.setCurrentValue(Math.max(health.effectiveMin, Math.min(health.effectiveMax, value)));
+    return true;
   } catch {
     return false;
   }

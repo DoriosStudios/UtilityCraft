@@ -40,7 +40,8 @@
           "$collection_index_6": 11,
           "$collection_index_7": 12,
           "$collection_index_8": 13,
-          "$collection_index_9": 14
+          "$collection_index_9": 14,
+          "$slot_outline_texture": "textures/ui/slots/input_slot"
         }
       },
       {

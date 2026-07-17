@@ -1,7 +1,8 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { system, ItemStack, world } from "@minecraft/server";
 import { FluidStorage } from "DoriosCore/index.js"
 
-DoriosAPI.register.blockComponent("xp", {
+DoriosLib.registry.blockComponent("utilitycraft:xp", {
     onPlayerInteract({ block }) {
         if (block.typeId !== "utilitycraft:xp_spout") return;
         const isOpen = block.permutation.getState("utilitycraft:isOpen");
@@ -50,7 +51,7 @@ DoriosAPI.register.blockComponent("xp", {
             // Insertar en tanque
             const inserted = tank.tryInsert("xp", xpToDrain);
             if (inserted) {
-                tankEntity.setHealth(tank.get());
+                DoriosLib.entity.setHealth(tankEntity, tank.get());
             }
         }
 
@@ -95,7 +96,7 @@ DoriosAPI.register.blockComponent("xp", {
 
             // Drenar líquido del tanque
             tank.consume(drainAmount);
-            tankEntity.setHealth(tank.get());
+            DoriosLib.entity.setHealth(tankEntity, tank.get());
 
             // Generar orbes según la cantidad drenada
             for (let i = 0; i < drainAmount; i++) {

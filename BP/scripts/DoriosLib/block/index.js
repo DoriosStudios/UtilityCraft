@@ -69,7 +69,21 @@ export function setStates(block, states) {
  * @returns {Vector3|undefined}
  */
 export function getFacingVector(block, stateId = "minecraft:facing_direction") {
-  const direction = getState(block, stateId);
+  let direction = getState(block, stateId);
+  if (direction === undefined && stateId === "minecraft:facing_direction") {
+    const axis = getState(block, "utilitycraft:axis");
+    const opposite = {
+      up: "down",
+      down: "up",
+      north: "south",
+      south: "north",
+      east: "west",
+      west: "east",
+    };
+    direction = typeof axis === "string"
+      ? opposite[/** @type {keyof typeof opposite} */ (axis)]
+      : undefined;
+  }
   if (typeof direction !== "string") return undefined;
   return DIRECTION_VECTORS[/** @type {keyof typeof DIRECTION_VECTORS} */ (direction)];
 }

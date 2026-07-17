@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import * as MachineryConstants from "./machinery/constants.js";
@@ -95,7 +96,7 @@ export const scriptEventHandler = {
 
             // Fluid lore
             if (fluid.type !== MachineryConstants.EMPTY_FLUID_TYPE && fluid.get() > 0) {
-                const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
+                const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
                 lore.push(
                     `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`,
                 );

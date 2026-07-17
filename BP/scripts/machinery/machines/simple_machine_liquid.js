@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 import { melterRecipes } from "../../config/recipes/melter.js";
 
@@ -24,7 +25,7 @@ registerIOInterface("utilitycraft:magmatic_chamber", {
     }
 });
 
-DoriosAPI.register.blockComponent('simple_machine_liquid', {
+DoriosLib.registry.blockComponent('utilitycraft:simple_machine_liquid', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -37,7 +38,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
         });
     },
 
@@ -141,7 +142,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
             // Deduct progress and input items while preserving leftover progress.
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INPUTSLOT, -processCount);
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUTSLOT, amount: -processCount });
         }
 
         // Update machine visuals and state

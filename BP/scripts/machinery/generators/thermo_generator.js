@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 
 export const heatSources = {
@@ -33,7 +34,7 @@ for (const blockTypeId of [
     });
 }
 
-DoriosAPI.register.blockComponent('thermo_generator', {
+DoriosLib.registry.blockComponent('utilitycraft:thermo_generator', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -42,7 +43,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
-            entity.setItem(1, 'utilitycraft:progress_right_big_bar_00', 1, " ")
+            DoriosLib.entity.setNewItem(entity, { slot: 1, typeId: 'utilitycraft:progress_right_big_bar_00', amount: 1, nameTag: " " })
         });
     },
 

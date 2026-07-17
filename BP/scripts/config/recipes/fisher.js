@@ -1,6 +1,7 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server";
 
-DoriosAPI.register.itemComponent('fishing_net', {});
+DoriosLib.registry.itemComponent('utilitycraft:fishing_net', {});
 
 export const fishingNetItemIds = [
     'utilitycraft:string_fishing_net',

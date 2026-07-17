@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 const soilByTypeId = new Map([
     ["minecraft:dirt", {
         speedMultiplier: 1,
@@ -80,7 +81,7 @@ export function canPlantOnSoil(definition, soilTypeId) {
 }
 
 export function getEffectiveBonsaiStats(definition, block) {
-    const soil = getBonsaiSoil(block.getState("utilitycraft:soil"))
+    const soil = getBonsaiSoil(DoriosLib.block.getState(block, "utilitycraft:soil"))
     if (!definition || !soil) return null
 
     let speedMultiplier = definition.speedMultiplier
@@ -95,7 +96,7 @@ export function getEffectiveBonsaiStats(definition, block) {
     )
 
     if (
-        block.getState("utilitycraft:isFarm") &&
+        DoriosLib.block.getState(block, "utilitycraft:isFarm") &&
         soil.tillable &&
         definition.modifiers.tillingSpeed
     ) {

@@ -1,6 +1,7 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine } from "DoriosCore/index.js"
 
-DoriosAPI.register.blockComponent('block_breaker', {
+DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -46,11 +47,11 @@ DoriosAPI.register.blockComponent('block_breaker', {
             /**
              * @type {Block}
              */
-            const facing = machine.block.getFacingBlock();
+            const facing = DoriosLib.block.getFacingBlock(machine.block);
             if (facing) {
                 // Conditions: not unbreakable, not air, not fluid
                 if (
-                    !DoriosAPI.constants.unbreakableBlocks.includes(facing.typeId) &&
+                    !DoriosLib.constants.UNBREAKABLE_BLOCKS.includes(facing.typeId) &&
                     !facing.isAir &&
                     !facing.isLiquid
                 ) {
@@ -61,7 +62,7 @@ DoriosAPI.register.blockComponent('block_breaker', {
                     );
                     // Reset progress after operation
                     machine.on();
-                    DoriosAPI.utils.waitSeconds(1, () => {
+                    DoriosLib.time.runAfterSeconds(1, () => {
                         machine.off()
                     })
                     machine.setProgress(0, { display: false });

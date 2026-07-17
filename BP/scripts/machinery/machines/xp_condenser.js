@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack } from '@minecraft/server'
 import { ActionFormData } from '@minecraft/server-ui'
 import { FluidStorage } from "DoriosCore/index.js"
@@ -225,7 +226,7 @@ function tankMenu(player, entity) {
 }
 
 
-DoriosAPI.register.blockComponent('xp_condenser', {
+DoriosLib.registry.blockComponent('utilitycraft:xp_condenser', {
     onPlayerInteract(e) {
         const { player, block } = e
         let { x, y, z } = block.location

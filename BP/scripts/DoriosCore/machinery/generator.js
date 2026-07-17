@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { BasicMachine } from "./basicMachine";
@@ -60,7 +61,7 @@ export class Generator extends BasicMachine {
     }
 
     if (fluid.type != Constants.EMPTY_FLUID_TYPE) {
-      const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
+      const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
       lore.push(`§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`);
     }
 
@@ -70,7 +71,7 @@ export class Generator extends BasicMachine {
 
     // Drop item and cleanup
     system.run(() => {
-      if (player?.isInSurvival()) {
+      if (DoriosLib.player.isSurvival(player)) {
         const oldItemEntity = dim
           .getEntities({
             type: "item",

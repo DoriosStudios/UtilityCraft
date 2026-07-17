@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { sieveRecipes } from "../../config/recipes/sieve.js";
 
@@ -19,7 +20,7 @@ registerIOInterface("utilitycraft:autosieve", {
     }
 });
 
-DoriosAPI.register.blockComponent('autosieve', {
+DoriosLib.registry.blockComponent('utilitycraft:autosieve', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -31,7 +32,7 @@ DoriosAPI.register.blockComponent('autosieve', {
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
         });
     },
 
@@ -128,16 +129,16 @@ DoriosAPI.register.blockComponent('autosieve', {
                 if (loot.item == "minecraft:flint" && tier >= 7) return;
                 if (Math.random() <= loot.chance * multi) {
                     let qty = Array.isArray(loot.amount)
-                        ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
+                        ? DoriosLib.math.randomInt(loot.amount[0], loot.amount[1])
                         : loot.amount;
 
                     if (meshData.amount_multiplier) qty *= meshData.amount_multiplier;
 
                     try {
-                        machine.entity.tryAddItem(
-                            loot.item,
-                            processCount * Math.ceil(Math.random() * qty)
-                        );
+                        DoriosLib.entity.tryAddItem(machine.entity, {
+                            item: loot.item,
+                            amount: processCount * Math.ceil(Math.random() * qty),
+                        });
                     } catch { }
                 }
             });
@@ -148,7 +149,7 @@ DoriosAPI.register.blockComponent('autosieve', {
             // Deduct progress and input items
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INPUT_SLOT, -processCount);
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUT_SLOT, amount: -processCount });
         }
 
         // Update machine visuals and state

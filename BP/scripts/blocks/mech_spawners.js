@@ -1,8 +1,7 @@
+import * as DoriosLib from "DoriosLib/index.js";
 
 import { ItemStack, system, world } from '@minecraft/server'
 import { ModalFormData } from '@minecraft/server-ui'
-
-globalThis.DoriosAPI = globalThis.DoriosAPI || {}
 
 const SWAP_CONFIRM_WINDOW_TICKS = 50
 const SPAWNER_STORAGE_PREFIX = 'utilitycraft:mechanical_spawner:'
@@ -134,7 +133,7 @@ function sendLocalizedMessage(player, key) {
 }
 
 function consumeMainHandItem(player, expectedTypeId, amount = 1) {
-    if (player.isInCreative()) return true
+    if (DoriosLib.player.isCreative(player)) return true
 
     const equippable = player.getComponent('equippable')
     const mainHand = equippable?.getEquipment('Mainhand')
@@ -204,8 +203,8 @@ function getVariantByState(typeIndex) {
 }
 
 function getSpawnerTypeIndex(block) {
-    const type1 = Number(block.getState('utilitycraft:spawnerTypes1') ?? 0)
-    const type2 = Number(block.getState('utilitycraft:spawnerTypes2') ?? 0)
+    const type1 = Number(DoriosLib.block.getState(block, 'utilitycraft:spawnerTypes1') ?? 0)
+    const type2 = Number(DoriosLib.block.getState(block, 'utilitycraft:spawnerTypes2') ?? 0)
 
     if (type2 > 0) return TYPES2_BASE_INDEX + type2
     if (type1 > 0) return type1
@@ -214,19 +213,19 @@ function getSpawnerTypeIndex(block) {
 
 function setSpawnerTypeIndex(block, typeIndex) {
     if (!typeIndex || typeIndex <= 0) {
-        block.setState('utilitycraft:spawnerTypes1', 0)
-        block.setState('utilitycraft:spawnerTypes2', 0)
+        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes1', 0)
+        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes2', 0)
         return
     }
 
     if (typeIndex <= TYPES1_MAX_INDEX) {
-        block.setState('utilitycraft:spawnerTypes1', typeIndex)
-        block.setState('utilitycraft:spawnerTypes2', 0)
+        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes1', typeIndex)
+        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes2', 0)
         return
     }
 
-    block.setState('utilitycraft:spawnerTypes1', 0)
-    block.setState('utilitycraft:spawnerTypes2', typeIndex - TYPES2_BASE_INDEX)
+    DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes1', 0)
+    DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes2', typeIndex - TYPES2_BASE_INDEX)
 }
 
 function chooseWeightedSpawn(spawnTable) {
@@ -267,7 +266,7 @@ function clearLegacySpawnerDisplayEntities(dimension, location) {
 // ─────────────────────────────
 // Mechanical Spawner Component
 // ─────────────────────────────
-DoriosAPI.register.blockComponent('mech_spawner', {
+DoriosLib.registry.blockComponent('utilitycraft:mech_spawner', {
     beforeOnPlayerPlace({ block, player }) {
         const hand = player.getComponent('equippable')?.getEquipment('Mainhand')
         const storageKey = getStorageKeyFromLocation(block.dimension, block.location)
@@ -316,12 +315,12 @@ DoriosAPI.register.blockComponent('mech_spawner', {
         const storedEssence = getStoredOrLegacyEssence(block)
         const typeIndex = syncTypeStatesFromEssence(block, storedEssence)
 
-        if (!block.getState('utilitycraft:isOn')) return
+        if (!DoriosLib.block.getState(block, 'utilitycraft:isOn')) return
 
         const variant = getVariantByState(typeIndex)
         if (!variant) return
 
-        const quantityState = block.getState('utilitycraft:quantity')
+        const quantityState = DoriosLib.block.getState(block, 'utilitycraft:quantity')
         const multiplier = quantityState === 4 ? 3 : quantityState
         const bonusChance = quantityState === 4 ? 25 : 0
 
@@ -436,7 +435,7 @@ DoriosAPI.register.blockComponent('mech_spawner', {
         // ────────────────
         // Visual Toggle Menu
         // ────────────────
-        const isOn = block.getState('utilitycraft:isOn')
+        const isOn = DoriosLib.block.getState(block, 'utilitycraft:isOn')
         const mobName = getVariantByState(typeIndex)?.displayName ?? 'Unknown'
         if (hand) return
         const form = new ModalFormData()
@@ -447,7 +446,7 @@ DoriosAPI.register.blockComponent('mech_spawner', {
         form.show(player).then(result => {
             if (result.canceled || !result.formValues) return
             const [toggleState] = result.formValues
-            block.setState('utilitycraft:isOn', toggleState)
+            DoriosLib.block.setState(block, 'utilitycraft:isOn', toggleState)
 
             player.sendMessage(toggleState ? '§aSpawner On' : '§cSpawner Off')
         })
@@ -461,7 +460,7 @@ DoriosAPI.register.blockComponent('mech_spawner', {
         cleanupSwapConfirmationForStorageKey(storageKey)
         clearLegacySpawnerDisplayEntities(dimension, block.location)
 
-        if (!storedEssence || !player?.isInSurvival?.()) return
+        if (!storedEssence || !DoriosLib.player.isSurvival(player)) return
 
         const blockItemId = brokenBlockPermutation?.type?.id ?? 'utilitycraft:mechanical_spawner'
         const spawnerDrop = new ItemStack(blockItemId, 1)

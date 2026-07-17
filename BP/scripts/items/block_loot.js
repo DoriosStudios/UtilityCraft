@@ -1,6 +1,7 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server";
 
-DoriosAPI.register.itemComponent("block_loot", {
+DoriosLib.registry.itemComponent("utilitycraft:block_loot", {
     onMineBlock({ minedBlockPermutation, block }, { params }) {
         // Normalize params → always an array
         const paramArray = Array.isArray(params) ? params : [params];
@@ -27,7 +28,7 @@ DoriosAPI.register.itemComponent("block_loot", {
 
             // Resolve quantity
             const qty = Array.isArray(amount)
-                ? DoriosAPI.math.randomInterval(amount[0], amount[1])
+                ? DoriosLib.math.randomInt(amount[0], amount[1])
                 : amount;
 
             if (qty <= 0) continue;
@@ -91,7 +92,7 @@ system.afterEvents.scriptEventReceive.subscribe(e => {
 
                 // Determine amount
                 const qty = Array.isArray(amount)
-                    ? DoriosAPI.math.randomInterval(amount[0], amount[1])
+                    ? DoriosLib.math.randomInt(amount[0], amount[1])
                     : amount
 
                 if (qty <= 0) {

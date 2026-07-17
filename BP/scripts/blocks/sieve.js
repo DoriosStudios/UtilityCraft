@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, world } from "@minecraft/server"
 import { sieveRecipes, acceptedBlocks } from "../config/recipes/sieve.js"
 import { stackRefillUse } from "stack_refill.js"
@@ -31,8 +32,8 @@ class Sieve {
 
     insertMesh(player, itemId) {
         if (this.mesh !== "empty") return false
-        this.block.setState("utilitycraft:mesh", itemId.split(":")[1])
-        if (!player.isInCreative()) {
+        DoriosLib.block.setState(this.block, "utilitycraft:mesh", itemId.split(":")[1])
+        if (!DoriosLib.player.isCreative(player)) {
             player.runCommand(`clear @s ${itemId} 0 1`)
         }
         return true
@@ -41,10 +42,10 @@ class Sieve {
     removeMesh(player) {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
 
-        player.giveItem("utilitycraft:" + this.mesh)
+        DoriosLib.player.giveItem(player, { item: "utilitycraft:" + this.mesh })
 
-        this.block.setState("utilitycraft:mesh", "empty")
-        this.block.setState("utilitycraft:state", 0)
+        DoriosLib.block.setState(this.block, "utilitycraft:mesh", "empty")
+        DoriosLib.block.setState(this.block, "utilitycraft:state", 0)
         return true
     }
 
@@ -58,11 +59,11 @@ class Sieve {
         if (this.mesh === "empty") return false
 
         // Devuelve la malla vieja
-        player.giveItem("utilitycraft:" + this.mesh)
+        DoriosLib.player.giveItem(player, { item: "utilitycraft:" + this.mesh })
 
         // Coloca la nueva
-        this.block.setState("utilitycraft:mesh", newMeshId.split(":")[1])
-        if (!player.isInCreative()) {
+        DoriosLib.block.setState(this.block, "utilitycraft:mesh", newMeshId.split(":")[1])
+        if (!DoriosLib.player.isCreative(player)) {
             player.runCommand(`clear @s ${newMeshId} 0 1`)
         }
 
@@ -74,9 +75,9 @@ class Sieve {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
         if (!sieveRecipes[mainHand.typeId] || !acceptedBlocks.includes(mainHand.typeId)) return false
         const id = mainHand.typeId
-        this.block.setState("utilitycraft:block", mainHand.typeId)
-        this.block.setState("utilitycraft:state", 4)
-        if (!player.isInCreative()) {
+        DoriosLib.block.setState(this.block, "utilitycraft:block", mainHand.typeId)
+        DoriosLib.block.setState(this.block, "utilitycraft:state", 4)
+        if (!DoriosLib.player.isCreative(player)) {
             player.runCommand(`clear @s ${mainHand.typeId} 0 1`)
             stackRefillUse(player, id)
 
@@ -87,7 +88,7 @@ class Sieve {
 
     processStage() {
         if (this.stage > 1 && this.blockType !== "empty" && this.mesh !== "empty") {
-            this.block.setState("utilitycraft:state", this.stage - 1)
+            DoriosLib.block.setState(this.block, "utilitycraft:state", this.stage - 1)
             this.block.dimension.playSound("dig.gravel", this.block.location)
             return true
         }
@@ -112,7 +113,7 @@ class Sieve {
             if (loot.item == 'minecraft:flint' && tier >= 7) return
             if (Math.random() <= loot.chance * multi) {
                 let qty = Array.isArray(loot.amount)
-                    ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
+                    ? DoriosLib.math.randomInt(loot.amount[0], loot.amount[1])
                     : (typeof loot.amount === 'number' ? loot.amount : 1)
 
                 if (Number.isFinite(amountMultiplier) && amountMultiplier > 0) {
@@ -131,8 +132,8 @@ class Sieve {
             }
         })
 
-        this.block.setState("utilitycraft:block", "empty")
-        this.block.setState("utilitycraft:state", 0)
+        DoriosLib.block.setState(this.block, "utilitycraft:block", "empty")
+        DoriosLib.block.setState(this.block, "utilitycraft:state", 0)
         this.block.dimension.playSound("dig.gravel", this.block.location)
         return true
     }
@@ -160,7 +161,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 })
 
-DoriosAPI.register.blockComponent("sieve", {
+DoriosLib.registry.blockComponent("utilitycraft:sieve", {
     onPlayerInteract(e) {
         const { block, player } = e
         const mainHand = player.getComponent("equippable").getEquipment("Mainhand")

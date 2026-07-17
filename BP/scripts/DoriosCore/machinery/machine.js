@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
@@ -81,7 +82,7 @@ export class Machine extends BasicMachine {
     }
 
     if (fluid.type != Constants.EMPTY_FLUID_TYPE) {
-      const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
+      const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
       lore.push(`§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`);
     }
 
@@ -91,7 +92,7 @@ export class Machine extends BasicMachine {
 
     // Drop item and cleanup
     system.run(() => {
-      if (player?.isInSurvival()) {
+      if (DoriosLib.player.isSurvival(player)) {
         const oldItemEntity = dim
           .getEntities({
             type: "item",
@@ -137,7 +138,7 @@ export class Machine extends BasicMachine {
 
     // Machine specific: rotation handling
     if (config.rotation) {
-      if (player.isInSurvival()) {
+      if (DoriosLib.player.isSurvival(player)) {
         system.run(() => {
           player.runCommand(`clear @s ${permutationToPlace.type.id} 0 1`);
         });

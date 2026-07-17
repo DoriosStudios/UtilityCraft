@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { crusherRecipes } from "../../config/recipes/crusher.js";
 import { furnaceRecipes } from "../../config/recipes/furnace.js";
@@ -27,7 +28,7 @@ for (const blockTypeId of ["utilitycraft:crusher", "utilitycraft:electro_press",
     });
 }
 
-DoriosAPI.register.blockComponent('simple_machine', {
+DoriosLib.registry.blockComponent('utilitycraft:simple_machine', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -36,7 +37,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnEntity(e, settings, (entity) => {
-            entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
+            DoriosLib.entity.setNewItem(entity, { slot: 1, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
         });
     },
 
@@ -137,15 +138,15 @@ DoriosAPI.register.blockComponent('simple_machine', {
         if (processCount > 0) {
             // Add the processed items to the output
             if (!outputSlot) {
-                machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * recipeAmount);
+                DoriosLib.entity.setNewItem(machine.entity, { slot: OUTPUTSLOT, typeId: recipe.output, amount: processCount * recipeAmount });
             } else {
-                machine.entity.changeItemAmount(OUTPUTSLOT, processCount * recipeAmount);
+                DoriosLib.entity.changeItemAmount(machine.entity, { slot: OUTPUTSLOT, amount: processCount * recipeAmount });
             }
 
             // Deduct progress and input items while preserving leftover progress.
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INPUTSLOT, -processCount * required);
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUTSLOT, amount: -processCount * required });
         }
 
         // Update machine visuals and state
@@ -161,4 +162,4 @@ DoriosAPI.register.blockComponent('simple_machine', {
     }
 });
 
-DoriosAPI.register.blockComponent('machine_recipes', {})
+DoriosLib.registry.blockComponent('utilitycraft:machine_recipes', {})

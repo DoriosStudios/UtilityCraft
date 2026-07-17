@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system } from "@minecraft/server";
 import * as MachineryConstants from "../machinery/constants.js";
 import { BasicMachine } from "../machinery/basicMachine.js";
@@ -122,7 +123,7 @@ export class MultiblockMachine extends BasicMachine {
     } = handlers;
     const { block, player } = e;
     const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
-    const mainHandTypeId = player.getEquipment("Mainhand")?.typeId ?? "";
+    const mainHandTypeId = DoriosLib.entity.getEquipment(player, "Mainhand")?.typeId ?? "";
     const isUsingWrench = mainHandTypeId.includes("wrench");
 
     if (!isUsingWrench) {
@@ -175,7 +176,7 @@ export class MultiblockMachine extends BasicMachine {
     }
 
     if (fluid.type != MachineryConstants.EMPTY_FLUID_TYPE) {
-      const liquidName = DoriosAPI.utils.capitalizeFirst(fluid.type);
+      const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
       lore.push(
         `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`,
       );
@@ -186,7 +187,7 @@ export class MultiblockMachine extends BasicMachine {
     }
 
     system.run(() => {
-      if (player?.isInSurvival()) {
+      if (DoriosLib.player.isSurvival(player)) {
         const oldItemEntity = dim
           .getEntities({
             type: "item",
@@ -330,14 +331,14 @@ export class MultiblockMachine extends BasicMachine {
 
         if (!out) {
           const add = Math.min(64, remaining);
-          entity.setItem(slot, itemId, add);
+          DoriosLib.entity.setNewItem(entity, { slot: slot, typeId: itemId, amount: add });
           remaining -= add;
           return;
         }
 
         if (out.typeId === itemId && out.amount < out.maxAmount) {
           const add = Math.min(out.maxAmount - out.amount, remaining);
-          entity.changeItemAmount(slot, add);
+          DoriosLib.entity.changeItemAmount(entity, { slot: slot, amount: add });
           remaining -= add;
         }
       };

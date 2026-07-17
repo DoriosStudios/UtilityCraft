@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world, ItemStack } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
@@ -13,7 +14,7 @@ const REMOVABLE_ENTITIES = [
 ];
 
 // --- REGISTRO DEL COMPONENTE ---
-DoriosAPI.register.itemComponent("wrench", {
+DoriosLib.registry.itemComponent("utilitycraft:wrench", {
     /**
      * Se ejecuta cuando el jugador usa la wrench sobre un bloque.
      * Soporta tanto rotaciones vanilla como el sistema de 24 rotaciones de UtilityCraft.
@@ -55,7 +56,7 @@ world.afterEvents.playerInteractWithEntity.subscribe(({ player, target, itemStac
     const dim = player.dimension
     if (target && REMOVABLE_ENTITIES.includes(target.typeId)) {
         // --- DROPEAR INVENTARIO ---
-        target.dropAllItems();
+        DoriosLib.entity.dropAllItems(target);
         // --- SPAWNEAR EL ITEM DEL MISMO ID ---
         dim.spawnItem(new ItemStack(target.typeId + '_placer', 1), target.location);
         // --- REMOVER ENTIDAD ---

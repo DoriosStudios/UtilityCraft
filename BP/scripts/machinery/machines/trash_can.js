@@ -1,7 +1,8 @@
+import * as DoriosLib from "DoriosLib/index.js";
 // trash_can.js
 import { system, ItemStack, world } from "@minecraft/server";
 
-DoriosAPI.register.blockComponent("trash_can", {
+DoriosLib.registry.blockComponent("utilitycraft:trash_can", {
     /**
      * Before placing the block:
      * Spawns the machine entity manually without using the Machine class.
