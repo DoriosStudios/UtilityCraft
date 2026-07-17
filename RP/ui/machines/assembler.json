@@ -95,7 +95,7 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_items_modes_description": "IO Modes:\n§r- §9Input 1\n§r- §bInput 2\n§r- §cOutput 1",
+          "$io_items_modes_description": "ui.utilitycraft:io.assembler.items",
           "$io_top_texture": "textures/blocks/Machines/assembler/off/up",
           "$io_left_texture": "textures/blocks/Machines/assembler/off/west",
           "$io_front_texture": "textures/blocks/Machines/assembler/off/north",

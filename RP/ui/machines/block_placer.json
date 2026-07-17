@@ -40,7 +40,7 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_items_modes_description": "IO Modes:\n§r- §9Input",
+          "$io_items_modes_description": "ui.utilitycraft:io.block_placer.items",
           "$io_top_texture": "textures/blocks/Machines/block_placer/off/up",
           "$io_left_texture": "textures/blocks/Machines/block_placer/off/west",
           "$io_front_texture": "textures/blocks/Machines/block_placer/off/north",

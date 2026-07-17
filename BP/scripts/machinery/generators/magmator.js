@@ -24,7 +24,7 @@ for (const blockTypeId of [
             anyOutputIndices: [],
             modes: [
                 { id: "disabled" },
-                { id: "input_1", inputIndices: [0] }
+                { id: "fuel", inputIndices: [0] }
             ]
         }
     });
