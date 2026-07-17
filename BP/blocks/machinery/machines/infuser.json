@@ -25,9 +25,7 @@
 			"utilitycraft:double_machine": {
 				"entity": {
 					"type": "machine",
-					"inventory_size": 14,
-					"input_slot": 3,
-					"output_slot": 7
+					"inventory_size": 14
 				},
 				"machine": {
 					"energy_cap": 128000,
@@ -41,10 +39,6 @@
 			},
 			"utilitycraft:machine_recipes": {
 				"type": "infuser"
-			},
-			"utilitycraft:special_container": {
-				"Input Slot": 3,
-				"Catalyst Slot": 4
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

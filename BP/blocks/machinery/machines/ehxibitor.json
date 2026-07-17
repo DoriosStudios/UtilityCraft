@@ -12,16 +12,12 @@
 				"entity": {
 					"type": "machine",
 					"name": "ehxibitor",
-					"inventory_size": 4,
-					"input_slot": 3
+					"inventory_size": 4
 				},
 				"machine": {
 					"energy_cap": 1,
 					"rate_speed_base": 0
 				}
-			},
-			"utilitycraft:special_container": {
-				"Display Slot": 3
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

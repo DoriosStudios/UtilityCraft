@@ -562,7 +562,6 @@ item.utilitycraft:wither_skeleton_essence=Esencia de Esqueleto Wither\n§o§9@Ut
 - Machines Upgrades = ## Mejoras de Máquinas
 ## +
 item.utilitycraft:filter_upgrade=Mejora de Filtro\n§7- Ofrece a las Tolvas Mecánicas una manera de filtrar objetos\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Mejora de Filtro Inteligente\n§7- Permite el enrutamiento avanzado\n  de objetos usando categorías de\n  ranuras y filtros con prioridad\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=§bMejora de Energía§r\n§7- Incrementa la eficiencia de energia en las Máquinas\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=§aMejora de Velocidad§r\n§7- Incrementa la velocidad en las Máquinas, pero consume más energía\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=§9Mejora de Rango§r\n§7- Incrementa el rango para las Máquinas\n§o§9@UtilityCraft

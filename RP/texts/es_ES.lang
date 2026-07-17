@@ -568,7 +568,6 @@ item.utilitycraft:range_upgrade=§9Mejora de Rango§r\n§7- Incrementa el rango 
 item.utilitycraft:quantity_upgrade=§3Mejora de Cantidad§r\n§7- Incrementa la capacidad de generación para los Generadores Mecánicos\n§o§9@UtilityCraft
 item.utilitycraft:ultimate_upgrade=§8Mejora Definitiva\n§o§9@UtilityCraft
 item.utilitycraft:damage_upgrade=§cMejora de Daño§r\n§7- Incrementa lo daño infligido por Triturador de Mobs\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Mejora de Filtro Inteligente\n§7- Permite el enrutamiento avanzado\n  de objetos usando categorías de\n  ranuras y filtros con prioridad\n§o§9@UtilityCraft
 ## +
 item.utilitycraft:base_upgrade=Mejora Bae\n§7- Usada para craftear las mejoras de las Máquinas\n§o§9@UtilityCraft
 

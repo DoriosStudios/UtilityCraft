@@ -571,7 +571,6 @@ item.utilitycraft:wither_skeleton_essence=Essence de squelette flétri\n§o§9@U
 - Machines Upgrades =## Mises à niveau des machines
 ## +
 item.utilitycraft:filter_upgrade=Filter Upgrade\n§7- Donne aux blocs de transport \n un moyen de filtrer les éléments\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Mise à niveau du filtre intelligent\n§7- Permet le routage avancé des articles\n à l'aide des catégories d'emplacements et des filtres basés sur la priorité\n\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=§bMise à niveau énergétique§r\n§7- Augmente l'efficacité énergétique des machines\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=§aMise à niveau de la vitesse§r\n§7- Augmente la vitesse des machines\n- Augmente la consommation d'énergie\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Augmente la portée des machines\n§o§9@UtilityCraft

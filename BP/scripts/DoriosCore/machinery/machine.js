@@ -10,7 +10,7 @@ import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
 import { InterfaceManager } from "../interfaces/index.js";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
-import { getDirectionBetween } from "../utils/directions.js";
+import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
 export class Machine extends BasicMachine {
@@ -209,7 +209,7 @@ export class Machine extends BasicMachine {
       moved += DoriosContainer.transfer(this.entity, {
         sourceSlot,
         target,
-        direction,
+        targetFace: OPPOSITE_DIRECTIONS[direction],
       });
     }
     return moved > 0;
@@ -246,7 +246,6 @@ export class Machine extends BasicMachine {
       const moved = DoriosContainer.transfer(source, {
         sourceSlot,
         target: this.entity,
-        direction: "down",
         targetSlots: [targetSlot],
       });
       if (moved > 0) return true;

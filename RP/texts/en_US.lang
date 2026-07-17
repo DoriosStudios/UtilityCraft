@@ -594,7 +594,6 @@ item.utilitycraft:illager_essence=Illager Essence\n§o§9@UtilityCraft
 - Machines Upgrades = ## Machines Upgrades
 ## +
 item.utilitycraft:filter_upgrade=Filter Upgrade\n§7- Gives transportation blocks \n  a way to filter up items\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Smart Filter Upgrade\n§7- Enables advanced item routing\n  using slot categories and\n  priority-based filters\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Increases energy efficiency in Machines\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=§aSpeed Upgrade§r\n§7- Increases speed in Machines\n- Increases energy consumption\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7- Increases range for Machines\n§o§9@UtilityCraft

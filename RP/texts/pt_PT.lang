@@ -666,7 +666,6 @@ item.utilitycraft:wither_skeleton_essence=Essência de Esqueleto Wither\n§o§9@
 item.utilitycraft:steel_ingot=Barra de Aço\n§o§9@UtilityCraft
 ## +
 item.utilitycraft:filter_upgrade=Módulo de Melhoria de Filtro\n§7- Usada para filtrar itens em funís mecânicos ou conduítes\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Módulo de Melhoria de §fFiltro Inteligente§r\n§7- Permite o encaminhamento avançado\n  de itens usando categorias de\n  slots e filtros por prioridade\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=Módulo de Melhoria de §4Energia§r\n§7- Aumenta a eficiência de máquinas elétricas\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=Módulo de Melhoria de §aVelocidade§r\n§7- Aumenta a eficiência de uma máquina\n- Aumenta o consumo de energia\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§r\n§7- Aumenta o alcance de uma máquina\n§o§9@UtilityCraft

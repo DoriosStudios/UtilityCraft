@@ -4,21 +4,6 @@
 export const DEFAULT_MACHINE_SPAWN_OFFSET = { x: 0, y: -0.25, z: 0 };
 
 /**
- * Script event used to register special slot metadata for machine entities.
- */
-export const SPECIAL_CONTAINER_EVENT_ID = "dorios:special_container";
-
-/**
- * Dynamic property used to persist special container slot metadata.
- */
-export const SPECIAL_CONTAINER_PROPERTY_ID = "dorios:special_container";
-
-/**
- * Script event used to register Item Ducts slot data.
- */
-export const ITEM_DUCTS_REGISTER_EVENT_ID = "item_ducts:register";
-
-/**
  * Script event used to refresh adjacent pipe networks.
  */
 export const UPDATE_PIPES_EVENT_ID = "dorios:updatePipes";

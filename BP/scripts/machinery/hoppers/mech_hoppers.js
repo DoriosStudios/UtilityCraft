@@ -2,7 +2,7 @@ import { world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import { resolveItemContainerAt } from "../../DoriosCore/machinery/itemContainers.js";
-import { getDirectionBetween } from "../../DoriosCore/utils/directions.js";
+import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../../DoriosCore/utils/directions.js";
 
 const MINECART_PULL_PROPERTY = "utilitycraft:minecartPullEnabled";
 const DEFAULT_HOPPER_SPAWN_OFFSET = { x: 0.5, y: 0.25, z: 0.5 };
@@ -78,7 +78,11 @@ function pullFromContainer(source, target, direction, entity, hasFilter, whiteLi
     if (!passesFilter(entity, hasFilter, whiteList, item)) continue;
 
     attempts++;
-    if (DoriosContainer.transfer(source, { sourceSlot: slot, target, direction }) > 0) {
+    if (DoriosContainer.transfer(source, {
+      sourceSlot: slot,
+      target,
+      targetFace: OPPOSITE_DIRECTIONS[direction],
+    }) > 0) {
       moved++;
     }
   }
@@ -192,7 +196,11 @@ function outputFromHopper(source, dimension, sourceLoc, targetLoc, entity, hasFi
     if (!passesFilter(entity, hasFilter, whiteList, item)) continue;
 
     attempts++;
-    if (DoriosContainer.transfer(source, { sourceSlot: slot, target, direction }) > 0) {
+    if (DoriosContainer.transfer(source, {
+      sourceSlot: slot,
+      target,
+      targetFace: OPPOSITE_DIRECTIONS[direction],
+    }) > 0) {
       moved++;
     }
   }

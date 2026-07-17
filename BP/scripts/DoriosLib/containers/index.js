@@ -55,12 +55,10 @@ export {
 
 /**
  * @typedef {object} TransferOptions
- * @property {number} sourceSlot Source inventory slot.
+ * @property {number} sourceSlot Exact source inventory slot selected by the caller.
  * @property {ContainerTarget} target Destination container target.
- * @property {ContainerFace} [direction] Direction from source toward target. Sets both faces.
- * @property {ContainerFace} [sourceFace] Explicit source face override.
- * @property {ContainerFace} [targetFace] Explicit target face override.
- * @property {ReadonlyArray<number>} [targetSlots] Optional ordered subset of allowed target slots.
+ * @property {ContainerFace} [targetFace] Target input face. Omit it to use the explicit fallback.
+ * @property {ReadonlyArray<number>} [targetSlots] Explicit ordered target slots. When present, overrides `targetFace` completely.
  * @property {number} [maxAmount] Maximum amount to move from the source stack.
  */
 
@@ -105,16 +103,6 @@ const EMPTY_SLOTS = [];
 /** Cached `[0..size)` slot arrays for vanilla blocks and raw containers. */
 /** @type {WeakMap<object, {size:number, slots:number[]}>} */
 const allSlotsCache = new WeakMap();
-
-/** Opposite absolute face used by adjacent transfers. */
-const OPPOSITE_FACES = {
-  north: "south",
-  south: "north",
-  east: "west",
-  west: "east",
-  up: "down",
-  down: "up",
-};
 
 let initialized = false;
 let nextConfigRevision = 1;
@@ -219,10 +207,12 @@ export function resolve(target) {
   if (isResolvedContainer(target)) {
     if (target.kind === "entity") {
       if (!target.entity) return undefined;
+      if (target.entity.isValid && isRawContainer(target.container)) return target;
       const refreshed = resolve(target.entity);
       return refreshed && target.block ? { ...refreshed, block: target.block } : refreshed;
     }
     if (target.kind === "block") {
+      if (target.block && isRawContainer(target.container)) return target;
       return target.block ? resolve(target.block) : undefined;
     }
     return isRawContainer(target.container) ? target : undefined;
@@ -406,10 +396,11 @@ export function insert(target, options) {
 /**
  * Moves items from one allowed source slot into allowed target slots.
  *
- * `direction` is the absolute direction from source toward target. It maps to
- * the same source face and the opposite target face. When direction/faces are
- * omitted, Complex containers use their explicit `any*Slots` fallbacks.
- * Explicit `sourceFace` and `targetFace` values override that convenience.
+ * The caller owns source-slot policy: this primitive moves the exact slot it
+ * receives without consulting output rules. When `targetSlots` is present it
+ * is used as the complete destination selection and overrides `targetFace`.
+ * Otherwise the target's input rules are resolved by `targetFace`, or by its
+ * explicit no-face fallback when the face is omitted.
  *
  * The target writes are tracked so a failed source update can restore their
  * previous snapshots on a best-effort basis.
@@ -425,18 +416,7 @@ export function transfer(source, options) {
   const resolvedTarget = resolve(options.target);
   if (!resolvedSource || !resolvedTarget) return 0;
 
-  let sourceFace = options.sourceFace;
-  let targetFace = options.targetFace;
-  if (options.direction !== undefined) {
-    if (!DIRECTIONS.includes(options.direction)) return 0;
-    sourceFace ??= options.direction;
-    targetFace ??= /** @type {ContainerFace} */ (OPPOSITE_FACES[options.direction]);
-  }
-
   const sourceSlot = options.sourceSlot;
-  const outputSlots = getOutputSlots(resolvedSource, { face: sourceFace });
-  if (!outputSlots.includes(sourceSlot)) return 0;
-
   let sourceItem;
   try {
     sourceItem = resolvedSource.container.getItem(sourceSlot);
@@ -448,8 +428,14 @@ export function transfer(source, options) {
   const amount = normalizeTransferAmount(options.maxAmount, sourceItem.amount);
   if (amount <= 0) return 0;
 
-  const inputSlots = getInputSlots(resolvedTarget, { face: targetFace });
-  let targetSlots = selectAllowedSlots(inputSlots, options.targetSlots);
+  let targetSlots;
+  if (options.targetSlots !== undefined) {
+    const targetSize = getContainerSize(resolvedTarget.container);
+    if (targetSize === undefined) return 0;
+    targetSlots = normalizeExplicitSlots(options.targetSlots, targetSize);
+  } else {
+    targetSlots = getInputSlots(resolvedTarget, { face: options.targetFace });
+  }
   if (isSameResolvedContainer(resolvedSource, resolvedTarget)) {
     targetSlots = targetSlots.filter((slot) => slot !== sourceSlot);
   }
@@ -589,6 +575,25 @@ function selectAllowedSlots(allowedSlots, requestedSlots) {
   const selected = [];
   for (const slot of requestedSlots) {
     if (!Number.isInteger(slot) || seen.has(slot) || !allowed.has(slot)) continue;
+    seen.add(slot);
+    selected.push(slot);
+  }
+  return selected;
+}
+
+/**
+ * Validates caller-selected target slots without rebuilding the container's
+ * full slot list. Explicit slots intentionally bypass input-face policy.
+ *
+ * @param {ReadonlyArray<number>} requestedSlots
+ * @param {number} size
+ * @returns {ReadonlyArray<number>}
+ */
+function normalizeExplicitSlots(requestedSlots, size) {
+  const seen = new Set();
+  const selected = [];
+  for (const slot of requestedSlots) {
+    if (!Number.isInteger(slot) || slot < 0 || slot >= size || seen.has(slot)) continue;
     seen.add(slot);
     selected.push(slot);
   }

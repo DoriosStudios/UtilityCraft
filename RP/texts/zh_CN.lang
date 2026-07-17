@@ -571,7 +571,6 @@ item.utilitycraft:wither_skeleton_essence=凋灵骷髅精华\n§o§9@UtilityCraf
 - Machines Upgrades =## 机器升级
 ## +
 item.utilitycraft:filter_upgrade=过滤器升级\n§7- 为运输块\n提供过滤物品的方法\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=智能过滤器升级\n§7-启用高级项目路由\n使用槽类别和\n基于优先级的过滤器\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=§b能源升级§r\n§7- 提高机器的能源效率\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=§a速度升级§r\n§7- 提高机器速度\n- 增加能源消耗\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=§9范围升级§r\n§7-增加机器的范围\n§o§9@UtilityCraft

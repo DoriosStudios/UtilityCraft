@@ -26,8 +26,7 @@ import "./generators/battery.js";
 import "./generators/transmitter.js";
 import "./generators/receiver.js";
 
-import "./transfer_system/system.js";
-import "./transfer_system/smart_importer.js";
+import "../UtilityCore/index.js";
 
 import "./wrench.js";
 import "./upgradeable.js";

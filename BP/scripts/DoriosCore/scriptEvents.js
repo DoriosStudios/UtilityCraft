@@ -1,7 +1,6 @@
 import { ItemStack, system, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import * as MachineryConstants from "./machinery/constants.js";
-import * as UtilsConstants from "./utils/constants.js";
 import { FluidStorage, Generator, Machine } from "DoriosCore/index.js";
 import { TickScheduler } from "./machinery/tickScheduler.js";
 
@@ -37,18 +36,6 @@ export const scriptEventHandler = {
         } catch (err) {
             console.warn(`[destroyMachine] Error: ${err}`);
         }
-    },
-    /**
-     * Registers input and output slots for special containers
-     */
-    [UtilsConstants.SPECIAL_CONTAINER_EVENT_ID]: ({ message, sourceEntity }) => {
-        let slots;
-        try {
-            slots = JSON.parse(message)
-        } catch { return }
-        if (!slots) return
-        if (!slots.input && !slots.output) return
-        sourceEntity.setDynamicProperty(UtilsConstants.SPECIAL_CONTAINER_PROPERTY_ID, JSON.stringify(slots))
     },
     /**
      * ScriptEvent handler to destroy a generator at given coordinates.

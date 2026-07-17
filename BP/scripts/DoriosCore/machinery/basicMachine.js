@@ -293,7 +293,7 @@ export class BasicMachine {
       const moved = DoriosContainer.transfer(this.entity, {
         sourceSlot: slot,
         target,
-        direction,
+        targetFace: OPPOSITE_DIRECTIONS[direction],
       });
       if (moved <= 0) continue;
 
@@ -329,7 +329,6 @@ export class BasicMachine {
       const movedThisSlot = DoriosContainer.transfer(source, {
         sourceSlot,
         target: this.entity,
-        direction: sourceDirection,
         targetSlots,
       });
       itemsMoved += movedThisSlot;

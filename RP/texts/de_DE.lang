@@ -571,7 +571,6 @@ item.utilitycraft:wither_skeleton_essence=Widerrist-Skelett-Essenz\n§o§9@Utili
 - Machines Upgrades =## Maschinen-Upgrades
 ## +
 item.utilitycraft:filter_upgrade=Filter-Upgrade\n§7- Gibt Transportblöcken \n eine Möglichkeit, Artikel zu filtern\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Smart Filter Upgrade\n§7- Ermöglicht erweitertes Artikelrouting\n mithilfe von Slot-Kategorien und prioritätsbasierten Filtern\n\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Erhöht die Energieeffizienz von Maschinen\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=§aGeschwindigkeits-Upgrade§r\n§7- Erhöht die Geschwindigkeit in Maschinen\n- Erhöht den Energieverbrauch\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=§9Reichweiten-Upgrade§r\n§7- Erhöht die Reichweite für Maschinen\n§o§9@UtilityCraft

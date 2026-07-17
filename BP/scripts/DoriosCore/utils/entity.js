@@ -150,8 +150,7 @@ export function removeOpenUICount(entity) {
  * and initializes its inventory size and name tag.
  *
  * The entity is assigned inventory size, name tag, represented block metadata,
- * slot routing configuration, scoreboard identity, tick group, and optional
- * type-specific entity event.
+ * scoreboard identity, tick group, and an optional type-specific entity event.
  *
  * @param {import("@minecraft/server").Block} block The block where the machine will be placed.
  * @param {Object} config Machine configuration object.
@@ -159,10 +158,6 @@ export function removeOpenUICount(entity) {
  * @param {string} [config.entity.identifier] Entity identifier.
  * @param {number} config.entity.inventory_size Inventory slot count.
  * @param {string} [config.entity.name] Optional name.
- * @param {[number, number]} [config.entity.input_range] Input slot range.
- * @param {[number, number]} [config.entity.output_range] Output slot range.
- * @param {number} [config.entity.input_slot] Single input slot.
- * @param {number} [config.entity.output_slot] Single output slot.
  * @param {boolean} [config.entity.fixed_fluid_types] Keeps fluid type tags even when tanks are empty.
  * @param {string} [config.entity.type] Optional entity event suffix triggered after initialization.
  * @param {{x:number,y:number,z:number}} [config.spawn_offset] Optional spawn offset.
@@ -196,27 +191,6 @@ export function spawnEntity(block, config) {
   entity.nameTag = `entity.utilitycraft:${name}.name`;
   TickScheduler.assignTickGroup(entity);
 
-  // Normalize slot config independently
-  const inputRange = Array.isArray(entityData.input_range)
-    ? entityData.input_range
-    : typeof entityData.input_slot === "number"
-      ? [entityData.input_slot, entityData.input_slot]
-      : undefined;
-
-  const outputRange = Array.isArray(entityData.output_range)
-    ? entityData.output_range
-    : typeof entityData.output_slot === "number"
-      ? [entityData.output_slot, entityData.output_slot]
-      : undefined;
-
-  if (inputRange || outputRange) {
-    registerSlotConfig(entity, {
-      input_range: inputRange,
-      output_range: outputRange,
-      block_id: block.typeId,
-    });
-  }
-
   initializeEntity(entity);
 
   if (entityData.type) {
@@ -224,77 +198,6 @@ export function spawnEntity(block, config) {
   }
 
   return entity;
-}
-
-/**
- * Registers slot configuration for a machine container.
- *
- * Sends slot data to multiple compatibility systems:
- * - Dorios internal container config
- * - AE2BE container registry
- * - Item Ducts compatibility
- *
- * @param {import("@minecraft/server").Entity} entity The entity that owns the container.
- * @param {{ input_range?: number[], output_range?: number[], block_id: string }} config Slot configuration object.
- * @returns {void}
- */
-export function registerSlotConfig(entity, config) {
-  const slotRegister = {};
-
-  let inputSlots = [];
-  let outputSlots = [];
-
-  const rangeToSlots = (range) => {
-    const [start, end] = range;
-    const arr = [];
-    for (let i = start; i <= end; i++) arr.push(i);
-    return arr;
-  };
-
-  const validRange = (range) => Array.isArray(range) && range.length === 2 && typeof range[0] === "number" && typeof range[1] === "number";
-
-  const inputRange = validRange(config.input_range) ? config.input_range : [-1, -1];
-  const outputRange = validRange(config.output_range) ? config.output_range : [-1, -1];
-
-  slotRegister.input = inputRange;
-  slotRegister.output = outputRange;
-
-  if (inputRange[0] !== -1) {
-    inputSlots = rangeToSlots(inputRange);
-  }
-
-  if (outputRange[0] !== -1) {
-    outputSlots = rangeToSlots(outputRange);
-  }
-
-  // Dorios internal config
-  entity.runCommand(`scriptevent ${Constants.SPECIAL_CONTAINER_EVENT_ID} ${JSON.stringify(slotRegister)}`);
-
-  // AE2BE container registry
-  // system.sendScriptEvent(
-  //   "ae2be://api/v1/container-registry",
-  //   JSON.stringify({
-  //     typeId: entity.typeId,
-  //     containerType: "entity",
-  //     container: {
-  //       insertsItems: true,
-  //       useStorageBus: {
-  //         excludedSlots: inputSlots
-  //       },
-  //       inputSlots,
-  //       outputSlots
-  //     }
-  //   })
-  // );
-
-  // Item Ducts compatibility
-  entity.runCommand(
-    `scriptevent ${Constants.ITEM_DUCTS_REGISTER_EVENT_ID} ${JSON.stringify({
-      typeId: config.block_id,
-      extractSlots: outputSlots,
-      insertSlots: inputSlots,
-    })}`,
-  );
 }
 
 /**

@@ -184,7 +184,6 @@ item.utilitycraft:range_upgrade=Módulo de Melhoria de §9Alcance§7\n§7- Aumen
 item.utilitycraft:quantity_upgrade=Módulo de Melhoria de §3Quantidade§r\n§7- Aumenta a saída de uma máquina\n- Aumenta a quantidade de mobs invocados \n§o§9@UtilityCraft
 item.utilitycraft:ultimate_upgrade=Módulo de Melhoria §8Supremo§7\n§7- A Melhoria Suprema\n§o§9@UtilityCraft
 item.utilitycraft:filter_upgrade=Módulo de Melhoria de §fFiltro§7\n§7- Adiciona um filtro à máquina\n- Possui exclusão e inclusão\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Melhoria de Filtro Inteligente\n§7- Permite a filtragem avançada de itens\n  usando categorias de slots e\n  filtros baseados em prioridade\n§o§9@UtilityCraft
 item.utilitycraft:damage_upgrade=Módulo de Melhoria de §cDano§7\n§7- Aumenta o dano infligido pelo Abatedor de Mobs\n§o§9@UtilityCraft
 ## +
 item.utilitycraft:base_upgrade=Módulo de Melhoria\n§7- Usado para criar módulos de melhorias para máquinas\n§o§9@UtilityCraft

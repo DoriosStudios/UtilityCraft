@@ -24,8 +24,7 @@
 			"utilitycraft:block_placer": {
 				"entity": {
 					"type": "machine",
-					"inventory_size": 12,
-					"input_slot": 3
+					"inventory_size": 12
 				},
 				"machine": {
 					"energy_cap": 64000,
@@ -36,9 +35,6 @@
 						5
 					]
 				}
-			},
-			"utilitycraft:special_container": {
-				"Input Slot": 3
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

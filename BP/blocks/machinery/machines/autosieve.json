@@ -25,12 +25,7 @@
 			"utilitycraft:autosieve": {
 				"entity": {
 					"type": "machine",
-					"inventory_size": 22,
-					"input_slot": 3,
-					"output_range": [
-						7,
-						15
-					]
+					"inventory_size": 22
 				},
 				"machine": {
 					"energy_cap": 512000,
@@ -41,21 +36,6 @@
 						5
 					]
 				}
-			},
-			"utilitycraft:special_container": {
-				"Input Slot": 3,
-				"Mesh Slot": 6,
-				"#output_slots": [
-					7,
-					8,
-					9,
-					10,
-					11,
-					12,
-					13,
-					14,
-					15
-				]
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

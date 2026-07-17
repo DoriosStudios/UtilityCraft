@@ -25,12 +25,7 @@
 			"utilitycraft:digitizer": {
 				"entity": {
 					"type": "machine",
-					"inventory_size": 22,
-					"input_range": [
-						6,
-						14
-					],
-					"output_slot": 15
+					"inventory_size": 22
 				},
 				"machine": {
 					"energy_cap": 32000,
@@ -41,20 +36,6 @@
 						5
 					]
 				}
-			},
-			"utilitycraft:special_container": {
-				"Materials Slot": [
-					6,
-					7,
-					8,
-					9,
-					10,
-					11,
-					12,
-					13,
-					14
-				],
-				"Blueprint Slot": 3
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
