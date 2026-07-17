@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world } from '@minecraft/server'
 import { Generator, EnergyStorage } from "DoriosCore/index.js"
 
@@ -7,7 +8,7 @@ const entitySettings = {
     inventory_size: 2
 }
 
-DoriosAPI.register.blockComponent('transmitter', {
+DoriosLib.registry.blockComponent('utilitycraft:transmitter', {
     /**
      * Runs before the machine is placed by the player.
      * 

@@ -1,9 +1,12 @@
-import { world } from "@minecraft/server"
+import * as DoriosLib from "DoriosLib/index.js";
+import { ItemStack, world } from "@minecraft/server"
 import {
     BONSAI_HEARTBEAT_TICKS,
     getBonsaiDefinitionByInput,
     isRegisteredBonsaiEntity
 } from "../../config/recipes/plantRegistry.js"
+import { resolveItemContainerAt } from "../../DoriosCore/machinery/itemContainers.js"
+import * as DoriosContainer from "../../DoriosLib/containers/index.js"
 import { getEffectiveBonsaiStats } from "./soils.js"
 
 export const BONSAI_HEARTBEAT_EVENT = "utilitycraft:bonsai_heartbeat"
@@ -187,7 +190,7 @@ function randomAmount(amount) {
     const min = Math.ceil(asFiniteNumber(amount[0], 0))
     const max = Math.floor(asFiniteNumber(amount[1], min))
     if (max <= min) return Math.max(0, min)
-    return DoriosAPI.math.randomInterval(min, max)
+    return DoriosLib.math.randomInt(min, max)
 }
 
 function scaleAmount(amount, multiplier) {
@@ -204,6 +207,8 @@ export function produceBonsaiDrops(entity, block, definition, yieldMultiplier) {
         y: block.location.y - 1,
         z: block.location.z
     }
+    const target = resolveItemContainerAt(entity.dimension, dropLocation)
+    if (!target) return true
 
     for (const drop of definition.drops) {
         if (Math.random() > asFiniteNumber(drop.chance, 0)) continue
@@ -216,12 +221,16 @@ export function produceBonsaiDrops(entity, block, definition, yieldMultiplier) {
         if (amount <= 0) continue
 
         try {
-            DoriosAPI.containers.addItemAt(
-                dropLocation,
-                entity.dimension,
-                drop.item,
-                amount
-            )
+            const prototype = new ItemStack(drop.item)
+            let remaining = amount
+
+            while (remaining > 0) {
+                const stack = new ItemStack(drop.item, Math.min(remaining, prototype.maxAmount))
+                const moved = DoriosContainer.insert(target, { item: stack, face: "up" })
+                if (moved <= 0) break
+                remaining -= moved
+                if (moved < stack.amount) break
+            }
         } catch { }
     }
 
@@ -232,7 +241,7 @@ export function processBonsaiHeartbeat(entity) {
     if (!entity || !isRegisteredBonsaiEntity(entity.typeId)) return
 
     const block = getBonsaiBlockForEntity(entity)
-    if (!block || !block.getState("utilitycraft:hasBonsai")) {
+    if (!block || !DoriosLib.block.getState(block, "utilitycraft:hasBonsai")) {
         despawnBonsaiEntity(entity)
         return
     }
@@ -242,7 +251,7 @@ export function processBonsaiHeartbeat(entity) {
     const stats = getEffectiveBonsaiStats(definition, block)
     if (!definition || !stats) return
 
-    if (block.getState("utilitycraft:isSlimed")) {
+    if (DoriosLib.block.getState(block, "utilitycraft:isSlimed")) {
         let alreadyPaused = false
         try {
             alreadyPaused = entity.getProperty(DECORATIVE_PAUSED_PROPERTY) === true
@@ -279,7 +288,7 @@ export function processLegacyBonsaiLoot(entity) {
     const definition = getBonsaiDefinitionByInput(inputTypeId)
     const stats = block ? getEffectiveBonsaiStats(definition, block) : null
     if (!block || !definition || !stats) return
-    if (block.getState("utilitycraft:isSlimed")) return
+    if (DoriosLib.block.getState(block, "utilitycraft:isSlimed")) return
 
     produceBonsaiDrops(entity, block, definition, stats.yieldMultiplier)
     resetAnimation(entity)
@@ -308,7 +317,7 @@ export function refreshLoadedBonsais() {
             result.found++
 
             const block = getBonsaiBlockForEntity(entity)
-            if (!block || !block.getState("utilitycraft:hasBonsai")) {
+            if (!block || !DoriosLib.block.getState(block, "utilitycraft:hasBonsai")) {
                 despawnBonsaiEntity(entity)
                 result.orphaned++
                 continue
@@ -322,7 +331,7 @@ export function refreshLoadedBonsais() {
                 continue
             }
 
-            const paused = block.getState("utilitycraft:isSlimed") === true
+            const paused = DoriosLib.block.getState(block, "utilitycraft:isSlimed") === true
             setEntityProperty(entity, DECORATIVE_PAUSED_PROPERTY, paused)
             try {
                 entity.triggerEvent(paused ? "normal" : "small")

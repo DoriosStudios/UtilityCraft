@@ -26,16 +26,12 @@
 				"entity": {
 					"name": "furnator",
 					"type": "generator",
-					"inventory_size": 10,
-					"input_slot": 3
+					"inventory_size": 10
 				},
 				"generator": {
 					"energy_cap": 6400000,
 					"rate_speed_base": 4000
 				}
-			},
-			"utilitycraft:special_container": {
-				"Fuel Slot": 3
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

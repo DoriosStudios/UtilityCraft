@@ -1,8 +1,10 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, EnchantmentTypes } from '@minecraft/server';
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { autoFisherConfig, autoFisherLoot } from '../../config/recipes/fisher.js';
 
 const NET_SLOT = 6;
+const OUTPUT_SLOTS = [7, 8, 9, 10, 11, 12, 13, 14, 15];
 const UNUSED_INPUT_SLOT = 3;
 const UI_PLACEHOLDER_ITEM = 'utilitycraft:arrow_right_0';
 const WATER_TYPES = new Set([
@@ -18,8 +20,14 @@ const DEFAULT_CHANCE = 1;
 
 registerIOInterface("utilitycraft:autofisher", {
     items: {
-        slots: [16, 21],
-        modes: ["disabled", "output", "input_2"]
+        buttonSlots: [16, 21],
+        anyInputSlots: [],
+        anyOutputSlots: OUTPUT_SLOTS,
+        modes: [
+            { id: "disabled" },
+            { id: "output_1", outputSlots: OUTPUT_SLOTS },
+            { id: "input_2", inputSlots: [NET_SLOT] }
+        ]
     }
 });
 
@@ -107,7 +115,7 @@ function hasWaterNearby(block, radius = 1) {
 function rollAmount(definition) {
     if (Array.isArray(definition)) {
         const [min, max] = definition;
-        return DoriosAPI.math.randomInterval(min, max);
+        return DoriosLib.math.randomInt(min, max);
     }
     return definition ?? 1;
 }
@@ -359,7 +367,7 @@ function createRandomEnchantment(type, qualityFactor = 0) {
         maxLevel,
         Math.floor(minLevel + ((maxLevel - minLevel) * clamp(qualityFactor, 0, 1)))
     );
-    const level = DoriosAPI.math.randomInterval(adjustedMin, maxLevel);
+    const level = DoriosLib.math.randomInt(adjustedMin, maxLevel);
     return { type, level };
 }
 
@@ -539,7 +547,7 @@ function createBookDropStacks(amount, netTier = 0, netLuck = 0) {
         }
 
         const bookStack = new ItemStack(ENCHANTED_BOOK_ITEM_ID, 1);
-        const enchantCount = DoriosAPI.math.randomInterval(minEnchantments, maxEnchantments);
+        const enchantCount = DoriosLib.math.randomInt(minEnchantments, maxEnchantments);
         const enchantments = rollRandomEnchantmentsForItem(bookStack, enchantCount, qualityFactor);
         if (enchantments.length > 0 && enchantItem(bookStack, enchantments)) {
             stacks.push(bookStack);
@@ -590,7 +598,7 @@ function createEquipmentDropStacks(loot, amount, netLuck = 0, netTier = 0) {
         applyRandomDurability(stack, damageRange);
 
         if (compatibleTypes.length > 0 && enchantChance > 0 && Math.random() <= enchantChance) {
-            const enchantCount = DoriosAPI.math.randomInterval(minEnchantCount, maxEnchantCount);
+            const enchantCount = DoriosLib.math.randomInt(minEnchantCount, maxEnchantCount);
             const enchantments = rollRandomEnchantmentsForItem(stack, enchantCount, qualityFactor);
             if (enchantments.length > 0) {
                 enchantItem(stack, enchantments);
@@ -603,10 +611,10 @@ function createEquipmentDropStacks(loot, amount, netLuck = 0, netTier = 0) {
     return stacks;
 }
 
-DoriosAPI.register.blockComponent('autofisher', {
+DoriosLib.registry.blockComponent('utilitycraft:autofisher', {
     beforeOnPlayerPlace(e, { params: settings }) {
         Machine.spawnEntity(e, settings, (entity) => {
-            entity.setItem(UNUSED_INPUT_SLOT, UI_PLACEHOLDER_ITEM, 1, ' ');
+            DoriosLib.entity.setNewItem(entity, { slot: UNUSED_INPUT_SLOT, typeId: UI_PLACEHOLDER_ITEM, amount: 1, nameTag: ' ' });
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
@@ -623,12 +631,7 @@ DoriosAPI.register.blockComponent('autofisher', {
         if (!machine.valid) return;
 
         const inv = machine.container;
-        machine.processIO({
-            items: {
-                input_2: [NET_SLOT],
-                output: settings.entity?.output_range ?? [7, 15]
-            }
-        });
+        machine.processIO();
 
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {
@@ -708,15 +711,15 @@ DoriosAPI.register.blockComponent('autofisher', {
                             if (lootItemId === BOOK_ITEM_ID) {
                                 const bookStacks = createBookDropStacks(qty, netTier, netLuck);
                                 for (const stack of bookStacks) {
-                                    machine.entity.tryAddItem(stack);
+                                    DoriosLib.entity.tryAddItem(machine.entity, { item: stack });
                                 }
                             } else if (loot.randomEnchant || loot.durabilityDamageRange) {
                                 const equipmentStacks = createEquipmentDropStacks(loot, qty, netLuck, netTier);
                                 for (const stack of equipmentStacks) {
-                                    machine.entity.tryAddItem(stack);
+                                    DoriosLib.entity.tryAddItem(machine.entity, { item: stack });
                                 }
                             } else {
-                                machine.entity.tryAddItem(lootItemId, qty);
+                                DoriosLib.entity.tryAddItem(machine.entity, { item: lootItemId, amount: qty });
                             }
                         } catch {
                             // Inventory full mid-loop, break early to avoid unnecessary work

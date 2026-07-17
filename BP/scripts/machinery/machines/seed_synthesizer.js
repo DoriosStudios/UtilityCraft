@@ -1,13 +1,22 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
-const INTPUTSLOT = 3
-const MESHSLOT = 6
+const INPUT_SLOT = 3
+const SOIL_SLOT = 6
+const OUTPUT_SLOTS = [7, 8, 9, 10, 11, 12, 13, 14, 15]
 
 registerIOInterface("utilitycraft:seed_synthesizer", {
     items: {
-        slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [16, 21],
+        anyInputSlots: [INPUT_SLOT],
+        anyOutputSlots: OUTPUT_SLOTS,
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [INPUT_SLOT] },
+            { id: "output_1", outputSlots: OUTPUT_SLOTS },
+            { id: "input_2", inputSlots: [SOIL_SLOT] }
+        ]
     }
 });
 
@@ -26,7 +35,7 @@ const acceptedSoils = {
 };
 
 
-DoriosAPI.register.blockComponent('seed_synthesizer', {
+DoriosLib.registry.blockComponent('utilitycraft:seed_synthesizer', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -38,7 +47,7 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_right_0', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
         });
     },
 
@@ -54,22 +63,16 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        machine.processIO({
-            items: {
-                input: [INTPUTSLOT],
-                input_2: [MESHSLOT],
-                output: settings.entity?.output_range ?? [7, 15]
-            }
-        });
+        machine.processIO();
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INTPUTSLOT);
+        const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
             machine.showWarning('No Seed')
             return;
         }
 
-        const soilSlot = inv.getItem(MESHSLOT)
+        const soilSlot = inv.getItem(SOIL_SLOT)
         if (!soilSlot) {
             machine.showWarning('No Soil')
             return;
@@ -138,17 +141,17 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
             recipe.drops.forEach(loot => {
                 if (Math.random() <= loot.chance) {
                     let qty = Array.isArray(loot.amount)
-                        ? DoriosAPI.math.randomInterval(loot.amount[0], loot.amount[1])
+                        ? DoriosLib.math.randomInt(loot.amount[0], loot.amount[1])
                         : loot.amount;
 
 
                     // if (!loot.item.endsWith('_seeds')) qty *= soil.multi;
 
                     try {
-                        machine.entity.tryAddItem(
-                            loot.item,
-                            processCount * Math.ceil(Math.random() * qty)
-                        );
+                        DoriosLib.entity.tryAddItem(machine.entity, {
+                            item: loot.item,
+                            amount: processCount * Math.ceil(Math.random() * qty),
+                        });
                     } catch { }
                 }
             });

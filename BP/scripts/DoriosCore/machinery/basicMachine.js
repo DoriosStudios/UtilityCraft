@@ -1,62 +1,28 @@
-import { ItemStack } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
+import { ItemStack, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
-import { FluidStorage } from "./fluidStorage";
 import { OutputTracker } from "./outputTracker.js";
 import { TickScheduler } from "./tickScheduler.js";
+import { resolveItemContainerAt } from "./itemContainers.js";
+import {
+  getFluidInputIndices,
+  getFluidOutputIndices,
+  resolveFluidContainerAt,
+  transferFluid,
+} from "./fluidContainers.js";
 import * as Utils from "../utils/entity";
-import { readIOConfig } from "../interfaces/ioState.js";
-import { DIRECTIONS } from "../utils/directions.js";
+import { ensureItemIOConfig } from "../interfaces/itemIO.js";
+import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
+import { DIRECTIONS, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
+import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
 const IO_INPUT_SCAN_LIMIT = 9;
 const IO_OUTPUT_SLOT_LIMIT = 9;
 const IO_FLUID_TRANSFER_LIMIT = 2500;
 const ioInputCursors = new Map();
 
-function normalizeIOSlots(slots) {
-  if (Array.isArray(slots) && slots.length === 2) {
-    const start = Math.floor(Number(slots[0]));
-    const end = Math.floor(Number(slots[1]));
-    if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return [];
-
-    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
-  }
-
-  const rawSlots = Array.isArray(slots) ? slots : [slots];
-  return rawSlots
-    .map((slot) => Math.floor(Number(slot)))
-    .filter((slot) => Number.isFinite(slot) && slot >= 0);
-}
-
-function getIOCursorKey(entity, direction, mode) {
-  return `${entity.id}:items:${direction}:${mode}`;
-}
-
-function getIOModeConfig(config, mode) {
-  if (!config || typeof config !== "object") return undefined;
-  if (config[mode] !== undefined) return config[mode];
-  if (mode === "input_1") return config.input;
-  if (mode === "output_1") return config.output;
-  return undefined;
-}
-
-function isOutputIOMode(mode) {
-  return mode === "output" || /^output_[1-9]$/.test(mode);
-}
-
-function getItemInsertTarget(target) {
-  return target?.entity ?? target?.block ?? target?.container ?? undefined;
-}
-
-function addItemToRawContainer(container, item) {
-  if (!container || !item) return 0;
-
-  const beforeAmount = item.amount;
-  const remainder = container.addItem(item.clone());
-  if (!remainder) return beforeAmount;
-  if (remainder.typeId !== item.typeId) return beforeAmount;
-  return Math.max(0, beforeAmount - remainder.amount);
-}
+world.afterEvents.entityRemove.subscribe(({ removedEntityId }) => ioInputCursors.delete(removedEntityId));
 
 export class BasicMachine {
   /**
@@ -87,6 +53,8 @@ export class BasicMachine {
     this.baseRate = options.rate;
     this.processingInterval = TickScheduler.getProcessingInterval(this.entity);
     this.rate = options.rate * this.processingInterval;
+    this.itemIOReady = ensureItemIOConfig(this.entity, block.typeId);
+    this.fluidIOReady = ensureFluidIOConfig(this.entity, block.typeId);
     this.valid = true;
   }
 
@@ -132,14 +100,14 @@ export class BasicMachine {
    * Changes the texture of the block to the on version.
    */
   on() {
-    this.block.setState("utilitycraft:on", true);
+    DoriosLib.block.setState(this.block, "utilitycraft:on", true);
   }
 
   /**
    * Changes the texture of the block to the off version.
    */
   off() {
-    this.block.setState("utilitycraft:on", false);
+    DoriosLib.block.setState(this.block, "utilitycraft:on", false);
   }
 
   /**
@@ -242,16 +210,16 @@ export class BasicMachine {
   /**
    * Processes absolute-direction IO for machines and generators.
    *
-   * @param {Object} config Runtime IO handler config.
-   * @param {Object<string, number|number[]>} [config.items] Item slots keyed by mode.
-   * @param {Object<string, FluidStorage>|FluidStorage} [config.liquids] Fluid storage keyed by mode, or one shared tank.
+   * Item slots and fluid indices come directly from the entity's persisted IO
+   * document. Fluid indices are independent from inventory slots.
+   *
    * @param {Object} [limits] Per-tick transfer limits.
    * @param {number} [limits.maxInputSlotsScannedPerTick=9] External inventory slots scanned per input face.
    * @param {number} [limits.maxOutputSlotsMovedPerTick=9] Output slots moved per output face as full stacks.
    * @param {number} [limits.maxFluidMovedPerTick=2500] Fluid mB moved per tick.
    * @returns {{itemsMoved:number, inputSlotsScanned:number, fluidMoved:number}} Transfer summary.
    */
-  processIO(config = {}, limits = {}) {
+  processIO(limits = {}) {
     if (!this.valid) return { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0 };
 
     let targets = OutputTracker.getIOTargets(this.entity);
@@ -259,56 +227,55 @@ export class BasicMachine {
       targets = OutputTracker.refreshIOTargets(this.block) ?? targets;
     }
 
-    const ioConfig = readIOConfig(this.entity);
     const maxInputScans = Math.max(0, Math.floor(limits.maxInputSlotsScannedPerTick ?? IO_INPUT_SCAN_LIMIT));
     const maxOutputSlots = Math.max(0, Math.floor(limits.maxOutputSlotsMovedPerTick ?? IO_OUTPUT_SLOT_LIMIT));
     const maxFluid = Math.max(0, Math.floor(limits.maxFluidMovedPerTick ?? IO_FLUID_TRANSFER_LIMIT));
     const summary = { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0 };
 
-    if (config.items && ioConfig.items && targets.items) {
-      this.#processItemIO(config.items, ioConfig.items, targets.items, maxInputScans, maxOutputSlots, summary);
+    if (!this.itemIOReady) {
+      this.itemIOReady = ensureItemIOConfig(this.entity, this.block.typeId);
+    }
+    if (this.itemIOReady && targets.items) {
+      this.#processItemIO(targets.items, maxInputScans, maxOutputSlots, summary);
     }
 
-    if (config.liquids && ioConfig.liquids && targets.liquids && maxFluid > 0) {
-      this.#processLiquidIO(config.liquids, ioConfig.liquids, targets.liquids, maxFluid, summary);
+    if (!this.fluidIOReady) {
+      this.fluidIOReady = ensureFluidIOConfig(this.entity, this.block.typeId);
+    }
+    if (this.fluidIOReady && targets.liquids && maxFluid > 0) {
+      this.#processFluidIO(targets.liquids, maxFluid, summary);
     }
 
     return summary;
   }
 
-  #processItemIO(itemConfig, ioModes, targets, maxInputScans, maxOutputSlots, summary) {
+  #processItemIO(targets, maxInputScans, maxOutputSlots, summary) {
     for (const direction of DIRECTIONS) {
       if (targets[direction] !== true) continue;
-
-      const mode = ioModes[direction];
-      if (!mode || mode === "disabled") continue;
 
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       if (!neighborLocation) continue;
 
-      if (isOutputIOMode(mode)) {
-        if (maxOutputSlots <= 0) continue;
-
-        const slots = normalizeIOSlots(getIOModeConfig(itemConfig, mode));
-        const result = this.#pushOutputItems(neighborLocation, slots, maxOutputSlots);
+      const outputSlots = DoriosContainer.getOutputSlots(this.entity, { face: direction });
+      if (outputSlots.length > 0 && maxOutputSlots > 0) {
+        const result = this.#pushOutputItems(neighborLocation, outputSlots, direction, maxOutputSlots);
         summary.itemsMoved += result.itemsMoved;
-        continue;
       }
 
-      const inputSlots = normalizeIOSlots(getIOModeConfig(itemConfig, mode));
+      const inputSlots = DoriosContainer.getInputSlots(this.entity, { face: direction });
       if (inputSlots.length === 0 || maxInputScans <= 0) continue;
 
-      const result = this.#pullInputItems(neighborLocation, inputSlots, direction, mode, maxInputScans);
+      const result = this.#pullInputItems(neighborLocation, inputSlots, direction, maxInputScans);
       summary.inputSlotsScanned += result.slotsScanned;
       summary.itemsMoved += result.itemsMoved;
     }
   }
 
-  #pushOutputItems(targetLocation, slots, maxSlots) {
+  #pushOutputItems(targetLocation, slots, direction, maxSlots) {
     if (slots.length === 0 || maxSlots <= 0) return { slotsMoved: 0, itemsMoved: 0 };
 
-    const target = DoriosAPI.containers.getContainerAt(targetLocation, this.dimension);
-    if (!target?.container) return { slotsMoved: 0, itemsMoved: 0 };
+    const target = resolveItemContainerAt(this.dimension, targetLocation);
+    if (!target) return { slotsMoved: 0, itemsMoved: 0 };
 
     let slotsMoved = 0;
     let itemsMoved = 0;
@@ -316,31 +283,12 @@ export class BasicMachine {
     for (const slot of slots) {
       if (slotsMoved >= maxSlots) break;
 
-      const item = this.container.getItem(slot);
-      if (!item) continue;
-
-      const beforeAmount = item.amount;
-      let moved = 0;
-
-      if (target.entity) {
-        const added = DoriosAPI.containers.addItem(getItemInsertTarget(target), item.clone());
-        if (added === true) {
-          moved = beforeAmount;
-        } else if (typeof added === "number") {
-          moved = Math.max(0, Math.min(beforeAmount, added));
-        }
-      } else {
-        moved = addItemToRawContainer(target.container, item);
-      }
-
+      const moved = DoriosContainer.transfer(this.entity, {
+        sourceSlot: slot,
+        target,
+        targetFace: OPPOSITE_DIRECTIONS[direction],
+      });
       if (moved <= 0) continue;
-
-      if (moved >= beforeAmount) {
-        this.container.setItem(slot, undefined);
-      } else {
-        item.amount = beforeAmount - moved;
-        this.container.setItem(slot, item);
-      }
 
       slotsMoved++;
       itemsMoved += moved;
@@ -349,104 +297,78 @@ export class BasicMachine {
     return { slotsMoved, itemsMoved };
   }
 
-  #pullInputItems(sourceLocation, targetSlots, direction, mode, scanBudget) {
+  #pullInputItems(sourceLocation, targetSlots, direction, scanBudget) {
     if (targetSlots.length === 0 || scanBudget <= 0) return { slotsScanned: 0, itemsMoved: 0 };
 
-    const source = DoriosAPI.containers.getContainerAt(sourceLocation, this.dimension);
-    if (!source?.container) return { slotsScanned: 0, itemsMoved: 0 };
+    const source = resolveItemContainerAt(this.dimension, sourceLocation);
+    if (!source) return { slotsScanned: 0, itemsMoved: 0 };
 
-    const sourceRef = source.entity ?? source.block ?? source.container;
-    const [start, end] = DoriosAPI.containers.getAllowedOutputRange(sourceRef);
-    if (start < 0 || end < start) return { slotsScanned: 0, itemsMoved: 0 };
+    const sourceDirection = OPPOSITE_DIRECTIONS[direction];
+    const sourceSlots = DoriosContainer.getOutputSlots(source, { face: sourceDirection });
+    if (sourceSlots.length === 0) return { slotsScanned: 0, itemsMoved: 0 };
 
-    const cursorKey = getIOCursorKey(this.entity, direction, mode);
-    let nextCursor = Number(ioInputCursors.get(cursorKey));
-    if (!Number.isFinite(nextCursor) || nextCursor < start || nextCursor > end) nextCursor = start;
+    const entityCursors = ioInputCursors.get(this.entity.id) ?? new Map();
+    let nextCursor = Number(entityCursors.get(direction));
+    if (!Number.isInteger(nextCursor) || nextCursor < 0 || nextCursor >= sourceSlots.length) {
+      nextCursor = 0;
+    }
 
     let slotsScanned = 0;
     let itemsMoved = 0;
-    const slotCount = end - start + 1;
+    const slotCount = sourceSlots.length;
 
     while (slotsScanned < scanBudget && slotsScanned < slotCount) {
-      const sourceSlot = nextCursor;
-      const before = source.container.getItem(sourceSlot);
-      const beforeAmount = before?.amount ?? 0;
-      let movedThisSlot = 0;
+      const sourceSlot = sourceSlots[nextCursor];
+      const movedThisSlot = DoriosContainer.transfer(source, {
+        sourceSlot,
+        target: this.entity,
+        targetSlots,
+      });
+      itemsMoved += movedThisSlot;
 
-      if (before) {
-        movedThisSlot = DoriosAPI.containers.transferItemToSlots(source.container, sourceSlot, this.container, targetSlots);
-        itemsMoved += movedThisSlot;
-      }
-
-      nextCursor = sourceSlot + 1 > end ? start : sourceSlot + 1;
+      nextCursor = (nextCursor + 1) % slotCount;
       slotsScanned++;
-      if (beforeAmount > 0 && movedThisSlot > 0) break;
+      if (movedThisSlot > 0) break;
     }
 
-    ioInputCursors.set(cursorKey, nextCursor);
+    entityCursors.set(direction, nextCursor);
+    ioInputCursors.set(this.entity.id, entityCursors);
     return { slotsScanned, itemsMoved };
   }
 
-  #processLiquidIO(liquidConfig, ioModes, targets, maxFluid, summary) {
+  #processFluidIO(targets, maxFluid, summary) {
     for (const direction of DIRECTIONS) {
       if (summary.fluidMoved >= maxFluid) break;
       if (targets[direction] !== true) continue;
-
-      const mode = ioModes[direction];
-      if (!mode || mode === "disabled") continue;
-
-      const storage = getIOModeConfig(liquidConfig, mode) ?? liquidConfig?.storage ?? liquidConfig;
-      if (!storage?.transferTo && !storage?.receiveFrom) continue;
-
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
-      const remaining = maxFluid - summary.fluidMoved;
+      if (!neighborLocation) continue;
 
-      if (isOutputIOMode(mode)) {
-        summary.fluidMoved += this.#pushOutputLiquid(storage, neighborLocation, remaining);
-      } else {
-        summary.fluidMoved += this.#pullInputLiquid(storage, neighborLocation, remaining);
+      const outputIndices = getFluidOutputIndices(this.entity, { face: direction });
+      for (const sourceIndex of outputIndices) {
+        if (summary.fluidMoved >= maxFluid) break;
+        summary.fluidMoved += transferFluid(this.entity, {
+          sourceIndex,
+          target: this.dimension.getBlock(neighborLocation),
+          targetFace: OPPOSITE_DIRECTIONS[direction],
+          maxAmount: maxFluid - summary.fluidMoved,
+        });
+      }
+
+      const inputIndices = getFluidInputIndices(this.entity, { face: direction });
+      if (inputIndices.length === 0 || summary.fluidMoved >= maxFluid) continue;
+      const source = resolveFluidContainerAt(this.dimension, neighborLocation);
+      if (!source) continue;
+      const sourceIndices = getFluidOutputIndices(source, { face: OPPOSITE_DIRECTIONS[direction] });
+      for (const sourceIndex of sourceIndices) {
+        if (summary.fluidMoved >= maxFluid) break;
+        summary.fluidMoved += transferFluid(source, {
+          sourceIndex,
+          target: this.entity,
+          targetIndices: inputIndices,
+          maxAmount: maxFluid - summary.fluidMoved,
+        });
       }
     }
-  }
-
-  #pushOutputLiquid(sourceStorage, targetLocation, amount) {
-    if (!targetLocation || amount <= 0) return 0;
-    if (sourceStorage.get() <= 0 || sourceStorage.getType() === Constants.EMPTY_FLUID_TYPE) return 0;
-
-    const targetBlock = this.dimension.getBlock(targetLocation);
-    if (!OutputTracker.isOutputTarget(targetBlock, "fluid")) return 0;
-
-    let targetEntity = this.dimension.getEntitiesAtBlockLocation(targetLocation)[0];
-    if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
-      FluidStorage.addfluidToTank(targetBlock, sourceStorage.getType(), 0);
-      targetEntity = this.dimension.getEntitiesAtBlockLocation(targetLocation)[0];
-    }
-
-    if (!targetEntity) return 0;
-
-    const targetStorage = FluidStorage.findType(targetEntity, sourceStorage.getType());
-    if (!targetStorage) return 0;
-
-    return sourceStorage.transferTo(targetStorage, amount);
-  }
-
-  #pullInputLiquid(targetStorage, sourceLocation, amount) {
-    if (!sourceLocation || amount <= 0 || targetStorage.getFreeSpace() <= 0) return 0;
-
-    const sourceBlock = this.dimension.getBlock(sourceLocation);
-    if (!OutputTracker.isOutputTarget(sourceBlock, "fluid")) return 0;
-
-    const sourceEntity = this.dimension.getEntitiesAtBlockLocation(sourceLocation)[0];
-    if (!sourceEntity) return 0;
-
-    const sourceStorage = new FluidStorage(sourceEntity, 0);
-    if (sourceStorage.get() <= 0 || sourceStorage.getType() === Constants.EMPTY_FLUID_TYPE) return 0;
-
-    if (targetStorage.getType() !== Constants.EMPTY_FLUID_TYPE && targetStorage.getType() !== sourceStorage.getType()) {
-      return 0;
-    }
-
-    return targetStorage.receiveFrom(sourceStorage, amount);
   }
 
   /**

@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world, ItemStack } from '@minecraft/server'
 const ESSENCE_TARGETS = Object.freeze([
     { displayName: 'Blaze', essenceItem: 'utilitycraft:blaze_essence', captureTypeIds: ['minecraft:blaze'] },
@@ -35,7 +36,7 @@ for (const target of ESSENCE_TARGETS) {
     }
 }
 
-DoriosAPI.register.itemComponent("essence", {
+DoriosLib.registry.itemComponent("utilitycraft:essence", {
     onUse(e) {
         const { source } = e
         const equippable = source.getComponent("equippable")
@@ -96,7 +97,7 @@ world.afterEvents.entityDie.subscribe(e => {
     }
 
     // Update lore and show progress
-    DoriosAPI.utils.actionBar(player, `${kills}%`)
+    DoriosLib.messages.actionBar(player, `${kills}%`)
     offHand.setLore([
         `${lore?.[0]}`,
         `§r§7  ${kills} %`
@@ -200,6 +201,6 @@ function showLocalizedActionBar(player, translationKey) {
             rawtext: [{ translate: translationKey }]
         })
     } catch {
-        DoriosAPI.utils.actionBar(player, '§aEssence complete!')
+        DoriosLib.messages.actionBar(player, '§aEssence complete!')
     }
 }

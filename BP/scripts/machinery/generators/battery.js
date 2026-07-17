@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Generator, EnergyStorage } from "DoriosCore/index.js"
 
 const entitySettings = {
@@ -6,7 +7,7 @@ const entitySettings = {
     inventory_size: 2
 }
 
-DoriosAPI.register.blockComponent('battery', {
+DoriosLib.registry.blockComponent('utilitycraft:battery', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -53,8 +54,7 @@ DoriosAPI.register.blockComponent('battery', {
         const output = transferred;
 
         // Update capacity visuals
-        block.setState('utilitycraft:capacity',
-            DoriosAPI.math.scaleToSetNumber(afterTransfer, energy.cap, 6));
+        DoriosLib.block.setState(block, 'utilitycraft:capacity', DoriosLib.math.scaleTo(afterTransfer, energy.cap, 6));
 
         // Update visuals and label
         generator.on();

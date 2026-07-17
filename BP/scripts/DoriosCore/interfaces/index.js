@@ -514,3 +514,24 @@ world.afterEvents.entityItemDrop.subscribe((event) => {
 });
 
 export { IOInterface, registerIOInterface } from "./IOInterface.js";
+export {
+  DEFAULT_FLUID_IO_MODE,
+  FLUID_CONTAINER_FAMILY,
+  FLUID_CONFIG_EVENT_NAMESPACE,
+  FLUID_CONFIG_KEY,
+  FLUID_CONFIG_VERSION,
+  SET_FLUID_CONFIG_EVENT_ID,
+  cloneFluidConfig,
+  cycleFluidIODirectionMode,
+  ensureFluidIOConfig,
+  getFluidConfig,
+  getFluidConfigRevision,
+  getFluidIODefinition,
+  getFluidIODirectionMode,
+  getFluidStatus,
+  getInputFluidIndices,
+  getOutputFluidIndices,
+  normalizeFluidConfig,
+  registerFluidIODefinition,
+  setFluidConfig,
+} from "./fluidIO.js";

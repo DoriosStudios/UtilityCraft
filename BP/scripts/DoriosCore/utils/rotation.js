@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 
@@ -85,8 +86,8 @@ export class Rotation {
     static handleRotation(block, blockFace) {
         // --- Handle UtilityCraft 24-axis rotation ---
         if (
-            block.getState("utilitycraft:axis") != undefined &&
-            block.getState("utilitycraft:rotation") != undefined
+            DoriosLib.block.getState(block, "utilitycraft:axis") != undefined &&
+            DoriosLib.block.getState(block, "utilitycraft:rotation") != undefined
         ) {
             Rotation.rotate_24(block, blockFace);
             return;

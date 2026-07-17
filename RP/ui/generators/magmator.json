@@ -46,11 +46,12 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_fluids_modes_description": "IO Modes:\n§r- §9Input 1",
+          "$io_fluids_modes_description": "ui.utilitycraft:io.magmator.liquids",
           "$has_item_io": false,
           "$has_fluid_io": true,
           "$io_items_default": false,
           "$io_fluids_default": true,
+          "$io_default_tab_index": 1,
           "$io_top_texture": "textures/blocks/generators/magmator/basic/off/up",
           "$io_left_texture": "textures/blocks/generators/magmator/basic/off/west",
           "$io_front_texture": "textures/blocks/generators/magmator/basic/off/north",

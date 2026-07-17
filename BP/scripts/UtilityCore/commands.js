@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { system, world } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import {
@@ -19,15 +20,15 @@ function getClosedIntervalLabel(profile) {
   return TickScheduler.getSchedulerProfileConfig(profile).closedInterval;
 }
 
-DoriosAPI.register.command({
-  name: "legacyrefreshspeed",
+DoriosLib.registry.customCommand({
+  name: "utilitycraft:legacyrefreshspeed",
   description: "Legacy global UtilityCraft tick speed setting",
   permissionLevel: "admin",
   parameters: [
     {
       name: "mode",
       type: "enum",
-      enum: ["Lowest", "Low", "Normal", "Fast", "Fastest", "Custom"],
+      values: ["Lowest", "Low", "Normal", "Fast", "Fastest", "Custom"],
     },
     {
       name: "value",
@@ -79,15 +80,15 @@ DoriosAPI.register.command({
   },
 });
 
-DoriosAPI.register.command({
-  name: "refreshspeed",
+DoriosLib.registry.customCommand({
+  name: "utilitycraft:refreshspeed",
   description: "Sets the UtilityCraft machine scheduler profile",
   permissionLevel: "admin",
   parameters: [
     {
       name: "mode",
       type: "enum",
-      enum: SCHEDULER_PROFILE_LABELS,
+      values: SCHEDULER_PROFILE_LABELS,
     },
   ],
   callback(origin, mode) {
@@ -102,15 +103,15 @@ DoriosAPI.register.command({
   },
 });
 
-DoriosAPI.register.command({
-  name: "tickgroups",
+DoriosLib.registry.customCommand({
+  name: "utilitycraft:tickgroups",
   description: "Lists UtilityCraft machine tick group counts",
   permissionLevel: "admin",
   parameters: [
     {
       name: "action",
       type: "enum",
-      enum: ["List"],
+      values: ["List"],
     },
   ],
   callback(origin, action) {
@@ -135,7 +136,7 @@ DoriosAPI.register.command({
   },
 });
 
-DoriosAPI.register.itemComponent("settings", {
+DoriosLib.registry.itemComponent("utilitycraft:settings", {
   async onUse(e) {
     const player = e.source;
     if (!player) return;

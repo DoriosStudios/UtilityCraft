@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world, system, ItemStack } from '@minecraft/server'
 import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
 
@@ -9,7 +10,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 })
 
 
-DoriosAPI.register.blockComponent('computer', {
+DoriosLib.registry.blockComponent('utilitycraft:computer', {
     onPlayerInteract(e) {
         const { player, block } = e
         let mainHand = player.getComponent('equippable').getEquipment('Mainhand')
@@ -75,7 +76,7 @@ DoriosAPI.register.blockComponent('computer', {
     }
 })
 
-DoriosAPI.register.blockComponent('carpet', {
+DoriosLib.registry.blockComponent('utilitycraft:carpet', {
     onPlayerInteract(e) {
         const { player, block } = e
         let mainHand = player.getComponent('equippable').getEquipment('Mainhand')

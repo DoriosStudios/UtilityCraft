@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack } from '@minecraft/server'
 
 /**
@@ -40,7 +41,7 @@ const heatSources = {
     'minecraft:torch': 1
 }
 
-DoriosAPI.register.blockComponent('crucible', {
+DoriosLib.registry.blockComponent('utilitycraft:crucible', {
     /**
      * Handles player interaction with the crucible.
      */
@@ -49,8 +50,8 @@ DoriosAPI.register.blockComponent('crucible', {
         const pos = { x: x + 0.5, y: y + 1, z: z + 0.5 }
 
         const mainhand = player.getComponent('equippable').getEquipment('Mainhand')
-        let cobble = block.getState('utilitycraft:cobble')
-        let lava = block.getState('utilitycraft:lava')
+        let cobble = DoriosLib.block.getState(block, 'utilitycraft:cobble')
+        let lava = DoriosLib.block.getState(block, 'utilitycraft:lava')
 
         // Add cobble-like blocks
         const cobbleUnits = acceptedItems[mainhand?.typeId]
@@ -65,18 +66,18 @@ DoriosAPI.register.blockComponent('crucible', {
             if (mainhand?.typeId === 'minecraft:bucket' && lava === 4) {
                 // Collect lava
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
-                player.giveItem('minecraft:lava_bucket')
+                DoriosLib.player.giveItem(player, { item: 'minecraft:lava_bucket' })
                 lava = 0
             } else if (mainhand?.typeId === 'minecraft:water_bucket' && lava === 4) {
                 // Water + lava → obsidian
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
-                player.giveItem('minecraft:bucket')
+                DoriosLib.player.giveItem(player, { item: 'minecraft:bucket' })
                 block.dimension.spawnItem(new ItemStack('minecraft:obsidian', 1), pos)
                 lava = 0
             } else if (mainhand?.typeId === 'minecraft:lava_bucket' && lava === 0 && cobble === 0) {
                 // Insert lava
                 player.runCommand(`clear @s ${mainhand.typeId} 0 1`)
-                player.giveItem('minecraft:bucket')
+                DoriosLib.player.giveItem(player, { item: 'minecraft:bucket' })
                 lava = 4
             }
         }
@@ -85,8 +86,8 @@ DoriosAPI.register.blockComponent('crucible', {
         player.onScreenDisplay.setActionBar(`   Cobble: ${cobble * 1000}mB   Lava: ${lava * 250}mB   `)
 
         // Update states
-        block.setState('utilitycraft:cobble', cobble)
-        block.setState('utilitycraft:lava', lava)
+        DoriosLib.block.setState(block, 'utilitycraft:cobble', cobble)
+        DoriosLib.block.setState(block, 'utilitycraft:lava', lava)
     },
 
     /**
@@ -94,12 +95,12 @@ DoriosAPI.register.blockComponent('crucible', {
      */
     onTick({ block }) {
         const heat = heatSources[block.below(1)?.typeId]
-        let smelt = block.getState('utilitycraft:smelting')
-        let cobble = block.getState('utilitycraft:cobble')
-        let lava = block.getState('utilitycraft:lava')
+        let smelt = DoriosLib.block.getState(block, 'utilitycraft:smelting')
+        let cobble = DoriosLib.block.getState(block, 'utilitycraft:cobble')
+        let lava = DoriosLib.block.getState(block, 'utilitycraft:lava')
 
         if (!heat || cobble === 0 || lava === 4) {
-            block.setState('utilitycraft:smelting', 0)
+            DoriosLib.block.setState(block, 'utilitycraft:smelting', 0)
             return
         }
 
@@ -111,8 +112,8 @@ DoriosAPI.register.blockComponent('crucible', {
             smelt = 0
         }
 
-        block.setState('utilitycraft:cobble', cobble)
-        block.setState('utilitycraft:lava', lava)
-        block.setState('utilitycraft:smelting', smelt)
+        DoriosLib.block.setState(block, 'utilitycraft:cobble', cobble)
+        DoriosLib.block.setState(block, 'utilitycraft:lava', lava)
+        DoriosLib.block.setState(block, 'utilitycraft:smelting', smelt)
     }
 })

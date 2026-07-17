@@ -571,7 +571,6 @@ item.utilitycraft:wither_skeleton_essence=Сущность скелета-исс
 - Machines Upgrades =## Обновления машин
 ## +
 item.utilitycraft:filter_upgrade=Обновление фильтра\n§7 – дает транспортным блокам \n возможность фильтровать предметы.\n§o§9@UtilityCraft
-item.utilitycraft:smart_filter_upgrade=Обновление интеллектуального фильтра\n§7 — обеспечивает расширенную маршрутизацию элементов\n с использованием категорий слотов и фильтров на основе приоритета\n.\n§o§9@UtilityCraft
 item.utilitycraft:energy_upgrade=§bEnergy Upgrade§r\n§7- Повышает энергоэффективность машин.\n§o§9@UtilityCraft
 item.utilitycraft:speed_upgrade=§aУлучшение скорости§r\n§7- Увеличивает скорость работы машин\n- Увеличивает потребление энергии\n§o§9@UtilityCraft
 item.utilitycraft:range_upgrade=§9Range Upgrade§r\n§7 — увеличивает дальность действия машин.\n§o§9@UtilityCraft

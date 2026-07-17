@@ -1,17 +1,26 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
-const INPUTSLOT = 3
-const CATALYSTSLOT = 4
+const INPUT_SLOT = 3
+const CATALYST_SLOT = 4
+const OUTPUT_SLOT = 7
 
 registerIOInterface("utilitycraft:infuser", {
     items: {
-        slots: [8, 13],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [8, 13],
+        anyInputSlots: [INPUT_SLOT],
+        anyOutputSlots: [OUTPUT_SLOT],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [INPUT_SLOT] },
+            { id: "output_1", outputSlots: [OUTPUT_SLOT] },
+            { id: "input_2", inputSlots: [CATALYST_SLOT] },
+        ],
     }
 });
 
-DoriosAPI.register.blockComponent('double_machine', {
+DoriosLib.registry.blockComponent('utilitycraft:double_machine', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -23,7 +32,7 @@ DoriosAPI.register.blockComponent('double_machine', {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.displayProgress()
             // Fill Slot to avoid issues
-            machine.entity.setItem(1, 'utilitycraft:arrow_indicator_90', 1, " ")
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: 'utilitycraft:arrow_indicator_90', amount: 1, nameTag: " " })
         });
     },
 
@@ -39,27 +48,20 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        const OUTPUTSLOT = settings.entity?.output_slot ?? inv.size - 1
-        machine.processIO({
-            items: {
-                input: [INPUTSLOT],
-                input_2: [CATALYSTSLOT],
-                output: [OUTPUTSLOT]
-            }
-        });
+        machine.processIO();
 
-        let outputSlot = inv.getItem(OUTPUTSLOT);
+        let outputSlot = inv.getItem(OUTPUT_SLOT);
 
         //#region Comprobations
         // Get the catalyst slot
-        const catalystSlot = inv.getItem(CATALYSTSLOT);
+        const catalystSlot = inv.getItem(CATALYST_SLOT);
         if (!catalystSlot) {
             machine.showWarning('No Catalyst');
             return;
         }
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INPUTSLOT);
+        const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
             machine.showWarning('No Base Item');
             return;
@@ -143,16 +145,16 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (processCount > 0) {
             // Add the processed items to the output
             if (!outputSlot) {
-                machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * recipeAmount);
+                DoriosLib.entity.setNewItem(machine.entity, { slot: OUTPUT_SLOT, typeId: recipe.output, amount: processCount * recipeAmount });
             } else {
-                machine.entity.changeItemAmount(OUTPUTSLOT, processCount * recipeAmount);
+                DoriosLib.entity.changeItemAmount(machine.entity, { slot: OUTPUT_SLOT, amount: processCount * recipeAmount });
             }
 
             // Deduct progress and input items while preserving leftover progress.
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INPUTSLOT, -processCount * requiredInput);
-            machine.entity.changeItemAmount(CATALYSTSLOT, -processCount * requiredCatalyst);
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUT_SLOT, amount: -processCount * requiredInput });
+            DoriosLib.entity.changeItemAmount(machine.entity, { slot: CATALYST_SLOT, amount: -processCount * requiredCatalyst });
         }
 
         // Update machine visuals and state

@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { system } from "@minecraft/server";
 import { Machine } from "DoriosCore/index.js"
 
@@ -8,7 +9,7 @@ import { Machine } from "DoriosCore/index.js"
  * - Executes a `function harvester` in the targeted area once progress is full.
  */
 
-DoriosAPI.register.blockComponent("harvester", {
+DoriosLib.registry.blockComponent("utilitycraft:harvester", {
     /**
      * Called when the machine is placed by the player.
      * @param {{ params: MachineSettings }} ctx
@@ -71,8 +72,8 @@ DoriosAPI.register.blockComponent("harvester", {
                 east: "west",
                 west: "east"
             };
-            const facingDirection = block.getState("minecraft:facing_direction");
-            const axis = opposite[facingDirection] ?? block.getState("utilitycraft:axis");
+            const facingDirection = DoriosLib.block.getState(block, "minecraft:facing_direction");
+            const axis = opposite[facingDirection] ?? DoriosLib.block.getState(block, "utilitycraft:axis");
             switch (axis) {
                 case "up":
                     y--;

@@ -1,11 +1,12 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system } from "@minecraft/server"
 import { plantsData, data } from "../config/recipes/plants.js"
 
-DoriosAPI.register.blockComponent("crop", {
+DoriosLib.registry.blockComponent("utilitycraft:crop", {
     onTick({ block }) {
-        const age = block.getState("utilitycraft:age")
+        const age = DoriosLib.block.getState(block, "utilitycraft:age")
         if (age < 5) {
-            block.setState("utilitycraft:age", age + 1)
+            DoriosLib.block.setState(block, "utilitycraft:age", age + 1)
         }
     },
 
@@ -15,7 +16,7 @@ DoriosAPI.register.blockComponent("crop", {
         if (!crop) return
 
         const mainHand = player.getComponent("equippable").getEquipment("Mainhand")
-        const age = block.getState("utilitycraft:age")
+        const age = DoriosLib.block.getState(block, "utilitycraft:age")
 
         // Fully grown crop
         if (age === 5) {
@@ -33,9 +34,9 @@ DoriosAPI.register.blockComponent("crop", {
                     const randomChance = Math.random() * 100
                     if (randomChance <= drop.prob) {
                         if (drop.item.endsWith("_seeds")) {
-                            player.giveItem(drop.item, block)
+                            DoriosLib.player.giveItem(player, { item: drop.item })
                         } else {
-                            const amount = DoriosAPI.math.randomInterval(drop.min, drop.max * fortuneLevel)
+                            const amount = DoriosLib.math.randomInt(drop.min, drop.max * fortuneLevel)
                             block.dimension.spawnItem(new ItemStack(drop.item, amount), block.location)
                         }
                     }
@@ -53,7 +54,7 @@ DoriosAPI.register.blockComponent("crop", {
 
 
             block.dimension.playSound("dig.grass", block.location)
-            block.setState("utilitycraft:age", 0)
+            DoriosLib.block.setState(block, "utilitycraft:age", 0)
         }
     },
     onPlayerBreak({ brokenBlockPermutation, block }) {

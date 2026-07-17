@@ -34,10 +34,6 @@
                 "utilitycraft:filter": [
                     0,
                     1
-                ],
-                "utilitycraft:smart_filter": [
-                    0,
-                    1
                 ]
             },
             "traits": {

@@ -39,9 +39,31 @@
         }
       },
       {
-        "liquid_bar@uc.liquid_input_1_bar": {
+        "liquid_bar@uc.liquid_input_2_bar": {
           "$collection_index": 2,
           "offset": [0, 0]
+        }
+      },
+      {
+        "io_tab@uc.io_tab": {
+          "$io_fluids_modes_description": "ui.utilitycraft:io.thermo_generator.liquids",
+          "$has_item_io": false,
+          "$has_fluid_io": true,
+          "$io_items_default": false,
+          "$io_fluids_default": true,
+          "$io_default_tab_index": 1,
+          "$io_top_texture": "textures/blocks/generators/thermo_generator/basic/off/up",
+          "$io_left_texture": "textures/blocks/generators/thermo_generator/basic/off/west",
+          "$io_front_texture": "textures/blocks/generators/thermo_generator/basic/off/north",
+          "$io_right_texture": "textures/blocks/generators/thermo_generator/basic/off/east",
+          "$io_bottom_texture": "textures/blocks/generators/thermo_generator/basic/off/down",
+          "$io_back_texture": "textures/blocks/generators/thermo_generator/basic/off/south",
+          "$io_fluid_top_index": 3,
+          "$io_fluid_left_index": 4,
+          "$io_fluid_front_index": 5,
+          "$io_fluid_right_index": 6,
+          "$io_fluid_bottom_index": 7,
+          "$io_fluid_back_index": 8
         }
       },
       {

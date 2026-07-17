@@ -1,25 +1,37 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js";
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from "@minecraft/server";
 import { writeBlueprintData, sendBlueprintDataEvent } from "../blueprint.js";
 
 const BLUEPRINT_SLOT = 3;
+const INPUT_START = 6;
+const INPUT_END = 14;
+const INPUT_SLOTS = [6, 7, 8, 9, 10, 11, 12, 13, 14];
+const OUTPUT_SLOT = 15;
 const BLUEPRINT_ITEM = "utilitycraft:blueprint_paper";
 const OUTPUT_BLUEPRINT_ITEM = "utilitycraft:blueprint";
 
 registerIOInterface("utilitycraft:digitizer", {
     items: {
-        slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [16, 21],
+        anyInputSlots: INPUT_SLOTS,
+        anyOutputSlots: [OUTPUT_SLOT],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: INPUT_SLOTS },
+            { id: "output_1", outputSlots: [OUTPUT_SLOT] },
+            { id: "input_2", inputSlots: [BLUEPRINT_SLOT] },
+        ],
     }
 });
 const MIN_Y_MAP = {
-    "minecraft:overworld": DoriosAPI.constants.dimensions.overworld.minY,
-    "minecraft:nether": DoriosAPI.constants.dimensions.nether.minY,
-    "minecraft:the_end": DoriosAPI.constants.dimensions.end.minY,
+    "minecraft:overworld": DoriosLib.constants.DIMENSIONS.overworld.minY,
+    "minecraft:nether": DoriosLib.constants.DIMENSIONS.nether.minY,
+    "minecraft:the_end": DoriosLib.constants.DIMENSIONS.end.minY,
 };
 
-DoriosAPI.register.blockComponent("digitizer", {
+DoriosLib.registry.blockComponent("utilitycraft:digitizer", {
     /**
      * @param {{ params: MachineSettings }} ctx
      */
@@ -28,7 +40,7 @@ DoriosAPI.register.blockComponent("digitizer", {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true }, true);
             machine.setEnergyCost(settings.machine.energy_cost);
             machine.displayProgress();
-            machine.entity.setItem(1, "utilitycraft:arrow_right_0", 1, "");
+            DoriosLib.entity.setNewItem(machine.entity, { slot: 1, typeId: "utilitycraft:arrow_right_0", amount: 1, nameTag: "" });
             machine.entity.setDynamicProperty("crafting", false);
         });
     },
@@ -43,15 +55,7 @@ DoriosAPI.register.blockComponent("digitizer", {
         if (!machine.valid) return;
 
         const inv = machine.container;
-        const outputSlot = settings.entity?.output_slot ?? inv.size - 1;
-        const [inputStart, inputEnd] = settings.entity?.input_range ?? [inv.size - 10, inv.size - 2];
-        machine.processIO({
-            items: {
-                input: [inputStart, inputEnd],
-                input_2: [BLUEPRINT_SLOT],
-                output: [outputSlot]
-            }
-        });
+        machine.processIO();
 
         const blueprint = inv.getItem(BLUEPRINT_SLOT);
         if (!blueprint || blueprint.typeId !== BLUEPRINT_ITEM) {
@@ -59,13 +63,13 @@ DoriosAPI.register.blockComponent("digitizer", {
             return;
         }
 
-        if (inv.getItem(outputSlot)) {
+        if (inv.getItem(OUTPUT_SLOT)) {
             machine.showWarning("Output Full");
             return;
         }
 
         let materialCount = 0;
-        for (let slot = inputStart; slot <= inputEnd; slot++) {
+        for (let slot = INPUT_START; slot <= INPUT_END; slot++) {
             if (inv.getItem(slot)) materialCount++;
         }
 
@@ -124,12 +128,12 @@ DoriosAPI.register.blockComponent("digitizer", {
         /** @type {string[]} */
         const recipeArray = [];
 
-        for (let slot = inputStart; slot <= inputEnd; slot++) {
+        for (let slot = INPUT_START; slot <= INPUT_END; slot++) {
             const item = inv.getItem(slot);
             if (item) {
                 const id = item.typeId;
                 materialMap[id] = (materialMap[id] || 0) + 1;
-                dimension.runCommand(`replaceitem block ${x} ${minY} ${z} slot.container ${slot - 6} ${id}`);
+                dimension.runCommand(`replaceitem block ${x} ${minY} ${z} slot.container ${slot - INPUT_START} ${id}`);
                 recipeArray.push(id.split(":")[1]);
             } else {
                 recipeArray.push("air");
@@ -183,9 +187,9 @@ DoriosAPI.register.blockComponent("digitizer", {
                     inv.setItem(BLUEPRINT_SLOT);
                 }
 
-                inv.setItem(outputSlot, newBlueprint);
+                inv.setItem(OUTPUT_SLOT, newBlueprint);
                 sendBlueprintDataEvent(machine.entity, {
-                    slot: outputSlot,
+                    slot: OUTPUT_SLOT,
                     data: blueprintData,
                 });
                 machine.addProgress(-energyCost);

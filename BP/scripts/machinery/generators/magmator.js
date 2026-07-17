@@ -1,8 +1,9 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
 
-const MAGMATOR_MACHINE_ID = "magmator"
+const MAGMATOR_MACHINE_ID = "utilitycraft:magmator"
 
 for (const blockTypeId of [
     "utilitycraft:basic_magmator",
@@ -11,14 +12,26 @@ for (const blockTypeId of [
     "utilitycraft:ultimate_magmator"
 ]) {
     registerIOInterface(blockTypeId, {
+        items: {
+            anyInputSlots: [],
+            anyOutputSlots: [],
+            modes: [
+                { id: "disabled" }
+            ]
+        },
         liquids: {
-            slots: [3, 8],
-            modes: ["disabled", "input"]
+            buttonSlots: [3, 8],
+            anyInputIndices: [0],
+            anyOutputIndices: [],
+            modes: [
+                { id: "disabled" },
+                { id: "fuel", inputIndices: [0] }
+            ]
         }
     });
 }
 
-DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
+DoriosLib.registry.blockComponent(MAGMATOR_MACHINE_ID, {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -27,7 +40,7 @@ DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
-            entity.setItem(1, 'utilitycraft:progress_right_big_bar_00', 1, " ")
+            DoriosLib.entity.setNewItem(entity, { slot: 1, typeId: 'utilitycraft:progress_right_big_bar_00', amount: 1, nameTag: " " })
         });
     },
 
@@ -46,11 +59,7 @@ DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
-        generator.processIO({
-            liquids: {
-                input: fluid
-            }
-        });
+        generator.processIO();
 
         if (fluid.type == 'empty') {
             updateMagmatorState(generator, fluid, "No Fuel")
@@ -91,7 +100,7 @@ DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
 
 function getMagmatorFuelStats(fluid, rate) {
     return {
-        fuelTime: DoriosAPI.utils.formatTime((fluid.get() / (rate / 50)) / 10),
+        fuelTime: DoriosLib.time.formatDuration((fluid.get() / (rate / 50)) / 10),
         fuelValue: EnergyStorage.formatEnergyToText(fluid.get() * ENERGY_PER_LAVA_MB),
     }
 }

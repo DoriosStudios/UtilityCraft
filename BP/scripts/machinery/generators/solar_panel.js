@@ -1,7 +1,8 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world } from '@minecraft/server'
 import { Generator, EnergyStorage } from "DoriosCore/index.js"
 
-DoriosAPI.register.blockComponent('solar_panel', {
+DoriosLib.registry.blockComponent('utilitycraft:solar_panel', {
     /**
      * Runs before the machine is placed by the player.
      * 

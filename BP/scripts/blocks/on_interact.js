@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world, ItemStack, Block, Player } from '@minecraft/server'
 
 /**
@@ -58,15 +59,15 @@ const interactHandlers = {
 
         if (heldItem.typeId === 'minecraft:bucket') {
             player.runCommand('clear @s bucket 0 1')
-            player.giveItem('minecraft:water_bucket', 1)
+            DoriosLib.player.giveItem(player, { item: 'minecraft:water_bucket', amount: 1 })
             player.playSound('cauldron.fillwater')
         } else if (heldItem.typeId === 'minecraft:water_bucket') {
             player.runCommand('clear @s water_bucket 0 1')
-            player.giveItem('minecraft:bucket', 1)
+            DoriosLib.player.giveItem(player, { item: 'minecraft:bucket', amount: 1 })
             player.playSound('cauldron.takewater')
         } else if (heldItem.typeId === 'utilitycraft:empty_fluid_capsule') {
             player.runCommand('clear @s utilitycraft:empty_fluid_capsule 0 1')
-            player.giveItem('utilitycraft:water_capsule_8', 1)
+            DoriosLib.player.giveItem(player, { item: 'utilitycraft:water_capsule_8', amount: 1 })
             player.playSound('cauldron.fillwater')
         }
     },
@@ -126,7 +127,7 @@ const interactHandlers = {
 /**
  * Register global interact component
  */
-DoriosAPI.register.blockComponent('interact', {
+DoriosLib.registry.blockComponent('utilitycraft:interact', {
     /**
      * Central interaction handler for all interactable blocks.
      * Delegates behavior to the matching entry in `interactHandlers`.

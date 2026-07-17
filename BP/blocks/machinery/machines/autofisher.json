@@ -25,11 +25,7 @@
 			"utilitycraft:autofisher": {
 				"entity": {
 					"type": "machine",
-					"inventory_size": 22,
-					"output_range": [
-						7,
-						15
-					]
+					"inventory_size": 22
 				},
 				"machine": {
 					"energy_cap": 512000,
@@ -40,9 +36,6 @@
 						5
 					]
 				}
-			},
-			"utilitycraft:special_container": {
-				"Net Slot": 6
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

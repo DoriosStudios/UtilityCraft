@@ -1,4 +1,5 @@
-import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/index.js"
+import * as DoriosLib from "DoriosLib/index.js";
+import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 
 export const heatSources = {
     'utilitycraft:blaze_block': 1.5,
@@ -14,7 +15,26 @@ export const heatSources = {
 }
 const ENERGY_PER_WATER_MB = 1
 
-DoriosAPI.register.blockComponent('thermo_generator', {
+for (const blockTypeId of [
+    "utilitycraft:basic_thermo_generator",
+    "utilitycraft:advanced_thermo_generator",
+    "utilitycraft:expert_thermo_generator",
+    "utilitycraft:ultimate_thermo_generator"
+]) {
+    registerIOInterface(blockTypeId, {
+        liquids: {
+            buttonSlots: [3, 8],
+            anyInputIndices: [0],
+            anyOutputIndices: [],
+            modes: [
+                { id: "disabled" },
+                { id: "input_2", inputIndices: [0] }
+            ]
+        }
+    });
+}
+
+DoriosLib.registry.blockComponent('utilitycraft:thermo_generator', {
     /**
      * Runs before the machine is placed by the player.
      * 
@@ -23,7 +43,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
      */
     beforeOnPlayerPlace(e, { params: settings }) {
         Generator.spawnEntity(e, settings, (entity) => {
-            entity.setItem(1, 'utilitycraft:progress_right_big_bar_00', 1, " ")
+            DoriosLib.entity.setNewItem(entity, { slot: 1, typeId: 'utilitycraft:progress_right_big_bar_00', amount: 1, nameTag: " " })
         });
     },
 
@@ -43,6 +63,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
+        generator.processIO();
         const heatMultiplier = heatSources[block.below(1)?.typeId]
         if (!heatMultiplier) {
             generator.displayEnergy();

@@ -43,8 +43,7 @@
 						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
-						"dorios:container",
-						"dorios:special_container"
+						"dorios:container"
 					]
 				}
 			},
@@ -55,8 +54,7 @@
 						"dorios:machine",
 						"dorios:energy_container",
 						"dorios:fluid_container",
-						"dorios:container",
-						"dorios:special_container"
+						"dorios:container"
 					]
 				}
 			},
@@ -76,8 +74,7 @@
 						"inanimate",
 						"dorios:generator",
 						"dorios:energy_source",
-						"dorios:container",
-						"dorios:special_container"
+						"dorios:container"
 					]
 				}
 			},
@@ -88,8 +85,7 @@
 						"dorios:generator",
 						"dorios:energy_source",
 						"dorios:fluid_container",
-						"dorios:container",
-						"dorios:special_container"
+						"dorios:container"
 					]
 				}
 			},

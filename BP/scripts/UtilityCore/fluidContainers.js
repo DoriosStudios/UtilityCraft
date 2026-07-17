@@ -1,10 +1,11 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { FluidStorage, Generator, Rotation } from "DoriosCore/index.js"
 import { system, ItemStack, world } from '@minecraft/server'
 
-DoriosAPI.register.blockComponent("fluid_container", {
+DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
     onPlayerInteract({ block, player, face }) {
         /** @type {ItemStack} */
-        const mainHand = player.getEquipment('Mainhand');
+        const mainHand = DoriosLib.entity.getEquipment(player, 'Mainhand');
 
         const dim = block.dimension;
         const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
@@ -40,7 +41,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
+                    `§b${DoriosLib.text.formatIdentifier(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
                 );
                 return;
             }
@@ -58,7 +59,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
                 }
 
                 player.onScreenDisplay.setActionBar(
-                    `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
+                    `§b${DoriosLib.text.formatIdentifier(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
                 );
             }
             return;
@@ -86,16 +87,16 @@ DoriosAPI.register.blockComponent("fluid_container", {
             const percent = ((amount / cap) * 100).toFixed(2);
 
             player.onScreenDisplay.setActionBar(
-                `§b${DoriosAPI.utils.formatIdToText(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
+                `§b${DoriosLib.text.formatIdentifier(type)}: §f${FluidStorage.formatFluid(amount)}§7 / §f${FluidStorage.formatFluid(cap)} §7(${percent}%)`
             );
 
-            if (!player.isInCreative()) {
+            if (!DoriosLib.player.isCreative(player)) {
                 FluidStorage.replaceHeldFluidItem(player, mainHand.typeId, result || undefined);
             }
 
 
             if (fluid.get() <= 0) { tankEntity.remove() } else {
-                tankEntity.setHealth(fluid.get());
+                DoriosLib.entity.setHealth(tankEntity, fluid.get());
             }
 
             return;
@@ -107,7 +108,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
     },
     beforeOnPlayerPlace({ block, player }, { params }) {
         /** @type {ItemStack} */
-        const mainHand = player.getEquipment('Mainhand')
+        const mainHand = DoriosLib.entity.getEquipment(player, 'Mainhand')
 
         if (params.type == 'tank') {
             const itemInfo = mainHand.getLore()
@@ -135,7 +136,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
         // Fluid lore
         if (fluid.type !== 'empty' && fluid.get() > 0) {
-            const liquidName = DoriosAPI.utils.formatIdToText(fluid.type);
+            const liquidName = DoriosLib.text.formatIdentifier(fluid.type);
             lore.push(
                 `§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`
             );
@@ -147,7 +148,7 @@ DoriosAPI.register.blockComponent("fluid_container", {
 
         // Drop item and cleanup
         system.run(() => {
-            if (!player.isInCreative()) {
+            if (!DoriosLib.player.isCreative(player)) {
                 dim.getEntities({ type: 'item', maxDistance: 3, location: block.center() })
                     .find(item => item.getComponent('minecraft:item')?.itemStack?.typeId === blockItemId)
                     ?.remove();

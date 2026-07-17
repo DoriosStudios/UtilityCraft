@@ -58,8 +58,8 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_items_modes_description": "IO Modes:\n§r- §9Input 1",
-          "$io_fluids_modes_description": "IO Modes:\n§r- §cOutput 1",
+          "$io_items_modes_description": "ui.utilitycraft:io.magmatic_chamber.items",
+          "$io_fluids_modes_description": "ui.utilitycraft:io.magmatic_chamber.liquids",
           "$has_item_io": true,
           "$has_fluid_io": true,
           "$io_items_default": true,

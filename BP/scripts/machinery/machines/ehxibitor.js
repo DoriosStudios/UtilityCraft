@@ -1,6 +1,20 @@
-import { Machine } from "DoriosCore/index.js"
+import * as DoriosLib from "DoriosLib/index.js";
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 
-DoriosAPI.register.blockComponent("ehxibitor", {
+const DISPLAY_SLOT = 3
+
+registerIOInterface("utilitycraft:ehxibitor", {
+    items: {
+        anyInputSlots: [DISPLAY_SLOT],
+        anyOutputSlots: [],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [DISPLAY_SLOT] }
+        ]
+    }
+})
+
+DoriosLib.registry.blockComponent("utilitycraft:ehxibitor", {
     /**
      * Spawns the backing machine entity.
      *

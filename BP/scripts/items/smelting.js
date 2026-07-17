@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack } from '@minecraft/server'
 
 /**
@@ -134,7 +135,7 @@ function getSmeltedId(rawId) {
     }
 }
 
-DoriosAPI.register.itemComponent('smelting', {
+DoriosLib.registry.itemComponent('utilitycraft:smelting', {
     onMineBlock({ block, minedBlockPermutation }) {
         const smeltId = getSmeltedId(minedBlockPermutation.type.id)
         if (!smeltId) return
@@ -160,12 +161,3 @@ DoriosAPI.register.itemComponent('smelting', {
         }
     }
 })
-
-// Expose helpers through DoriosAPI for other addons (when available)
-if (globalThis.DoriosAPI) {
-    globalThis.DoriosAPI.smelting = {
-        registerOrePrefix,
-        registerSmeltingException,
-        registerSmeltingRule,
-    }
-}

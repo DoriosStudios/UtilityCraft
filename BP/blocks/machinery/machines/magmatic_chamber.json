@@ -26,8 +26,7 @@
 			"utilitycraft:simple_machine_liquid": {
 				"entity": {
 					"type": "fluid_machine",
-					"inventory_size": 19,
-					"input_slot": 3
+					"inventory_size": 19
 				},
 				"machine": {
 					"energy_cap": 640000,
@@ -40,9 +39,6 @@
 						6
 					]
 				}
-			},
-			"utilitycraft:special_container": {
-				"Input Slot": 3
 			},
 			"utilitycraft:machine_recipes": {
 				"type": "melter"

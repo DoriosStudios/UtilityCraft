@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 /**
  * Hoe component for UtilityCraft AIOTs.
  * 
@@ -12,7 +13,7 @@
  * 
  * This ensures mutual exclusion with the shovel component on AIOTs.
  */
-DoriosAPI.register.itemComponent("hoe", {
+DoriosLib.registry.itemComponent("utilitycraft:hoe", {
     onUseOn({ block, source }, { params }) {
         if (!block || !source) return;
 

@@ -1,9 +1,10 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { world, system } from "@minecraft/server";
 
 const mesh_tiers = ["string", "flint", "copper", "iron", "golden", "emerald", "diamond", "netherite"];
 const utility_meshes = new Set(mesh_tiers.map((tier) => `utilitycraft:${tier}_mesh`));
 
-DoriosAPI.register.itemComponent("mesh", {
+DoriosLib.registry.itemComponent("utilitycraft:mesh", {
   onUseOn(e) {
     const { source, block, itemStack } = e;
     if (!source || source.typeId !== "minecraft:player" || !block) return;

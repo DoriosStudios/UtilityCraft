@@ -1,3 +1,4 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { WeatherType, world } from '@minecraft/server'
 import { Generator, EnergyStorage } from "DoriosCore/index.js"
 
@@ -70,7 +71,7 @@ world.afterEvents.weatherChange.subscribe((event) => {
     WEATHER_BY_DIMENSION.set(dimensionId, event.newWeather ?? WeatherType.Clear)
 })
 
-DoriosAPI.register.blockComponent('wind_turbine', {
+DoriosLib.registry.blockComponent('utilitycraft:wind_turbine', {
     /**
      * Initializes the passive generator entity on placement and restores stored energy.
      *

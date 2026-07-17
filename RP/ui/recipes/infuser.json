@@ -576,6 +576,17 @@
                 "$recipe_icon": "textures/blocks/soul_soil",
                 "offset": [72, 0]
               }
+            },
+            {
+              "crying_obsidian_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 40,
+                "$toggle_hover_text": "tile.crying_obsidian.name",
+                "$toggle_control_name": "crying_obsidian_recipe",
+                "$recipe_icon": "textures/blocks/crying_obsidian",
+                "offset": [90, 0]
+              }
             }
           ]
         }
@@ -1711,6 +1722,34 @@
                     "output@uc.infuser_recipe_output": {
                       "$slot_item_texture": "textures/blocks/crimson_nylium_top",
                       "$slot_hover_text": "tile.crimson_nylium.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "crying_obsidian_panel@uc.recipe_panel": {
+                "$recipe_control_name": "crying_obsidian_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_item_texture": "textures/items/ghast_tear",
+                      "$slot_hover_text": "item.ghast_tear.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/obsidian",
+                      "$slot_hover_text": "tile.obsidian.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/crying_obsidian",
+                      "$slot_hover_text": "tile.crying_obsidian.name",
                       "$has_slot_hover": true
                     }
                   }

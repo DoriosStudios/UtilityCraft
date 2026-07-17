@@ -140,6 +140,10 @@ const infuserRecipesRegister = {
     output: "minecraft:gilded_blackstone",
     required: 1,
   },
+  "minecraft:ghast_tear|minecraft:obsidian": { // Crying Obsidian
+    output: "minecraft:crying_obsidian",
+    required: 1,
+  },
   "minecraft:coal_block|minecraft:iron_block": { // Steel Block
     output: "utilitycraft:steel_block",
     required: 1,

@@ -1,6 +1,7 @@
+import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from '@minecraft/server-ui'
 
-DoriosAPI.register.blockComponent('fan', {
+DoriosLib.registry.blockComponent('utilitycraft:fan', {
     /**
      * Opens a modal form when the player interacts with the Fan.
      * Allows toggling the fan state and adjusting its range.
@@ -12,9 +13,9 @@ DoriosAPI.register.blockComponent('fan', {
         // Only open menu with empty hand and not sneaking
         if (hand || player.isSneaking) return
 
-        const currentRange = block.getState('utilitycraft:range')
-        const currentState = block.getState('utilitycraft:state')
-        const currentRangeSel = block.getState('utilitycraft:rangeSelected')
+        const currentRange = DoriosLib.block.getState(block, 'utilitycraft:range')
+        const currentState = DoriosLib.block.getState(block, 'utilitycraft:state')
+        const currentRangeSel = DoriosLib.block.getState(block, 'utilitycraft:rangeSelected')
 
         const modal = new ModalFormData()
             .title('Fan Settings')
@@ -24,8 +25,8 @@ DoriosAPI.register.blockComponent('fan', {
         modal.show(player).then(res => {
             if (!res.formValues) return
             const [state, rangeSelected] = res.formValues
-            block.setState('utilitycraft:state', state)
-            block.setState('utilitycraft:rangeSelected', rangeSelected)
+            DoriosLib.block.setState(block, 'utilitycraft:state', state)
+            DoriosLib.block.setState(block, 'utilitycraft:rangeSelected', rangeSelected)
         })
     },
 
@@ -35,13 +36,13 @@ DoriosAPI.register.blockComponent('fan', {
      */
     onTick(e) {
         const { block } = e
-        if (!block.getState('utilitycraft:state')) return
+        if (!DoriosLib.block.getState(block, 'utilitycraft:state')) return
 
-        const range = block.getState('utilitycraft:rangeSelected')
-        const maxRange = 3 + block.getState('utilitycraft:range') * 2
+        const range = DoriosLib.block.getState(block, 'utilitycraft:rangeSelected')
+        const maxRange = 3 + DoriosLib.block.getState(block, 'utilitycraft:range') * 2
 
         if (range > maxRange) {
-            block.setState('utilitycraft:rangeSelected', 3)
+            DoriosLib.block.setState(block, 'utilitycraft:rangeSelected', 3)
             return
         }
 
@@ -50,7 +51,7 @@ DoriosAPI.register.blockComponent('fan', {
         let dir = { x: 0, z: 0 }
         let vertical = 0
 
-        switch (block.getState('minecraft:facing_direction')) {
+        switch (DoriosLib.block.getState(block, 'minecraft:facing_direction')) {
             case 'up':
                 y -= 1; x += 0.5; z += 0.5
                 vertical = -0.25
