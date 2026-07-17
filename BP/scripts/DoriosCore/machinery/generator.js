@@ -7,6 +7,7 @@ import { FluidStorage } from "./fluidStorage";
 import { TickScheduler } from "./tickScheduler.js";
 import * as Utils from "../utils/entity";
 import { InterfaceManager } from "../interfaces/index.js";
+import { ensureItemIOConfig } from "../interfaces/itemIO.js";
 
 export class Generator extends BasicMachine {
   /**
@@ -127,7 +128,12 @@ export class Generator extends BasicMachine {
           fluidManager.set(fluid.amount);
         }
       }
+      // Publish a fail-closed temporary policy if the inventory resize event
+      // has not exposed its final slot count yet.
+      ensureItemIOConfig(entity, block.typeId, { failClosedWhileResizing: true });
       system.run(() => {
+        if (!entity.isValid) return;
+        ensureItemIOConfig(entity, block.typeId);
         if (callback) {
           callback(entity);
         }

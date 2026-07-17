@@ -1,9 +1,11 @@
-import { world } from "@minecraft/server"
+import { ItemStack, world } from "@minecraft/server"
 import {
     BONSAI_HEARTBEAT_TICKS,
     getBonsaiDefinitionByInput,
     isRegisteredBonsaiEntity
 } from "../../config/recipes/plantRegistry.js"
+import { resolveItemContainerAt } from "../../DoriosCore/machinery/itemContainers.js"
+import * as DoriosContainer from "../../DoriosLib/containers/index.js"
 import { getEffectiveBonsaiStats } from "./soils.js"
 
 export const BONSAI_HEARTBEAT_EVENT = "utilitycraft:bonsai_heartbeat"
@@ -204,6 +206,8 @@ export function produceBonsaiDrops(entity, block, definition, yieldMultiplier) {
         y: block.location.y - 1,
         z: block.location.z
     }
+    const target = resolveItemContainerAt(entity.dimension, dropLocation)
+    if (!target) return true
 
     for (const drop of definition.drops) {
         if (Math.random() > asFiniteNumber(drop.chance, 0)) continue
@@ -216,12 +220,16 @@ export function produceBonsaiDrops(entity, block, definition, yieldMultiplier) {
         if (amount <= 0) continue
 
         try {
-            DoriosAPI.containers.addItemAt(
-                dropLocation,
-                entity.dimension,
-                drop.item,
-                amount
-            )
+            const prototype = new ItemStack(drop.item)
+            let remaining = amount
+
+            while (remaining > 0) {
+                const stack = new ItemStack(drop.item, Math.min(remaining, prototype.maxAmount))
+                const moved = DoriosContainer.insert(target, { item: stack, face: "up" })
+                if (moved <= 0) break
+                remaining -= moved
+                if (moved < stack.amount) break
+            }
         } catch { }
     }
 

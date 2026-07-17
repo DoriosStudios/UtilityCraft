@@ -15,7 +15,7 @@ export const VERSION = "2.0.0";
 
 export * as block from "./block/index.js";
 export * as constants from "./constants/index.js";
-export * as containers from "./containers/index.js";
+export * as container from "./containers/index.js";
 export * as dependencies from "./dependencies/index.js";
 export * as entity from "./entity/index.js";
 export * as item from "./item/index.js";

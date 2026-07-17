@@ -1,13 +1,21 @@
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
-const INTPUTSLOT = 3
-const MESHSLOT = 6
+const INPUT_SLOT = 3
+const SOIL_SLOT = 6
+const OUTPUT_SLOTS = [7, 8, 9, 10, 11, 12, 13, 14, 15]
 
 registerIOInterface("utilitycraft:seed_synthesizer", {
     items: {
-        slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [16, 21],
+        anyInputSlots: [INPUT_SLOT],
+        anyOutputSlots: OUTPUT_SLOTS,
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [INPUT_SLOT] },
+            { id: "output_1", outputSlots: OUTPUT_SLOTS },
+            { id: "input_2", inputSlots: [SOIL_SLOT] }
+        ]
     }
 });
 
@@ -54,22 +62,16 @@ DoriosAPI.register.blockComponent('seed_synthesizer', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        machine.processIO({
-            items: {
-                input: [INTPUTSLOT],
-                input_2: [MESHSLOT],
-                output: settings.entity?.output_range ?? [7, 15]
-            }
-        });
+        machine.processIO();
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INTPUTSLOT);
+        const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
             machine.showWarning('No Seed')
             return;
         }
 
-        const soilSlot = inv.getItem(MESHSLOT)
+        const soilSlot = inv.getItem(SOIL_SLOT)
         if (!soilSlot) {
             machine.showWarning('No Soil')
             return;

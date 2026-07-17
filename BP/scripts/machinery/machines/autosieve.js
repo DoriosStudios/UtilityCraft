@@ -1,13 +1,21 @@
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { sieveRecipes } from "../../config/recipes/sieve.js";
 
-const INTPUTSLOT = 3
-const MESHSLOT = 6
+const INPUT_SLOT = 3
+const MESH_SLOT = 6
+const OUTPUT_SLOTS = [7, 8, 9, 10, 11, 12, 13, 14, 15]
 
 registerIOInterface("utilitycraft:autosieve", {
     items: {
-        slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [16, 21],
+        anyInputSlots: [INPUT_SLOT],
+        anyOutputSlots: OUTPUT_SLOTS,
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [INPUT_SLOT] },
+            { id: "output_1", outputSlots: OUTPUT_SLOTS },
+            { id: "input_2", inputSlots: [MESH_SLOT] }
+        ]
     }
 });
 
@@ -39,22 +47,16 @@ DoriosAPI.register.blockComponent('autosieve', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        machine.processIO({
-            items: {
-                input: [INTPUTSLOT],
-                input_2: [MESHSLOT],
-                output: settings.entity?.output_range ?? [7, 15]
-            }
-        });
+        machine.processIO();
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INTPUTSLOT);
+        const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
             machine.showWarning('No Input Item')
             return;
         }
 
-        const meshSlot = inv.getItem(MESHSLOT)
+        const meshSlot = inv.getItem(MESH_SLOT)
         if (!meshSlot || !meshSlot?.hasComponent("utilitycraft:mesh")) {
             machine.showWarning('No Mesh Item')
             return;
@@ -146,7 +148,7 @@ DoriosAPI.register.blockComponent('autosieve', {
             // Deduct progress and input items
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INTPUTSLOT, -processCount);
+            machine.entity.changeItemAmount(INPUT_SLOT, -processCount);
         }
 
         // Update machine visuals and state

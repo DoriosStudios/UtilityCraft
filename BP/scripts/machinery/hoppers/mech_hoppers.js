@@ -1,5 +1,8 @@
 import { world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
+import * as DoriosContainer from "../../DoriosLib/containers/index.js";
+import { resolveItemContainerAt } from "../../DoriosCore/machinery/itemContainers.js";
+import { getDirectionBetween } from "../../DoriosCore/utils/directions.js";
 
 const MINECART_PULL_PROPERTY = "utilitycraft:minecartPullEnabled";
 const DEFAULT_HOPPER_SPAWN_OFFSET = { x: 0.5, y: 0.25, z: 0.5 };
@@ -61,53 +64,21 @@ function passesFilter(entity, hasFilter, whiteList, item) {
   return !hasFilter || whiteList == entity.hasTag(`${item.typeId}`);
 }
 
-function canAcceptContainerItem(container) {
-  if (!container) return false;
-  if (container.emptySlotsCount > 0) return true;
-
-  for (let slot = 0; slot < container.size; slot++) {
-    const item = container.getItem(slot);
-    if (item && item.amount < item.maxAmount) return true;
-  }
-
-  return false;
-}
-
-function transferOneSlot(sourceInv, targetInv, slot) {
-  const item = sourceInv.getItem(slot);
-  if (!item) return false;
-
-  const originalAmount = item.amount;
-  const remainder = targetInv.addItem(item.clone());
-
-  if (!remainder) {
-    sourceInv.setItem(slot, undefined);
-    return true;
-  }
-
-  if (remainder.amount < originalAmount) {
-    sourceInv.setItem(slot, remainder);
-    return true;
-  }
-
-  return false;
-}
-
-function pullFromContainer(sourceInv, targetInv, sourceRef, entity, hasFilter, whiteList, moveCount) {
-  const [start, end] = DoriosAPI.containers.getAllowedOutputRange(sourceRef ?? sourceInv);
-  if (start < 0 || end < start) return 0;
+function pullFromContainer(source, target, direction, entity, hasFilter, whiteList, moveCount) {
+  const sourceSlots = DoriosContainer.getOutputSlots(source, { face: direction });
+  if (sourceSlots.length === 0) return 0;
 
   let moved = 0;
   let attempts = 0;
-  for (let slot = start; slot <= end && attempts < moveCount; slot++) {
-    if (!canAcceptContainerItem(targetInv)) break;
+  for (const slot of sourceSlots) {
+    if (attempts >= moveCount) break;
 
-    const item = sourceInv.getItem(slot);
+    const item = source.container.getItem(slot);
     if (!item) continue;
     if (!passesFilter(entity, hasFilter, whiteList, item)) continue;
 
     attempts++;
-    if (transferOneSlot(sourceInv, targetInv, slot)) {
+    if (DoriosContainer.transfer(source, { sourceSlot: slot, target, direction }) > 0) {
       moved++;
     }
   }
@@ -115,19 +86,19 @@ function pullFromContainer(sourceInv, targetInv, sourceRef, entity, hasFilter, w
   return moved;
 }
 
-function pullFromMinecart(minecartInv, targetInv, entity, hasFilter, whiteList, moveCount) {
+function pullFromMinecart(minecartInv, target, entity, hasFilter, whiteList, moveCount) {
+  const sourceSlots = DoriosContainer.getOutputSlots(minecartInv);
   let moved = 0;
   let attempts = 0;
 
-  for (let slot = 0; slot < minecartInv.size && attempts < moveCount; slot++) {
-    if (!canAcceptContainerItem(targetInv)) break;
-
+  for (const slot of sourceSlots) {
+    if (attempts >= moveCount) break;
     const item = minecartInv.getItem(slot);
     if (!item) continue;
     if (!passesFilter(entity, hasFilter, whiteList, item)) continue;
 
     attempts++;
-    if (transferOneSlot(minecartInv, targetInv, slot)) {
+    if (DoriosContainer.transfer(minecartInv, { sourceSlot: slot, target }) > 0) {
       moved++;
     }
   }
@@ -135,11 +106,29 @@ function pullFromMinecart(minecartInv, targetInv, entity, hasFilter, whiteList, 
   return moved;
 }
 
-function pullDroppedItems(items, targetInv, entity, hasFilter, whiteList, moveCount, options = {}) {
+function canInsertItem(container, slots, item) {
+  for (const slot of slots) {
+    const current = container.getItem(slot);
+    if (!current || (current.isStackableWith(item) && current.amount < current.maxAmount)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function pullDroppedItems(items, target, entity, hasFilter, whiteList, moveCount, options = {}) {
+  const resolvedTarget = DoriosContainer.resolve(target);
+  if (!resolvedTarget) return 0;
+
+  const inputSlots = DoriosContainer.getInputSlots(resolvedTarget);
+  if (inputSlots.length === 0) return 0;
+
   let moved = 0;
+  let attempts = 0;
 
   for (const drop of items) {
-    if (moved >= moveCount || targetInv.emptySlotsCount === 0) break;
+    if (attempts >= moveCount) break;
 
     const itemComp = drop.getComponent("minecraft:item");
     if (!itemComp) continue;
@@ -147,47 +136,84 @@ function pullDroppedItems(items, targetInv, entity, hasFilter, whiteList, moveCo
     const stack = itemComp.itemStack;
     if (options.skipUIElements && stack.hasTag("utilitycraft:ui_element")) continue;
     if (!passesFilter(entity, hasFilter, whiteList, stack)) continue;
+    if (!canInsertItem(resolvedTarget.container, inputSlots, stack)) continue;
 
-    const remainder = targetInv.addItem(stack);
-    if (remainder) continue;
+    attempts++;
 
-    drop.remove();
-    moved++;
+    const original = stack.clone();
+    const location = { ...drop.location };
+    const dimension = drop.dimension;
+
+    try {
+      drop.remove();
+    } catch {
+      continue;
+    }
+
+    let inserted = 0;
+    try {
+      inserted = DoriosContainer.insert(resolvedTarget, { item: original });
+    } catch (error) {
+      console.warn("[UtilityCraft:Hopper] Failed to insert a dropped item", error);
+    }
+
+    const remainingAmount = original.amount - inserted;
+
+    if (remainingAmount > 0) {
+      const remainder = original.clone();
+      remainder.amount = remainingAmount;
+
+      try {
+        dimension.spawnItem(remainder, location);
+      } catch (error) {
+        console.warn("[UtilityCraft:Hopper] Failed to respawn a dropped-item remainder", error);
+      }
+    }
+
+    if (inserted > 0) moved++;
   }
 
   return moved;
 }
 
-function outputFromHopper(inv, dimension, targetLoc, entity, hasFilter, whiteList, moveCount) {
+function outputFromHopper(source, dimension, sourceLoc, targetLoc, entity, hasFilter, whiteList, moveCount) {
+  const target = resolveItemContainerAt(dimension, targetLoc);
+  const direction = getDirectionBetween(sourceLoc, targetLoc);
+  if (!target || !direction) return 0;
+
+  const sourceSlots = DoriosContainer.getOutputSlots(source, { face: direction });
   let moved = 0;
   let attempts = 0;
 
-  for (let slot = 0; slot < inv.size && attempts < moveCount; slot++) {
-    const item = inv.getItem(slot);
+  for (const slot of sourceSlots) {
+    if (attempts >= moveCount) break;
+    const item = source.container.getItem(slot);
     if (!item) continue;
     if (!passesFilter(entity, hasFilter, whiteList, item)) continue;
 
     attempts++;
-    const transferred = DoriosAPI.containers.transferItemsAt(inv, targetLoc, dimension, slot);
-    if (transferred === -1) break;
-    if (transferred > 0) moved++;
+    if (DoriosContainer.transfer(source, { sourceSlot: slot, target, direction }) > 0) {
+      moved++;
+    }
   }
 
   return moved;
 }
 
-function dropFromHopper(inv, dimension, dir, blockLocation, entity, hasFilter, whiteList, moveCount) {
+function dropFromHopper(source, dimension, dir, blockLocation, entity, hasFilter, whiteList, moveCount) {
   let moved = 0;
   const spawnY = dir === "down" ? blockLocation.y + 1.2 : blockLocation.y - 0.8;
   const pos = { x: blockLocation.x + 0.5, y: spawnY, z: blockLocation.z + 0.5 };
+  const sourceSlots = DoriosContainer.getOutputSlots(source);
 
-  for (let slot = 0; slot < inv.size && moved < moveCount; slot++) {
-    const item = inv.getItem(slot);
+  for (const slot of sourceSlots) {
+    if (moved >= moveCount) break;
+    const item = source.container.getItem(slot);
     if (!item) continue;
     if (!passesFilter(entity, hasFilter, whiteList, item)) continue;
 
     dimension.spawnItem(item, pos);
-    inv.setItem(slot, undefined);
+    source.container.setItem(slot, undefined);
     moved++;
   }
 
@@ -212,8 +238,8 @@ DoriosAPI.register.blockComponent("mechanic_hopper", {
     if (!entity) return;
     if (entity.getDynamicProperty("isOff")) return;
 
-    const inv = entity.getComponent("minecraft:inventory")?.container;
-    if (!inv) return;
+    const hopperContainer = DoriosContainer.resolve(entity);
+    if (!hopperContainer) return;
 
     const hasFilter = block.getState("utilitycraft:filter") == 1;
     const whiteList = entity.getDynamicProperty("utilitycraft:whitelistOn");
@@ -255,37 +281,35 @@ DoriosAPI.register.blockComponent("mechanic_hopper", {
       targetLoc = { x, y: y - 1, z };
     }
     if (!isEnder) {
-      const canAcceptInput = canAcceptContainerItem(inv);
+      const source = resolveItemContainerAt(dimension, sourceLoc);
 
-      if (canAcceptInput) {
-        const source = DoriosAPI.containers.getContainerAt(sourceLoc, dimension);
-        const sourceInv = source.container;
+      if (source) {
+        const direction = getDirectionBetween(sourceLoc, block.location);
+        if (direction) {
+          pullFromContainer(source, hopperContainer, direction, entity, hasFilter, whiteList, moveCount);
+        }
+      } else {
+        let pulledFromMinecart = 0;
 
-        if (sourceInv) {
-          pullFromContainer(sourceInv, inv, source.entity ?? source.block ?? sourceInv, entity, hasFilter, whiteList, moveCount);
-        } else {
-          let pulledFromMinecart = 0;
-
-          if (minecartPullEnabled && (isHopper || isUpper)) {
-            const minecart = findChestMinecartForHopper(dimension, block.location, isHopper);
-            const minecartInv = minecart?.getComponent("minecraft:inventory")?.container;
-            if (minecartInv) {
-              pulledFromMinecart = pullFromMinecart(minecartInv, inv, entity, hasFilter, whiteList, moveCount);
-            }
-          }
-
-          if (pulledFromMinecart === 0 && inv.emptySlotsCount > 0) {
-            const items = dimension.getEntities({
-              type: "item",
-              location: sourceLoc,
-              maxDistance: 0.8,
-            });
-
-            pullDroppedItems(items, inv, entity, hasFilter, whiteList, moveCount);
+        if (minecartPullEnabled && (isHopper || isUpper)) {
+          const minecart = findChestMinecartForHopper(dimension, block.location, isHopper);
+          const minecartInv = minecart?.getComponent("minecraft:inventory")?.container;
+          if (minecartInv) {
+            pulledFromMinecart = pullFromMinecart(minecartInv, hopperContainer, entity, hasFilter, whiteList, moveCount);
           }
         }
+
+        if (pulledFromMinecart === 0) {
+          const items = dimension.getEntities({
+            type: "item",
+            location: sourceLoc,
+            maxDistance: 0.8,
+          });
+
+          pullDroppedItems(items, hopperContainer, entity, hasFilter, whiteList, moveCount);
+        }
       }
-    } else if (inv.emptySlotsCount > 0) {
+    } else {
       const range = entity.getDynamicProperty("range_selected") ?? 3;
       const items = dimension.getEntities({
         type: "item",
@@ -293,13 +317,13 @@ DoriosAPI.register.blockComponent("mechanic_hopper", {
         maxDistance: range,
       });
 
-      pullDroppedItems(items, inv, entity, hasFilter, whiteList, moveCount, { skipUIElements: true });
+      pullDroppedItems(items, hopperContainer, entity, hasFilter, whiteList, moveCount, { skipUIElements: true });
     }
 
     if (isDropper) {
-      dropFromHopper(inv, dimension, dir, block.location, entity, hasFilter, whiteList, moveCount);
+      dropFromHopper(hopperContainer, dimension, dir, block.location, entity, hasFilter, whiteList, moveCount);
     } else {
-      outputFromHopper(inv, dimension, targetLoc, entity, hasFilter, whiteList, moveCount);
+      outputFromHopper(hopperContainer, dimension, block.location, targetLoc, entity, hasFilter, whiteList, moveCount);
     }
   },
 

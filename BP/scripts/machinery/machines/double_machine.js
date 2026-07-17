@@ -1,13 +1,21 @@
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { infuserRecipes } from "../../config/recipes/infuser.js"
 
-const INPUTSLOT = 3
-const CATALYSTSLOT = 4
+const INPUT_SLOT = 3
+const CATALYST_SLOT = 4
+const OUTPUT_SLOT = 7
 
 registerIOInterface("utilitycraft:infuser", {
     items: {
-        slots: [8, 13],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [8, 13],
+        anyInputSlots: [INPUT_SLOT],
+        anyOutputSlots: [OUTPUT_SLOT],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [INPUT_SLOT] },
+            { id: "output_1", outputSlots: [OUTPUT_SLOT] },
+            { id: "input_2", inputSlots: [CATALYST_SLOT] },
+        ],
     }
 });
 
@@ -39,27 +47,20 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        const OUTPUTSLOT = settings.entity?.output_slot ?? inv.size - 1
-        machine.processIO({
-            items: {
-                input: [INPUTSLOT],
-                input_2: [CATALYSTSLOT],
-                output: [OUTPUTSLOT]
-            }
-        });
+        machine.processIO();
 
-        let outputSlot = inv.getItem(OUTPUTSLOT);
+        let outputSlot = inv.getItem(OUTPUT_SLOT);
 
         //#region Comprobations
         // Get the catalyst slot
-        const catalystSlot = inv.getItem(CATALYSTSLOT);
+        const catalystSlot = inv.getItem(CATALYST_SLOT);
         if (!catalystSlot) {
             machine.showWarning('No Catalyst');
             return;
         }
 
         // Get the input slot (slot 3 in this case)
-        const inputSlot = inv.getItem(INPUTSLOT);
+        const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
             machine.showWarning('No Base Item');
             return;
@@ -143,16 +144,16 @@ DoriosAPI.register.blockComponent('double_machine', {
         if (processCount > 0) {
             // Add the processed items to the output
             if (!outputSlot) {
-                machine.entity.setItem(OUTPUTSLOT, recipe.output, processCount * recipeAmount);
+                machine.entity.setItem(OUTPUT_SLOT, recipe.output, processCount * recipeAmount);
             } else {
-                machine.entity.changeItemAmount(OUTPUTSLOT, processCount * recipeAmount);
+                machine.entity.changeItemAmount(OUTPUT_SLOT, processCount * recipeAmount);
             }
 
             // Deduct progress and input items while preserving leftover progress.
             progress -= processCount * energyCost;
             machine.setProgress(progress, { display: false });
-            machine.entity.changeItemAmount(INPUTSLOT, -processCount * requiredInput);
-            machine.entity.changeItemAmount(CATALYSTSLOT, -processCount * requiredCatalyst);
+            machine.entity.changeItemAmount(INPUT_SLOT, -processCount * requiredInput);
+            machine.entity.changeItemAmount(CATALYST_SLOT, -processCount * requiredCatalyst);
         }
 
         // Update machine visuals and state

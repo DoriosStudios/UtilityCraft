@@ -11,8 +11,15 @@ for (const blockTypeId of [
     "utilitycraft:ultimate_magmator"
 ]) {
     registerIOInterface(blockTypeId, {
+        items: {
+            anyInputSlots: [],
+            anyOutputSlots: [],
+            modes: [
+                { id: "disabled" }
+            ]
+        },
         liquids: {
-            slots: [3, 8],
+            buttonSlots: [3, 8],
             modes: ["disabled", "input"]
         }
     });

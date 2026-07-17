@@ -1,4 +1,17 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
+
+const DISPLAY_SLOT = 3
+
+registerIOInterface("utilitycraft:ehxibitor", {
+    items: {
+        anyInputSlots: [DISPLAY_SLOT],
+        anyOutputSlots: [],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [DISPLAY_SLOT] }
+        ]
+    }
+})
 
 DoriosAPI.register.blockComponent("ehxibitor", {
     /**

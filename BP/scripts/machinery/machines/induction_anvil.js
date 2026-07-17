@@ -1,6 +1,17 @@
-import { Machine } from "DoriosCore/index.js"
+import { Machine, registerIOInterface } from "DoriosCore/index.js"
 
 const INPUTSLOT = 3
+
+registerIOInterface("utilitycraft:induction_anvil", {
+    items: {
+        anyInputSlots: [INPUTSLOT],
+        anyOutputSlots: [],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: [INPUTSLOT] }
+        ]
+    }
+})
 
 DoriosAPI.register.blockComponent('induction_anvil', {
     /**

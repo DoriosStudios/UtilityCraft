@@ -143,5 +143,99 @@ DoriosLib.dependencies.initialize({
 
 ## Containers
 
-`DoriosLib.containers` is reserved for the new DoriosContainers IO system. It
-will remain empty until the dynamic-property JSON contract is finalized.
+Container entities opt in with the `dorios:container` family. Importing the
+module is side-effect free, so each addon initializes the cross-addon event
+listener explicitly:
+
+```js
+DoriosLib.container.initialize();
+```
+
+Configurations are published from their owning entity. The script event lets
+every listening addon merge the same item rules into
+`utilitycraft:io_config.items` and refresh its local cache:
+
+```js
+DoriosLib.container.setConfig(entity, {
+  version: 1,
+  type: "complex",
+  anyInputSlots: [3, 4],
+  anyOutputSlots: [6],
+  inputConfig: {
+    north: [3],
+    up: [4],
+  },
+  outputConfig: {
+    south: [6],
+  },
+});
+```
+
+`setConfig` always publishes the complete item document, not a partial patch.
+The root `utilitycraft:io_config` object is merged so other resource groups,
+such as `liquids`, remain untouched. Runtime reads are cached by `entity.id`;
+the script-event listener replaces that cache entry whenever the config changes.
+
+The system that owns a configured entity republishes its complete document once
+when that entity initializes. This hydrates every active addon without a read
+request or a type-ID registry. Readers never rebroadcast cached copies: doing so
+would make a real Basic container indistinguishable from an addon that simply
+does not own a local DP yet, and stale listeners could race a newer config.
+
+Each configured cache entry also has a local revision token. Higher-level
+systems can use `getConfigRevision(entity)` to avoid cloning or validating the
+same document every tick; that revision is runtime-only and is not part of the
+persisted schema.
+
+Mode IDs and display names are intentionally absent from this backend schema.
+They belong to the interface registry that translates a visual choice such as
+`input_1` into the input/output slot arrays persisted for that face.
+
+Fallback lists are explicit security boundaries declared by the interface
+registration. A call without `face` uses `anyInputSlots` or `anyOutputSlots`;
+DoriosLib never derives them from the currently configured faces.
+
+```js
+const automaticInputs = DoriosLib.container.getInputSlots(entity);
+const northInputs = DoriosLib.container.getInputSlots(entity, {
+  face: "north",
+});
+```
+
+Simple containers use direct slot lists, while an entity with the family and no
+item configuration is Basic and exposes every inventory slot for both access
+directions.
+
+World targets are resolved by capability. Block inventories take priority;
+otherwise DoriosLib searches the cell for an entity with `dorios:container`:
+
+```js
+const target = DoriosLib.container.resolveAt(dimension, location);
+if (!target) return;
+
+const moved = DoriosLib.container.insert(target, {
+  item,
+  face: "up",
+  maxAmount: 16,
+});
+```
+
+`insert` returns the exact inserted amount and never mutates the supplied
+`ItemStack`. Existing stacks are compared with `isStackableWith`, so names,
+lore, durability and other metadata are not merged incorrectly.
+
+Transfers use the direction from source toward target. DoriosLib applies that
+direction to the source output and its opposite to the target input:
+
+```js
+const moved = DoriosLib.container.transfer(source, {
+  sourceSlot: 6,
+  target,
+  direction: "down",
+  maxAmount: 8,
+});
+```
+
+For non-adjacent networks, `sourceFace` and `targetFace` can be supplied
+independently. `targetSlots` narrows the destination but can never bypass the
+slots allowed by the target configuration.

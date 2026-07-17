@@ -15,8 +15,14 @@ const OUTPUTSLOT = 6
 for (const blockTypeId of ["utilitycraft:crusher", "utilitycraft:electro_press", "utilitycraft:incinerator"]) {
     registerIOInterface(blockTypeId, {
         items: {
-            slots: [7, 12],
-            modes: ["disabled", "input", "output"]
+            buttonSlots: [7, 12],
+            anyInputSlots: [INPUTSLOT],
+            anyOutputSlots: [OUTPUTSLOT],
+            modes: [
+                { id: "disabled" },
+                { id: "input_1", inputSlots: [INPUTSLOT] },
+                { id: "output_1", outputSlots: [OUTPUTSLOT] }
+            ]
         }
     });
 }
@@ -46,12 +52,7 @@ DoriosAPI.register.blockComponent('simple_machine', {
         if (!machine.valid) return
 
         const inv = machine.container;
-        machine.processIO({
-            items: {
-                input: [INPUTSLOT],
-                output: [OUTPUTSLOT]
-            }
-        });
+        machine.processIO();
 
         let outputSlot = inv.getItem(OUTPUTSLOT);
 

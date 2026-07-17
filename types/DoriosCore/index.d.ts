@@ -215,6 +215,72 @@ export interface BasicMachineOptions {
   ignoreTick?: boolean;
 }
 
+/** One visual item IO mode and the machine slots represented by that mode. */
+export interface ItemIOModeConfig {
+  /** Name tag used by the resource-pack IO button, such as `input_1`. */
+  id: string;
+  /** Machine inventory slots that accept items while this mode is active. */
+  inputSlots?: number[];
+  /** Machine inventory slots that expose items while this mode is active. */
+  outputSlots?: number[];
+}
+
+/** Static item policy registered for one machine block type. */
+export interface ItemIOGroupConfig {
+  /** Optional six UI button slots, explicit or as an inclusive start/end range. */
+  buttonSlots?: number[] | [number, number];
+  /** Explicit insertion fallback used when no source face is known. */
+  anyInputSlots: number[];
+  /** Explicit extraction fallback used when no destination face is known. */
+  anyOutputSlots: number[];
+  /** Ordered visual modes cycled independently on each face. */
+  modes: ItemIOModeConfig[];
+}
+
+/** Current liquid IO UI declaration. */
+export interface LiquidIOGroupConfig {
+  /** Six UI button slots, explicit or as an inclusive start/end range. */
+  buttonSlots: number[] | [number, number];
+  /** Ordered liquid modes cycled independently on each face. */
+  modes: string[];
+}
+
+/** Complete IO registration for one machine block type. */
+export interface IOInterfaceConfig {
+  /** Slot-based item policy and optional item face buttons. */
+  items?: ItemIOGroupConfig;
+  /** Liquid mode buttons, retained in the current liquid format. */
+  liquids?: LiquidIOGroupConfig;
+}
+
+/** Runtime fluid bindings used by {@link BasicMachine.processIO}. */
+export interface ProcessIOConfig {
+  /** Fluid storage keyed by registered liquid mode, or one shared storage. */
+  liquids?: Record<string, FluidStorage> | FluidStorage;
+}
+
+/** Per-tick limits used by {@link BasicMachine.processIO}. */
+export interface ProcessIOLimits {
+  maxInputSlotsScannedPerTick?: number;
+  maxOutputSlotsMovedPerTick?: number;
+  maxFluidMovedPerTick?: number;
+}
+
+/** Transfer counts returned by {@link BasicMachine.processIO}. */
+export interface ProcessIOSummary {
+  itemsMoved: number;
+  inputSlotsScanned: number;
+  fluidMoved: number;
+}
+
+/** Registers one machine's item policy and optional item/liquid IO buttons. */
+export function registerIOInterface(blockTypeId: string, config?: IOInterfaceConfig): boolean;
+
+/** Namespace-style IO interface export. */
+export const IOInterface: {
+  registerIOInterface: typeof registerIOInterface;
+};
+
 /**
  * Base runtime for UtilityCraft machine-like blocks.
  *
@@ -243,6 +309,8 @@ export class BasicMachine {
   processingInterval: number;
   /** Scaled runtime rate, usually `baseRate * processingInterval`. */
   rate: number;
+  /** Whether the entity's slot-based Complex item config is ready locally. */
+  itemIOReady: boolean;
 
   /**
    * Creates a base machine runtime for a machine block.
@@ -274,6 +342,8 @@ export class BasicMachine {
   displayProgress(maxValue?: number, options?: ProgressOptions): void;
   /** Draws the current energy bar using the attached {@link EnergyStorage}. */
   displayEnergy(slot?: number): void;
+  /** Processes configured item faces and the supplied liquid storage bindings. */
+  processIO(config?: ProcessIOConfig, limits?: ProcessIOLimits): ProcessIOSummary;
   /** Fills empty slots with blocker items so players cannot use them. */
   blockSlots(slots: number[]): void;
   /** Removes blocker items from the provided slots. */

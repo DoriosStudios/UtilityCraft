@@ -53,6 +53,30 @@ export function offsetLocation(location, direction, amount = 1) {
 }
 
 /**
+ * Resolves the absolute direction from one adjacent location to another.
+ *
+ * The mapping intentionally follows DoriosCore's established world semantics:
+ * north is `z + 1` and south is `z - 1`.
+ *
+ * @param {{x:number, y:number, z:number}} source
+ * @param {{x:number, y:number, z:number}} target
+ * @returns {keyof typeof DIRECTION_OFFSETS|undefined}
+ */
+export function getDirectionBetween(source, target) {
+  if (!source || !target) return undefined;
+
+  const x = target.x - source.x;
+  const y = target.y - source.y;
+  const z = target.z - source.z;
+  for (const direction of DIRECTIONS) {
+    const key = /** @type {keyof typeof DIRECTION_OFFSETS} */ (direction);
+    const offset = DIRECTION_OFFSETS[key];
+    if (x === offset.x && y === offset.y && z === offset.z) return key;
+  }
+  return undefined;
+}
+
+/**
  * Reads the best available vanilla or legacy facing state from a block.
  *
  * @param {import("@minecraft/server").Block|undefined} block Block to inspect.

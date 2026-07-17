@@ -4,10 +4,14 @@ import { EnergyStorage } from "./energyStorage";
 import { FluidStorage } from "./fluidStorage";
 import { BasicMachine } from "./basicMachine";
 import { OutputTracker } from "./outputTracker.js";
+import { resolveItemContainerAt } from "./itemContainers.js";
 import { TickScheduler } from "./tickScheduler.js";
 import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
 import { InterfaceManager } from "../interfaces/index.js";
+import { ensureItemIOConfig } from "../interfaces/itemIO.js";
+import { getDirectionBetween } from "../utils/directions.js";
+import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
 export class Machine extends BasicMachine {
   /**
@@ -160,7 +164,13 @@ export class Machine extends BasicMachine {
           fluidManager.set(fluid.amount);
         }
       }
+      // The inventory-size entity event may still expose the base container in
+      // this tick. ensureItemIOConfig installs a fail-closed temporary config
+      // and the next tick reconciles it against the final inventory size.
+      ensureItemIOConfig(entity, block.typeId, { failClosedWhileResizing: true });
       system.run(() => {
+        if (!entity.isValid) return;
+        ensureItemIOConfig(entity, block.typeId);
         if (callback) {
           callback(entity);
         }
@@ -173,52 +183,45 @@ export class Machine extends BasicMachine {
    * Transfers output items to this machine's cached item output target.
    *
    * ## Behavior
-   * - Uses the output slot range registered on the machine entity.
+   * - Uses the slot array configured for the machine's output face.
    * - Reads the cached target from {@link OutputTracker}.
-   * - Calls {@link DoriosAPI.containers.transferItemsAt} and clears stale targets.
+   * - Applies the opposite input face on the resolved target.
    *
    * Compatible with:
    * - Vanilla containers (chests, barrels, hoppers, etc.)
    * - Dorios containers and machines with inventories
-   *
-   * Uses the output slot range registered on the machine entity.
-   * - `"simple"` → transfers only the **last slot** (output).
-   * - `"complex"` → transfers the **last 9 slots** (outputs).
-   *
    * @returns {boolean} True when at least one item was moved.
    */
   transferItems() {
-    const range = DoriosAPI.containers.getAllowedOutputRange(this.entity);
     const targetLoc = OutputTracker.getOutputTarget(this.entity, "item") ?? OutputTracker.refreshOutput(this.block, "item");
     if (!targetLoc) return false;
 
-    const moved = DoriosAPI.containers.transferItemsAt(this.container, targetLoc, this.dimension, range);
-    if (moved === -1) {
+    const target = resolveItemContainerAt(this.dimension, targetLoc);
+    const direction = getDirectionBetween(this.block.location, targetLoc);
+    if (!target || !direction) {
       OutputTracker.clearOutputTarget(this.entity, "item");
       return false;
     }
 
+    let moved = 0;
+    const slots = DoriosContainer.getOutputSlots(this.entity, { face: direction });
+    for (const sourceSlot of slots) {
+      moved += DoriosContainer.transfer(this.entity, {
+        sourceSlot,
+        target,
+        direction,
+      });
+    }
     return moved > 0;
   }
 
   /**
-   * Returns whether the configured output slot or slot range contains items.
+   * Returns whether an explicit no-face output slot contains items.
    *
    * @returns {boolean} True when at least one registered output slot has an item.
    */
   hasOutputItems() {
-    const range = DoriosAPI.containers.getAllowedOutputRange(this.entity);
-
-    if (typeof range === "number") {
-      return !!this.container.getItem(range);
-    }
-
-    if (!Array.isArray(range) || range.length !== 2) {
-      return false;
-    }
-
-    const [start, end] = range;
-    for (let slot = start; slot <= end; slot++) {
+    for (const slot of DoriosContainer.getOutputSlots(this.entity)) {
       if (this.container.getItem(slot)) return true;
     }
 
@@ -226,62 +229,29 @@ export class Machine extends BasicMachine {
   }
 
   /**
-   * Pulls items from the vanilla container block above the machine
-   * into a specific slot in its internal inventory.
-   *
-   * - Only works if the block above is a vanilla container (checked via DoriosAPI.constants.vanillaContainers).
-   * - If the target slot is empty, moves the first available item.
-   * - If it already contains an item, merges stacks until full.
+   * Pulls one available stack from the container above into a specific
+   * machine slot, respecting the source down face and machine up face.
    *
    * @param {number} targetSlot The slot index where items should be inserted.
    * @returns {boolean} True if at least one item was transferred.
    */
   pullItemsFromAbove(targetSlot) {
-    const inv = this.container;
-    const block = this.block;
-
-    const aboveBlock = block.above(1);
+    const aboveBlock = this.block.above(1);
     if (!aboveBlock) return false;
 
-    // Solo contenedores vanilla
-    if (!DoriosAPI.constants.vanillaContainers.includes(aboveBlock.typeId)) return false;
+    const source = resolveItemContainerAt(this.dimension, aboveBlock.location);
+    if (!source) return false;
 
-    const inputContainer = aboveBlock.getComponent("minecraft:inventory")?.container;
-    if (!inputContainer) return false;
-
-    const targetItem = inv.getItem(targetSlot);
-    let transferred = false;
-    for (let i = 0; i < inputContainer.size; i++) {
-      const inputItem = inputContainer.getItem(i);
-      if (!inputItem) continue;
-
-      // Si hay item distinto en el slot → saltar
-      if (targetItem && inputItem.typeId !== targetItem.typeId) continue;
-
-      // Si el slot está vacío → mover toda la pila al slot específico
-      if (!targetItem) {
-        inv.setItem(targetSlot, inputItem);
-        inputContainer.setItem(i);
-        return true;
-      }
-
-      const space = targetItem.maxAmount - targetItem.amount;
-      const amount = Math.min(space, inputItem.amount);
-
-      // Intentar combinar stacks
-      if (amount <= 0) continue;
-
-      targetItem.amount += amount;
-      inv.setItem(targetSlot, targetItem);
-      if (inputItem.amount - amount <= 0) {
-        inputContainer.setItem(i);
-      } else {
-        inputItem.amount -= amount;
-        inputContainer.setItem(i, inputItem);
-      }
-
-      return transferred;
+    for (const sourceSlot of DoriosContainer.getOutputSlots(source, { face: "down" })) {
+      const moved = DoriosContainer.transfer(source, {
+        sourceSlot,
+        target: this.entity,
+        direction: "down",
+        targetSlots: [targetSlot],
+      });
+      if (moved > 0) return true;
     }
+    return false;
   }
 
   /**

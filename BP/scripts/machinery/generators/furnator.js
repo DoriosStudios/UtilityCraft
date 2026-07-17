@@ -9,8 +9,13 @@ for (const blockTypeId of [
 ]) {
     registerIOInterface(blockTypeId, {
         items: {
-            slots: [4, 9],
-            modes: ["disabled", "fuel"]
+            buttonSlots: [4, 9],
+            anyInputSlots: [3],
+            anyOutputSlots: [],
+            modes: [
+                { id: "disabled" },
+                { id: "fuel", inputSlots: [3] }
+            ]
         }
     });
 }
@@ -39,11 +44,7 @@ DoriosAPI.register.blockComponent('furnator', {
         const generator = new Generator(block, settings);
         if (!generator.valid) return
         const { entity, energy, rate } = generator
-        generator.processIO({
-            items: {
-                fuel: [3]
-            }
-        });
+        generator.processIO();
 
         generator.energy.transferToNetwork(rate * 4)
 

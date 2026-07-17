@@ -9,11 +9,22 @@ const COLORS = DoriosAPI.constants.textColors
  */
 
 const BLUEPRINT_SLOT = 3;
+const INPUT_START = 6;
+const INPUT_END = 14;
+const INPUT_SLOTS = [6, 7, 8, 9, 10, 11, 12, 13, 14];
+const OUTPUT_SLOT = 15;
 
 registerIOInterface("utilitycraft:assembler", {
     items: {
-        slots: [16, 21],
-        modes: ["disabled", "input", "output", "input_2"]
+        buttonSlots: [16, 21],
+        anyInputSlots: INPUT_SLOTS,
+        anyOutputSlots: [OUTPUT_SLOT],
+        modes: [
+            { id: "disabled" },
+            { id: "input_1", inputSlots: INPUT_SLOTS },
+            { id: "output_1", outputSlots: [OUTPUT_SLOT] },
+            { id: "input_2", inputSlots: [BLUEPRINT_SLOT] },
+        ],
     }
 });
 
@@ -46,15 +57,7 @@ DoriosAPI.register.blockComponent('assembler', {
 
         const inv = machine.container;
 
-        const OUTPUT_SLOT = settings.entity?.output_slot ?? inv.size - 1;
-        const [INPUT_START, INPUT_END] = settings.entity?.input_range ?? [inv.size - 10, inv.size - 2];
-        machine.processIO({
-            items: {
-                input: [INPUT_START, INPUT_END],
-                input_2: [BLUEPRINT_SLOT],
-                output: [OUTPUT_SLOT]
-            }
-        });
+        machine.processIO();
 
         let outputSlot = inv.getItem(OUTPUT_SLOT);
 
@@ -175,7 +178,7 @@ DoriosAPI.register.blockComponent('assembler', {
  * @param {number} maxCraftAmount The max number of times to craft.
  * @returns {number} The number of crafts performed (0 if not possible).
  */
-function amountToCraft(blueprint, inventory, maxCraftAmount, inputStart = inventory.size - 10, inputEnd = inventory.size - 2) {
+function amountToCraft(blueprint, inventory, maxCraftAmount, inputStart = INPUT_START, inputEnd = INPUT_END) {
     // Parse the recipe materials from the blueprint dynamic property
     const recipe = JSON.parse(blueprint.getDynamicProperty('materials') || '[]');
 

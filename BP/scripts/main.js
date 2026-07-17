@@ -1,5 +1,6 @@
 import './DoriosAPI/index.js'
 import './DoriosCore/index.js'
+import { container as DoriosContainer } from './DoriosLib/index.js'
 import './UIItemsCleanUp.js'
 
 import './config/main.js'
@@ -37,4 +38,5 @@ import './items/smelting.js'
 // Systems
 import './stack_refill.js'
 
+DoriosContainer.initialize()
 

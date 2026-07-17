@@ -1,5 +1,6 @@
 import { system, world } from "@minecraft/server";
 import { tryGetEntityFromBlock } from "../utils/entity.js";
+import { resolveItemContainerAt } from "./itemContainers.js";
 import {
   DIRECTIONS,
   DIRECTION_OFFSETS,
@@ -100,11 +101,7 @@ function writeIOTargets(entity, targets) {
  */
 function isIOTargetAt(dimension, location, type) {
   if (type === "item") {
-    try {
-      return !!DoriosAPI.containers.getContainerAt(location, dimension)?.container;
-    } catch {
-      return false;
-    }
+    return Boolean(resolveItemContainerAt(dimension, location));
   }
 
   if (type === "fluid") {
@@ -137,7 +134,7 @@ export class OutputTracker {
     if (!block) return false;
 
     if (type === "item") {
-      return block.hasTag("dorios:item") || DoriosAPI.constants.vanillaContainers.includes(block.typeId);
+      return Boolean(resolveItemContainerAt(block.dimension, block.location));
     }
 
     if (type === "fluid") {
