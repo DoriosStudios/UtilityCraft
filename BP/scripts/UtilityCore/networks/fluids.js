@@ -14,6 +14,10 @@ import {
   openEntityTransferModeMenu,
   safeGetBlock,
 } from "./shared.js";
+import {
+  NETWORK_SCAN_BATCH_SIZE,
+  createNetworkRescanScheduler,
+} from "./scheduler.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -370,11 +374,12 @@ function processFluidExtractorTick(block, dimension) {
  *
  * @param {Vector3} startPosition
  * @param {Dimension} dimension
- * @returns {Set<string>} Fluid network nodes covered by this traversal.
+ * @returns {Promise<Set<string>>} Fluid network nodes covered by this traversal.
  */
-export function rescanFluidNetwork(startPosition, dimension) {
+export async function rescanFluidNetwork(startPosition, dimension) {
   const queue = [startPosition];
   let queueHead = 0;
+  let processed = 0;
   const visited = new Set();
   const networkNodes = new Set();
   const inputs = [];
@@ -385,6 +390,11 @@ export function rescanFluidNetwork(startPosition, dimension) {
   const blockedTags = new Set();
 
   while (queueHead < queue.length) {
+    if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
+      await system.waitTicks(1);
+    }
+    processed++;
+
     const position = queue[queueHead++];
     const key = `${position.x},${position.y},${position.z}`;
     if (visited.has(key)) continue;
@@ -426,6 +436,7 @@ export function rescanFluidNetwork(startPosition, dimension) {
   if (cablesUsed <= 0) return networkNodes;
 
   for (const extractor of extractors) {
+    if (!extractor.isValid) continue;
     const position = {
       x: Math.floor(extractor.location.x),
       y: Math.floor(extractor.location.y),
@@ -452,6 +463,7 @@ export function rescanFluidNetwork(startPosition, dimension) {
   }
 
   for (const extractor of extractors) {
+    if (!extractor.isValid) continue;
     for (const tag of extractor.getTags()) {
       if (tag.startsWith("tan:") || tag.startsWith("ent:")) extractor.removeTag(tag);
     }
@@ -462,3 +474,40 @@ export function rescanFluidNetwork(startPosition, dimension) {
   }
   return networkNodes;
 }
+
+/**
+ * Rebuilds every distinct fluid component touched by one debounced batch.
+ *
+ * @param {ReadonlyArray<Vector3>} changedLocations
+ * @param {Dimension} dimension
+ */
+async function rebuildFluidNetworkBatch(changedLocations, dimension) {
+  const covered = new Set();
+
+  for (const changedLocation of changedLocations) {
+    const changedKey = `${changedLocation.x},${changedLocation.y},${changedLocation.z}`;
+    if (covered.has(changedKey)) continue;
+
+    const roots = [
+      changedLocation,
+      ...NETWORK_OFFSETS.map((offset) => offsetLocation(changedLocation, offset)),
+    ];
+
+    for (const root of roots) {
+      const key = `${root.x},${root.y},${root.z}`;
+      if (covered.has(key)) continue;
+
+      const block = safeGetBlock(dimension, root);
+      if (!block?.hasTag("dorios:fluid")) continue;
+
+      const visited = await rescanFluidNetwork(root, dimension);
+      for (const visitedKey of visited) covered.add(visitedKey);
+    }
+  }
+}
+
+/** Queues a fluid topology update after the shared debounce window. */
+export const scheduleFluidNetworkRescan = createNetworkRescanScheduler(
+  "fluids",
+  rebuildFluidNetworkBatch,
+);

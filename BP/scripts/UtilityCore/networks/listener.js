@@ -7,8 +7,8 @@ import {
   SCRIPT_EVENT_NAMESPACE,
   SET_CONFIG_EVENT_ID,
 } from "../../DoriosLib/containers/constants.js";
-import { rescanEnergyNetwork } from "./energy.js";
-import { rescanFluidNetwork } from "./fluids.js";
+import { scheduleEnergyNetworkRescan } from "./energy.js";
+import { scheduleFluidNetworkRescan } from "./fluids.js";
 import {
   invalidateItemContainerAt,
   invalidateItemContainerConfig,
@@ -36,8 +36,8 @@ const NETWORK_TYPES = new Set(["energy", "item", "fluid"]);
 networkRegistrar.install();
 
 /**
- * Rebuilds every matching network touching a changed position and refreshes
- * the visual geometry of the affected network nodes.
+ * Queues every matching network touching a changed position and immediately
+ * refreshes the visual geometry around that position.
  *
  * @param {Block} changedBlock
  * @param {NetworkType} type
@@ -61,18 +61,13 @@ export function updateNetworksAt(changedBlock, type) {
   }
   if (blocks.length === 0) return false;
 
-  // One queued request already rebuilds the center and all six neighbors.
-  if (type === "item") scheduleItemNetworkRescan(changedBlock.location, dimension);
+  // One queued request rebuilds the center and all six neighbors after the
+  // shared debounce window. Geometry remains immediate and inexpensive.
+  if (type === "energy") scheduleEnergyNetworkRescan(changedBlock.location, dimension);
+  else if (type === "fluid") scheduleFluidNetworkRescan(changedBlock.location, dimension);
+  else scheduleItemNetworkRescan(changedBlock.location, dimension);
 
-  const rescanned = new Set();
   for (const block of blocks) {
-    const key = `${block.location.x},${block.location.y},${block.location.z}`;
-    if (type === "energy" && !rescanned.has(key)) {
-      for (const covered of rescanEnergyNetwork(block.location, dimension)) rescanned.add(covered);
-    } else if (type === "fluid" && !rescanned.has(key)) {
-      for (const covered of rescanFluidNetwork(block.location, dimension)) rescanned.add(covered);
-    }
-
     if (block.hasTag("dorios:isExporter") || block.hasTag("dorios:isImporter")) {
       updateEndpointGeometry(block, networkTag);
     } else if (block.hasTag("dorios:isTube")) {

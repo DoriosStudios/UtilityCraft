@@ -15,6 +15,10 @@ import {
   offsetLocation,
   safeGetBlock,
 } from "./shared.js";
+import {
+  NETWORK_SCAN_BATCH_SIZE,
+  createNetworkRescanScheduler,
+} from "./scheduler.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -89,9 +93,6 @@ const exporterCache = new Map();
 const importerCache = new Map();
 /** @type {Map<string,number>} */
 const containerAccessRevisions = new Map();
-/** @type {Map<string,{dimension:Dimension,location:Vector3}>} */
-const pendingRescans = new Map();
-let rescanWorkerRunning = false;
 
 /** @param {string} dimensionId @param {Vector3} location */
 function locationKey(dimensionId, location) {
@@ -780,10 +781,7 @@ function processExporterTick(block, dimension) {
   const runtime = getExporterRuntime(block);
   if (!runtime.persistenceReady) return;
   if (!runtime.document.enabled) return;
-  if (!runtime.document.source) {
-    scheduleItemNetworkRescan(block.location, dimension);
-    return;
-  }
+  if (!runtime.document.source) return;
 
   const sourceAccess = getSourceAccess(runtime, dimension);
   if (!sourceAccess || sourceAccess.slots.length === 0) return;
@@ -892,54 +890,48 @@ function passesNativeTargetFilter(dimension, endpoint, resolved, itemTypeId) {
 }
 
 /**
- * Schedules a serialized rebuild. Multiple topology notifications can safely
- * coalesce without allowing asynchronous BFS runs to commit out of order.
+ * Queues an item topology update after the shared debounce window.
  *
  * @param {Vector3} startLocation
  * @param {Dimension} dimension
  */
 export function scheduleItemNetworkRescan(startLocation, dimension) {
-  const location = normalizeLocation(startLocation);
-  const key = locationKey(dimension.id, location);
-  pendingRescans.set(key, { dimension, location });
-  if (rescanWorkerRunning) return;
-
-  rescanWorkerRunning = true;
-  system.run(() => void drainItemRescans());
+  queueItemNetworkRescan(startLocation, dimension);
 }
 
-async function drainItemRescans() {
-  try {
-    while (pendingRescans.size > 0) {
-      const [key, request] = pendingRescans.entries().next().value;
-      pendingRescans.delete(key);
-      await rebuildItemNetworksAround(request.location, request.dimension);
-    }
-  } catch (error) {
-    console.warn("[UtilityCore:items] Network rebuild failed", error);
-  } finally {
-    rescanWorkerRunning = false;
-    if (pendingRescans.size > 0) {
-      rescanWorkerRunning = true;
-      system.run(() => void drainItemRescans());
-    }
-  }
-}
-
-/** @param {Vector3} startLocation @param {Dimension} dimension */
-async function rebuildItemNetworksAround(startLocation, dimension) {
-  const roots = [startLocation, ...NETWORK_OFFSETS.map((offset) => offsetLocation(startLocation, offset))];
+/**
+ * Rebuilds every distinct item component touched by one debounced batch.
+ *
+ * @param {ReadonlyArray<Vector3>} changedLocations
+ * @param {Dimension} dimension
+ */
+async function rebuildItemNetworkBatch(changedLocations, dimension) {
   const covered = new Set();
 
-  for (const root of roots) {
-    const key = locationKey(dimension.id, root);
-    if (covered.has(key)) continue;
-    const block = safeGetBlock(dimension, root);
-    if (!block || !isItemNetworkBlock(block)) continue;
-    const visited = await rebuildItemNetworkComponent(block.location, dimension);
-    for (const visitedKey of visited) covered.add(visitedKey);
+  for (const changedLocation of changedLocations) {
+    const changedKey = locationKey(dimension.id, changedLocation);
+    if (covered.has(changedKey)) continue;
+
+    const roots = [
+      changedLocation,
+      ...NETWORK_OFFSETS.map((offset) => offsetLocation(changedLocation, offset)),
+    ];
+
+    for (const root of roots) {
+      const key = locationKey(dimension.id, root);
+      if (covered.has(key)) continue;
+      const block = safeGetBlock(dimension, root);
+      if (!block || !isItemNetworkBlock(block)) continue;
+      const visited = await rebuildItemNetworkComponent(block.location, dimension);
+      for (const visitedKey of visited) covered.add(visitedKey);
+    }
   }
 }
+
+const queueItemNetworkRescan = createNetworkRescanScheduler(
+  "items",
+  rebuildItemNetworkBatch,
+);
 
 /**
  * @typedef {object} DiscoveredRoute
@@ -959,12 +951,18 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
   const networkColor = getNetworkColor(rootBlock);
   const queue = [normalizeLocation(rootLocation)];
   let queueHead = 0;
+  let processed = 0;
   const visited = new Set();
   const exporters = [];
   /** @type {Map<string,DiscoveredRoute>} */
   const routes = new Map();
 
   while (queueHead < queue.length) {
+    if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
+      await system.waitTicks(1);
+    }
+    processed++;
+
     const position = queue[queueHead++];
     const key = locationKey(dimension.id, position);
     if (visited.has(key)) continue;
@@ -972,7 +970,6 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
     const block = safeGetBlock(dimension, position);
     if (!block || !isItemNetworkBlock(block) || !block.hasTag(networkColor)) continue;
     visited.add(key);
-    if (visited.size % 25 === 0) await system.waitTicks(1);
 
     const isExporter = block.hasTag("dorios:isExporter");
     const isImporter = block.hasTag("dorios:isImporter");

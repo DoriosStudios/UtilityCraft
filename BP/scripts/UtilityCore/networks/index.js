@@ -1,11 +1,12 @@
 // @ts-check
 
 export { updateNetworksAt } from "./listener.js";
-export { rescanEnergyNetwork } from "./energy.js";
-export { rescanFluidNetwork } from "./fluids.js";
+export { rescanEnergyNetwork, scheduleEnergyNetworkRescan } from "./energy.js";
+export { rescanFluidNetwork, scheduleFluidNetworkRescan } from "./fluids.js";
 export {
   invalidateItemContainerAt,
   invalidateItemContainerConfig,
   reconcileMovedItemNodes,
   scheduleItemNetworkRescan,
 } from "./items.js";
+export { NETWORK_DEBOUNCE_TICKS, NETWORK_SCAN_BATCH_SIZE } from "./scheduler.js";

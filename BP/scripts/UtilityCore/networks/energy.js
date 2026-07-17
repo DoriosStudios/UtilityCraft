@@ -1,6 +1,11 @@
 // @ts-check
 
+import { system } from "@minecraft/server";
 import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
+import {
+  NETWORK_SCAN_BATCH_SIZE,
+  createNetworkRescanScheduler,
+} from "./scheduler.js";
 
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
 /** @typedef {import("@minecraft/server").Entity} Entity */
@@ -12,14 +17,21 @@ import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
  *
  * @param {Vector3} startPosition
  * @param {Dimension} dimension
- * @returns {Set<string>} Positions covered by this traversal.
+ * @returns {Promise<Set<string>>} Positions covered by this traversal.
  */
-export function rescanEnergyNetwork(startPosition, dimension) {
+export async function rescanEnergyNetwork(startPosition, dimension) {
   const queue = [startPosition];
   let queueHead = 0;
+  let processed = 0;
   const visited = new Set();
+  const networkNodes = new Set();
 
   while (queueHead < queue.length) {
+    if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
+      await system.waitTicks(1);
+    }
+    processed++;
+
     const position = queue[queueHead++];
 
     const key = `${position.x},${position.y},${position.z}`;
@@ -30,6 +42,7 @@ export function rescanEnergyNetwork(startPosition, dimension) {
     if (!block?.hasTag("dorios:energy")) continue;
 
     if (block.hasTag("dorios:isTube")) {
+      networkNodes.add(key);
       for (const offset of NETWORK_OFFSETS) queue.push(offsetLocation(position, offset));
       continue;
     }
@@ -48,15 +61,15 @@ export function rescanEnergyNetwork(startPosition, dimension) {
         const inputBlock = safeGetBlock(dimension, { x, y, z });
         if (inputBlock) inputs.push(inputBlock.location);
       }
-      searchEnergyStorages(inputs, entity);
+      await searchEnergyStorages(inputs, entity);
       continue;
     }
 
     if (entity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:energy_source")) {
-      searchEnergyStorages([position], entity);
+      await searchEnergyStorages([position], entity);
     }
   }
-  return visited;
+  return networkNodes;
 }
 
 /**
@@ -64,11 +77,13 @@ export function rescanEnergyNetwork(startPosition, dimension) {
  *
  * @param {Vector3[]} startPositions
  * @param {Entity} generator
+ * @returns {Promise<void>}
  */
-function searchEnergyStorages(startPositions, generator) {
+async function searchEnergyStorages(startPositions, generator) {
   const dimension = generator.dimension;
   const queue = [];
   let queueHead = 0;
+  let processed = 0;
   const visited = new Set();
 
   for (const startPosition of startPositions) {
@@ -79,6 +94,11 @@ function searchEnergyStorages(startPositions, generator) {
 
   const machines = [];
   while (queueHead < queue.length) {
+    if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
+      await system.waitTicks(1);
+    }
+    processed++;
+
     const position = queue[queueHead++];
 
     const key = `${position.x},${position.y},${position.z}`;
@@ -107,6 +127,8 @@ function searchEnergyStorages(startPositions, generator) {
     }
   }
 
+  if (!generator.isValid) return;
+
   for (const tag of generator.getTags()) {
     if (tag.startsWith("net:")) generator.removeTag(tag);
   }
@@ -115,3 +137,40 @@ function searchEnergyStorages(startPositions, generator) {
   }
   generator.addTag("updateNetwork");
 }
+
+/**
+ * Rebuilds every distinct energy component touched by one debounced batch.
+ *
+ * @param {ReadonlyArray<Vector3>} changedLocations
+ * @param {Dimension} dimension
+ */
+async function rebuildEnergyNetworkBatch(changedLocations, dimension) {
+  const covered = new Set();
+
+  for (const changedLocation of changedLocations) {
+    const changedKey = `${changedLocation.x},${changedLocation.y},${changedLocation.z}`;
+    if (covered.has(changedKey)) continue;
+
+    const roots = [
+      changedLocation,
+      ...NETWORK_OFFSETS.map((offset) => offsetLocation(changedLocation, offset)),
+    ];
+
+    for (const root of roots) {
+      const key = `${root.x},${root.y},${root.z}`;
+      if (covered.has(key)) continue;
+
+      const block = safeGetBlock(dimension, root);
+      if (!block?.hasTag("dorios:energy")) continue;
+
+      const visited = await rescanEnergyNetwork(root, dimension);
+      for (const visitedKey of visited) covered.add(visitedKey);
+    }
+  }
+}
+
+/** Queues an energy topology update after the shared debounce window. */
+export const scheduleEnergyNetworkRescan = createNetworkRescanScheduler(
+  "energy",
+  rebuildEnergyNetworkBatch,
+);
