@@ -3,11 +3,12 @@
 DoriosLib is the general-purpose Minecraft Bedrock Script API library used by
 Dorios Studios projects.
 
-The library is intentionally side-effect free when imported:
+Importing the main entry point automatically initializes dependency discovery
+with `DoriosLib/config.js`. Apart from that lifecycle setup:
 
 - It does not modify Minecraft class prototypes.
 - It does not create a `globalThis` variable.
-- It does not subscribe to events unless an explicit lifecycle method is used.
+- Other event-based systems require an explicit lifecycle method.
 - It does not contain UtilityCraft machine rules or third-party integrations.
 
 ## Import
@@ -131,15 +132,18 @@ registrar
   .install();
 ```
 
-Dependency discovery is also initialized explicitly:
+Dependency discovery starts automatically when the main DoriosLib entry point
+is imported. It uses:
 
 ```js
-DoriosLib.dependencies.initialize({
-  name: "UtilityCraft",
-  identifier: "utilitycraft",
-  version: "3.5.0",
-});
+DoriosLib.config.ADDON_METADATA;
+DoriosLib.config.DEPENDENCY_OPTIONS;
 ```
+
+Edit `DoriosLib/config.js` to change the addon metadata or declare required
+addons. On world load, the dependency service announces that complete object
+through `dorios:dependency_checker` and validates configured requirements after
+the configured delay.
 
 ## Containers
 
