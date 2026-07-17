@@ -83,6 +83,8 @@ export interface MachineRuntimeConfig {
   energy_cap?: number;
   /** Optional fluid capacity stored on the helper entity. */
   fluid_cap?: number;
+  /** Number of independent indexed fluid tanks stored by the entity. */
+  fluid_types?: number;
   /** Upgrade slots scanned for speed/efficiency boosts. */
   upgrades?: number[];
 }
@@ -95,6 +97,8 @@ export interface GeneratorRuntimeConfig {
   energy_cap?: number;
   /** Optional fluid capacity stored on the helper entity. */
   fluid_cap?: number;
+  /** Number of independent indexed fluid tanks stored by the entity. */
+  fluid_types?: number;
 }
 
 /** Complete config object accepted by {@link Machine} and {@link MultiblockMachine}. */
@@ -237,26 +241,34 @@ export interface ItemIOGroupConfig {
   modes: ItemIOModeConfig[];
 }
 
-/** Current liquid IO UI declaration. */
+/** One visual fluid IO mode and the indexed tanks represented by that mode. */
+export interface FluidIOModeConfig {
+  /** Name tag used by the resource-pack IO button, such as `input_1`. */
+  id: string;
+  /** Fluid tank indices that accept fluid while this mode is active. */
+  inputIndices?: number[];
+  /** Fluid tank indices that expose fluid while this mode is active. */
+  outputIndices?: number[];
+}
+
+/** Static indexed-fluid policy registered for one machine block type. */
 export interface LiquidIOGroupConfig {
-  /** Six UI button slots, explicit or as an inclusive start/end range. */
-  buttonSlots: number[] | [number, number];
-  /** Ordered liquid modes cycled independently on each face. */
-  modes: string[];
+  /** Optional six UI button slots, explicit or as an inclusive start/end range. */
+  buttonSlots?: number[] | [number, number];
+  /** Explicit insertion fallback used when no source face is known. */
+  anyInputIndices: number[];
+  /** Explicit extraction fallback used when no destination face is known. */
+  anyOutputIndices: number[];
+  /** Ordered visual modes cycled independently on each face. */
+  modes: FluidIOModeConfig[];
 }
 
 /** Complete IO registration for one machine block type. */
 export interface IOInterfaceConfig {
   /** Slot-based item policy and optional item face buttons. */
   items?: ItemIOGroupConfig;
-  /** Liquid mode buttons, retained in the current liquid format. */
+  /** Indexed-fluid policy and optional fluid face buttons. */
   liquids?: LiquidIOGroupConfig;
-}
-
-/** Runtime fluid bindings used by {@link BasicMachine.processIO}. */
-export interface ProcessIOConfig {
-  /** Fluid storage keyed by registered liquid mode, or one shared storage. */
-  liquids?: Record<string, FluidStorage> | FluidStorage;
 }
 
 /** Per-tick limits used by {@link BasicMachine.processIO}. */
@@ -280,6 +292,98 @@ export function registerIOInterface(blockTypeId: string, config?: IOInterfaceCon
 export const IOInterface: {
   registerIOInterface: typeof registerIOInterface;
 };
+
+/** Per-face fluid tank-index arrays stored by Complex fluid containers. */
+export type FaceFluidIndexConfig = Partial<Record<DirectionName, number[]>>;
+
+/** Face-independent fluid policy stored by a Simple fluid container. */
+export interface SimpleFluidConfig {
+  version: 1;
+  type: "simple";
+  inputConfig: number[];
+  outputConfig: number[];
+}
+
+/** Face-aware fluid policy stored under `utilitycraft:io_config.liquids`. */
+export interface ComplexFluidConfig {
+  version: 1;
+  type: "complex";
+  anyInputIndices: number[];
+  anyOutputIndices: number[];
+  inputConfig: FaceFluidIndexConfig;
+  outputConfig: FaceFluidIndexConfig;
+}
+
+export type FluidConfig = SimpleFluidConfig | ComplexFluidConfig;
+
+/** Normalized registered fluid IO mode. */
+export interface FluidIOMode {
+  id: string;
+  inputIndices: number[];
+  outputIndices: number[];
+}
+
+/** Normalized static fluid policy returned by the registration API. */
+export interface FluidIODefinition {
+  anyInputIndices: number[];
+  anyOutputIndices: number[];
+  modes: FluidIOMode[];
+}
+
+export const FLUID_CONFIG_VERSION: 1;
+export const FLUID_CONFIG_KEY: "liquids";
+export const FLUID_CONTAINER_FAMILY: "dorios:fluid_container";
+export const FLUID_CONFIG_EVENT_NAMESPACE: "dorios_fluid";
+export const SET_FLUID_CONFIG_EVENT_ID: "dorios_fluid:set_config";
+export const DEFAULT_FLUID_IO_MODE: "disabled";
+
+export function registerFluidIODefinition(blockTypeId: string, value: LiquidIOGroupConfig): FluidIODefinition;
+export function getFluidIODefinition(blockTypeId: string): FluidIODefinition | undefined;
+export function ensureFluidIOConfig(entity: Entity, blockTypeId: string): boolean;
+export function setFluidConfig(entity: Entity, config: FluidConfig): boolean;
+export function getFluidConfig(entity: Entity): FluidConfig | undefined;
+export function getFluidConfigRevision(entity: Entity): number;
+export function getFluidStatus(entity: Entity): "basic" | "simple" | "complex" | "invalid" | "unsupported";
+export function getInputFluidIndices(entity: Entity, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getOutputFluidIndices(entity: Entity, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getFluidIODirectionMode(entity: Entity, blockTypeId: string, direction: string): string;
+export function cycleFluidIODirectionMode(entity: Entity, blockTypeId: string, direction: string): string;
+export function normalizeFluidConfig(value: unknown, count: number): FluidConfig;
+export function cloneFluidConfig(config: FluidConfig): FluidConfig;
+
+/** Fluid storage endpoint resolved from a machine entity, port, or tank block. */
+export interface ResolvedFluidContainer {
+  kind: "entity" | "tank";
+  block: Block | undefined;
+  entity: Entity | undefined;
+}
+
+export type FluidContainerTarget = Block | Entity | ResolvedFluidContainer;
+
+export interface FluidTransferOptions {
+  sourceIndex: number;
+  target: FluidContainerTarget;
+  targetFace?: DirectionName;
+  targetIndices?: ReadonlyArray<number>;
+  maxAmount?: number;
+}
+
+export interface FluidInsertOptions {
+  type: string;
+  amount: number;
+  face?: DirectionName;
+  indices?: ReadonlyArray<number>;
+  exact?: boolean;
+}
+
+export function resolveFluidContainer(target: FluidContainerTarget): ResolvedFluidContainer | undefined;
+export function resolveFluidContainerAt(dimension: Dimension, location: Vector3): ResolvedFluidContainer | undefined;
+export function getFluidInputIndices(target: FluidContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getFluidOutputIndices(target: FluidContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getFluidContainerRevision(target: FluidContainerTarget): number;
+export function transferFluid(source: FluidContainerTarget, options: FluidTransferOptions): number;
+export function insertFluid(target: FluidContainerTarget, options: FluidInsertOptions): number;
+export function getFluidStorage(target: FluidContainerTarget, fluidIndex: number): FluidStorage | undefined;
 
 /**
  * Base runtime for UtilityCraft machine-like blocks.
@@ -311,6 +415,8 @@ export class BasicMachine {
   rate: number;
   /** Whether the entity's slot-based Complex item config is ready locally. */
   itemIOReady: boolean;
+  /** Whether the entity's indexed-fluid Complex config is ready locally. */
+  fluidIOReady: boolean;
 
   /**
    * Creates a base machine runtime for a machine block.
@@ -342,8 +448,8 @@ export class BasicMachine {
   displayProgress(maxValue?: number, options?: ProgressOptions): void;
   /** Draws the current energy bar using the attached {@link EnergyStorage}. */
   displayEnergy(slot?: number): void;
-  /** Processes configured item faces and the supplied liquid storage bindings. */
-  processIO(config?: ProcessIOConfig, limits?: ProcessIOLimits): ProcessIOSummary;
+  /** Processes configured item slots and fluid indices for every enabled face. */
+  processIO(limits?: ProcessIOLimits): ProcessIOSummary;
   /** Fills empty slots with blocker items so players cannot use them. */
   blockSlots(slots: number[]): void;
   /** Removes blocker items from the provided slots. */

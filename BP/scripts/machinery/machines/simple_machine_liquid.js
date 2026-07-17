@@ -15,7 +15,12 @@ registerIOInterface("utilitycraft:magmatic_chamber", {
     },
     liquids: {
         buttonSlots: [13, 18],
-        modes: ["disabled", "output"]
+        anyInputIndices: [],
+        anyOutputIndices: [0],
+        modes: [
+            { id: "disabled" },
+            { id: "output_1", outputIndices: [0] }
+        ]
     }
 });
 
@@ -49,11 +54,7 @@ DoriosAPI.register.blockComponent('simple_machine_liquid', {
 
         /** @type {FluidStorage} */
         const liquid = FluidStorage.initializeSingle(machine.entity);
-        machine.processIO({
-            liquids: {
-                output: liquid
-            }
-        });
+        machine.processIO();
 
         const inv = machine.container;
 

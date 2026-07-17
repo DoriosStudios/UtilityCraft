@@ -10,6 +10,7 @@ import { Rotation } from "../utils/rotation";
 import * as Utils from "../utils/entity";
 import { InterfaceManager } from "../interfaces/index.js";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
+import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
 import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
@@ -154,9 +155,10 @@ export class Machine extends BasicMachine {
       energyManager.display();
 
       if (config.machine.fluid_cap) {
-        const fluidManager = new FluidStorage(entity);
-
-        fluidManager.setCap(config.machine.fluid_cap);
+        const fluidCount = Math.max(1, Math.floor(config.machine.fluid_types ?? 1));
+        const fluidManagers = FluidStorage.initializeMultiple(entity, fluidCount);
+        for (const manager of fluidManagers) manager.setCap(config.machine.fluid_cap);
+        const fluidManager = fluidManagers[0];
         fluidManager.display();
 
         if (fluid && fluid.amount > 0) {
@@ -168,9 +170,11 @@ export class Machine extends BasicMachine {
       // this tick. ensureItemIOConfig installs a fail-closed temporary config
       // and the next tick reconciles it against the final inventory size.
       ensureItemIOConfig(entity, block.typeId, { failClosedWhileResizing: true });
+      ensureFluidIOConfig(entity, block.typeId);
       system.run(() => {
         if (!entity.isValid) return;
         ensureItemIOConfig(entity, block.typeId);
+        ensureFluidIOConfig(entity, block.typeId);
         if (callback) {
           callback(entity);
         }

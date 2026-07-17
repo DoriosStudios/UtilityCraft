@@ -8,7 +8,7 @@ import {
   SET_CONFIG_EVENT_ID,
 } from "../../DoriosLib/containers/constants.js";
 import { scheduleEnergyNetworkRescan } from "./energy.js";
-import { scheduleFluidNetworkRescan } from "./fluids.js";
+import { reconcileMovedFluidNodes, scheduleFluidNetworkRescan } from "./fluids.js";
 import {
   invalidateItemContainerAt,
   invalidateItemContainerConfig,
@@ -170,6 +170,7 @@ world.afterEvents.pistonActivate.subscribe(({ piston, isExpanding, dimension }) 
       },
     }));
     reconcileMovedItemNodes(dimension, movements);
+    reconcileMovedFluidNodes(dimension, movements);
 
     for (const { target: location, source: pairedLocation } of movements) {
       const block = safeGetBlock(dimension, location);

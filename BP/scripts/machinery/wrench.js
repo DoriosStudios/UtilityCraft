@@ -1,6 +1,10 @@
-import { world, ItemStack, system, BlockType } from "@minecraft/server";
-import { ModalFormData, ActionFormData } from "@minecraft/server-ui";
+import { world, ItemStack } from "@minecraft/server";
+import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
+
+function translate(key) {
+    return { translate: key };
+}
 
 // Nombres de entidades removibles
 const REMOVABLE_ENTITIES = [
@@ -79,39 +83,48 @@ export function openEnergyNodeMenu(block, player) {
 
     const isReceiver = block.typeId.includes("receiver");
 
-    const nodeModes = ["Receiver", "Transmitter"];
+    const nodeModes = ["receiver", "transmitter"];
+    const nodeLabels = nodeModes.map(mode => translate(`ui.utilitycraft:energy.node_${mode}`));
     const nodeDefault = isReceiver ? 0 : 1;
 
     const mode = entity.getDynamicProperty("transferMode") ?? "nearest";
-    const modes = ["Nearest", "Farthest", "Round"];
+    const modes = ["nearest", "farthest", "round"];
+    const modeLabels = modes.map(value => translate(`ui.utilitycraft:energy.mode_${value}`));
 
-    const currentIndex = modes.findIndex((m) => m.toLowerCase() === mode);
+    const currentIndex = modes.indexOf(mode);
     const defaultIndex = currentIndex >= 0 ? currentIndex : 0;
 
     const modal = new ModalFormData()
-        .title(`${nodeModes[nodeDefault]} Transfer Mode`)
+        .title(translate("ui.utilitycraft:energy.node_settings_title"))
 
         // Receiver / Transmitter dropdown
         .dropdown(
-            "Node Mode",
-            nodeModes,
-            { defaultValueIndex: nodeDefault }
+            translate("ui.utilitycraft:energy.node_mode"),
+            nodeLabels,
+            {
+                defaultValueIndex: nodeDefault,
+                tooltip: translate("ui.utilitycraft:energy.node_mode_tooltip")
+            }
         )
 
         // EXACT same transfer dropdown as generator
         .dropdown(
-            "Select how this node distributes its output:",
-            modes,
-            { defaultValueIndex: defaultIndex }
-        );
+            translate("ui.utilitycraft:energy.node_transfer_mode"),
+            modeLabels,
+            {
+                defaultValueIndex: defaultIndex,
+                tooltip: translate("ui.utilitycraft:energy.node_transfer_tooltip")
+            }
+        )
+        .submitButton(translate("ui.utilitycraft:energy.save"));
 
     modal.show(player).then((result) => {
         if (result.canceled) return;
 
-        const [nodeSelection, transferSelection] = result.formValues;
+        const [nodeSelection, transferSelection] = result.formValues ?? [];
 
         const selectedNodeMode = nodeModes[nodeSelection];
-        const shouldBeReceiver = selectedNodeMode === "Receiver";
+        const shouldBeReceiver = selectedNodeMode === "receiver";
 
         // Toggle if different
         if (shouldBeReceiver !== isReceiver) {
@@ -119,13 +132,16 @@ export function openEnergyNodeMenu(block, player) {
         }
 
         // EXACT same transfer logic as generator
-        const newMode = modes[transferSelection]?.toLowerCase() ?? "nearest";
+        const newMode = modes[transferSelection] ?? "nearest";
 
         entity.setDynamicProperty("transferMode", newMode);
 
-        player.onScreenDisplay.setActionBar(
-            `§7Transfer mode set to: §e${DoriosAPI.utils.capitalizeFirst(newMode)}`
-        );
+        player.onScreenDisplay.setActionBar({
+            rawtext: [
+                translate("message.utilitycraft.energy.transfer_mode_set"),
+                translate(`ui.utilitycraft:energy.mode_${newMode}`)
+            ]
+        });
     });
 }
 /**
@@ -181,11 +197,11 @@ function toggleEnergyMode(block, player) {
 
     // Action bar feedback
     if (player) {
-        const message = newType === "transmitter"
-            ? "§cMode: §fTransmitting Energy"
-            : "§aMode: §fReceiving Energy";
-
-        DoriosAPI.utils.actionBar(player, message);
+        player.onScreenDisplay.setActionBar(translate(
+            newType === "transmitter"
+                ? "message.utilitycraft.energy.transmitting"
+                : "message.utilitycraft.energy.receiving"
+        ));
     }
 }
 
@@ -225,7 +241,12 @@ export function openBasicNetworkMenu(entity, player) {
         { id: "white", code: "§f" }
     ];
 
-    const colorNames = COLORS.map(c => `${c.code}${DoriosAPI.utils.formatIdToText(c.id)}`);
+    const colorNames = COLORS.map(c => ({
+        rawtext: [
+            { text: c.code },
+            translate(`ui.utilitycraft:energy.color_${c.id}`)
+        ]
+    }));
 
     // --- Detect existing network ---
     const existing = entity.getTags().find(t => t.startsWith("bn:"));
@@ -244,19 +265,23 @@ export function openBasicNetworkMenu(entity, player) {
     }
 
     const form = new ModalFormData()
-        .title("Basic Network")
+        .title(translate("ui.utilitycraft:energy.network_title"))
 
-        .dropdown("Primary Channel", colorNames, {
-            defaultValueIndex: defaults[0]
+        .dropdown(translate("ui.utilitycraft:energy.primary_channel"), colorNames, {
+            defaultValueIndex: defaults[0],
+            tooltip: translate("ui.utilitycraft:energy.channel_tooltip")
         })
 
-        .dropdown("Secondary Channel", colorNames, {
-            defaultValueIndex: defaults[1]
+        .dropdown(translate("ui.utilitycraft:energy.secondary_channel"), colorNames, {
+            defaultValueIndex: defaults[1],
+            tooltip: translate("ui.utilitycraft:energy.channel_tooltip")
         })
 
-        .dropdown("Tertiary Channel", colorNames, {
-            defaultValueIndex: defaults[2]
-        });
+        .dropdown(translate("ui.utilitycraft:energy.tertiary_channel"), colorNames, {
+            defaultValueIndex: defaults[2],
+            tooltip: translate("ui.utilitycraft:energy.channel_tooltip")
+        })
+        .submitButton(translate("ui.utilitycraft:energy.save"));
 
     form.show(player).then(res => {
         if (res.canceled) return;
@@ -275,8 +300,12 @@ export function openBasicNetworkMenu(entity, player) {
 
         entity.addTag(tag);
 
-        player.onScreenDisplay.setActionBar(
-            `§7Network set: ${COLORS[c1].code}■ §r${COLORS[c2].code}■ §r${COLORS[c3].code}■`
-        );
+        player.onScreenDisplay.setActionBar({
+            rawtext: [
+                translate("message.utilitycraft.energy.network_set"),
+                { text: " " },
+                { text: `${COLORS[c1].code}■ §r${COLORS[c2].code}■ §r${COLORS[c3].code}■` }
+            ]
+        });
     });
 }

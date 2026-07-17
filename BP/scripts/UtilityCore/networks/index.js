@@ -2,7 +2,11 @@
 
 export { updateNetworksAt } from "./listener.js";
 export { rescanEnergyNetwork, scheduleEnergyNetworkRescan } from "./energy.js";
-export { rescanFluidNetwork, scheduleFluidNetworkRescan } from "./fluids.js";
+export {
+  reconcileMovedFluidNodes,
+  rescanFluidNetwork,
+  scheduleFluidNetworkRescan,
+} from "./fluids.js";
 export {
   invalidateItemContainerAt,
   invalidateItemContainerConfig,

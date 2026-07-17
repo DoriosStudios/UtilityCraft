@@ -1,13 +1,9 @@
 // @ts-check
 
-import { ModalFormData } from "@minecraft/server-ui";
 import { createRegistrar } from "../../DoriosLib/registry/index.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
-import { capitalizeFirst } from "../../DoriosLib/text/index.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
-/** @typedef {import("@minecraft/server").Entity} Entity */
-/** @typedef {import("@minecraft/server").Player} Player */
 /** @typedef {import("@minecraft/server").Vector3} Vector3 */
 /** @typedef {import("../../DoriosLib/containers/config.js").ContainerFace} ContainerFace */
 
@@ -252,29 +248,4 @@ export function updateEndpointGeometry(block, tag) {
   }
 
   block.setPermutation(permutation);
-}
-
-/**
- * Existing entity-backed menu shared by the fluid extractor.
- *
- * @param {Entity} entity
- * @param {Player} player
- */
-export function openEntityTransferModeMenu(entity, player) {
-  const currentMode = String(entity.getDynamicProperty("transferMode") ?? "nearest");
-  const modes = ["Nearest", "Farthest", "Round"];
-  const defaultIndex = Math.max(0, modes.findIndex((mode) => mode.toLowerCase() === currentMode));
-
-  new ModalFormData()
-    .title("Transfer Mode")
-    .dropdown("Select transfer behavior:", modes, { defaultValueIndex: defaultIndex })
-    .show(player)
-    .then((result) => {
-      if (result.canceled) return;
-      const selection = Number(result.formValues?.[0] ?? 0);
-      entity.setDynamicProperty("transferMode", (modes[selection] ?? "Nearest").toLowerCase());
-      player.onScreenDisplay.setActionBar(
-        `§7Transfer mode set to: §e${capitalizeFirst(modes[selection] ?? "Nearest")}`,
-      );
-    });
 }

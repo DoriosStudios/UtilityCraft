@@ -4,7 +4,7 @@ import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import { DIRECTIONS } from "../../DoriosLib/containers/constants.js";
-import { capitalizeFirst, formatIdentifier } from "../../DoriosLib/text/index.js";
+import { formatIdentifier } from "../../DoriosLib/text/index.js";
 import {
   NETWORK_OFFSETS,
   getAttachedContainerEndpoint,
@@ -65,6 +65,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:item_exporter:v1";
 /**
  * @typedef {object} ImporterDocument
  * @property {number} version
+ * @property {boolean} enabled
  * @property {"whitelist"|"blacklist"} mode
  * @property {string[]} items
  */
@@ -145,6 +146,7 @@ function createExporterDocument() {
 function createImporterDocument() {
   return /** @type {ImporterDocument} */ ({
     version: NETWORK_VERSION,
+    enabled: true,
     mode: "whitelist",
     items: [],
   });
@@ -220,6 +222,7 @@ function normalizeImporterDocument(value) {
   const raw = /** @type {Record<string,unknown>} */ (value);
   return {
     version: NETWORK_VERSION,
+    enabled: raw.enabled !== false,
     mode: raw.mode === "blacklist" ? "blacklist" : "whitelist",
     items: normalizeStringArray(raw.items),
   };
@@ -517,89 +520,151 @@ function getTargetAccess(runtime, dimension, endpoint) {
   return access;
 }
 
-/** @param {Player} player @param {"whitelist"|"blacklist"} mode @param {Iterable<string>} items */
-function showFilteredItems(player, mode, items) {
+/** @param {string} key @param {string[]} [values] */
+function translate(key, values) {
+  return values ? { translate: key, with: values } : { translate: key };
+}
+
+/** @param {string} labelKey @param {string} descriptionKey */
+function translatedButton(labelKey, descriptionKey) {
+  return {
+    rawtext: [
+      translate(labelKey),
+      { text: "\n§8" },
+      translate(descriptionKey),
+    ],
+  };
+}
+
+/** @param {Block} block */
+function hasFilterUpgrade(block) {
+  return block.permutation.getState("utilitycraft:filter") === 1;
+}
+
+/** @param {string} descriptionKey @param {Block} block */
+function getMenuBody(descriptionKey, block) {
+  return {
+    rawtext: [
+      translate(descriptionKey),
+      { text: "\n\n" },
+      translate(hasFilterUpgrade(block)
+        ? "ui.utilitycraft:item_transfer.filter_installed"
+        : "ui.utilitycraft:item_transfer.filter_not_installed"),
+    ],
+  };
+}
+
+/** @param {Block} block @param {Iterable<string>} items */
+function getFilteredItemsLabel(block, items) {
+  if (!hasFilterUpgrade(block)) {
+    return translate("ui.utilitycraft:item_transfer.filtered_items_unavailable");
+  }
+
   const values = [...items];
-  const list = values.length === 0
-    ? "§7(empty)"
-    : values.map((item) => `- ${formatIdentifier(item)}`).join("\n");
-  const title = mode === "whitelist" ? "Whitelist" : "Blacklist";
-  new ActionFormData()
-    .title("Filtered Items")
-    .body(`${title}\n\n${list}`)
-    .button("Close")
-    .show(player);
+  if (values.length === 0) return translate("ui.utilitycraft:item_transfer.filtered_items_empty");
+
+  return {
+    rawtext: values.map((item, index) => ({
+      text: `${index === 0 ? "" : "\n"}§7- §f${formatIdentifier(item)}`,
+    })),
+  };
+}
+
+/** @param {Block} block @param {Player} player */
+function getHeldFilterItemType(block, player) {
+  if (!hasFilterUpgrade(block)) {
+    player.onScreenDisplay.setActionBar(translate("message.utilitycraft.item_transfer.missing_filter_upgrade"));
+    return undefined;
+  }
+
+  const item = player.getComponent("equippable")?.getEquipment("Mainhand");
+  if (!item) {
+    player.onScreenDisplay.setActionBar(translate("message.utilitycraft.item_transfer.hold_item"));
+    return undefined;
+  }
+  return item.typeId;
 }
 
 /** @param {Block} block @param {Player} player */
 function openExporterMenu(block, player) {
   const runtime = getExporterRuntime(block);
-  const document = runtime.document;
-  const filterMode = document.filter.mode;
-
   const menu = new ActionFormData()
-    .title("Item Exporter Settings")
-    .body(`§7Manage item export settings.\n\n§rCurrent mode: §e${capitalizeFirst(document.mode)}\n§rPower: ${document.enabled ? "§aON" : "§cOFF"}`)
-    .button(`${document.enabled ? "Turn OFF" : "Turn ON"}\n§8Toggle exporter activity`, `textures/ui/toggle_${document.enabled ? "on" : "off"}`)
-    .button(`Transfer Mode\n§8(${capitalizeFirst(document.mode)})`, "textures/items/compass_item.png")
-    .button(`${capitalizeFirst(filterMode)} Mode\n§8Click to toggle`, filterMode === "whitelist"
-      ? "textures/items/misc/whitelist.png"
-      : "textures/items/misc/blacklist.png")
-    .button("View Filter Contents\n§8List all filtered items", "textures/ui/icon_book_writable.png")
-    .button("Add Item\n§8(Add item from Mainhand)", "textures/ui/icon_import.png")
-    .button("Remove Item\n§8(Select item to remove)", "textures/ui/trash_default.png");
+    .title(translate("ui.utilitycraft:item_transfer.exporter_title"))
+    .body(getMenuBody("ui.utilitycraft:item_transfer.exporter_description", block))
+    .button(translatedButton(
+      "ui.utilitycraft:item_transfer.quick_settings",
+      "ui.utilitycraft:item_transfer.quick_settings_description",
+    ), "textures/ui/settings_glyph_color_2x.png")
+    .button(translatedButton(
+      "ui.utilitycraft:item_transfer.add_item",
+      "ui.utilitycraft:item_transfer.add_item_description",
+    ), "textures/ui/icon_import.png")
+    .button(translatedButton(
+      "ui.utilitycraft:item_transfer.remove_item",
+      "ui.utilitycraft:item_transfer.remove_item_description",
+    ), "textures/ui/trash_default.png");
 
   menu.show(player).then((result) => {
     if (result.selection === undefined) return;
     switch (result.selection) {
       case 0:
-        document.enabled = !document.enabled;
+        openExporterQuickSettings(block, runtime, player);
+        break;
+      case 1: {
+        const typeId = getHeldFilterItemType(block, player);
+        if (!typeId) break;
+        runtime.filterItems.add(typeId);
         persistExporterRuntime(runtime);
-        break;
-      case 1:
-        openExporterModeMenu(runtime, player);
-        break;
-      case 2:
-        document.filter.mode = filterMode === "whitelist" ? "blacklist" : "whitelist";
-        persistExporterRuntime(runtime);
-        break;
-      case 3:
-        showFilteredItems(player, document.filter.mode, runtime.filterItems);
-        break;
-      case 4: {
-        if (block.permutation.getState("utilitycraft:filter") !== 1) {
-          player.onScreenDisplay.setActionBar("§cMissing filter upgrade.");
-          break;
-        }
-        const item = player.getComponent("equippable")?.getEquipment("Mainhand");
-        if (!item) {
-          player.onScreenDisplay.setActionBar("§cYou must hold an item in your main hand.");
-          break;
-        }
-        runtime.filterItems.add(item.typeId);
-        persistExporterRuntime(runtime);
+        player.onScreenDisplay.setActionBar(translate(
+          "message.utilitycraft.item_transfer.item_added",
+          [formatIdentifier(typeId)],
+        ));
         break;
       }
-      case 5:
+      case 2:
         openExporterRemoveMenu(block, runtime, player);
         break;
     }
   });
 }
 
-/** @param {ExporterRuntime} runtime @param {Player} player */
-function openExporterModeMenu(runtime, player) {
-  const modes = ["Nearest", "Farthest", "Round"];
-  const defaultIndex = Math.max(0, modes.findIndex((mode) => mode.toLowerCase() === runtime.document.mode));
+/** @param {Block} block @param {ExporterRuntime} runtime @param {Player} player */
+function openExporterQuickSettings(block, runtime, player) {
+  const modes = /** @type {const} */ (["nearest", "farthest", "round"]);
+  const modeLabels = modes.map((mode) => translate(`ui.utilitycraft:item_transfer.mode_${mode}`));
+  const defaultIndex = Math.max(0, modes.indexOf(runtime.document.mode));
+
   new ModalFormData()
-    .title("Transfer Mode")
-    .dropdown("Select item transfer behavior:", modes, { defaultValueIndex: defaultIndex })
+    .title(translate("ui.utilitycraft:item_transfer.quick_settings_title"))
+    .toggle(translate("ui.utilitycraft:item_transfer.enabled"), {
+      defaultValue: runtime.document.enabled,
+      tooltip: translate("ui.utilitycraft:item_transfer.exporter_enabled_tooltip"),
+    })
+    .toggle(translate("ui.utilitycraft:item_transfer.whitelist"), {
+      defaultValue: runtime.document.filter.mode === "whitelist",
+      tooltip: translate("ui.utilitycraft:item_transfer.whitelist_tooltip"),
+    })
+    .dropdown(translate("ui.utilitycraft:item_transfer.transfer_mode"), modeLabels, {
+      defaultValueIndex: defaultIndex,
+      tooltip: translate("ui.utilitycraft:item_transfer.transfer_mode_tooltip"),
+    })
+    .divider()
+    .label(translate("ui.utilitycraft:item_transfer.filtered_items"))
+    .label(getFilteredItemsLabel(block, runtime.filterItems))
+    .submitButton(translate("ui.utilitycraft:item_transfer.save"))
     .show(player)
     .then((result) => {
       if (result.canceled) return;
-      const index = Number(result.formValues?.[0] ?? 0);
-      runtime.document.mode = /** @type {ExporterDocument["mode"]} */ ((modes[index] ?? "Nearest").toLowerCase());
+      const values = Array.isArray(result.formValues) ? result.formValues : [];
+      const toggles = values.filter((value) => typeof value === "boolean");
+      const selectedMode = Number(values.find((value) => typeof value === "number" && Number.isFinite(value)));
+      runtime.document.enabled = toggles[0] ?? runtime.document.enabled;
+      runtime.document.filter.mode = (toggles[1] ?? (runtime.document.filter.mode === "whitelist"))
+        ? "whitelist"
+        : "blacklist";
+      runtime.document.mode = modes[selectedMode] ?? runtime.document.mode;
       persistExporterRuntime(runtime);
+      player.onScreenDisplay.setActionBar(translate("message.utilitycraft.item_transfer.settings_saved"));
     });
 }
 
@@ -607,18 +672,25 @@ function openExporterModeMenu(runtime, player) {
 function openExporterRemoveMenu(block, runtime, player) {
   const items = [...runtime.filterItems];
   if (items.length === 0) {
-    player.onScreenDisplay.setActionBar("§cNo items to remove.");
+    player.onScreenDisplay.setActionBar(translate("message.utilitycraft.item_transfer.no_items"));
     return;
   }
 
-  const menu = new ActionFormData().title("Remove Item").body("§7Select an item to remove.");
+  const menu = new ActionFormData()
+    .title(translate("ui.utilitycraft:item_transfer.remove_item"))
+    .body(translate("ui.utilitycraft:item_transfer.remove_item_prompt"));
   for (const item of items) menu.button(formatIdentifier(item));
+  menu.button(translate("ui.utilitycraft:item_transfer.cancel"), "textures/ui/redX1.png");
   menu.show(player).then((result) => {
-    if (result.selection === undefined) return;
+    if (result.selection === undefined || result.selection === items.length) return;
     const selected = items[result.selection];
     if (!selected) return;
     runtime.filterItems.delete(selected);
     persistExporterRuntime(runtime);
+    player.onScreenDisplay.setActionBar(translate(
+      "message.utilitycraft.item_transfer.item_removed",
+      [formatIdentifier(selected)],
+    ));
     openExporterMenu(block, player);
   });
 }
@@ -626,41 +698,40 @@ function openExporterRemoveMenu(block, runtime, player) {
 /** @param {Block} block @param {Player} player */
 function openImporterMenu(block, player) {
   const runtime = getImporterRuntime(block.dimension, block.location);
-  const document = runtime.document;
-  const modeText = capitalizeFirst(document.mode);
-
   const menu = new ActionFormData()
-    .title("Item Importer Settings")
-    .body(`§7Configure importer filtering.\n\n§rCurrent Mode: §e${modeText}`)
-    .button(`${modeText}\n§8Click to toggle`, document.mode === "whitelist"
-      ? "textures/items/misc/whitelist.png"
-      : "textures/items/misc/blacklist.png")
-    .button("View Filter Contents\n§8List all filtered items", "textures/ui/icon_book_writable.png")
-    .button("Add Item\n§8(Add item from Mainhand)", "textures/ui/icon_import.png")
-    .button("Remove Item\n§8(Select item to remove)", "textures/ui/trash_default.png")
-    .button("Close", "textures/ui/redX1.png");
+    .title(translate("ui.utilitycraft:item_transfer.importer_title"))
+    .body(getMenuBody("ui.utilitycraft:item_transfer.importer_description", block))
+    .button(translatedButton(
+      "ui.utilitycraft:item_transfer.quick_settings",
+      "ui.utilitycraft:item_transfer.quick_settings_description",
+    ), "textures/ui/settings_glyph_color_2x.png")
+    .button(translatedButton(
+      "ui.utilitycraft:item_transfer.add_item",
+      "ui.utilitycraft:item_transfer.add_item_description",
+    ), "textures/ui/icon_import.png")
+    .button(translatedButton(
+      "ui.utilitycraft:item_transfer.remove_item",
+      "ui.utilitycraft:item_transfer.remove_item_description",
+    ), "textures/ui/trash_default.png");
 
   menu.show(player).then((result) => {
     if (result.canceled) return;
     switch (result.selection) {
       case 0:
-        document.mode = document.mode === "whitelist" ? "blacklist" : "whitelist";
-        persistImporterRuntime(block.dimension, block.location, runtime);
+        openImporterQuickSettings(block, runtime, player);
         break;
-      case 1:
-        showFilteredItems(player, document.mode, runtime.items);
-        break;
-      case 2: {
-        const item = player.getComponent("equippable")?.getEquipment("Mainhand");
-        if (!item) {
-          player.onScreenDisplay.setActionBar("§cYou are not holding an item.");
-          break;
-        }
-        runtime.items.add(item.typeId);
+      case 1: {
+        const typeId = getHeldFilterItemType(block, player);
+        if (!typeId) break;
+        runtime.items.add(typeId);
         persistImporterRuntime(block.dimension, block.location, runtime);
+        player.onScreenDisplay.setActionBar(translate(
+          "message.utilitycraft.item_transfer.item_added",
+          [formatIdentifier(typeId)],
+        ));
         break;
       }
-      case 3:
+      case 2:
         openImporterRemoveMenu(block, runtime, player);
         break;
     }
@@ -668,21 +739,58 @@ function openImporterMenu(block, player) {
 }
 
 /** @param {Block} block @param {{document:ImporterDocument,items:Set<string>}} runtime @param {Player} player */
+function openImporterQuickSettings(block, runtime, player) {
+  new ModalFormData()
+    .title(translate("ui.utilitycraft:item_transfer.quick_settings_title"))
+    .toggle(translate("ui.utilitycraft:item_transfer.enabled"), {
+      defaultValue: runtime.document.enabled,
+      tooltip: translate("ui.utilitycraft:item_transfer.importer_enabled_tooltip"),
+    })
+    .toggle(translate("ui.utilitycraft:item_transfer.whitelist"), {
+      defaultValue: runtime.document.mode === "whitelist",
+      tooltip: translate("ui.utilitycraft:item_transfer.whitelist_tooltip"),
+    })
+    .divider()
+    .label(translate("ui.utilitycraft:item_transfer.filtered_items"))
+    .label(getFilteredItemsLabel(block, runtime.items))
+    .submitButton(translate("ui.utilitycraft:item_transfer.save"))
+    .show(player)
+    .then((result) => {
+      if (result.canceled) return;
+      const values = Array.isArray(result.formValues) ? result.formValues : [];
+      const toggles = values.filter((value) => typeof value === "boolean");
+      runtime.document.enabled = toggles[0] ?? runtime.document.enabled;
+      runtime.document.mode = (toggles[1] ?? (runtime.document.mode === "whitelist"))
+        ? "whitelist"
+        : "blacklist";
+      persistImporterRuntime(block.dimension, block.location, runtime);
+      player.onScreenDisplay.setActionBar(translate("message.utilitycraft.item_transfer.settings_saved"));
+    });
+}
+
+/** @param {Block} block @param {{document:ImporterDocument,items:Set<string>}} runtime @param {Player} player */
 function openImporterRemoveMenu(block, runtime, player) {
   const items = [...runtime.items];
   if (items.length === 0) {
-    player.onScreenDisplay.setActionBar("§cNo items to remove.");
+    player.onScreenDisplay.setActionBar(translate("message.utilitycraft.item_transfer.no_items"));
     return;
   }
-  const menu = new ActionFormData().title("Remove Item").body("§7Select an item to remove.");
+
+  const menu = new ActionFormData()
+    .title(translate("ui.utilitycraft:item_transfer.remove_item"))
+    .body(translate("ui.utilitycraft:item_transfer.remove_item_prompt"));
   for (const item of items) menu.button(formatIdentifier(item));
-  menu.button("Cancel");
+  menu.button(translate("ui.utilitycraft:item_transfer.cancel"), "textures/ui/redX1.png");
   menu.show(player).then((result) => {
     if (result.selection === undefined || result.selection === items.length) return;
     const selected = items[result.selection];
     if (!selected) return;
     runtime.items.delete(selected);
     persistImporterRuntime(block.dimension, block.location, runtime);
+    player.onScreenDisplay.setActionBar(translate(
+      "message.utilitycraft.item_transfer.item_removed",
+      [formatIdentifier(selected)],
+    ));
     openImporterMenu(block, player);
   });
 }
@@ -751,7 +859,7 @@ const importerComponent = {
     if (player.isSneaking) return;
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId?.includes("upgrade")) return;
-    if (block.permutation.getState("utilitycraft:filter") === 1) openImporterMenu(block, player);
+    openImporterMenu(block, player);
   },
 };
 
@@ -867,8 +975,9 @@ function tryTransferToNetwork(runtime, dimension, sourceAccess, sourceSlot, item
 function passesEndpointFilter(dimension, endpoint, itemTypeId) {
   if (!endpoint.importerLocation) return true;
   const importerBlock = safeGetBlock(dimension, endpoint.importerLocation);
-  if (importerBlock?.permutation.getState("utilitycraft:filter") !== 1) return true;
   const runtime = getImporterRuntime(dimension, endpoint.importerLocation);
+  if (!runtime.document.enabled) return false;
+  if (importerBlock?.permutation.getState("utilitycraft:filter") !== 1) return true;
   return passesFilter(runtime.document.mode, runtime.items, itemTypeId, true);
 }
 

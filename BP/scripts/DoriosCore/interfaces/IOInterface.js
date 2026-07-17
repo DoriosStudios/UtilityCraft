@@ -3,24 +3,21 @@
 import { InterfaceManager } from "./index.js";
 import { RELATIVE_IO_FACES, resolveRelativeFaceDirection } from "../utils/directions.js";
 import {
-  DEFAULT_IO_MODE,
-  ensureLiquidIOGroup,
-  getLiquidIODirectionMode,
-  readIOConfig,
-  setLiquidIODirectionMode,
-  writeIOConfig,
-} from "./ioState.js";
-import {
   cycleItemIODirectionMode,
   getItemIODirectionMode,
   registerItemIODefinition,
 } from "./itemIO.js";
+import {
+  cycleFluidIODirectionMode,
+  getFluidIODirectionMode,
+  registerFluidIODefinition,
+} from "./fluidIO.js";
 
 const FACES = RELATIVE_IO_FACES;
 
 /** @typedef {"top"|"left"|"front"|"right"|"bottom"|"back"} IOFace */
-/** @typedef {string} IOMode */
 /** @typedef {import("./itemIO.js").ItemIOMode} ItemIOMode */
+/** @typedef {import("./fluidIO.js").FluidIOMode} FluidIOMode */
 
 /**
  * @typedef {object} ItemButtonContext
@@ -33,7 +30,7 @@ const FACES = RELATIVE_IO_FACES;
  * @typedef {object} LiquidButtonContext
  * @property {import("@minecraft/server").Entity} entity
  * @property {import("@minecraft/server").Block|undefined} block
- * @property {{face: IOFace, modes: IOMode[]}} button
+ * @property {{face: IOFace, blockTypeId: string, modes: FluidIOMode[]}} button
  */
 
 /**
@@ -53,14 +50,16 @@ const FACES = RELATIVE_IO_FACES;
 
 /**
  * @typedef {object} LiquidIOGroupConfig
- * @property {number[]|[number, number]} buttonSlots Six face-button slots, explicit or inclusive range.
- * @property {IOMode[]} modes Liquid modes cycled by each face button.
+ * @property {number[]|[number, number]} [buttonSlots] Six face-button slots, explicit or inclusive range.
+ * @property {number[]} anyInputIndices Explicit fallback inputs when no face is available.
+ * @property {number[]} anyOutputIndices Explicit fallback outputs when no face is available.
+ * @property {Array<{id:string,inputIndices?:number[],outputIndices?:number[]}>} modes Ordered modes cycled by each face button.
  */
 
 /**
  * @typedef {object} IOInterfaceConfig
  * @property {ItemIOGroupConfig} [items] Item policy and optional face buttons.
- * @property {LiquidIOGroupConfig} [liquids] Liquid IO buttons using the current liquid state format.
+ * @property {LiquidIOGroupConfig} [liquids] Fluid-index policy and optional face buttons.
  */
 
 /**
@@ -92,36 +91,6 @@ function normalizeButtonSlots(value, path) {
   }
   if (new Set(slots).size !== slots.length) throw new RangeError(`${path} contains duplicate slots`);
   return slots;
-}
-
-/**
- * @param {unknown} value
- * @returns {IOMode[]}
- */
-function normalizeLiquidModes(value) {
-  const modes = Array.isArray(value)
-    ? value
-        .map((mode) => String(mode))
-        .map((mode) => (mode === "input" ? "input_1" : mode === "output" ? "output_1" : mode))
-        .filter((mode) => mode.length > 0)
-    : [];
-
-  const uniqueModes = [...new Set(modes)];
-  return uniqueModes.includes(DEFAULT_IO_MODE) ? uniqueModes : [DEFAULT_IO_MODE, ...uniqueModes];
-}
-
-/**
- * @param {import("@minecraft/server").Entity|undefined} entity
- * @param {IOMode[]} modes
- */
-function ensurePersistedLiquidGroup(entity, modes) {
-  const config = readIOConfig(entity);
-  const before = JSON.stringify(config.liquids ?? {});
-  ensureLiquidIOGroup(config, modes);
-
-  if (before !== JSON.stringify(config.liquids ?? {})) {
-    writeIOConfig(entity, config);
-  }
 }
 
 /**
@@ -166,36 +135,31 @@ function addItemButtons(buttons, blockTypeId, definition, registeredDefinition) 
 }
 
 /**
- * Adds the unchanged liquid-mode buttons. Liquids continue to use the current
- * direction-to-mode document while item IO moves to slot-based DoriosContainers.
+ * Adds fluid-index buttons using the same face-policy model as item IO.
  *
  * @param {Record<string, any>} buttons
+ * @param {string} blockTypeId
  * @param {LiquidIOGroupConfig} definition
+ * @param {import("./fluidIO.js").FluidIODefinition} registeredDefinition
  * @returns {boolean} True when six visual buttons were added.
  */
-function addLiquidButtons(buttons, definition) {
+function addLiquidButtons(buttons, blockTypeId, definition, registeredDefinition) {
+  if (definition.buttonSlots === undefined) return false;
   const slots = normalizeButtonSlots(definition.buttonSlots, "liquids.buttonSlots");
-  const modes = normalizeLiquidModes(definition.modes);
-  if (modes.length === 0) throw new RangeError("liquids.modes must contain at least one mode");
 
   for (const [index, face] of FACES.entries()) {
     buttons[`liquids_${face}`] = {
       slot: slots[index],
       face,
-      modes,
+      blockTypeId,
+      modes: registeredDefinition.modes,
       nameTag: (/** @type {LiquidButtonContext} */ { entity, block, button }) => {
-        ensurePersistedLiquidGroup(entity, button.modes);
         const direction = resolveRelativeFaceDirection(block, button.face);
-        const state = getLiquidIODirectionMode(entity, direction);
-        return button.modes.includes(state) ? state : DEFAULT_IO_MODE;
+        return getFluidIODirectionMode(entity, button.blockTypeId, direction);
       },
       onPress: (/** @type {LiquidButtonContext} */ { entity, block, button }) => {
         const direction = resolveRelativeFaceDirection(block, button.face);
-        const current = getLiquidIODirectionMode(entity, direction);
-        const currentIndex = button.modes.indexOf(current);
-        const next = button.modes[(currentIndex + 1) % button.modes.length] ?? DEFAULT_IO_MODE;
-        setLiquidIODirectionMode(entity, direction, next, button.modes);
-        return next;
+        return cycleFluidIODirectionMode(entity, button.blockTypeId, direction);
       },
     };
   }
@@ -230,7 +194,8 @@ export function registerIOInterface(blockTypeId, config = {}) {
   }
 
   if (config.liquids !== undefined) {
-    addLiquidButtons(buttons, config.liquids);
+    const definition = registerFluidIODefinition(blockTypeId, config.liquids);
+    addLiquidButtons(buttons, blockTypeId, config.liquids, definition);
     registered = true;
   }
 

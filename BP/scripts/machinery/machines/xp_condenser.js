@@ -1,5 +1,5 @@
-import { world, ItemStack } from '@minecraft/server'
-import { ActionFormData, ModalFormData } from '@minecraft/server-ui'
+import { ItemStack } from '@minecraft/server'
+import { ActionFormData } from '@minecraft/server-ui'
 import { FluidStorage } from "DoriosCore/index.js"
 
 const tankCaps = {
@@ -8,6 +8,10 @@ const tankCaps = {
     'utilitycraft:expert_fluid_tank': 128000,
     'utilitycraft:ultimate_fluid_tank': 512000
 };
+
+function translate(key, values) {
+    return values ? { translate: key, with: values } : { translate: key }
+}
 
 function levelToXp(level) {
     let totalXp = 0
@@ -103,16 +107,16 @@ function openMenu(player, entity) {
         capacity += tankCaps[entityInv.getItem(i)?.typeId] || 0
         storedXp += FluidStorage.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount
     }
-    menu.title('Xp Storage')
-    menu.body(`${storedXp} `)
+    menu.title(translate('ui.utilitycraft:xp_condenser.title'))
+    menu.body(translate('ui.utilitycraft:xp_condenser.storage', [String(storedXp), String(capacity)]))
     //+ user takes experience points to the machine
     //- user gives experience points to the machine
-    menu.button('+Max')
-    menu.button('+10')
-    menu.button('+1')
-    menu.button('-1')
-    menu.button('-10')
-    menu.button('-Max')
+    menu.button(translate('ui.utilitycraft:xp_condenser.withdraw_one'))
+    menu.button(translate('ui.utilitycraft:xp_condenser.withdraw_ten'))
+    menu.button(translate('ui.utilitycraft:xp_condenser.withdraw_all'))
+    menu.button(translate('ui.utilitycraft:xp_condenser.deposit_one'))
+    menu.button(translate('ui.utilitycraft:xp_condenser.deposit_ten'))
+    menu.button(translate('ui.utilitycraft:xp_condenser.deposit_all'))
     menu.show(player)
         .then(result => {
             let selection = result.selection
@@ -122,12 +126,13 @@ function openMenu(player, entity) {
             let xpRecived = 0;
             switch (selection) {
                 case 0:
-                    for (let i = 0; i < entityInv.size; i++) {
-                        if (entityInv.getItem(i)?.getLore()[0]) {
-                            let item = entityInv.getItem(i)
-                            player.runCommand(`xp ${FluidStorage.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount}`)
-                            entityInv.setItem(i, new ItemStack(item.typeId))
-                        }
+                    xpRecived = Math.min(
+                        storedXp,
+                        levelToXp(playerLevel + 1) - levelToXp(playerLevel)
+                    )
+                    player.runCommand(`xp ${xpRecived}`)
+                    for (let i = 0; i < entityInv.size && xpRecived != 0; i++) {
+                        xpRecived -= emptyTank(entity, i, xpRecived)
                     }
                     break;
 
@@ -143,13 +148,12 @@ function openMenu(player, entity) {
                     break;
 
                 case 2:
-                    xpRecived = Math.min(
-                        storedXp,
-                        levelToXp(playerLevel + 1) - levelToXp(playerLevel)
-                    )
-                    player.runCommand(`xp ${xpRecived}`)
-                    for (let i = 0; i < entityInv.size && xpRecived != 0; i++) {
-                        xpRecived -= emptyTank(entity, i, xpRecived)
+                    for (let i = 0; i < entityInv.size; i++) {
+                        if (entityInv.getItem(i)?.getLore()[0]) {
+                            let item = entityInv.getItem(i)
+                            player.runCommand(`xp ${FluidStorage.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount}`)
+                            entityInv.setItem(i, new ItemStack(item.typeId))
+                        }
                     }
                     break;
 
@@ -189,7 +193,7 @@ function openMenu(player, entity) {
                     break;
 
                 default:
-                    player.onScreenDisplay.setActionBar('§4Something Went Wrong')
+                    player.onScreenDisplay.setActionBar(translate('message.utilitycraft.xp_condenser.error'))
             }
             openMenu(player, entity)
         })
@@ -198,12 +202,14 @@ function openMenu(player, entity) {
 function tankMenu(player, entity) {
     let menu = new ActionFormData()
     let entityInv = entity.getComponent('inventory').container
-    menu.title('Tanks')
+    menu.title(translate('ui.utilitycraft:xp_condenser.tanks'))
     for (let i = 0; i < entityInv.size; i++) {
         if (entityInv.getItem(i)) {
-            menu.button(`Amount: ${FluidStorage.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount}`/*, 'textures/ui/milo.png'*/)
+            menu.button(translate('ui.utilitycraft:xp_condenser.tank_amount', [
+                String(FluidStorage.getFluidFromText(entityInv.getItem(i)?.getLore()?.[0] ?? "").amount)
+            ]))
         } else {
-            menu.button('Empty')
+            menu.button(translate('ui.utilitycraft:xp_condenser.empty_tank'))
         }
     }
     menu.show(player)

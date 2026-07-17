@@ -20,7 +20,12 @@ for (const blockTypeId of [
         },
         liquids: {
             buttonSlots: [3, 8],
-            modes: ["disabled", "input"]
+            anyInputIndices: [0],
+            anyOutputIndices: [],
+            modes: [
+                { id: "disabled" },
+                { id: "input_1", inputIndices: [0] }
+            ]
         }
     });
 }
@@ -53,11 +58,7 @@ DoriosAPI.register.blockComponent(MAGMATOR_MACHINE_ID, {
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
-        generator.processIO({
-            liquids: {
-                input: fluid
-            }
-        });
+        generator.processIO();
 
         if (fluid.type == 'empty') {
             updateMagmatorState(generator, fluid, "No Fuel")

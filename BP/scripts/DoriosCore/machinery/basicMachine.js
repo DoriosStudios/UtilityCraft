@@ -1,13 +1,18 @@
 import { ItemStack, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./energyStorage";
-import { FluidStorage } from "./fluidStorage";
 import { OutputTracker } from "./outputTracker.js";
 import { TickScheduler } from "./tickScheduler.js";
 import { resolveItemContainerAt } from "./itemContainers.js";
+import {
+  getFluidInputIndices,
+  getFluidOutputIndices,
+  resolveFluidContainerAt,
+  transferFluid,
+} from "./fluidContainers.js";
 import * as Utils from "../utils/entity";
-import { readIOConfig } from "../interfaces/ioState.js";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
+import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
 import { DIRECTIONS, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
@@ -17,18 +22,6 @@ const IO_FLUID_TRANSFER_LIMIT = 2500;
 const ioInputCursors = new Map();
 
 world.afterEvents.entityRemove.subscribe(({ removedEntityId }) => ioInputCursors.delete(removedEntityId));
-
-function getIOModeConfig(config, mode) {
-  if (!config || typeof config !== "object") return undefined;
-  if (config[mode] !== undefined) return config[mode];
-  if (mode === "input_1") return config.input;
-  if (mode === "output_1") return config.output;
-  return undefined;
-}
-
-function isOutputIOMode(mode) {
-  return mode === "output" || /^output_[1-9]$/.test(mode);
-}
 
 export class BasicMachine {
   /**
@@ -60,6 +53,7 @@ export class BasicMachine {
     this.processingInterval = TickScheduler.getProcessingInterval(this.entity);
     this.rate = options.rate * this.processingInterval;
     this.itemIOReady = ensureItemIOConfig(this.entity, block.typeId);
+    this.fluidIOReady = ensureFluidIOConfig(this.entity, block.typeId);
     this.valid = true;
   }
 
@@ -215,18 +209,16 @@ export class BasicMachine {
   /**
    * Processes absolute-direction IO for machines and generators.
    *
-   * Item slots come from the entity's DoriosContainers config. Callers only
-   * provide runtime resources, currently liquid storage bindings.
+   * Item slots and fluid indices come directly from the entity's persisted IO
+   * document. Fluid indices are independent from inventory slots.
    *
-   * @param {Object} [config={}] Runtime resource bindings.
-   * @param {Object<string, FluidStorage>|FluidStorage} [config.liquids] Fluid storage keyed by mode, or one shared tank.
    * @param {Object} [limits] Per-tick transfer limits.
    * @param {number} [limits.maxInputSlotsScannedPerTick=9] External inventory slots scanned per input face.
    * @param {number} [limits.maxOutputSlotsMovedPerTick=9] Output slots moved per output face as full stacks.
    * @param {number} [limits.maxFluidMovedPerTick=2500] Fluid mB moved per tick.
    * @returns {{itemsMoved:number, inputSlotsScanned:number, fluidMoved:number}} Transfer summary.
    */
-  processIO(config = {}, limits = {}) {
+  processIO(limits = {}) {
     if (!this.valid) return { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0 };
 
     let targets = OutputTracker.getIOTargets(this.entity);
@@ -246,11 +238,11 @@ export class BasicMachine {
       this.#processItemIO(targets.items, maxInputScans, maxOutputSlots, summary);
     }
 
-    if (config.liquids && targets.liquids && maxFluid > 0) {
-      const liquidModes = readIOConfig(this.entity).liquids;
-      if (liquidModes) {
-        this.#processLiquidIO(config.liquids, liquidModes, targets.liquids, maxFluid, summary);
-      }
+    if (!this.fluidIOReady) {
+      this.fluidIOReady = ensureFluidIOConfig(this.entity, this.block.typeId);
+    }
+    if (this.fluidIOReady && targets.liquids && maxFluid > 0) {
+      this.#processFluidIO(targets.liquids, maxFluid, summary);
     }
 
     return summary;
@@ -343,66 +335,39 @@ export class BasicMachine {
     return { slotsScanned, itemsMoved };
   }
 
-  #processLiquidIO(liquidConfig, ioModes, targets, maxFluid, summary) {
+  #processFluidIO(targets, maxFluid, summary) {
     for (const direction of DIRECTIONS) {
       if (summary.fluidMoved >= maxFluid) break;
       if (targets[direction] !== true) continue;
-
-      const mode = ioModes[direction];
-      if (!mode || mode === "disabled") continue;
-
-      const storage = getIOModeConfig(liquidConfig, mode) ?? liquidConfig?.storage ?? liquidConfig;
-      if (!storage?.transferTo && !storage?.receiveFrom) continue;
-
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
-      const remaining = maxFluid - summary.fluidMoved;
+      if (!neighborLocation) continue;
 
-      if (isOutputIOMode(mode)) {
-        summary.fluidMoved += this.#pushOutputLiquid(storage, neighborLocation, remaining);
-      } else {
-        summary.fluidMoved += this.#pullInputLiquid(storage, neighborLocation, remaining);
+      const outputIndices = getFluidOutputIndices(this.entity, { face: direction });
+      for (const sourceIndex of outputIndices) {
+        if (summary.fluidMoved >= maxFluid) break;
+        summary.fluidMoved += transferFluid(this.entity, {
+          sourceIndex,
+          target: this.dimension.getBlock(neighborLocation),
+          targetFace: OPPOSITE_DIRECTIONS[direction],
+          maxAmount: maxFluid - summary.fluidMoved,
+        });
+      }
+
+      const inputIndices = getFluidInputIndices(this.entity, { face: direction });
+      if (inputIndices.length === 0 || summary.fluidMoved >= maxFluid) continue;
+      const source = resolveFluidContainerAt(this.dimension, neighborLocation);
+      if (!source) continue;
+      const sourceIndices = getFluidOutputIndices(source, { face: OPPOSITE_DIRECTIONS[direction] });
+      for (const sourceIndex of sourceIndices) {
+        if (summary.fluidMoved >= maxFluid) break;
+        summary.fluidMoved += transferFluid(source, {
+          sourceIndex,
+          target: this.entity,
+          targetIndices: inputIndices,
+          maxAmount: maxFluid - summary.fluidMoved,
+        });
       }
     }
-  }
-
-  #pushOutputLiquid(sourceStorage, targetLocation, amount) {
-    if (!targetLocation || amount <= 0) return 0;
-    if (sourceStorage.get() <= 0 || sourceStorage.getType() === Constants.EMPTY_FLUID_TYPE) return 0;
-
-    const targetBlock = this.dimension.getBlock(targetLocation);
-    if (!OutputTracker.isOutputTarget(targetBlock, "fluid")) return 0;
-
-    let targetEntity = this.dimension.getEntitiesAtBlockLocation(targetLocation)[0];
-    if (!targetEntity && targetBlock.typeId.includes("fluid_tank")) {
-      FluidStorage.addfluidToTank(targetBlock, sourceStorage.getType(), 0);
-      targetEntity = this.dimension.getEntitiesAtBlockLocation(targetLocation)[0];
-    }
-
-    if (!targetEntity) return 0;
-
-    const targetStorage = FluidStorage.findType(targetEntity, sourceStorage.getType());
-    if (!targetStorage) return 0;
-
-    return sourceStorage.transferTo(targetStorage, amount);
-  }
-
-  #pullInputLiquid(targetStorage, sourceLocation, amount) {
-    if (!sourceLocation || amount <= 0 || targetStorage.getFreeSpace() <= 0) return 0;
-
-    const sourceBlock = this.dimension.getBlock(sourceLocation);
-    if (!OutputTracker.isOutputTarget(sourceBlock, "fluid")) return 0;
-
-    const sourceEntity = this.dimension.getEntitiesAtBlockLocation(sourceLocation)[0];
-    if (!sourceEntity) return 0;
-
-    const sourceStorage = new FluidStorage(sourceEntity, 0);
-    if (sourceStorage.get() <= 0 || sourceStorage.getType() === Constants.EMPTY_FLUID_TYPE) return 0;
-
-    if (targetStorage.getType() !== Constants.EMPTY_FLUID_TYPE && targetStorage.getType() !== sourceStorage.getType()) {
-      return 0;
-    }
-
-    return targetStorage.receiveFrom(sourceStorage, amount);
   }
 
   /**

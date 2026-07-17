@@ -1,4 +1,4 @@
-import { Generator, EnergyStorage, FluidStorage } from "DoriosCore/index.js"
+import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
 
 export const heatSources = {
     'utilitycraft:blaze_block': 1.5,
@@ -13,6 +13,25 @@ export const heatSources = {
     'minecraft:torch': 0.25
 }
 const ENERGY_PER_WATER_MB = 1
+
+for (const blockTypeId of [
+    "utilitycraft:basic_thermo_generator",
+    "utilitycraft:advanced_thermo_generator",
+    "utilitycraft:expert_thermo_generator",
+    "utilitycraft:ultimate_thermo_generator"
+]) {
+    registerIOInterface(blockTypeId, {
+        liquids: {
+            buttonSlots: [3, 8],
+            anyInputIndices: [0],
+            anyOutputIndices: [],
+            modes: [
+                { id: "disabled" },
+                { id: "input_1", inputIndices: [0] }
+            ]
+        }
+    });
+}
 
 DoriosAPI.register.blockComponent('thermo_generator', {
     /**
@@ -43,6 +62,7 @@ DoriosAPI.register.blockComponent('thermo_generator', {
 
         /** @type {FluidStorage} */
         const fluid = FluidStorage.initializeSingle(entity);
+        generator.processIO();
         const heatMultiplier = heatSources[block.below(1)?.typeId]
         if (!heatMultiplier) {
             generator.displayEnergy();
