@@ -83,11 +83,11 @@ export function getDirectionBetween(source, target) {
  * @returns {string} Absolute direction the visual front face points to.
  */
 export function getBlockFacingDirection(block) {
-  const vanillaFacing = block?.getState?.("minecraft:facing_direction")
-    ?? block?.getState?.("minecraft:cardinal_direction");
+  const vanillaFacing = block?.permutation?.getState?.("minecraft:facing_direction")
+    ?? block?.permutation?.getState?.("minecraft:cardinal_direction");
   if (DIRECTIONS.includes(vanillaFacing)) return vanillaFacing;
 
-  const legacyOutputAxis = block?.getState?.("utilitycraft:axis");
+  const legacyOutputAxis = block?.permutation?.getState?.("utilitycraft:axis");
   return OPPOSITE_DIRECTIONS[legacyOutputAxis] ?? "north";
 }
 

@@ -44,9 +44,9 @@ function getPropertyId(type) {
 }
 
 function getOutputDirection(block) {
-  return block?.getState?.("minecraft:facing_direction")
-    ?? block?.getState?.("minecraft:cardinal_direction")
-    ?? block?.getState?.("utilitycraft:axis");
+  return block?.permutation?.getState?.("minecraft:facing_direction")
+    ?? block?.permutation?.getState?.("minecraft:cardinal_direction")
+    ?? block?.permutation?.getState?.("utilitycraft:axis");
 }
 
 /**
