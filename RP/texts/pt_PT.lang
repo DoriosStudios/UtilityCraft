@@ -6,7 +6,6 @@
 
 - Tables = ## Bancadas
 tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Usa-a para fabricar todas as máquinas\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada\n§7- Usa-a para criar ferramentas superiores\n§o§9@UtilityCraft
 
 - Fluid Stuff = ## Sistemas de Líquidos
 
@@ -14,7 +13,6 @@ tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n Capa
 tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n Capacidade: 32000 mB\n§o§9@UtilityCraft
 tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Especialista§7\n Capacidade: 128000 mB\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n Capacidade: 512000 mB\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pump.name=Bomba de Líquidos\n§7- Extrai líquidos do solo ou de outras máquinas\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe.name=Tubo de Líquidos\n§7- Transporta líquidos\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe_blue.name=Tubo de Líquidos (Azul)\n§7- Transporta líquidos\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_pipe_green.name=Tubo de Líquidos (Verde)\n§7- Transporta líquidos\n§o§9@UtilityCraft
@@ -53,9 +51,6 @@ tile.utilitycraft:cobble_gen_3.name=Gerador de Pedregulho (§aNível 4§r)\n§7-
 tile.utilitycraft:cobble_gen_4.name=Gerador de Pedregulho (§bNível 5§r)\n§7- Produz 4 por segundo\n§o§9@UtilityCraft
 tile.utilitycraft:cobble_gen_5.name=Gerador de Pedregulho (§8Nível 6§r)\n§7- Produz 20 por segundo\n§o§9@UtilityCraft
 ## TRANSPORTATION
-tile.utilitycraft:conveyor_horizontal.name=Correia Transportadora Horizontal\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Correia Transportadora Inclinada §7(Para cima)\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Correia Transportadora em Declive §7(Para baixo)\n§o§9@UtilityCraft
 tile.utilitycraft:energy_cable.name=Cabo de Energia\n§7- Conduz energia\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter.name=Exportador de Itens\n§7- Aceita melhorias:\n §a§7, §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_blue.name=Exportador de Itens (Azul)\n§7- Aceita melhorias:\n   §a§7 §f§7\n§o§9@UtilityCraft
@@ -873,7 +868,6 @@ dorios:itemGroup.name.aiots=AIOTs
 dorios:itemGroup.name.paxels=Paxels
 dorios:itemGroup.name.hammers=Martelos
 dorios:itemGroup.name.uc_materials=Materiais e Recursos
-dorios:itemGroup.name.removed=Removidos
 dorios:itemGroup.name.mob_grinding=Gerenciamento de Criaturas
 dorios:itemGroup.name.fishing_nets=Redes de Pesca
 dorios:itemGroup.name.elevators=Elevadores

@@ -6,7 +6,6 @@ message.utilitycraft.essence_complete=§a¡Esencia completada!
 
 - Tables = #Mesas
 tile.utilitycraft:workbench.name=Mesa de Máquinas\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Mesa Utility \n§o§9@UtilityCraft
 
 - Machines = #Máquinas
 tile.utilitycraft:autosieve.name=Tamiz Automatico\n§7- Acepta mejoras:\n §aVelocidad§7, §bEficiencia§7\n§o§9@UtilityCraft
@@ -34,9 +33,6 @@ tile.utilitycraft:cobble_gen_3.name=Generador de Adoquín (§eNivel IV§r) \n§7
 tile.utilitycraft:cobble_gen_4.name=Generador de Adoquín (§eNivel V§r) \n§7- Produce 4 por segundo\n§o§9@UtilityCraft
 tile.utilitycraft:cobble_gen_5.name=Generador de Adoquín (§eNivel VI§r) \n§7- Produce 20 por segundo\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:conveyor_horizontal.name=Cinta Transportadora Horizontal\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Cinta Transportadora Inclinada\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Cinta Transportadora Declinada\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_hopper.name=Tolva Mecánica\n§7- Acepta mejoras:\n §aVelocidad§7, §fFiltro§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Elevador Mecánico\n§o§9@UtilityCraft
 ## +
@@ -831,7 +827,6 @@ dorios:itemGroup.name.aiots=AIOTs
 dorios:itemGroup.name.paxels=Paxels
 dorios:itemGroup.name.hammers=Martillos
 dorios:itemGroup.name.uc_materials=Materiales y Recursos
-dorios:itemGroup.name.removed=Eliminados
 dorios:itemGroup.name.elevators=Ascensores
 
 ## < Categorias
@@ -841,7 +836,6 @@ tile.utilitycraft:crucible.name=Crisol\n§o§9@UtilityCraft
 tile.utilitycraft:magmatic_chamber.name=Cámara Magmática\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Dispensador Mecánico\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Bomba de Líquidos\n§o§9@UtilityCraft
 
 
 

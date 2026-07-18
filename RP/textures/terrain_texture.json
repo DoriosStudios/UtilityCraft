@@ -115,18 +115,6 @@
 		"utilitycraft_crushed_netherrack": {
 			"textures": "textures/blocks/crushed_netherrack"
 		},
-		"utilitycraft_utility_table": {
-			"textures": "textures/blocks/utility_table"
-		},
-		"utilitycraft_conveyor_1": {
-			"textures": "textures/blocks/conveyor_1"
-		},
-		"utilitycraft_conveyor_inclined": {
-			"textures": "textures/blocks/conveyor_inclined"
-		},
-		"utilitycraft_conveyor_inclined_2": {
-			"textures": "textures/blocks/conveyor_inclined"
-		},
 		"utilitycraft_xp_magnet": {
 			"textures": "textures/blocks/xp_magnet"
 		},
@@ -1020,9 +1008,6 @@
 		},
 		"utilitycraft_crushed_cobbled_deepslate": {
 			"textures": "textures/blocks/crushed_cobbled_deepslate"
-		},
-		"utilitycraft_fluid_pump": {
-			"textures": "textures/blocks/Pump_txr"
 		},
 		"utilitycraft_energy_cable": {
 			"textures": "textures/blocks/tubes/energy_cable"

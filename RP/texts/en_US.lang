@@ -9,7 +9,6 @@ message.utilitycraft.spawner.swap_confirm=§eClick again within 50 ticks to swap
 
 - Tables = ## Mesas
 tile.utilitycraft:workbench.name=Workbench\n§7- Use to craft everything related to machines\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Utility Table\n§7- Use to craft superior tools\n§o§9@UtilityCraft
 
 - Machines = ## Máquinas
 tile.utilitycraft:autosieve.name=Autosieve\n§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
@@ -30,7 +29,6 @@ tile.utilitycraft:induction_anvil.name=Induction Anvil\n§7- Accepted upgrades:\
 tile.utilitycraft:magmatic_chamber.name=Magmatic Chamber\n§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Mechanical Dropper\n§7- Accepted upgrades:\n   §a§7 §f§7\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Liquid Pump\n§7- Accepted upgrades:\n   §a§7\n§o§9@UtilityCraft
 
 tile.utilitycraft:machine_case.name=Machine Case\n§o§9@UtilityCraft
 tile.utilitycraft:xp_condenser.name=XP Condenser\n§o§9@UtilityCraft
@@ -51,9 +49,6 @@ tile.utilitycraft:cobble_gen_3.name=Cobblestone Generator (§qTier 4§r) \n§7- 
 tile.utilitycraft:cobble_gen_4.name=Cobblestone Generator (§sTier 5§r) \n§7- Produces 4 per second\n§o§9@UtilityCraft
 tile.utilitycraft:cobble_gen_5.name=Cobblestone Generator (§jTier 6§r) \n§7- Produces 20 per second\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:conveyor_horizontal.name=Horizontal Conveyor\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Inclined Conveyor\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Declined Conveyor\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_hopper.name=Mechanic Hopper\n§7- Accepted upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Accepted upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
@@ -897,7 +892,6 @@ entity.utilitycraft:wind_turbine.name=Wind Turbine
 tile.utilitycraft:blaze_block.name=Blaze Core\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Crushed Kelp\n§o§9@UtilityCraft
 
-dorios:itemGroup.name.removed=Removed
 
 tile.utilitycraft:basic_trash_can.name=Basic Trash Can\n§o§9@UtilityCraft
 

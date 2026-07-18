@@ -197,15 +197,6 @@ export const crafterRecipes = {
         output: "utilitycraft:xp_condenser",
         amount: 1
     },
-    // Item Transport
-    "redstone,asphalt,redstone,air,air,air,air,air,air": {
-        output: "utilitycraft:conveyor_horizontal",
-        amount: 4
-    },
-    "air,air,redstone,air,asphalt,air,redstone,air,air": {
-        output: "utilitycraft:conveyor_inclined",
-        amount: 4
-    },
     "steel_ingot,air,steel_ingot,steel_ingot,dropper,steel_ingot,air,steel_ingot,air": {
         output: "utilitycraft:mechanic_dropper",
         amount: 1
@@ -238,10 +229,6 @@ export const crafterRecipes = {
     "steel_nugget,steel_nugget,steel_nugget,glass,bucket,glass,steel_nugget,steel_nugget,steel_nugget": {
         output: "utilitycraft:fluid_pipe",
         amount: 8
-    },
-    "gold_ingot,hopper,gold_ingot,glass,dispenser,glass,steel_ingot,gold_ingot,steel_ingot": {
-        output: "utilitycraft:fluid_pump",
-        amount: 1
     },
     "steel_nugget,redstone,steel_nugget,copper_nugget,copper_nugget,copper_nugget,steel_nugget,redstone,steel_nugget": {
         output: "utilitycraft:energy_cable",

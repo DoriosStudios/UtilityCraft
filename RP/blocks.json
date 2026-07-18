@@ -259,9 +259,6 @@
 	"utilitycraft:mechanic_dropper": {
 		"sound": "metal"
 	},
-	"utilitycraft:fluid_pump": {
-		"sound": "metal"
-	},
 	"utilitycraft:energy_cable": {
 		"sound": "metal"
 	},

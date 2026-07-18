@@ -7,7 +7,6 @@ message.utilitycraft.essence_complete=§aEssence terminée !
 
 - Tables =## Mesas
 tile.utilitycraft:workbench.name=Workbench\n§7- À utiliser pour fabriquer tout ce qui concerne les machines\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Table utilitaire\n§7- À utiliser pour fabriquer des outils de qualité supérieure\n§o§9@UtilityCraft
 
 - Machines =## Machines
 tile.utilitycraft:autosieve.name=Autosieve\n§7- Mises à niveau acceptées :\n §a§7 §b§7\n§o§9@UtilityCraft
@@ -27,7 +26,6 @@ tile.utilitycraft:induction_anvil.name=Enclume à induction\n§7- Mises à nivea
 tile.utilitycraft:magmatic_chamber.name=Chambre Magmatique\n§7- Améliorations acceptées :\n §a§7 §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Compte-gouttes mécanique\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Pompe à liquide\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
 
 tile.utilitycraft:machine_case.name=Boîtier de machine\n§o§9@UtilityCraft
 tile.utilitycraft:xp_condenser.name=Condensateur XP\n§o§9@UtilityCraft
@@ -48,9 +46,6 @@ tile.utilitycraft:cobble_gen_3.name=Générateur de pavés (§qTier 4§r) \n§7-
 tile.utilitycraft:cobble_gen_4.name=Générateur de pavés (§sTier 5§r) \n§7- Produit 4 par seconde\n§o§9@UtilityCraft
 tile.utilitycraft:cobble_gen_5.name=Générateur de pavés (§jTier 6§r) \n§7- Produit 20 par seconde\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:conveyor_horizontal.name=Convoyeur horizontal\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Convoyeur incliné\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Convoyeur refusé\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_hopper.name=Trémie mécanique\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mécanicien supérieur\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
@@ -885,7 +880,6 @@ entity.utilitycraft:wind_turbine.name=Éolienne
 tile.utilitycraft:blaze_block.name=Noyau de Blaze\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Varech écrasé\n§o§9@UtilityCraft
 
-dorios:itemGroup.name.removed=Supprimé
 
 tile.utilitycraft:basic_trash_can.name=Poubelle de base\n§o§9@UtilityCraft
 

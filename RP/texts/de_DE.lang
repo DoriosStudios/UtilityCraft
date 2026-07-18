@@ -7,7 +7,6 @@ message.utilitycraft.essence_complete=§aEssenz abgeschlossen!
 
 - Tables =## Mesas
 tile.utilitycraft:workbench.name=Werkbank\n§7- Zum Herstellen von allem, was mit Maschinen zu tun hat\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Utility Table\n§7- Zur Herstellung hochwertiger Werkzeuge\n§o§9@UtilityCraft
 
 - Machines =## Maschinen
 tile.utilitycraft:autosieve.name=Autosieve\n§7- Akzeptierte Upgrades:\n §a§7 §b§7\n§o§9@UtilityCraft
@@ -27,7 +26,6 @@ tile.utilitycraft:induction_anvil.name=Induktionsamboss\n§7- Akzeptierte Upgrad
 tile.utilitycraft:magmatic_chamber.name=Magmatische Kammer\n§7- Akzeptierte Upgrades:\n §a§7 §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Mechanischer Dropper\n§7- Akzeptierte Upgrades:\n §a§7 §f§7\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Flüssigkeitspumpe\n§7- Akzeptierte Upgrades:\n §a§7\n§o§9@UtilityCraft
 
 tile.utilitycraft:machine_case.name=Maschinengehäuse\n§o§9@UtilityCraft
 tile.utilitycraft:xp_condenser.name=XP-Kondensator\n§o§9@UtilityCraft
@@ -48,9 +46,6 @@ tile.utilitycraft:cobble_gen_3.name=Kopfsteinpflaster-Generator (§qTier 4§r) \
 tile.utilitycraft:cobble_gen_4.name=Kopfsteinpflaster-Generator (§sStufe 5§r) \n§7- Erzeugt 4 pro Sekunde\n§o§9@UtilityCraft
 tile.utilitycraft:cobble_gen_5.name=Kopfsteinpflaster-Generator (§jTier 6§r) \n§7- Erzeugt 20 pro Sekunde\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:conveyor_horizontal.name=Horizontalförderer\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Schrägförderer\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Abgelehnter Förderer\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_hopper.name=Mechanischer Hopper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
@@ -885,7 +880,6 @@ entity.utilitycraft:wind_turbine.name=Windkraftanlage
 tile.utilitycraft:blaze_block.name=Blaze Core\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Zerkleinerter Seetang\n§o§9@UtilityCraft
 
-dorios:itemGroup.name.removed=ENTFERNT
 
 tile.utilitycraft:basic_trash_can.name=Einfacher Mülleimer\n§o§9@UtilityCraft
 

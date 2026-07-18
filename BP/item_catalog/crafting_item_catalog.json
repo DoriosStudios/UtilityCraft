@@ -68,19 +68,6 @@
                     },
                     {
                         "group_identifier": {
-                            "icon": "utilitycraft:utility_table",
-                            "name": "dorios:itemGroup.name.removed"
-                        },
-                        "items": [
-                            "utilitycraft:utility_table",
-                            "utilitycraft:fluid_pump",
-                            "utilitycraft:conveyor_declined",
-                            "utilitycraft:conveyor_horizontal",
-                            "utilitycraft:conveyor_inclined"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
                             "icon": "utilitycraft:ultimate_battery",
                             "name": "dorios:itemGroup.name.batteries"
                         },

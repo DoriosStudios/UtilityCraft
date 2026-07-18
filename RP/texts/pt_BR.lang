@@ -4,14 +4,12 @@
 ## Blocks | Blocos
 ### Tables | Bancadas
 tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Use para criar tudo sobre máquinas\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Bancada de Ferramentas Avançada\n§7- Use para criar ferramentas superiores\n§o§9@UtilityCraft
 
 ### Tanks and Pumps | Tanques e Bombas
 tile.utilitycraft:basic_fluid_tank.name=Tanque de Líquidos §eBásico§7\n Capacidade: 8000mB\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_fluid_tank.name=Tanque de Líquidos §cAvançado§7\n Capacidade: 32000mB\n§o§9@UtilityCraft
 tile.utilitycraft:expert_fluid_tank.name=Tanque de Líquidos §3Expert§7\n Capacidade: 128000mB\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_fluid_tank.name=Tanque de Líquidos §8Supremo§7\n Capacidade: 512000mB\n§o§9@UtilityCraft
-tile.utilitycraft:fluid_pump.name=Bomba\n§7- Aceita melhorias:\n §a§7\n§o§9@UtilityCraft
 
 ### Machines and Similiar | Máquinas e Similares
 tile.utilitycraft:machine_case.name=Chassi de Máquinas\n§o§9@UtilityCraft
@@ -48,9 +46,6 @@ tile.utilitycraft:cobble_gen_4.name=Gerador de Pedregulho (§bTier V§r)\n§7- G
 tile.utilitycraft:cobble_gen_5.name=Gerador de Pedregulho (§8Tier VI§r)\n§7- Gera 20 por segundo\n§o§9@UtilityCraft
 
 ### Conveyors | Esteiras
-tile.utilitycraft:conveyor_horizontal.name=Esteira horizontal\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Esteira Inclinada §7(Pra cima)\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Esteira inclinada §7(Pra baixo)\n§o§9@UtilityCraft
 
 ### Energy Cables | Cabos de Energia
 tile.utilitycraft:energy_cable.name=Cabo de Energia\n§o§9@UtilityCraft
@@ -877,7 +872,6 @@ ui.utilitycraft:machine_view.close_io_config=Fechar Config. de Entrada/Saída
 ui.utilitycraft:machine_view.close_information=Fechar Informações
 ui.utilitycraft:machine_view.items=Itens
 ui.utilitycraft:machine_view.liquids=Líquidos
-dorios:itemGroup.name.removed=Removidos
 dorios:itemGroup.name.elevators=Elevadores
 
 ## < Categories

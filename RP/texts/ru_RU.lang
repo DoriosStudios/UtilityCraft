@@ -7,7 +7,6 @@ message.utilitycraft.essence_complete=§aЭссенция завершена!
 
 - Tables =## Месас
 tile.utilitycraft:workbench.name=Верстак\n§7 — используйте для изготовления всего, что связано с машинами.\n§o§9@UtilityCraft
-tile.utilitycraft:utility_table.name=Таблица утилит\n§7 — используйте для создания превосходных инструментов.\n§o§9@UtilityCraft
 
 - Machines =## Макинас
 tile.utilitycraft:autosieve.name=Autosieve\n§7- Принимаемые обновления:\n §a§7 §b§7\n§o§9@UtilityCraft
@@ -27,7 +26,6 @@ tile.utilitycraft:induction_anvil.name=Индукционная наковаль
 tile.utilitycraft:magmatic_chamber.name=Магматическая камера\n§7- Принимаемые улучшения:\n §a§7 §b§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_dropper.name=Механическая капельница\n§7- Принимаемые обновления:\n §a§7 §f§7\n§o§9@UtilityCraft
 
-tile.utilitycraft:fluid_pump.name=Жидкостный насос\n§7- Допустимые обновления:\n §a§7\n§o§9@UtilityCraft
 
 tile.utilitycraft:machine_case.name=Корпус машины\n§o§9@UtilityCraft
 tile.utilitycraft:xp_condenser.name=Конденсатор опыта\n§o§9@UtilityCraft
@@ -48,9 +46,6 @@ tile.utilitycraft:cobble_gen_3.name=Генератор булыжника (§qTi
 tile.utilitycraft:cobble_gen_4.name=Генератор булыжника (§sTier 5§r) \n§7 — производит 4 штуки в секунду\n§o§9@UtilityCraft
 tile.utilitycraft:cobble_gen_5.name=Генератор булыжника (§jTier 6§r) \n§7 — производит 20 единиц в секунду.\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:conveyor_horizontal.name=Горизонтальный конвейер\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_inclined.name=Наклонный конвейер\n§o§9@UtilityCraft
-tile.utilitycraft:conveyor_declined.name=Отклоненный конвейер\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_hopper.name=Механический бункер\n§7- Принимаемые обновления:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Механический верхний\n§7- Принимаемые обновления:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
@@ -885,7 +880,6 @@ entity.utilitycraft:wind_turbine.name=Ветряная турбина
 tile.utilitycraft:blaze_block.name=Пылающее ядро\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Измельченная водоросль\n§o§9@UtilityCraft
 
-dorios:itemGroup.name.removed=Удаленный
 
 tile.utilitycraft:basic_trash_can.name=Базовый мусорный бак\n§o§9@UtilityCraft
 
