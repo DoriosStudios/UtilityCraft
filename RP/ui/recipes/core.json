@@ -308,6 +308,225 @@
             }
         ]
     },
+    "recipe_separator": {
+        "type": "panel",
+        "size": [
+            126,
+            4
+        ],
+        "controls": [
+            {
+                "background": {
+                    "type": "image",
+                    "texture": "textures/ui/gray_bg_border",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        126,
+                        4
+                    ],
+                    "offset": [
+                        54,
+                        0
+                    ],
+                    "layer": 0
+                }
+            }
+        ]
+    },
+    "sieve_result_header": {
+        "type": "panel",
+        "size": [
+            126,
+            18
+        ],
+        "controls": [
+            {
+                "background": {
+                    "type": "image",
+                    "texture": "textures/ui/gray_bg_border",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        126,
+                        18
+                    ],
+                    "offset": [
+                        54,
+                        0
+                    ],
+                    "layer": -2
+                }
+            },
+            {
+                "item": {
+                    "type": "label",
+                    "text": "Item",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        74,
+                        "default"
+                    ],
+                    "offset": [
+                        29,
+                        0
+                    ],
+                    "text_alignment": "left",
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "font_scale_factor": 0.65,
+                    "layer": 2
+                }
+            },
+            {
+                "chance": {
+                    "type": "label",
+                    "text": "Chance",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        28,
+                        "default"
+                    ],
+                    "offset": [
+                        83,
+                        0
+                    ],
+                    "text_alignment": "right",
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "font_scale_factor": 0.65,
+                    "layer": 2
+                }
+            }
+        ]
+    },
+    "sieve_result_strip": {
+        "type": "panel",
+        "size": [
+            126,
+            18
+        ],
+        "$result_item_texture|default": "",
+        "$result_item_name|default": "",
+        "$result_chance_text|default": "0%%",
+        "$result_amount_text|default": "x1",
+        "controls": [
+            {
+                "background": {
+                    "type": "image",
+                    "texture": "textures/ui/gray_bg_border",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        126,
+                        18
+                    ],
+                    "offset": [
+                        54,
+                        0
+                    ],
+                    "layer": -2
+                }
+            },
+            {
+                "item_icon": {
+                    "type": "image",
+                    "texture": "$result_item_texture",
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "size": [
+                        14,
+                        14
+                    ],
+                    "offset": [
+                        56,
+                        2
+                    ],
+                    "layer": 1
+                }
+            },
+            {
+                "item_name": {
+                    "type": "label",
+                    "text": "$result_item_name",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        58,
+                        "default"
+                    ],
+                    "offset": [
+                        38,
+                        0
+                    ],
+                    "text_alignment": "left",
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "font_scale_factor": 0.65,
+                    "layer": 2
+                }
+            },
+            {
+                "chance": {
+                    "type": "label",
+                    "text": "$result_chance_text",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        28,
+                        "default"
+                    ],
+                    "offset": [
+                        83,
+                        0
+                    ],
+                    "text_alignment": "right",
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "font_scale_factor": 0.65,
+                    "layer": 2
+                }
+            },
+            {
+                "amount": {
+                    "type": "label",
+                    "text": "$result_amount_text",
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "size": [
+                        18,
+                        "default"
+                    ],
+                    "offset": [
+                        106,
+                        0
+                    ],
+                    "text_alignment": "right",
+                    "color": [
+                        0.3,
+                        0.3,
+                        0.3
+                    ],
+                    "font_scale_factor": 0.65,
+                    "layer": 2
+                }
+            }
+        ]
+    },
     "recipes_tab": {
         "type": "collection_panel",
         "anchor_from": "center",

@@ -34,6 +34,7 @@
                     "ui/recipes/core.json",
                     "ui/recipes/infuser.json",
                     "ui/recipes/crusher.json",
-                    "ui/recipes/electro_press.json"
+                    "ui/recipes/electro_press.json",
+                    "ui/recipes/sieve.json"
                 ]
 }
