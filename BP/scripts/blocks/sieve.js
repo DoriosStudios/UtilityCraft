@@ -1,7 +1,7 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, world } from "@minecraft/server"
 import { sieveRecipes, acceptedBlocks } from "../config/recipes/sieve.js"
-import { stackRefillUse } from "stack_refill.js"
+import { stackRefillUse } from "stackRefill.js"
 
 const utility_meshes = new Set([
     "utilitycraft:string_mesh",

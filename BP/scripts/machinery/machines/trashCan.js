@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-// trash_can.js
+// trashCan.js
 import { system, ItemStack, world } from "@minecraft/server";
 
 DoriosLib.registry.blockComponent("utilitycraft:trash_can", {
