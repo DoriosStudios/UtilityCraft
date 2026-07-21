@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_spider"
+				"default": "textures/blocks/spawners/spider"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

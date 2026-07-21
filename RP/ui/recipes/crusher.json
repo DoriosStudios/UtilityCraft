@@ -1,4 +1,4 @@
-﻿{
+{
   "namespace": "uc",
   "crusher_copper_dust_1_input_animation": {
     "anim_type": "flip_book",
@@ -917,7 +917,7 @@
                 "$toggle_index": 62,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
                 "$toggle_control_name": "compressed_gravel_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel",
+                "$recipe_icon": "textures/blocks/compressed/gravel",
                 "offset": [108, 0]
               }
             }
@@ -936,7 +936,7 @@
                 "$toggle_index": 63,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel_2.name",
                 "$toggle_control_name": "compressed_gravel_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel_2",
+                "$recipe_icon": "textures/blocks/compressed/gravel_2",
                 "offset": [0, 0]
               }
             },
@@ -947,7 +947,7 @@
                 "$toggle_index": 64,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel_3.name",
                 "$toggle_control_name": "compressed_gravel_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel_3",
+                "$recipe_icon": "textures/blocks/compressed/gravel_3",
                 "offset": [18, 0]
               }
             },
@@ -958,7 +958,7 @@
                 "$toggle_index": 65,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel_4.name",
                 "$toggle_control_name": "compressed_gravel_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel_4",
+                "$recipe_icon": "textures/blocks/compressed/gravel_4",
                 "offset": [36, 0]
               }
             },
@@ -980,7 +980,7 @@
                 "$toggle_index": 67,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt.name",
                 "$toggle_control_name": "compressed_dirt_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt",
+                "$recipe_icon": "textures/blocks/compressed/dirt",
                 "offset": [72, 0]
               }
             },
@@ -991,7 +991,7 @@
                 "$toggle_index": 68,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_2.name",
                 "$toggle_control_name": "compressed_dirt_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt_2",
+                "$recipe_icon": "textures/blocks/compressed/dirt_2",
                 "offset": [90, 0]
               }
             },
@@ -1002,7 +1002,7 @@
                 "$toggle_index": 69,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_3.name",
                 "$toggle_control_name": "compressed_dirt_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt_3",
+                "$recipe_icon": "textures/blocks/compressed/dirt_3",
                 "offset": [108, 0]
               }
             }
@@ -1021,7 +1021,7 @@
                 "$toggle_index": 70,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt_4.name",
                 "$toggle_control_name": "compressed_dirt_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt_4",
+                "$recipe_icon": "textures/blocks/compressed/dirt_4",
                 "offset": [0, 0]
               }
             },
@@ -1043,7 +1043,7 @@
                 "$toggle_index": 72,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand.name",
                 "$toggle_control_name": "compressed_sand_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand",
+                "$recipe_icon": "textures/blocks/compressed/sand",
                 "offset": [36, 0]
               }
             },
@@ -1054,7 +1054,7 @@
                 "$toggle_index": 73,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand_2.name",
                 "$toggle_control_name": "compressed_sand_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand_2",
+                "$recipe_icon": "textures/blocks/compressed/sand_2",
                 "offset": [54, 0]
               }
             },
@@ -1065,7 +1065,7 @@
                 "$toggle_index": 74,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand_3.name",
                 "$toggle_control_name": "compressed_sand_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand_3",
+                "$recipe_icon": "textures/blocks/compressed/sand_3",
                 "offset": [72, 0]
               }
             },
@@ -1076,7 +1076,7 @@
                 "$toggle_index": 75,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand_4.name",
                 "$toggle_control_name": "compressed_sand_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand_4",
+                "$recipe_icon": "textures/blocks/compressed/sand_4",
                 "offset": [90, 0]
               }
             },
@@ -1139,7 +1139,7 @@
                 "$toggle_index": 80,
                 "$toggle_hover_text": "tile.utilitycraft:crushed_netherrack.name",
                 "$toggle_control_name": "crushed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/crushed_netherrack",
+                "$recipe_icon": "textures/blocks/materials/crushed_netherrack",
                 "offset": [54, 0]
               }
             },
@@ -1150,7 +1150,7 @@
                 "$toggle_index": 81,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_netherrack",
+                "$recipe_icon": "textures/blocks/compressed/crushed_netherrack",
                 "offset": [72, 0]
               }
             },
@@ -1161,7 +1161,7 @@
                 "$toggle_index": 82,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_2.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_2",
+                "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_2",
                 "offset": [90, 0]
               }
             },
@@ -1172,7 +1172,7 @@
                 "$toggle_index": 83,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_3.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_3",
+                "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_3",
                 "offset": [108, 0]
               }
             }
@@ -1191,7 +1191,7 @@
                 "$toggle_index": 84,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_4.name",
                 "$toggle_control_name": "compressed_crushed_netherrack_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_4",
+                "$recipe_icon": "textures/blocks/compressed/crushed_netherrack_4",
                 "offset": [0, 0]
               }
             },
@@ -1202,7 +1202,7 @@
                 "$toggle_index": 85,
                 "$toggle_hover_text": "tile.utilitycraft:crushed_blackstone.name",
                 "$toggle_control_name": "crushed_blackstone_recipe",
-                "$recipe_icon": "textures/blocks/crushed_blackstone",
+                "$recipe_icon": "textures/blocks/materials/crushed_blackstone",
                 "offset": [18, 0]
               }
             },
@@ -1213,7 +1213,7 @@
                 "$toggle_index": 86,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_blackstone",
+                "$recipe_icon": "textures/blocks/compressed/crushed_blackstone",
                 "offset": [36, 0]
               }
             },
@@ -1224,7 +1224,7 @@
                 "$toggle_index": 87,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_2.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_2",
+                "$recipe_icon": "textures/blocks/compressed/crushed_blackstone_2",
                 "offset": [54, 0]
               }
             },
@@ -1235,7 +1235,7 @@
                 "$toggle_index": 88,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_3.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_3",
+                "$recipe_icon": "textures/blocks/compressed/crushed_blackstone_3",
                 "offset": [72, 0]
               }
             },
@@ -1246,7 +1246,7 @@
                 "$toggle_index": 89,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_4.name",
                 "$toggle_control_name": "compressed_crushed_blackstone_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_4",
+                "$recipe_icon": "textures/blocks/compressed/crushed_blackstone_4",
                 "offset": [90, 0]
               }
             },
@@ -1257,7 +1257,7 @@
                 "$toggle_index": 90,
                 "$toggle_hover_text": "tile.utilitycraft:crushed_endstone.name",
                 "$toggle_control_name": "crushed_endstone_recipe",
-                "$recipe_icon": "textures/blocks/Crushed_endstone",
+                "$recipe_icon": "textures/blocks/materials/crushed_endstone",
                 "offset": [108, 0]
               }
             }
@@ -1276,7 +1276,7 @@
                 "$toggle_index": 91,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone.name",
                 "$toggle_control_name": "compressed_crushed_endstone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_endstone",
+                "$recipe_icon": "textures/blocks/compressed/crushed_endstone",
                 "offset": [0, 0]
               }
             },
@@ -1287,7 +1287,7 @@
                 "$toggle_index": 92,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone_2.name",
                 "$toggle_control_name": "compressed_crushed_endstone_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_endstone_2",
+                "$recipe_icon": "textures/blocks/compressed/crushed_endstone_2",
                 "offset": [18, 0]
               }
             },
@@ -1298,7 +1298,7 @@
                 "$toggle_index": 93,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone_3.name",
                 "$toggle_control_name": "compressed_crushed_endstone_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_endstone_3",
+                "$recipe_icon": "textures/blocks/compressed/crushed_endstone_3",
                 "offset": [36, 0]
               }
             },
@@ -1309,7 +1309,7 @@
                 "$toggle_index": 94,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_endstone_4.name",
                 "$toggle_control_name": "compressed_crushed_endstone_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_endstone_4",
+                "$recipe_icon": "textures/blocks/compressed/crushed_endstone_4",
                 "offset": [54, 0]
               }
             },
@@ -1331,7 +1331,7 @@
                 "$toggle_index": 96,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate",
+                "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate",
                 "offset": [90, 0]
               }
             },
@@ -1342,7 +1342,7 @@
                 "$toggle_index": 97,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_2.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_2",
+                "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_2",
                 "offset": [108, 0]
               }
             }
@@ -1361,7 +1361,7 @@
                 "$toggle_index": 98,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_3.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_3",
+                "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_3",
                 "offset": [0, 0]
               }
             },
@@ -1372,7 +1372,7 @@
                 "$toggle_index": 99,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_4.name",
                 "$toggle_control_name": "compressed_cobbled_deepslate_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_4",
+                "$recipe_icon": "textures/blocks/compressed/cobbled_deepslate_4",
                 "offset": [18, 0]
               }
             },
@@ -1383,7 +1383,7 @@
                 "$toggle_index": 100,
                 "$toggle_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
                 "$toggle_control_name": "crushed_cobbled_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/crushed_cobbled_deepslate",
+                "$recipe_icon": "textures/blocks/materials/crushed_cobbled_deepslate",
                 "offset": [36, 0]
               }
             },
@@ -1394,7 +1394,7 @@
                 "$toggle_index": 101,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate",
+                "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate",
                 "offset": [54, 0]
               }
             },
@@ -1405,7 +1405,7 @@
                 "$toggle_index": 102,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_2",
+                "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_2",
                 "offset": [72, 0]
               }
             },
@@ -1416,7 +1416,7 @@
                 "$toggle_index": 103,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_3",
+                "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_3",
                 "offset": [90, 0]
               }
             },
@@ -1427,7 +1427,7 @@
                 "$toggle_index": 104,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name",
                 "$toggle_control_name": "compressed_crushed_cobbled_deepslate_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_4",
+                "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_4",
                 "offset": [108, 0]
               }
             }
@@ -1707,7 +1707,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_copper_dust_1_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_copper_dust_1_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_copper_dust_1_input_animation"
                     }
                   },
@@ -1731,7 +1731,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_copper_dust_2_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_copper_dust_2_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_copper_dust_2_input_animation"
                     }
                   },
@@ -1941,7 +1941,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_energized_iron_dust_1_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_energized_iron_dust_1_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_energized_iron_dust_1_input_animation"
                     }
                   },
@@ -1986,7 +1986,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:energized_iron_block.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/Block_of_energized_iron"
+                      "$slot_item_texture": "textures/blocks/materials/block_of_energized_iron"
                     }
                   },
                   {
@@ -2009,7 +2009,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:raw_energized_iron_block.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/Block_of_brute_energized_iron"
+                      "$slot_item_texture": "textures/blocks/materials/block_of_brute_energized_iron"
                     }
                   },
                   {
@@ -2034,7 +2034,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_gold_dust_1_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_gold_dust_1_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_gold_dust_1_input_animation"
                     }
                   },
@@ -2058,7 +2058,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_gold_dust_2_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_gold_dust_2_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_gold_dust_2_input_animation"
                     }
                   },
@@ -2130,7 +2130,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_iron_dust_1_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_iron_dust_1_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_iron_dust_1_input_animation"
                     }
                   },
@@ -2154,7 +2154,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_iron_dust_2_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_iron_dust_2_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_iron_dust_2_input_animation"
                     }
                   },
@@ -2226,7 +2226,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_netherite_dust_1_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_netherite_dust_1_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_netherite_dust_1_input_animation"
                     }
                   },
@@ -2363,7 +2363,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_steel_dust_1_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_steel_dust_1_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_steel_dust_1_input_animation"
                     }
                   },
@@ -2408,7 +2408,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:steel_block.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/Steel_block"
+                      "$slot_item_texture": "textures/blocks/materials/steel_block"
                     }
                   },
                   {
@@ -2431,7 +2431,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:raw_steel_block.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/Block_of_raw_steel"
+                      "$slot_item_texture": "textures/blocks/materials/block_of_raw_steel"
                     }
                   },
                   {
@@ -2571,7 +2571,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_amethyst_shard_4_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_amethyst_shard_4_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_amethyst_shard_4_input_animation"
                     }
                   },
@@ -2712,7 +2712,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_coal_4_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_coal_4_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_coal_4_input_animation"
                     }
                   },
@@ -2738,7 +2738,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_diamond_2_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_diamond_2_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_diamond_2_input_animation"
                     }
                   },
@@ -2764,7 +2764,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_emerald_2_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_emerald_2_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_emerald_2_input_animation"
                     }
                   },
@@ -2790,7 +2790,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_lapis_lazuli_8_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_lapis_lazuli_8_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_lapis_lazuli_8_input_animation"
                     }
                   },
@@ -2814,7 +2814,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.magma.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/ui/recipes/magma"
+                      "$slot_item_texture": "textures/static/images/magma"
                     }
                   },
                   {
@@ -2908,7 +2908,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_redstone_8_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_redstone_8_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_redstone_8_input_animation"
                     }
                   },
@@ -2957,7 +2957,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/crusher_string_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/crusher_string_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.crusher_string_input_animation"
                     }
                   },
@@ -3069,12 +3069,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel",
+                      "$slot_item_texture": "textures/blocks/compressed/gravel",
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel.name",
                       "$has_slot_hover": true
                     }
@@ -3095,7 +3095,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel_2",
+                      "$slot_item_texture": "textures/blocks/compressed/gravel_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel_2.name",
                       "$has_slot_hover": true
                     }
@@ -3116,7 +3116,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel_3",
+                      "$slot_item_texture": "textures/blocks/compressed/gravel_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel_3.name",
                       "$has_slot_hover": true
                     }
@@ -3137,7 +3137,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel_4",
+                      "$slot_item_texture": "textures/blocks/compressed/gravel_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel_4.name",
                       "$has_slot_hover": true
                     }
@@ -3174,12 +3174,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel"
+                      "$slot_item_texture": "textures/blocks/compressed/gravel"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt",
+                      "$slot_item_texture": "textures/blocks/compressed/dirt",
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt.name",
                       "$has_slot_hover": true
                     }
@@ -3195,12 +3195,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel_2"
+                      "$slot_item_texture": "textures/blocks/compressed/gravel_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt_2",
+                      "$slot_item_texture": "textures/blocks/compressed/dirt_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt_2.name",
                       "$has_slot_hover": true
                     }
@@ -3216,12 +3216,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel_3"
+                      "$slot_item_texture": "textures/blocks/compressed/gravel_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt_3",
+                      "$slot_item_texture": "textures/blocks/compressed/dirt_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt_3.name",
                       "$has_slot_hover": true
                     }
@@ -3237,12 +3237,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel_4"
+                      "$slot_item_texture": "textures/blocks/compressed/gravel_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt_4",
+                      "$slot_item_texture": "textures/blocks/compressed/dirt_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt_4.name",
                       "$has_slot_hover": true
                     }
@@ -3279,12 +3279,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt"
+                      "$slot_item_texture": "textures/blocks/compressed/dirt"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_sand",
+                      "$slot_item_texture": "textures/blocks/compressed/sand",
                       "$slot_hover_text": "tile.utilitycraft:compressed_sand.name",
                       "$has_slot_hover": true
                     }
@@ -3300,12 +3300,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt_2"
+                      "$slot_item_texture": "textures/blocks/compressed/dirt_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_sand_2",
+                      "$slot_item_texture": "textures/blocks/compressed/sand_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_sand_2.name",
                       "$has_slot_hover": true
                     }
@@ -3321,12 +3321,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt_3"
+                      "$slot_item_texture": "textures/blocks/compressed/dirt_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_sand_3",
+                      "$slot_item_texture": "textures/blocks/compressed/sand_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_sand_3.name",
                       "$has_slot_hover": true
                     }
@@ -3342,12 +3342,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt_4"
+                      "$slot_item_texture": "textures/blocks/compressed/dirt_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_sand_4",
+                      "$slot_item_texture": "textures/blocks/compressed/sand_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_sand_4.name",
                       "$has_slot_hover": true
                     }
@@ -3460,7 +3460,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/crushed_netherrack",
+                      "$slot_item_texture": "textures/blocks/materials/crushed_netherrack",
                       "$slot_hover_text": "tile.utilitycraft:crushed_netherrack.name",
                       "$has_slot_hover": true
                     }
@@ -3476,12 +3476,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack"
+                      "$slot_item_texture": "textures/blocks/compressed/netherrack"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_netherrack",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_netherrack",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_netherrack.name",
                       "$has_slot_hover": true
                     }
@@ -3497,12 +3497,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack_2"
+                      "$slot_item_texture": "textures/blocks/compressed/netherrack_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_2",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_netherrack_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_2.name",
                       "$has_slot_hover": true
                     }
@@ -3518,12 +3518,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack_3"
+                      "$slot_item_texture": "textures/blocks/compressed/netherrack_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_3",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_netherrack_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_3.name",
                       "$has_slot_hover": true
                     }
@@ -3539,12 +3539,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack_4"
+                      "$slot_item_texture": "textures/blocks/compressed/netherrack_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_netherrack_4",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_netherrack_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_netherrack_4.name",
                       "$has_slot_hover": true
                     }
@@ -3565,7 +3565,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/crushed_blackstone",
+                      "$slot_item_texture": "textures/blocks/materials/crushed_blackstone",
                       "$slot_hover_text": "tile.utilitycraft:crushed_blackstone.name",
                       "$has_slot_hover": true
                     }
@@ -3581,12 +3581,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_blackstone.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_blackstone"
+                      "$slot_item_texture": "textures/blocks/compressed/blackstone"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_blackstone",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_blackstone",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_blackstone.name",
                       "$has_slot_hover": true
                     }
@@ -3602,12 +3602,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_blackstone_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_blackstone_2"
+                      "$slot_item_texture": "textures/blocks/compressed/blackstone_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_2",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_blackstone_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_2.name",
                       "$has_slot_hover": true
                     }
@@ -3623,12 +3623,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_blackstone_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_blackstone_3"
+                      "$slot_item_texture": "textures/blocks/compressed/blackstone_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_3",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_blackstone_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_3.name",
                       "$has_slot_hover": true
                     }
@@ -3644,12 +3644,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_blackstone_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_blackstone_4"
+                      "$slot_item_texture": "textures/blocks/compressed/blackstone_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_4",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_blackstone_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_blackstone_4.name",
                       "$has_slot_hover": true
                     }
@@ -3670,7 +3670,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/Crushed_endstone",
+                      "$slot_item_texture": "textures/blocks/materials/crushed_endstone",
                       "$slot_hover_text": "tile.utilitycraft:crushed_endstone.name",
                       "$has_slot_hover": true
                     }
@@ -3686,12 +3686,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_endstone.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_endstone"
+                      "$slot_item_texture": "textures/blocks/compressed/endstone"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_endstone",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_endstone",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_endstone.name",
                       "$has_slot_hover": true
                     }
@@ -3707,12 +3707,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_endstone_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_endstone_2"
+                      "$slot_item_texture": "textures/blocks/compressed/endstone_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_endstone_2",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_endstone_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_endstone_2.name",
                       "$has_slot_hover": true
                     }
@@ -3728,12 +3728,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_endstone_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_endstone_3"
+                      "$slot_item_texture": "textures/blocks/compressed/endstone_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_endstone_3",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_endstone_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_endstone_3.name",
                       "$has_slot_hover": true
                     }
@@ -3749,12 +3749,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_endstone_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_endstone_4"
+                      "$slot_item_texture": "textures/blocks/compressed/endstone_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_endstone_4",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_endstone_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_endstone_4.name",
                       "$has_slot_hover": true
                     }
@@ -3791,12 +3791,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate"
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate",
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate.name",
                       "$has_slot_hover": true
                     }
@@ -3812,12 +3812,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_2"
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_2",
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_2.name",
                       "$has_slot_hover": true
                     }
@@ -3833,12 +3833,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_3"
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_3",
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_3.name",
                       "$has_slot_hover": true
                     }
@@ -3854,12 +3854,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_4"
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_4",
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_4.name",
                       "$has_slot_hover": true
                     }
@@ -3880,7 +3880,7 @@
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/crushed_cobbled_deepslate",
+                      "$slot_item_texture": "textures/blocks/materials/crushed_cobbled_deepslate",
                       "$slot_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
                       "$has_slot_hover": true
                     }
@@ -3896,12 +3896,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate"
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_cobbled_deepslate",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate.name",
                       "$has_slot_hover": true
                     }
@@ -3917,12 +3917,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_2.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_2"
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate_2"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_2",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_cobbled_deepslate_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_2.name",
                       "$has_slot_hover": true
                     }
@@ -3938,12 +3938,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_3.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_3"
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate_3"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_3",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_cobbled_deepslate_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_3.name",
                       "$has_slot_hover": true
                     }
@@ -3959,12 +3959,12 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobbled_deepslate_4.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobbled_deepslate_4"
+                      "$slot_item_texture": "textures/blocks/compressed/cobbled_deepslate_4"
                     }
                   },
                   {
                     "output@uc.crusher_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_crushed_cobbled_deepslate_4",
+                      "$slot_item_texture": "textures/blocks/compressed/crushed_cobbled_deepslate_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_crushed_cobbled_deepslate_4.name",
                       "$has_slot_hover": true
                     }

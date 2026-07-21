@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_pig"
+				"default": "textures/blocks/spawners/pig"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

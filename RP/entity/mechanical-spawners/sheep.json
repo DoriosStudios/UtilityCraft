@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_sheep"
+				"default": "textures/blocks/spawners/sheep"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

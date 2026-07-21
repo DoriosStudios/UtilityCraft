@@ -115,7 +115,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/title",
+                    "texture": "textures/static/images/title",
                     "offset": [ 0, 0 ],
                     "size": [
                         "270px",
@@ -138,7 +138,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/basics_render",
+                    "texture": "textures/static/images/basics_render",
                     "offset": [
                         0,
                         0
@@ -164,7 +164,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/batteries_render",
+                    "texture": "textures/static/images/batteries_render",
                     "offset": [
                         0,
                         0
@@ -190,7 +190,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/hammers_render",
+                    "texture": "textures/static/images/hammers_render",
                     "offset": [
                         0,
                         0
@@ -216,7 +216,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/basic_pebbles_render",
+                    "texture": "textures/static/images/basic_pebbles_render",
                     "offset": [
                         0,
                         0
@@ -242,7 +242,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/flint_knife_render",
+                    "texture": "textures/static/images/flint_knife_render",
                     "offset": [
                         0,
                         0
@@ -268,7 +268,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_render",
+                    "texture": "textures/static/images/sieve_render",
                     "offset": [
                         0,
                         0
@@ -294,7 +294,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/string_mesh_render",
+                    "texture": "textures/static/images/string_mesh_render",
                     "offset": [
                         0,
                         0
@@ -320,7 +320,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/breaking_blocks_render",
+                    "texture": "textures/static/images/breaking_blocks_render",
                     "offset": [
                         0,
                         0
@@ -346,7 +346,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_gravel_render",
+                    "texture": "textures/static/images/sieve_gravel_render",
                     "offset": [
                         0,
                         0
@@ -372,7 +372,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_scaling_render",
+                    "texture": "textures/static/images/sieve_scaling_render",
                     "offset": [
                         0,
                         0
@@ -398,7 +398,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/breaking_blocks_comp_render",
+                    "texture": "textures/static/images/breaking_blocks_comp_render",
                     "offset": [
                         0,
                         0
@@ -424,7 +424,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/sieve_gravel_comp_render",
+                    "texture": "textures/static/images/sieve_gravel_comp_render",
                     "offset": [
                         0,
                         0
@@ -473,7 +473,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/water_bottle_recipe",
+                    "texture": "textures/static/images/water_bottle_recipe",
                     "offset": [ 0, 0 ],
                     "size": [
                         "120px",
@@ -496,7 +496,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/cauldron_water_process_render",
+                    "texture": "textures/static/images/cauldron_water_process_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "176px",
@@ -519,7 +519,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_eg_render",
+                    "texture": "textures/static/images/crucible_eg_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "85px",
@@ -542,7 +542,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_obsidian_process_render",
+                    "texture": "textures/static/images/crucible_obsidian_process_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "156px",
@@ -565,7 +565,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/crucible_recipe_render",
+                    "texture": "textures/static/images/crucible_recipe_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "150px",
@@ -588,7 +588,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/getting_mud_render",
+                    "texture": "textures/static/images/getting_mud_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "150px",
@@ -611,7 +611,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/smeltflare_recipe_render",
+                    "texture": "textures/static/images/smeltflare_recipe_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "120px",
@@ -634,7 +634,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/brute_steel_recipe",
+                    "texture": "textures/static/images/brute_steel_recipe",
                     "offset": [ 0, 0 ],
                     "size": [
                         "120px",
@@ -657,7 +657,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/workbench_render",
+                    "texture": "textures/static/images/workbench_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "60px",
@@ -680,7 +680,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/workbench_recipe",
+                    "texture": "textures/static/images/workbench_recipe",
                     "offset": [ 0, 0 ],
                     "size": [
                         "150px",
@@ -703,7 +703,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/fluid_tanks_render",
+                    "texture": "textures/static/images/fluid_tanks_render",
                     "offset": [
                         0,
                         0
@@ -729,7 +729,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/meshes_render",
+                    "texture": "textures/static/images/meshes_render",
                     "offset": [
                         0,
                         0
@@ -755,7 +755,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/fishing_nets_render",
+                    "texture": "textures/static/images/fishing_nets_render",
                     "offset": [
                         0,
                         0
@@ -840,7 +840,7 @@
             {
                 "bottom_line": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_horizontal",
+                    "texture": "textures/static/images/table_line_horizontal",
                     "anchor_from": "bottom_left",
                     "anchor_to": "bottom_left",
                     "size": [
@@ -852,7 +852,7 @@
             {
                 "line_1": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [ "28%", 0 ],
@@ -862,7 +862,7 @@
             {
                 "line_2": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [ "46%", 0 ],
@@ -872,7 +872,7 @@
             {
                 "line_3": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [ "64%", 0 ],
@@ -882,7 +882,7 @@
             {
                 "line_4": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [ "82%", 0 ],
@@ -974,7 +974,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/tools_render",
+                    "texture": "textures/static/images/tools_render",
                     "offset": [
                         0,
                         0
@@ -1000,7 +1000,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/crops_render",
+                    "texture": "textures/static/images/crops_render",
                     "offset": [
                         0,
                         0
@@ -1026,7 +1026,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/cobble_gens_render",
+                    "texture": "textures/static/images/cobble_gens_render",
                     "offset": [
                         0,
                         0
@@ -1052,7 +1052,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/machines_render",
+                    "texture": "textures/static/images/machines_render",
                     "offset": [
                         0,
                         0
@@ -1078,7 +1078,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/generators_render",
+                    "texture": "textures/static/images/generators_render",
                     "offset": [
                         0,
                         0
@@ -1104,7 +1104,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/machines_upgrades_render",
+                    "texture": "textures/static/images/machines_upgrades_render",
                     "offset": [
                         0,
                         0
@@ -1130,7 +1130,7 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/mob_grinding_render",
+                    "texture": "textures/static/images/mob_grinding_render",
                     "offset": [
                         0,
                         0
@@ -1156,7 +1156,7 @@
                 "logo@how_to_play_common.image": {
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/dorios_logo",
+                    "texture": "textures/static/images/dorios_logo",
                     "offset": [
                         "90% - 30px",
                         0
@@ -1182,7 +1182,7 @@
                 "qr@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/discord_link",
+                    "texture": "textures/static/images/discord_link",
                     "offset": [
                         0,
                         0
@@ -1252,7 +1252,7 @@
             {
                 "bottom_line": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_horizontal",
+                    "texture": "textures/static/images/table_line_horizontal",
                     "anchor_from": "bottom_left",
                     "anchor_to": "bottom_left",
                     "size": [
@@ -1264,7 +1264,7 @@
             {
                 "line_1": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [
@@ -1280,7 +1280,7 @@
             {
                 "line_2": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [
@@ -1296,7 +1296,7 @@
             {
                 "line_3": {
                     "type": "image",
-                    "texture": "textures/ui/wiki/utilitycraft/guide/table_line_vertical",
+                    "texture": "textures/static/images/table_line_vertical",
                     "anchor_from": "top_left",
                     "anchor_to": "top_left",
                     "offset": [
@@ -2225,7 +2225,7 @@
             },
             {
                 "assembler_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/assembler_render"
+                    "$machine_texture": "textures/static/images/assembler_render"
                 }
             },
             {
@@ -2240,7 +2240,7 @@
             },
             {
                 "autosieve_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/autosieve_render"
+                    "$machine_texture": "textures/static/images/autosieve_render"
                 }
             },
             {
@@ -2255,7 +2255,7 @@
             },
             {
                 "autofisher_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/autofisher_render"
+                    "$machine_texture": "textures/static/images/autofisher_render"
                 }
             },
             {
@@ -2270,7 +2270,7 @@
             },
             {
                 "block_breaker_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/block_breaker_render"
+                    "$machine_texture": "textures/static/images/block_breaker_render"
                 }
             },
             {
@@ -2285,7 +2285,7 @@
             },
             {
                 "block_placer_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/block_placer_render"
+                    "$machine_texture": "textures/static/images/block_placer_render"
                 }
             },
             {
@@ -2300,7 +2300,7 @@
             },
             {
                 "crusher_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/crusher_render"
+                    "$machine_texture": "textures/static/images/crusher_render"
                 }
             },
             {
@@ -2315,7 +2315,7 @@
             },
             {
                 "digitizer_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/digitizer_render"
+                    "$machine_texture": "textures/static/images/digitizer_render"
                 }
             },
             {
@@ -2330,7 +2330,7 @@
             },
             {
                 "electro_press_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/electro_press_render"
+                    "$machine_texture": "textures/static/images/electro_press_render"
                 }
             },
             {
@@ -2345,7 +2345,7 @@
             },
             {
                 "harvester_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/harvester_render"
+                    "$machine_texture": "textures/static/images/harvester_render"
                 }
             },
             {
@@ -2360,7 +2360,7 @@
             },
             {
                 "incinerator_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/incinerator_render"
+                    "$machine_texture": "textures/static/images/incinerator_render"
                 }
             },
             {
@@ -2375,7 +2375,7 @@
             },
             {
                 "induction_anvil_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/induction_anvil_render"
+                    "$machine_texture": "textures/static/images/induction_anvil_render"
                 }
             },
             {
@@ -2390,7 +2390,7 @@
             },
             {
                 "infuser_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/infuser_render"
+                    "$machine_texture": "textures/static/images/infuser_render"
                 }
             },
             {
@@ -2405,7 +2405,7 @@
             },
             {
                 "magmatic_chamber_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/magmatic_chamber_render"
+                    "$machine_texture": "textures/static/images/magmatic_chamber_render"
                 }
             },
             {
@@ -2420,7 +2420,7 @@
             },
             {
                 "seed_synthesizer_render@how_to_play.machine_single_render": {
-                    "$machine_texture": "textures/ui/wiki/utilitycraft/guide/seed_synthesizer_render"
+                    "$machine_texture": "textures/static/images/seed_synthesizer_render"
                 }
             },
             {
@@ -2458,7 +2458,7 @@
             },
             {
                 "furnator_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/ui/wiki/utilitycraft/guide/furnator_render"
+                    "$generator_texture": "textures/static/images/furnator_render"
                 }
             },
             {
@@ -2487,7 +2487,7 @@
             },
             {
                 "magmator_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/ui/wiki/utilitycraft/guide/magmator_render"
+                    "$generator_texture": "textures/static/images/magmator_render"
                 }
             },
             {
@@ -2516,7 +2516,7 @@
             },
             {
                 "solar_panel_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/ui/wiki/utilitycraft/guide/solar_panel_render"
+                    "$generator_texture": "textures/static/images/solar_panel_render"
                 }
             },
             {
@@ -2545,7 +2545,7 @@
             },
             {
                 "thermo_generator_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/ui/wiki/utilitycraft/guide/thermo_generator_render"
+                    "$generator_texture": "textures/static/images/thermo_generator_render"
                 }
             },
             {
@@ -2574,7 +2574,7 @@
             },
             {
                 "wind_turbine_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/ui/wiki/utilitycraft/guide/wind_turbine_render"
+                    "$generator_texture": "textures/static/images/wind_turbine_render"
                 }
             },
             {
@@ -2603,7 +2603,7 @@
             },
             {
                 "batteries_render@how_to_play.generator_tiers_render": {
-                    "$generator_texture": "textures/ui/wiki/utilitycraft/guide/batteries_render"
+                    "$generator_texture": "textures/static/images/batteries_render"
                 }
             },
             {

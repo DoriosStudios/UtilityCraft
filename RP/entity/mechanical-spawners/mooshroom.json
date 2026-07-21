@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_cow_mooshroom"
+				"default": "textures/blocks/spawners/cow_mooshroom"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

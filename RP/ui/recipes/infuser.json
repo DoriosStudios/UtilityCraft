@@ -1,4 +1,4 @@
-﻿{
+{
   "namespace": "uc",
   "stabilized_obsidian_input_animation": {
     "anim_type": "flip_book",
@@ -208,7 +208,7 @@
                 "$toggle_index": 8,
                 "$toggle_hover_text": "tile.utilitycraft:steel_block.name",
                 "$toggle_control_name": "steel_block_recipe",
-                "$recipe_icon": "textures/blocks/Steel_block",
+                "$recipe_icon": "textures/blocks/materials/steel_block",
                 "offset": [18, 0]
               }
             },
@@ -252,7 +252,7 @@
                 "$toggle_index": 12,
                 "$toggle_hover_text": "tile.utilitycraft:energized_iron_block.name",
                 "$toggle_control_name": "energized_iron_block_recipe",
-                "$recipe_icon": "textures/blocks/Block_of_energized_iron",
+                "$recipe_icon": "textures/blocks/materials/block_of_energized_iron",
                 "offset": [90, 0]
               }
             },
@@ -452,7 +452,7 @@
                 "$toggle_index": 28,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_blackstone.name",
                 "$toggle_control_name": "compressed_blackstone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_blackstone",
+                "$recipe_icon": "textures/blocks/compressed/blackstone",
                 "offset": [0, 0]
               }
             },
@@ -474,7 +474,7 @@
                 "$toggle_index": 30,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
                 "$toggle_control_name": "compressed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
+                "$recipe_icon": "textures/blocks/compressed/netherrack",
                 "offset": [36, 0]
               }
             },
@@ -930,7 +930,7 @@
                     "catalyst@uc.infuser_recipe_catalyst": {
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/steel_catalyst_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
                       "$slot_hover_text": "tile.coal_block.name",
                       "$has_slot_hover": true,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
@@ -1026,14 +1026,14 @@
                   },
                   {
                     "input@uc.infuser_recipe_input": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
                   },
                   {
                     "output@uc.infuser_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_blackstone",
+                      "$slot_item_texture": "textures/blocks/compressed/blackstone",
                       "$slot_hover_text": "tile.utilitycraft:compressed_blackstone.name",
                       "$has_slot_hover": true
                     }
@@ -1054,14 +1054,14 @@
                   },
                   {
                     "input@uc.infuser_recipe_input": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
                   },
                   {
                     "output@uc.infuser_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack",
+                      "$slot_item_texture": "textures/blocks/compressed/netherrack",
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack.name",
                       "$has_slot_hover": true
                     }
@@ -1131,7 +1131,7 @@
                 "controls": [
                   {
                     "catalyst@uc.infuser_recipe_catalyst": {
-                      "$slot_item_texture": "textures/blocks/redstone_block",
+                      "$slot_item_texture": "textures/blocks/materials/redstone_block",
                       "$slot_hover_text": "tile.redstone_block.name",
                       "$has_slot_hover": true,
                       "$slot_count_text": "4",
@@ -1147,7 +1147,7 @@
                   },
                   {
                     "output@uc.infuser_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/Block_of_energized_iron",
+                      "$slot_item_texture": "textures/blocks/materials/block_of_energized_iron",
                       "$slot_hover_text": "tile.utilitycraft:energized_iron_block.name",
                       "$has_slot_hover": true
                     }
@@ -1339,7 +1339,7 @@
                       "$has_slot_hover": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/infuser_mycelium_catalyst_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/infuser_mycelium_catalyst_flipbook",
                       "$slot_item_flipbook_uv": "@uc.infuser_mycelium_catalyst_animation"
                     }
                   },
@@ -1665,7 +1665,7 @@
                     "input@uc.infuser_recipe_input": {
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/stabilized_obsidian_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/stabilized_obsidian_input_flipbook",
                       "$slot_hover_text": "tile.obsidian.name",
                       "$has_slot_hover": true,
                       "$slot_item_flipbook_uv": "@uc.stabilized_obsidian_input_animation"
@@ -1701,7 +1701,7 @@
                   },
                   {
                     "output@uc.infuser_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/Steel_block",
+                      "$slot_item_texture": "textures/blocks/materials/steel_block",
                       "$slot_hover_text": "tile.utilitycraft:steel_block.name",
                       "$has_slot_hover": true
                     }
@@ -1717,7 +1717,7 @@
                     "catalyst@uc.infuser_recipe_catalyst": {
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/steel_catalyst_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
                       "$slot_hover_text": "tile.coal_block.name",
                       "$has_slot_hover": true,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
@@ -1748,7 +1748,7 @@
                     "catalyst@uc.infuser_recipe_catalyst": {
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/steel_catalyst_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
                       "$slot_hover_text": "tile.coal_block.name",
                       "$has_slot_hover": true,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
@@ -1779,7 +1779,7 @@
                     "catalyst@uc.infuser_recipe_catalyst": {
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/steel_catalyst_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
                       "$slot_hover_text": "tile.coal_block.name",
                       "$has_slot_hover": true,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"

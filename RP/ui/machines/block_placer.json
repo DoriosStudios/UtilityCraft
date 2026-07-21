@@ -41,12 +41,12 @@
       {
         "io_tab@uc.io_tab": {
           "$io_items_modes_description": "ui.utilitycraft:io.block_placer.items",
-          "$io_top_texture": "textures/blocks/Machines/block_placer/off/up",
-          "$io_left_texture": "textures/blocks/Machines/block_placer/off/west",
-          "$io_front_texture": "textures/blocks/Machines/block_placer/off/north",
-          "$io_right_texture": "textures/blocks/Machines/block_placer/off/east",
-          "$io_bottom_texture": "textures/blocks/Machines/block_placer/off/down",
-          "$io_back_texture": "textures/blocks/Machines/block_placer/off/south",
+          "$io_top_texture": "textures/blocks/machines/block_placer_off_up",
+          "$io_left_texture": "textures/blocks/machines/block_placer_off_west",
+          "$io_front_texture": "textures/blocks/machines/block_placer_off_north",
+          "$io_right_texture": "textures/blocks/machines/block_placer_off_east",
+          "$io_bottom_texture": "textures/blocks/machines/block_placer_off_down",
+          "$io_back_texture": "textures/blocks/machines/block_placer_off_south",
           "$io_item_top_index": 6,
           "$io_item_left_index": 7,
           "$io_item_front_index": 8,

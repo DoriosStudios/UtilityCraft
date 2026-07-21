@@ -140,33 +140,6 @@
 		"utilitycraft_wood_paxel": {
 			"textures": "textures/items/tools/wooden_paxel"
 		},
-		"utilitycraft_advanced_netherite_axe": {
-			"textures": "textures/items/old/Advanced Netherite Axe"
-		},
-		"utilitycraft_advanced_diamond_axe": {
-			"textures": "textures/items/old/Advanced Diamond Axe"
-		},
-		"utilitycraft_advanced_iron_axe": {
-			"textures": "textures/items/old/Advanced Iron Axe"
-		},
-		"utilitycraft_advanced_netherite_pickaxe": {
-			"textures": "textures/items/old/Advanced Netherite Pickaxe"
-		},
-		"utilitycraft_advanced_diamond_pickaxe": {
-			"textures": "textures/items/old/Advanced Diamond Pickaxe"
-		},
-		"utilitycraft_advanced_iron_pickaxe": {
-			"textures": "textures/items/old/Advanced Iron Pickaxe"
-		},
-		"utilitycraft_advanced_netherite_shovel": {
-			"textures": "textures/items/old/Advanced Netherite Shovel"
-		},
-		"utilitycraft_advanced_diamond_shovel": {
-			"textures": "textures/items/old/Advanced Diamond Shovel"
-		},
-		"utilitycraft_advanced_iron_shovel": {
-			"textures": "textures/items/old/Advanced Iron Shovel"
-		},
 		"utilitycraft_netherite_hammer": {
 			"textures": "textures/items/tools/netherite_hammer"
 		},
@@ -226,18 +199,6 @@
 		},
 		"utilitycraft_bionic_arm": {
 			"textures": "textures/items/tools/drill"
-		},
-		"utilitycraft_clock": {
-			"textures": "textures/items/old/magic_clock"
-		},
-		"utilitycraft_advanced_netherite_hoe": {
-			"textures": "textures/items/old/Advanced Netherite Hoe"
-		},
-		"utilitycraft_advanced_diamond_hoe": {
-			"textures": "textures/items/old/Advanced Diamond Hoe"
-		},
-		"utilitycraft_advanced_iron_hoe": {
-			"textures": "textures/items/old/Advanced Iron Hoe"
 		},
 		"utilitycraft_base_seeds": {
 			"textures": "textures/items/seeds/base_seeds"
@@ -309,7 +270,7 @@
 			"textures": "textures/items/seeds/slime_seeds"
 		},
 		"utilitycraft_honey_ball": {
-			"textures": "textures/items/old/honeyball"
+			"textures": "textures/items/misc/honey_ball"
 		},
 		"utilitycraft_grenade": {
 			"textures": "textures/items/tools/grenade"
@@ -395,15 +356,6 @@
 		"utilitycraft_apple_sapling": {
 			"textures": "textures/items/misc/apple_tree"
 		},
-		"utilitycraft_gold_upgrade": {
-			"textures": "textures/items/old/gold_upgrade"
-		},
-		"utilitycraft_emerald_upgrade": {
-			"textures": "textures/items/old/emerald_upgrade"
-		},
-		"utilitycraft_diamond_upgrade": {
-			"textures": "textures/items/old/diamond_upgrade"
-		},
 		"utilitycraft_lucky_sword": {
 			"textures": "textures/items/tools/lucky_sword"
 		},
@@ -414,10 +366,10 @@
 			"textures": "textures/items/tools/stone_hammer"
 		},
 		"utilitycraft_soul": {
-			"textures": "textures/items/old/soul"
+			"textures": "textures/items/misc/soul"
 		},
 		"utilitycraft_soul_vessel": {
-			"textures": "textures/items/old/soul_vessel"
+			"textures": "textures/items/misc/soul_vessel"
 		},
 		"utilitycraft_zombie_essence": {
 			"textures": "textures/items/essences/zombie_essence"
@@ -456,13 +408,13 @@
 			"textures": "textures/items/essences/slime_essence"
 		},
 		"utilitycraft_ore_igniter": {
-			"textures": "textures/items/old/ore_igniter"
+			"textures": "textures/items/misc/ore_igniter"
 		},
 		"utilitycraft_dyes_seeds": {
 			"textures": "textures/items/seeds/dye_seeds"
 		},
 		"utilitycraft_infinite_enderpearl": {
-			"textures": "textures/items/old/infinite_enderpearl"
+			"textures": "textures/items/misc/infinite_ender_pearl"
 		},
 		"utilitycraft_black_amogus": {
 			"textures": "textures/items/misc/black_amogus"
@@ -1644,7 +1596,7 @@
 			"textures": "textures/items/ores/brute_energized_iron"
 		},
 		"utilitycraft_energized_iron_block": {
-			"textures": "textures/blocks/Block_of_energized_iron"
+			"textures": "textures/blocks/materials/block_of_energized_iron"
 		},
 		"utilitycraft_copper_plate": {
 			"textures": "textures/items/plates/copper_plate"

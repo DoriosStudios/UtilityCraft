@@ -71,7 +71,7 @@
             {
               "mesh_image": {
                 "type": "image",
-                "texture": "textures/ui/overlay/meshes_flipbook",
+                "texture": "textures/static/images/meshes_flipbook",
                 "uv_size": [16, 16],
                 "uv": "@autosieve.flipbook_animation",
                 "layer": 4,
@@ -107,12 +107,12 @@
       {
         "io_tab@uc.io_tab": {
           "$io_items_modes_description": "ui.utilitycraft:io.autosieve.items",
-          "$io_top_texture": "textures/blocks/Machines/autosieve/off/up",
-          "$io_left_texture": "textures/blocks/Machines/autosieve/off/west",
-          "$io_front_texture": "textures/blocks/Machines/autosieve/off/north",
-          "$io_right_texture": "textures/blocks/Machines/autosieve/off/east",
-          "$io_bottom_texture": "textures/blocks/Machines/autosieve/off/down",
-          "$io_back_texture": "textures/blocks/Machines/autosieve/off/south",
+          "$io_top_texture": "textures/blocks/machines/autosieve_off_up",
+          "$io_left_texture": "textures/blocks/machines/autosieve_off_west",
+          "$io_front_texture": "textures/blocks/machines/autosieve_off_north",
+          "$io_right_texture": "textures/blocks/machines/autosieve_off_east",
+          "$io_bottom_texture": "textures/blocks/machines/autosieve_off_down",
+          "$io_back_texture": "textures/blocks/machines/autosieve_off_south",
           "$io_item_top_index": 16,
           "$io_item_left_index": 17,
           "$io_item_front_index": 18,

@@ -3632,7 +3632,7 @@
             0,
             1
         ],
-        "$io_face_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
+        "$io_face_texture|default": "textures/blocks/machines/exhibitor_base_north",
         "controls": [
             {
                 "outline@uc.io_face_outline": {
@@ -3672,12 +3672,12 @@
         "$io_right_index|default": 11,
         "$io_bottom_index|default": 12,
         "$io_back_index|default": 13,
-        "$io_top_texture|default": "textures/blocks/Machines/ehxibitor/base/up",
-        "$io_left_texture|default": "textures/blocks/Machines/ehxibitor/base/west",
-        "$io_front_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
-        "$io_right_texture|default": "textures/blocks/Machines/ehxibitor/base/east",
-        "$io_bottom_texture|default": "textures/blocks/Machines/ehxibitor/base/down",
-        "$io_back_texture|default": "textures/blocks/Machines/ehxibitor/base/south",
+        "$io_top_texture|default": "textures/blocks/machines/exhibitor_base_up",
+        "$io_left_texture|default": "textures/blocks/machines/exhibitor_base_west",
+        "$io_front_texture|default": "textures/blocks/machines/exhibitor_base_north",
+        "$io_right_texture|default": "textures/blocks/machines/exhibitor_base_east",
+        "$io_bottom_texture|default": "textures/blocks/machines/exhibitor_base_down",
+        "$io_back_texture|default": "textures/blocks/machines/exhibitor_base_south",
         "controls": [
             {
                 "top_button@uc.io_face_button": {
@@ -3807,12 +3807,12 @@
         "$io_fluid_right_index|default": 17,
         "$io_fluid_bottom_index|default": 18,
         "$io_fluid_back_index|default": 19,
-        "$io_top_texture|default": "textures/blocks/Machines/ehxibitor/base/up",
-        "$io_left_texture|default": "textures/blocks/Machines/ehxibitor/base/west",
-        "$io_front_texture|default": "textures/blocks/Machines/ehxibitor/base/north",
-        "$io_right_texture|default": "textures/blocks/Machines/ehxibitor/base/east",
-        "$io_bottom_texture|default": "textures/blocks/Machines/ehxibitor/base/down",
-        "$io_back_texture|default": "textures/blocks/Machines/ehxibitor/base/south",
+        "$io_top_texture|default": "textures/blocks/machines/exhibitor_base_up",
+        "$io_left_texture|default": "textures/blocks/machines/exhibitor_base_west",
+        "$io_front_texture|default": "textures/blocks/machines/exhibitor_base_north",
+        "$io_right_texture|default": "textures/blocks/machines/exhibitor_base_east",
+        "$io_bottom_texture|default": "textures/blocks/machines/exhibitor_base_down",
+        "$io_back_texture|default": "textures/blocks/machines/exhibitor_base_south",
         "controls": [
             {
                 "io_toggle@uc.toggle_button": {

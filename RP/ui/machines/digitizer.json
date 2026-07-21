@@ -97,12 +97,12 @@
       {
         "io_tab@uc.io_tab": {
           "$io_items_modes_description": "ui.utilitycraft:io.digitizer.items",
-          "$io_top_texture": "textures/blocks/Machines/digitizer/off/up",
-          "$io_left_texture": "textures/blocks/Machines/digitizer/off/west",
-          "$io_front_texture": "textures/blocks/Machines/digitizer/off/north",
-          "$io_right_texture": "textures/blocks/Machines/digitizer/off/east",
-          "$io_bottom_texture": "textures/blocks/Machines/digitizer/off/down",
-          "$io_back_texture": "textures/blocks/Machines/digitizer/off/south",
+          "$io_top_texture": "textures/blocks/machines/digitizer_off_up",
+          "$io_left_texture": "textures/blocks/machines/digitizer_off_west",
+          "$io_front_texture": "textures/blocks/machines/digitizer_off_north",
+          "$io_right_texture": "textures/blocks/machines/digitizer_off_east",
+          "$io_bottom_texture": "textures/blocks/machines/digitizer_off_down",
+          "$io_back_texture": "textures/blocks/machines/digitizer_off_south",
           "$io_item_top_index": 16,
           "$io_item_left_index": 17,
           "$io_item_front_index": 18,

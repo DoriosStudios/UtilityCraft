@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_skeleton"
+				"default": "textures/blocks/spawners/skeleton"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

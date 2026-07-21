@@ -57,12 +57,12 @@
       {
         "io_tab@uc.io_tab": {
           "$io_items_modes_description": "ui.utilitycraft:io.incinerator.items",
-          "$io_top_texture": "textures/blocks/Machines/incinerator/off/up",
-          "$io_left_texture": "textures/blocks/Machines/incinerator/off/west",
-          "$io_front_texture": "textures/blocks/Machines/incinerator/off/north",
-          "$io_right_texture": "textures/blocks/Machines/incinerator/off/east",
-          "$io_bottom_texture": "textures/blocks/Machines/incinerator/off/down",
-          "$io_back_texture": "textures/blocks/Machines/incinerator/off/south",
+          "$io_top_texture": "textures/blocks/machines/incinerator_off_up",
+          "$io_left_texture": "textures/blocks/machines/incinerator_off_west",
+          "$io_front_texture": "textures/blocks/machines/incinerator_off_north",
+          "$io_right_texture": "textures/blocks/machines/incinerator_off_east",
+          "$io_bottom_texture": "textures/blocks/machines/incinerator_off_down",
+          "$io_back_texture": "textures/blocks/machines/incinerator_off_south",
           "$io_item_top_index": 7,
           "$io_item_left_index": 8,
           "$io_item_front_index": 9,

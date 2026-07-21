@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_magma_cube"
+				"default": "textures/blocks/spawners/magma_cube"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

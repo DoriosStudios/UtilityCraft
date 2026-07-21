@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/blocks/mech-spawners/mechanical_spawner_zombie"
+				"default": "textures/blocks/spawners/zombie"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_spawner_type"

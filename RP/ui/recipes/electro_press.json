@@ -1,4 +1,4 @@
-﻿{
+{
   "namespace": "uc",
   "electro_press_packed_ice_input_animation": {
     "anim_type": "flip_book",
@@ -191,7 +191,7 @@
                 "$toggle_index": 12,
                 "$toggle_hover_text": "item.skull.wither.name",
                 "$toggle_control_name": "wither_skeleton_skull_recipe",
-                "$recipe_icon": "textures/ui/recipes/wither_skull",
+                "$recipe_icon": "textures/static/images/wither_skull",
                 "offset": [90, 0],
                 "$toggle_icon_uv_size": [64, 64]
               }
@@ -510,7 +510,7 @@
                 "$toggle_index": 38,
                 "$toggle_hover_text": "tile.magma.name",
                 "$toggle_control_name": "magma_recipe",
-                "$recipe_icon": "textures/ui/recipes/magma",
+                "$recipe_icon": "textures/static/images/magma",
                 "offset": [54, 0]
               }
             },
@@ -532,7 +532,7 @@
                 "$toggle_index": 40,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
                 "$toggle_control_name": "compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone",
                 "offset": [90, 0]
               }
             },
@@ -543,7 +543,7 @@
                 "$toggle_index": 41,
                 "$toggle_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
                 "$toggle_control_name": "double_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_2",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_2",
                 "offset": [108, 0]
               }
             }
@@ -562,7 +562,7 @@
                 "$toggle_index": 42,
                 "$toggle_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
                 "$toggle_control_name": "triple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_3",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_3",
                 "offset": [0, 0]
               }
             },
@@ -573,7 +573,7 @@
                 "$toggle_index": 43,
                 "$toggle_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
                 "$toggle_control_name": "quadruple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_4",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_4",
                 "offset": [18, 0]
               }
             },
@@ -584,7 +584,7 @@
                 "$toggle_index": 44,
                 "$toggle_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
                 "$toggle_control_name": "quintuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_5",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_5",
                 "offset": [36, 0]
               }
             },
@@ -595,7 +595,7 @@
                 "$toggle_index": 45,
                 "$toggle_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
                 "$toggle_control_name": "sextuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_6",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_6",
                 "offset": [54, 0]
               }
             },
@@ -606,7 +606,7 @@
                 "$toggle_index": 46,
                 "$toggle_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
                 "$toggle_control_name": "septuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_7",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_7",
                 "offset": [72, 0]
               }
             },
@@ -617,7 +617,7 @@
                 "$toggle_index": 47,
                 "$toggle_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
                 "$toggle_control_name": "octuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_8",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_8",
                 "offset": [90, 0]
               }
             },
@@ -628,7 +628,7 @@
                 "$toggle_index": 48,
                 "$toggle_hover_text": "tile.utilitycraft:nonuple_compressed_cobblestone.name",
                 "$toggle_control_name": "nonuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_9",
+                "$recipe_icon": "textures/blocks/compressed/cobblestone_9",
                 "offset": [108, 0]
               }
             }
@@ -658,7 +658,7 @@
                 "$toggle_index": 50,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate.name",
                 "$toggle_control_name": "compressed_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate",
+                "$recipe_icon": "textures/blocks/compressed/deepslate",
                 "offset": [18, 0]
               }
             },
@@ -669,7 +669,7 @@
                 "$toggle_index": 51,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
                 "$toggle_control_name": "compressed_deepslate_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_2",
+                "$recipe_icon": "textures/blocks/compressed/deepslate_2",
                 "offset": [36, 0]
               }
             },
@@ -680,7 +680,7 @@
                 "$toggle_index": 52,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
                 "$toggle_control_name": "compressed_deepslate_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_3",
+                "$recipe_icon": "textures/blocks/compressed/deepslate_3",
                 "offset": [54, 0]
               }
             },
@@ -691,7 +691,7 @@
                 "$toggle_index": 53,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
                 "$toggle_control_name": "compressed_deepslate_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_4",
+                "$recipe_icon": "textures/blocks/compressed/deepslate_4",
                 "offset": [72, 0]
               }
             },
@@ -713,7 +713,7 @@
                 "$toggle_index": 55,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
                 "$toggle_control_name": "compressed_gravel_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel",
+                "$recipe_icon": "textures/blocks/compressed/gravel",
                 "offset": [108, 0]
               }
             }
@@ -743,7 +743,7 @@
                 "$toggle_index": 57,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_dirt.name",
                 "$toggle_control_name": "compressed_dirt_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt",
+                "$recipe_icon": "textures/blocks/compressed/dirt",
                 "offset": [18, 0]
               }
             },
@@ -776,7 +776,7 @@
                 "$toggle_index": 60,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_sand.name",
                 "$toggle_control_name": "compressed_sand_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand",
+                "$recipe_icon": "textures/blocks/compressed/sand",
                 "offset": [72, 0]
               }
             },
@@ -798,7 +798,7 @@
                 "$toggle_index": 62,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
                 "$toggle_control_name": "compressed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
+                "$recipe_icon": "textures/blocks/compressed/netherrack",
                 "offset": [108, 0]
               }
             }
@@ -935,7 +935,7 @@
                 "$toggle_index": 73,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_coal_block.name",
                 "$toggle_control_name": "compressed_coal_block_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_coal_block",
+                "$recipe_icon": "textures/blocks/compressed/coal",
                 "offset": [54, 0]
               }
             },
@@ -946,7 +946,7 @@
                 "$toggle_index": 74,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_iron_block.name",
                 "$toggle_control_name": "compressed_iron_block_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_iron_block",
+                "$recipe_icon": "textures/blocks/compressed/iron",
                 "offset": [72, 0]
               }
             },
@@ -957,7 +957,7 @@
                 "$toggle_index": 75,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_diamond_block.name",
                 "$toggle_control_name": "compressed_diamond_block_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_diamond_block",
+                "$recipe_icon": "textures/blocks/compressed/diamond",
                 "offset": [90, 0]
               }
             }
@@ -1414,7 +1414,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/ui/recipes/wither_skull",
+                      "$slot_item_texture": "textures/static/images/wither_skull",
                       "$slot_hover_text": "item.skull.wither.name",
                       "$has_slot_hover": true
                     }
@@ -1710,7 +1710,7 @@
                       "$has_slot_count": true,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/ui/recipes/electro_press_packed_ice_input_flipbook",
+                      "$slot_item_flipbook_texture": "textures/static/images/electro_press_packed_ice_input_flipbook",
                       "$slot_item_flipbook_uv": "@uc.electro_press_packed_ice_input_animation"
                     }
                   },
@@ -1785,7 +1785,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/ui/recipes/magma",
+                      "$slot_item_texture": "textures/static/images/magma",
                       "$slot_hover_text": "tile.magma.name",
                       "$has_slot_hover": true
                     }
@@ -1831,7 +1831,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone",
                       "$slot_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1849,12 +1849,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_2",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_2",
                       "$slot_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1872,12 +1872,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_2"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_2"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_3",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_3",
                       "$slot_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1895,12 +1895,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_3"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_3"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_4",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_4",
                       "$slot_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1918,12 +1918,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_4"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_4"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_5",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_5",
                       "$slot_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1941,12 +1941,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_5"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_5"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_6",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_6",
                       "$slot_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1964,12 +1964,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_6"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_6"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_7",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_7",
                       "$slot_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -1987,12 +1987,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_7"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_7"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_8",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_8",
                       "$slot_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -2010,12 +2010,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_8"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_8"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_cobblestone_9",
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_9",
                       "$slot_hover_text": "tile.utilitycraft:nonuple_compressed_cobblestone.name",
                       "$has_slot_hover": true
                     }
@@ -2056,12 +2056,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "4",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone"
+                      "$slot_item_texture": "textures/blocks/compressed/stone"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate",
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate",
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate.name",
                       "$has_slot_hover": true
                     }
@@ -2079,12 +2079,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "4",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone_2"
+                      "$slot_item_texture": "textures/blocks/compressed/stone_2"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_2",
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate_2",
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
                       "$has_slot_hover": true
                     }
@@ -2102,12 +2102,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "4",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone_3"
+                      "$slot_item_texture": "textures/blocks/compressed/stone_3"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_3",
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate_3",
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
                       "$has_slot_hover": true
                     }
@@ -2125,12 +2125,12 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "4",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_stone_4"
+                      "$slot_item_texture": "textures/blocks/compressed/stone_4"
                     }
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_deepslate_4",
+                      "$slot_item_texture": "textures/blocks/compressed/deepslate_4",
                       "$slot_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
                       "$has_slot_hover": true
                     }
@@ -2176,7 +2176,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_gravel",
+                      "$slot_item_texture": "textures/blocks/compressed/gravel",
                       "$slot_hover_text": "tile.utilitycraft:compressed_gravel.name",
                       "$has_slot_hover": true
                     }
@@ -2222,7 +2222,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_dirt",
+                      "$slot_item_texture": "textures/blocks/compressed/dirt",
                       "$slot_hover_text": "tile.utilitycraft:compressed_dirt.name",
                       "$has_slot_hover": true
                     }
@@ -2291,7 +2291,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_sand",
+                      "$slot_item_texture": "textures/blocks/compressed/sand",
                       "$slot_hover_text": "tile.utilitycraft:compressed_sand.name",
                       "$has_slot_hover": true
                     }
@@ -2337,7 +2337,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack",
+                      "$slot_item_texture": "textures/blocks/compressed/netherrack",
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack.name",
                       "$has_slot_hover": true
                     }
@@ -2590,7 +2590,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_coal_block",
+                      "$slot_item_texture": "textures/blocks/compressed/coal",
                       "$slot_hover_text": "tile.utilitycraft:compressed_coal_block.name",
                       "$has_slot_hover": true
                     }
@@ -2613,7 +2613,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_iron_block",
+                      "$slot_item_texture": "textures/blocks/compressed/iron",
                       "$slot_hover_text": "tile.utilitycraft:compressed_iron_block.name",
                       "$has_slot_hover": true
                     }
@@ -2636,7 +2636,7 @@
                   },
                   {
                     "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_diamond_block",
+                      "$slot_item_texture": "textures/blocks/compressed/diamond",
                       "$slot_hover_text": "tile.utilitycraft:compressed_diamond_block.name",
                       "$has_slot_hover": true
                     }
