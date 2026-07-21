@@ -197,13 +197,13 @@
               }
             },
             {
-              "bone_block_toggle@uc.electro_press_recipe_toggle": {
+              "copper_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 13,
-                "$toggle_hover_text": "tile.bone_block.name",
-                "$toggle_control_name": "bone_block_recipe",
-                "$recipe_icon": "textures/blocks/bone_block_top",
+                "$toggle_hover_text": "tile.copper_ore.name",
+                "$toggle_control_name": "copper_ore_recipe",
+                "$recipe_icon": "textures/blocks/copper_ore",
                 "offset": [108, 0]
               }
             }
@@ -216,79 +216,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "dried_kelp_block_toggle@uc.electro_press_recipe_toggle": {
+              "gold_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 14,
-                "$toggle_hover_text": "tile.dried_kelp_block.name",
-                "$toggle_control_name": "dried_kelp_block_recipe",
-                "$recipe_icon": "textures/blocks/dried_kelp_top",
+                "$toggle_hover_text": "tile.gold_ore.name",
+                "$toggle_control_name": "gold_ore_recipe",
+                "$recipe_icon": "textures/blocks/gold_ore",
                 "offset": [0, 0]
               }
             },
             {
-              "hay_block_toggle@uc.electro_press_recipe_toggle": {
+              "deepslate_gold_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 15,
-                "$toggle_hover_text": "tile.hay_block.name",
-                "$toggle_control_name": "hay_block_recipe",
-                "$recipe_icon": "textures/blocks/hay_block_side",
+                "$toggle_hover_text": "tile.deepslate_gold_ore.name",
+                "$toggle_control_name": "deepslate_gold_ore_recipe",
+                "$recipe_icon": "textures/blocks/deepslate/deepslate_gold_ore",
                 "offset": [18, 0]
               }
             },
             {
-              "wool_toggle@uc.electro_press_recipe_toggle": {
+              "iron_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 16,
-                "$toggle_hover_text": "tile.wool.name",
-                "$toggle_control_name": "wool_recipe",
-                "$recipe_icon": "textures/blocks/wool_colored_white",
+                "$toggle_hover_text": "tile.iron_ore.name",
+                "$toggle_control_name": "iron_ore_recipe",
+                "$recipe_icon": "textures/blocks/iron_ore",
                 "offset": [36, 0]
               }
             },
             {
-              "clay_toggle@uc.electro_press_recipe_toggle": {
+              "deepslate_iron_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 17,
-                "$toggle_hover_text": "tile.clay.name",
-                "$toggle_control_name": "clay_recipe",
-                "$recipe_icon": "textures/blocks/clay",
+                "$toggle_hover_text": "tile.deepslate_iron_ore.name",
+                "$toggle_control_name": "deepslate_iron_ore_recipe",
+                "$recipe_icon": "textures/blocks/deepslate/deepslate_iron_ore",
                 "offset": [54, 0]
               }
             },
             {
-              "brick_block_toggle@uc.electro_press_recipe_toggle": {
+              "coal_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 18,
-                "$toggle_hover_text": "tile.brick_block.name",
-                "$toggle_control_name": "brick_block_recipe",
-                "$recipe_icon": "textures/blocks/brick",
+                "$toggle_hover_text": "tile.coal_ore.name",
+                "$toggle_control_name": "coal_ore_recipe",
+                "$recipe_icon": "textures/blocks/coal_ore",
                 "offset": [72, 0]
               }
             },
             {
-              "nether_brick_toggle@uc.electro_press_recipe_toggle": {
+              "deepslate_coal_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 19,
-                "$toggle_hover_text": "tile.nether_brick.name",
-                "$toggle_control_name": "nether_brick_recipe",
-                "$recipe_icon": "textures/blocks/nether_brick",
+                "$toggle_hover_text": "tile.deepslate_coal_ore.name",
+                "$toggle_control_name": "deepslate_coal_ore_recipe",
+                "$recipe_icon": "textures/blocks/deepslate/deepslate_coal_ore",
                 "offset": [90, 0]
               }
             },
             {
-              "glowstone_toggle@uc.electro_press_recipe_toggle": {
+              "quartz_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 20,
-                "$toggle_hover_text": "tile.glowstone.name",
-                "$toggle_control_name": "glowstone_recipe",
-                "$recipe_icon": "textures/blocks/glowstone",
+                "$toggle_hover_text": "tile.quartz_ore.name",
+                "$toggle_control_name": "quartz_ore_recipe",
+                "$recipe_icon": "textures/blocks/quartz_ore",
                 "offset": [108, 0]
               }
             }
@@ -301,79 +301,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "quartz_block_toggle@uc.electro_press_recipe_toggle": {
+              "nether_gold_ore_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 21,
-                "$toggle_hover_text": "tile.quartz_block.name",
-                "$toggle_control_name": "quartz_block_recipe",
-                "$recipe_icon": "textures/blocks/quartz_block_side",
+                "$toggle_hover_text": "tile.nether_gold_ore.name",
+                "$toggle_control_name": "nether_gold_ore_recipe",
+                "$recipe_icon": "textures/blocks/nether_gold_ore",
                 "offset": [0, 0]
               }
             },
             {
-              "amethyst_block_toggle@uc.electro_press_recipe_toggle": {
+              "ancient_debris_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 22,
-                "$toggle_hover_text": "tile.amethyst_block.name",
-                "$toggle_control_name": "amethyst_block_recipe",
-                "$recipe_icon": "textures/blocks/amethyst_block",
+                "$toggle_hover_text": "tile.ancient_debris.name",
+                "$toggle_control_name": "ancient_debris_recipe",
+                "$recipe_icon": "textures/blocks/ancient_debris_side",
                 "offset": [18, 0]
               }
             },
             {
-              "snow_toggle@uc.electro_press_recipe_toggle": {
+              "bone_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 23,
-                "$toggle_hover_text": "tile.snow.name",
-                "$toggle_control_name": "snow_recipe",
-                "$recipe_icon": "textures/blocks/snow",
+                "$toggle_hover_text": "tile.bone_block.name",
+                "$toggle_control_name": "bone_block_recipe",
+                "$recipe_icon": "textures/blocks/bone_block_top",
                 "offset": [36, 0]
               }
             },
             {
-              "packed_ice_toggle@uc.electro_press_recipe_toggle": {
+              "dried_kelp_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 24,
-                "$toggle_hover_text": "tile.packed_ice.name",
-                "$toggle_control_name": "packed_ice_recipe",
-                "$recipe_icon": "textures/blocks/ice_packed",
+                "$toggle_hover_text": "tile.dried_kelp_block.name",
+                "$toggle_control_name": "dried_kelp_block_recipe",
+                "$recipe_icon": "textures/blocks/dried_kelp_top",
                 "offset": [54, 0]
               }
             },
             {
-              "blue_ice_toggle@uc.electro_press_recipe_toggle": {
+              "hay_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 25,
-                "$toggle_hover_text": "tile.blue_ice.name",
-                "$toggle_control_name": "blue_ice_recipe",
-                "$recipe_icon": "textures/blocks/blue_ice",
+                "$toggle_hover_text": "tile.hay_block.name",
+                "$toggle_control_name": "hay_block_recipe",
+                "$recipe_icon": "textures/blocks/hay_block_side",
                 "offset": [72, 0]
               }
             },
             {
-              "slime_toggle@uc.electro_press_recipe_toggle": {
+              "wool_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 26,
-                "$toggle_hover_text": "tile.slime.name",
-                "$toggle_control_name": "slime_recipe",
-                "$recipe_icon": "textures/blocks/slime",
+                "$toggle_hover_text": "tile.wool.name",
+                "$toggle_control_name": "wool_recipe",
+                "$recipe_icon": "textures/blocks/wool_colored_white",
                 "offset": [90, 0]
               }
             },
             {
-              "magma_toggle@uc.electro_press_recipe_toggle": {
+              "clay_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 27,
-                "$toggle_hover_text": "tile.magma.name",
-                "$toggle_control_name": "magma_recipe",
-                "$recipe_icon": "textures/ui/recipes/magma",
+                "$toggle_hover_text": "tile.clay.name",
+                "$toggle_control_name": "clay_recipe",
+                "$recipe_icon": "textures/blocks/clay",
                 "offset": [108, 0]
               }
             }
@@ -386,79 +386,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "brick_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 28,
-                "$toggle_hover_text": "tile.cobblestone.name",
-                "$toggle_control_name": "cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/cobblestone",
+                "$toggle_hover_text": "tile.brick_block.name",
+                "$toggle_control_name": "brick_block_recipe",
+                "$recipe_icon": "textures/blocks/brick",
                 "offset": [0, 0]
               }
             },
             {
-              "compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "nether_brick_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 29,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
-                "$toggle_control_name": "compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone",
+                "$toggle_hover_text": "tile.nether_brick.name",
+                "$toggle_control_name": "nether_brick_recipe",
+                "$recipe_icon": "textures/blocks/nether_brick",
                 "offset": [18, 0]
               }
             },
             {
-              "double_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "glowstone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 30,
-                "$toggle_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
-                "$toggle_control_name": "double_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_2",
+                "$toggle_hover_text": "tile.glowstone.name",
+                "$toggle_control_name": "glowstone_recipe",
+                "$recipe_icon": "textures/blocks/glowstone",
                 "offset": [36, 0]
               }
             },
             {
-              "triple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "sulfur_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 31,
-                "$toggle_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
-                "$toggle_control_name": "triple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_3",
+                "$toggle_hover_text": "tile.sulfur.name",
+                "$toggle_control_name": "sulfur_recipe",
+                "$recipe_icon": "textures/blocks/sulfur",
                 "offset": [54, 0]
               }
             },
             {
-              "quadruple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "quartz_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 32,
-                "$toggle_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
-                "$toggle_control_name": "quadruple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_4",
+                "$toggle_hover_text": "tile.quartz_block.name",
+                "$toggle_control_name": "quartz_block_recipe",
+                "$recipe_icon": "textures/blocks/quartz_block_side",
                 "offset": [72, 0]
               }
             },
             {
-              "quintuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "amethyst_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 33,
-                "$toggle_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
-                "$toggle_control_name": "quintuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_5",
+                "$toggle_hover_text": "tile.amethyst_block.name",
+                "$toggle_control_name": "amethyst_block_recipe",
+                "$recipe_icon": "textures/blocks/amethyst_block",
                 "offset": [90, 0]
               }
             },
             {
-              "sextuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "snow_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 34,
-                "$toggle_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
-                "$toggle_control_name": "sextuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_6",
+                "$toggle_hover_text": "tile.snow.name",
+                "$toggle_control_name": "snow_recipe",
+                "$recipe_icon": "textures/blocks/snow",
                 "offset": [108, 0]
               }
             }
@@ -471,79 +471,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "septuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "packed_ice_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 35,
-                "$toggle_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
-                "$toggle_control_name": "septuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_7",
+                "$toggle_hover_text": "tile.packed_ice.name",
+                "$toggle_control_name": "packed_ice_recipe",
+                "$recipe_icon": "textures/blocks/ice_packed",
                 "offset": [0, 0]
               }
             },
             {
-              "octuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "blue_ice_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 36,
-                "$toggle_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
-                "$toggle_control_name": "octuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_8",
+                "$toggle_hover_text": "tile.blue_ice.name",
+                "$toggle_control_name": "blue_ice_recipe",
+                "$recipe_icon": "textures/blocks/blue_ice",
                 "offset": [18, 0]
               }
             },
             {
-              "nonuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
+              "slime_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 37,
-                "$toggle_hover_text": "tile.utilitycraft:nonuple_compressed_cobblestone.name",
-                "$toggle_control_name": "nonuple_compressed_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_9",
+                "$toggle_hover_text": "tile.slime.name",
+                "$toggle_control_name": "slime_recipe",
+                "$recipe_icon": "textures/blocks/slime",
                 "offset": [36, 0]
               }
             },
             {
-              "deepslate_toggle@uc.electro_press_recipe_toggle": {
+              "magma_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 38,
-                "$toggle_hover_text": "tile.deepslate.name",
-                "$toggle_control_name": "deepslate_recipe",
-                "$recipe_icon": "textures/blocks/deepslate/deepslate",
+                "$toggle_hover_text": "tile.magma.name",
+                "$toggle_control_name": "magma_recipe",
+                "$recipe_icon": "textures/ui/recipes/magma",
                 "offset": [54, 0]
               }
             },
             {
-              "compressed_deepslate_toggle@uc.electro_press_recipe_toggle": {
+              "cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 39,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate.name",
-                "$toggle_control_name": "compressed_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate",
+                "$toggle_hover_text": "tile.cobblestone.name",
+                "$toggle_control_name": "cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/cobblestone",
                 "offset": [72, 0]
               }
             },
             {
-              "compressed_deepslate_2_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 40,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
-                "$toggle_control_name": "compressed_deepslate_2_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_2",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_cobblestone.name",
+                "$toggle_control_name": "compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone",
                 "offset": [90, 0]
               }
             },
             {
-              "compressed_deepslate_3_toggle@uc.electro_press_recipe_toggle": {
+              "double_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 41,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
-                "$toggle_control_name": "compressed_deepslate_3_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_3",
+                "$toggle_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
+                "$toggle_control_name": "double_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_2",
                 "offset": [108, 0]
               }
             }
@@ -556,79 +556,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "compressed_deepslate_4_toggle@uc.electro_press_recipe_toggle": {
+              "triple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 42,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
-                "$toggle_control_name": "compressed_deepslate_4_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_4",
+                "$toggle_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
+                "$toggle_control_name": "triple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_3",
                 "offset": [0, 0]
               }
             },
             {
-              "cobbled_deepslate_toggle@uc.electro_press_recipe_toggle": {
+              "quadruple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 43,
-                "$toggle_hover_text": "tile.cobbled_deepslate.name",
-                "$toggle_control_name": "cobbled_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/deepslate/cobbled_deepslate",
+                "$toggle_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
+                "$toggle_control_name": "quadruple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_4",
                 "offset": [18, 0]
               }
             },
             {
-              "crushed_cobbled_deepslate_toggle@uc.electro_press_recipe_toggle": {
+              "quintuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 44,
-                "$toggle_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
-                "$toggle_control_name": "crushed_cobbled_deepslate_recipe",
-                "$recipe_icon": "textures/blocks/crushed_cobbled_deepslate",
+                "$toggle_hover_text": "tile.utilitycraft:quintuple_compressed_cobblestone.name",
+                "$toggle_control_name": "quintuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_5",
                 "offset": [36, 0]
               }
             },
             {
-              "gravel_toggle@uc.electro_press_recipe_toggle": {
+              "sextuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 45,
-                "$toggle_hover_text": "tile.gravel.name",
-                "$toggle_control_name": "gravel_recipe",
-                "$recipe_icon": "textures/blocks/gravel",
+                "$toggle_hover_text": "tile.utilitycraft:sextuple_compressed_cobblestone.name",
+                "$toggle_control_name": "sextuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_6",
                 "offset": [54, 0]
               }
             },
             {
-              "compressed_gravel_toggle@uc.electro_press_recipe_toggle": {
+              "septuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 46,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
-                "$toggle_control_name": "compressed_gravel_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel",
+                "$toggle_hover_text": "tile.utilitycraft:septuple_compressed_cobblestone.name",
+                "$toggle_control_name": "septuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_7",
                 "offset": [72, 0]
               }
             },
             {
-              "dirt_toggle@uc.electro_press_recipe_toggle": {
+              "octuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 47,
-                "$toggle_hover_text": "tile.dirt.name",
-                "$toggle_control_name": "dirt_recipe",
-                "$recipe_icon": "textures/blocks/dirt",
+                "$toggle_hover_text": "tile.utilitycraft:octuple_compressed_cobblestone.name",
+                "$toggle_control_name": "octuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_8",
                 "offset": [90, 0]
               }
             },
             {
-              "compressed_dirt_toggle@uc.electro_press_recipe_toggle": {
+              "nonuple_compressed_cobblestone_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 48,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_dirt.name",
-                "$toggle_control_name": "compressed_dirt_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt",
+                "$toggle_hover_text": "tile.utilitycraft:nonuple_compressed_cobblestone.name",
+                "$toggle_control_name": "nonuple_compressed_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_cobblestone_9",
                 "offset": [108, 0]
               }
             }
@@ -641,79 +641,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "mud_toggle@uc.electro_press_recipe_toggle": {
+              "deepslate_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 49,
-                "$toggle_hover_text": "tile.mud.name",
-                "$toggle_control_name": "mud_recipe",
-                "$recipe_icon": "textures/blocks/mud",
+                "$toggle_hover_text": "tile.deepslate.name",
+                "$toggle_control_name": "deepslate_recipe",
+                "$recipe_icon": "textures/blocks/deepslate/deepslate",
                 "offset": [0, 0]
               }
             },
             {
-              "sand_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_deepslate_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 50,
-                "$toggle_hover_text": "tile.sand.name",
-                "$toggle_control_name": "sand_recipe",
-                "$recipe_icon": "textures/blocks/sand",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate.name",
+                "$toggle_control_name": "compressed_deepslate_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate",
                 "offset": [18, 0]
               }
             },
             {
-              "compressed_sand_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_deepslate_2_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 51,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_sand.name",
-                "$toggle_control_name": "compressed_sand_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_2.name",
+                "$toggle_control_name": "compressed_deepslate_2_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_2",
                 "offset": [36, 0]
               }
             },
             {
-              "red_sand_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_deepslate_3_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 52,
-                "$toggle_hover_text": "tile.sand.red.name",
-                "$toggle_control_name": "red_sand_recipe",
-                "$recipe_icon": "textures/blocks/red_sand",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_3.name",
+                "$toggle_control_name": "compressed_deepslate_3_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_3",
                 "offset": [54, 0]
               }
             },
             {
-              "soul_sand_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_deepslate_4_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 53,
-                "$toggle_hover_text": "tile.soul_sand.name",
-                "$toggle_control_name": "soul_sand_recipe",
-                "$recipe_icon": "textures/blocks/soul_sand",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_deepslate_4.name",
+                "$toggle_control_name": "compressed_deepslate_4_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_deepslate_4",
                 "offset": [72, 0]
               }
             },
             {
-              "netherrack_toggle@uc.electro_press_recipe_toggle": {
+              "gravel_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 54,
-                "$toggle_hover_text": "tile.netherrack.name",
-                "$toggle_control_name": "netherrack_recipe",
-                "$recipe_icon": "textures/blocks/netherrack",
+                "$toggle_hover_text": "tile.gravel.name",
+                "$toggle_control_name": "gravel_recipe",
+                "$recipe_icon": "textures/blocks/gravel",
                 "offset": [90, 0]
               }
             },
             {
-              "compressed_netherrack_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_gravel_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 55,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
-                "$toggle_control_name": "compressed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_gravel.name",
+                "$toggle_control_name": "compressed_gravel_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_gravel",
                 "offset": [108, 0]
               }
             }
@@ -726,79 +726,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "crushed_netherrack_toggle@uc.electro_press_recipe_toggle": {
+              "dirt_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 56,
-                "$toggle_hover_text": "tile.utilitycraft:crushed_netherrack.name",
-                "$toggle_control_name": "crushed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/crushed_netherrack",
+                "$toggle_hover_text": "tile.dirt.name",
+                "$toggle_control_name": "dirt_recipe",
+                "$recipe_icon": "textures/blocks/dirt",
                 "offset": [0, 0]
               }
             },
             {
-              "nether_wart_block_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_dirt_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 57,
-                "$toggle_hover_text": "tile.nether_wart_block.name",
-                "$toggle_control_name": "nether_wart_block_recipe",
-                "$recipe_icon": "textures/blocks/nether_wart_block",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_dirt.name",
+                "$toggle_control_name": "compressed_dirt_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_dirt",
                 "offset": [18, 0]
               }
             },
             {
-              "basalt_toggle@uc.electro_press_recipe_toggle": {
+              "mud_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 58,
-                "$toggle_hover_text": "tile.basalt.name",
-                "$toggle_control_name": "basalt_recipe",
-                "$recipe_icon": "textures/blocks/basalt_side",
+                "$toggle_hover_text": "tile.mud.name",
+                "$toggle_control_name": "mud_recipe",
+                "$recipe_icon": "textures/blocks/mud",
                 "offset": [36, 0]
               }
             },
             {
-              "blackstone_toggle@uc.electro_press_recipe_toggle": {
+              "sand_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 59,
-                "$toggle_hover_text": "tile.blackstone.name",
-                "$toggle_control_name": "blackstone_recipe",
-                "$recipe_icon": "textures/blocks/blackstone",
+                "$toggle_hover_text": "tile.sand.name",
+                "$toggle_control_name": "sand_recipe",
+                "$recipe_icon": "textures/blocks/sand",
                 "offset": [54, 0]
               }
             },
             {
-              "gilded_blackstone_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_sand_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 60,
-                "$toggle_hover_text": "tile.gilded_blackstone.name",
-                "$toggle_control_name": "gilded_blackstone_recipe",
-                "$recipe_icon": "textures/blocks/gilded_blackstone",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_sand.name",
+                "$toggle_control_name": "compressed_sand_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_sand",
                 "offset": [72, 0]
               }
             },
             {
-              "end_stone_toggle@uc.electro_press_recipe_toggle": {
+              "red_sand_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 61,
-                "$toggle_hover_text": "tile.end_stone.name",
-                "$toggle_control_name": "end_stone_recipe",
-                "$recipe_icon": "textures/blocks/end_stone",
+                "$toggle_hover_text": "tile.sand.red.name",
+                "$toggle_control_name": "red_sand_recipe",
+                "$recipe_icon": "textures/blocks/red_sand",
                 "offset": [90, 0]
               }
             },
             {
-              "crushed_endstone_toggle@uc.electro_press_recipe_toggle": {
+              "compressed_netherrack_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 62,
-                "$toggle_hover_text": "tile.utilitycraft:crushed_endstone.name",
-                "$toggle_control_name": "crushed_endstone_recipe",
-                "$recipe_icon": "textures/blocks/Crushed_endstone",
+                "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
+                "$toggle_control_name": "compressed_netherrack_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
                 "offset": [108, 0]
               }
             }
@@ -811,79 +811,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "andesite_toggle@uc.electro_press_recipe_toggle": {
+              "nether_wart_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 63,
+                "$toggle_hover_text": "tile.nether_wart_block.name",
+                "$toggle_control_name": "nether_wart_block_recipe",
+                "$recipe_icon": "textures/blocks/nether_wart_block",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "basalt_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 64,
+                "$toggle_hover_text": "tile.basalt.name",
+                "$toggle_control_name": "basalt_recipe",
+                "$recipe_icon": "textures/blocks/basalt_side",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "blackstone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 65,
+                "$toggle_hover_text": "tile.blackstone.name",
+                "$toggle_control_name": "blackstone_recipe",
+                "$recipe_icon": "textures/blocks/blackstone",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "gilded_blackstone_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 66,
+                "$toggle_hover_text": "tile.gilded_blackstone.name",
+                "$toggle_control_name": "gilded_blackstone_recipe",
+                "$recipe_icon": "textures/blocks/gilded_blackstone",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "andesite_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 67,
                 "$toggle_hover_text": "tile.stone.andesite.name",
                 "$toggle_control_name": "andesite_recipe",
                 "$recipe_icon": "textures/blocks/stone_andesite",
-                "offset": [0, 0]
+                "offset": [72, 0]
               }
             },
             {
               "diorite_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 64,
+                "$toggle_index": 68,
                 "$toggle_hover_text": "tile.stone.diorite.name",
                 "$toggle_control_name": "diorite_recipe",
                 "$recipe_icon": "textures/blocks/stone_diorite",
-                "offset": [18, 0]
+                "offset": [90, 0]
               }
             },
             {
               "granite_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 65,
+                "$toggle_index": 69,
                 "$toggle_hover_text": "tile.stone.granite.name",
                 "$toggle_control_name": "granite_recipe",
                 "$recipe_icon": "textures/blocks/stone_granite",
-                "offset": [36, 0]
-              }
-            },
-            {
-              "calcite_toggle@uc.electro_press_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 66,
-                "$toggle_hover_text": "tile.calcite.name",
-                "$toggle_control_name": "calcite_recipe",
-                "$recipe_icon": "textures/blocks/calcite",
-                "offset": [54, 0]
-              }
-            },
-            {
-              "tuff_toggle@uc.electro_press_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 67,
-                "$toggle_hover_text": "tile.tuff.name",
-                "$toggle_control_name": "tuff_recipe",
-                "$recipe_icon": "textures/blocks/tuff",
-                "offset": [72, 0]
-              }
-            },
-            {
-              "dripstone_block_toggle@uc.electro_press_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 68,
-                "$toggle_hover_text": "tile.dripstone_block.name",
-                "$toggle_control_name": "dripstone_block_recipe",
-                "$recipe_icon": "textures/blocks/dripstone_block",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "compressed_coal_block_toggle@uc.electro_press_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 69,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_coal_block.name",
-                "$toggle_control_name": "compressed_coal_block_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_coal_block",
                 "offset": [108, 0]
               }
             }
@@ -896,25 +896,69 @@
           "size": [126, 18],
           "controls": [
             {
-              "compressed_iron_block_toggle@uc.electro_press_recipe_toggle": {
+              "calcite_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 70,
+                "$toggle_hover_text": "tile.calcite.name",
+                "$toggle_control_name": "calcite_recipe",
+                "$recipe_icon": "textures/blocks/calcite",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "tuff_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 71,
+                "$toggle_hover_text": "tile.tuff.name",
+                "$toggle_control_name": "tuff_recipe",
+                "$recipe_icon": "textures/blocks/tuff",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "dripstone_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 72,
+                "$toggle_hover_text": "tile.dripstone_block.name",
+                "$toggle_control_name": "dripstone_block_recipe",
+                "$recipe_icon": "textures/blocks/dripstone_block",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "compressed_coal_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 73,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_coal_block.name",
+                "$toggle_control_name": "compressed_coal_block_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_coal_block",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "compressed_iron_block_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 74,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_iron_block.name",
                 "$toggle_control_name": "compressed_iron_block_recipe",
                 "$recipe_icon": "textures/blocks/compressed_blocks/compressed_iron_block",
-                "offset": [0, 0]
+                "offset": [72, 0]
               }
             },
             {
               "compressed_diamond_block_toggle@uc.electro_press_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 71,
+                "$toggle_index": 75,
                 "$toggle_hover_text": "tile.utilitycraft:compressed_diamond_block.name",
                 "$toggle_control_name": "compressed_diamond_block_recipe",
                 "$recipe_icon": "textures/blocks/compressed_blocks/compressed_diamond_block",
-                "offset": [18, 0]
+                "offset": [90, 0]
               }
             }
           ]
@@ -1248,7 +1292,7 @@
                     "input@uc.electro_press_recipe_input": {
                       "$slot_hover_text": "item.utilitycraft:diamond_shard",
                       "$has_slot_hover": true,
-                      "$slot_count_text": "9",
+                      "$slot_count_text": "4",
                       "$has_slot_count": true,
                       "$slot_item_texture": "textures/items/pebbles/diamond_shard"
                     }
@@ -1271,7 +1315,7 @@
                     "input@uc.electro_press_recipe_input": {
                       "$slot_hover_text": "item.utilitycraft:emerald_shard",
                       "$has_slot_hover": true,
-                      "$slot_count_text": "9",
+                      "$slot_count_text": "4",
                       "$has_slot_count": true,
                       "$slot_item_texture": "textures/items/pebbles/emerald_shard"
                     }
@@ -1557,6 +1601,29 @@
                       "$slot_hover_text": "tile.glowstone.name",
                       "$has_slot_hover": true,
                       "$slot_item_texture": "textures/blocks/glowstone"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "sulfur_panel@uc.recipe_panel": {
+                "$recipe_control_name": "sulfur_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "tile.sulfur_spike.name",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/blocks/sulfur_spike_up_tip"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.sulfur.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/sulfur"
                     }
                   }
                 ]
@@ -2072,52 +2139,6 @@
               }
             },
             {
-              "cobbled_deepslate_panel@uc.recipe_panel": {
-                "$recipe_control_name": "cobbled_deepslate_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:deepslate_pebble",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/deepslate_pebble"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/deepslate/cobbled_deepslate",
-                      "$slot_hover_text": "tile.cobbled_deepslate.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "crushed_cobbled_deepslate_panel@uc.recipe_panel": {
-                "$recipe_control_name": "crushed_cobbled_deepslate_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:crushed_deepslate_handful",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/crushed_deepslate_handful"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/crushed_cobbled_deepslate",
-                      "$slot_hover_text": "tile.utilitycraft:crushed_cobbled_deepslate.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
               "gravel_panel@uc.recipe_panel": {
                 "$recipe_control_name": "gravel_recipe",
                 "controls": [
@@ -2302,52 +2323,6 @@
               }
             },
             {
-              "soul_sand_panel@uc.recipe_panel": {
-                "$recipe_control_name": "soul_sand_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:souls_handful",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/souls_handful"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/soul_sand",
-                      "$slot_hover_text": "tile.soul_sand.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "netherrack_panel@uc.recipe_panel": {
-                "$recipe_control_name": "netherrack_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:netherrack_pebble",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/Netherrack_pebble"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/netherrack",
-                      "$slot_hover_text": "tile.netherrack.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
               "compressed_netherrack_panel@uc.recipe_panel": {
                 "$recipe_control_name": "compressed_netherrack_recipe",
                 "controls": [
@@ -2364,29 +2339,6 @@
                     "output@uc.electro_press_recipe_output": {
                       "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_netherrack",
                       "$slot_hover_text": "tile.utilitycraft:compressed_netherrack.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "crushed_netherrack_panel@uc.recipe_panel": {
-                "$recipe_control_name": "crushed_netherrack_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:crushed_netherrack_handful",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/crushed_netherrack_handful"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/crushed_netherrack",
-                      "$slot_hover_text": "tile.utilitycraft:crushed_netherrack.name",
                       "$has_slot_hover": true
                     }
                   }
@@ -2479,52 +2431,6 @@
                     "output@uc.electro_press_recipe_output": {
                       "$slot_item_texture": "textures/blocks/gilded_blackstone",
                       "$slot_hover_text": "tile.gilded_blackstone.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "end_stone_panel@uc.recipe_panel": {
-                "$recipe_control_name": "end_stone_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:endstone_pebble",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/Endstone_pebble"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/end_stone",
-                      "$slot_hover_text": "tile.end_stone.name",
-                      "$has_slot_hover": true
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "crushed_endstone_panel@uc.recipe_panel": {
-                "$recipe_control_name": "crushed_endstone_recipe",
-                "controls": [
-                  {
-                    "input@uc.electro_press_recipe_input": {
-                      "$slot_hover_text": "item.utilitycraft:crushed_endstone_handful",
-                      "$has_slot_hover": true,
-                      "$slot_count_text": "4",
-                      "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/crushed_endstone_handful"
-                    }
-                  },
-                  {
-                    "output@uc.electro_press_recipe_output": {
-                      "$slot_item_texture": "textures/blocks/Crushed_endstone",
-                      "$slot_hover_text": "tile.utilitycraft:crushed_endstone.name",
                       "$has_slot_hover": true
                     }
                   }
@@ -2733,6 +2639,236 @@
                       "$slot_item_texture": "textures/blocks/compressed_blocks/compressed_diamond_block",
                       "$slot_hover_text": "tile.utilitycraft:compressed_diamond_block.name",
                       "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "copper_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "copper_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:copper_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/copper_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.copper_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/copper_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "gold_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "gold_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:gold_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/gold_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.gold_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/gold_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "iron_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "iron_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:iron_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/iron_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.iron_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/iron_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "coal_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "coal_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:coal_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/coal_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.coal_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/coal_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_gold_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_gold_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:deepslate_gold_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/deepslate_gold_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.deepslate_gold_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/deepslate/deepslate_gold_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_iron_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_iron_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:deepslate_iron_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/deepslate_iron_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.deepslate_iron_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/deepslate/deepslate_iron_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_coal_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_coal_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:deepslate_coal_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/deepslate_coal_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.deepslate_coal_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/deepslate/deepslate_coal_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "quartz_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "quartz_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:nether_quartz_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/nether_quartz_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.quartz_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/quartz_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "nether_gold_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "nether_gold_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:nether_gold_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/nether_gold_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.nether_gold_ore.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/nether_gold_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "ancient_debris_panel@uc.recipe_panel": {
+                "$recipe_control_name": "ancient_debris_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_hover_text": "item.utilitycraft:ancient_debris_chunk",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true,
+                      "$slot_item_texture": "textures/items/pebbles/ancient_debris_chunk"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_hover_text": "tile.ancient_debris.name",
+                      "$has_slot_hover": true,
+                      "$slot_item_texture": "textures/blocks/ancient_debris_side"
                     }
                   }
                 ]

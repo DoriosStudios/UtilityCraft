@@ -13,17 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "ancient_debris"
+			"item": "minecraft:ancient_debris"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:ancient_debris_chunk"
 			},
 			{
-				"item": "ancient_debris"
+				"item": "minecraft:ancient_debris"
 			}
 		]
 	}

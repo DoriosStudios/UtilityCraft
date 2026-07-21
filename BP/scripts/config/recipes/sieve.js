@@ -27,7 +27,7 @@ DoriosLib.registry.itemComponent("utilitycraft:mesh", {
  *
  * @typedef {Object} SieveLoot
  * @property {string} item   Item identifier (namespace:item_name).
- * @property {number} amount Number of items granted on success.
+ * @property {number} amount Maximum number of items granted on success.
  * @property {number} chance Drop probability (0–1).
  * @property {number} tier   Minimum sieve tier required.
  */
@@ -46,12 +46,14 @@ export const acceptedBlocks = [
   "minecraft:sand",
   "minecraft:soul_sand",
   "utilitycraft:crushed_netherrack",
+  "utilitycraft:crushed_blackstone",
   "utilitycraft:crushed_endstone",
   "utilitycraft:crushed_cobbled_deepslate",
   "utilitycraft:compressed_gravel",
   "utilitycraft:compressed_dirt",
   "utilitycraft:compressed_sand",
   "utilitycraft:compressed_crushed_netherrack",
+  "utilitycraft:compressed_crushed_blackstone",
   "utilitycraft:compressed_crushed_cobbled_deepslate",
   "utilitycraft:compressed_crushed_endstone",
 ];
@@ -67,13 +69,13 @@ export const sieveRecipes = {};
 const sieveRecipesRegister = {
   "minecraft:gravel": [
     { item: "minecraft:flint", amount: 1, chance: 0.2, tier: 0 },
+    { item: "utilitycraft:dripstone_pebble", amount: 1, chance: 0.15, tier: 1 },
     { item: "utilitycraft:iron_chunk", amount: 1, chance: 0.15, tier: 1 },
     { item: "utilitycraft:coal_chunk", amount: 1, chance: 0.25, tier: 0 },
     { item: "utilitycraft:gold_chunk", amount: 1, chance: 0.05, tier: 3 },
-    { item: "utilitycraft:redstone_chunk", amount: 1, chance: 0.2, tier: 2 },
-    { item: "utilitycraft:lapislazuli_chunk", amount: 1, chance: 0.025, tier: 3 },
-    { item: "utilitycraft:emerald_chunk", amount: 1, chance: 0.02, tier: 4 },
-    { item: "utilitycraft:diamond_chunk", amount: 1, chance: 0.01, tier: 4 },
+    { item: "minecraft:lapis_lazuli", amount: 4, chance: 0.025, tier: 3 },
+    { item: "utilitycraft:emerald_shard", amount: 1, chance: 0.02, tier: 4 },
+    { item: "utilitycraft:diamond_shard", amount: 1, chance: 0.01, tier: 4 },
   ],
   "minecraft:dirt": [
     { item: "minecraft:carrot", amount: 1, chance: 0.1 },
@@ -104,9 +106,17 @@ const sieveRecipesRegister = {
   ],
   "utilitycraft:crushed_netherrack": [
     { item: "utilitycraft:nether_quartz_chunk", amount: 1, chance: 0.33, tier: 1 },
-    { item: "minecraft:gold_nugget", amount: 1, chance: 0.2, tier: 3 },
     { item: "utilitycraft:nether_gold_chunk", amount: 1, chance: 0.33, tier: 3 },
     { item: "utilitycraft:ancient_debris_chunk", amount: 1, chance: 0.025, tier: 5 },
+  ],
+  "utilitycraft:crushed_blackstone": [
+    { item: "utilitycraft:blackstone_pebble", amount: 1, chance: 0.25, tier: 0 },
+    { item: "utilitycraft:basalt_pebble", amount: 1, chance: 0.3, tier: 1 },
+    { item: "minecraft:sulfur_spike", amount: 1, chance: 0.12, tier: 2 },
+    { item: "minecraft:gold_nugget", amount: 1, chance: 0.2, tier: 3 },
+    { item: "utilitycraft:gilded_blackstone_pebble", amount: 1, chance: 0.33, tier: 3 },
+    { item: "minecraft:magma_cream", amount: 1, chance: 0.04, tier: 4 },
+    { item: "utilitycraft:ancient_debris_chunk", amount: 1, chance: 0.02, tier: 5 },
   ],
   "minecraft:sand": [
     { item: "minecraft:prismarine_shard", amount: 1, chance: 0.1, tier: 2 },
@@ -121,7 +131,7 @@ const sieveRecipesRegister = {
     { item: "minecraft:clay_ball", amount: 1, chance: 0.1, tier: 2 },
     { item: "minecraft:cocoa_beans", amount: 1, chance: 0.01 },
     { item: "minecraft:conduit", amount: 1, chance: 0.005, tier: 4 },
-    { item: "minecraft:redstone", amount: 1, chance: 0.2, tier: 2 },
+    { item: "minecraft:redstone", amount: 4, chance: 0.2, tier: 2 },
     // Integrated Storage
     { item: "ae2be:certus_quartz_crystal", amount: 1, chance: 0.17, tier: 3 },
     { item: "ae2be:charged_certus_quartz_crystal", amount: 1, chance: 0.01, tier: 4 },
@@ -138,30 +148,33 @@ const sieveRecipesRegister = {
   "utilitycraft:crushed_endstone": [
     { item: "minecraft:chorus_flower", amount: 1, chance: 0.01, tier: 4 },
     { item: "minecraft:chorus_fruit", amount: 1, chance: 0.8, tier: 4 },
-    { item: "minecraft:ender_pearl", amount: 1, chance: 0.16, tier: 4 },
+    { item: "minecraft:ender_pearl", amount: 1, chance: 0.16, tier: 6 },
+    { item: "utilitycraft:shulker_shell_shard", amount: 1, chance: 0.005, tier: 6 },
   ],
   "utilitycraft:crushed_cobbled_deepslate": [
     { item: "minecraft:echo_shard", amount: 1, chance: 0.025, tier: 5 },
     { item: "minecraft:sculk_catalyst", amount: 1, chance: 0.005, tier: 5 },
-    { item: "minecraft:amethyst_shard", amount: 1, chance: 0.05, tier: 5 },
-    { item: "utilitycraft:deepslate_redstone_chunk", amount: 1, chance: 0.3, tier: 2 },
-    { item: "utilitycraft:deepslate_diamond_chunk", amount: 1, chance: 0.05, tier: 4 },
-    { item: "utilitycraft:deepslate_emerald_chunk", amount: 1, chance: 0.05, tier: 4 },
+    { item: "utilitycraft:geode", amount: 1, chance: 0.025, tier: 5 },
+    { item: "utilitycraft:calcite_pebble", amount: 1, chance: 0.12, tier: 2 },
+    { item: "utilitycraft:tuff_pebble", amount: 1, chance: 0.18, tier: 1 },
+    { item: "minecraft:ender_pearl", amount: 1, chance: 0.02, tier: 6 },
+    { item: "utilitycraft:diamond_shard", amount: 1, chance: 0.05, tier: 4 },
+    { item: "utilitycraft:emerald_shard", amount: 1, chance: 0.05, tier: 4 },
     { item: "utilitycraft:deepslate_gold_chunk", amount: 1, chance: 0.2, tier: 4 },
     { item: "utilitycraft:deepslate_iron_chunk", amount: 1, chance: 0.25, tier: 1 },
-    { item: "utilitycraft:deepslate_lapislazuli_chunk", amount: 1, chance: 0.15, tier: 3 },
+    { item: "minecraft:lapis_lazuli", amount: 4, chance: 0.15, tier: 3 },
     { item: "utilitycraft:deepslate_coal_chunk", amount: 1, chance: 0.3, tier: 0 },
   ],
   //Compressed
   "utilitycraft:compressed_gravel": [
     { item: "minecraft:flint", amount: 9, chance: 0.2, tier: 0 },
+    { item: "utilitycraft:dripstone_pebble", amount: 9, chance: 0.15, tier: 1 },
     { item: "utilitycraft:iron_chunk", amount: 9, chance: 0.15, tier: 1 },
     { item: "utilitycraft:coal_chunk", amount: 9, chance: 0.25, tier: 0 },
     { item: "utilitycraft:gold_chunk", amount: 9, chance: 0.05, tier: 3 },
-    { item: "utilitycraft:redstone_chunk", amount: 9, chance: 0.2, tier: 2 },
-    { item: "utilitycraft:lapislazuli_chunk", amount: 9, chance: 0.025, tier: 3 },
-    { item: "utilitycraft:emerald_chunk", amount: 9, chance: 0.02, tier: 4 },
-    { item: "utilitycraft:diamond_chunk", amount: 9, chance: 0.01, tier: 4 },
+    { item: "minecraft:lapis_lazuli", amount: 36, chance: 0.025, tier: 3 },
+    { item: "utilitycraft:emerald_shard", amount: 9, chance: 0.02, tier: 4 },
+    { item: "utilitycraft:diamond_shard", amount: 9, chance: 0.01, tier: 4 },
   ],
   "utilitycraft:compressed_dirt": [
     { item: "minecraft:carrot", amount: 9, chance: 0.1 },
@@ -195,33 +208,44 @@ const sieveRecipesRegister = {
     { item: "minecraft:clay_ball", amount: 9, chance: 0.1, tier: 2 },
     { item: "minecraft:cocoa_beans", amount: 9, chance: 0.01 },
     { item: "minecraft:conduit", amount: 9, chance: 0.005, tier: 4 },
-    { item: "minecraft:redstone", amount: 9, chance: 0.2, tier: 2 },
+    { item: "minecraft:redstone", amount: 36, chance: 0.2, tier: 2 },
     // Integrated Storage
     { item: "ae2be:certus_quartz_crystal", amount: 9, chance: 0.17, tier: 3 },
     { item: "ae2be:charged_certus_quartz_crystal", amount: 9, chance: 0.01, tier: 4 },
   ],
   "utilitycraft:compressed_crushed_netherrack": [
     { item: "utilitycraft:nether_quartz_chunk", amount: 9, chance: 0.33, tier: 1 },
-    { item: "minecraft:gold_nugget", amount: 9, chance: 0.2, tier: 3 },
     { item: "utilitycraft:nether_gold_chunk", amount: 9, chance: 0.33, tier: 3 },
     { item: "utilitycraft:ancient_debris_chunk", amount: 9, chance: 0.025, tier: 5 },
+  ],
+  "utilitycraft:compressed_crushed_blackstone": [
+    { item: "utilitycraft:blackstone_pebble", amount: 9, chance: 0.25, tier: 0 },
+    { item: "utilitycraft:basalt_pebble", amount: 9, chance: 0.3, tier: 1 },
+    { item: "minecraft:sulfur_spike", amount: 9, chance: 0.12, tier: 2 },
+    { item: "minecraft:gold_nugget", amount: 9, chance: 0.2, tier: 3 },
+    { item: "utilitycraft:gilded_blackstone_pebble", amount: 9, chance: 0.33, tier: 3 },
+    { item: "minecraft:magma_cream", amount: 9, chance: 0.04, tier: 4 },
+    { item: "utilitycraft:ancient_debris_chunk", amount: 9, chance: 0.02, tier: 5 },
   ],
   "utilitycraft:compressed_crushed_cobbled_deepslate": [
     { item: "minecraft:echo_shard", amount: 9, chance: 0.025, tier: 5 },
     { item: "minecraft:sculk_catalyst", amount: 9, chance: 0.005, tier: 5 },
-    { item: "minecraft:amethyst_shard", amount: 9, chance: 0.05, tier: 5 },
-    { item: "utilitycraft:deepslate_redstone_chunk", amount: 9, chance: 0.3, tier: 2 },
-    { item: "utilitycraft:deepslate_diamond_chunk", amount: 9, chance: 0.05, tier: 4 },
-    { item: "utilitycraft:deepslate_emerald_chunk", amount: 9, chance: 0.05, tier: 4 },
+    { item: "utilitycraft:geode", amount: 9, chance: 0.025, tier: 5 },
+    { item: "utilitycraft:calcite_pebble", amount: 9, chance: 0.12, tier: 2 },
+    { item: "utilitycraft:tuff_pebble", amount: 9, chance: 0.18, tier: 1 },
+    { item: "minecraft:ender_pearl", amount: 9, chance: 0.02, tier: 6 },
+    { item: "utilitycraft:diamond_shard", amount: 9, chance: 0.05, tier: 4 },
+    { item: "utilitycraft:emerald_shard", amount: 9, chance: 0.05, tier: 4 },
     { item: "utilitycraft:deepslate_gold_chunk", amount: 9, chance: 0.2, tier: 4 },
     { item: "utilitycraft:deepslate_iron_chunk", amount: 9, chance: 0.25, tier: 1 },
-    { item: "utilitycraft:deepslate_lapislazuli_chunk", amount: 9, chance: 0.15, tier: 3 },
+    { item: "minecraft:lapis_lazuli", amount: 36, chance: 0.15, tier: 3 },
     { item: "utilitycraft:deepslate_coal_chunk", amount: 9, chance: 0.3, tier: 0 },
   ],
   "utilitycraft:compressed_crushed_endstone": [
     { item: "minecraft:chorus_flower", amount: 9, chance: 0.01, tier: 4 },
     { item: "minecraft:chorus_fruit", amount: 9, chance: 0.8, tier: 4 },
-    { item: "minecraft:ender_pearl", amount: 9, chance: 0.16, tier: 4 },
+    { item: "minecraft:ender_pearl", amount: 9, chance: 0.16, tier: 6 },
+    { item: "utilitycraft:shulker_shell_shard", amount: 9, chance: 0.005, tier: 6 },
   ],
 };
 

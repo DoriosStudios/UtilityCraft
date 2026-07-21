@@ -24,6 +24,14 @@
     "easing": "linear",
     "initial_uv": [0, 0]
   },
+  "infuser_mycelium_catalyst_animation": {
+    "anim_type": "flip_book",
+    "frame_count": 2,
+    "frame_step": 0,
+    "fps": 1,
+    "easing": "linear",
+    "initial_uv": [0, 0]
+  },
   "infuser_recipe_toggle@uc.recipe_toggle": {
     "$toggle_name": "infuser_recipes"
   },
@@ -312,35 +320,35 @@
               }
             },
             {
-              "andesite_toggle@uc.infuser_recipe_toggle": {
+              "golden_carrot_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 18,
-                "$toggle_hover_text": "tile.stone.andesite.name",
-                "$toggle_control_name": "andesite_recipe",
-                "$recipe_icon": "textures/blocks/stone_andesite",
+                "$toggle_hover_text": "item.golden_carrot.name",
+                "$toggle_control_name": "golden_carrot_recipe",
+                "$recipe_icon": "textures/items/carrot_golden",
                 "offset": [72, 0]
               }
             },
             {
-              "calcite_toggle@uc.infuser_recipe_toggle": {
+              "golden_apple_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 19,
-                "$toggle_hover_text": "tile.calcite.name",
-                "$toggle_control_name": "calcite_recipe",
-                "$recipe_icon": "textures/blocks/calcite",
+                "$toggle_hover_text": "item.golden_apple.name",
+                "$toggle_control_name": "golden_apple_recipe",
+                "$recipe_icon": "textures/items/apple_golden",
                 "offset": [90, 0]
               }
             },
             {
-              "diorite_toggle@uc.infuser_recipe_toggle": {
+              "glistering_melon_slice_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 20,
-                "$toggle_hover_text": "tile.stone.diorite.name",
-                "$toggle_control_name": "diorite_recipe",
-                "$recipe_icon": "textures/blocks/stone_diorite",
+                "$toggle_hover_text": "item.speckled_melon.name",
+                "$toggle_control_name": "glistering_melon_slice_recipe",
+                "$recipe_icon": "textures/items/melon_speckled",
                 "offset": [108, 0]
               }
             }
@@ -353,79 +361,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "granite_toggle@uc.infuser_recipe_toggle": {
+              "andesite_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 21,
+                "$toggle_hover_text": "tile.stone.andesite.name",
+                "$toggle_control_name": "andesite_recipe",
+                "$recipe_icon": "textures/blocks/stone_andesite",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "calcite_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 22,
+                "$toggle_hover_text": "tile.calcite.name",
+                "$toggle_control_name": "calcite_recipe",
+                "$recipe_icon": "textures/blocks/calcite",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "diorite_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 23,
+                "$toggle_hover_text": "tile.stone.diorite.name",
+                "$toggle_control_name": "diorite_recipe",
+                "$recipe_icon": "textures/blocks/stone_diorite",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "granite_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 24,
                 "$toggle_hover_text": "tile.stone.granite.name",
                 "$toggle_control_name": "granite_recipe",
                 "$recipe_icon": "textures/blocks/stone_granite",
-                "offset": [0, 0]
+                "offset": [54, 0]
               }
             },
             {
               "cinnabar_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 22,
+                "$toggle_index": 25,
                 "$toggle_hover_text": "tile.cinnabar.name",
                 "$toggle_control_name": "cinnabar_recipe",
                 "$recipe_icon": "textures/blocks/cinnabar",
-                "offset": [18, 0]
+                "offset": [72, 0]
               }
             },
             {
               "blackstone_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 23,
+                "$toggle_index": 26,
                 "$toggle_hover_text": "tile.blackstone.name",
                 "$toggle_control_name": "blackstone_recipe",
                 "$recipe_icon": "textures/blocks/blackstone",
-                "offset": [36, 0]
+                "offset": [90, 0]
               }
             },
             {
               "gilded_blackstone_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 24,
+                "$toggle_index": 27,
                 "$toggle_hover_text": "tile.gilded_blackstone.name",
                 "$toggle_control_name": "gilded_blackstone_recipe",
                 "$recipe_icon": "textures/blocks/gilded_blackstone",
-                "offset": [54, 0]
-              }
-            },
-            {
-              "compressed_blackstone_toggle@uc.infuser_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 25,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_blackstone.name",
-                "$toggle_control_name": "compressed_blackstone_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_blackstone",
-                "offset": [72, 0]
-              }
-            },
-            {
-              "netherrack_toggle@uc.infuser_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 26,
-                "$toggle_hover_text": "tile.netherrack.name",
-                "$toggle_control_name": "netherrack_recipe",
-                "$recipe_icon": "textures/blocks/netherrack",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "compressed_netherrack_toggle@uc.infuser_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 27,
-                "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
-                "$toggle_control_name": "compressed_netherrack_recipe",
-                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
                 "offset": [108, 0]
               }
             }
@@ -438,79 +446,79 @@
           "size": [126, 18],
           "controls": [
             {
-              "end_stone_toggle@uc.infuser_recipe_toggle": {
+              "compressed_blackstone_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 28,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_blackstone.name",
+                "$toggle_control_name": "compressed_blackstone_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_blackstone",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "netherrack_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 29,
+                "$toggle_hover_text": "tile.netherrack.name",
+                "$toggle_control_name": "netherrack_recipe",
+                "$recipe_icon": "textures/blocks/netherrack",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "compressed_netherrack_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 30,
+                "$toggle_hover_text": "tile.utilitycraft:compressed_netherrack.name",
+                "$toggle_control_name": "compressed_netherrack_recipe",
+                "$recipe_icon": "textures/blocks/compressed_blocks/compressed_netherrack",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "end_stone_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 31,
                 "$toggle_hover_text": "tile.end_stone.name",
                 "$toggle_control_name": "end_stone_recipe",
                 "$recipe_icon": "textures/blocks/end_stone",
-                "offset": [0, 0]
+                "offset": [54, 0]
               }
             },
             {
               "crimson_nylium_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 29,
+                "$toggle_index": 32,
                 "$toggle_hover_text": "tile.crimson_nylium.name",
                 "$toggle_control_name": "crimson_nylium_recipe",
                 "$recipe_icon": "textures/blocks/crimson_nylium_top",
-                "offset": [18, 0]
+                "offset": [72, 0]
               }
             },
             {
               "warped_nylium_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 30,
+                "$toggle_index": 33,
                 "$toggle_hover_text": "tile.warped_nylium.name",
                 "$toggle_control_name": "warped_nylium_recipe",
                 "$recipe_icon": "textures/blocks/warped_nylium_top",
-                "offset": [36, 0]
+                "offset": [90, 0]
               }
             },
             {
               "grass_block_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 31,
+                "$toggle_index": 34,
                 "$toggle_hover_text": "tile.grass.name",
                 "$toggle_control_name": "grass_block_recipe",
                 "$recipe_icon": "textures/blocks/grass_carried",
-                "offset": [54, 0]
-              }
-            },
-            {
-              "moss_block_toggle@uc.infuser_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 32,
-                "$toggle_hover_text": "tile.moss_block.name",
-                "$toggle_control_name": "moss_block_recipe",
-                "$recipe_icon": "textures/blocks/moss_block",
-                "offset": [72, 0]
-              }
-            },
-            {
-              "mossy_cobblestone_toggle@uc.infuser_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 33,
-                "$toggle_hover_text": "tile.mossy_cobblestone.name",
-                "$toggle_control_name": "mossy_cobblestone_recipe",
-                "$recipe_icon": "textures/blocks/cobblestone_mossy",
-                "offset": [90, 0]
-              }
-            },
-            {
-              "mossy_stone_bricks_toggle@uc.infuser_recipe_toggle": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$toggle_index": 34,
-                "$toggle_hover_text": "tile.stonebrick.mossy.name",
-                "$toggle_control_name": "mossy_stone_bricks_recipe",
-                "$recipe_icon": "textures/blocks/stonebrick_mossy",
                 "offset": [108, 0]
               }
             }
@@ -523,69 +531,132 @@
           "size": [126, 18],
           "controls": [
             {
-              "rooted_dirt_toggle@uc.infuser_recipe_toggle": {
+              "podzol_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
                 "$toggle_index": 35,
+                "$toggle_hover_text": "tile.podzol.name",
+                "$toggle_control_name": "podzol_recipe",
+                "$recipe_icon": "textures/blocks/dirt_podzol_top",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "mycelium_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 36,
+                "$toggle_hover_text": "tile.mycelium.name",
+                "$toggle_control_name": "mycelium_recipe",
+                "$recipe_icon": "textures/blocks/mycelium_top",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "moss_block_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 37,
+                "$toggle_hover_text": "tile.moss_block.name",
+                "$toggle_control_name": "moss_block_recipe",
+                "$recipe_icon": "textures/blocks/moss_block",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "mossy_cobblestone_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 38,
+                "$toggle_hover_text": "tile.mossy_cobblestone.name",
+                "$toggle_control_name": "mossy_cobblestone_recipe",
+                "$recipe_icon": "textures/blocks/cobblestone_mossy",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "mossy_stone_bricks_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 39,
+                "$toggle_hover_text": "tile.stonebrick.mossy.name",
+                "$toggle_control_name": "mossy_stone_bricks_recipe",
+                "$recipe_icon": "textures/blocks/stonebrick_mossy",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "rooted_dirt_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 40,
                 "$toggle_hover_text": "tile.dirt_with_roots.name",
                 "$toggle_control_name": "rooted_dirt_recipe",
                 "$recipe_icon": "textures/blocks/dirt_with_roots",
-                "offset": [0, 0]
+                "offset": [90, 0]
               }
             },
             {
               "sculk_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 36,
+                "$toggle_index": 41,
                 "$toggle_hover_text": "tile.sculk.name",
                 "$toggle_control_name": "sculk_recipe",
                 "$recipe_icon": "textures/blocks/sculk",
-                "offset": [18, 0]
+                "offset": [108, 0]
               }
-            },
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_6": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
             {
               "red_sand_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 37,
+                "$toggle_index": 42,
                 "$toggle_hover_text": "tile.sand.red.name",
                 "$toggle_control_name": "red_sand_recipe",
                 "$recipe_icon": "textures/blocks/red_sand",
-                "offset": [36, 0]
+                "offset": [0, 0]
               }
             },
             {
               "soul_sand_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 38,
+                "$toggle_index": 43,
                 "$toggle_hover_text": "tile.soul_sand.name",
                 "$toggle_control_name": "soul_sand_recipe",
                 "$recipe_icon": "textures/blocks/soul_sand",
-                "offset": [54, 0]
+                "offset": [18, 0]
               }
             },
             {
               "soul_soil_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 39,
+                "$toggle_index": 44,
                 "$toggle_hover_text": "tile.soul_soil.name",
                 "$toggle_control_name": "soul_soil_recipe",
                 "$recipe_icon": "textures/blocks/soul_soil",
-                "offset": [72, 0]
+                "offset": [36, 0]
               }
             },
             {
               "crying_obsidian_toggle@uc.infuser_recipe_toggle": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "$toggle_index": 40,
+                "$toggle_index": 45,
                 "$toggle_hover_text": "tile.crying_obsidian.name",
                 "$toggle_control_name": "crying_obsidian_recipe",
                 "$recipe_icon": "textures/blocks/crying_obsidian",
-                "offset": [90, 0]
+                "offset": [54, 0]
               }
             }
           ]
@@ -1231,6 +1302,65 @@
               }
             },
             {
+              "podzol_panel@uc.recipe_panel": {
+                "$recipe_control_name": "podzol_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_item_texture": "textures/blocks/sapling_spruce",
+                      "$slot_hover_text": "tile.sapling.spruce.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/grass_carried",
+                      "$slot_hover_text": "tile.grass.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/dirt_podzol_top",
+                      "$slot_hover_text": "tile.podzol.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "mycelium_panel@uc.recipe_panel": {
+                "$recipe_control_name": "mycelium_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_hover_text": "tile.mushroom.name",
+                      "$has_slot_hover": true,
+                      "$has_slot_item": false,
+                      "$has_slot_flipbook": true,
+                      "$slot_item_flipbook_texture": "textures/ui/recipes/infuser_mycelium_catalyst_flipbook",
+                      "$slot_item_flipbook_uv": "@uc.infuser_mycelium_catalyst_animation"
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/grass_carried",
+                      "$slot_hover_text": "tile.grass.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/mycelium_top",
+                      "$slot_hover_text": "tile.mycelium.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
               "moss_block_panel@uc.recipe_panel": {
                 "$recipe_control_name": "moss_block_recipe",
                 "controls": [
@@ -1834,6 +1964,92 @@
                     "output@uc.infuser_recipe_output": {
                       "$slot_item_texture": "textures/items/magma_cream",
                       "$slot_hover_text": "item.magma_cream.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "golden_carrot_panel@uc.recipe_panel": {
+                "$recipe_control_name": "golden_carrot_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_item_texture": "textures/items/dusts/gold_dust",
+                      "$slot_hover_text": "item.utilitycraft:gold_dust",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/items/carrot",
+                      "$slot_hover_text": "item.carrot.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/items/carrot_golden",
+                      "$slot_hover_text": "item.golden_carrot.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "golden_apple_panel@uc.recipe_panel": {
+                "$recipe_control_name": "golden_apple_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_item_texture": "textures/items/dusts/gold_dust",
+                      "$slot_hover_text": "item.utilitycraft:gold_dust",
+                      "$has_slot_hover": true,
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/items/apple",
+                      "$slot_hover_text": "item.apple.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/items/apple_golden",
+                      "$slot_hover_text": "item.golden_apple.name",
+                      "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "glistering_melon_slice_panel@uc.recipe_panel": {
+                "$recipe_control_name": "glistering_melon_slice_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_item_texture": "textures/items/dusts/gold_dust",
+                      "$slot_hover_text": "item.utilitycraft:gold_dust",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/items/melon",
+                      "$slot_hover_text": "item.melon.name",
+                      "$has_slot_hover": true
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/items/melon_speckled",
+                      "$slot_hover_text": "item.speckled_melon.name",
                       "$has_slot_hover": true
                     }
                   }

@@ -416,6 +416,22 @@
 	"utilitycraft:compressed_crushed_netherrack_4": {
 		"sound": "gravel"
 	},
+	"utilitycraft:crushed_blackstone": {
+		"sound": "stone",
+		"textures": "utilitycraft_crushed_blackstone"
+	},
+	"utilitycraft:compressed_crushed_blackstone": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_crushed_blackstone_2": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_crushed_blackstone_3": {
+		"sound": "stone"
+	},
+	"utilitycraft:compressed_crushed_blackstone_4": {
+		"sound": "stone"
+	},
 	"utilitycraft:compressed_dark_oak_wood": {
 		"sound": "wood"
 	},

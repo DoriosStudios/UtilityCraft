@@ -13,17 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "minecraft:raw_copper"
+			"item": "minecraft:copper_ore"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:copper_chunk"
 			},
 			{
-				"item": "minecraft:raw_copper"
+				"item": "minecraft:copper_ore"
 			}
 		]
 	}

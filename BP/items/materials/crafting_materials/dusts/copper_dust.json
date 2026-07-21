@@ -5,7 +5,7 @@
 			"identifier": "utilitycraft:copper_dust"
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_raw_copper_dust"
+			"minecraft:icon": "utilitycraft_copper_dust"
 		}
 	}
 }

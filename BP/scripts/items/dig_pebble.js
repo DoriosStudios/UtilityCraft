@@ -5,16 +5,28 @@ const DEFAULT_DIG_DROPS = [
     { drop: "utilitycraft:gravel_fragments", min: 1, max: 2, prob: 50 },
     { drop: "utilitycraft:stone_pebble", min: 1, max: 2, prob: 50 },
     { drop: "utilitycraft:dirt_handful", min: 1, max: 1, prob: 20 },
+    { drop: "utilitycraft:sand_handful", min: 1, max: 1, prob: 20 },
     { drop: "utilitycraft:andesite_pebble", min: 1, max: 1, prob: 20 },
     { drop: "utilitycraft:diorite_pebble", min: 1, max: 1, prob: 20 },
     { drop: "utilitycraft:granite_pebble", min: 1, max: 1, prob: 20 },
     { drop: "minecraft:bone_meal", min: 1, max: 1, prob: 10 }
 ];
 
-const DEFAULT_DIG_BLOCKS = [
-    "minecraft:dirt",
-    "minecraft:grass_block"
-];
+const DEFAULT_DIG_DROPS_BY_BLOCK = {
+    "minecraft:dirt": DEFAULT_DIG_DROPS,
+    "minecraft:grass_block": DEFAULT_DIG_DROPS,
+    "minecraft:mud": [
+        { drop: "utilitycraft:mud_ball", min: 1, max: 1, prob: 50 }
+    ],
+    "minecraft:red_sand": [
+        { drop: "utilitycraft:red_sand_handful", min: 1, max: 1, prob: 50 }
+    ],
+    "minecraft:hardened_clay": [
+        { drop: "utilitycraft:red_sand_handful", min: 1, max: 1, prob: 50 }
+    ]
+};
+
+const DEFAULT_DIG_BLOCKS = Object.keys(DEFAULT_DIG_DROPS_BY_BLOCK);
 
 function normalizeChance(value, fallback = 1) {
     const parsed = Number(value);
@@ -23,8 +35,8 @@ function normalizeChance(value, fallback = 1) {
     return Math.max(0, Math.min(1, parsed));
 }
 
-function normalizeDrops(drops) {
-    if (!Array.isArray(drops) || drops.length === 0) return DEFAULT_DIG_DROPS;
+function normalizeDrops(drops, fallback = DEFAULT_DIG_DROPS) {
+    if (!Array.isArray(drops) || drops.length === 0) return fallback;
 
     const valid = drops
         .filter(entry => entry && typeof entry.drop === "string")
@@ -35,7 +47,7 @@ function normalizeDrops(drops) {
             prob: Math.max(0, Math.min(100, Number(entry.prob ?? 100)))
         }));
 
-    return valid.length > 0 ? valid : DEFAULT_DIG_DROPS;
+    return valid.length > 0 ? valid : fallback;
 }
 
 function normalizeBlocks(blocks) {
@@ -43,6 +55,17 @@ function normalizeBlocks(blocks) {
 
     const valid = blocks.filter(blockId => typeof blockId === "string" && blockId.length > 0);
     return valid.length > 0 ? valid : DEFAULT_DIG_BLOCKS;
+}
+
+function getDropsForBlock(params, blockId) {
+    const configuredByBlock = params?.dropsByBlock;
+    if (configuredByBlock && typeof configuredByBlock === "object") {
+        const configuredDrops = configuredByBlock[blockId];
+        if (Array.isArray(configuredDrops)) return normalizeDrops(configuredDrops, []);
+    }
+
+    if (Array.isArray(params?.drops)) return normalizeDrops(params.drops);
+    return DEFAULT_DIG_DROPS_BY_BLOCK[blockId] ?? [];
 }
 
 DoriosLib.registry.itemComponent("utilitycraft:dig_pebble", {
@@ -56,7 +79,7 @@ DoriosLib.registry.itemComponent("utilitycraft:dig_pebble", {
         const blockId = block.typeId;
         if (!allowedBlocks.includes(blockId)) return;
 
-        const drops = normalizeDrops(params?.drops);
+        const drops = getDropsForBlock(params, blockId);
 
         const location = {
             x: block.location.x + 0.5,

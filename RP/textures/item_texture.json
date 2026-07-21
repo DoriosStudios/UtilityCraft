@@ -1583,12 +1583,6 @@
 		"utilitycraft_quartz_dust": {
 			"textures": "textures/items/dusts/quartz_dust"
 		},
-		"utilitycraft_copper_dust": {
-			"textures": "textures/items/dusts/copper_dust"
-		},
-		"utilitycraft_gold_dust": {
-			"textures": "textures/items/dusts/gold_dust"
-		},
 		"utilitycraft_iron_dust": {
 			"textures": "textures/items/dusts/iron_dust"
 		},
@@ -1613,14 +1607,11 @@
 		"utilitycraft_filter_upgrade": {
 			"textures": "textures/items/machinery/filter_upgrade"
 		},
-		"utilitycraft_raw_copper_dust": {
-			"textures": "textures/items/dusts/raw_copper_dust"
+		"utilitycraft_copper_dust": {
+			"textures": "textures/items/dusts/copper_dust"
 		},
-		"utilitycraft_raw_gold_dust": {
-			"textures": "textures/items/dusts/raw_gold_dust"
-		},
-		"utilitycraft_raw_iron_dust": {
-			"textures": "textures/items/dusts/raw_iron_dust"
+		"utilitycraft_gold_dust": {
+			"textures": "textures/items/dusts/gold_dust"
 		},
 		"utilitycraft_chip": {
 			"textures": "textures/items/machinery/chip"
@@ -1697,9 +1688,6 @@
 		"utilitycraft_blackstone_pebble": {
 			"textures": "textures/items/pebbles/blackstone_pebble"
 		},
-		"utilitycraft_crushed_netherrack_handful": {
-			"textures": "textures/items/pebbles/crushed_netherrack_handful"
-		},
 		"utilitycraft_calcite_pebble": {
 			"textures": "textures/items/pebbles/calcite_pebble"
 		},
@@ -1709,38 +1697,14 @@
 		"utilitycraft_copper_chunk": {
 			"textures": "textures/items/pebbles/copper_chunk"
 		},
-		"utilitycraft_crushed_deepslate_handful": {
-			"textures": "textures/items/pebbles/crushed_deepslate_handful"
-		},
-		"utilitycraft_crushed_endstone_handful": {
-			"textures": "textures/items/pebbles/crushed_endstone_handful"
-		},
 		"utilitycraft_deepslate_coal_chunk": {
 			"textures": "textures/items/pebbles/deepslate_coal_chunk"
-		},
-		"utilitycraft_deepslate_diamond_chunk": {
-			"textures": "textures/items/pebbles/deepslate_diamond_chunk"
-		},
-		"utilitycraft_deepslate_emerald_chunk": {
-			"textures": "textures/items/pebbles/Deepslate_emerald_chunk"
 		},
 		"utilitycraft_deepslate_gold_chunk": {
 			"textures": "textures/items/pebbles/deepslate_gold_chunk"
 		},
 		"utilitycraft_deepslate_iron_chunk": {
 			"textures": "textures/items/pebbles/deepslate_iron_chunk"
-		},
-		"utilitycraft_deepslate_lapislazuli_chunk": {
-			"textures": "textures/items/pebbles/deepslate_lapislazuli_chunk"
-		},
-		"utilitycraft_deepslate_pebble": {
-			"textures": "textures/items/pebbles/deepslate_pebble"
-		},
-		"utilitycraft_deepslate_redstone_chunk": {
-			"textures": "textures/items/pebbles/deepslate_redstone_chunk"
-		},
-		"utilitycraft_diamond_chunk": {
-			"textures": "textures/items/pebbles/diamond_chunk"
 		},
 		"utilitycraft_diamond_shard": {
 			"textures": "textures/items/pebbles/diamond_shard"
@@ -1754,14 +1718,8 @@
 		"utilitycraft_dripstone_pebble": {
 			"textures": "textures/items/pebbles/dripstone_pebble"
 		},
-		"utilitycraft_emerald_chunk": {
-			"textures": "textures/items/pebbles/emerald_chunk"
-		},
 		"utilitycraft_emerald_shard": {
 			"textures": "textures/items/pebbles/emerald_shard"
-		},
-		"utilitycraft_endstone_pebble": {
-			"textures": "textures/items/pebbles/Endstone_pebble"
 		},
 		"utilitycraft_geode": {
 			"textures": "textures/items/pebbles/geode"
@@ -1781,9 +1739,6 @@
 		"utilitycraft_iron_chunk": {
 			"textures": "textures/items/pebbles/iron_chunk"
 		},
-		"utilitycraft_lapislazuli_chunk": {
-			"textures": "textures/items/pebbles/lapislazuli_chunk"
-		},
 		"utilitycraft_mud_ball": {
 			"textures": "textures/items/pebbles/mud_ball"
 		},
@@ -1796,23 +1751,14 @@
 		"utilitycraft_nether_star_fragment": {
 			"textures": "textures/items/pebbles/Nether_star_fragment"
 		},
-		"utilitycraft_netherrack_pebble": {
-			"textures": "textures/items/pebbles/Netherrack_pebble"
-		},
 		"utilitycraft_red_sand_handful": {
 			"textures": "textures/items/pebbles/red_sand_handful"
-		},
-		"utilitycraft_redstone_chunk": {
-			"textures": "textures/items/pebbles/redstone_chunk"
 		},
 		"utilitycraft_sand_handful": {
 			"textures": "textures/items/pebbles/sand_handful"
 		},
 		"utilitycraft_shulker_shell_shard": {
 			"textures": "textures/items/pebbles/shulker_shell_shard"
-		},
-		"utilitycraft_souls_handful": {
-			"textures": "textures/items/pebbles/souls_handful"
 		},
 		"utilitycraft_stone_pebble": {
 			"textures": "textures/items/pebbles/stone_pebble"

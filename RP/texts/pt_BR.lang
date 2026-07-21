@@ -2,6 +2,11 @@
 ## Formatado, de certa forma. Requer uma organização mais profunda.
 
 ## Blocks | Blocos
+tile.utilitycraft:crushed_blackstone.name=Pedra-Negra Triturada\n§o§9@UtilityCraft
+tile.utilitycraft:compressed_crushed_blackstone.name=Pedra-Negra Triturada Comprimida\n§o§9@UtilityCraft
+tile.utilitycraft:compressed_crushed_blackstone_2.name=Pedra-Negra Triturada Duplamente Comprimida\n§o§9@UtilityCraft
+tile.utilitycraft:compressed_crushed_blackstone_3.name=Pedra-Negra Triturada Triplamente Comprimida\n§o§9@UtilityCraft
+tile.utilitycraft:compressed_crushed_blackstone_4.name=Pedra-Negra Triturada Quadruplamente Comprimida\n§o§9@UtilityCraft
 ### Tables | Bancadas
 tile.utilitycraft:workbench.name=Bancada de Engenharia\n§7- Use para criar tudo sobre máquinas\n§o§9@UtilityCraft
 
@@ -627,47 +632,32 @@ item.utilitycraft:wither_seeds=Sementes de Wither §8Tier 4\n§o§9@UtilityCraft
 item.utilitycraft:ancient_debris_chunk=Pedaço de Detrito Ancestral\n§o§9@UtilityCraft
 item.utilitycraft:blackstone_pebble=Gravilha de Pedra Negra\n§o§9@UtilityCraft
 item.utilitycraft:basalt_pebble=Gravilha de Basalto\n§o§9@UtilityCraft
-item.utilitycraft:crushed_netherrack_handful=Punhado de Netherrack Triturada\n§o§9@UtilityCraft
 item.utilitycraft:calcite_pebble=Gravilha de Calcita\n§o§9@UtilityCraft
 item.utilitycraft:coal_chunk=Pedaço de Carvão\n§o§9@UtilityCraft
 item.utilitycraft:copper_chunk=Pedaço de Cobre\n§o§9@UtilityCraft
-item.utilitycraft:crushed_deepslate_handful=Punhado de Ardosiabissal Triturada\n§o§9@UtilityCraft
-item.utilitycraft:crushed_endstone_handful=Punhado de Pedra do Fim Triturada\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Alga Triturada\n§o§9@UtilityCraft
 item.utilitycraft:deepslate_coal_chunk=Pedaço de Carvão de Ardosiabissal\n§o§9@UtilityCraft
-item.utilitycraft:deepslate_diamond_chunk=Pedaço de Diamante de Ardosiabissal\n§o§9@UtilityCraft
-item.utilitycraft:deepslate_emerald_chunk=Pedaço de Esmeralda de Ardosiabissal\n§o§9@UtilityCraft
 item.utilitycraft:deepslate_gold_chunk=Pedaço de Ouro de AArdosiabissal\n§o§9@UtilityCraft
 item.utilitycraft:deepslate_iron_chunk=Pedaço de Ferro de Ardosiabissal\n§o§9@UtilityCraft
-item.utilitycraft:deepslate_lapislazuli_chunk=Pedaço de Lápis-lazúli de Ardosiabissal\n§o§9@UtilityCraft
-item.utilitycraft:deepslate_pebble=Gravilha de Bloco de Ardosiabissal\n§o§9@UtilityCraft
-item.utilitycraft:deepslate_redstone_chunk=Pedaço de Redstone de Ardosiabissal\n§o§9@UtilityCraft
-item.utilitycraft:diamond_chunk=Pedaço de Diamante\n§o§9@UtilityCraft
 item.utilitycraft:diamond_shard=Fragmento de Diamante\n§o§9@UtilityCraft
 item.utilitycraft:diorite_pebble=Gravilha de Diorito\n§o§9@UtilityCraft
 item.utilitycraft:andesite_pebble=Gravilha de Andesito\n§o§9@UtilityCraft
 item.utilitycraft:dirt_handful=Punhado de Terra\n§o§9@UtilityCraft
 item.utilitycraft:dripstone_pebble=Gravilha de Estalactita\n§o§9@UtilityCraft
-item.utilitycraft:emerald_chunk=Pedaço de Esmeralda\n§o§9@UtilityCraft
 item.utilitycraft:emerald_shard=Fragmento de Esmeralda\n§o§9@UtilityCraft
-item.utilitycraft:endstone_pebble=Gravilha de Pedra do Fim\n§o§9@UtilityCraft
 item.utilitycraft:geode=Geodo\n§o§9@UtilityCraft
 item.utilitycraft:gilded_blackstone_pebble=Gravilha de Pedregulho Negro Dourado\n§o§9@UtilityCraft
 item.utilitycraft:gold_chunk=Pedaço de Ouro\n§o§9@UtilityCraft
 item.utilitycraft:granite_pebble=Gravilha de Granito\n§o§9@UtilityCraft
 item.utilitycraft:gravel_fragments=Fragmentos de Cascalho\n§o§9@UtilityCraft
 item.utilitycraft:iron_chunk=Pedaço de Ferro\n§o§9@UtilityCraft
-item.utilitycraft:lapislazuli_chunk=Pedaço de Lápis-lazúli\n§o§9@UtilityCraft
 item.utilitycraft:mud_ball=Bola de Lama\n§o§9@UtilityCraft
 item.utilitycraft:nether_gold_chunk=Pedaço de Ouro do Nether\n§o§9@UtilityCraft
 item.utilitycraft:nether_quartz_chunk=Pedaço de Quartzo do Nether\n§o§9@UtilityCraft
 item.utilitycraft:nether_star_fragment=Fragmento de Estrela do Nether\n§o§9@UtilityCraft
-item.utilitycraft:netherrack_pebble=Gravilha de Netherrack\n§o§9@UtilityCraft
 item.utilitycraft:red_sand_handful=Punhado de Areia Vermelha\n§o§9@UtilityCraft
-item.utilitycraft:redstone_chunk=Pedaço de Redstone\n§o§9@UtilityCraft
 item.utilitycraft:sand_handful=Punhado de Areia\n§o§9@UtilityCraft
 item.utilitycraft:shulker_shell_shard=Fragmento de Casca de Shulker\n§o§9@UtilityCraft
-item.utilitycraft:souls_handful=Punhado de Almas\n§o§9@UtilityCraft
 item.utilitycraft:stone_pebble=Gravilha de Pedra\n§o§9@UtilityCraft
 item.utilitycraft:totem_shard=Fragmento de Totem\n§o§9@UtilityCraft
 item.utilitycraft:tuff_pebble=Gravilha de Tufo\n§o§9@UtilityCraft

@@ -13,17 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "minecraft:raw_iron"
+			"item": "minecraft:deepslate_iron_ore"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:deepslate_iron_chunk"
 			},
 			{
-				"item": "minecraft:raw_iron"
+				"item": "minecraft:deepslate_iron_ore"
 			}
 		]
 	}

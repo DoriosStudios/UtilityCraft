@@ -1006,6 +1006,9 @@
 		"utilitycraft_crushed_endstone": {
 			"textures": "textures/blocks/Crushed_endstone"
 		},
+		"utilitycraft_crushed_blackstone": {
+			"textures": "textures/blocks/crushed_blackstone"
+		},
 		"utilitycraft_crushed_cobbled_deepslate": {
 			"textures": "textures/blocks/crushed_cobbled_deepslate"
 		},
@@ -1065,6 +1068,18 @@
 		},
 		"utilitycraft_compressed_blackstone_4": {
 			"textures": "textures/blocks/compressed_blocks/compressed_blackstone_4"
+		},
+		"utilitycraft_compressed_crushed_blackstone": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_blackstone"
+		},
+		"utilitycraft_compressed_crushed_blackstone_2": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_2"
+		},
+		"utilitycraft_compressed_crushed_blackstone_3": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_3"
+		},
+		"utilitycraft_compressed_crushed_blackstone_4": {
+			"textures": "textures/blocks/compressed_blocks/compressed_crushed_blackstone_4"
 		},
 		"utilitycraft_compressed_brute_energized_iron_block": {
 			"textures": "textures/blocks/compressed_blocks/compressed_brute_energized_iron_block"

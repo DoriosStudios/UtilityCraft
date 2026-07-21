@@ -36,9 +36,11 @@
 					"utilitycraft:compressed_dirt",
 					"utilitycraft:compressed_sand",
 					"utilitycraft:crushed_netherrack",
+					"utilitycraft:crushed_blackstone",
 					"utilitycraft:crushed_endstone",
 					"utilitycraft:crushed_cobbled_deepslate",
 					"utilitycraft:compressed_crushed_netherrack",
+					"utilitycraft:compressed_crushed_blackstone",
 					"utilitycraft:compressed_crushed_endstone",
 					"utilitycraft:compressed_crushed_cobbled_deepslate"
 				]
@@ -217,6 +219,25 @@
 				}
 			},
 			{
+				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:crushed_blackstone'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "utilitycraft_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "utilitycraft_crushed_blackstone",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
 				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:crushed_endstone'",
 				"components": {
 					"minecraft:material_instances": {
@@ -268,6 +289,25 @@
 						},
 						"block": {
 							"texture": "utilitycraft_compressed_crushed_netherrack",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_crushed_blackstone'",
+				"components": {
+					"minecraft:material_instances": {
+						"mesh": {
+							"texture": "utilitycraft_wood_sieve_meshes",
+							"render_method": "alpha_test"
+						},
+						"*": {
+							"texture": "utilitycraft_wood_sieve",
+							"render_method": "alpha_test"
+						},
+						"block": {
+							"texture": "utilitycraft_compressed_crushed_blackstone",
 							"render_method": "alpha_test"
 						}
 					}

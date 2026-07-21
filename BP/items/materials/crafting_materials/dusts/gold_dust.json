@@ -5,7 +5,7 @@
 			"identifier": "utilitycraft:gold_dust"
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_raw_gold_dust"
+			"minecraft:icon": "utilitycraft_gold_dust"
 		}
 	}
 }

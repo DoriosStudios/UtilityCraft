@@ -5,7 +5,7 @@
 			"identifier": "utilitycraft:iron_dust"
 		},
 		"components": {
-			"minecraft:icon": "utilitycraft_raw_iron_dust"
+			"minecraft:icon": "utilitycraft_iron_dust"
 		}
 	}
 }

@@ -40,6 +40,13 @@ const crusherRecipesRegister = {
     "utilitycraft:compressed_netherrack_3": { output: "utilitycraft:compressed_crushed_netherrack_3", amount: 1, cost: 583200, tier: 3 },
     "utilitycraft:compressed_netherrack_4": { output: "utilitycraft:compressed_crushed_netherrack_4", amount: 1, cost: 5248800, tier: 4 },
 
+    // ========== BLACKSTONE ==========
+    "minecraft:blackstone": { output: "utilitycraft:crushed_blackstone", amount: 1, tier: 0 },
+    "utilitycraft:compressed_blackstone": { output: "utilitycraft:compressed_crushed_blackstone", amount: 1, cost: 7200, tier: 1 },
+    "utilitycraft:compressed_blackstone_2": { output: "utilitycraft:compressed_crushed_blackstone_2", amount: 1, cost: 64800, tier: 2 },
+    "utilitycraft:compressed_blackstone_3": { output: "utilitycraft:compressed_crushed_blackstone_3", amount: 1, cost: 583200, tier: 3 },
+    "utilitycraft:compressed_blackstone_4": { output: "utilitycraft:compressed_crushed_blackstone_4", amount: 1, cost: 5248800, tier: 4 },
+
     // ========== ENDSTONE ========== 
     "minecraft:end_stone": { output: "utilitycraft:crushed_endstone", amount: 1, tier: 0 },
     "utilitycraft:compressed_endstone": { output: "utilitycraft:compressed_crushed_endstone", amount: 1, cost: 7200, tier: 1 },
@@ -84,27 +91,27 @@ const crusherRecipesRegister = {
     // Pebbles
     "minecraft:calcite": { output: "utilitycraft:calcite_pebble", amount: 4 },
 
-    // Normal Chunks
-    "utilitycraft:copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
-    "utilitycraft:gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
-    "utilitycraft:iron_chunk": { output: "minecraft:raw_iron", amount: 1 },
-    "utilitycraft:coal_chunk": { output: "minecraft:coal", amount: 1 },
-    "utilitycraft:diamond_chunk": { output: "minecraft:diamond", amount: 1 },
-    "utilitycraft:emerald_chunk": { output: "minecraft:emerald", amount: 1 },
-    "utilitycraft:lapislazuli_chunk": { output: "minecraft:lapis_lazuli", amount: 3 },
-    "utilitycraft:redstone_chunk": { output: "minecraft:redstone", amount: 4 },
-    "utilitycraft:nether_quartz_chunk": { output: "minecraft:quartz", amount: 3 },
-    "utilitycraft:nether_gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
-
-    // Deepslate Chunks
-    "utilitycraft:deepslate_copper_chunk": { output: "minecraft:raw_copper", amount: 1 },
-    "utilitycraft:deepslate_gold_chunk": { output: "minecraft:raw_gold", amount: 1 },
-    "utilitycraft:deepslate_iron_chunk": { output: "minecraft:raw_iron", amount: 1 },
-    "utilitycraft:deepslate_coal_chunk": { output: "minecraft:coal", amount: 1 },
-    "utilitycraft:deepslate_diamond_chunk": { output: "minecraft:diamond", amount: 1 },
-    "utilitycraft:deepslate_emerald_chunk": { output: "minecraft:emerald", amount: 1 },
-    "utilitycraft:deepslate_lapislazuli_chunk": { output: "minecraft:lapis_lazuli", amount: 3 },
-    "utilitycraft:deepslate_redstone_chunk": { output: "minecraft:redstone", amount: 4 },
+    // Ores
+    "minecraft:copper_ore": { output: "utilitycraft:copper_dust", amount: 2 },
+    "minecraft:deepslate_copper_ore": { output: "utilitycraft:copper_dust", amount: 2 },
+    "minecraft:gold_ore": { output: "utilitycraft:gold_dust", amount: 2 },
+    "minecraft:deepslate_gold_ore": { output: "utilitycraft:gold_dust", amount: 2 },
+    "minecraft:iron_ore": { output: "utilitycraft:iron_dust", amount: 2 },
+    "minecraft:deepslate_iron_ore": { output: "utilitycraft:iron_dust", amount: 2 },
+    "minecraft:coal_ore": { output: "minecraft:coal", amount: 4 },
+    "minecraft:deepslate_coal_ore": { output: "minecraft:coal", amount: 4 },
+    "minecraft:diamond_ore": { output: "minecraft:diamond", amount: 2 },
+    "minecraft:deepslate_diamond_ore": { output: "minecraft:diamond", amount: 2 },
+    "minecraft:emerald_ore": { output: "minecraft:emerald", amount: 2 },
+    "minecraft:deepslate_emerald_ore": { output: "minecraft:emerald", amount: 2 },
+    "minecraft:lapis_ore": { output: "minecraft:lapis_lazuli", amount: 8 },
+    "minecraft:deepslate_lapis_ore": { output: "minecraft:lapis_lazuli", amount: 8 },
+    "minecraft:redstone_ore": { output: "minecraft:redstone", amount: 8 },
+    "minecraft:deepslate_redstone_ore": { output: "minecraft:redstone", amount: 8 },
+    "minecraft:quartz_ore": { output: "minecraft:quartz", amount: 6 },
+    "minecraft:nether_gold_ore": { output: "utilitycraft:gold_dust", amount: 2 },
+    "minecraft:gilded_blackstone": { output: "utilitycraft:gold_dust", amount: 2 },
+    "minecraft:ancient_debris": { output: "utilitycraft:netherite_scrap_dust", amount: 2 },
 
     // Ingots
     'minecraft:netherite_ingot': { output: 'utilitycraft:netherite_dust', amount: 1 },
@@ -114,7 +121,6 @@ const crusherRecipesRegister = {
     'utilitycraft:energized_iron_ingot': { output: 'utilitycraft:energized_iron_dust', amount: 1 },
     'utilitycraft:steel_ingot': { output: 'utilitycraft:steel_dust', amount: 1 },
     'minecraft:netherite_scrap': { output: 'utilitycraft:netherite_scrap_dust', amount: 1 },
-    'utilitycraft:ancient_debris_chunk': { output: 'utilitycraft:netherite_scrap_dust', amount: 1 },
     // Plates
     'utilitycraft:netherite_plate': { output: 'utilitycraft:netherite_dust', amount: 1 },
     'utilitycraft:iron_plate': { output: 'utilitycraft:iron_dust', amount: 1 },
@@ -152,6 +158,7 @@ const crusherRecipesRegister = {
     'minecraft:glowstone': { output: 'minecraft:glowstone_dust', amount: 4 },
     'minecraft:quartz_block': { output: 'minecraft:quartz', amount: 4 },
     'minecraft:amethyst_block': { output: 'minecraft:amethyst_shard', amount: 4 },
+    'utilitycraft:geode': { output: 'minecraft:amethyst_shard', amount: 4 },
     'minecraft:sandstone': { output: 'minecraft:sand', amount: 4 },
     'minecraft:red_sandstone': { output: 'minecraft:red_sand', amount: 4 },
     'minecraft:brick_block': { output: 'minecraft:brick', amount: 4 },
@@ -159,6 +166,20 @@ const crusherRecipesRegister = {
     'minecraft:hay_block': { output: 'minecraft:wheat', amount: 9 },
     'minecraft:melon_block': { output: 'minecraft:melon_slice', amount: 9 },
     'minecraft:snow': { output: 'minecraft:snowball', amount: 4 },
+    // Leaves
+    "minecraft:leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:leaves2": { output: "minecraft:string", amount: 2 },
+    "minecraft:oak_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:spruce_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:birch_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:jungle_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:acacia_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:dark_oak_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:mangrove_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:cherry_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:pale_oak_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:azalea_leaves": { output: "minecraft:string", amount: 2 },
+    "minecraft:azalea_leaves_flowered": { output: "minecraft:string", amount: 2 },
     // Wool
     "minecraft:black_wool": { output: "minecraft:string", amount: 4 },
     "minecraft:blue_wool": { output: "minecraft:string", amount: 4 },

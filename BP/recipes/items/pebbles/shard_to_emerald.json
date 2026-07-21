@@ -13,9 +13,8 @@
 			}
 		},
 		"pattern": [
-			"PPP",
-			"PPP",
-			"PPP"
+			"PP",
+			"PP"
 		],
 		"result": {
 			"item": "minecraft:emerald"

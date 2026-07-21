@@ -13,17 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "minecraft:raw_gold"
+			"item": "minecraft:nether_gold_ore"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:nether_gold_chunk"
 			},
 			{
-				"item": "minecraft:raw_gold"
+				"item": "minecraft:nether_gold_ore"
 			}
 		]
 	}

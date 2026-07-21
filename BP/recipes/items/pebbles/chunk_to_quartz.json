@@ -13,18 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "minecraft:quartz",
-			"count": 3
+			"item": "minecraft:quartz_ore"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:nether_quartz_chunk"
 			},
 			{
-				"item": "minecraft:quartz"
+				"item": "minecraft:quartz_ore"
 			}
 		]
 	}

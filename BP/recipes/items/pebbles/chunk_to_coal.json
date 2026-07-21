@@ -13,17 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "minecraft:coal"
+			"item": "minecraft:coal_ore"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:coal_chunk"
 			},
 			{
-				"item": "minecraft:coal"
+				"item": "minecraft:coal_ore"
 			}
 		]
 	}

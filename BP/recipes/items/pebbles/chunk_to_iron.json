@@ -13,17 +13,18 @@
 			}
 		},
 		"pattern": [
+			"PP",
 			"PP"
 		],
 		"result": {
-			"item": "minecraft:raw_iron"
+			"item": "minecraft:iron_ore"
 		},
 		"unlock": [
 			{
 				"item": "utilitycraft:iron_chunk"
 			},
 			{
-				"item": "minecraft:raw_iron"
+				"item": "minecraft:iron_ore"
 			}
 		]
 	}

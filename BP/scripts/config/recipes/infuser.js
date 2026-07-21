@@ -108,6 +108,18 @@ const infuserRecipesRegister = {
     output: "minecraft:magma_cream",
     required: 1,
   },
+  "utilitycraft:gold_dust|minecraft:carrot": { // Golden Carrot
+    output: "minecraft:golden_carrot",
+    required: 1,
+  },
+  "utilitycraft:gold_dust|minecraft:apple": { // Golden Apple
+    output: "minecraft:golden_apple",
+    required: 4,
+  },
+  "utilitycraft:gold_dust|minecraft:melon_slice": { // Glistering Melon Slice
+    output: "minecraft:glistering_melon_slice",
+    required: 1,
+  },
   "minecraft:blaze_powder|minecraft:sand": { // Soul Sand
     output: "minecraft:soul_sand",
     required: 1,
@@ -192,6 +204,18 @@ const infuserRecipesRegister = {
   // Cost multiplier needed
   "minecraft:bone_meal|minecraft:dirt": { // Grass Block (bone meal route)
     output: "minecraft:grass_block",
+    required: 1,
+  },
+  "minecraft:spruce_sapling|minecraft:grass_block": { // Podzol
+    output: "minecraft:podzol",
+    required: 1,
+  },
+  "minecraft:red_mushroom|minecraft:grass_block": { // Mycelium (red mushroom)
+    output: "minecraft:mycelium",
+    required: 1,
+  },
+  "minecraft:brown_mushroom|minecraft:grass_block": { // Mycelium (brown mushroom)
+    output: "minecraft:mycelium",
     required: 1,
   },
   "minecraft:charcoal|minecraft:cobblestone": { // Blackstone (charcoal)
