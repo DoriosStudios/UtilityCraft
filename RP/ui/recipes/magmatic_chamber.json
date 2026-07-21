@@ -1,0 +1,334 @@
+{
+  "namespace": "uc",
+  "magmatic_lava_animation": {
+    "anim_type": "flip_book",
+    "frame_count": 32,
+    "frame_step": 0,
+    "fps": 1.25,
+    "easing": "linear",
+    "initial_uv": [
+      0,
+      0
+    ]
+  },
+  "magmatic_recipe_strip@uc.liquid_recipe_strip": {
+    "$liquid_texture": "textures/static/images/lava_still_flipbook",
+    "$liquid_flipbook_uv": "@uc.magmatic_lava_animation"
+  },
+  "magmatic_recipe_content": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "header@uc.liquid_recipe_header": {}
+      },
+      {
+        "cobblestone_0_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/blocks/cobblestone",
+          "$input_item_name": "Cobblestone",
+          "$liquid_amount_text": "250 mB"
+        }
+      },
+      {
+        "stone_1_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/blocks/stone",
+          "$input_item_name": "Stone",
+          "$liquid_amount_text": "250 mB"
+        }
+      },
+      {
+        "diorite_2_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/blocks/stone_diorite",
+          "$input_item_name": "Diorite",
+          "$liquid_amount_text": "250 mB"
+        }
+      },
+      {
+        "granite_3_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/blocks/stone_granite",
+          "$input_item_name": "Granite",
+          "$liquid_amount_text": "250 mB"
+        }
+      },
+      {
+        "blackstone_4_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/blocks/blackstone",
+          "$input_item_name": "Blackstone",
+          "$liquid_amount_text": "250 mB"
+        }
+      },
+      {
+        "netherrack_5_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/blocks/netherrack",
+          "$input_item_name": "Netherrack",
+          "$liquid_amount_text": "1000 mB"
+        }
+      },
+      {
+        "magma_block_6_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/static/images/magma",
+          "$input_item_name": "Magma Block",
+          "$liquid_amount_text": "1000 mB"
+        }
+      },
+      {
+        "magma_cream_7_strip@uc.magmatic_recipe_strip": {
+          "$input_item_texture": "textures/items/magma_cream",
+          "$input_item_name": "Magma Cream",
+          "$liquid_amount_text": "250 mB"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      },
+      {
+        "bottom_padding": {
+          "type": "panel",
+          "size": [
+            126,
+            8
+          ]
+        }
+      }
+    ]
+  },
+  "magmatic_recipes_side_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      154,
+      166
+    ],
+    "offset": [
+      -91,
+      0
+    ],
+    "layer": 10,
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "panel_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/background_panel",
+          "size": [
+            140,
+            145
+          ],
+          "offset": [
+            7,
+            10.5
+          ],
+          "layer": -5
+        }
+      },
+      {
+        "top_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/dark_top_tab",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [
+            140,
+            24
+          ],
+          "offset": [
+            7,
+            0
+          ],
+          "layer": -6
+        }
+      },
+      {
+        "title": {
+          "type": "label",
+          "text": "Recipes",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [
+            7,
+            7
+          ],
+          "color": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "layer": -3,
+          "font_scale_factor": 1
+        }
+      },
+      {
+        "recipes_grid_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_grid_bg",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": -4
+        }
+      },
+      {
+        "recipes_grid_border": {
+          "type": "image",
+          "texture": "textures/ui/background_border",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": 4
+        }
+      },
+      {
+        "recipes_scroll@common.scrolling_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            142,
+            130
+          ],
+          "offset": [
+            13,
+            -2
+          ],
+          "$show_background": false,
+          "layer": -2,
+          "$scroll_size": [
+            4,
+            "100% - 4px"
+          ],
+          "$scrolling_pane_size": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset": [
+            -2,
+            30
+          ],
+          "$scroll_view_port_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset": [
+            -44,
+            0
+          ],
+          "$scrolling_pane_size_touch": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset_touch": [
+            0,
+            30
+          ],
+          "$scroll_view_port_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset_touch": [
+            -46,
+            0
+          ],
+          "$scroll_size_touch": [
+            4,
+            "100% - 4px"
+          ],
+          "$scroll_box_visible_touch": true,
+          "$use_touch_mode": false,
+          "$scrolling_content": "uc.magmatic_recipe_content",
+          "$scroll_track_image_control": "common.empty_image"
+        }
+      }
+    ]
+  },
+  "magmatic_recipes_connector": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      12,
+      160
+    ],
+    "offset": [
+      -14,
+      0
+    ],
+    "layer": -20,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "connector_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_book_side_toggle_dark",
+          "size": [
+            12,
+            160
+          ],
+          "layer": 0
+        }
+      }
+    ]
+  }
+}

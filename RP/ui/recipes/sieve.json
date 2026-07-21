@@ -1419,7 +1419,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1427,7 +1427,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "18.75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1465,7 +1465,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1473,7 +1473,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1481,7 +1481,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1489,7 +1489,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1497,7 +1497,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1505,7 +1505,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1513,7 +1513,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1521,7 +1521,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1529,7 +1529,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1537,7 +1537,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1545,7 +1545,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1553,7 +1553,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1561,7 +1561,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1569,7 +1569,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1577,7 +1577,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1585,7 +1585,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1593,7 +1593,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1631,7 +1631,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "18.75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1639,7 +1639,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "9%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1647,7 +1647,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "6%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1655,7 +1655,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1663,7 +1663,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1671,7 +1671,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "0.75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1739,7 +1739,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "18.75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -1777,7 +1777,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "22.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2631,7 +2631,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -2869,7 +2869,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2877,7 +2877,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2885,7 +2885,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2893,7 +2893,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2931,7 +2931,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2939,7 +2939,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2947,7 +2947,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2955,7 +2955,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2963,7 +2963,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2971,7 +2971,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2979,7 +2979,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2987,7 +2987,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -2995,7 +2995,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3003,7 +3003,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3011,7 +3011,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3019,7 +3019,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3027,7 +3027,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3035,7 +3035,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3043,7 +3043,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3051,7 +3051,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3059,7 +3059,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3097,7 +3097,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3105,7 +3105,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3113,7 +3113,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "12%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3121,7 +3121,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "8%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3129,7 +3129,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3137,7 +3137,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3145,7 +3145,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "1%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3183,7 +3183,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "33%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3221,7 +3221,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3229,7 +3229,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3267,7 +3267,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "18%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3275,7 +3275,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -3283,7 +3283,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4123,7 +4123,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -4169,7 +4169,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -4423,7 +4423,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4431,7 +4431,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "18.75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4439,7 +4439,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "18.75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4447,7 +4447,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "31.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4485,7 +4485,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4493,7 +4493,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4501,7 +4501,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4509,7 +4509,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4517,7 +4517,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4525,7 +4525,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4533,7 +4533,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4541,7 +4541,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4549,7 +4549,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4557,7 +4557,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4565,7 +4565,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4573,7 +4573,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4581,7 +4581,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4589,7 +4589,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4597,7 +4597,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4605,7 +4605,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4613,7 +4613,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4651,7 +4651,7 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4659,7 +4659,7 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4667,7 +4667,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "31.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4675,7 +4675,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "31.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4683,7 +4683,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4691,7 +4691,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4699,7 +4699,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4707,7 +4707,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4715,7 +4715,7 @@
           "$result_item_texture": "textures/items/clay_ball",
           "$result_item_name": "Clay Ball",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4723,7 +4723,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "1.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4731,7 +4731,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -4769,7 +4769,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "41.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4807,7 +4807,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "31.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4815,7 +4815,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4823,7 +4823,7 @@
           "$result_item_texture": "textures/blocks/sulfur_spike_up_tip",
           "$result_item_name": "Sulfur Spike",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4861,7 +4861,7 @@
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4869,7 +4869,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "22.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4877,7 +4877,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "31.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -4885,7 +4885,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -5379,7 +5379,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "3.75%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -5749,7 +5749,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -5795,7 +5795,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -6035,7 +6035,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "22.5%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -6081,7 +6081,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6089,7 +6089,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "22.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6097,7 +6097,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "22.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6105,7 +6105,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6113,7 +6113,7 @@
           "$result_item_texture": "textures/items/pebbles/gold_chunk",
           "$result_item_name": "Gold Chunk",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6121,7 +6121,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "3.75%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -6159,7 +6159,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6167,7 +6167,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6175,7 +6175,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6183,7 +6183,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6191,7 +6191,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6199,7 +6199,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6207,7 +6207,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6215,7 +6215,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6223,7 +6223,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6231,7 +6231,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6239,7 +6239,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6247,7 +6247,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6255,7 +6255,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6263,7 +6263,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6271,7 +6271,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6279,7 +6279,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6287,7 +6287,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6325,7 +6325,7 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6333,7 +6333,7 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6341,7 +6341,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6349,7 +6349,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6357,7 +6357,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "18%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6365,7 +6365,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "12%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6373,7 +6373,7 @@
           "$result_item_texture": "textures/items/blaze_powder",
           "$result_item_name": "Blaze Powder",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6381,7 +6381,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6389,7 +6389,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6397,7 +6397,7 @@
           "$result_item_texture": "textures/items/clay_ball",
           "$result_item_name": "Clay Ball",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6405,7 +6405,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "1.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6413,7 +6413,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -6451,7 +6451,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "49.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6459,7 +6459,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_gold_chunk",
           "$result_item_name": "Nether Gold Chunk",
           "$result_chance_text": "49.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6497,7 +6497,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6505,7 +6505,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6513,7 +6513,7 @@
           "$result_item_texture": "textures/blocks/sulfur_spike_up_tip",
           "$result_item_name": "Sulfur Spike",
           "$result_chance_text": "18%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6521,7 +6521,7 @@
           "$result_item_texture": "textures/items/gold_nugget",
           "$result_item_name": "Gold Nugget",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6529,7 +6529,7 @@
           "$result_item_texture": "textures/items/pebbles/gilded_blackstone_pebble",
           "$result_item_name": "Gilded Blackstone Pebble",
           "$result_chance_text": "49.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6567,7 +6567,7 @@
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
           "$result_chance_text": "18%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6575,7 +6575,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "27%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6583,7 +6583,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -6591,7 +6591,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "22.5%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -6599,7 +6599,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7093,7 +7093,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "5%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -7487,7 +7487,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -7533,7 +7533,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -7829,7 +7829,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -7875,7 +7875,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7883,7 +7883,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7891,7 +7891,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7899,7 +7899,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7907,7 +7907,7 @@
           "$result_item_texture": "textures/items/pebbles/gold_chunk",
           "$result_item_name": "Gold Chunk",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7915,7 +7915,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "5%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -7923,7 +7923,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "4%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7931,7 +7931,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "2%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7969,7 +7969,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7977,7 +7977,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7985,7 +7985,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7993,7 +7993,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8001,7 +8001,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8009,7 +8009,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8017,7 +8017,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8025,7 +8025,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8033,7 +8033,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8041,7 +8041,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8049,7 +8049,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8057,7 +8057,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8065,7 +8065,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8073,7 +8073,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8081,7 +8081,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8089,7 +8089,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8097,7 +8097,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8135,7 +8135,7 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8143,7 +8143,7 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8151,7 +8151,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8159,7 +8159,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8167,7 +8167,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "24%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8175,7 +8175,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "16%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8183,7 +8183,7 @@
           "$result_item_texture": "textures/items/blaze_powder",
           "$result_item_name": "Blaze Powder",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8191,7 +8191,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8199,7 +8199,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8207,7 +8207,7 @@
           "$result_item_texture": "textures/items/clay_ball",
           "$result_item_name": "Clay Ball",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8215,7 +8215,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "2%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8223,7 +8223,7 @@
           "$result_item_texture": "textures/blocks/conduit_base",
           "$result_item_name": "Conduit",
           "$result_chance_text": "1%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8231,7 +8231,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -8269,7 +8269,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "66%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8277,7 +8277,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_gold_chunk",
           "$result_item_name": "Nether Gold Chunk",
           "$result_chance_text": "66%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8315,7 +8315,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8323,7 +8323,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8331,7 +8331,7 @@
           "$result_item_texture": "textures/blocks/sulfur_spike_up_tip",
           "$result_item_name": "Sulfur Spike",
           "$result_chance_text": "24%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8339,7 +8339,7 @@
           "$result_item_texture": "textures/items/gold_nugget",
           "$result_item_name": "Gold Nugget",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8347,7 +8347,7 @@
           "$result_item_texture": "textures/items/pebbles/gilded_blackstone_pebble",
           "$result_item_name": "Gilded Blackstone Pebble",
           "$result_chance_text": "66%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8355,7 +8355,7 @@
           "$result_item_texture": "textures/items/magma_cream",
           "$result_item_name": "Magma Cream",
           "$result_chance_text": "8%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8393,7 +8393,7 @@
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
           "$result_chance_text": "24%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8401,7 +8401,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "36%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8409,7 +8409,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8417,7 +8417,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8425,7 +8425,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_gold_chunk",
           "$result_item_name": "Deepslate Gold Chunk",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8433,7 +8433,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8441,7 +8441,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -8449,7 +8449,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8487,7 +8487,7 @@
           "$result_item_texture": "textures/blocks/chorus_flower",
           "$result_item_name": "Chorus Flower",
           "$result_chance_text": "2%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8495,7 +8495,7 @@
           "$result_item_texture": "textures/items/chorus_fruit",
           "$result_item_name": "Chorus Fruit",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -8959,7 +8959,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "6.25%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -9353,7 +9353,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -9399,7 +9399,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -9735,7 +9735,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -9781,7 +9781,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9789,7 +9789,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9797,7 +9797,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9805,7 +9805,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "62.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9813,7 +9813,7 @@
           "$result_item_texture": "textures/items/pebbles/gold_chunk",
           "$result_item_name": "Gold Chunk",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9821,7 +9821,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "6.25%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -9829,7 +9829,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9837,7 +9837,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "2.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9875,7 +9875,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9883,7 +9883,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9891,7 +9891,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9899,7 +9899,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9907,7 +9907,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9915,7 +9915,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9923,7 +9923,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9931,7 +9931,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9939,7 +9939,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9947,7 +9947,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9955,7 +9955,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9963,7 +9963,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9971,7 +9971,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9979,7 +9979,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9987,7 +9987,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9995,7 +9995,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10003,7 +10003,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10041,7 +10041,7 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10049,7 +10049,7 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10057,7 +10057,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "62.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10065,7 +10065,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "62.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10073,7 +10073,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10081,7 +10081,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10089,7 +10089,7 @@
           "$result_item_texture": "textures/items/blaze_powder",
           "$result_item_name": "Blaze Powder",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10097,7 +10097,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10105,7 +10105,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10113,7 +10113,7 @@
           "$result_item_texture": "textures/items/clay_ball",
           "$result_item_name": "Clay Ball",
           "$result_chance_text": "25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10121,7 +10121,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "2.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10129,7 +10129,7 @@
           "$result_item_texture": "textures/blocks/conduit_base",
           "$result_item_name": "Conduit",
           "$result_chance_text": "1.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10137,7 +10137,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -10175,7 +10175,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "82.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10183,7 +10183,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_gold_chunk",
           "$result_item_name": "Nether Gold Chunk",
           "$result_chance_text": "82.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10191,7 +10191,7 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "6.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10229,7 +10229,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "62.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10237,7 +10237,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10245,7 +10245,7 @@
           "$result_item_texture": "textures/blocks/sulfur_spike_up_tip",
           "$result_item_name": "Sulfur Spike",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10253,7 +10253,7 @@
           "$result_item_texture": "textures/items/gold_nugget",
           "$result_item_name": "Gold Nugget",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10261,7 +10261,7 @@
           "$result_item_texture": "textures/items/pebbles/gilded_blackstone_pebble",
           "$result_item_name": "Gilded Blackstone Pebble",
           "$result_chance_text": "82.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10269,7 +10269,7 @@
           "$result_item_texture": "textures/items/magma_cream",
           "$result_item_name": "Magma Cream",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10277,7 +10277,7 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10315,7 +10315,7 @@
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
           "$result_chance_text": "6.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10323,7 +10323,7 @@
           "$result_item_texture": "textures/blocks/sculk_catalyst_top",
           "$result_item_name": "Sculk Catalyst",
           "$result_chance_text": "1.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10331,7 +10331,7 @@
           "$result_item_texture": "textures/items/pebbles/geode",
           "$result_item_name": "Geode",
           "$result_chance_text": "6.25%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10339,7 +10339,7 @@
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10347,7 +10347,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10355,7 +10355,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10363,7 +10363,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "12.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10371,7 +10371,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_gold_chunk",
           "$result_item_name": "Deepslate Gold Chunk",
           "$result_chance_text": "50%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10379,7 +10379,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "62.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10387,7 +10387,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "37.5%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -10395,7 +10395,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10433,7 +10433,7 @@
           "$result_item_texture": "textures/blocks/chorus_flower",
           "$result_item_name": "Chorus Flower",
           "$result_chance_text": "2.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10441,7 +10441,7 @@
           "$result_item_texture": "textures/items/chorus_fruit",
           "$result_item_name": "Chorus Fruit",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -10905,7 +10905,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -11299,7 +11299,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -11345,7 +11345,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -11705,7 +11705,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -11751,7 +11751,7 @@
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11759,7 +11759,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11767,7 +11767,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11775,7 +11775,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11783,7 +11783,7 @@
           "$result_item_texture": "textures/items/pebbles/gold_chunk",
           "$result_item_name": "Gold Chunk",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11791,7 +11791,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -11799,7 +11799,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "6%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11807,7 +11807,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "3%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11845,7 +11845,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11853,7 +11853,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11861,7 +11861,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11869,7 +11869,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11877,7 +11877,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11885,7 +11885,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11893,7 +11893,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11901,7 +11901,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11909,7 +11909,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11917,7 +11917,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11925,7 +11925,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11933,7 +11933,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11941,7 +11941,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11949,7 +11949,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11957,7 +11957,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11965,7 +11965,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11973,7 +11973,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12011,7 +12011,7 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12019,7 +12019,7 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12027,7 +12027,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12035,7 +12035,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12043,7 +12043,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "36%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12051,7 +12051,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "24%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12059,7 +12059,7 @@
           "$result_item_texture": "textures/items/blaze_powder",
           "$result_item_name": "Blaze Powder",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12067,7 +12067,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12075,7 +12075,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12083,7 +12083,7 @@
           "$result_item_texture": "textures/items/clay_ball",
           "$result_item_name": "Clay Ball",
           "$result_chance_text": "30%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12091,7 +12091,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "3%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12099,7 +12099,7 @@
           "$result_item_texture": "textures/blocks/conduit_base",
           "$result_item_name": "Conduit",
           "$result_chance_text": "1.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12107,7 +12107,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -12145,7 +12145,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "99%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12153,7 +12153,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_gold_chunk",
           "$result_item_name": "Nether Gold Chunk",
           "$result_chance_text": "99%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12161,7 +12161,7 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12199,7 +12199,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12207,7 +12207,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "90%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12215,7 +12215,7 @@
           "$result_item_texture": "textures/blocks/sulfur_spike_up_tip",
           "$result_item_name": "Sulfur Spike",
           "$result_chance_text": "36%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12223,7 +12223,7 @@
           "$result_item_texture": "textures/items/gold_nugget",
           "$result_item_name": "Gold Nugget",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12231,7 +12231,7 @@
           "$result_item_texture": "textures/items/pebbles/gilded_blackstone_pebble",
           "$result_item_name": "Gilded Blackstone Pebble",
           "$result_chance_text": "99%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12239,7 +12239,7 @@
           "$result_item_texture": "textures/items/magma_cream",
           "$result_item_name": "Magma Cream",
           "$result_chance_text": "12%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12247,7 +12247,7 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "6%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12285,7 +12285,7 @@
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12293,7 +12293,7 @@
           "$result_item_texture": "textures/blocks/sculk_catalyst_top",
           "$result_item_name": "Sculk Catalyst",
           "$result_chance_text": "1.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12301,7 +12301,7 @@
           "$result_item_texture": "textures/items/pebbles/geode",
           "$result_item_name": "Geode",
           "$result_chance_text": "7.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12309,7 +12309,7 @@
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
           "$result_chance_text": "36%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12317,7 +12317,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "54%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12325,7 +12325,7 @@
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
           "$result_chance_text": "6%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12333,7 +12333,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12341,7 +12341,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "15%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12349,7 +12349,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_gold_chunk",
           "$result_item_name": "Deepslate Gold Chunk",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12357,7 +12357,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "75%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12365,7 +12365,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "45%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -12373,7 +12373,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "90%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12411,7 +12411,7 @@
           "$result_item_texture": "textures/blocks/chorus_flower",
           "$result_item_name": "Chorus Flower",
           "$result_chance_text": "3%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12419,7 +12419,7 @@
           "$result_item_texture": "textures/items/chorus_fruit",
           "$result_item_name": "Chorus Fruit",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12427,7 +12427,7 @@
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
           "$result_chance_text": "48%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12435,7 +12435,7 @@
           "$result_item_texture": "textures/items/pebbles/shulker_shell_shard",
           "$result_item_name": "Shulker Shell Shard",
           "$result_chance_text": "1.5%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -12891,7 +12891,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -13285,7 +13285,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "80%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -13331,7 +13331,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x3"
+          "$result_amount_text": "x1-3"
         }
       },
       {
@@ -13691,7 +13691,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x4"
+          "$result_amount_text": "x1-4"
         }
       },
       {
@@ -13737,7 +13737,7 @@
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
           "$result_item_name": "Dripstone Pebble",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13745,7 +13745,7 @@
           "$result_item_texture": "textures/items/pebbles/iron_chunk",
           "$result_item_name": "Iron Chunk",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13753,7 +13753,7 @@
           "$result_item_texture": "textures/items/pebbles/coal_chunk",
           "$result_item_name": "Coal Chunk",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13761,7 +13761,7 @@
           "$result_item_texture": "textures/items/pebbles/gold_chunk",
           "$result_item_name": "Gold Chunk",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13769,7 +13769,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -13777,7 +13777,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "8%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13785,7 +13785,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "4%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13823,7 +13823,7 @@
           "$result_item_texture": "textures/items/carrot",
           "$result_item_name": "Carrot",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13831,7 +13831,7 @@
           "$result_item_texture": "textures/items/potato",
           "$result_item_name": "Potato",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13839,7 +13839,7 @@
           "$result_item_texture": "textures/items/seeds_wheat",
           "$result_item_name": "Wheat Seeds",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13847,7 +13847,7 @@
           "$result_item_texture": "textures/items/seeds_pumpkin",
           "$result_item_name": "Pumpkin Seeds",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13855,7 +13855,7 @@
           "$result_item_texture": "textures/items/seeds_beetroot",
           "$result_item_name": "Beetroot Seeds",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13863,7 +13863,7 @@
           "$result_item_texture": "textures/items/seeds_melon",
           "$result_item_name": "Melon Seeds",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13871,7 +13871,7 @@
           "$result_item_texture": "textures/items/reeds",
           "$result_item_name": "Sugar Cane",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13879,7 +13879,7 @@
           "$result_item_texture": "textures/items/bamboo",
           "$result_item_name": "Bamboo",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13887,7 +13887,7 @@
           "$result_item_texture": "textures/blocks/sapling_acacia",
           "$result_item_name": "Acacia Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13895,7 +13895,7 @@
           "$result_item_texture": "textures/blocks/sapling_birch",
           "$result_item_name": "Birch Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13903,7 +13903,7 @@
           "$result_item_texture": "textures/blocks/sapling_roofed_oak",
           "$result_item_name": "Dark Oak Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13911,7 +13911,7 @@
           "$result_item_texture": "textures/blocks/sapling_jungle",
           "$result_item_name": "Jungle Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13919,7 +13919,7 @@
           "$result_item_texture": "textures/items/mangrove_propagule",
           "$result_item_name": "Mangrove Propagule",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13927,7 +13927,7 @@
           "$result_item_texture": "textures/blocks/sapling_oak",
           "$result_item_name": "Oak Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13935,7 +13935,7 @@
           "$result_item_texture": "textures/blocks/pale_oak_sapling",
           "$result_item_name": "Pale Oak Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13943,7 +13943,7 @@
           "$result_item_texture": "textures/blocks/sapling_spruce",
           "$result_item_name": "Spruce Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13951,7 +13951,7 @@
           "$result_item_texture": "textures/blocks/cherry_sapling",
           "$result_item_name": "Cherry Sapling",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13989,7 +13989,7 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13997,7 +13997,7 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14005,7 +14005,7 @@
           "$result_item_texture": "textures/items/pebbles/copper_chunk",
           "$result_item_name": "Copper Chunk",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14013,7 +14013,7 @@
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "Bone Meal",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14021,7 +14021,7 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "48%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14029,7 +14029,7 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "32%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14037,7 +14037,7 @@
           "$result_item_texture": "textures/items/blaze_powder",
           "$result_item_name": "Blaze Powder",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14045,7 +14045,7 @@
           "$result_item_texture": "textures/blocks/cactus_side",
           "$result_item_name": "Cactus",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14053,7 +14053,7 @@
           "$result_item_texture": "textures/items/kelp",
           "$result_item_name": "Kelp",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14061,7 +14061,7 @@
           "$result_item_texture": "textures/items/clay_ball",
           "$result_item_name": "Clay Ball",
           "$result_chance_text": "40%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14069,7 +14069,7 @@
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Cocoa Beans",
           "$result_chance_text": "4%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14077,7 +14077,7 @@
           "$result_item_texture": "textures/blocks/conduit_base",
           "$result_item_name": "Conduit",
           "$result_chance_text": "2%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14085,7 +14085,7 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "80%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -14123,7 +14123,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_quartz_chunk",
           "$result_item_name": "Nether Quartz Chunk",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14131,7 +14131,7 @@
           "$result_item_texture": "textures/items/pebbles/nether_gold_chunk",
           "$result_item_name": "Nether Gold Chunk",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14139,7 +14139,7 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14177,7 +14177,7 @@
           "$result_item_texture": "textures/items/pebbles/blackstone_pebble",
           "$result_item_name": "Blackstone Pebble",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14185,7 +14185,7 @@
           "$result_item_texture": "textures/items/pebbles/basalt_pebble",
           "$result_item_name": "Basalt Pebble",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14193,7 +14193,7 @@
           "$result_item_texture": "textures/blocks/sulfur_spike_up_tip",
           "$result_item_name": "Sulfur Spike",
           "$result_chance_text": "48%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14201,7 +14201,7 @@
           "$result_item_texture": "textures/items/gold_nugget",
           "$result_item_name": "Gold Nugget",
           "$result_chance_text": "80%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14209,7 +14209,7 @@
           "$result_item_texture": "textures/items/pebbles/gilded_blackstone_pebble",
           "$result_item_name": "Gilded Blackstone Pebble",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14217,7 +14217,7 @@
           "$result_item_texture": "textures/items/magma_cream",
           "$result_item_name": "Magma Cream",
           "$result_chance_text": "16%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14225,7 +14225,7 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "8%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14263,7 +14263,7 @@
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14271,7 +14271,7 @@
           "$result_item_texture": "textures/blocks/sculk_catalyst_top",
           "$result_item_name": "Sculk Catalyst",
           "$result_chance_text": "2%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14279,7 +14279,7 @@
           "$result_item_texture": "textures/items/pebbles/geode",
           "$result_item_name": "Geode",
           "$result_chance_text": "10%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14287,7 +14287,7 @@
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
           "$result_chance_text": "48%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14295,7 +14295,7 @@
           "$result_item_texture": "textures/items/pebbles/tuff_pebble",
           "$result_item_name": "Tuff Pebble",
           "$result_chance_text": "72%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14303,7 +14303,7 @@
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
           "$result_chance_text": "8%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14311,7 +14311,7 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14319,7 +14319,7 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "20%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14327,7 +14327,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_gold_chunk",
           "$result_item_name": "Deepslate Gold Chunk",
           "$result_chance_text": "80%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14335,7 +14335,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_iron_chunk",
           "$result_item_name": "Deepslate Iron Chunk",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14343,7 +14343,7 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "60%%",
-          "$result_amount_text": "x36"
+          "$result_amount_text": "x1-36"
         }
       },
       {
@@ -14351,7 +14351,7 @@
           "$result_item_texture": "textures/items/pebbles/deepslate_coal_chunk",
           "$result_item_name": "Deepslate Coal Chunk",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14389,7 +14389,7 @@
           "$result_item_texture": "textures/blocks/chorus_flower",
           "$result_item_name": "Chorus Flower",
           "$result_chance_text": "4%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14397,7 +14397,7 @@
           "$result_item_texture": "textures/items/chorus_fruit",
           "$result_item_name": "Chorus Fruit",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14405,7 +14405,7 @@
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
           "$result_chance_text": "64%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -14413,7 +14413,7 @@
           "$result_item_texture": "textures/items/pebbles/shulker_shell_shard",
           "$result_item_name": "Shulker Shell Shard",
           "$result_chance_text": "2%%",
-          "$result_amount_text": "x9"
+          "$result_amount_text": "x1-9"
         }
       },
       {

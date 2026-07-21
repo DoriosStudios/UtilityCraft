@@ -396,7 +396,7 @@
                         83,
                         0
                     ],
-                    "text_alignment": "right",
+                    "text_alignment": "center",
                     "color": [
                         0.3,
                         0.3,
@@ -491,7 +491,7 @@
                         83,
                         0
                     ],
-                    "text_alignment": "right",
+                    "text_alignment": "center",
                     "color": [
                         0.3,
                         0.3,
@@ -527,6 +527,224 @@
             }
         ]
     },
+      "liquid_recipe_header": {
+          "type": "panel",
+          "size": [
+              126,
+              18
+          ],
+          "controls": [
+              {
+                  "background": {
+                      "type": "image",
+                      "texture": "textures/ui/gray_bg_border",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          126,
+                          18
+                      ],
+                      "offset": [
+                          54,
+                          0
+                      ],
+                      "layer": -2
+                  }
+              },
+              {
+                  "liquid": {
+                      "type": "label",
+                      "text": "Liquid",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          22,
+                          "default"
+                      ],
+                      "offset": [
+                          2,
+                          0
+                      ],
+                      "text_alignment": "center",
+                      "color": [
+                          0.3,
+                          0.3,
+                          0.3
+                      ],
+                      "font_scale_factor": 0.65,
+                      "layer": 2
+                  }
+              },
+              {
+                  "input_item": {
+                      "type": "label",
+                      "text": "Input Item",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          66,
+                          "default"
+                      ],
+                      "offset": [
+                          47,
+                          0
+                      ],
+                      "text_alignment": "center",
+                      "color": [
+                          0.3,
+                          0.3,
+                          0.3
+                      ],
+                      "font_scale_factor": 0.65,
+                      "layer": 2
+                  }
+              },
+              {
+                  "amount": {
+                      "type": "label",
+                      "text": "Amount",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          34,
+                          "default"
+                      ],
+                      "offset": [
+                          98,
+                          0
+                      ],
+                      "text_alignment": "center",
+                      "color": [
+                          0.3,
+                          0.3,
+                          0.3
+                      ],
+                      "font_scale_factor": 0.65,
+                      "layer": 2
+                  }
+              }
+          ]
+      },
+      "liquid_recipe_strip": {
+          "type": "panel",
+          "size": [
+              126,
+              18
+          ],
+          "$liquid_texture|default": "",
+          "$liquid_flipbook_uv|default": "",
+          "$input_item_texture|default": "",
+          "$input_item_name|default": "",
+          "$liquid_amount_text|default": "0 mB",
+          "controls": [
+              {
+                  "background": {
+                      "type": "image",
+                      "texture": "textures/ui/gray_bg_border",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          126,
+                          18
+                      ],
+                      "offset": [
+                          54,
+                          0
+                      ],
+                      "layer": -2
+                  }
+              },
+              {
+                  "liquid_icon": {
+                      "type": "image",
+                      "texture": "$liquid_texture",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "size": [
+                          14,
+                          14
+                      ],
+                      "uv_size": [
+                          16,
+                          16
+                      ],
+                      "uv": "$liquid_flipbook_uv",
+                      "offset": [
+                          59,
+                          2
+                      ],
+                      "layer": 1
+                  }
+              },
+              {
+                  "input_item_icon": {
+                      "type": "image",
+                      "texture": "$input_item_texture",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "size": [
+                          14,
+                          14
+                      ],
+                      "offset": [
+                          78,
+                          2
+                      ],
+                      "layer": 1
+                  }
+              },
+              {
+                  "input_item_name": {
+                      "type": "label",
+                      "text": "$input_item_name",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          48,
+                          "default"
+                      ],
+                      "offset": [
+                          55,
+                          0
+                      ],
+                      "text_alignment": "left",
+                      "color": [
+                          0.3,
+                          0.3,
+                          0.3
+                      ],
+                      "font_scale_factor": 0.65,
+                      "layer": 2
+                  }
+              },
+              {
+                  "amount": {
+                      "type": "label",
+                      "text": "$liquid_amount_text",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [
+                          34,
+                          "default"
+                      ],
+                      "offset": [
+                          98,
+                          0
+                      ],
+                      "text_alignment": "center",
+                      "color": [
+                          0.3,
+                          0.3,
+                          0.3
+                      ],
+                      "font_scale_factor": 0.65,
+                      "layer": 2
+                  }
+              }
+          ]
+      },
+    "drop_table_result_header@uc.sieve_result_header": {},
+    "drop_table_result_strip@uc.sieve_result_strip": {},
     "recipes_tab": {
         "type": "collection_panel",
         "anchor_from": "center",

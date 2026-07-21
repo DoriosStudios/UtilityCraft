@@ -1,0 +1,1586 @@
+{
+  "namespace": "uc",
+  "fisher_net_toggle@uc.recipe_toggle": {
+    "$toggle_name": "fisher_nets",
+    "$toggle_lost_reset": false
+  },
+  "fisher_net_row": {
+    "type": "panel",
+    "size": [
+      126,
+      18
+    ],
+    "controls": [
+      {
+        "string_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 0,
+          "$toggle_default_state": true,
+          "$toggle_hover_text": "item.utilitycraft:string_fishing_net",
+          "$toggle_control_name": "string_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/string_net",
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "copper_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 1,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "item.utilitycraft:copper_fishing_net",
+          "$toggle_control_name": "copper_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/copper_net",
+          "offset": [
+            18,
+            0
+          ]
+        }
+      },
+      {
+        "iron_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 2,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "item.utilitycraft:iron_fishing_net",
+          "$toggle_control_name": "iron_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/iron_net",
+          "offset": [
+            36,
+            0
+          ]
+        }
+      },
+      {
+        "golden_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 3,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "item.utilitycraft:golden_fishing_net",
+          "$toggle_control_name": "golden_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/golden_net",
+          "offset": [
+            54,
+            0
+          ]
+        }
+      },
+      {
+        "emerald_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 4,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "item.utilitycraft:emerald_fishing_net",
+          "$toggle_control_name": "emerald_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/emerald_net",
+          "offset": [
+            72,
+            0
+          ]
+        }
+      },
+      {
+        "diamond_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 5,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "item.utilitycraft:diamond_fishing_net",
+          "$toggle_control_name": "diamond_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/diamond_net",
+          "offset": [
+            90,
+            0
+          ]
+        }
+      },
+      {
+        "netherite_fishing_net_toggle@uc.fisher_net_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 6,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "item.utilitycraft:netherite_fishing_net",
+          "$toggle_control_name": "netherite_fishing_net_recipe",
+          "$recipe_icon": "textures/items/nets/netherite_net",
+          "offset": [
+            108,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "fisher_recipe_content": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "net_row@uc.fisher_net_row": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.drop_table_result_header": {}
+      },
+      {
+        "net_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "string_results@uc.fisher_string_results": {}
+            },
+            {
+              "copper_results@uc.fisher_copper_results": {}
+            },
+            {
+              "iron_results@uc.fisher_iron_results": {}
+            },
+            {
+              "golden_results@uc.fisher_golden_results": {}
+            },
+            {
+              "emerald_results@uc.fisher_emerald_results": {}
+            },
+            {
+              "diamond_results@uc.fisher_diamond_results": {}
+            },
+            {
+              "netherite_results@uc.fisher_netherite_results": {}
+            }
+          ]
+        }
+      },
+      {
+        "bottom_padding": {
+          "type": "panel",
+          "size": [
+            126,
+            8
+          ]
+        }
+      }
+    ]
+  },
+  "fisher_recipes_side_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      154,
+      166
+    ],
+    "offset": [
+      -91,
+      0
+    ],
+    "layer": 10,
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "panel_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/background_panel",
+          "size": [
+            140,
+            145
+          ],
+          "offset": [
+            7,
+            10.5
+          ],
+          "layer": -5
+        }
+      },
+      {
+        "top_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/dark_top_tab",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [
+            140,
+            24
+          ],
+          "offset": [
+            7,
+            0
+          ],
+          "layer": -6
+        }
+      },
+      {
+        "title": {
+          "type": "label",
+          "text": "Drop Tables",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [
+            7,
+            7
+          ],
+          "color": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "layer": -3,
+          "font_scale_factor": 1
+        }
+      },
+      {
+        "recipes_grid_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_grid_bg",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": -4
+        }
+      },
+      {
+        "recipes_grid_border": {
+          "type": "image",
+          "texture": "textures/ui/background_border",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": 4
+        }
+      },
+      {
+        "recipes_scroll@common.scrolling_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            142,
+            130
+          ],
+          "offset": [
+            13,
+            -2
+          ],
+          "$show_background": false,
+          "layer": -2,
+          "$scroll_size": [
+            4,
+            "100% - 4px"
+          ],
+          "$scrolling_pane_size": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset": [
+            -2,
+            30
+          ],
+          "$scroll_view_port_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset": [
+            -44,
+            0
+          ],
+          "$scrolling_pane_size_touch": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset_touch": [
+            0,
+            30
+          ],
+          "$scroll_view_port_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset_touch": [
+            -46,
+            0
+          ],
+          "$scroll_size_touch": [
+            4,
+            "100% - 4px"
+          ],
+          "$scroll_box_visible_touch": true,
+          "$use_touch_mode": false,
+          "$scrolling_content": "uc.fisher_recipe_content",
+          "$scroll_track_image_control": "common.empty_image"
+        }
+      }
+    ]
+  },
+  "fisher_recipes_connector": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      12,
+      160
+    ],
+    "offset": [
+      -14,
+      0
+    ],
+    "layer": -20,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "connector_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_book_side_toggle_dark",
+          "size": [
+            12,
+            160
+          ],
+          "layer": 0
+        }
+      }
+    ]
+  },
+  "fisher_string_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "string_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "45%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "25%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "string_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "sand_handful_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "2%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "fisher_copper_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "copper_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "56.25%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "31.25%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "tropical_fish_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_clownfish_raw",
+          "$result_item_name": "Tropical Fish",
+          "$result_chance_text": "12.5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pufferfish_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_pufferfish_raw",
+          "$result_item_name": "Pufferfish",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "string_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "15%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "12.5%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "ink_sac_7_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Ink Sac",
+          "$result_chance_text": "7.5%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "stick_8_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "12.5%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "sand_handful_9_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "2.5%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "fisher_iron_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "iron_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "67.5%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "37.5%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "tropical_fish_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_clownfish_raw",
+          "$result_item_name": "Tropical Fish",
+          "$result_chance_text": "15%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pufferfish_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_pufferfish_raw",
+          "$result_item_name": "Pufferfish",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "string_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "18%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "15%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "ink_sac_7_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Ink Sac",
+          "$result_chance_text": "9%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "glow_ink_sac_8_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_glow",
+          "$result_item_name": "Glow Ink Sac",
+          "$result_chance_text": "7.5%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "prismarine_shard_9_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_shard",
+          "$result_item_name": "Prismarine Shard",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "prismarine_crystals_10_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_crystals",
+          "$result_item_name": "Prismarine Crystals",
+          "$result_chance_text": "4.5%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "water_bottle_11_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/potion_bottle_drinkable",
+          "$result_item_name": "Water Bottle",
+          "$result_chance_text": "0.75%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "fishing_rod_12_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fishing_rod_uncast",
+          "$result_item_name": "Fishing Rod",
+          "$result_chance_text": "0.6%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_13_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "15%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "leather_boots_14_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/leather_boots",
+          "$result_item_name": "Leather Boots",
+          "$result_chance_text": "0.12%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "sand_handful_15_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "3%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "fisher_golden_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "golden_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "90%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "tropical_fish_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_clownfish_raw",
+          "$result_item_name": "Tropical Fish",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pufferfish_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_pufferfish_raw",
+          "$result_item_name": "Pufferfish",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "string_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "24%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "ink_sac_7_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Ink Sac",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "glow_ink_sac_8_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_glow",
+          "$result_item_name": "Glow Ink Sac",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "prismarine_shard_9_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_shard",
+          "$result_item_name": "Prismarine Shard",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "prismarine_crystals_10_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_crystals",
+          "$result_item_name": "Prismarine Crystals",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "nautilus_shell_11_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/nautilus",
+          "$result_item_name": "Nautilus Shell",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "water_bottle_12_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/potion_bottle_drinkable",
+          "$result_item_name": "Water Bottle",
+          "$result_chance_text": "1%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "fishing_rod_13_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fishing_rod_uncast",
+          "$result_item_name": "Fishing Rod",
+          "$result_chance_text": "0.8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "bow_14_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bow_standby",
+          "$result_item_name": "Bow",
+          "$result_chance_text": "0.16%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_15_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "leather_boots_16_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/leather_boots",
+          "$result_item_name": "Leather Boots",
+          "$result_chance_text": "0.16%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "sand_handful_17_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "4%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "fisher_emerald_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "emerald_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "62.5%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "tropical_fish_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_clownfish_raw",
+          "$result_item_name": "Tropical Fish",
+          "$result_chance_text": "25%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pufferfish_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_pufferfish_raw",
+          "$result_item_name": "Pufferfish",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "string_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "30%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "25%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "ink_sac_7_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Ink Sac",
+          "$result_chance_text": "15%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "glow_ink_sac_8_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_glow",
+          "$result_item_name": "Glow Ink Sac",
+          "$result_chance_text": "12.5%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "prismarine_shard_9_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_shard",
+          "$result_item_name": "Prismarine Shard",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "prismarine_crystals_10_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_crystals",
+          "$result_item_name": "Prismarine Crystals",
+          "$result_chance_text": "7.5%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "nautilus_shell_11_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/nautilus",
+          "$result_item_name": "Nautilus Shell",
+          "$result_chance_text": "6.25%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "experience_bottle_12_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/experience_bottle",
+          "$result_item_name": "Experience Bottle",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "name_tag_13_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/name_tag",
+          "$result_item_name": "Name Tag",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "saddle_14_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/saddle",
+          "$result_item_name": "Saddle",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "water_bottle_15_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/potion_bottle_drinkable",
+          "$result_item_name": "Water Bottle",
+          "$result_chance_text": "1.25%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "book_16_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/book_normal",
+          "$result_item_name": "Book",
+          "$result_chance_text": "1.25%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "fishing_rod_17_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fishing_rod_uncast",
+          "$result_item_name": "Fishing Rod",
+          "$result_chance_text": "1%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "bow_18_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bow_standby",
+          "$result_item_name": "Bow",
+          "$result_chance_text": "0.2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_19_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "25%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "leather_boots_20_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/leather_boots",
+          "$result_item_name": "Leather Boots",
+          "$result_chance_text": "0.2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "sand_handful_21_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "fisher_diamond_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "diamond_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "75%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "tropical_fish_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_clownfish_raw",
+          "$result_item_name": "Tropical Fish",
+          "$result_chance_text": "30%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pufferfish_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_pufferfish_raw",
+          "$result_item_name": "Pufferfish",
+          "$result_chance_text": "24%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "string_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "36%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "30%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "24%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "ink_sac_7_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Ink Sac",
+          "$result_chance_text": "18%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "glow_ink_sac_8_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_glow",
+          "$result_item_name": "Glow Ink Sac",
+          "$result_chance_text": "15%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "prismarine_shard_9_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_shard",
+          "$result_item_name": "Prismarine Shard",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "prismarine_crystals_10_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_crystals",
+          "$result_item_name": "Prismarine Crystals",
+          "$result_chance_text": "9%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "nautilus_shell_11_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/nautilus",
+          "$result_item_name": "Nautilus Shell",
+          "$result_chance_text": "7.5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "experience_bottle_12_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/experience_bottle",
+          "$result_item_name": "Experience Bottle",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "name_tag_13_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/name_tag",
+          "$result_item_name": "Name Tag",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "saddle_14_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/saddle",
+          "$result_item_name": "Saddle",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "emerald_15_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/emerald",
+          "$result_item_name": "Emerald",
+          "$result_chance_text": "4.5%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "water_bottle_16_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/potion_bottle_drinkable",
+          "$result_item_name": "Water Bottle",
+          "$result_chance_text": "1.5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "book_17_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/book_normal",
+          "$result_item_name": "Book",
+          "$result_chance_text": "1.5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "fishing_rod_18_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fishing_rod_uncast",
+          "$result_item_name": "Fishing Rod",
+          "$result_chance_text": "1.2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "bow_19_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bow_standby",
+          "$result_item_name": "Bow",
+          "$result_chance_text": "0.24%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_20_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "30%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "leather_boots_21_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/leather_boots",
+          "$result_item_name": "Leather Boots",
+          "$result_chance_text": "0.24%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "sand_handful_22_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "fisher_netherite_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "netherite_fishing_net_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cod_0_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_raw",
+          "$result_item_name": "Cod",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "salmon_1_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_salmon_raw",
+          "$result_item_name": "Salmon",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "tropical_fish_2_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_clownfish_raw",
+          "$result_item_name": "Tropical Fish",
+          "$result_chance_text": "40%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pufferfish_3_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fish_pufferfish_raw",
+          "$result_item_name": "Pufferfish",
+          "$result_chance_text": "32%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "string_4_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/string",
+          "$result_item_name": "String",
+          "$result_chance_text": "48%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "bone_5_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bone",
+          "$result_item_name": "Bone",
+          "$result_chance_text": "40%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "lily_pad_6_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/blocks/waterlily",
+          "$result_item_name": "Lily Pad",
+          "$result_chance_text": "32%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "ink_sac_7_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Ink Sac",
+          "$result_chance_text": "24%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "glow_ink_sac_8_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_glow",
+          "$result_item_name": "Glow Ink Sac",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "prismarine_shard_9_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_shard",
+          "$result_item_name": "Prismarine Shard",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "prismarine_crystals_10_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_crystals",
+          "$result_item_name": "Prismarine Crystals",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "nautilus_shell_11_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/nautilus",
+          "$result_item_name": "Nautilus Shell",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "experience_bottle_12_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/experience_bottle",
+          "$result_item_name": "Experience Bottle",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "name_tag_13_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/name_tag",
+          "$result_item_name": "Name Tag",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "saddle_14_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/saddle",
+          "$result_item_name": "Saddle",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "emerald_15_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/emerald",
+          "$result_item_name": "Emerald",
+          "$result_chance_text": "6%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "water_bottle_16_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/potion_bottle_drinkable",
+          "$result_item_name": "Water Bottle",
+          "$result_chance_text": "2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "book_17_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/book_normal",
+          "$result_item_name": "Book",
+          "$result_chance_text": "2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "fishing_rod_18_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/fishing_rod_uncast",
+          "$result_item_name": "Fishing Rod",
+          "$result_chance_text": "1.6%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "bow_19_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/bow_standby",
+          "$result_item_name": "Bow",
+          "$result_chance_text": "0.32%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "trident_20_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/trident",
+          "$result_item_name": "Trident",
+          "$result_chance_text": "0.2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "heart_of_the_sea_21_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/heartofthesea_closed",
+          "$result_item_name": "Heart of the Sea",
+          "$result_chance_text": "0.4%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_22_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "40%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "leather_boots_23_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/leather_boots",
+          "$result_item_name": "Leather Boots",
+          "$result_chance_text": "0.32%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "sand_handful_24_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/sand_handful",
+          "$result_item_name": "Sand Handful",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1-6"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  }
+}

@@ -35,6 +35,8 @@
                     "ui/recipes/infuser.json",
                     "ui/recipes/crusher.json",
                     "ui/recipes/electro_press.json",
-                    "ui/recipes/sieve.json"
+                    "ui/recipes/sieve.json",
+                    "ui/recipes/fisher.json",
+                    "ui/recipes/magmatic_chamber.json"
                 ]
 }
