@@ -13,6 +13,31 @@ const utility_meshes = new Set([
     "utilitycraft:diamond_mesh",
     "utilitycraft:netherite_mesh"
 ])
+
+// The sieve block input is encoded as two decimal states because Bedrock only
+// permits up to 16 values in a single block-state enum.
+const sieveBlockTypes = [
+    "empty",
+    "minecraft:gravel",
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:sand",
+    "minecraft:soul_sand",
+    "utilitycraft:compressed_gravel",
+    "utilitycraft:compressed_dirt",
+    "utilitycraft:compressed_sand",
+    "utilitycraft:crushed_netherrack",
+    "utilitycraft:crushed_blackstone",
+    "utilitycraft:crushed_endstone",
+    "utilitycraft:crushed_cobbled_deepslate",
+    "utilitycraft:compressed_crushed_netherrack",
+    "utilitycraft:compressed_crushed_blackstone",
+    "utilitycraft:compressed_crushed_endstone",
+    "utilitycraft:compressed_crushed_cobbled_deepslate"
+]
+
+const sieveBlockTypeCodes = new Map(sieveBlockTypes.map((typeId, index) => [typeId, index]))
+
 /**
  * Represents a single sieve block with utility methods.
  */
@@ -26,9 +51,22 @@ class Sieve {
     }
 
     get mesh() { return this.perm.getState("utilitycraft:mesh") }
-    get blockType() { return this.perm.getState("utilitycraft:block") }
+    get blockType() {
+        const e0 = Number(this.perm.getState("utilitycraft:block_e0"))
+        const e1 = Number(this.perm.getState("utilitycraft:block_e1"))
+        return sieveBlockTypes[e1 * 10 + e0] ?? "empty"
+    }
     get stage() { return this.perm.getState("utilitycraft:state") }
 
+    setBlockType(typeId) {
+        const code = sieveBlockTypeCodes.get(typeId)
+        if (code === undefined) return false
+
+        return DoriosLib.block.setStates(this.block, {
+            "utilitycraft:block_e0": code % 10,
+            "utilitycraft:block_e1": Math.floor(code / 10)
+        })
+    }
 
     insertMesh(player, itemId) {
         if (this.mesh !== "empty") return false
@@ -75,7 +113,7 @@ class Sieve {
         if (this.mesh === "empty" || this.blockType !== "empty" || this.stage !== 0) return false
         if (!sieveRecipes[mainHand.typeId] || !acceptedBlocks.includes(mainHand.typeId)) return false
         const id = mainHand.typeId
-        DoriosLib.block.setState(this.block, "utilitycraft:block", mainHand.typeId)
+        if (!this.setBlockType(mainHand.typeId)) return false
         DoriosLib.block.setState(this.block, "utilitycraft:state", 4)
         if (!DoriosLib.player.isCreative(player)) {
             player.runCommand(`clear @s ${mainHand.typeId} 0 1`)
@@ -132,7 +170,7 @@ class Sieve {
             }
         })
 
-        DoriosLib.block.setState(this.block, "utilitycraft:block", "empty")
+        this.setBlockType("empty")
         DoriosLib.block.setState(this.block, "utilitycraft:state", 0)
         this.block.dimension.playSound("dig.gravel", this.block.location)
         return true

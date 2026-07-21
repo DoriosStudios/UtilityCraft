@@ -25,30 +25,27 @@
 					3,
 					4
 				],
-				"utilitycraft:block": [
-					"empty",
-					"minecraft:gravel",
-					"minecraft:dirt",
-					"minecraft:grass_block",
-					"minecraft:sand",
-					"minecraft:soul_sand",
-					"utilitycraft:compressed_gravel",
-					"utilitycraft:compressed_dirt",
-					"utilitycraft:compressed_sand",
-					"utilitycraft:crushed_netherrack",
-					"utilitycraft:crushed_blackstone",
-					"utilitycraft:crushed_endstone",
-					"utilitycraft:crushed_cobbled_deepslate",
-					"utilitycraft:compressed_crushed_netherrack",
-					"utilitycraft:compressed_crushed_blackstone",
-					"utilitycraft:compressed_crushed_endstone",
-					"utilitycraft:compressed_crushed_cobbled_deepslate"
+				"utilitycraft:block_e0": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9
+				],
+				"utilitycraft:block_e1": [
+					0,
+					1
 				]
 			}
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'minecraft:gravel'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -67,7 +64,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'minecraft:sand'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -86,7 +83,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'minecraft:dirt'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -105,7 +102,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'minecraft:grass_block'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -124,7 +121,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'minecraft:soul_sand'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 5",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -143,7 +140,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_gravel'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 6",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -162,7 +159,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_dirt'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 7",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -181,7 +178,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_sand'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 8",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -200,7 +197,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:crushed_netherrack'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 9",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -219,7 +216,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:crushed_blackstone'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 0",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -238,7 +235,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:crushed_endstone'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 1",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -257,7 +254,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:crushed_cobbled_deepslate'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 2",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -276,7 +273,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_crushed_netherrack'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 3",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -295,7 +292,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_crushed_blackstone'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 4",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -314,7 +311,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_crushed_endstone'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 5",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
@@ -333,7 +330,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('utilitycraft:block') == 'utilitycraft:compressed_crushed_cobbled_deepslate'",
+				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 6",
 				"components": {
 					"minecraft:material_instances": {
 						"mesh": {
