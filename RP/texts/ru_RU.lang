@@ -412,8 +412,6 @@ tile.utilitycraft:lantern.name=Фонарь\n§o§9@UtilityCraft
 tile.utilitycraft:sink.name=Раковина\n§o§9@UtilityCraft
 
 ## + Vehicles
-tile.utilitycraft:drill_placer.name=Сверлить\n§o§9@UtilityCraft
-tile.utilitycraft:tractor_placer.name=Трактор\n§o§9@UtilityCraft
 
 ## + Crushed Blocks
 tile.utilitycraft:crushed_netherrack.name=Раздавленный Пустоты\n§o§9@UtilityCraft
@@ -422,8 +420,6 @@ tile.utilitycraft:crushed_cobbled_deepslate.name=Измельченный бул
 
 
 - Actions =## Действия/Интерактивы
-action.hint.exit.utilitycraft:tractor=Выход из трактора
-action.hint.exit.utilitycraft:drill=Выход из тренировки
 
 - Placeholder Items =## Элементы предварительного просмотра
 item.utilitycraft:lucky_fishing_rod_item=§aУдочка на удачу\n§7Морская удача V\nПриманка V\n§o§9@UtilityCraft
@@ -600,14 +596,12 @@ item.utilitycraft:apple_sapling=Саженец яблони\n§o§9@UtilityCraft
 
 - Entities =## Энтидадес
 ## -------- Open Group -------- ##
-entity.utilitycraft:tractor.name=Трактор
 entity.utilitycraft:oak_tree.name=Дуб
 entity.utilitycraft:birch_tree.name=Береза
 entity.utilitycraft:darkoak_tree.name=Темный дуб
 entity.utilitycraft:acacia_tree.name=Акация Дерево
 entity.utilitycraft:jungle_tree.name=Дерево Джунглей
 entity.utilitycraft:spruce_tree.name=Ель
-entity.utilitycraft:drill.name=Сверлить
 entity.utilitycraft:grenade.name=Граната
 entity.utilitycraft:bomb.name=Бомбить
 entity.utilitycraft:dynamite.name=Динамит
@@ -843,11 +837,9 @@ item.utilitycraft:blueprint=План\n§o§9@UtilityCraft
 
 ## Machines Entities
 entity.utilitycraft:assembler.name=Ассемблер
-entity.utilitycraft:autosieve.name=Автосито
 entity.utilitycraft:autofisher.name=Авто Фишер
 entity.utilitycraft:block_breaker.name=Блок-брейкер
 entity.utilitycraft:block_placer.name=Блок-разметчик
-entity.utilitycraft:crusher.name=Дробилка
 entity.utilitycraft:digitizer.name=Дигитайзер
 entity.utilitycraft:electro_press.name=Электро Пресс
 entity.utilitycraft:harvester.name=Комбайн

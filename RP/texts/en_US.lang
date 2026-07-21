@@ -430,8 +430,6 @@ tile.utilitycraft:lantern.name=Lantern\n§o§9@UtilityCraft
 tile.utilitycraft:sink.name=Sink\n§o§9@UtilityCraft
 
 ## + Vehicles
-tile.utilitycraft:drill_placer.name=Drill\n§o§9@UtilityCraft
-tile.utilitycraft:tractor_placer.name=Tractor\n§o§9@UtilityCraft
 
 ## + Crushed Blocks
 tile.utilitycraft:crushed_netherrack.name=Crushed Netherrack\n§o§9@UtilityCraft
@@ -441,8 +439,6 @@ tile.utilitycraft:crushed_cobbled_deepslate.name=Crushed Cobbled Deepslate\n§o�
 
 
 - Actions = ## Ações/Interações
-action.hint.exit.utilitycraft:tractor=Exit Tractor
-action.hint.exit.utilitycraft:drill=Exit Drill
 
 - Placeholder Items = ## Preview Items
 item.utilitycraft:lucky_fishing_rod_item=§aLucky Fishing Rod\n§7Luck of the Sea V\nLure V\n§o§9@UtilityCraft
@@ -623,14 +619,12 @@ item.utilitycraft:apple_sapling=Apple Sapling\n§o§9@UtilityCraft
 
 - Entities = ## Entidades
 ## -------- Open Group -------- ##
-entity.utilitycraft:tractor.name=Tractor
 entity.utilitycraft:oak_tree.name=Oak Tree
 entity.utilitycraft:birch_tree.name=Birch Tree
 entity.utilitycraft:darkoak_tree.name=Dark Oak Tree
 entity.utilitycraft:acacia_tree.name=Acacia Tree
 entity.utilitycraft:jungle_tree.name=Jungle Tree
 entity.utilitycraft:spruce_tree.name=Spruce Tree
-entity.utilitycraft:drill.name=Drill
 entity.utilitycraft:grenade.name=Grenade
 entity.utilitycraft:bomb.name=Bomb
 entity.utilitycraft:dynamite.name=Dynamite
@@ -854,11 +848,9 @@ item.utilitycraft:blueprint=Blueprint\n§o§9@UtilityCraft
 
 ## Machines Entities
 entity.utilitycraft:assembler.name=Assembler
-entity.utilitycraft:autosieve.name=Autosieve
 entity.utilitycraft:autofisher.name=Auto Fisher
 entity.utilitycraft:block_breaker.name=Block Breaker
 entity.utilitycraft:block_placer.name=Block Placer
-entity.utilitycraft:crusher.name=Crusher
 entity.utilitycraft:digitizer.name=Digitizer
 entity.utilitycraft:ehxibitor.name=Exhibitor
 entity.utilitycraft:electro_press.name=Electro Press

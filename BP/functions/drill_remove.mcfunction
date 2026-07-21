@@ -1,1 +1,0 @@
-loot spawn ~~~ loot "vehicles/drill"

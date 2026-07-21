@@ -322,10 +322,6 @@ const crafterRecipeBatches = [
       "output": "utilitycraft:xp_spout",
       "amount": 1
     },
-    "chest,iron_block,chest,iron_block,redstone_block,iron_block,coal_block,iron_pickaxe,coal_block": {
-      "output": "utilitycraft:drill_placer",
-      "amount": 1
-    },
     "black_wool,black_wool,black_wool,black_wool,ender_pearl,black_wool,black_wool,black_wool,black_wool": {
       "output": "utilitycraft:black_elevator",
       "amount": 1
@@ -390,10 +386,6 @@ const crafterRecipeBatches = [
   {
     "white_wool,white_wool,white_wool,white_wool,ender_pearl,white_wool,white_wool,white_wool,white_wool": {
       "output": "utilitycraft:elevator",
-      "amount": 1
-    },
-    "chest,iron_block,chest,iron_block,redstone_block,iron_block,coal_block,diamond_hoe,coal_block": {
-      "output": "utilitycraft:tractor_placer",
       "amount": 1
     },
     "copper_ingot,copper_ingot,copper_ingot,copper_ingot,string_fishing_net,copper_ingot,copper_ingot,copper_ingot,copper_ingot": {

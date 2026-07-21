@@ -6,7 +6,7 @@ import * as DoriosLib from "DoriosLib/index.js";
  * 
  * Parameters:
  * - size: Area size (default: 1 = 3x3 area)
- * - runTractor: Whether to execute tractor function for auto-harvest (default: false)
+ * - runAreaHarvest: Whether to execute the area-harvest function (default: false)
  * - sneakingMode: Activation behavior (default: false)
  *   - false: Only activates when NOT sneaking
  *   - true: Only activates when sneaking
@@ -27,7 +27,7 @@ DoriosLib.registry.itemComponent("utilitycraft:hoe", {
 
         const { x, y, z } = block.location;
         const size = params?.size ?? 1;
-        const runTractor = params?.runTractor ?? false;
+        const runAreaHarvest = params?.runAreaHarvest ?? false;
 
         const tillableBlocks = [
             "minecraft:dirt",
@@ -46,9 +46,9 @@ DoriosLib.registry.itemComponent("utilitycraft:hoe", {
         }
 
         // Optional: auto-harvest crops in area
-        if (runTractor) {
+        if (runAreaHarvest) {
             block.dimension.runCommand(
-                `execute positioned ${x} ${y} ${z} run function tractor`
+                `execute positioned ${x} ${y} ${z} run function area_harvest`
             );
         }
     }

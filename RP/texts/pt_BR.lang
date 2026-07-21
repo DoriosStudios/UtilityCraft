@@ -171,8 +171,6 @@ tile.utilitycraft:lantern.name=Lanterna Grande\n§o§9@UtilityCraft
 tile.utilitycraft:sieve.name=Peneira\n§7- Multi-uso máximo: 5x5\n§o§9@UtilityCraft
 tile.utilitycraft:sink.name=Pia Sem-Fim\n§7- Fornece água infinita\n§o§9@UtilityCraft
 tile.utilitycraft:basic_trash_can.name=Lixeira Básica\n§o§9@UtilityCraft
-tile.utilitycraft:drill_placer.name=Escavadeira\n§o§9@UtilityCraft
-tile.utilitycraft:tractor_placer.name=Trator\n§o§9@UtilityCraft
 tile.utilitycraft:mob_trap.name=Armadilha de Mobs\n§o§9@UtilityCraft
 
 ## Machines Upgrades | Módulos de Melhorias
@@ -528,8 +526,6 @@ item.utilitycraft:compressed_coal_block_4=Bloco de Carvão Quadruplamente Compri
 
 
 ## Actions | Ações/Interações
-action.hint.exit.utilitycraft:tractor=Sair do Trator
-action.hint.exit.utilitycraft:drill=Sair da Escavadeira
 
 ## Placeholder Items | Itens Espaçadores
 item.utilitycraft:lucky_fishing_rod_item=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V\n§o§9@UtilityCraft
@@ -733,7 +729,6 @@ entity.utilitycraft:jungle_tree.name=Àrvore da Selva
 entity.utilitycraft:mangrove_tree.name=Àrvore do Mangue
 entity.utilitycraft:oak_tree.name=Àrvore de Carvalho
 entity.utilitycraft:spruce_tree.name=Àrvore de Pinheiro
-entity.utilitycraft:tractor.name=Trator
 entity.utilitycraft:warped_tree.name=Àrvore Distorcida
 
 entity.utilitycraft:bamboo.name=Bambu
@@ -744,7 +739,6 @@ entity.utilitycraft:sugarcane.name=Cana-de-Açúcar
 
 ### Utility Entities | Entidades Utilitárias
 entity.utilitycraft:bomb.name=Bomba
-entity.utilitycraft:drill.name=Broca
 entity.utilitycraft:dynamite.name=Dinamite
 entity.utilitycraft:grenade.name=Granada
 

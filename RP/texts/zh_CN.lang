@@ -412,8 +412,6 @@ tile.utilitycraft:lantern.name=灯笼\n§o§9@UtilityCraft
 tile.utilitycraft:sink.name=下沉\n§o§9@UtilityCraft
 
 ## + Vehicles
-tile.utilitycraft:drill_placer.name=钻头\n§o§9@UtilityCraft
-tile.utilitycraft:tractor_placer.name=拖拉机\n§o§9@UtilityCraft
 
 ## + Crushed Blocks
 tile.utilitycraft:crushed_netherrack.name=粉碎的地狱岩\n§o§9@UtilityCraft
@@ -422,8 +420,6 @@ tile.utilitycraft:crushed_cobbled_deepslate.name=碎鹅卵石深板岩\n§o§9@U
 
 
 - Actions =## Ações/Interações
-action.hint.exit.utilitycraft:tractor=退出拖拉机
-action.hint.exit.utilitycraft:drill=退出演习
 
 - Placeholder Items =## 预览项目
 item.utilitycraft:lucky_fishing_rod_item=§a幸运鱼竿\n§7海之幸运V\n路亚V\n§o§9@UtilityCraft
@@ -600,14 +596,12 @@ item.utilitycraft:apple_sapling=苹果树苗\n§o§9@UtilityCraft
 
 - Entities =## 恩达德斯
 ## -------- Open Group -------- ##
-entity.utilitycraft:tractor.name=拖拉机
 entity.utilitycraft:oak_tree.name=橡树
 entity.utilitycraft:birch_tree.name=白桦树
 entity.utilitycraft:darkoak_tree.name=深色橡树
 entity.utilitycraft:acacia_tree.name=金合欢树
 entity.utilitycraft:jungle_tree.name=丛林树
 entity.utilitycraft:spruce_tree.name=云杉树
-entity.utilitycraft:drill.name=钻头
 entity.utilitycraft:grenade.name=手榴弹
 entity.utilitycraft:bomb.name=炸弹
 entity.utilitycraft:dynamite.name=炸药
@@ -843,11 +837,9 @@ item.utilitycraft:blueprint=蓝图\n§o§9@UtilityCraft
 
 ## Machines Entities
 entity.utilitycraft:assembler.name=汇编器
-entity.utilitycraft:autosieve.name=自动筛
 entity.utilitycraft:autofisher.name=自动渔夫
 entity.utilitycraft:block_breaker.name=区块破坏者
 entity.utilitycraft:block_placer.name=块放置器
-entity.utilitycraft:crusher.name=破碎机
 entity.utilitycraft:digitizer.name=数字化仪
 entity.utilitycraft:electro_press.name=电压机
 entity.utilitycraft:harvester.name=收割机

@@ -1,17 +1,10 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { world, ItemStack } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
 
 function translate(key) {
     return { translate: key };
 }
-
-// Nombres de entidades removibles
-const REMOVABLE_ENTITIES = [
-    "utilitycraft:tractor",
-    "utilitycraft:drill"
-];
 
 // --- REGISTRO DEL COMPONENTE ---
 DoriosLib.registry.itemComponent("utilitycraft:wrench", {
@@ -45,26 +38,6 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
         Rotation.handleRotation(block, blockFace)
     },
 });
-
-world.afterEvents.playerInteractWithEntity.subscribe(({ player, target, itemStack }) => {
-    if (!itemStack || itemStack.typeId != 'utilitycraft:wrench') return
-    if (!player.isSneaking) {
-        // if (!target.getComponent('type_family').hasTypeFamily('dorios:energy_source')) return
-        // Generator.openGeneratorTransferModeMenu(target, player)
-        // return
-    }
-    const dim = player.dimension
-    if (target && REMOVABLE_ENTITIES.includes(target.typeId)) {
-        // --- DROPEAR INVENTARIO ---
-        DoriosLib.entity.dropAllItems(target);
-        // --- SPAWNEAR EL ITEM DEL MISMO ID ---
-        dim.spawnItem(new ItemStack(target.typeId + '_placer', 1), target.location);
-        // --- REMOVER ENTIDAD ---
-        target.remove();
-        player.playSound("random.anvil_land", { volume: 0.5 });
-        return;
-    }
-})
 
 /**
  * Opens the Energy Node configuration menu.

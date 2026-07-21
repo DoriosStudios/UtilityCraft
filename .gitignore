@@ -33,5 +33,3 @@ node_modules/esbuild/
 # Specific Exceptions | Excepciones específicas | Exceções específicas
 BP/items/utility_items/debug_stick.json
 BP/scripts/items/debug_stick.js
-
-tools/

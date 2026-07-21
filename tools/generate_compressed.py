@@ -6,10 +6,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TEXTURES_DIR = ROOT / "RP" / "textures" / "blocks" / "compressed_blocks"
-BLOCKS_OUT = ROOT / "BP" / "blocks" / "compressed_blocks"
-RECIPES_COMPRESS_OUT = ROOT / "BP" / "recipes" / "blocks" / "compressed_blocks" / "compress"
-RECIPES_DECOMPRESS_OUT = ROOT / "BP" / "recipes" / "blocks" / "compressed_blocks" / "decompress"
+TEXTURES_DIR = ROOT / "RP" / "textures" / "blocks" / "compressed"
+BLOCKS_OUT = ROOT / "BP" / "blocks" / "compressed"
+RECIPES_COMPRESS_OUT = ROOT / "BP" / "recipes" / "compressed" / "blocks" / "compress"
+RECIPES_DECOMPRESS_OUT = ROOT / "BP" / "recipes" / "compressed" / "blocks" / "decompress"
 
 BLOCK_FORMAT_VERSION = "1.21.100"
 RECIPE_FORMAT_VERSION = "1.20.80"
@@ -27,7 +27,7 @@ BASE_SOURCE_OVERRIDES = {
 	"warped_wood": "minecraft:warped_hyphae",
 }
 
-TEXTURE_PATTERN = re.compile(r"^compressed_(?P<base>.+_wood)(?:_(?P<tier>[2-4]))?$")
+TEXTURE_PATTERN = re.compile(r"^(?P<base>.+_wood)(?:_(?P<tier>[2-4]))?$")
 
 
 def ensure_dirs() -> None:
@@ -176,7 +176,7 @@ def write_json(path: Path, data: dict) -> None:
 def find_wood_bases_from_textures() -> list[str]:
 	found: set[str] = set()
 
-	for png in TEXTURES_DIR.glob("compressed_*_wood*.png"):
+	for png in TEXTURES_DIR.glob("*_wood*.png"):
 		match = TEXTURE_PATTERN.match(png.stem)
 		if not match:
 			continue
@@ -190,7 +190,7 @@ def main() -> None:
 
 	bases = find_wood_bases_from_textures()
 	if not bases:
-		print("No compressed *_wood textures found. Nothing to generate.")
+		print("No compressed wood textures found. Nothing to generate.")
 		return
 
 	generated_blocks = 0

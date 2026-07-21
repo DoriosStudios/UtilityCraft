@@ -1518,7 +1518,7 @@
 			"textures": "textures/ui/down_progress_bar/down_progress_bar_22"
 		},
 		"utilitycraft_way_chip": {
-			"textures": "textures/items/machinery/Way_Chip_Anchored_V2"
+			"textures": "textures/items/machinery/way_chip_anchored_v2"
 		},
 		"utilitycraft_amethyst_dust": {
 			"textures": "textures/items/dusts/amethyst_dust"
@@ -1701,7 +1701,7 @@
 			"textures": "textures/items/pebbles/nether_quartz_chunk"
 		},
 		"utilitycraft_nether_star_fragment": {
-			"textures": "textures/items/pebbles/Nether_star_fragment"
+			"textures": "textures/items/pebbles/nether_star_fragment"
 		},
 		"utilitycraft_red_sand_handful": {
 			"textures": "textures/items/pebbles/red_sand_handful"
@@ -1731,7 +1731,7 @@
 			"textures": "textures/items/misc/fiber"
 		},
 		"utilitycraft_mortar": {
-			"textures": "textures/items/tools/morter"
+			"textures": "textures/items/tools/mortar"
 		},
 		"utilitycraft_blueprint_paper": {
 			"textures": "textures/items/machinery/blueprint_paper"

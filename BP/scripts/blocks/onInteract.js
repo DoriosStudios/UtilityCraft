@@ -9,40 +9,6 @@ import { world, ItemStack, Block, Player } from '@minecraft/server'
  */
 const interactHandlers = {
     /**
-     * Drill Placer interaction handler.
-     * - Replaces the placer block with air.
-     * - Spawns a `utilitycraft:drill` entity at the same position.
-     * - Plays an anvil landing sound for feedback.
-     *
-     * @param {Block} block The interacted block
-     * @param {Player} player The player who interacted
-     */
-    'utilitycraft:drill_placer': (block, player) => {
-        const { x, y, z } = block.location
-        block.dimension.setBlockType({ x, y, z }, 'air')
-        const entity = block.dimension.spawnEntity('utilitycraft:drill', { x, y, z })
-        entity.nameTag = 'Drill'
-        player.playSound('random.anvil_land', { volume: 0.5 })
-    },
-
-    /**
-     * Tractor Placer interaction handler.
-     * - Replaces the placer block with air.
-     * - Spawns a `utilitycraft:tractor` entity at the same position.
-     * - Plays an anvil landing sound for feedback.
-     *
-     * @param {Block} block The interacted block
-     * @param {Player} player The player who interacted
-     */
-    'utilitycraft:tractor_placer': (block, player) => {
-        const { x, y, z } = block.location
-        block.dimension.setBlockType({ x, y, z }, 'air')
-        const entity = block.dimension.spawnEntity('utilitycraft:tractor', { x, y, z })
-        entity.nameTag = 'Tractor'
-        player.playSound('random.anvil_land', { volume: 0.5 })
-    },
-
-    /**
      * Sink interaction handler.
      * - If holding an empty bucket → gives the player a water bucket.
      * - If holding a water bucket → replaces it with an empty bucket.

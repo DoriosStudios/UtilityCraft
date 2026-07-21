@@ -7,7 +7,7 @@
 		"components": {
 			"utilitycraft:hoe": {
 				"size": 1,
-				"runTractor": true,
+				"runAreaHarvest": true,
 				"sneakingMode": false
 			},
 			"utilitycraft:shovel": {

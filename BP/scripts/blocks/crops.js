@@ -45,9 +45,9 @@ DoriosLib.registry.blockComponent("utilitycraft:crop", {
 
             system.run(() => {
                 let { x, y, z } = block.location;
-                if (mainHand?.getComponent("utilitycraft:hoe")?.customComponentParameters?.params?.runTractor ?? false) {
+                if (mainHand?.getComponent("utilitycraft:hoe")?.customComponentParameters?.params?.runAreaHarvest ?? false) {
                     block.dimension.runCommand(
-                        `execute positioned ${x} ${y} ${z} run function tractor`
+                        `execute positioned ${x} ${y} ${z} run function area_harvest`
                     );
                 }
             })

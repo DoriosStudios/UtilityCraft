@@ -91,9 +91,6 @@
 		"utilitycraft_asphalt": {
 			"textures": "textures/blocks/materials/asphalt"
 		},
-		"utilitycraft_drill_place": {
-			"textures": "textures/blocks/machines/drill"
-		},
 		"utilitycraft_chunk_loader": {
 			"textures": "textures/blocks/generators/cobblestone/chunk_loader"
 		},
@@ -540,9 +537,6 @@
 		},
 		"utilitycraft_black_soil_side": {
 			"textures": "textures/blocks/crops/soil_side_4"
-		},
-		"utilitycraft_tractor_placer": {
-			"textures": "textures/blocks/machines/tractor"
 		},
 		"utilitycraft_ender_hopper": {
 			"textures": "textures/blocks/ender_hopper/ender_hopper"

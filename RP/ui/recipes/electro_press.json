@@ -1340,7 +1340,7 @@
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
                       "$has_slot_count": true,
-                      "$slot_item_texture": "textures/items/pebbles/Nether_star_fragment"
+                      "$slot_item_texture": "textures/items/pebbles/nether_star_fragment"
                     }
                   },
                   {

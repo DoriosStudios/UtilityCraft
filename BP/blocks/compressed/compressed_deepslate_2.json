@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:compressed_deepslate_2",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:redstone_conductivity": {
+          "redstone_conductor": true
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_compressed_deepslate_2",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.1
+      },
+      "minecraft:loot": "loot_tables/compressed/compressed_deepslate_2.json",
+      "tag:minecraft:is_pickaxe_item_destructible": {}
+    }
+  }
+}

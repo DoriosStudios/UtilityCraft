@@ -74,9 +74,6 @@
 	"utilitycraft:blaze_crop": {
 		"sound": "grass"
 	},
-	"utilitycraft:tractor_placer": {
-		"sound": "metal"
-	},
 	"utilitycraft:enderpearl_crop": {
 		"sound": "grass"
 	},
@@ -132,9 +129,6 @@
 		"sound": "stone"
 	},
 	"utilitycraft:asphalt": {
-		"sound": "stone"
-	},
-	"utilitycraft:drill_placer": {
 		"sound": "stone"
 	},
 	"utilitycraft:harvester": {

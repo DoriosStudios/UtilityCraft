@@ -373,13 +373,6 @@ item.utilitycraft:compressed_coal_block_3=Bloque de Carbón Triplemente Comprimi
 item.utilitycraft:compressed_coal_block_4=Bloque de Carbón Cuádruplemente Comprimido\n§o§9@UtilityCraft
 
 ## +
-tile.utilitycraft:compressed_sand.name=Arena Comprimida\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_dirt.name=Tierra Comprimida\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_gravel.name=Arena Comprimida\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_netherrack.name=Infiedra Comprimida\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_diamond_block.name=Bloque de Diamante Comprimido\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_coal_block.name=Bloque de Carbón Comprimido\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_iron_block.name=Bloque de Hierro Comprimido\n§o§9@UtilityCraft
 
 - Utility Blocks = ##Bloques
 tile.utilitycraft:asphalt.name=Asfalto\n§7- Aumenta la velocidad de movimiento\n al caminar sobre él\n§o§9@UtilityCraft
@@ -408,8 +401,6 @@ tile.utilitycraft:sink.name=Barril de Agua\n§o§9@UtilityCraft
 tile.utilitycraft:basic_trash_can.name=Basurero Básico\n§o§9@UtilityCraft
 
 ## + Vehicles
-tile.utilitycraft:drill_placer.name=Taladro\n§o§9@UtilityCraft
-tile.utilitycraft:tractor_placer.name=Tractor\n§o§9@UtilityCraft
 
 ## + Crushed Blocks
 tile.utilitycraft:crushed_netherrack.name=Infiedra Triturada\n§o§9@UtilityCraft
@@ -419,8 +410,6 @@ tile.utilitycraft:crushed_cobbled_deepslate.name=Pizarra Profunda Rocosa Tritura
 
 
 - Actions = ## Acciones
-action.hint.exit.utilitycraft:tractor=Bajarse del Tractor
-action.hint.exit.utilitycraft:drill=Bajarse del Taladro
 
 ## - Items
 
@@ -592,19 +581,16 @@ item.utilitycraft:apple_sapling=Retoño de Manzano\n§o§9@UtilityCraft
 
 - Entities = ## Entidades
 ## -------- Grupo Abierto -------- ##
-entity.utilitycraft:tractor.name=Tractor
 entity.utilitycraft:oak_tree.name=Arbol de Roble
 entity.utilitycraft:birch_tree.name=Arbol de Abedul
 entity.utilitycraft:darkoak_tree.name=Arbol de Roble Oscuro
 entity.utilitycraft:acacia_tree.name=Arbol de Acacia
 entity.utilitycraft:jungle_tree.name=Arbol de la Jungla
 entity.utilitycraft:spruce_tree.name=Arbol de Abeto
-entity.utilitycraft:drill.name=Taladro
 entity.utilitycraft:grenade.name=Granada
 entity.utilitycraft:bomb.name=Bomba
 entity.utilitycraft:dynamite.name=Dinamita
 entity.utilitycraft:crusher.name=Triturador
-entity.utilitycraft:autosieve.name=Tamiz Automatico
 entity.utilitycraft:autofisher.name=Pescador Automático
 entity.utilitycraft:cherry_tree.name=Arbol de Cerezo
 entity.utilitycraft:mangrove_tree.name=Arbol de Manglar
@@ -932,7 +918,6 @@ entity.utilitycraft:assembler.name=Ensamblador
 entity.utilitycraft:autosieve.name=Tamizador Automático  
 entity.utilitycraft:block_breaker.name=Rompedor de Bloques  
 entity.utilitycraft:block_placer.name=Colocador de Bloques  
-entity.utilitycraft:crusher.name=Triturdora  
 entity.utilitycraft:digitizer.name=Digitalizador  
 entity.utilitycraft:electro_press.name=Prensa Electrica  
 entity.utilitycraft:harvester.name=Cosechadora  

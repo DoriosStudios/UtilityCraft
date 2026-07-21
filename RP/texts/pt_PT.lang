@@ -195,7 +195,6 @@ tile.utilitycraft:compressed_cobbled_deepslate.name=Bloco de Ardosiabissal Compr
 tile.utilitycraft:compressed_cobbled_deepslate_2.name=Bloco de Ardosiabissal Duplamente Comprimida\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_cobbled_deepslate_3.name=Bloco de Ardosiabissal Triplamente Comprimida\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_cobbled_deepslate_4.name=Bloco de Ardosiabissal Quadruplicadamente Comprimida\n§o§9@UtilityCraft
-tile.utilitycraft:compressed_cobblestone.name=Pedregulho Comprimido\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_cobblestone_2.name=Pedregulho Duplamente Comprimido\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_cobblestone_3.name=Pedregulho Triplamente Comprimido\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_cobblestone_4.name=Pedregulho Quadruplicadamente Comprimido\n§o§9@UtilityCraft
@@ -474,12 +473,8 @@ tile.utilitycraft:sink.name=Lavatório Sem-Fim\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_block.name=Núcleo de Chama\n§o§9@UtilityCraft
 tile.utilitycraft:basic_trash_can.name=Caixote do Lixo Básico\n§o§9@UtilityCraft
 ## +
-tile.utilitycraft:drill_placer.name=Escavadora\n§o§9@UtilityCraft
-tile.utilitycraft:tractor_placer.name=Trator\n§o§9@UtilityCraft
 
 - Actions = ## Ações/Interações
-action.hint.exit.utilitycraft:tractor=Sair do Trator
-action.hint.exit.utilitycraft:drill=Sair da Escavadora
 
 - Placeholder Items = ## Itens de Pré-vizualização
 item.utilitycraft:lucky_fishing_rod_item=§aVara de Pesca da Sorte\n§7Sorte do Mar V\nIsca V\n§o§9@UtilityCraft
@@ -691,14 +686,12 @@ entity.utilitycraft:jungle_tree.name=Àrvore da Selva
 entity.utilitycraft:mangrove_tree.name=Àrvore do Mangue
 entity.utilitycraft:oak_tree.name=Àrvore de Carvalho
 entity.utilitycraft:spruce_tree.name=Àrvore de Pinheiro
-entity.utilitycraft:tractor.name=Trator
 entity.utilitycraft:warped_tree.name=Àrvore Distorcida
 ## +
 entity.utilitycraft:autosieve.name=Peneira Automatizada
 entity.utilitycraft:autofisher.name=Pescador Automático
 entity.utilitycraft:bomb.name=Bomba
 entity.utilitycraft:crusher.name=Triturador
-entity.utilitycraft:drill.name=Broca
 entity.utilitycraft:dynamite.name=Dinamite
 entity.utilitycraft:grenade.name=Granada
 ## +
@@ -948,10 +941,8 @@ item.utilitycraft:info=Informações:\n§o§9@UtilityCraft
 
 ## Machines Entities
 entity.utilitycraft:assembler.name=Montador
-entity.utilitycraft:autosieve.name=Peneirador
 entity.utilitycraft:block_breaker.name=Quebrador
 entity.utilitycraft:block_placer.name=Colocador
-entity.utilitycraft:crusher.name=Triturador
 entity.utilitycraft:digitizer.name=Digitalizador
 entity.utilitycraft:ehxibitor.name=Exibidor
 entity.utilitycraft:electro_press.name=Prensa Elétrica

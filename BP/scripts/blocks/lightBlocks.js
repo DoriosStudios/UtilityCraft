@@ -55,7 +55,7 @@ function runLightFunction(dimension, typeId, location, mode = 'place') {
     const config = LIGHT_CONFIG[typeId]
     if (!config) return
 
-    const functionId = mode === 'break' ? 'ilumination/big_torch_break' : 'ilumination/big_torch'
+    const functionId = mode === 'break' ? 'illumination/big_torch_break' : 'illumination/big_torch'
     const { x, y, z } = location
 
     for (const anchor of config.anchors) {
