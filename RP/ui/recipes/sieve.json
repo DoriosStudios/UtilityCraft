@@ -9497,6 +9497,14 @@
         }
       },
       {
+        "ender_pearl_3_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/ender_pearl",
+          "$result_item_name": "Ender Pearl",
+          "$result_chance_text": "1.25%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
@@ -10191,6 +10199,14 @@
           "$result_item_texture": "textures/items/pebbles/ancient_debris_chunk",
           "$result_item_name": "Ancient Debris Chunk",
           "$result_chance_text": "6.25%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
+      {
+        "ender_pearl_3_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/ender_pearl",
+          "$result_item_name": "Ender Pearl",
+          "$result_chance_text": "1.25%%",
           "$result_amount_text": "x1-9"
         }
       },
@@ -11446,7 +11462,7 @@
         "ender_pearl_3_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
-          "$result_chance_text": "6%%",
+          "$result_chance_text": "1.5%%",
           "$result_amount_text": "x1"
         }
       },
@@ -12168,7 +12184,7 @@
         "ender_pearl_3_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
-          "$result_chance_text": "6%%",
+          "$result_chance_text": "1.5%%",
           "$result_amount_text": "x1-9"
         }
       },
@@ -13432,7 +13448,7 @@
         "ender_pearl_3_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
-          "$result_chance_text": "8%%",
+          "$result_chance_text": "2%%",
           "$result_amount_text": "x1"
         }
       },
@@ -14146,7 +14162,7 @@
         "ender_pearl_3_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
-          "$result_chance_text": "8%%",
+          "$result_chance_text": "2%%",
           "$result_amount_text": "x1-9"
         }
       },
