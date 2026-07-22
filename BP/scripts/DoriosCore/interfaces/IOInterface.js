@@ -1,7 +1,11 @@
 // @ts-check
 
 import { InterfaceManager } from "./index.js";
-import { RELATIVE_IO_FACES, resolveRelativeFaceDirection } from "../utils/directions.js";
+import {
+  OPPOSITE_DIRECTIONS,
+  RELATIVE_IO_FACES,
+  resolveRelativeFaceDirection,
+} from "../utils/directions.js";
 import {
   cycleItemIODirectionMode,
   getItemIODirectionMode,
@@ -58,6 +62,7 @@ const FACES = RELATIVE_IO_FACES;
 
 /**
  * @typedef {object} IOInterfaceConfig
+ * @property {boolean} [invertFaces] Whether every visual face resolves to its opposite physical direction.
  * @property {ItemIOGroupConfig} [items] Item policy and optional face buttons.
  * @property {LiquidIOGroupConfig} [liquids] Fluid-index policy and optional face buttons.
  */
@@ -94,13 +99,25 @@ function normalizeButtonSlots(value, path) {
 }
 
 /**
+ * @param {import("@minecraft/server").Block|undefined} block
+ * @param {IOFace} face
+ * @param {boolean} invertFaces
+ * @returns {string}
+ */
+function resolveButtonDirection(block, face, invertFaces) {
+  const direction = resolveRelativeFaceDirection(block, face);
+  return invertFaces ? (OPPOSITE_DIRECTIONS[direction] ?? direction) : direction;
+}
+
+/**
  * @param {Record<string, any>} buttons
  * @param {string} blockTypeId
  * @param {ItemIOGroupConfig} definition
  * @param {import("./itemIO.js").ItemIODefinition} registeredDefinition
+ * @param {boolean} [invertFaces=false]
  * @returns {boolean} True when six visual buttons were added.
  */
-function addItemButtons(buttons, blockTypeId, definition, registeredDefinition) {
+function addItemButtons(buttons, blockTypeId, definition, registeredDefinition, invertFaces = false) {
   if (definition.buttonSlots === undefined) return false;
   const slots = normalizeButtonSlots(definition.buttonSlots, "items.buttonSlots");
   const operationalSlots = new Set(registeredDefinition.modes.flatMap((mode) => [
@@ -121,11 +138,11 @@ function addItemButtons(buttons, blockTypeId, definition, registeredDefinition) 
       blockTypeId,
       modes: registeredDefinition.modes,
       nameTag: (/** @type {ItemButtonContext} */ { entity, block, button }) => {
-        const direction = resolveRelativeFaceDirection(block, button.face);
+        const direction = resolveButtonDirection(block, button.face, invertFaces);
         return getItemIODirectionMode(entity, button.blockTypeId, direction);
       },
       onPress: (/** @type {ItemButtonContext} */ { entity, block, button }) => {
-        const direction = resolveRelativeFaceDirection(block, button.face);
+        const direction = resolveButtonDirection(block, button.face, invertFaces);
         return cycleItemIODirectionMode(entity, button.blockTypeId, direction);
       },
     };
@@ -141,9 +158,10 @@ function addItemButtons(buttons, blockTypeId, definition, registeredDefinition) 
  * @param {string} blockTypeId
  * @param {LiquidIOGroupConfig} definition
  * @param {import("./fluidIO.js").FluidIODefinition} registeredDefinition
+ * @param {boolean} [invertFaces=false]
  * @returns {boolean} True when six visual buttons were added.
  */
-function addLiquidButtons(buttons, blockTypeId, definition, registeredDefinition) {
+function addLiquidButtons(buttons, blockTypeId, definition, registeredDefinition, invertFaces = false) {
   if (definition.buttonSlots === undefined) return false;
   const slots = normalizeButtonSlots(definition.buttonSlots, "liquids.buttonSlots");
 
@@ -154,11 +172,11 @@ function addLiquidButtons(buttons, blockTypeId, definition, registeredDefinition
       blockTypeId,
       modes: registeredDefinition.modes,
       nameTag: (/** @type {LiquidButtonContext} */ { entity, block, button }) => {
-        const direction = resolveRelativeFaceDirection(block, button.face);
+        const direction = resolveButtonDirection(block, button.face, invertFaces);
         return getFluidIODirectionMode(entity, button.blockTypeId, direction);
       },
       onPress: (/** @type {LiquidButtonContext} */ { entity, block, button }) => {
-        const direction = resolveRelativeFaceDirection(block, button.face);
+        const direction = resolveButtonDirection(block, button.face, invertFaces);
         return cycleFluidIODirectionMode(entity, button.blockTypeId, direction);
       },
     };
@@ -186,16 +204,17 @@ export function registerIOInterface(blockTypeId, config = {}) {
   /** @type {Record<string, any>} */
   const buttons = {};
   let registered = false;
+  const invertFaces = config.invertFaces === true;
 
   if (config.items !== undefined) {
     const definition = registerItemIODefinition(blockTypeId, config.items);
-    addItemButtons(buttons, blockTypeId, config.items, definition);
+    addItemButtons(buttons, blockTypeId, config.items, definition, invertFaces);
     registered = true;
   }
 
   if (config.liquids !== undefined) {
     const definition = registerFluidIODefinition(blockTypeId, config.liquids);
-    addLiquidButtons(buttons, blockTypeId, config.liquids, definition);
+    addLiquidButtons(buttons, blockTypeId, config.liquids, definition, invertFaces);
     registered = true;
   }
 

@@ -39,31 +39,31 @@
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_block_placer_off_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_block_placer_off_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
 					"texture": "utilitycraft_block_placer_off_south",
 					"render_method": "alpha_test"
 				},
-				"east": {
-					"texture": "utilitycraft_block_placer_off_east",
+				"north": {
+					"texture": "utilitycraft_block_placer_off_south",
 					"render_method": "alpha_test"
 				},
-				"west": {
+				"south": {
+					"texture": "utilitycraft_block_placer_off_north",
+					"render_method": "alpha_test"
+				},
+				"east": {
 					"texture": "utilitycraft_block_placer_off_west",
 					"render_method": "alpha_test"
 				},
+				"west": {
+					"texture": "utilitycraft_block_placer_off_east",
+					"render_method": "alpha_test"
+				},
 				"up": {
-					"texture": "utilitycraft_block_placer_off_up",
+					"texture": "utilitycraft_block_placer_off_down",
 					"render_method": "alpha_test"
 				},
 				"down": {
-					"texture": "utilitycraft_block_placer_off_down",
+					"texture": "utilitycraft_block_placer_off_up",
 					"render_method": "alpha_test"
 				}
 			},
@@ -88,31 +88,31 @@
 				"components": {
 					"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_block_placer_on_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_block_placer_on_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
 					"texture": "utilitycraft_block_placer_on_south",
 					"render_method": "alpha_test"
 				},
-				"east": {
-					"texture": "utilitycraft_block_placer_on_east",
+				"north": {
+					"texture": "utilitycraft_block_placer_on_south",
 					"render_method": "alpha_test"
 				},
-				"west": {
+				"south": {
+					"texture": "utilitycraft_block_placer_on_north",
+					"render_method": "alpha_test"
+				},
+				"east": {
 					"texture": "utilitycraft_block_placer_on_west",
 					"render_method": "alpha_test"
 				},
+				"west": {
+					"texture": "utilitycraft_block_placer_on_east",
+					"render_method": "alpha_test"
+				},
 				"up": {
-					"texture": "utilitycraft_block_placer_on_up",
+					"texture": "utilitycraft_block_placer_on_down",
 					"render_method": "alpha_test"
 				},
 				"down": {
-					"texture": "utilitycraft_block_placer_on_down",
+					"texture": "utilitycraft_block_placer_on_up",
 					"render_method": "alpha_test"
 				}
 			},

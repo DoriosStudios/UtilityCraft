@@ -1,5 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine } from "DoriosCore/index.js"
+import { getOppositeFacingBlock } from "./oppositeFacing.js";
 
 DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
     /**
@@ -47,7 +48,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
             /**
              * @type {Block}
              */
-            const facing = DoriosLib.block.getFacingBlock(machine.block);
+            const facing = getOppositeFacingBlock(machine.block);
             if (facing) {
                 // Conditions: not unbreakable, not air, not fluid
                 if (

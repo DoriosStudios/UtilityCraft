@@ -1,9 +1,11 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
+import { getOppositeFacingBlock } from "./oppositeFacing.js";
 
 const INPUTSLOT = 3
 
 registerIOInterface("utilitycraft:block_placer", {
+    invertFaces: true,
     items: {
         buttonSlots: [6, 11],
         anyInputSlots: [INPUTSLOT],
@@ -60,7 +62,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
         }
 
         if (progress >= energyCost) {
-            const facing = DoriosLib.block.getFacingBlock(machine.block);
+            const facing = getOppositeFacingBlock(machine.block);
             if (!facing) return;
 
             // Si no es aire => warning

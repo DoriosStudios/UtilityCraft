@@ -1,6 +1,7 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { system } from "@minecraft/server";
 import { Machine } from "DoriosCore/index.js"
+import { getOppositeFacingDirection } from "./oppositeFacing.js";
 
 /**
  * Harvester Machine Component
@@ -64,16 +65,8 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
             let adjustedSide = (side === 11) ? 9 : side;
 
             // Facing direction handling
-            const opposite = {
-                up: "down",
-                down: "up",
-                north: "south",
-                south: "north",
-                east: "west",
-                west: "east"
-            };
-            const facingDirection = DoriosLib.block.getState(block, "minecraft:facing_direction");
-            const axis = opposite[facingDirection] ?? DoriosLib.block.getState(block, "utilitycraft:axis");
+            const axis = getOppositeFacingDirection(block)
+                ?? DoriosLib.block.getState(block, "utilitycraft:axis");
             switch (axis) {
                 case "up":
                     y--;
