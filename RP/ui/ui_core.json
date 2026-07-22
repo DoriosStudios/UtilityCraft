@@ -238,6 +238,48 @@
             }
         ]
     },
+    "centered_text_label": {
+        "type": "panel",
+        "size": [
+            52,
+            52
+        ],
+        "$text_scale|default": 1,
+        "controls": [
+            {
+                "label_v1@uc._text_label_v1": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [
+                        48,
+                        "default"
+                    ],
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "text_alignment": "center",
+                    "$text_scale": "$text_scale"
+                }
+            },
+            {
+                "label_v2@uc._text_label_v2": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "size": [
+                        48,
+                        "default"
+                    ],
+                    "offset": [
+                        0,
+                        0
+                    ],
+                    "text_alignment": "center",
+                    "$text_scale": "$text_scale"
+                }
+            }
+        ]
+    },
     "_text_label_v1": {
         "type": "label",
         "text": "#hover_text",

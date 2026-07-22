@@ -23,7 +23,7 @@
         }
       },
       {
-        "machine_description@uc.text_label": {
+        "machine_description@uc.centered_text_label": {
           "collection_index": 1,
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
