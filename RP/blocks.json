@@ -216,8 +216,7 @@
 		"textures": "utilitycraft_steel_block"
 	},
 	"utilitycraft:waycenter": {
-		"sound": "stone",
-		"textures": "utilitycraft_waycenter"
+		"sound": "stone"
 	},
 	"utilitycraft:waycarpet": {
 		"sound": "stone"

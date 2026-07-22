@@ -871,6 +871,24 @@
 		"utilitycraft_waycenter": {
 			"textures": "textures/blocks/utility/way_computer_on_3d"
 		},
+		"utilitycraft_way_center_down": {
+			"textures": "textures/blocks/machines/way_center_down"
+		},
+		"utilitycraft_way_center_east": {
+			"textures": "textures/blocks/machines/way_center_east"
+		},
+		"utilitycraft_way_center_north": {
+			"textures": "textures/blocks/machines/way_center_north"
+		},
+		"utilitycraft_way_center_south": {
+			"textures": "textures/blocks/machines/way_center_south"
+		},
+		"utilitycraft_way_center_up": {
+			"textures": "textures/blocks/machines/way_center_up"
+		},
+		"utilitycraft_way_center_west": {
+			"textures": "textures/blocks/machines/way_center_west"
+		},
 		"utilitycraft_waycarpet": {
 			"textures": "textures/blocks/utility/way_carpet_3d"
 		},

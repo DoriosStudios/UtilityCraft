@@ -42,12 +42,10 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0.3
 			},
+			"minecraft:destructible_by_explosion": false,
 			"minecraft:custom_components": [
 				"utilitycraft:carpet"
 			]
 		}
 	}
 }
-//Ranges: 1000 2500 5000 10000 25000 inf
-//Dimensions: Overworld, Nether, End
-//Discount: 0 5 15 25 50 100

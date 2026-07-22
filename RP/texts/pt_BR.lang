@@ -754,9 +754,37 @@ tile.utilitycraft:xp_drain.name=Extrator de XP\n§o§9@UtilityCraft
 tile.utilitycraft:xp_spout.name=Bico de XP\n§o§9@UtilityCraft
 
 ### Waypoints | Waypoints
-tile.utilitycraft:waycenter.name=Centro de Waypoints\n§o§9@UtilityCraft
-tile.utilitycraft:waycarpet.name=Carpete Waypoint\n§o§9@UtilityCraft
-item.utilitycraft:way_chip=Chip de Waypoint\n§o§9@UtilityCraft
+tile.utilitycraft:waycenter.name=Centro de Destinos\n§7- Registra Chips de Destino e transporta você para os Tapetes de Destino. Melhorias de Alcance aumentam o alcance e reduzem o custo de níveis.\n§o§9@UtilityCraft
+tile.utilitycraft:waycarpet.name=Tapete de Destino\n§7- Vincule um Chip de Destino aqui. Interaja sem um chip para voltar ao Centro de Destinos.\n§o§9@UtilityCraft
+item.utilitycraft:way_chip=Chip de Destino\n§7- Vincule-o a um Tapete de Destino e depois registre-o em um Centro de Destinos.\n§o§9@UtilityCraft
+ui.utilitycraft:way_center.title=Centro de Destinos
+ui.utilitycraft:way_center.summary=§7Registrados: §f%1\n§7Alcance: §f%2\n§7Desconto: §f%3%%\n§7Seus níveis: §f%4\n\n§8Selecione um destino.
+ui.utilitycraft:way_center.empty=§7Nenhum destino registrado.\n\n§81. Use um Chip de Destino em um Tapete de Destino.\n2. Dê um nome ao destino.\n3. Registre o chip vinculado neste Centro de Destinos.
+ui.utilitycraft:way_center.close=Fechar
+ui.utilitycraft:way_center.destination_button=§l%1\n§r§0Custo: %2 níveis - %3
+ui.utilitycraft:way_center.blocks=%1 blocos
+ui.utilitycraft:way_center.unlimited=Ilimitado
+ui.utilitycraft:way_center.dimension.overworld=Mundo Superior
+ui.utilitycraft:way_center.dimension.nether=Nether
+ui.utilitycraft:way_center.dimension.the_end=The End
+ui.utilitycraft:way_chip.bind_title=Vincular Chip de Destino
+ui.utilitycraft:way_chip.location=§7Destino: %1 - %2, %3, %4
+ui.utilitycraft:way_chip.name_field=Nome do destino
+ui.utilitycraft:way_chip.name_placeholder=Casa
+ui.utilitycraft:way_chip.bind_button=Vincular
+message.utilitycraft.way_center.chip_unbound=§cEste Chip de Destino não está vinculado a um Tapete de Destino.
+message.utilitycraft.way_center.out_of_range=§cO destino está a %1 blocos. Alcance máximo: %2.
+message.utilitycraft.way_center.already_registered=§cEste Tapete de Destino já está registrado.
+message.utilitycraft.way_center.registered=§aDestino registrado: §f%1
+message.utilitycraft.way_center.not_enough_levels=§cVocê precisa de %1 níveis. Você tem %2.
+message.utilitycraft.way_center.destination_missing=§cO Tapete de Destino não existe mais.
+message.utilitycraft.way_center.destination_blocked=§cNão há espaço suficiente acima do destino.
+message.utilitycraft.way_center.teleport_failed=§cNão foi possível concluir o teletransporte.
+message.utilitycraft.way_center.center_missing=§cEste Tapete de Destino não está vinculado a um Centro de Destinos válido.
+message.utilitycraft.way_center.center_blocked=§cNão há espaço suficiente acima do Centro de Destinos.
+message.utilitycraft.way_center.invalid_chip=§cNão foi possível atualizar o Chip de Destino.
+message.utilitycraft.way_center.chip_name_required=§cDigite um nome para o destino.
+message.utilitycraft.way_center.chip_bound=§aChip de Destino vinculado a: §f%1
 
 ### Blueprints | Esquemas
 item.utilitycraft:blueprint=Esquema\n§o§9@UtilityCraft

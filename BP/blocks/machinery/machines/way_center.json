@@ -8,19 +8,12 @@
 			},
 			"states": {
 				"utilitycraft:range": [
-					5,
-					1,
-					2,
-					3,
-					4,
-					0
-				],
-				"utilitycraft:price": [
 					0,
 					1,
 					2,
 					3,
-					4
+					4,
+					5
 				]
 			},
 			"traits": {
@@ -34,17 +27,42 @@
 		},
 		"components": {
 			"utilitycraft:computer": {},
-			"minecraft:geometry": "geometry.utilitycraft_block_2",
+			"utilitycraft:upgradeable": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_waycenter",
+					"texture": "utilitycraft_way_center_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_way_center_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_way_center_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_way_center_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_way_center_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_way_center_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_way_center_down",
 					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.0
 			},
-			
+			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:upgradeable": {}
 		},
 		"permutations": [
