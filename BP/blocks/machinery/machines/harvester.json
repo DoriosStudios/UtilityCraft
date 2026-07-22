@@ -37,6 +37,11 @@
 					]
 				}
 			},
+			"utilitycraft:machine_upgrades": [
+				{ "type": "speed", "slot": 2 },
+				{ "type": "energy", "slot": 3 },
+				{ "type": "range", "slot": 4 }
+			],
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {

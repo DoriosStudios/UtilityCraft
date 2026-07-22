@@ -66,8 +66,9 @@ const ESSENCE_TO_STATE_INDEX = new Map(
     spawners.map((variant, index) => [variant.essence, index + 1])
 )
 
-const TYPES1_MAX_INDEX = 15
-const TYPES2_BASE_INDEX = 15
+const SPAWNER_TYPE_SLOTS_PER_BANK = 9
+const SPAWNER_TYPE_STATE = 'utilitycraft:spawner_type'
+const SPAWNER_BANK_STATE = 'utilitycraft:spawner_bank'
 
 function getCurrentTick() {
     const systemTick = Number(system.currentTick)
@@ -203,29 +204,41 @@ function getVariantByState(typeIndex) {
 }
 
 function getSpawnerTypeIndex(block) {
-    const type1 = Number(DoriosLib.block.getState(block, 'utilitycraft:spawnerTypes1') ?? 0)
-    const type2 = Number(DoriosLib.block.getState(block, 'utilitycraft:spawnerTypes2') ?? 0)
+    const typeState = DoriosLib.block.getState(block, SPAWNER_TYPE_STATE)
+    const bankState = DoriosLib.block.getState(block, SPAWNER_BANK_STATE)
 
-    if (type2 > 0) return TYPES2_BASE_INDEX + type2
-    if (type1 > 0) return type1
+    if (typeState !== undefined && bankState !== undefined) {
+        const slot = Math.max(0, Math.min(SPAWNER_TYPE_SLOTS_PER_BANK, Math.floor(Number(typeState) || 0)))
+        const bank = Math.max(0, Math.min(1, Math.floor(Number(bankState) || 0)))
+        if (slot === 0) return 0
+
+        const typeIndex = bank * SPAWNER_TYPE_SLOTS_PER_BANK + slot
+        return typeIndex <= spawners.length ? typeIndex : 0
+    }
+
+    // Read the former state layout when running against a legacy permutation.
+    const legacyType1 = Number(DoriosLib.block.getState(block, 'utilitycraft:spawnerTypes1') ?? 0)
+    const legacyType2 = Number(DoriosLib.block.getState(block, 'utilitycraft:spawnerTypes2') ?? 0)
+    if (legacyType2 > 0) return 15 + legacyType2
+    if (legacyType1 > 0) return legacyType1
     return 0
 }
 
 function setSpawnerTypeIndex(block, typeIndex) {
     if (!typeIndex || typeIndex <= 0) {
-        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes1', 0)
-        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes2', 0)
+        DoriosLib.block.setState(block, SPAWNER_BANK_STATE, 0)
+        DoriosLib.block.setState(block, SPAWNER_TYPE_STATE, 0)
         return
     }
 
-    if (typeIndex <= TYPES1_MAX_INDEX) {
-        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes1', typeIndex)
-        DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes2', 0)
-        return
-    }
+    const normalizedTypeIndex = Math.max(1, Math.min(spawners.length, Math.floor(Number(typeIndex) || 1)))
+    const bank = normalizedTypeIndex > SPAWNER_TYPE_SLOTS_PER_BANK ? 1 : 0
+    const slot = bank
+        ? normalizedTypeIndex - SPAWNER_TYPE_SLOTS_PER_BANK
+        : normalizedTypeIndex
 
-    DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes1', 0)
-    DoriosLib.block.setState(block, 'utilitycraft:spawnerTypes2', typeIndex - TYPES2_BASE_INDEX)
+    DoriosLib.block.setState(block, SPAWNER_BANK_STATE, bank)
+    DoriosLib.block.setState(block, SPAWNER_TYPE_STATE, slot)
 }
 
 function chooseWeightedSpawn(spawnTable) {

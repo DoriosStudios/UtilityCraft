@@ -24,7 +24,7 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_creative_gas_tank",
-					"render_method": "alpha_test"
+					"render_method": "blend"
 				},
 				"gas": {
 					"texture": "utilitycraft_steam_gas",

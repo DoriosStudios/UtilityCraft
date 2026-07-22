@@ -2,6 +2,7 @@
 
 import "../legacy.js";
 import { system, world } from "@minecraft/server";
+import { reconcileMovedPersistentUpgrades } from "../upgradeable.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import {
   SCRIPT_EVENT_NAMESPACE,
@@ -176,6 +177,7 @@ world.afterEvents.pistonActivate.subscribe(({ piston, isExpanding, dimension }) 
     reconcileMovedItemNodes(dimension, movements);
     reconcileMovedFluidNodes(dimension, movements);
     reconcileMovedGasNodes(dimension, movements);
+    reconcileMovedPersistentUpgrades(dimension, movements);
 
     for (const { target: location, source: pairedLocation } of movements) {
       const block = safeGetBlock(dimension, location);

@@ -169,8 +169,8 @@
 					"pivot": [0, 2.5, 0],
 					"cubes": [
 						{
-							"origin": [-5, 2.5, -5],
-							"size": [10, 12, 10],
+							"origin": [-4.5, 2.5, -4.5],
+							"size": [9, 12, 9],
 							"uv": {
 								"north": {"uv": [8, 0], "uv_size": [48, 64], "material_instance": "gas"},
 								"east": {"uv": [8, 0], "uv_size": [48, 64], "material_instance": "gas"},

@@ -37,6 +37,10 @@
 					]
 				}
 			},
+			"utilitycraft:machine_upgrades": [
+				{ "type": "speed", "slot": 4 },
+				{ "type": "energy", "slot": 5 }
+			],
 			"minecraft:geometry": "geometry.induction_anvil",
 			"minecraft:material_instances": {
 				"*": {

@@ -1311,7 +1311,7 @@ message.utilitycraft.upgrade.max=§c%1§c is already at maximum level (%2).
 message.utilitycraft.upgrade.failed=§cCould not apply %1§c.
 message.utilitycraft.upgrade.applied=§aApplied %1§a (%2/%3).
 
-# Gas transfer UI
+## Gas transfer UI
 ui.utilitycraft:gas_transfer.extractor_title=Gas Extractor
 ui.utilitycraft:gas_transfer.extractor_description=Configure gas extraction, routing, and filtering.
 ui.utilitycraft:gas_transfer.filter_installed=§aFilter Upgrade installed

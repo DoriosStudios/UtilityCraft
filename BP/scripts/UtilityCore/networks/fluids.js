@@ -6,6 +6,7 @@ import { FluidStorage } from "../../DoriosCore/machinery/fluidStorage.js";
 import * as DoriosFluid from "../../DoriosCore/machinery/fluidContainers.js";
 import { DIRECTIONS } from "../../DoriosCore/utils/directions.js";
 import { formatIdentifier } from "../../DoriosLib/text/index.js";
+import { getPersistentUpgradeLevel } from "../upgradeable.js";
 import {
   NETWORK_OFFSETS,
   getAttachedContainerEndpoint,
@@ -29,7 +30,7 @@ import {
 
 const NETWORK_VERSION = 1;
 const MAX_SOURCE_INDEX_ATTEMPTS = 3;
-const MAX_TRANSFER_AMOUNT = 4000;
+const BASE_TRANSFER_AMOUNT = 4000;
 const MAX_PROPERTY_CHUNK_LENGTH = 24_000;
 const MAX_EXPORTER_CHUNKS = 128;
 const EXPORTER_PROPERTY_PREFIX = "utilitycraft:fe";
@@ -428,7 +429,7 @@ function translatedButton(labelKey, descriptionKey) {
 
 /** @param {Block} block */
 function hasFilterUpgrade(block) {
-  return block.permutation.getState("utilitycraft:filter") === 1;
+  return getPersistentUpgradeLevel(block, "utilitycraft:filter", 1) === 1;
 }
 
 /** @param {Block} block */
@@ -684,7 +685,9 @@ function processFluidExporterTick(block, dimension) {
   const runtime = getExporterRuntime(block);
   if (!runtime.persistenceReady || !runtime.document.enabled || !runtime.document.source) return;
 
-  const filterEnabled = block.permutation.getState("utilitycraft:filter") === 1;
+  const filterEnabled = hasFilterUpgrade(block);
+  const transferLimit = BASE_TRANSFER_AMOUNT
+    * (getPersistentUpgradeLevel(block, "utilitycraft:speed", 4) + 1);
   const sourceAccess = getSourceAccess(runtime, dimension);
   if (sourceAccess) {
     let attempts = 0;
@@ -696,14 +699,14 @@ function processFluidExporterTick(block, dimension) {
       if (!type || type === "empty") continue;
       if (filterEnabled && !passesFilter(runtime, type)) continue;
       attempts++;
-      if (transferContainerSource(runtime, dimension, sourceAccess, sourceIndex) > 0) break;
+      if (transferContainerSource(runtime, dimension, sourceAccess, sourceIndex, transferLimit) > 0) break;
     }
     return;
   }
 
   const special = readSpecialFluidSource(dimension, runtime.document.source.location);
   if (!special || (filterEnabled && !passesFilter(runtime, special.type))) return;
-  const moved = insertSpecialSource(runtime, dimension, special);
+  const moved = insertSpecialSource(runtime, dimension, special, transferLimit);
   if (moved > 0) drainSpecialFluidSource(special.block, moved);
 }
 
@@ -713,14 +716,14 @@ function passesFilter(runtime, type) {
   return runtime.document.filter.mode === "whitelist" ? listed : !listed;
 }
 
-/** @param {FluidExporterRuntime} runtime @param {Dimension} dimension @param {FluidContainerAccess} source @param {number} sourceIndex */
-function transferContainerSource(runtime, dimension, source, sourceIndex) {
+/** @param {FluidExporterRuntime} runtime @param {Dimension} dimension @param {FluidContainerAccess} source @param {number} sourceIndex @param {number} limit */
+function transferContainerSource(runtime, dimension, source, sourceIndex, limit) {
   return transferAcrossTargets(runtime, dimension, (target, remaining) => DoriosFluid.transferFluid(source.resolved, {
     sourceIndex,
     target: target.resolved,
     targetIndices: target.indices,
     maxAmount: remaining,
-  }));
+  }), limit);
 }
 
 /**
@@ -730,9 +733,10 @@ function transferContainerSource(runtime, dimension, source, sourceIndex) {
  * @param {FluidExporterRuntime} runtime
  * @param {Dimension} dimension
  * @param {{type:string,amount:number,unit:number}} source
+ * @param {number} maxAmount
  */
-function insertSpecialSource(runtime, dimension, source) {
-  const limit = Math.floor(Math.min(MAX_TRANSFER_AMOUNT, source.amount) / source.unit) * source.unit;
+function insertSpecialSource(runtime, dimension, source, maxAmount) {
+  const limit = Math.floor(Math.min(maxAmount, source.amount) / source.unit) * source.unit;
   if (limit <= 0) return 0;
 
   return transferAcrossTargets(runtime, dimension, (target, remaining) => {
@@ -757,7 +761,7 @@ function insertSpecialSource(runtime, dimension, source) {
  * @param {(target:FluidContainerAccess, remaining:number)=>number} transfer
  * @param {number} [limit]
  */
-function transferAcrossTargets(runtime, dimension, transfer, limit = MAX_TRANSFER_AMOUNT) {
+function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSFER_AMOUNT) {
   const targets = runtime.document.targets;
   const count = targets.length;
   if (count === 0 || limit <= 0) return 0;

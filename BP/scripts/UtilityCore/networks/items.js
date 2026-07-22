@@ -5,6 +5,7 @@ import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import { DIRECTIONS } from "../../DoriosLib/containers/constants.js";
 import { formatIdentifier } from "../../DoriosLib/text/index.js";
+import { getPersistentUpgradeLevel } from "../upgradeable.js";
 import {
   NETWORK_OFFSETS,
   getAttachedContainerEndpoint,
@@ -538,7 +539,7 @@ function translatedButton(labelKey, descriptionKey) {
 
 /** @param {Block} block */
 function hasFilterUpgrade(block) {
-  return block.permutation.getState("utilitycraft:filter") === 1;
+  return getPersistentUpgradeLevel(block, "utilitycraft:filter", 1) === 1;
 }
 
 /** @param {string} descriptionKey @param {Block} block */
@@ -900,7 +901,22 @@ function processExporterTick(block, dimension) {
     return;
   }
 
-  const filterEnabled = block.permutation.getState("utilitycraft:filter") === 1;
+  const filterEnabled = hasFilterUpgrade(block);
+  const operationCount = getPersistentUpgradeLevel(block, "utilitycraft:speed", 4) + 1;
+  for (let operation = 0; operation < operationCount; operation++) {
+    if (!tryTransferItemOperation(runtime, dimension, sourceAccess, filterEnabled)) break;
+  }
+}
+
+/**
+ * Executes one item transfer operation of up to MAX_TRANSFER_AMOUNT items.
+ *
+ * @param {ExporterRuntime} runtime
+ * @param {Dimension} dimension
+ * @param {ContainerAccess} sourceAccess
+ * @param {boolean} filterEnabled
+ */
+function tryTransferItemOperation(runtime, dimension, sourceAccess, filterEnabled) {
   let attempts = 0;
   for (const sourceSlot of sourceAccess.slots) {
     if (attempts >= MAX_SOURCE_SLOT_ATTEMPTS) break;
@@ -910,14 +926,15 @@ function processExporterTick(block, dimension) {
       item = sourceAccess.resolved.container.getItem(sourceSlot);
     } catch {
       runtime.sourceAccess = undefined;
-      return;
+      return false;
     }
     if (!item || item.hasTag("utilitycraft:ui_element")) continue;
     if (filterEnabled && !passesFilter(runtime.document.filter.mode, runtime.filterItems, item.typeId, false)) continue;
 
     attempts++;
-    if (tryTransferToNetwork(runtime, dimension, sourceAccess, sourceSlot, item.typeId)) break;
+    if (tryTransferToNetwork(runtime, dimension, sourceAccess, sourceSlot, item.typeId)) return true;
   }
+  return false;
 }
 
 /**
@@ -977,7 +994,7 @@ function passesEndpointFilter(dimension, endpoint, itemTypeId) {
   const importerBlock = safeGetBlock(dimension, endpoint.importerLocation);
   const runtime = getImporterRuntime(dimension, endpoint.importerLocation);
   if (!runtime.document.enabled) return false;
-  if (importerBlock?.permutation.getState("utilitycraft:filter") !== 1) return true;
+  if (!importerBlock || !hasFilterUpgrade(importerBlock)) return true;
   return passesFilter(runtime.document.mode, runtime.items, itemTypeId, true);
 }
 
@@ -993,7 +1010,7 @@ function passesEndpointFilter(dimension, endpoint, itemTypeId) {
 function passesNativeTargetFilter(dimension, endpoint, resolved, itemTypeId) {
   if (endpoint.importerLocation) return true;
   const targetBlock = resolved.block ?? safeGetBlock(dimension, endpoint.location);
-  if (targetBlock?.permutation.getState("utilitycraft:filter") !== 1 || !resolved.entity) return true;
+  if (!targetBlock || !hasFilterUpgrade(targetBlock) || !resolved.entity) return true;
   const whitelist = resolved.entity.getDynamicProperty("utilitycraft:whitelistOn") ?? true;
   return resolved.entity.hasTag(itemTypeId) === whitelist;
 }

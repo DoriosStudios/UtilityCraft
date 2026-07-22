@@ -22,7 +22,8 @@
 			"minecraft:geometry": "geometry.utilitycraft_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_asphalt"
+					"texture": "utilitycraft_asphalt",
+					"render_method": "alpha_test"
 				}
 			},
 			"utilitycraft:asphalt": {},

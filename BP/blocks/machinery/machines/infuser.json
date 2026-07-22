@@ -37,6 +37,10 @@
 					]
 				}
 			},
+			"utilitycraft:machine_upgrades": [
+				{ "type": "speed", "slot": 5 },
+				{ "type": "energy", "slot": 6 }
+			],
 			"utilitycraft:machine_recipes": {
 				"type": "infuser"
 			},

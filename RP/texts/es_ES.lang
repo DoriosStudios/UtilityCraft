@@ -1195,7 +1195,7 @@ message.utilitycraft.upgrade.max=§c%1§c ya alcanzó el nivel máximo (%2).
 message.utilitycraft.upgrade.failed=§cNo se pudo aplicar %1§c.
 message.utilitycraft.upgrade.applied=§aSe aplicó %1§a (%2/%3).
 
-# Gas transfer UI
+## Gas transfer UI
 ui.utilitycraft:gas_transfer.extractor_title=Extractor de Gases
 ui.utilitycraft:gas_transfer.extractor_description=Configura la extracción, distribución y filtrado de gases.
 ui.utilitycraft:gas_transfer.filter_installed=§aMejora de Filtro instalada

@@ -30,10 +30,6 @@
                 "utilitycraft:north": [
                     false,
                     true
-                ],
-                "utilitycraft:filter": [
-                    0,
-                    1
                 ]
             },
             "traits": {
@@ -46,7 +42,10 @@
         },
         "components": {
             "utilitycraft:item_importer": {},
-            "utilitycraft:upgradeable": {},
+            "utilitycraft:upgradeable": {
+                "type": "persistent",
+                "filter_max": 1
+            },
             "minecraft:geometry": {
                 "identifier": "geometry.utilitycraft_item_importer",
                 "bone_visibility": {
