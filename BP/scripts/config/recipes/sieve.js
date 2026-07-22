@@ -108,6 +108,7 @@ const sieveRecipesRegister = {
     { item: "utilitycraft:nether_quartz_chunk", amount: 1, chance: 0.33, tier: 1 },
     { item: "utilitycraft:nether_gold_chunk", amount: 1, chance: 0.33, tier: 3 },
     { item: "utilitycraft:ancient_debris_chunk", amount: 1, chance: 0.025, tier: 5 },
+    { item: "minecraft:ender_pearl", amount: 1, chance: 0.02, tier: 6 },
   ],
   "utilitycraft:crushed_blackstone": [
     { item: "utilitycraft:blackstone_pebble", amount: 1, chance: 0.25, tier: 0 },
@@ -157,7 +158,6 @@ const sieveRecipesRegister = {
     { item: "utilitycraft:geode", amount: 1, chance: 0.025, tier: 5 },
     { item: "utilitycraft:calcite_pebble", amount: 1, chance: 0.12, tier: 2 },
     { item: "utilitycraft:tuff_pebble", amount: 1, chance: 0.18, tier: 1 },
-    { item: "minecraft:ender_pearl", amount: 1, chance: 0.02, tier: 6 },
     { item: "utilitycraft:diamond_shard", amount: 1, chance: 0.05, tier: 4 },
     { item: "utilitycraft:emerald_shard", amount: 1, chance: 0.05, tier: 4 },
     { item: "utilitycraft:deepslate_gold_chunk", amount: 1, chance: 0.2, tier: 4 },
@@ -217,6 +217,7 @@ const sieveRecipesRegister = {
     { item: "utilitycraft:nether_quartz_chunk", amount: 9, chance: 0.33, tier: 1 },
     { item: "utilitycraft:nether_gold_chunk", amount: 9, chance: 0.33, tier: 3 },
     { item: "utilitycraft:ancient_debris_chunk", amount: 9, chance: 0.025, tier: 5 },
+    { item: "minecraft:ender_pearl", amount: 9, chance: 0.02, tier: 6 },
   ],
   "utilitycraft:compressed_crushed_blackstone": [
     { item: "utilitycraft:blackstone_pebble", amount: 9, chance: 0.25, tier: 0 },
@@ -233,7 +234,6 @@ const sieveRecipesRegister = {
     { item: "utilitycraft:geode", amount: 9, chance: 0.025, tier: 5 },
     { item: "utilitycraft:calcite_pebble", amount: 9, chance: 0.12, tier: 2 },
     { item: "utilitycraft:tuff_pebble", amount: 9, chance: 0.18, tier: 1 },
-    { item: "minecraft:ender_pearl", amount: 9, chance: 0.02, tier: 6 },
     { item: "utilitycraft:diamond_shard", amount: 9, chance: 0.05, tier: 4 },
     { item: "utilitycraft:emerald_shard", amount: 9, chance: 0.05, tier: 4 },
     { item: "utilitycraft:deepslate_gold_chunk", amount: 9, chance: 0.2, tier: 4 },

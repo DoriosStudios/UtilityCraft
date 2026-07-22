@@ -847,6 +847,7 @@ entity.utilitycraft:incinerator.name=焼却炉
 entity.utilitycraft:induction_anvil.name=誘導アンビル
 entity.utilitycraft:infuser.name=インフューザー
 entity.utilitycraft:magmatic_chamber.name=マグマ室
+entity.utilitycraft:xp_condenser.name=XPコンデンサー
 entity.utilitycraft:seed_synthesizer.name=シードシンセサイザー
 entity.utilitycraft:power_condenser.name=パワーコンデンサーマトリックス
 

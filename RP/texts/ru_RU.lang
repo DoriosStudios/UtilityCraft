@@ -847,6 +847,7 @@ entity.utilitycraft:incinerator.name=Мусоросжигательный зав
 entity.utilitycraft:induction_anvil.name=Индукционная наковальня
 entity.utilitycraft:infuser.name=Инфузор
 entity.utilitycraft:magmatic_chamber.name=Магматическая камера
+entity.utilitycraft:xp_condenser.name=Конденсатор опыта
 entity.utilitycraft:seed_synthesizer.name=Синтезатор семян
 entity.utilitycraft:power_condenser.name=Матрица силового конденсатора
 

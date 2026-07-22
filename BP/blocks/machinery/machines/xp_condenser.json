@@ -8,19 +8,63 @@
 			}
 		},
 		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_block_2",
+			"utilitycraft:fluid_container": {},
+			"utilitycraft:xp_condenser": {
+				"entity": {
+					"type": "fluid_machine",
+					"inventory_size": 15,
+					"fixed_fluid_types": true
+				},
+				"machine": {
+					"energy_cap": 0,
+					"fluid_cap": 256000,
+					"fluid_types": 1
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "utilitycraft_xp_condenser",
+					"texture": "utilitycraft_xp_condenser_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_xp_condenser_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_xp_condenser_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_xp_condenser_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_xp_condenser_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_xp_condenser_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_xp_condenser_down",
 					"render_method": "alpha_test"
 				}
 			},
-			"minecraft:custom_components": [
-				"utilitycraft:xp_condenser"
-			],
+			"minecraft:tick": {
+				"interval_range": [
+					4,
+					4
+				]
+			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.0
-			}
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:machine": {},
+			"tag:dorios:fluid": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
 		}
 	}
 }

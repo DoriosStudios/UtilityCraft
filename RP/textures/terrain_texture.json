@@ -892,6 +892,24 @@
 		"utilitycraft_xp_condenser": {
 			"textures": "textures/blocks/machines/xp_computer_full"
 		},
+		"utilitycraft_xp_condenser_down": {
+			"textures": "textures/blocks/machines/xp_condenser_down"
+		},
+		"utilitycraft_xp_condenser_east": {
+			"textures": "textures/blocks/machines/xp_condenser_east"
+		},
+		"utilitycraft_xp_condenser_north": {
+			"textures": "textures/blocks/machines/xp_condenser_north"
+		},
+		"utilitycraft_xp_condenser_south": {
+			"textures": "textures/blocks/machines/xp_condenser_south"
+		},
+		"utilitycraft_xp_condenser_up": {
+			"textures": "textures/blocks/machines/xp_condenser_up"
+		},
+		"utilitycraft_xp_condenser_west": {
+			"textures": "textures/blocks/machines/xp_condenser_west"
+		},
 		"utilitycraft_seed_synthesizer": {
 			"textures": "textures/blocks/machines/crop_synthesizer_on"
 		},

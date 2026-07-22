@@ -1,0 +1,204 @@
+{
+  "namespace": "xp_condenser",
+  "xp_condenser_top": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [162, 72],
+    "offset": [-10, -40],
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "controls": [
+      {
+        "machine_name@uc.machine_name": {}
+      },
+      {
+        "machine_screen@uc.machine_small_screen": {
+          "layer": 1
+        }
+      },
+      {
+        "machine_description@uc.text_label": {
+          "collection_index": 14,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$text_scale": 0.55,
+          "offset": [14, 12]
+        }
+      },
+      {
+        "deposit_one_button@uc.machine_button": {
+          "$index": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [79, 16],
+          "$button_size": [18, 16],
+          "$button_text": "-1",
+          "$text_scale": 0.7,
+          "$default_texture": "textures/ui/buttons/button",
+          "$hover_texture": "textures/ui/buttons/button_selected",
+          "$pressed_texture": "textures/ui/buttons/button_pressed"
+        }
+      },
+      {
+        "withdraw_one_button@uc.machine_button": {
+          "$index": 2,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [105, 16],
+          "$button_size": [18, 16],
+          "$button_text": "+1",
+          "$text_scale": 0.7,
+          "$default_texture": "textures/ui/buttons/button",
+          "$hover_texture": "textures/ui/buttons/button_selected",
+          "$pressed_texture": "textures/ui/buttons/button_pressed"
+        }
+      },
+      {
+        "deposit_five_button@uc.machine_button": {
+          "$index": 3,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [79, 33],
+          "$button_size": [18, 16],
+          "$button_text": "-5",
+          "$text_scale": 0.7,
+          "$default_texture": "textures/ui/buttons/button",
+          "$hover_texture": "textures/ui/buttons/button_selected",
+          "$pressed_texture": "textures/ui/buttons/button_pressed"
+        }
+      },
+      {
+        "withdraw_five_button@uc.machine_button": {
+          "$index": 4,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [105, 33],
+          "$button_size": [18, 16],
+          "$button_text": "+5",
+          "$text_scale": 0.7,
+          "$default_texture": "textures/ui/buttons/button",
+          "$hover_texture": "textures/ui/buttons/button_selected",
+          "$pressed_texture": "textures/ui/buttons/button_pressed"
+        }
+      },
+      {
+        "deposit_max_button@uc.machine_button": {
+          "$index": 5,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [79, 50],
+          "$button_size": [18, 16],
+          "$button_text": "-Max",
+          "$text_scale": 0.5,
+          "$default_texture": "textures/ui/buttons/button",
+          "$hover_texture": "textures/ui/buttons/button_selected",
+          "$pressed_texture": "textures/ui/buttons/button_pressed"
+        }
+      },
+      {
+        "withdraw_max_button@uc.machine_button": {
+          "$index": 6,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [105, 50],
+          "$button_size": [18, 16],
+          "$button_text": "+Max",
+          "$text_scale": 0.5,
+          "$default_texture": "textures/ui/buttons/button",
+          "$hover_texture": "textures/ui/buttons/button_selected",
+          "$pressed_texture": "textures/ui/buttons/button_pressed"
+        }
+      },
+      {
+        "xp_bar@uc.liquid_bar": {
+          "$collection_index": 7,
+          "$has_bg": false,
+          "offset": [54, 0]
+        }
+      },
+      {
+        "io_tab@uc.io_tab": {
+          "$io_fluids_modes_description": "ui.utilitycraft:io.xp_condenser.liquids",
+          "$has_item_io": false,
+          "$has_fluid_io": true,
+          "$io_items_default": false,
+          "$io_fluids_default": true,
+          "$io_default_tab_index": 1,
+          "$io_top_texture": "textures/blocks/machines/xp_condenser_up",
+          "$io_left_texture": "textures/blocks/machines/xp_condenser_west",
+          "$io_front_texture": "textures/blocks/machines/xp_condenser_north",
+          "$io_right_texture": "textures/blocks/machines/xp_condenser_east",
+          "$io_bottom_texture": "textures/blocks/machines/xp_condenser_down",
+          "$io_back_texture": "textures/blocks/machines/xp_condenser_south",
+          "$io_fluid_top_index": 8,
+          "$io_fluid_left_index": 9,
+          "$io_fluid_front_index": 10,
+          "$io_fluid_right_index": 11,
+          "$io_fluid_bottom_index": 12,
+          "$io_fluid_back_index": 13
+        }
+      },
+      {
+        "info_tab@uc.info_tab": {
+          "$info_description": "ui.utilitycraft:info.xp_condenser"
+        }
+      }
+    ]
+  },
+  "utility_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "flying_item_renderer@common.flying_item_renderer": {
+          "layer": 40
+        }
+      },
+      {
+        "selected_item_details_factory@common.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      },
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "controls": [
+            {
+              "common_panel@common.common_panel": {}
+            },
+            {
+              "chest_panel": {
+                "type": "panel",
+                "layer": 5,
+                "controls": [
+                  {
+                    "xp_condenser_top@xp_condenser.xp_condenser_top": {}
+                  },
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {}
+                  },
+                  {
+                    "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                  }
+                ]
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

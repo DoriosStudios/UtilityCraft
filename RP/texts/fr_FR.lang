@@ -847,6 +847,7 @@ entity.utilitycraft:incinerator.name=Incinérateur
 entity.utilitycraft:induction_anvil.name=Enclume à induction
 entity.utilitycraft:infuser.name=Infuseur
 entity.utilitycraft:magmatic_chamber.name=Chambre magmatique
+entity.utilitycraft:xp_condenser.name=Condensateur XP
 entity.utilitycraft:seed_synthesizer.name=Synthétiseur de graines
 entity.utilitycraft:power_condenser.name=Matrice de condensateur de puissance
 

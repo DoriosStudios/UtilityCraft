@@ -847,6 +847,7 @@ entity.utilitycraft:incinerator.name=焚烧炉
 entity.utilitycraft:induction_anvil.name=感应砧
 entity.utilitycraft:infuser.name=浸泡器
 entity.utilitycraft:magmatic_chamber.name=岩浆室
+entity.utilitycraft:xp_condenser.name=XP冷凝器
 entity.utilitycraft:seed_synthesizer.name=种子合成器
 entity.utilitycraft:power_condenser.name=功率电容器矩阵
 

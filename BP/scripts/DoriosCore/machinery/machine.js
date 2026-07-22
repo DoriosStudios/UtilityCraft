@@ -81,9 +81,12 @@ export class Machine extends BasicMachine {
       lore.push(`§r§7  Energy: ${EnergyStorage.formatEnergyToText(energy.get())}/${EnergyStorage.formatEnergyToText(energy.cap)}`);
     }
 
-    if (fluid.type != Constants.EMPTY_FLUID_TYPE) {
+    if (fluid.type != Constants.EMPTY_FLUID_TYPE && fluid.get() > 0) {
       const liquidName = DoriosLib.text.capitalizeFirst(fluid.type);
-      lore.push(`§r§7  ${liquidName}: ${FluidStorage.formatFluid(fluid.get())}/${FluidStorage.formatFluid(fluid.cap)}`);
+      const storedFluid = fluid.type === "xp"
+        ? `${Math.floor(fluid.get())} mB`
+        : FluidStorage.formatFluid(fluid.get());
+      lore.push(`§r§7  ${liquidName}: ${storedFluid}/${FluidStorage.formatFluid(fluid.cap)}`);
     }
 
     if (lore.length > 0) {

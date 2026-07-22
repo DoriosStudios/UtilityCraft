@@ -18,6 +18,7 @@
                     "ui/machines/receiver.json",
                     "ui/machines/infuser.json",
                     "ui/machines/magmatic_chamber.json",
+                    "ui/machines/xp_condenser.json",
                     "ui/machines/harvester.json",
                     "ui/machines/crusher.json",
                     "ui/machines/electro_press.json",
