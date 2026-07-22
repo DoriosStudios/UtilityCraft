@@ -935,6 +935,153 @@
 		"utilitycraft:water_48": {
 			"textures": "textures/ui/water_bar/water_frame_48"
 		},
+		"utilitycraft:steam_00": {
+			"textures": "textures/ui/steam_bar/steam_bar_00"
+		},
+		"utilitycraft:steam_01": {
+			"textures": "textures/ui/steam_bar/steam_bar_01"
+		},
+		"utilitycraft:steam_02": {
+			"textures": "textures/ui/steam_bar/steam_bar_02"
+		},
+		"utilitycraft:steam_03": {
+			"textures": "textures/ui/steam_bar/steam_bar_03"
+		},
+		"utilitycraft:steam_04": {
+			"textures": "textures/ui/steam_bar/steam_bar_04"
+		},
+		"utilitycraft:steam_05": {
+			"textures": "textures/ui/steam_bar/steam_bar_05"
+		},
+		"utilitycraft:steam_06": {
+			"textures": "textures/ui/steam_bar/steam_bar_06"
+		},
+		"utilitycraft:steam_07": {
+			"textures": "textures/ui/steam_bar/steam_bar_07"
+		},
+		"utilitycraft:steam_08": {
+			"textures": "textures/ui/steam_bar/steam_bar_08"
+		},
+		"utilitycraft:steam_09": {
+			"textures": "textures/ui/steam_bar/steam_bar_09"
+		},
+		"utilitycraft:steam_10": {
+			"textures": "textures/ui/steam_bar/steam_bar_10"
+		},
+		"utilitycraft:steam_11": {
+			"textures": "textures/ui/steam_bar/steam_bar_11"
+		},
+		"utilitycraft:steam_12": {
+			"textures": "textures/ui/steam_bar/steam_bar_12"
+		},
+		"utilitycraft:steam_13": {
+			"textures": "textures/ui/steam_bar/steam_bar_13"
+		},
+		"utilitycraft:steam_14": {
+			"textures": "textures/ui/steam_bar/steam_bar_14"
+		},
+		"utilitycraft:steam_15": {
+			"textures": "textures/ui/steam_bar/steam_bar_15"
+		},
+		"utilitycraft:steam_16": {
+			"textures": "textures/ui/steam_bar/steam_bar_16"
+		},
+		"utilitycraft:steam_17": {
+			"textures": "textures/ui/steam_bar/steam_bar_17"
+		},
+		"utilitycraft:steam_18": {
+			"textures": "textures/ui/steam_bar/steam_bar_18"
+		},
+		"utilitycraft:steam_19": {
+			"textures": "textures/ui/steam_bar/steam_bar_19"
+		},
+		"utilitycraft:steam_20": {
+			"textures": "textures/ui/steam_bar/steam_bar_20"
+		},
+		"utilitycraft:steam_21": {
+			"textures": "textures/ui/steam_bar/steam_bar_21"
+		},
+		"utilitycraft:steam_22": {
+			"textures": "textures/ui/steam_bar/steam_bar_22"
+		},
+		"utilitycraft:steam_23": {
+			"textures": "textures/ui/steam_bar/steam_bar_23"
+		},
+		"utilitycraft:steam_24": {
+			"textures": "textures/ui/steam_bar/steam_bar_24"
+		},
+		"utilitycraft:steam_25": {
+			"textures": "textures/ui/steam_bar/steam_bar_25"
+		},
+		"utilitycraft:steam_26": {
+			"textures": "textures/ui/steam_bar/steam_bar_26"
+		},
+		"utilitycraft:steam_27": {
+			"textures": "textures/ui/steam_bar/steam_bar_27"
+		},
+		"utilitycraft:steam_28": {
+			"textures": "textures/ui/steam_bar/steam_bar_28"
+		},
+		"utilitycraft:steam_29": {
+			"textures": "textures/ui/steam_bar/steam_bar_29"
+		},
+		"utilitycraft:steam_30": {
+			"textures": "textures/ui/steam_bar/steam_bar_30"
+		},
+		"utilitycraft:steam_31": {
+			"textures": "textures/ui/steam_bar/steam_bar_31"
+		},
+		"utilitycraft:steam_32": {
+			"textures": "textures/ui/steam_bar/steam_bar_32"
+		},
+		"utilitycraft:steam_33": {
+			"textures": "textures/ui/steam_bar/steam_bar_33"
+		},
+		"utilitycraft:steam_34": {
+			"textures": "textures/ui/steam_bar/steam_bar_34"
+		},
+		"utilitycraft:steam_35": {
+			"textures": "textures/ui/steam_bar/steam_bar_35"
+		},
+		"utilitycraft:steam_36": {
+			"textures": "textures/ui/steam_bar/steam_bar_36"
+		},
+		"utilitycraft:steam_37": {
+			"textures": "textures/ui/steam_bar/steam_bar_37"
+		},
+		"utilitycraft:steam_38": {
+			"textures": "textures/ui/steam_bar/steam_bar_38"
+		},
+		"utilitycraft:steam_39": {
+			"textures": "textures/ui/steam_bar/steam_bar_39"
+		},
+		"utilitycraft:steam_40": {
+			"textures": "textures/ui/steam_bar/steam_bar_40"
+		},
+		"utilitycraft:steam_41": {
+			"textures": "textures/ui/steam_bar/steam_bar_41"
+		},
+		"utilitycraft:steam_42": {
+			"textures": "textures/ui/steam_bar/steam_bar_42"
+		},
+		"utilitycraft:steam_43": {
+			"textures": "textures/ui/steam_bar/steam_bar_43"
+		},
+		"utilitycraft:steam_44": {
+			"textures": "textures/ui/steam_bar/steam_bar_44"
+		},
+		"utilitycraft:steam_45": {
+			"textures": "textures/ui/steam_bar/steam_bar_45"
+		},
+		"utilitycraft:steam_46": {
+			"textures": "textures/ui/steam_bar/steam_bar_46"
+		},
+		"utilitycraft:steam_47": {
+			"textures": "textures/ui/steam_bar/steam_bar_47"
+		},
+		"utilitycraft:steam_48": {
+			"textures": "textures/ui/steam_bar/steam_bar_48"
+		},
 		"utilitycraft:xp_00": {
 			"textures": "textures/ui/xp_bar/xp_frame_00"
 		},
