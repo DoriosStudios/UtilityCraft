@@ -110,7 +110,19 @@
                             "utilitycraft:fluid_extractor_green",
                             "utilitycraft:fluid_extractor_blue",
                             "utilitycraft:fluid_extractor_red",
-                            "utilitycraft:fluid_extractor_purple"
+                            "utilitycraft:fluid_extractor_purple",
+                            "utilitycraft:gas_pipe",
+                            "utilitycraft:gas_pipe_green",
+                            "utilitycraft:gas_pipe_blue",
+                            "utilitycraft:gas_pipe_red",
+                            "utilitycraft:gas_pipe_orange",
+                            "utilitycraft:gas_pipe_yellow",
+                            "utilitycraft:gas_extractor",
+                            "utilitycraft:gas_extractor_green",
+                            "utilitycraft:gas_extractor_blue",
+                            "utilitycraft:gas_extractor_red",
+                            "utilitycraft:gas_extractor_orange",
+                            "utilitycraft:gas_extractor_yellow"
                         ]
                     },
                     {
@@ -182,6 +194,15 @@
                             "utilitycraft:advanced_fluid_tank",
                             "utilitycraft:expert_fluid_tank",
                             "utilitycraft:ultimate_fluid_tank",
+                            "utilitycraft:basic_gas_tank",
+                            "utilitycraft:advanced_gas_tank",
+                            "utilitycraft:expert_gas_tank",
+                            "utilitycraft:ultimate_gas_tank",
+                            "utilitycraft:creative_water_tank",
+                            "utilitycraft:creative_lava_tank",
+                            "utilitycraft:creative_milk_tank",
+                            "utilitycraft:creative_xp_tank",
+                            "utilitycraft:creative_steam_tank",
                             "utilitycraft:xp_drain",
                             "utilitycraft:xp_spout"
                         ]

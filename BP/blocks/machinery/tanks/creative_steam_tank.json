@@ -24,13 +24,13 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "utilitycraft_creative_gas_tank",
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"gas": {
 					"texture": "utilitycraft_steam_gas",
 					"face_dimming": false,
 					"ambient_occlusion": false,
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:collision_box": {
