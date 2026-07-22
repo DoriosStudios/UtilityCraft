@@ -58,6 +58,29 @@
 					]
 				}
 			},
+			"utilitycraft:gas_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:gas_container",
+						"dorios:container"
+					]
+				}
+			},
+			"utilitycraft:fluid_gas_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:fluid_container",
+						"dorios:gas_container",
+						"dorios:container"
+					]
+				}
+			},
 			"utilitycraft:battery": {
 				"minecraft:type_family": {
 					"family": [
@@ -85,6 +108,29 @@
 						"dorios:generator",
 						"dorios:energy_source",
 						"dorios:fluid_container",
+						"dorios:container"
+					]
+				}
+			},
+			"utilitycraft:gas_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:generator",
+						"dorios:energy_source",
+						"dorios:gas_container",
+						"dorios:container"
+					]
+				}
+			},
+			"utilitycraft:fluid_gas_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:generator",
+						"dorios:energy_source",
+						"dorios:fluid_container",
+						"dorios:gas_container",
 						"dorios:container"
 					]
 				}
@@ -486,6 +532,20 @@
 					]
 				}
 			},
+			"utilitycraft:gas_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:gas_machine"
+					]
+				}
+			},
+			"utilitycraft:fluid_gas_machine": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:fluid_gas_machine"
+					]
+				}
+			},
 			"utilitycraft:battery": {
 				"add": {
 					"component_groups": [
@@ -504,6 +564,20 @@
 				"add": {
 					"component_groups": [
 						"utilitycraft:fluid_generator"
+					]
+				}
+			},
+			"utilitycraft:gas_generator": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:gas_generator"
+					]
+				}
+			},
+			"utilitycraft:fluid_gas_generator": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:fluid_gas_generator"
 					]
 				}
 			},

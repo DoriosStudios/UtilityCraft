@@ -11,15 +11,23 @@ import {
   resolveFluidContainerAt,
   transferFluid,
 } from "./fluidContainers.js";
+import {
+  getGasInputIndices,
+  getGasOutputIndices,
+  resolveGasContainerAt,
+  transferGas,
+} from "./gasContainers.js";
 import * as Utils from "../utils/entity";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
 import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
+import { ensureGasIOConfig } from "../interfaces/gasIO.js";
 import { DIRECTIONS, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
 const IO_INPUT_SCAN_LIMIT = 9;
 const IO_OUTPUT_SLOT_LIMIT = 9;
 const IO_FLUID_TRANSFER_LIMIT = 2500;
+const IO_GAS_TRANSFER_LIMIT = 2500;
 const ioInputCursors = new Map();
 
 world.afterEvents.entityRemove.subscribe(({ removedEntityId }) => ioInputCursors.delete(removedEntityId));
@@ -55,6 +63,7 @@ export class BasicMachine {
     this.rate = options.rate * this.processingInterval;
     this.itemIOReady = ensureItemIOConfig(this.entity, block.typeId);
     this.fluidIOReady = ensureFluidIOConfig(this.entity, block.typeId);
+    this.gasIOReady = ensureGasIOConfig(this.entity, block.typeId);
     this.valid = true;
   }
 
@@ -210,27 +219,29 @@ export class BasicMachine {
   /**
    * Processes absolute-direction IO for machines and generators.
    *
-   * Item slots and fluid indices come directly from the entity's persisted IO
-   * document. Fluid indices are independent from inventory slots.
+   * Item slots, fluid indices, and gas indices come from separate persisted IO
+   * sections. Resource indices are independent from inventory slots.
    *
    * @param {Object} [limits] Per-tick transfer limits.
    * @param {number} [limits.maxInputSlotsScannedPerTick=9] External inventory slots scanned per input face.
    * @param {number} [limits.maxOutputSlotsMovedPerTick=9] Output slots moved per output face as full stacks.
    * @param {number} [limits.maxFluidMovedPerTick=2500] Fluid mB moved per tick.
-   * @returns {{itemsMoved:number, inputSlotsScanned:number, fluidMoved:number}} Transfer summary.
+   * @param {number} [limits.maxGasMovedPerTick=2500] Gas units moved per tick.
+   * @returns {{itemsMoved:number, inputSlotsScanned:number, fluidMoved:number, gasMoved:number}} Transfer summary.
    */
   processIO(limits = {}) {
-    if (!this.valid) return { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0 };
+    if (!this.valid) return { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0, gasMoved: 0 };
 
     let targets = OutputTracker.getIOTargets(this.entity);
-    if (!targets.items && !targets.liquids) {
+    if (!targets.items && !targets.liquids && !targets.gases) {
       targets = OutputTracker.refreshIOTargets(this.block) ?? targets;
     }
 
     const maxInputScans = Math.max(0, Math.floor(limits.maxInputSlotsScannedPerTick ?? IO_INPUT_SCAN_LIMIT));
     const maxOutputSlots = Math.max(0, Math.floor(limits.maxOutputSlotsMovedPerTick ?? IO_OUTPUT_SLOT_LIMIT));
     const maxFluid = Math.max(0, Math.floor(limits.maxFluidMovedPerTick ?? IO_FLUID_TRANSFER_LIMIT));
-    const summary = { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0 };
+    const maxGas = Math.max(0, Math.floor(limits.maxGasMovedPerTick ?? IO_GAS_TRANSFER_LIMIT));
+    const summary = { itemsMoved: 0, inputSlotsScanned: 0, fluidMoved: 0, gasMoved: 0 };
 
     if (!this.itemIOReady) {
       this.itemIOReady = ensureItemIOConfig(this.entity, this.block.typeId);
@@ -244,6 +255,13 @@ export class BasicMachine {
     }
     if (this.fluidIOReady && targets.liquids && maxFluid > 0) {
       this.#processFluidIO(targets.liquids, maxFluid, summary);
+    }
+
+    if (!this.gasIOReady) {
+      this.gasIOReady = ensureGasIOConfig(this.entity, this.block.typeId);
+    }
+    if (this.gasIOReady && targets.gases && maxGas > 0) {
+      this.#processGasIO(targets.gases, maxGas, summary);
     }
 
     return summary;
@@ -366,6 +384,41 @@ export class BasicMachine {
           target: this.entity,
           targetIndices: inputIndices,
           maxAmount: maxFluid - summary.fluidMoved,
+        });
+      }
+    }
+  }
+
+  #processGasIO(targets, maxGas, summary) {
+    for (const direction of DIRECTIONS) {
+      if (summary.gasMoved >= maxGas) break;
+      if (targets[direction] !== true) continue;
+      const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
+      if (!neighborLocation) continue;
+
+      const outputIndices = getGasOutputIndices(this.entity, { face: direction });
+      for (const sourceIndex of outputIndices) {
+        if (summary.gasMoved >= maxGas) break;
+        summary.gasMoved += transferGas(this.entity, {
+          sourceIndex,
+          target: this.dimension.getBlock(neighborLocation),
+          targetFace: OPPOSITE_DIRECTIONS[direction],
+          maxAmount: maxGas - summary.gasMoved,
+        });
+      }
+
+      const inputIndices = getGasInputIndices(this.entity, { face: direction });
+      if (inputIndices.length === 0 || summary.gasMoved >= maxGas) continue;
+      const source = resolveGasContainerAt(this.dimension, neighborLocation);
+      if (!source) continue;
+      const sourceIndices = getGasOutputIndices(source, { face: OPPOSITE_DIRECTIONS[direction] });
+      for (const sourceIndex of sourceIndices) {
+        if (summary.gasMoved >= maxGas) break;
+        summary.gasMoved += transferGas(source, {
+          sourceIndex,
+          target: this.entity,
+          targetIndices: inputIndices,
+          maxAmount: maxGas - summary.gasMoved,
         });
       }
     }

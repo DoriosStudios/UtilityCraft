@@ -125,3 +125,37 @@ export const FLUID_TANK_CAPACITIES = {
   "utilitycraft:expert_fluid_tank": 128000,
   "utilitycraft:ultimate_fluid_tank": 512000,
 };
+
+/**
+ * Empty item shown when a gas tank has no stored content.
+ * Gas machines currently reuse the neutral empty resource bar asset.
+ */
+export const EMPTY_GAS_BAR_ITEM_ID = "utilitycraft:empty_fluid_bar";
+
+/** Reserved type marker used by empty gas tanks. */
+export const EMPTY_GAS_TYPE = "empty";
+
+/** Tag used by entities that must keep a fixed gas type even when empty. */
+export const CONSTANT_GAS_TYPE_TAG = "dorios:constant_gas_type";
+
+/** Names of shared scoreboard objectives used only by the gas system. */
+export const GAS_OBJECTIVE_NAMES = {
+  maxGases: "maxGases",
+};
+
+/** Command used to bootstrap the base gas scoreboard identity. */
+export const INITIAL_GAS_SCORE_COMMAND = "scoreboard players set @s gas_0 0";
+
+/** Default inventory slot used to display gas bars. */
+export const DEFAULT_GAS_DISPLAY_SLOT = 4;
+
+/** Total amount of visual frames available for gas bar items. */
+export const GAS_BAR_FRAME_COUNT = 48;
+
+/** Base capacities for UtilityCraft gas tank blocks. */
+export const GAS_TANK_CAPACITIES = {
+  "utilitycraft:basic_gas_tank": 8000,
+  "utilitycraft:advanced_gas_tank": 32000,
+  "utilitycraft:expert_gas_tank": 128000,
+  "utilitycraft:ultimate_gas_tank": 512000,
+};

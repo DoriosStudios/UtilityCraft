@@ -8,6 +8,11 @@ export {
   scheduleFluidNetworkRescan,
 } from "./fluids.js";
 export {
+  reconcileMovedGasNodes,
+  rescanGasNetwork,
+  scheduleGasNetworkRescan,
+} from "./gases.js";
+export {
   invalidateItemContainerAt,
   invalidateItemContainerConfig,
   reconcileMovedItemNodes,

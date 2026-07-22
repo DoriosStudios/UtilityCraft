@@ -17,7 +17,7 @@ export type CardinalDirectionName = "north" | "south" | "east" | "west";
 /** Transfer order used by generator, battery, energy, and fluid network outputs. */
 export type TransferMode = "nearest" | "farthest" | "round";
 /** Transfer target categories cached by the output tracker. */
-export type OutputTransferType = "item" | "fluid";
+export type OutputTransferType = "item" | "fluid" | "gas";
 /** Scheduler profile ids used by the machinery refresh speed system. */
 export type SchedulerProfileId = "fast" | "normal" | "low";
 
@@ -55,6 +55,8 @@ export interface MachineEntityConfig {
   output_slot?: number;
   /** Keeps the current fluid type even when the tank is empty. */
   fixed_fluid_types?: boolean;
+  /** Keeps the current gas type even when the tank is empty. */
+  fixed_gas_types?: boolean;
   /** Optional type event suffix triggered after spawn. */
   type?: string;
 }
@@ -85,6 +87,10 @@ export interface MachineRuntimeConfig {
   fluid_cap?: number;
   /** Number of independent indexed fluid tanks stored by the entity. */
   fluid_types?: number;
+  /** Optional gas capacity stored on the helper entity. */
+  gas_cap?: number;
+  /** Number of independent indexed gas tanks stored by the entity. */
+  gas_types?: number;
   /** Upgrade slots scanned for speed/efficiency boosts. */
   upgrades?: number[];
 }
@@ -99,6 +105,10 @@ export interface GeneratorRuntimeConfig {
   fluid_cap?: number;
   /** Number of independent indexed fluid tanks stored by the entity. */
   fluid_types?: number;
+  /** Optional gas capacity stored on the helper entity. */
+  gas_cap?: number;
+  /** Number of independent indexed gas tanks stored by the entity. */
+  gas_types?: number;
 }
 
 /** Complete config object accepted by {@link Machine} and {@link MultiblockMachine}. */
@@ -263,12 +273,29 @@ export interface LiquidIOGroupConfig {
   modes: FluidIOModeConfig[];
 }
 
+/** One visual gas IO mode and the indexed tanks represented by that mode. */
+export interface GasIOModeConfig {
+  id: string;
+  inputIndices?: number[];
+  outputIndices?: number[];
+}
+
+/** Static indexed-gas policy registered for one machine block type. */
+export interface GasIOGroupConfig {
+  buttonSlots?: number[] | [number, number];
+  anyInputIndices: number[];
+  anyOutputIndices: number[];
+  modes: GasIOModeConfig[];
+}
+
 /** Complete IO registration for one machine block type. */
 export interface IOInterfaceConfig {
   /** Slot-based item policy and optional item face buttons. */
   items?: ItemIOGroupConfig;
   /** Indexed-fluid policy and optional fluid face buttons. */
   liquids?: LiquidIOGroupConfig;
+  /** Indexed-gas policy stored separately from liquids. */
+  gases?: GasIOGroupConfig;
 }
 
 /** Per-tick limits used by {@link BasicMachine.processIO}. */
@@ -276,6 +303,7 @@ export interface ProcessIOLimits {
   maxInputSlotsScannedPerTick?: number;
   maxOutputSlotsMovedPerTick?: number;
   maxFluidMovedPerTick?: number;
+  maxGasMovedPerTick?: number;
 }
 
 /** Transfer counts returned by {@link BasicMachine.processIO}. */
@@ -283,6 +311,7 @@ export interface ProcessIOSummary {
   itemsMoved: number;
   inputSlotsScanned: number;
   fluidMoved: number;
+  gasMoved: number;
 }
 
 /** Registers one machine's item policy and optional item/liquid IO buttons. */
@@ -384,6 +413,94 @@ export function getFluidContainerRevision(target: FluidContainerTarget): number;
 export function transferFluid(source: FluidContainerTarget, options: FluidTransferOptions): number;
 export function insertFluid(target: FluidContainerTarget, options: FluidInsertOptions): number;
 export function getFluidStorage(target: FluidContainerTarget, fluidIndex: number): FluidStorage | undefined;
+
+/** Per-face gas tank-index arrays stored by Complex gas containers. */
+export type FaceGasIndexConfig = Partial<Record<DirectionName, number[]>>;
+
+export interface SimpleGasConfig {
+  version: 1;
+  type: "simple";
+  inputConfig: number[];
+  outputConfig: number[];
+}
+
+/** Face-aware gas policy stored under `utilitycraft:io_config.gases`. */
+export interface ComplexGasConfig {
+  version: 1;
+  type: "complex";
+  anyInputIndices: number[];
+  anyOutputIndices: number[];
+  inputConfig: FaceGasIndexConfig;
+  outputConfig: FaceGasIndexConfig;
+}
+
+export type GasConfig = SimpleGasConfig | ComplexGasConfig;
+
+export interface GasIOMode {
+  id: string;
+  inputIndices: number[];
+  outputIndices: number[];
+}
+
+export interface GasIODefinition {
+  anyInputIndices: number[];
+  anyOutputIndices: number[];
+  modes: GasIOMode[];
+}
+
+export const GAS_CONFIG_VERSION: 1;
+export const GAS_CONFIG_KEY: "gases";
+export const GAS_CONTAINER_FAMILY: "dorios:gas_container";
+export const GAS_CONFIG_EVENT_NAMESPACE: "dorios_gas";
+export const SET_GAS_CONFIG_EVENT_ID: "dorios_gas:set_config";
+export const DEFAULT_GAS_IO_MODE: "disabled";
+
+export function registerGasIODefinition(blockTypeId: string, value: GasIOGroupConfig): GasIODefinition;
+export function getGasIODefinition(blockTypeId: string): GasIODefinition | undefined;
+export function ensureGasIOConfig(entity: Entity, blockTypeId: string): boolean;
+export function setGasConfig(entity: Entity, config: GasConfig): boolean;
+export function getGasConfig(entity: Entity): GasConfig | undefined;
+export function getGasConfigRevision(entity: Entity): number;
+export function getGasStatus(entity: Entity): "basic" | "simple" | "complex" | "invalid" | "unsupported";
+export function getInputGasIndices(entity: Entity, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getOutputGasIndices(entity: Entity, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getGasIODirectionMode(entity: Entity, blockTypeId: string, direction: string): string;
+export function cycleGasIODirectionMode(entity: Entity, blockTypeId: string, direction: string): string;
+export function normalizeGasConfig(value: unknown, count: number): GasConfig;
+export function cloneGasConfig(config: GasConfig): GasConfig;
+
+export interface ResolvedGasContainer {
+  kind: "entity" | "tank";
+  block: Block | undefined;
+  entity: Entity | undefined;
+}
+
+export type GasContainerTarget = Block | Entity | ResolvedGasContainer;
+
+export interface GasTransferOptions {
+  sourceIndex: number;
+  target: GasContainerTarget;
+  targetFace?: DirectionName;
+  targetIndices?: ReadonlyArray<number>;
+  maxAmount?: number;
+}
+
+export interface GasInsertOptions {
+  type: string;
+  amount: number;
+  face?: DirectionName;
+  indices?: ReadonlyArray<number>;
+  exact?: boolean;
+}
+
+export function resolveGasContainer(target: GasContainerTarget): ResolvedGasContainer | undefined;
+export function resolveGasContainerAt(dimension: Dimension, location: Vector3): ResolvedGasContainer | undefined;
+export function getGasInputIndices(target: GasContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getGasOutputIndices(target: GasContainerTarget, options?: { face?: DirectionName }): ReadonlyArray<number>;
+export function getGasContainerRevision(target: GasContainerTarget): number;
+export function transferGas(source: GasContainerTarget, options: GasTransferOptions): number;
+export function insertGas(target: GasContainerTarget, options: GasInsertOptions): number;
+export function getGasStorage(target: GasContainerTarget, gasIndex: number): GasStorage | undefined;
 
 /**
  * Base runtime for UtilityCraft machine-like blocks.
@@ -743,6 +860,72 @@ export class FluidStorage {
   static getTankCapacity(typeId: string): number;
 }
 
+/** Item that inserts a registered gas into storage. */
+export interface GasContainerData {
+  amount: number;
+  type: string;
+  output?: string;
+  infinite?: boolean;
+}
+
+/** Item that extracts a registered gas from storage. */
+export interface GasHolderData {
+  types: Record<string, string>;
+  required: number;
+}
+
+/** Scoreboard-backed gas storage, fully isolated from {@link FluidStorage}. */
+export class GasStorage {
+  entity: Entity;
+  index: number;
+  scoreId: ScoreboardIdentity | undefined;
+  shouldUpdateUI: boolean;
+  type: string;
+  cap: number;
+
+  static itemGasStorages: Record<string, GasContainerData>;
+  static itemGasHolders: Record<string, GasHolderData>;
+
+  constructor(entity: Entity, index?: number);
+  hasFixedGasType(): boolean;
+  static initializeSingle(entity: Entity): GasStorage;
+  static hasOpenUI(entity: Entity): boolean;
+  static initializeMultiple(entity: Entity, count: number): GasStorage[];
+  static initializeObjectives(index?: number): void;
+  static getMaxGases(entity: Entity): number;
+  static normalizeValue(amount: number): NormalizedValue;
+  static combineValue(value: number, exp: number): number;
+  static formatGas(value: number): string;
+  static getGasFromText(input: string): { type: string; amount: number };
+  static getContainerData(id: string): GasContainerData | null;
+  static getSelectedInventoryItem(player: Player): SelectedInventoryItem | null;
+  static replaceHeldGasItem(player: Player, expectedTypeId: string, nextTypeId?: string): boolean;
+  static initialize(entity: Entity): void;
+  static transferBetween(dim: Dimension, sourceLoc: Vector3, targetLoc: Vector3, amount?: number): boolean;
+  static findType(entity: Entity, type: string): GasStorage | null;
+  static handleGasItemInteraction(player: Player, entity: Entity, mainHand?: ItemStack): void;
+  tryInsert(type: string, amount: number): boolean;
+  gasItem(typeId: string): string | false;
+  setCap(amount: number): void;
+  getCap(): number;
+  set(amount: number): void;
+  get(): number;
+  add(amount: number): number;
+  consume(amount: number): number;
+  getFreeSpace(): number;
+  has(amount: number): boolean;
+  isFull(): boolean;
+  getType(): string;
+  setType(type: string): void;
+  transferToNetwork(speed: number, mode?: TransferMode, nodes?: Vector3[]): number;
+  transferGases(block: Block, amount?: number): boolean;
+  transferTo(other: GasStorage, amount: number): number;
+  receiveFrom(other: GasStorage, amount: number): number;
+  display(slot?: number): void;
+  static addGasToTank(block: Block, type: string, amount: number): Entity | undefined | false;
+  static getTankCapacity(typeId: string): number;
+}
+
 /** Config for a machinery scheduler refresh profile. */
 export interface SchedulerProfileConfig {
   /** Human-readable profile label. */
@@ -803,7 +986,7 @@ export class TickScheduler {
 }
 
 /**
- * Tracks cached machine output targets for item and fluid transfer.
+ * Tracks cached machine output targets for item, fluid, and gas transfer.
  *
  * The tracker refreshes machines when relevant blocks are placed and provides
  * a lazy fallback for machines that existed before the cache was written.
@@ -811,6 +994,14 @@ export class TickScheduler {
 export class OutputTracker {
   /** Returns whether a block can receive the requested transfer type. */
   static isOutputTarget(block: Block | undefined, type: OutputTransferType): boolean;
+  /** Reads cached compatibility for all six item/liquid/gas faces. */
+  static getIOTargets(entity: Entity | undefined): Record<string, Record<string, boolean>>;
+  /** Rebuilds cached compatibility for all resources supported by the block. */
+  static refreshIOTargets(block: Block | undefined): Record<string, Record<string, boolean>> | undefined;
+  /** Refreshes IO target caches on adjacent machine blocks. */
+  static refreshAdjacentIOTargets(block: Block | undefined): void;
+  /** Returns whether a cached item/liquid/gas direction is compatible. */
+  static isIOTargetEnabled(entity: Entity | undefined, group: "items" | "liquids" | "gases", direction: string): boolean;
   /** Returns the location in front of a machine's output side. */
   static getOutputLocation(block: Block): Vector3 | undefined;
   /** Reads a cached output target from a machine helper entity. */
@@ -1215,3 +1406,19 @@ export const DEFAULT_FLUID_DISPLAY_SLOT: 4;
 export const FLUID_BAR_FRAME_COUNT: 48;
 /** Base capacities for UtilityCraft fluid tank blocks. */
 export const FLUID_TANK_CAPACITIES: Record<string, number>;
+/** Empty bar item used by gas storage displays. */
+export const EMPTY_GAS_BAR_ITEM_ID: "utilitycraft:empty_fluid_bar";
+/** Reserved type marker used by empty gas tanks. */
+export const EMPTY_GAS_TYPE: "empty";
+/** Tag used by entities that preserve their gas type while empty. */
+export const CONSTANT_GAS_TYPE_TAG: "dorios:constant_gas_type";
+/** Gas objective names, separate from liquid objectives. */
+export const GAS_OBJECTIVE_NAMES: { readonly maxGases: "maxGases" };
+/** Command used to initialize indexed gas storage. */
+export const INITIAL_GAS_SCORE_COMMAND: "scoreboard players set @s gas_0 0";
+export const DEFAULT_GAS_DISPLAY_SLOT: 4;
+export const GAS_BAR_FRAME_COUNT: 48;
+export const GAS_TANK_CAPACITIES: Record<string, number>;
+
+export const REGISTER_GAS_ITEM_EVENT_ID: "utilitycraft:register_gas_item";
+export const REGISTER_GAS_HOLDER_EVENT_ID: "utilitycraft:register_gas_holder";

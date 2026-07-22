@@ -5,6 +5,7 @@ import { scriptEventHandler } from "./scriptEvents.js";
 import * as Constants from "./constants.js";
 import { EnergyStorage } from "./machinery/energyStorage.js";
 import { FluidStorage } from "./machinery/fluidStorage.js";
+import { GasStorage } from "./machinery/gasStorage.js";
 
 globalThis[Constants.GLOBAL_WORLD_LOADED_KEY] = false;
 globalThis[Constants.GLOBAL_TICK_COUNT_KEY] = 0;
@@ -40,6 +41,9 @@ world.afterEvents.worldLoad.subscribe(() => {
 
     // Initialize fluid objectives
     FluidStorage.initializeObjectives();
+
+    // Initialize the fully separate gas objectives.
+    GasStorage.initializeObjectives();
 
     // Mark world as ready
     if (world.getDimension("overworld").getEntities()[0]) {

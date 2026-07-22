@@ -1,0 +1,160 @@
+{
+	"format_version": "1.19.20",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "utilitycraft:gas_tank_steam",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			},
+			"utilitycraft:basic": {
+				"minecraft:health": {
+					"max": 8000,
+					"min": 1,
+					"value": 8000
+				}
+			},
+			"utilitycraft:advanced": {
+				"minecraft:health": {
+					"max": 32000,
+					"min": 1,
+					"value": 32000
+				}
+			},
+			"utilitycraft:expert": {
+				"minecraft:health": {
+					"max": 128000,
+					"min": 1,
+					"value": 128000
+				}
+			},
+			"utilitycraft:ultimate": {
+				"minecraft:health": {
+					"max": 512000,
+					"min": 1,
+					"value": 512000
+				}
+			}
+		},
+		"components": {
+			"minecraft:nameable": {
+				"always_show": false,
+				"allow_name_tag_renaming": false
+			},
+			"minecraft:type_family": {
+				"family": [
+					"inanimate",
+					"tank",
+					"dorios:gas_container"
+				]
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:health": {
+				"max": 8000,
+				"min": 1,
+				"value": 8000
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:collision_box": {
+				"height": 0.5,
+				"width": 0.5
+			},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"filters": {
+							"test": "has_tag",
+							"value": "despawn"
+						},
+						"event": "despawn"
+					},
+					{
+						"filters": {
+							"test": "in_block",
+							"value": "utilitycraft:basic_gas_tank"
+						},
+						"event": "utilitycraft:basic"
+					},
+					{
+						"filters": {
+							"test": "in_block",
+							"value": "utilitycraft:advanced_gas_tank"
+						},
+						"event": "utilitycraft:advanced"
+					},
+					{
+						"filters": {
+							"test": "in_block",
+							"value": "utilitycraft:expert_gas_tank"
+						},
+						"event": "utilitycraft:expert"
+					},
+					{
+						"filters": {
+							"test": "in_block",
+							"value": "utilitycraft:ultimate_gas_tank"
+						},
+						"event": "utilitycraft:ultimate"
+					}
+				]
+			},
+			"minecraft:inside_block_notifier": {
+				"block_list": [
+					{
+						"block": {
+							"name": "air"
+						},
+						"entered_block_event": {
+							"event": "despawn"
+						}
+					}
+				]
+			}
+		},
+		"events": {
+			"despawn": {
+				"add": {
+					"component_groups": ["despawn"]
+				}
+			},
+			"utilitycraft:basic": {
+				"add": {
+					"component_groups": ["utilitycraft:basic"]
+				}
+			},
+			"utilitycraft:advanced": {
+				"add": {
+					"component_groups": ["utilitycraft:advanced"]
+				}
+			},
+			"utilitycraft:expert": {
+				"add": {
+					"component_groups": ["utilitycraft:expert"]
+				}
+			},
+			"utilitycraft:ultimate": {
+				"add": {
+					"component_groups": ["utilitycraft:ultimate"]
+				}
+			}
+		}
+	}
+}

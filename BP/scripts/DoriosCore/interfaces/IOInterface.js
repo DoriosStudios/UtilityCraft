@@ -16,12 +16,18 @@ import {
   getFluidIODirectionMode,
   registerFluidIODefinition,
 } from "./fluidIO.js";
+import {
+  cycleGasIODirectionMode,
+  getGasIODirectionMode,
+  registerGasIODefinition,
+} from "./gasIO.js";
 
 const FACES = RELATIVE_IO_FACES;
 
 /** @typedef {"top"|"left"|"front"|"right"|"bottom"|"back"} IOFace */
 /** @typedef {import("./itemIO.js").ItemIOMode} ItemIOMode */
 /** @typedef {import("./fluidIO.js").FluidIOMode} FluidIOMode */
+/** @typedef {import("./gasIO.js").GasIOMode} GasIOMode */
 
 /**
  * @typedef {object} ItemButtonContext
@@ -35,6 +41,13 @@ const FACES = RELATIVE_IO_FACES;
  * @property {import("@minecraft/server").Entity} entity
  * @property {import("@minecraft/server").Block|undefined} block
  * @property {{face: IOFace, blockTypeId: string, modes: FluidIOMode[]}} button
+ */
+
+/**
+ * @typedef {object} GasButtonContext
+ * @property {import("@minecraft/server").Entity} entity
+ * @property {import("@minecraft/server").Block|undefined} block
+ * @property {{face: IOFace, blockTypeId: string, modes: GasIOMode[]}} button
  */
 
 /**
@@ -65,6 +78,7 @@ const FACES = RELATIVE_IO_FACES;
  * @property {boolean} [invertFaces] Whether every visual face resolves to its opposite physical direction.
  * @property {ItemIOGroupConfig} [items] Item policy and optional face buttons.
  * @property {LiquidIOGroupConfig} [liquids] Fluid-index policy and optional face buttons.
+ * @property {LiquidIOGroupConfig} [gases] Gas-index policy and optional face buttons.
  */
 
 /**
@@ -186,6 +200,40 @@ function addLiquidButtons(buttons, blockTypeId, definition, registeredDefinition
 }
 
 /**
+ * Adds gas-index buttons while keeping their modes and persisted config
+ * separate from liquid buttons.
+ *
+ * @param {Record<string, any>} buttons
+ * @param {string} blockTypeId
+ * @param {LiquidIOGroupConfig} definition
+ * @param {import("./gasIO.js").GasIODefinition} registeredDefinition
+ * @param {boolean} [invertFaces=false]
+ */
+function addGasButtons(buttons, blockTypeId, definition, registeredDefinition, invertFaces = false) {
+  if (definition.buttonSlots === undefined) return false;
+  const slots = normalizeButtonSlots(definition.buttonSlots, "gases.buttonSlots");
+
+  for (const [index, face] of FACES.entries()) {
+    buttons[`gases_${face}`] = {
+      slot: slots[index],
+      face,
+      blockTypeId,
+      modes: registeredDefinition.modes,
+      nameTag: (/** @type {GasButtonContext} */ { entity, block, button }) => {
+        const direction = resolveButtonDirection(block, button.face, invertFaces);
+        return getGasIODirectionMode(entity, button.blockTypeId, direction);
+      },
+      onPress: (/** @type {GasButtonContext} */ { entity, block, button }) => {
+        const direction = resolveButtonDirection(block, button.face, invertFaces);
+        return cycleGasIODirectionMode(entity, button.blockTypeId, direction);
+      },
+    };
+  }
+
+  return true;
+}
+
+/**
  * Registers a machine's static IO policy and its optional six-face interface.
  *
  * Item modes are not persisted by name. Their input/output slot arrays are
@@ -218,10 +266,16 @@ export function registerIOInterface(blockTypeId, config = {}) {
     registered = true;
   }
 
+  if (config.gases !== undefined) {
+    const definition = registerGasIODefinition(blockTypeId, config.gases);
+    addGasButtons(buttons, blockTypeId, config.gases, definition, invertFaces);
+    registered = true;
+  }
+
   if (Object.keys(buttons).length > 0) {
     const buttonSlots = Object.values(buttons).map((button) => button.slot);
     if (new Set(buttonSlots).size !== buttonSlots.length) {
-      throw new RangeError("Item and liquid IO buttons cannot share inventory slots");
+      throw new RangeError("Item, liquid, and gas IO buttons cannot share inventory slots");
     }
 
     const interfaceId = `${blockTypeId}:io_config`;

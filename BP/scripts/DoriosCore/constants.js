@@ -64,6 +64,12 @@ export const REGISTER_FLUID_ITEM_EVENT_ID = "utilitycraft:register_fluid_item";
  */
 export const REGISTER_FLUID_HOLDER_EVENT_ID = "utilitycraft:register_fluid_holder";
 
+/** Script event used to register gas container items at runtime. */
+export const REGISTER_GAS_ITEM_EVENT_ID = "utilitycraft:register_gas_item";
+
+/** Script event used to register gas holder items at runtime. */
+export const REGISTER_GAS_HOLDER_EVENT_ID = "utilitycraft:register_gas_holder";
+
 /**
  * Script event used to update the shared machinery tick speed.
  */

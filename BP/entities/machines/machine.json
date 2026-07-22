@@ -60,6 +60,27 @@
 					]
 				}
 			},
+			"utilitycraft:gas_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:machine",
+						"dorios:energy_source",
+						"dorios:gas_container"
+					]
+				}
+			},
+			"utilitycraft:fluid_gas_generator": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:machine",
+						"dorios:energy_source",
+						"dorios:fluid_container",
+						"dorios:gas_container"
+					]
+				}
+			},
 			"utilitycraft:passive_generator": {
 				"minecraft:type_family": {
 					"family": [
@@ -161,6 +182,29 @@
 						"dorios:energy_container",
 						"dorios:container",
 						"dorios:fluid_container"
+					]
+				}
+			},
+			"utilitycraft:gas_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:gas_container"
+					]
+				}
+			},
+			"utilitycraft:fluid_gas_machine": {
+				"minecraft:type_family": {
+					"family": [
+						"inanimate",
+						"dorios:machine",
+						"dorios:energy_container",
+						"dorios:container",
+						"dorios:fluid_container",
+						"dorios:gas_container"
 					]
 				}
 			},
@@ -459,6 +503,16 @@
 					]
 				}
 			},
+			"utilitycraft:gas_machine": {
+				"add": {
+					"component_groups": ["utilitycraft:gas_machine"]
+				}
+			},
+			"utilitycraft:fluid_gas_machine": {
+				"add": {
+					"component_groups": ["utilitycraft:fluid_gas_machine"]
+				}
+			},
 			"utilitycraft:inventory_1": { "add": { "component_groups": [ "utilitycraft:inventory_1" ] } },
 			"utilitycraft:inventory_2": { "add": { "component_groups": [ "utilitycraft:inventory_2" ] } },
 			"utilitycraft:inventory_3": { "add": { "component_groups": [ "utilitycraft:inventory_3" ] } },
@@ -522,6 +576,16 @@
 					"component_groups": [
 						"utilitycraft:fluid_generator"
 					]
+				}
+			},
+			"utilitycraft:gas_generator": {
+				"add": {
+					"component_groups": ["utilitycraft:gas_generator"]
+				}
+			},
+			"utilitycraft:fluid_gas_generator": {
+				"add": {
+					"component_groups": ["utilitycraft:fluid_gas_generator"]
 				}
 			},
 			"utilitycraft:passive_generator": {

@@ -3,10 +3,12 @@ import { ItemStack, system } from "@minecraft/server";
 import { Generator } from "../machinery/generator.js";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
+import { GasStorage } from "../machinery/gasStorage.js";
 import { ActivationManager } from "./activationManager.js";
 import { DeactivationManager } from "./deactivationManager.js";
 import { StructureDetector } from "./structureDetection.js";
 import * as Utils from "../utils/entity.js";
+import { ensureGasIOConfig } from "../interfaces/gasIO.js";
 
 export class MultiblockGenerator extends Generator {
   /**
@@ -58,6 +60,8 @@ export class MultiblockGenerator extends Generator {
 
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand")
     const { energy, fluid } = Utils.getEnergyAndFluidFromItem(mainHand);
+    const gasLine = mainHand?.getLore()?.find((line) => line.replace(/§./g, "").trim().startsWith("Gas ("));
+    const gas = gasLine ? GasStorage.getGasFromText(gasLine) : undefined;
 
     system.run(() => {
       const entity = Utils.spawnEntity(block, { ...config, spawn_offset: { x: 0, y: -0.5, z: 0 } });
@@ -75,6 +79,20 @@ export class MultiblockGenerator extends Generator {
           fluidManager.set(fluid.amount);
         }
       }
+      if (config.generator.gas_cap) {
+        const gasManagers = GasStorage.initializeMultiple(entity, Math.max(1, Math.floor(config.generator.gas_types ?? 1)));
+        for (const manager of gasManagers) manager.setCap(config.generator.gas_cap);
+        if (gas && gas.amount > 0) {
+          gasManagers[0].setType(gas.type);
+          gasManagers[0].set(gas.amount);
+        }
+      }
+      if (config.generator.gas_cap && config.generator.fluid_cap) {
+        entity.triggerEvent("utilitycraft:fluid_gas_generator");
+      } else if (config.generator.gas_cap) {
+        entity.triggerEvent("utilitycraft:gas_generator");
+      }
+      ensureGasIOConfig(entity, block.typeId);
       system.run(() => {
         if (callback) {
           callback(entity);

@@ -7,6 +7,8 @@ export * from "./utils/rotation.js"
 export {
   DEFAULT_ENTITY_ID,
   DEFAULT_SCHEDULER_PROFILE,
+  REGISTER_GAS_HOLDER_EVENT_ID,
+  REGISTER_GAS_ITEM_EVENT_ID,
   SET_SCHEDULER_PROFILE_EVENT_ID,
   SET_TICK_SPEED_EVENT_ID,
 } from "./constants.js"

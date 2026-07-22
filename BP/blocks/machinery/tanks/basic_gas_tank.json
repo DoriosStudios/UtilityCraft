@@ -1,0 +1,60 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:basic_gas_tank",
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"utilitycraft:hasgas": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"minecraft:geometry": "geometry.gas_tank",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_basic_gas_tank",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-6,
+					0,
+					-6
+				],
+				"size": [
+					12,
+					16,
+					12
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-6,
+					0,
+					-6
+				],
+				"size": [
+					12,
+					16,
+					12
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.1
+			},
+			"minecraft:light_dampening": 0,
+			"tag:dorios:gas": {},
+			"tag:dorios:gas_tank": {},
+			"utilitycraft:gas_container": {
+				"type": "tank",
+				"capacity": 8000
+			}
+		}
+	}
+}

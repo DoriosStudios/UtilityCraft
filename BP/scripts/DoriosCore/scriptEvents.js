@@ -2,7 +2,7 @@ import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import * as MachineryConstants from "./machinery/constants.js";
-import { FluidStorage, Generator, Machine } from "DoriosCore/index.js";
+import { FluidStorage, GasStorage, Generator, Machine } from "DoriosCore/index.js";
 import { TickScheduler } from "./machinery/tickScheduler.js";
 
 export const scriptEventHandler = {
@@ -214,6 +214,44 @@ export const scriptEventHandler = {
                 "[UtilityCraft] Failed to parse fluid-holder registration payload:",
                 err
             );
+        }
+    },
+    /** Registers item-to-gas insertion mappings without sharing fluid registries. */
+    [Constants.REGISTER_GAS_ITEM_EVENT_ID]: ({ message }) => {
+        try {
+            const payload = JSON.parse(message);
+            if (!payload || typeof payload !== "object") return;
+
+            for (const [itemId, data] of Object.entries(payload)) {
+                if (typeof data.amount !== "number" || typeof data.type !== "string") continue;
+                GasStorage.itemGasStorages[itemId] = data;
+            }
+        } catch (err) {
+            console.warn("[UtilityCraft] Failed to parse gas-item registration payload:", err);
+        }
+    },
+    /** Registers or extends items that extract a supported gas from storage. */
+    [Constants.REGISTER_GAS_HOLDER_EVENT_ID]: ({ message }) => {
+        try {
+            const payload = JSON.parse(message);
+            if (!payload || typeof payload !== "object") return;
+
+            for (const [itemId, data] of Object.entries(payload)) {
+                if (!data.types || typeof data.types !== "object") continue;
+                const existing = GasStorage.itemGasHolders[itemId];
+
+                if (existing) {
+                    existing.types = { ...existing.types, ...data.types };
+                    if (typeof data.required === "number") existing.required = data.required;
+                } else if (typeof data.required === "number") {
+                    GasStorage.itemGasHolders[itemId] = {
+                        types: { ...data.types },
+                        required: data.required,
+                    };
+                }
+            }
+        } catch (err) {
+            console.warn("[UtilityCraft] Failed to parse gas-holder registration payload:", err);
         }
     },
     /**

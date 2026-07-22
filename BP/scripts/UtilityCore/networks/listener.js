@@ -9,6 +9,7 @@ import {
 } from "../../DoriosLib/containers/constants.js";
 import { scheduleEnergyNetworkRescan } from "./energy.js";
 import { reconcileMovedFluidNodes, scheduleFluidNetworkRescan } from "./fluids.js";
+import { reconcileMovedGasNodes, scheduleGasNetworkRescan } from "./gases.js";
 import {
   invalidateItemContainerAt,
   invalidateItemContainerConfig,
@@ -28,9 +29,9 @@ import {
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
 /** @typedef {import("@minecraft/server").Vector3} Vector3 */
 
-/** @typedef {"energy"|"item"|"fluid"} NetworkType */
+/** @typedef {"energy"|"item"|"fluid"|"gas"} NetworkType */
 
-const NETWORK_TYPES = new Set(["energy", "item", "fluid"]);
+const NETWORK_TYPES = new Set(["energy", "item", "fluid", "gas"]);
 
 // All network block and item components are registered by one startup listener.
 networkRegistrar.install();
@@ -65,6 +66,7 @@ export function updateNetworksAt(changedBlock, type) {
   // shared debounce window. Geometry remains immediate and inexpensive.
   if (type === "energy") scheduleEnergyNetworkRescan(changedBlock.location, dimension);
   else if (type === "fluid") scheduleFluidNetworkRescan(changedBlock.location, dimension);
+  else if (type === "gas") scheduleGasNetworkRescan(changedBlock.location, dimension);
   else scheduleItemNetworkRescan(changedBlock.location, dimension);
 
   for (const block of blocks) {
@@ -121,6 +123,7 @@ world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation })
   system.run(() => {
     if (brokenBlockPermutation.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
     if (brokenBlockPermutation.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
+    if (brokenBlockPermutation.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
 
     // Checking adjacent item nodes is intentionally capability-agnostic here:
     // after a break, the removed vanilla container can no longer be resolved.
@@ -140,6 +143,7 @@ world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
 
     if (placedBlock.hasTag("dorios:energy")) updateNetworksAt(placedBlock, "energy");
     if (placedBlock.hasTag("dorios:fluid")) updateNetworksAt(placedBlock, "fluid");
+    if (placedBlock.hasTag("dorios:gas")) updateNetworksAt(placedBlock, "gas");
 
     if (
       placedBlock.hasTag("dorios:item")
@@ -171,6 +175,7 @@ world.afterEvents.pistonActivate.subscribe(({ piston, isExpanding, dimension }) 
     }));
     reconcileMovedItemNodes(dimension, movements);
     reconcileMovedFluidNodes(dimension, movements);
+    reconcileMovedGasNodes(dimension, movements);
 
     for (const { target: location, source: pairedLocation } of movements) {
       const block = safeGetBlock(dimension, location);
@@ -184,6 +189,10 @@ world.afterEvents.pistonActivate.subscribe(({ piston, isExpanding, dimension }) 
       if (block.hasTag("dorios:fluid") || pairedBlock.hasTag("dorios:fluid")) {
         updateNetworksAt(block, "fluid");
         updateNetworksAt(pairedBlock, "fluid");
+      }
+      if (block.hasTag("dorios:gas") || pairedBlock.hasTag("dorios:gas")) {
+        updateNetworksAt(block, "gas");
+        updateNetworksAt(pairedBlock, "gas");
       }
 
       // Containers do not necessarily carry dorios:item, so always let the

@@ -23,6 +23,9 @@ export const ITEM_BLOCK_TAG = "dorios:item";
  */
 export const FLUID_BLOCK_TAG = "dorios:fluid";
 
+/** Block tag that marks gas-compatible blocks or ports. */
+export const GAS_BLOCK_TAG = "dorios:gas";
+
 /**
  * Item tags reserved for UtilityCraft UI-only inventory elements.
  */

@@ -159,6 +159,7 @@ export function removeOpenUICount(entity) {
  * @param {number} config.entity.inventory_size Inventory slot count.
  * @param {string} [config.entity.name] Optional name.
  * @param {boolean} [config.entity.fixed_fluid_types] Keeps fluid type tags even when tanks are empty.
+ * @param {boolean} [config.entity.fixed_gas_types] Keeps gas type tags even when tanks are empty.
  * @param {string} [config.entity.type] Optional entity event suffix triggered after initialization.
  * @param {{x:number,y:number,z:number}} [config.spawn_offset] Optional spawn offset.
  *
@@ -180,6 +181,9 @@ export function spawnEntity(block, config) {
 
   if (entityData.fixed_fluid_types === true) {
     entity.addTag(MachineryConstants.CONSTANT_FLUID_TYPE_TAG);
+  }
+  if (entityData.fixed_gas_types === true) {
+    entity.addTag(MachineryConstants.CONSTANT_GAS_TYPE_TAG);
   }
 
   const inventorySize = entityData.inventory_size ?? 1;
@@ -226,6 +230,10 @@ export function updateAdjacentNetwork(block, permutationToPlace = block.permutat
 
     if (permutationToPlace.hasTag(Constants.FLUID_BLOCK_TAG)) {
       block.dimension.runCommand(`execute as @n run scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} fluid|[${x},${y},${z}]`);
+    }
+
+    if (permutationToPlace.hasTag(Constants.GAS_BLOCK_TAG)) {
+      block.dimension.runCommand(`execute as @n run scriptevent ${Constants.UPDATE_PIPES_EVENT_ID} gas|[${x},${y},${z}]`);
     }
   }, 2);
 }
