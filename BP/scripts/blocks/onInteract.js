@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { world, ItemStack, Block, Player } from '@minecraft/server'
+import { ItemStack, Block, Player } from '@minecraft/server'
 
 /**
  * List of interactable block IDs mapped to custom behavior.
@@ -8,36 +8,6 @@ import { world, ItemStack, Block, Player } from '@minecraft/server'
  * @type {Record<string, Function>}
  */
 const interactHandlers = {
-    /**
-     * Sink interaction handler.
-     * - If holding an empty bucket → gives the player a water bucket.
-     * - If holding a water bucket → replaces it with an empty bucket.
-     * - Plays cauldron sounds depending on the action.
-     *
-     * @param {Block} block The interacted block
-     * @param {Player} player The player who interacted
-     */
-    'utilitycraft:sink': (block, player) => {
-        const equipment = player.getComponent('equippable')
-        const heldItem = equipment.getEquipment('Mainhand')
-
-        if (!heldItem) return
-
-        if (heldItem.typeId === 'minecraft:bucket') {
-            player.runCommand('clear @s bucket 0 1')
-            DoriosLib.player.giveItem(player, { item: 'minecraft:water_bucket', amount: 1 })
-            player.playSound('cauldron.fillwater')
-        } else if (heldItem.typeId === 'minecraft:water_bucket') {
-            player.runCommand('clear @s water_bucket 0 1')
-            DoriosLib.player.giveItem(player, { item: 'minecraft:bucket', amount: 1 })
-            player.playSound('cauldron.takewater')
-        } else if (heldItem.typeId === 'utilitycraft:empty_fluid_capsule') {
-            player.runCommand('clear @s utilitycraft:empty_fluid_capsule 0 1')
-            DoriosLib.player.giveItem(player, { item: 'utilitycraft:water_capsule_8', amount: 1 })
-            player.playSound('cauldron.fillwater')
-        }
-    },
-
     /**
      * Pedestal interaction handler.
      * - If pedestal has an item → removes the accelerator clock and spawns it as an item.

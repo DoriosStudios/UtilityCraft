@@ -704,7 +704,7 @@ function processFluidExporterTick(block, dimension) {
   const special = readSpecialFluidSource(dimension, runtime.document.source.location);
   if (!special || (filterEnabled && !passesFilter(runtime, special.type))) return;
   const moved = insertSpecialSource(runtime, dimension, special);
-  if (moved > 0 && !special.infinite) drainSpecialFluidSource(special.block, moved);
+  if (moved > 0) drainSpecialFluidSource(special.block, moved);
 }
 
 /** @param {FluidExporterRuntime} runtime @param {string} type */
@@ -729,23 +729,13 @@ function transferContainerSource(runtime, dimension, source, sourceIndex) {
  *
  * @param {FluidExporterRuntime} runtime
  * @param {Dimension} dimension
- * @param {{type:string,amount:number,infinite:boolean,unit:number}} source
+ * @param {{type:string,amount:number,unit:number}} source
  */
 function insertSpecialSource(runtime, dimension, source) {
-  const limit = source.infinite
-    ? MAX_TRANSFER_AMOUNT
-    : Math.floor(Math.min(MAX_TRANSFER_AMOUNT, source.amount) / source.unit) * source.unit;
+  const limit = Math.floor(Math.min(MAX_TRANSFER_AMOUNT, source.amount) / source.unit) * source.unit;
   if (limit <= 0) return 0;
 
   return transferAcrossTargets(runtime, dimension, (target, remaining) => {
-    if (source.infinite) {
-      return DoriosFluid.insertFluid(target.resolved, {
-        type: source.type,
-        amount: remaining,
-        indices: target.indices,
-      });
-    }
-
     let moved = 0;
     while (remaining - moved >= source.unit) {
       const added = DoriosFluid.insertFluid(target.resolved, {
@@ -817,14 +807,11 @@ function readSpecialFluidSource(dimension, location) {
   if (!block) return undefined;
   if ((block.typeId === "minecraft:water" || block.typeId === "minecraft:lava")
     && block.permutation.getState("liquid_depth") === 0) {
-    return { block, type: block.typeId.slice("minecraft:".length), amount: 1000, infinite: false, unit: 1000 };
+    return { block, type: block.typeId.slice("minecraft:".length), amount: 1000, unit: 1000 };
   }
   if (block.typeId === "utilitycraft:crucible") {
     const level = Number(block.permutation.getState("utilitycraft:lava") ?? 0);
-    return level > 0 ? { block, type: "lava", amount: level * 250, infinite: false, unit: 250 } : undefined;
-  }
-  if (block.typeId === "utilitycraft:sink") {
-    return { block, type: "water", amount: Infinity, infinite: true, unit: 1 };
+    return level > 0 ? { block, type: "lava", amount: level * 250, unit: 250 } : undefined;
   }
   return undefined;
 }

@@ -75,7 +75,8 @@
                             "utilitycraft:basic_battery",
                             "utilitycraft:advanced_battery",
                             "utilitycraft:expert_battery",
-                            "utilitycraft:ultimate_battery"
+                            "utilitycraft:ultimate_battery",
+                            "utilitycraft:creative_battery"
                         ]
                     },
                     {

@@ -214,6 +214,24 @@
 	"utilitycraft:ultimate_gas_tank": {
 		"sound": "metal"
 	},
+	"utilitycraft:creative_water_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_lava_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_milk_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_xp_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_steam_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_battery": {
+		"sound": "stone"
+	},
 	"utilitycraft:xp_drain": {
 		"sound": "stone"
 	},

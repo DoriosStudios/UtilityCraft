@@ -1,0 +1,17 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.gas_fill": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"fill": "query.is_alive"
+						}
+					]
+				}
+			}
+		}
+	}
+}

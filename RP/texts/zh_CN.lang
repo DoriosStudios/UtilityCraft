@@ -768,6 +768,7 @@ ui.utilitycraft:machine_view.close_io_config=关闭输入/输出配置
 ui.utilitycraft:machine_view.close_information=关闭信息
 ui.utilitycraft:machine_view.items=物品
 ui.utilitycraft:machine_view.liquids=液体
+ui.utilitycraft:machine_view.gases=气体
 dorios:itemGroup.name.plates=盘子
 dorios:itemGroup.name.seeds=种子
 dorios:itemGroup.name.mob_grinding=怪物研磨

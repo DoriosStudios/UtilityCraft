@@ -768,6 +768,7 @@ ui.utilitycraft:machine_view.close_io_config=Закрыть настройку �
 ui.utilitycraft:machine_view.close_information=Закрыть информацию
 ui.utilitycraft:machine_view.items=Предметы
 ui.utilitycraft:machine_view.liquids=Жидкости
+ui.utilitycraft:machine_view.gases=Газы
 dorios:itemGroup.name.plates=Тарелки
 dorios:itemGroup.name.seeds=Семена
 dorios:itemGroup.name.mob_grinding=Измельчение мобов

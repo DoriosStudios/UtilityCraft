@@ -10,17 +10,17 @@
 				"default": "textures/entity/steam_gas"
 			},
 			"geometry": {
-				"default": "geometry.utilitycraft_fluid_tank_entity"
+				"default": "geometry.utilitycraft_gas_tank_entity"
 			},
 			"render_controllers": [
 				"controller.render.default"
 			],
 			"animations": {
-				"fill": "animation.utilitycraft_fluid_tank_entity.fill"
+				"fill": "animation.utilitycraft_gas_tank_entity.fill"
 			},
 			"animation_controllers": [
 				{
-					"fluid_fill": "controller.animation.fluid_fill"
+					"gas_fill": "controller.animation.gas_fill"
 				}
 			]
 		}

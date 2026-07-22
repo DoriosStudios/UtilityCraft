@@ -768,6 +768,7 @@ ui.utilitycraft:machine_view.close_io_config=Fermer Config. Entrée/Sortie
 ui.utilitycraft:machine_view.close_information=Fermer Information
 ui.utilitycraft:machine_view.items=Objets
 ui.utilitycraft:machine_view.liquids=Liquides
+ui.utilitycraft:machine_view.gases=Gaz
 dorios:itemGroup.name.plates=Assiettes
 dorios:itemGroup.name.seeds=Graines
 dorios:itemGroup.name.mob_grinding=Broyage de foule

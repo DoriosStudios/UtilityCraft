@@ -768,6 +768,7 @@ ui.utilitycraft:machine_view.close_io_config=入出力設定を閉じる
 ui.utilitycraft:machine_view.close_information=情報を閉じる
 ui.utilitycraft:machine_view.items=アイテム
 ui.utilitycraft:machine_view.liquids=液体
+ui.utilitycraft:machine_view.gases=ガス
 dorios:itemGroup.name.plates=プレート
 dorios:itemGroup.name.seeds=種子
 dorios:itemGroup.name.mob_grinding=モブグラインディング

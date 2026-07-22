@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.utilitycraft_gas_tank_entity.fill": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"gas": {
+					"scale": {
+						"0.0": [1, 0, 1],
+						"1.0": [1, "(query.health/query.max_health)", 1]
+					}
+				}
+			},
+			"particle_effects": {}
+		}
+	}
+}

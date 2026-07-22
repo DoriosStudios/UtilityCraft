@@ -595,6 +595,27 @@
 		"utilitycraft_ultimate_gas_tank": {
 			"textures": "textures/blocks/tanks/ultimate_gas_tank"
 		},
+		"utilitycraft_creative_fluid_tank": {
+			"textures": "textures/blocks/tanks/creative_fluid_tank"
+		},
+		"utilitycraft_creative_gas_tank": {
+			"textures": "textures/blocks/tanks/creative_gas_tank"
+		},
+		"utilitycraft_water_fluid": {
+			"textures": "textures/entity/water_fluid"
+		},
+		"utilitycraft_lava_fluid": {
+			"textures": "textures/entity/lava_fluid"
+		},
+		"utilitycraft_milk_fluid": {
+			"textures": "textures/entity/milk_fluid"
+		},
+		"utilitycraft_xp_fluid": {
+			"textures": "textures/entity/xp_fluid"
+		},
+		"utilitycraft_steam_gas": {
+			"textures": "textures/entity/steam_gas"
+		},
 		"utilitycraft_xp_drain": {
 			"textures": "textures/blocks/machines/xp_drain"
 		},
@@ -669,90 +690,6 @@
 		},
 		"utilitycraft_bonsai_soil_4": {
 			"textures": "textures/blocks/bonsais/bonsai_soil_4"
-		},
-		"utilitycraft_battery_basic_0": {
-			"textures": "textures/blocks/generators/battery_basic_0"
-		},
-		"utilitycraft_battery_basic_1": {
-			"textures": "textures/blocks/generators/battery_basic_1"
-		},
-		"utilitycraft_battery_basic_2": {
-			"textures": "textures/blocks/generators/battery_basic_2"
-		},
-		"utilitycraft_battery_basic_3": {
-			"textures": "textures/blocks/generators/battery_basic_3"
-		},
-		"utilitycraft_battery_basic_4": {
-			"textures": "textures/blocks/generators/battery_basic_4"
-		},
-		"utilitycraft_battery_basic_5": {
-			"textures": "textures/blocks/generators/battery_basic_5"
-		},
-		"utilitycraft_battery_basic_6": {
-			"textures": "textures/blocks/generators/battery_basic_6"
-		},
-		"utilitycraft_battery_advanced_0": {
-			"textures": "textures/blocks/generators/battery_advanced_0"
-		},
-		"utilitycraft_battery_advanced_1": {
-			"textures": "textures/blocks/generators/battery_advanced_1"
-		},
-		"utilitycraft_battery_advanced_2": {
-			"textures": "textures/blocks/generators/battery_advanced_2"
-		},
-		"utilitycraft_battery_advanced_3": {
-			"textures": "textures/blocks/generators/battery_advanced_3"
-		},
-		"utilitycraft_battery_advanced_4": {
-			"textures": "textures/blocks/generators/battery_advanced_4"
-		},
-		"utilitycraft_battery_advanced_5": {
-			"textures": "textures/blocks/generators/battery_advanced_5"
-		},
-		"utilitycraft_battery_advanced_6": {
-			"textures": "textures/blocks/generators/battery_advanced_6"
-		},
-		"utilitycraft_battery_expert_0": {
-			"textures": "textures/blocks/generators/battery_expert_0"
-		},
-		"utilitycraft_battery_expert_1": {
-			"textures": "textures/blocks/generators/battery_expert_1"
-		},
-		"utilitycraft_battery_expert_2": {
-			"textures": "textures/blocks/generators/battery_expert_2"
-		},
-		"utilitycraft_battery_expert_3": {
-			"textures": "textures/blocks/generators/battery_expert_3"
-		},
-		"utilitycraft_battery_expert_4": {
-			"textures": "textures/blocks/generators/battery_expert_4"
-		},
-		"utilitycraft_battery_expert_5": {
-			"textures": "textures/blocks/generators/battery_expert_5"
-		},
-		"utilitycraft_battery_expert_6": {
-			"textures": "textures/blocks/generators/battery_expert_6"
-		},
-		"utilitycraft_battery_ultimate_0": {
-			"textures": "textures/blocks/generators/battery_ultimate_0"
-		},
-		"utilitycraft_battery_ultimate_1": {
-			"textures": "textures/blocks/generators/battery_ultimate_1"
-		},
-		"utilitycraft_battery_ultimate_2": {
-			"textures": "textures/blocks/generators/battery_ultimate_2"
-		},
-		"utilitycraft_battery_ultimate_3": {
-			"textures": "textures/blocks/generators/battery_ultimate_3"
-		},
-		"utilitycraft_battery_ultimate_4": {
-			"textures": "textures/blocks/generators/battery_ultimate_4"
-		},
-		"utilitycraft_battery_ultimate_5": {
-			"textures": "textures/blocks/generators/battery_ultimate_5"
-		},
-		"utilitycraft_battery_ultimate_6": {
-			"textures": "textures/blocks/generators/battery_ultimate_6"
 		},
 		"utilitycraft_basic_magmator_on": {
 			"textures": "textures/blocks/generators/basic_magmator_on"
@@ -2131,506 +2068,176 @@
 		"utilitycraft_battery_advanced_0_down": {
 			"textures": "textures/blocks/generators/battery/advanced_0_down"
 		},
-		"utilitycraft_battery_advanced_0_east": {
-			"textures": "textures/blocks/generators/battery/advanced_0_east"
-		},
-		"utilitycraft_battery_advanced_0_north": {
-			"textures": "textures/blocks/generators/battery/advanced_0_north"
-		},
-		"utilitycraft_battery_advanced_0_south": {
-			"textures": "textures/blocks/generators/battery/advanced_0_south"
-		},
 		"utilitycraft_battery_advanced_0_up": {
 			"textures": "textures/blocks/generators/battery/advanced_0_up"
-		},
-		"utilitycraft_battery_advanced_0_west": {
-			"textures": "textures/blocks/generators/battery/advanced_0_west"
 		},
 		"utilitycraft_battery_advanced_1_down": {
 			"textures": "textures/blocks/generators/battery/advanced_1_down"
 		},
-		"utilitycraft_battery_advanced_1_east": {
-			"textures": "textures/blocks/generators/battery/advanced_1_east"
-		},
-		"utilitycraft_battery_advanced_1_north": {
-			"textures": "textures/blocks/generators/battery/advanced_1_north"
-		},
-		"utilitycraft_battery_advanced_1_south": {
-			"textures": "textures/blocks/generators/battery/advanced_1_south"
-		},
 		"utilitycraft_battery_advanced_1_up": {
 			"textures": "textures/blocks/generators/battery/advanced_1_up"
-		},
-		"utilitycraft_battery_advanced_1_west": {
-			"textures": "textures/blocks/generators/battery/advanced_1_west"
 		},
 		"utilitycraft_battery_advanced_2_down": {
 			"textures": "textures/blocks/generators/battery/advanced_2_down"
 		},
-		"utilitycraft_battery_advanced_2_east": {
-			"textures": "textures/blocks/generators/battery/advanced_2_east"
-		},
-		"utilitycraft_battery_advanced_2_north": {
-			"textures": "textures/blocks/generators/battery/advanced_2_north"
-		},
-		"utilitycraft_battery_advanced_2_south": {
-			"textures": "textures/blocks/generators/battery/advanced_2_south"
-		},
 		"utilitycraft_battery_advanced_2_up": {
 			"textures": "textures/blocks/generators/battery/advanced_2_up"
-		},
-		"utilitycraft_battery_advanced_2_west": {
-			"textures": "textures/blocks/generators/battery/advanced_2_west"
 		},
 		"utilitycraft_battery_advanced_3_down": {
 			"textures": "textures/blocks/generators/battery/advanced_3_down"
 		},
-		"utilitycraft_battery_advanced_3_east": {
-			"textures": "textures/blocks/generators/battery/advanced_3_east"
-		},
-		"utilitycraft_battery_advanced_3_north": {
-			"textures": "textures/blocks/generators/battery/advanced_3_north"
-		},
-		"utilitycraft_battery_advanced_3_south": {
-			"textures": "textures/blocks/generators/battery/advanced_3_south"
-		},
 		"utilitycraft_battery_advanced_3_up": {
 			"textures": "textures/blocks/generators/battery/advanced_3_up"
-		},
-		"utilitycraft_battery_advanced_3_west": {
-			"textures": "textures/blocks/generators/battery/advanced_3_west"
 		},
 		"utilitycraft_battery_advanced_4_down": {
 			"textures": "textures/blocks/generators/battery/advanced_4_down"
 		},
-		"utilitycraft_battery_advanced_4_east": {
-			"textures": "textures/blocks/generators/battery/advanced_4_east"
-		},
-		"utilitycraft_battery_advanced_4_north": {
-			"textures": "textures/blocks/generators/battery/advanced_4_north"
-		},
-		"utilitycraft_battery_advanced_4_south": {
-			"textures": "textures/blocks/generators/battery/advanced_4_south"
-		},
 		"utilitycraft_battery_advanced_4_up": {
 			"textures": "textures/blocks/generators/battery/advanced_4_up"
-		},
-		"utilitycraft_battery_advanced_4_west": {
-			"textures": "textures/blocks/generators/battery/advanced_4_west"
 		},
 		"utilitycraft_battery_advanced_5_down": {
 			"textures": "textures/blocks/generators/battery/advanced_5_down"
 		},
-		"utilitycraft_battery_advanced_5_east": {
-			"textures": "textures/blocks/generators/battery/advanced_5_east"
-		},
-		"utilitycraft_battery_advanced_5_north": {
-			"textures": "textures/blocks/generators/battery/advanced_5_north"
-		},
-		"utilitycraft_battery_advanced_5_south": {
-			"textures": "textures/blocks/generators/battery/advanced_5_south"
-		},
 		"utilitycraft_battery_advanced_5_up": {
 			"textures": "textures/blocks/generators/battery/advanced_5_up"
-		},
-		"utilitycraft_battery_advanced_5_west": {
-			"textures": "textures/blocks/generators/battery/advanced_5_west"
 		},
 		"utilitycraft_battery_advanced_6_down": {
 			"textures": "textures/blocks/generators/battery/advanced_6_down"
 		},
-		"utilitycraft_battery_advanced_6_east": {
-			"textures": "textures/blocks/generators/battery/advanced_6_east"
-		},
-		"utilitycraft_battery_advanced_6_north": {
-			"textures": "textures/blocks/generators/battery/advanced_6_north"
-		},
-		"utilitycraft_battery_advanced_6_south": {
-			"textures": "textures/blocks/generators/battery/advanced_6_south"
-		},
 		"utilitycraft_battery_advanced_6_up": {
 			"textures": "textures/blocks/generators/battery/advanced_6_up"
-		},
-		"utilitycraft_battery_advanced_6_west": {
-			"textures": "textures/blocks/generators/battery/advanced_6_west"
 		},
 		"utilitycraft_battery_basic_0_down": {
 			"textures": "textures/blocks/generators/battery/basic_0_down"
 		},
-		"utilitycraft_battery_basic_0_east": {
-			"textures": "textures/blocks/generators/battery/basic_0_east"
-		},
-		"utilitycraft_battery_basic_0_north": {
-			"textures": "textures/blocks/generators/battery/basic_0_north"
-		},
-		"utilitycraft_battery_basic_0_south": {
-			"textures": "textures/blocks/generators/battery/basic_0_south"
-		},
 		"utilitycraft_battery_basic_0_up": {
 			"textures": "textures/blocks/generators/battery/basic_0_up"
-		},
-		"utilitycraft_battery_basic_0_west": {
-			"textures": "textures/blocks/generators/battery/basic_0_west"
 		},
 		"utilitycraft_battery_basic_1_down": {
 			"textures": "textures/blocks/generators/battery/basic_1_down"
 		},
-		"utilitycraft_battery_basic_1_east": {
-			"textures": "textures/blocks/generators/battery/basic_1_east"
-		},
-		"utilitycraft_battery_basic_1_north": {
-			"textures": "textures/blocks/generators/battery/basic_1_north"
-		},
-		"utilitycraft_battery_basic_1_south": {
-			"textures": "textures/blocks/generators/battery/basic_1_south"
-		},
 		"utilitycraft_battery_basic_1_up": {
 			"textures": "textures/blocks/generators/battery/basic_1_up"
-		},
-		"utilitycraft_battery_basic_1_west": {
-			"textures": "textures/blocks/generators/battery/basic_1_west"
 		},
 		"utilitycraft_battery_basic_2_down": {
 			"textures": "textures/blocks/generators/battery/basic_2_down"
 		},
-		"utilitycraft_battery_basic_2_east": {
-			"textures": "textures/blocks/generators/battery/basic_2_east"
-		},
-		"utilitycraft_battery_basic_2_north": {
-			"textures": "textures/blocks/generators/battery/basic_2_north"
-		},
-		"utilitycraft_battery_basic_2_south": {
-			"textures": "textures/blocks/generators/battery/basic_2_south"
-		},
 		"utilitycraft_battery_basic_2_up": {
 			"textures": "textures/blocks/generators/battery/basic_2_up"
-		},
-		"utilitycraft_battery_basic_2_west": {
-			"textures": "textures/blocks/generators/battery/basic_2_west"
 		},
 		"utilitycraft_battery_basic_3_down": {
 			"textures": "textures/blocks/generators/battery/basic_3_down"
 		},
-		"utilitycraft_battery_basic_3_east": {
-			"textures": "textures/blocks/generators/battery/basic_3_east"
-		},
-		"utilitycraft_battery_basic_3_north": {
-			"textures": "textures/blocks/generators/battery/basic_3_north"
-		},
-		"utilitycraft_battery_basic_3_south": {
-			"textures": "textures/blocks/generators/battery/basic_3_south"
-		},
 		"utilitycraft_battery_basic_3_up": {
 			"textures": "textures/blocks/generators/battery/basic_3_up"
-		},
-		"utilitycraft_battery_basic_3_west": {
-			"textures": "textures/blocks/generators/battery/basic_3_west"
 		},
 		"utilitycraft_battery_basic_4_down": {
 			"textures": "textures/blocks/generators/battery/basic_4_down"
 		},
-		"utilitycraft_battery_basic_4_east": {
-			"textures": "textures/blocks/generators/battery/basic_4_east"
-		},
-		"utilitycraft_battery_basic_4_north": {
-			"textures": "textures/blocks/generators/battery/basic_4_north"
-		},
-		"utilitycraft_battery_basic_4_south": {
-			"textures": "textures/blocks/generators/battery/basic_4_south"
-		},
 		"utilitycraft_battery_basic_4_up": {
 			"textures": "textures/blocks/generators/battery/basic_4_up"
-		},
-		"utilitycraft_battery_basic_4_west": {
-			"textures": "textures/blocks/generators/battery/basic_4_west"
 		},
 		"utilitycraft_battery_basic_5_down": {
 			"textures": "textures/blocks/generators/battery/basic_5_down"
 		},
-		"utilitycraft_battery_basic_5_east": {
-			"textures": "textures/blocks/generators/battery/basic_5_east"
-		},
-		"utilitycraft_battery_basic_5_north": {
-			"textures": "textures/blocks/generators/battery/basic_5_north"
-		},
-		"utilitycraft_battery_basic_5_south": {
-			"textures": "textures/blocks/generators/battery/basic_5_south"
-		},
 		"utilitycraft_battery_basic_5_up": {
 			"textures": "textures/blocks/generators/battery/basic_5_up"
-		},
-		"utilitycraft_battery_basic_5_west": {
-			"textures": "textures/blocks/generators/battery/basic_5_west"
 		},
 		"utilitycraft_battery_basic_6_down": {
 			"textures": "textures/blocks/generators/battery/basic_6_down"
 		},
-		"utilitycraft_battery_basic_6_east": {
-			"textures": "textures/blocks/generators/battery/basic_6_east"
-		},
-		"utilitycraft_battery_basic_6_north": {
-			"textures": "textures/blocks/generators/battery/basic_6_north"
-		},
-		"utilitycraft_battery_basic_6_south": {
-			"textures": "textures/blocks/generators/battery/basic_6_south"
-		},
 		"utilitycraft_battery_basic_6_up": {
 			"textures": "textures/blocks/generators/battery/basic_6_up"
-		},
-		"utilitycraft_battery_basic_6_west": {
-			"textures": "textures/blocks/generators/battery/basic_6_west"
 		},
 		"utilitycraft_battery_expert_0_down": {
 			"textures": "textures/blocks/generators/battery/expert_0_down"
 		},
-		"utilitycraft_battery_expert_0_east": {
-			"textures": "textures/blocks/generators/battery/expert_0_east"
-		},
-		"utilitycraft_battery_expert_0_north": {
-			"textures": "textures/blocks/generators/battery/expert_0_north"
-		},
-		"utilitycraft_battery_expert_0_south": {
-			"textures": "textures/blocks/generators/battery/expert_0_south"
-		},
 		"utilitycraft_battery_expert_0_up": {
 			"textures": "textures/blocks/generators/battery/expert_0_up"
-		},
-		"utilitycraft_battery_expert_0_west": {
-			"textures": "textures/blocks/generators/battery/expert_0_west"
 		},
 		"utilitycraft_battery_expert_1_down": {
 			"textures": "textures/blocks/generators/battery/expert_1_down"
 		},
-		"utilitycraft_battery_expert_1_east": {
-			"textures": "textures/blocks/generators/battery/expert_1_east"
-		},
-		"utilitycraft_battery_expert_1_north": {
-			"textures": "textures/blocks/generators/battery/expert_1_north"
-		},
-		"utilitycraft_battery_expert_1_south": {
-			"textures": "textures/blocks/generators/battery/expert_1_south"
-		},
 		"utilitycraft_battery_expert_1_up": {
 			"textures": "textures/blocks/generators/battery/expert_1_up"
-		},
-		"utilitycraft_battery_expert_1_west": {
-			"textures": "textures/blocks/generators/battery/expert_1_west"
 		},
 		"utilitycraft_battery_expert_2_down": {
 			"textures": "textures/blocks/generators/battery/expert_2_down"
 		},
-		"utilitycraft_battery_expert_2_east": {
-			"textures": "textures/blocks/generators/battery/expert_2_east"
-		},
-		"utilitycraft_battery_expert_2_north": {
-			"textures": "textures/blocks/generators/battery/expert_2_north"
-		},
-		"utilitycraft_battery_expert_2_south": {
-			"textures": "textures/blocks/generators/battery/expert_2_south"
-		},
 		"utilitycraft_battery_expert_2_up": {
 			"textures": "textures/blocks/generators/battery/expert_2_up"
-		},
-		"utilitycraft_battery_expert_2_west": {
-			"textures": "textures/blocks/generators/battery/expert_2_west"
 		},
 		"utilitycraft_battery_expert_3_down": {
 			"textures": "textures/blocks/generators/battery/expert_3_down"
 		},
-		"utilitycraft_battery_expert_3_east": {
-			"textures": "textures/blocks/generators/battery/expert_3_east"
-		},
-		"utilitycraft_battery_expert_3_north": {
-			"textures": "textures/blocks/generators/battery/expert_3_north"
-		},
-		"utilitycraft_battery_expert_3_south": {
-			"textures": "textures/blocks/generators/battery/expert_3_south"
-		},
 		"utilitycraft_battery_expert_3_up": {
 			"textures": "textures/blocks/generators/battery/expert_3_up"
-		},
-		"utilitycraft_battery_expert_3_west": {
-			"textures": "textures/blocks/generators/battery/expert_3_west"
 		},
 		"utilitycraft_battery_expert_4_down": {
 			"textures": "textures/blocks/generators/battery/expert_4_down"
 		},
-		"utilitycraft_battery_expert_4_east": {
-			"textures": "textures/blocks/generators/battery/expert_4_east"
-		},
-		"utilitycraft_battery_expert_4_north": {
-			"textures": "textures/blocks/generators/battery/expert_4_north"
-		},
-		"utilitycraft_battery_expert_4_south": {
-			"textures": "textures/blocks/generators/battery/expert_4_south"
-		},
 		"utilitycraft_battery_expert_4_up": {
 			"textures": "textures/blocks/generators/battery/expert_4_up"
-		},
-		"utilitycraft_battery_expert_4_west": {
-			"textures": "textures/blocks/generators/battery/expert_4_west"
 		},
 		"utilitycraft_battery_expert_5_down": {
 			"textures": "textures/blocks/generators/battery/expert_5_down"
 		},
-		"utilitycraft_battery_expert_5_east": {
-			"textures": "textures/blocks/generators/battery/expert_5_east"
-		},
-		"utilitycraft_battery_expert_5_north": {
-			"textures": "textures/blocks/generators/battery/expert_5_north"
-		},
-		"utilitycraft_battery_expert_5_south": {
-			"textures": "textures/blocks/generators/battery/expert_5_south"
-		},
 		"utilitycraft_battery_expert_5_up": {
 			"textures": "textures/blocks/generators/battery/expert_5_up"
-		},
-		"utilitycraft_battery_expert_5_west": {
-			"textures": "textures/blocks/generators/battery/expert_5_west"
 		},
 		"utilitycraft_battery_expert_6_down": {
 			"textures": "textures/blocks/generators/battery/expert_6_down"
 		},
-		"utilitycraft_battery_expert_6_east": {
-			"textures": "textures/blocks/generators/battery/expert_6_east"
-		},
-		"utilitycraft_battery_expert_6_north": {
-			"textures": "textures/blocks/generators/battery/expert_6_north"
-		},
-		"utilitycraft_battery_expert_6_south": {
-			"textures": "textures/blocks/generators/battery/expert_6_south"
-		},
 		"utilitycraft_battery_expert_6_up": {
 			"textures": "textures/blocks/generators/battery/expert_6_up"
-		},
-		"utilitycraft_battery_expert_6_west": {
-			"textures": "textures/blocks/generators/battery/expert_6_west"
 		},
 		"utilitycraft_battery_ultimate_0_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_0_down"
 		},
-		"utilitycraft_battery_ultimate_0_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_0_east"
-		},
-		"utilitycraft_battery_ultimate_0_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_0_north"
-		},
-		"utilitycraft_battery_ultimate_0_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_0_south"
-		},
 		"utilitycraft_battery_ultimate_0_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_0_up"
-		},
-		"utilitycraft_battery_ultimate_0_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_0_west"
 		},
 		"utilitycraft_battery_ultimate_1_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_1_down"
 		},
-		"utilitycraft_battery_ultimate_1_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_1_east"
-		},
-		"utilitycraft_battery_ultimate_1_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_1_north"
-		},
-		"utilitycraft_battery_ultimate_1_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_1_south"
-		},
 		"utilitycraft_battery_ultimate_1_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_1_up"
-		},
-		"utilitycraft_battery_ultimate_1_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_1_west"
 		},
 		"utilitycraft_battery_ultimate_2_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_2_down"
 		},
-		"utilitycraft_battery_ultimate_2_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_2_east"
-		},
-		"utilitycraft_battery_ultimate_2_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_2_north"
-		},
-		"utilitycraft_battery_ultimate_2_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_2_south"
-		},
 		"utilitycraft_battery_ultimate_2_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_2_up"
-		},
-		"utilitycraft_battery_ultimate_2_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_2_west"
 		},
 		"utilitycraft_battery_ultimate_3_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_3_down"
 		},
-		"utilitycraft_battery_ultimate_3_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_3_east"
-		},
-		"utilitycraft_battery_ultimate_3_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_3_north"
-		},
-		"utilitycraft_battery_ultimate_3_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_3_south"
-		},
 		"utilitycraft_battery_ultimate_3_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_3_up"
-		},
-		"utilitycraft_battery_ultimate_3_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_3_west"
 		},
 		"utilitycraft_battery_ultimate_4_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_4_down"
 		},
-		"utilitycraft_battery_ultimate_4_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_4_east"
-		},
-		"utilitycraft_battery_ultimate_4_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_4_north"
-		},
-		"utilitycraft_battery_ultimate_4_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_4_south"
-		},
 		"utilitycraft_battery_ultimate_4_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_4_up"
-		},
-		"utilitycraft_battery_ultimate_4_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_4_west"
 		},
 		"utilitycraft_battery_ultimate_5_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_5_down"
 		},
-		"utilitycraft_battery_ultimate_5_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_5_east"
-		},
-		"utilitycraft_battery_ultimate_5_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_5_north"
-		},
-		"utilitycraft_battery_ultimate_5_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_5_south"
-		},
 		"utilitycraft_battery_ultimate_5_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_5_up"
-		},
-		"utilitycraft_battery_ultimate_5_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_5_west"
 		},
 		"utilitycraft_battery_ultimate_6_down": {
 			"textures": "textures/blocks/generators/battery/ultimate_6_down"
 		},
-		"utilitycraft_battery_ultimate_6_east": {
-			"textures": "textures/blocks/generators/battery/ultimate_6_east"
-		},
-		"utilitycraft_battery_ultimate_6_north": {
-			"textures": "textures/blocks/generators/battery/ultimate_6_north"
-		},
-		"utilitycraft_battery_ultimate_6_south": {
-			"textures": "textures/blocks/generators/battery/ultimate_6_south"
-		},
 		"utilitycraft_battery_ultimate_6_up": {
 			"textures": "textures/blocks/generators/battery/ultimate_6_up"
 		},
-		"utilitycraft_battery_ultimate_6_west": {
-			"textures": "textures/blocks/generators/battery/ultimate_6_west"
+		"utilitycraft_battery_creative_down": {
+			"textures": "textures/blocks/generators/battery/creative_down"
+		},
+		"utilitycraft_battery_creative_up": {
+			"textures": "textures/blocks/generators/battery/creative_up"
 		},
 		"utilitycraft_block_breaker_off_down": {
 			"textures": "textures/blocks/machines/block_breaker_off_down"
@@ -3207,6 +2814,93 @@
 		},
 		"utilitycraft_ultimate_thermo_generator_on_west": {
 			"textures": "textures/blocks/generators/thermo_generator/ultimate_on_west"
+		},
+		"utilitycraft_battery_advanced_0_side": {
+			"textures": "textures/blocks/generators/battery/advanced_0_side"
+		},
+		"utilitycraft_battery_advanced_1_side": {
+			"textures": "textures/blocks/generators/battery/advanced_1_side"
+		},
+		"utilitycraft_battery_advanced_2_side": {
+			"textures": "textures/blocks/generators/battery/advanced_2_side"
+		},
+		"utilitycraft_battery_advanced_3_side": {
+			"textures": "textures/blocks/generators/battery/advanced_3_side"
+		},
+		"utilitycraft_battery_advanced_4_side": {
+			"textures": "textures/blocks/generators/battery/advanced_4_side"
+		},
+		"utilitycraft_battery_advanced_5_side": {
+			"textures": "textures/blocks/generators/battery/advanced_5_side"
+		},
+		"utilitycraft_battery_advanced_6_side": {
+			"textures": "textures/blocks/generators/battery/advanced_6_side"
+		},
+		"utilitycraft_battery_basic_0_side": {
+			"textures": "textures/blocks/generators/battery/basic_0_side"
+		},
+		"utilitycraft_battery_basic_1_side": {
+			"textures": "textures/blocks/generators/battery/basic_1_side"
+		},
+		"utilitycraft_battery_basic_2_side": {
+			"textures": "textures/blocks/generators/battery/basic_2_side"
+		},
+		"utilitycraft_battery_basic_3_side": {
+			"textures": "textures/blocks/generators/battery/basic_3_side"
+		},
+		"utilitycraft_battery_basic_4_side": {
+			"textures": "textures/blocks/generators/battery/basic_4_side"
+		},
+		"utilitycraft_battery_basic_5_side": {
+			"textures": "textures/blocks/generators/battery/basic_5_side"
+		},
+		"utilitycraft_battery_basic_6_side": {
+			"textures": "textures/blocks/generators/battery/basic_6_side"
+		},
+		"utilitycraft_battery_expert_0_side": {
+			"textures": "textures/blocks/generators/battery/expert_0_side"
+		},
+		"utilitycraft_battery_expert_1_side": {
+			"textures": "textures/blocks/generators/battery/expert_1_side"
+		},
+		"utilitycraft_battery_expert_2_side": {
+			"textures": "textures/blocks/generators/battery/expert_2_side"
+		},
+		"utilitycraft_battery_expert_3_side": {
+			"textures": "textures/blocks/generators/battery/expert_3_side"
+		},
+		"utilitycraft_battery_expert_4_side": {
+			"textures": "textures/blocks/generators/battery/expert_4_side"
+		},
+		"utilitycraft_battery_expert_5_side": {
+			"textures": "textures/blocks/generators/battery/expert_5_side"
+		},
+		"utilitycraft_battery_expert_6_side": {
+			"textures": "textures/blocks/generators/battery/expert_6_side"
+		},
+		"utilitycraft_battery_ultimate_0_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_0_side"
+		},
+		"utilitycraft_battery_ultimate_1_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_1_side"
+		},
+		"utilitycraft_battery_ultimate_2_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_2_side"
+		},
+		"utilitycraft_battery_ultimate_3_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_3_side"
+		},
+		"utilitycraft_battery_ultimate_4_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_4_side"
+		},
+		"utilitycraft_battery_ultimate_5_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_5_side"
+		},
+		"utilitycraft_battery_ultimate_6_side": {
+			"textures": "textures/blocks/generators/battery/ultimate_6_side"
+		},
+		"utilitycraft_battery_creative_side": {
+			"textures": "textures/blocks/generators/battery/creative_side"
 		}
 	}
 }

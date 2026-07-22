@@ -423,6 +423,7 @@ export class EnergyStorage {
   /**
    * Consumes energy from the entity if available.
    * Internally this is just an add with a negative amount.
+   * Infinite and legacy creative storages report success without changing their amount.
    *
    * @param {number} amount The amount of energy to consume.
    * @returns {number} The actual amount of energy consumed.
@@ -432,8 +433,9 @@ export class EnergyStorage {
    * if (used > 0) console.log(`Consumed ${used} energy`);
    */
   consume(amount) {
-    if (this.entity.hasTag(Constants.CREATIVE_TAG)) return amount;
     if (amount <= 0) return 0;
+    if (this.entity.hasTag(Constants.INFINITE_STORAGE_TAG)) return amount;
+    if (this.entity.hasTag(Constants.CREATIVE_TAG)) return amount;
 
     const current = this.get();
     if (current < amount) return 0;

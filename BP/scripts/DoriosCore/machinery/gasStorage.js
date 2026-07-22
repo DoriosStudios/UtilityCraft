@@ -739,9 +739,12 @@ export class GasStorage {
    * Consumes a specific amount of gas if available.
    *
    * @param {number} amount The amount to consume.
+   * Infinite and legacy creative storages report success without changing their amount.
+   *
    * @returns {number} The amount actually consumed (0 if insufficient).
    */
   consume(amount) {
+    if (this.entity.hasTag(Constants.INFINITE_STORAGE_TAG)) return amount;
     if (this.entity.hasTag(Constants.CREATIVE_TAG)) return amount;
     const current = this.get();
     if (current < amount) return 0;

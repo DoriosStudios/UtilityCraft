@@ -1388,6 +1388,10 @@ export const ENERGY_BAR_FRAME_COUNT: 48;
 export const ENERGY_BAR_ITEM_PREFIX: "utilitycraft:energy_";
 /** Tag used by entities that should bypass normal resource consumption. */
 export const CREATIVE_TAG: "creative";
+/** Tag used by infinite resource storages whose contents must not be consumed. */
+export const INFINITE_STORAGE_TAG: "dorios:infinite_storage";
+/** Fixed stored amount and capacity assigned to infinite resource storages. */
+export const INFINITE_STORAGE_CAPACITY: 1000000000;
 /** Objective definitions required by the energy storage system. */
 export const ENERGY_OBJECTIVE_DEFINITIONS: readonly [string, string][];
 /** Empty item shown when a fluid tank has no stored content. */

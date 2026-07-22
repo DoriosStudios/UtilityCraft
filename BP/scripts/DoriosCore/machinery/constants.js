@@ -69,6 +69,12 @@ export const ENERGY_BAR_ITEM_PREFIX = "utilitycraft:energy_";
  */
 export const CREATIVE_TAG = "creative";
 
+/** Tag used by infinite resource entities whose stored value must not be consumed. */
+export const INFINITE_STORAGE_TAG = "dorios:infinite_storage";
+
+/** Fixed stored amount and capacity used by infinite resource storages. */
+export const INFINITE_STORAGE_CAPACITY = 1_000_000_000;
+
 /**
  * Objective definitions required by the energy storage system.
  */

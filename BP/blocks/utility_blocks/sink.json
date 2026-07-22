@@ -15,7 +15,10 @@
             }
         },
         "components": {
-            "utilitycraft:interact": {},
+            "utilitycraft:infinite_tank": {
+                "resource": "fluid",
+                "type": "water"
+            },
             "minecraft:geometry": "geometry.utilitycraft_infinite_water_block",
             "minecraft:material_instances": {
                 "*": {
@@ -50,6 +53,7 @@
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 1.2
             },
+            "tag:dorios:fluid": {},
             "tag:minecraft:is_axe_item_destructible": {}
         },
         "permutations": [

@@ -10,8 +10,7 @@ const UI_PLACEHOLDER_ITEM = 'utilitycraft:arrow_right_0';
 const WATER_TYPES = new Set([
     'minecraft:water',
     'minecraft:flowing_water',
-    'minecraft:bubble_column',
-    'utilitycraft:sink'
+    'minecraft:bubble_column'
 ]);
 
 const DEFAULT_ROLLS = 1;

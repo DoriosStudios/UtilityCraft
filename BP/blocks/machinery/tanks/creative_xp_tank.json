@@ -1,0 +1,45 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:creative_xp_tank",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"utilitycraft:infinite_tank": {
+				"resource": "fluid",
+				"type": "xp"
+			},
+			"minecraft:geometry": "geometry.utilitycraft_creative_fluid_tank",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_creative_fluid_tank",
+					"face_dimming": false,
+					"ambient_occlusion": false,
+					"render_method": "alpha_test"
+				},
+				"fluid": {
+					"texture": "utilitycraft_xp_fluid",
+					"face_dimming": false,
+					"ambient_occlusion": false,
+					"render_method": "blend"
+				}
+			},
+			"minecraft:collision_box": {
+				"origin": [-6, 0, -6],
+				"size": [12, 16, 12]
+			},
+			"minecraft:selection_box": {
+				"origin": [-6, 0, -6],
+				"size": [12, 16, 12]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.1
+			},
+			"minecraft:light_dampening": 0,
+			"tag:dorios:fluid": {}
+		}
+	}
+}

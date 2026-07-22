@@ -44,6 +44,11 @@ tile.utilitycraft:basic_gas_tank.name=§eTanque de Gas Básico\n§o§9@UtilityCr
 tile.utilitycraft:advanced_gas_tank.name=§cTanque de Gas Avanzado\n§o§9@UtilityCraft
 tile.utilitycraft:expert_gas_tank.name=§bTanque de Gas Maestro\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_gas_tank.name=§8Tanque de Gas Definitivo\n§o§9@UtilityCraft
+tile.utilitycraft:creative_water_tank.name=Creative Water Tank\n§7- Agua infinita\n§o§9@UtilityCraft
+tile.utilitycraft:creative_lava_tank.name=Creative Lava Tank\n§7- Lava infinita\n§o§9@UtilityCraft
+tile.utilitycraft:creative_milk_tank.name=Creative Milk Tank\n§7- Leche infinita\n§o§9@UtilityCraft
+tile.utilitycraft:creative_xp_tank.name=Creative XP Tank\n§7- XP infinita\n§o§9@UtilityCraft
+tile.utilitycraft:creative_steam_tank.name=Creative Steam Tank\n§7- Vapor infinito\n§o§9@UtilityCraft
 
 - Bountiful Bonsais = ## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
@@ -721,6 +726,8 @@ tile.utilitycraft:ultimate_furnator.name=§8Horno Generador Definitivo\n §7 Vel
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Definitivo\n §7 Velocidad: 5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8Termogenerador Definitivo\n §7 Velocidad: 2 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8Batería Definitiva\n §7 Velocidad: 10 kDE/t\n§o§9@UtilityCraft
+tile.utilitycraft:creative_battery.name=§dBatería Creativa\n §7 Energía infinita\n §7 Velocidad: 10 kDE/t\n§o§9@UtilityCraft
+entity.utilitycraft:infinite_energy_source.name=Batería Creativa
 tile.utilitycraft:ultimate_solar_panel.name=§8Panel Solar Definitivo\n §7 Velocidad: 1200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y16\n§o§9@UtilityCraft
 
@@ -1041,6 +1048,7 @@ ui.utilitycraft:machine_view.close_io_config=Cerrar Config. de Entrada/Salida
 ui.utilitycraft:machine_view.close_information=Cerrar Información
 ui.utilitycraft:machine_view.items=Objetos
 ui.utilitycraft:machine_view.liquids=Líquidos
+ui.utilitycraft:machine_view.gases=Gases
 
 ui.utilitycraft:item_transfer.exporter_title=Exportador de Objetos
 ui.utilitycraft:item_transfer.importer_title=Importador de Objetos

@@ -3827,16 +3827,20 @@
         "$has_io_config|default": true,
         "$has_item_io|default": true,
         "$has_fluid_io|default": false,
+        "$has_gas_io|default": false,
         "$io_items_default|default": true,
         "$io_fluids_default|default": false,
+        "$io_gases_default|default": false,
         "$io_default_tab_index|default": 0,
         "$right_machine_tabs_name|default": "right_machine_tabs",
         "$io_toggle_control_name|default": "io_toggle_button",
         "$io_config_tabs_name|default": "io_config_tabs",
         "$io_items_toggle_control_name|default": "io_items_toggle_button",
         "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
+        "$io_gases_toggle_control_name|default": "io_gases_toggle_button",
         "$io_items_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
         "$io_fluids_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
+        "$io_gases_modes_description|default": "IO Modes:\n§r- §9Inputs 1-9\n§r- §cOutputs 1-9",
         "$io_item_top_index|default": 8,
         "$io_item_left_index|default": 9,
         "$io_item_front_index|default": 10,
@@ -3849,6 +3853,12 @@
         "$io_fluid_right_index|default": 17,
         "$io_fluid_bottom_index|default": 18,
         "$io_fluid_back_index|default": 19,
+        "$io_gas_top_index|default": 20,
+        "$io_gas_left_index|default": 21,
+        "$io_gas_front_index|default": 22,
+        "$io_gas_right_index|default": 23,
+        "$io_gas_bottom_index|default": 24,
+        "$io_gas_back_index|default": 25,
         "$io_top_texture|default": "textures/blocks/machines/exhibitor_base_up",
         "$io_left_texture|default": "textures/blocks/machines/exhibitor_base_west",
         "$io_front_texture|default": "textures/blocks/machines/exhibitor_base_north",
@@ -4068,6 +4078,39 @@
                             }
                         },
                         {
+                            "gas_modes_label": {
+                                "type": "label",
+                                "text": "$io_gases_modes_description",
+                                "anchor_from": "top_left",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    120,
+                                    40
+                                ],
+                                "offset": [
+                                    103,
+                                    -14
+                                ],
+                                "text_alignment": "left",
+                                "color": [
+                                    0.3,
+                                    0.3,
+                                    0.3
+                                ],
+                                "layer": 3,
+                                "font_scale_factor": 0.75,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "$io_gases_toggle_control_name",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ]
+                            }
+                        },
+                        {
                             "io_items_toggle@uc.toggle_button": {
                                 "anchor_from": "top_middle",
                                 "anchor_to": "top_middle",
@@ -4148,6 +4191,46 @@
                             }
                         },
                         {
+                            "io_gases_toggle@uc.toggle_button": {
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    -59,
+                                    -4
+                                ],
+                                "visible": "$has_gas_io",
+                                "$toggle_name": "$io_config_tabs_name",
+                                "$toggle_layer": 3,
+                                "$toggle_index": 2,
+                                "$toggle_group": true,
+                                "$toggle_default_state": "$io_gases_default",
+                                "$toggle_group_default_selected": "$io_default_tab_index",
+                                "$toggle_hover_text": "ui.utilitycraft:machine_view.gases",
+                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.gases",
+                                "$toggle_hover_text_localize": true,
+                                "$toggle_checked_hover_text_localize": true,
+                                "$toggle_control_name": "$io_gases_toggle_control_name",
+                                "$toggle_size": [
+                                    18,
+                                    18
+                                ],
+                                "$has_toggle_bg": true,
+                                "$toggle_bg_size": [
+                                    24,
+                                    24
+                                ],
+                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                "$toggle_bg_offset": [
+                                    0,
+                                    0
+                                ],
+                                "$toggle_unchecked": "textures/ui/toggle_button/gas_unchecked",
+                                "$toggle_checked": "textures/ui/toggle_button/gas_checked",
+                                "$toggle_unchecked_hover": "textures/ui/toggle_button/gas_unchecked_hover",
+                                "$toggle_checked_hover": "textures/ui/toggle_button/gas_checked_hover"
+                            }
+                        },
+                        {
                             "io_items_panel": {
                                 "type": "panel",
                                 "layer": 1,
@@ -4202,6 +4285,39 @@
                                             "$io_right_index": "$io_fluid_right_index",
                                             "$io_bottom_index": "$io_fluid_bottom_index",
                                             "$io_back_index": "$io_fluid_back_index",
+                                            "$io_top_texture": "$io_top_texture",
+                                            "$io_left_texture": "$io_left_texture",
+                                            "$io_front_texture": "$io_front_texture",
+                                            "$io_right_texture": "$io_right_texture",
+                                            "$io_bottom_texture": "$io_bottom_texture",
+                                            "$io_back_texture": "$io_back_texture"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "io_gases_panel": {
+                                "type": "panel",
+                                "layer": 1,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "$io_gases_toggle_control_name",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible",
+                                        "resolve_sibling_scope": false
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "gas_faces@uc.io_face_slots": {
+                                            "$io_top_index": "$io_gas_top_index",
+                                            "$io_left_index": "$io_gas_left_index",
+                                            "$io_front_index": "$io_gas_front_index",
+                                            "$io_right_index": "$io_gas_right_index",
+                                            "$io_bottom_index": "$io_gas_bottom_index",
+                                            "$io_back_index": "$io_gas_back_index",
                                             "$io_top_texture": "$io_top_texture",
                                             "$io_left_texture": "$io_left_texture",
                                             "$io_front_texture": "$io_front_texture",

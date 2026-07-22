@@ -884,6 +884,7 @@ ui.utilitycraft:machine_view.close_io_config=Fechar Config. de Entrada/Saída
 ui.utilitycraft:machine_view.close_information=Fechar Informações
 ui.utilitycraft:machine_view.items=Itens
 ui.utilitycraft:machine_view.liquids=Líquidos
+ui.utilitycraft:machine_view.gases=Gases
 dorios:itemGroup.name.elevators=Elevadores
 
 ## < Categories

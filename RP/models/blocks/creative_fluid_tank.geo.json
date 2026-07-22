@@ -1,0 +1,53 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.utilitycraft_creative_fluid_tank",
+				"texture_width": 32,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "tank",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-6, 0.05, -6],
+							"size": [12, 16, 12],
+							"uv": {
+								"north": {"uv": [16, 0], "uv_size": [12, 16]},
+								"east": {"uv": [16, 0], "uv_size": [12, 16]},
+								"south": {"uv": [16, 0], "uv_size": [12, 16]},
+								"west": {"uv": [16, 0], "uv_size": [12, 16]},
+								"up": {"uv": [12, 12], "uv_size": [-12, -12]},
+								"down": {"uv": [12, 12], "uv_size": [-12, -12]}
+							}
+						}
+					]
+				},
+				{
+					"name": "fluid",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-5.5, 0.55, -5.5],
+							"size": [11, 15, 11],
+							"uv": {
+								"north": {"uv": [4, 0], "uv_size": [24, 16], "material_instance": "fluid"},
+								"east": {"uv": [4, 0], "uv_size": [24, 16], "material_instance": "fluid"},
+								"south": {"uv": [4, 0], "uv_size": [24, 16], "material_instance": "fluid"},
+								"west": {"uv": [4, 0], "uv_size": [24, 16], "material_instance": "fluid"},
+								"up": {"uv": [28, 14], "uv_size": [-24, -12], "material_instance": "fluid"},
+								"down": {"uv": [28, 14], "uv_size": [-24, -12], "material_instance": "fluid"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

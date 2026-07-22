@@ -1,0 +1,42 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:creative_battery",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"utilitycraft:infinite_energy_source": {
+				"rate_speed_base": 10000
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_battery_creative_side",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_battery_creative_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_battery_creative_down",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [4, 4]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:energy": {},
+			"tag:dorios:generator": {},
+			"tag:dorios:infinite_energy_source": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		}
+	}
+}
