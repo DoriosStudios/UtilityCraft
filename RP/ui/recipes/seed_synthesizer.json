@@ -1,0 +1,5991 @@
+{
+  "namespace": "uc",
+  "seed_category_toggle@uc.recipe_toggle": {
+    "$toggle_name": "seed_synthesizer_categories",
+    "$toggle_lost_reset": false,
+    "$toggle_hover_text_localize": false,
+    "$toggle_checked_hover_text_localize": false
+  },
+  "seed_input_toggle@uc.recipe_toggle": {
+    "$toggle_lost_reset": false,
+    "$toggle_hover_text_localize": false,
+    "$toggle_checked_hover_text_localize": false
+  },
+  "seed_drop_result_header": {
+    "type": "panel",
+    "size": [
+      126,
+      18
+    ],
+    "controls": [
+      {
+        "background": {
+          "type": "image",
+          "texture": "textures/ui/gray_bg_border",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            126,
+            18
+          ],
+          "offset": [
+            54,
+            0
+          ],
+          "layer": -2
+        }
+      },
+      {
+        "item": {
+          "type": "label",
+          "text": "Item",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            72,
+            "default"
+          ],
+          "offset": [
+            28,
+            0
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.65,
+          "layer": 2
+        }
+      },
+      {
+        "chance": {
+          "type": "label",
+          "text": "Chance",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            26,
+            "default"
+          ],
+          "offset": [
+            78,
+            0
+          ],
+          "text_alignment": "center",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.65,
+          "layer": 2
+        }
+      }
+    ]
+  },
+  "seed_drop_result_strip": {
+    "type": "panel",
+    "size": [
+      126,
+      18
+    ],
+    "$result_item_texture|default": "",
+    "$result_item_name|default": "",
+    "$result_chance_text|default": "0%%",
+    "$result_amount_text|default": "x1",
+    "controls": [
+      {
+        "background": {
+          "type": "image",
+          "texture": "textures/ui/gray_bg_border",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            126,
+            18
+          ],
+          "offset": [
+            54,
+            0
+          ],
+          "layer": -2
+        }
+      },
+      {
+        "item_icon": {
+          "type": "image",
+          "texture": "$result_item_texture",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            14,
+            14
+          ],
+          "offset": [
+            56,
+            2
+          ],
+          "layer": 1
+        }
+      },
+      {
+        "item_name": {
+          "type": "label",
+          "text": "$result_item_name",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            56,
+            "default"
+          ],
+          "offset": [
+            37,
+            0
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.65,
+          "layer": 2
+        }
+      },
+      {
+        "chance": {
+          "type": "label",
+          "text": "$result_chance_text",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            26,
+            "default"
+          ],
+          "offset": [
+            78,
+            0
+          ],
+          "text_alignment": "center",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.65,
+          "layer": 2
+        }
+      },
+      {
+        "amount": {
+          "type": "label",
+          "text": "$result_amount_text",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            24,
+            "default"
+          ],
+          "offset": [
+            103,
+            0
+          ],
+          "text_alignment": "right",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.55,
+          "layer": 2
+        }
+      }
+    ]
+  },
+  "seed_soil_header": {
+    "type": "panel",
+    "size": [
+      126,
+      18
+    ],
+    "controls": [
+      {
+        "background": {
+          "type": "image",
+          "texture": "textures/ui/gray_bg_border",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            126,
+            18
+          ],
+          "offset": [
+            54,
+            0
+          ],
+          "layer": -2
+        }
+      },
+      {
+        "soil_block": {
+          "type": "label",
+          "text": "Soil Block",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            66,
+            "default"
+          ],
+          "offset": [
+            25,
+            0
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.6,
+          "layer": 2
+        }
+      },
+      {
+        "speed_multi": {
+          "type": "label",
+          "text": "Speed",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            30,
+            "default"
+          ],
+          "offset": [
+            74,
+            0
+          ],
+          "text_alignment": "center",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.5,
+          "layer": 2
+        }
+      },
+      {
+        "efficiency": {
+          "type": "label",
+          "text": "Efficiency",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            28,
+            "default"
+          ],
+          "offset": [
+            103,
+            0
+          ],
+          "text_alignment": "center",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.5,
+          "layer": 2
+        }
+      }
+    ]
+  },
+  "seed_soil_strip": {
+    "type": "panel",
+    "size": [
+      126,
+      18
+    ],
+    "$soil_texture|default": "",
+    "$soil_name|default": "",
+    "$soil_speed_text|default": "x1",
+    "$soil_efficiency_text|default": "x1",
+    "controls": [
+      {
+        "background": {
+          "type": "image",
+          "texture": "textures/ui/gray_bg_border",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            126,
+            18
+          ],
+          "offset": [
+            54,
+            0
+          ],
+          "layer": -2
+        }
+      },
+      {
+        "soil_icon": {
+          "type": "image",
+          "texture": "$soil_texture",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            14,
+            14
+          ],
+          "offset": [
+            56,
+            2
+          ],
+          "layer": 1
+        }
+      },
+      {
+        "soil_name": {
+          "type": "label",
+          "text": "$soil_name",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            50,
+            "default"
+          ],
+          "offset": [
+            34,
+            0
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.6,
+          "layer": 2
+        }
+      },
+      {
+        "speed_multi": {
+          "type": "label",
+          "text": "$soil_speed_text",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            30,
+            "default"
+          ],
+          "offset": [
+            74,
+            0
+          ],
+          "text_alignment": "center",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.6,
+          "layer": 2
+        }
+      },
+      {
+        "efficiency": {
+          "type": "label",
+          "text": "$soil_efficiency_text",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [
+            28,
+            "default"
+          ],
+          "offset": [
+            103,
+            0
+          ],
+          "text_alignment": "center",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.55,
+          "layer": 2
+        }
+      }
+    ]
+  },
+  "seed_category_row": {
+    "type": "panel",
+    "size": [
+      126,
+      18
+    ],
+    "controls": [
+      {
+        "trees_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 0,
+          "$toggle_default_state": true,
+          "$toggle_hover_text": "Trees",
+          "$toggle_control_name": "seed_trees_category",
+          "$recipe_icon": "textures/blocks/sapling_oak",
+          "offset": [
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "plants_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 1,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "Plants",
+          "$toggle_control_name": "seed_plants_category",
+          "$recipe_icon": "textures/items/seeds_wheat",
+          "offset": [
+            18,
+            0
+          ]
+        }
+      },
+      {
+        "resources_tier_1_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 2,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "Tier I",
+          "$toggle_control_name": "seed_resources_tier_1_category",
+          "$recipe_icon": "textures/items/seeds/coal_seeds",
+          "offset": [
+            36,
+            0
+          ]
+        }
+      },
+      {
+        "resources_tier_2_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 3,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "Tier II",
+          "$toggle_control_name": "seed_resources_tier_2_category",
+          "$recipe_icon": "textures/items/seeds/redstone_seeds",
+          "offset": [
+            54,
+            0
+          ]
+        }
+      },
+      {
+        "resources_tier_3_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 4,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "Tier III",
+          "$toggle_control_name": "seed_resources_tier_3_category",
+          "$recipe_icon": "textures/items/seeds/diamond_seeds",
+          "offset": [
+            72,
+            0
+          ]
+        }
+      },
+      {
+        "resources_tier_4_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 5,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "Tier IV",
+          "$toggle_control_name": "seed_resources_tier_4_category",
+          "$recipe_icon": "textures/items/seeds/netherite_seeds",
+          "offset": [
+            90,
+            0
+          ]
+        }
+      },
+      {
+        "soils_category_toggle@uc.seed_category_toggle": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "$toggle_index": 6,
+          "$toggle_default_state": false,
+          "$toggle_hover_text": "Soils",
+          "$toggle_control_name": "seed_soils_category",
+          "$recipe_icon": "textures/blocks/crops/soil_1",
+          "offset": [
+            108,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "seed_trees_plant_rows": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      36
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "input_row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "acacia_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 0,
+                "$toggle_default_state": true,
+                "$toggle_hover_text": "Acacia Sapling",
+                "$toggle_control_name": "seed_acacia_sapling_recipe",
+                "$recipe_icon": "textures/blocks/sapling_acacia",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "azalea_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 1,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Azalea",
+                "$toggle_control_name": "seed_azalea_recipe",
+                "$recipe_icon": "textures/blocks/azalea_plant",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "flowering_azalea_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 2,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Flowering Azalea",
+                "$toggle_control_name": "seed_flowering_azalea_recipe",
+                "$recipe_icon": "textures/blocks/flowering_azalea_side",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "apple_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 3,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Apple Sapling",
+                "$toggle_control_name": "seed_apple_sapling_recipe",
+                "$recipe_icon": "textures/items/misc/apple_tree",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "birch_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 4,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Birch Sapling",
+                "$toggle_control_name": "seed_birch_sapling_recipe",
+                "$recipe_icon": "textures/blocks/sapling_birch",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "cherry_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 5,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Cherry Sapling",
+                "$toggle_control_name": "seed_cherry_sapling_recipe",
+                "$recipe_icon": "textures/blocks/cherry_sapling",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            },
+            {
+              "dark_oak_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 6,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Dark Oak Sapling",
+                "$toggle_control_name": "seed_dark_oak_sapling_recipe",
+                "$recipe_icon": "textures/blocks/sapling_roofed_oak",
+                "offset": [
+                  108,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_1": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "jungle_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 7,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Jungle Sapling",
+                "$toggle_control_name": "seed_jungle_sapling_recipe",
+                "$recipe_icon": "textures/blocks/sapling_jungle",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "mangrove_propagule_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 8,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Mangrove Propagule",
+                "$toggle_control_name": "seed_mangrove_propagule_recipe",
+                "$recipe_icon": "textures/blocks/mangrove_propagule",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "oak_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 9,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Oak Sapling",
+                "$toggle_control_name": "seed_oak_sapling_recipe",
+                "$recipe_icon": "textures/blocks/sapling_oak",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "pale_oak_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 10,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Pale Oak Sapling",
+                "$toggle_control_name": "seed_pale_oak_sapling_recipe",
+                "$recipe_icon": "textures/blocks/pale_oak_sapling",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "spruce_sapling_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 11,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Spruce Sapling",
+                "$toggle_control_name": "seed_spruce_sapling_recipe",
+                "$recipe_icon": "textures/blocks/sapling_spruce",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "crimson_fungus_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 12,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Crimson Fungus",
+                "$toggle_control_name": "seed_crimson_fungus_recipe",
+                "$recipe_icon": "textures/blocks/crimson_fungus",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            },
+            {
+              "warped_fungus_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_trees_inputs",
+                "$toggle_index": 13,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Warped Fungus",
+                "$toggle_control_name": "seed_warped_fungus_recipe",
+                "$recipe_icon": "textures/blocks/warped_fungus",
+                "offset": [
+                  108,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_trees_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_trees_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "plant_rows@uc.seed_trees_plant_rows": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.seed_drop_result_header": {}
+      },
+      {
+        "plant_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "acacia_sapling_results@uc.seed_acacia_sapling_results": {}
+            },
+            {
+              "azalea_results@uc.seed_azalea_results": {}
+            },
+            {
+              "flowering_azalea_results@uc.seed_flowering_azalea_results": {}
+            },
+            {
+              "apple_sapling_results@uc.seed_apple_sapling_results": {}
+            },
+            {
+              "birch_sapling_results@uc.seed_birch_sapling_results": {}
+            },
+            {
+              "cherry_sapling_results@uc.seed_cherry_sapling_results": {}
+            },
+            {
+              "dark_oak_sapling_results@uc.seed_dark_oak_sapling_results": {}
+            },
+            {
+              "jungle_sapling_results@uc.seed_jungle_sapling_results": {}
+            },
+            {
+              "mangrove_propagule_results@uc.seed_mangrove_propagule_results": {}
+            },
+            {
+              "oak_sapling_results@uc.seed_oak_sapling_results": {}
+            },
+            {
+              "pale_oak_sapling_results@uc.seed_pale_oak_sapling_results": {}
+            },
+            {
+              "spruce_sapling_results@uc.seed_spruce_sapling_results": {}
+            },
+            {
+              "crimson_fungus_results@uc.seed_crimson_fungus_results": {}
+            },
+            {
+              "warped_fungus_results@uc.seed_warped_fungus_results": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_plants_plant_rows": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      54
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "input_row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "bamboo_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 0,
+                "$toggle_default_state": true,
+                "$toggle_hover_text": "Bamboo",
+                "$toggle_control_name": "seed_bamboo_recipe",
+                "$recipe_icon": "textures/items/bamboo",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "beetroot_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 1,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Beetroot Seeds",
+                "$toggle_control_name": "seed_beetroot_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds_beetroot",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "cactus_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 2,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Cactus",
+                "$toggle_control_name": "seed_cactus_recipe",
+                "$recipe_icon": "textures/blocks/cactus_side",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "carrot_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 3,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Carrot",
+                "$toggle_control_name": "seed_carrot_recipe",
+                "$recipe_icon": "textures/items/carrot",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "chorus_fruit_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 4,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Chorus Fruit",
+                "$toggle_control_name": "seed_chorus_fruit_recipe",
+                "$recipe_icon": "textures/items/chorus_fruit",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "chorus_flower_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 5,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Chorus Flower",
+                "$toggle_control_name": "seed_chorus_flower_recipe",
+                "$recipe_icon": "textures/blocks/chorus_flower",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            },
+            {
+              "kelp_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 6,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Kelp",
+                "$toggle_control_name": "seed_kelp_recipe",
+                "$recipe_icon": "textures/items/kelp",
+                "offset": [
+                  108,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_1": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "melon_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 7,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Melon Seeds",
+                "$toggle_control_name": "seed_melon_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds_melon",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "red_mushroom_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 8,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Red Mushroom",
+                "$toggle_control_name": "seed_red_mushroom_recipe",
+                "$recipe_icon": "textures/blocks/mushroom_red",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "brown_mushroom_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 9,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Brown Mushroom",
+                "$toggle_control_name": "seed_brown_mushroom_recipe",
+                "$recipe_icon": "textures/blocks/mushroom_brown",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "nether_wart_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 10,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Nether Wart",
+                "$toggle_control_name": "seed_nether_wart_recipe",
+                "$recipe_icon": "textures/items/nether_wart",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "potato_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 11,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Potato",
+                "$toggle_control_name": "seed_potato_recipe",
+                "$recipe_icon": "textures/items/potato",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "pumpkin_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 12,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Pumpkin Seeds",
+                "$toggle_control_name": "seed_pumpkin_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds_pumpkin",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            },
+            {
+              "sugar_cane_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 13,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Sugar Cane",
+                "$toggle_control_name": "seed_sugar_cane_recipe",
+                "$recipe_icon": "textures/items/reeds",
+                "offset": [
+                  108,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_2": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "sweet_berries_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 14,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Sweet Berries",
+                "$toggle_control_name": "seed_sweet_berries_recipe",
+                "$recipe_icon": "textures/items/sweet_berries",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "wheat_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 15,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Wheat Seeds",
+                "$toggle_control_name": "seed_wheat_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds_wheat",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "poppy_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 16,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Poppy",
+                "$toggle_control_name": "seed_poppy_recipe",
+                "$recipe_icon": "textures/blocks/flower_rose",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "glow_berries_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_plants_inputs",
+                "$toggle_index": 17,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Glow Berries",
+                "$toggle_control_name": "seed_glow_berries_recipe",
+                "$recipe_icon": "textures/items/glow_berries",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_plants_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_plants_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "plant_rows@uc.seed_plants_plant_rows": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.seed_drop_result_header": {}
+      },
+      {
+        "plant_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "bamboo_results@uc.seed_bamboo_results": {}
+            },
+            {
+              "beetroot_seeds_results@uc.seed_beetroot_seeds_results": {}
+            },
+            {
+              "cactus_results@uc.seed_cactus_results": {}
+            },
+            {
+              "carrot_results@uc.seed_carrot_results": {}
+            },
+            {
+              "chorus_fruit_results@uc.seed_chorus_fruit_results": {}
+            },
+            {
+              "chorus_flower_results@uc.seed_chorus_flower_results": {}
+            },
+            {
+              "kelp_results@uc.seed_kelp_results": {}
+            },
+            {
+              "melon_seeds_results@uc.seed_melon_seeds_results": {}
+            },
+            {
+              "red_mushroom_results@uc.seed_red_mushroom_results": {}
+            },
+            {
+              "brown_mushroom_results@uc.seed_brown_mushroom_results": {}
+            },
+            {
+              "nether_wart_results@uc.seed_nether_wart_results": {}
+            },
+            {
+              "potato_results@uc.seed_potato_results": {}
+            },
+            {
+              "pumpkin_seeds_results@uc.seed_pumpkin_seeds_results": {}
+            },
+            {
+              "sugar_cane_results@uc.seed_sugar_cane_results": {}
+            },
+            {
+              "sweet_berries_results@uc.seed_sweet_berries_results": {}
+            },
+            {
+              "wheat_seeds_results@uc.seed_wheat_seeds_results": {}
+            },
+            {
+              "poppy_results@uc.seed_poppy_results": {}
+            },
+            {
+              "glow_berries_results@uc.seed_glow_berries_results": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_1_plant_rows": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      36
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "input_row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "coal_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 0,
+                "$toggle_default_state": true,
+                "$toggle_hover_text": "Coal Seeds",
+                "$toggle_control_name": "seed_coal_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/coal_seeds",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "copper_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 1,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Copper Seeds",
+                "$toggle_control_name": "seed_copper_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/copper_seeds",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "dyes_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 2,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Dyes Seeds",
+                "$toggle_control_name": "seed_dyes_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/dye_seeds",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "glass_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 3,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Glass Seeds",
+                "$toggle_control_name": "seed_glass_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/glass_seeds",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "gunpowder_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 4,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Gunpowder Seeds",
+                "$toggle_control_name": "seed_gunpowder_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/gunpowder_seeds",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "iron_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 5,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Iron Seeds",
+                "$toggle_control_name": "seed_iron_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/iron_seeds",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            },
+            {
+              "leather_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 6,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Leather Seeds",
+                "$toggle_control_name": "seed_leather_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/leather_seeds",
+                "offset": [
+                  108,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_1": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "prismarine_crystals_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 7,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Prismarine Crystals Seeds",
+                "$toggle_control_name": "seed_prismarine_crystals_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/prismarine_crystals_seeds",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "prismarine_shards_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 8,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Prismarine Shards Seeds",
+                "$toggle_control_name": "seed_prismarine_shards_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/prismarine_shards_seeds",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "water_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 9,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Water Seeds",
+                "$toggle_control_name": "seed_water_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/water_seeds",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "wool_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_1_inputs",
+                "$toggle_index": 10,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Wool Seeds",
+                "$toggle_control_name": "seed_wool_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/wool_seeds",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_1_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_resources_tier_1_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "plant_rows@uc.seed_resources_tier_1_plant_rows": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.seed_drop_result_header": {}
+      },
+      {
+        "plant_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "coal_seeds_results@uc.seed_coal_seeds_results": {}
+            },
+            {
+              "copper_seeds_results@uc.seed_copper_seeds_results": {}
+            },
+            {
+              "dyes_seeds_results@uc.seed_dyes_seeds_results": {}
+            },
+            {
+              "glass_seeds_results@uc.seed_glass_seeds_results": {}
+            },
+            {
+              "gunpowder_seeds_results@uc.seed_gunpowder_seeds_results": {}
+            },
+            {
+              "iron_seeds_results@uc.seed_iron_seeds_results": {}
+            },
+            {
+              "leather_seeds_results@uc.seed_leather_seeds_results": {}
+            },
+            {
+              "prismarine_crystals_seeds_results@uc.seed_prismarine_crystals_seeds_results": {}
+            },
+            {
+              "prismarine_shards_seeds_results@uc.seed_prismarine_shards_seeds_results": {}
+            },
+            {
+              "water_seeds_results@uc.seed_water_seeds_results": {}
+            },
+            {
+              "wool_seeds_results@uc.seed_wool_seeds_results": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_2_plant_rows": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      36
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "input_row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "ghast_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 0,
+                "$toggle_default_state": true,
+                "$toggle_hover_text": "Ghast Seeds",
+                "$toggle_control_name": "seed_ghast_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/ghast_seeds",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "glowstone_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 1,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Glowstone Seeds",
+                "$toggle_control_name": "seed_glowstone_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/glowstone_seeds",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "gold_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 2,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Gold Seeds",
+                "$toggle_control_name": "seed_gold_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/gold_seeds",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "honey_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 3,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Honey Seeds",
+                "$toggle_control_name": "seed_honey_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/honey_seeds",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "lapis_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 4,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Lapis Seeds",
+                "$toggle_control_name": "seed_lapis_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/lapis_seeds",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "lava_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 5,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Lava Seeds",
+                "$toggle_control_name": "seed_lava_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/lava_seeds",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            },
+            {
+              "quartz_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 6,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Quartz Seeds",
+                "$toggle_control_name": "seed_quartz_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/quartz_seeds",
+                "offset": [
+                  108,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_1": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "redstone_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 7,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Redstone Seeds",
+                "$toggle_control_name": "seed_redstone_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/redstone_seeds",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "resin_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 8,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Resin Seeds",
+                "$toggle_control_name": "seed_resin_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/base_seeds",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "slime_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_2_inputs",
+                "$toggle_index": 9,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Slime Seeds",
+                "$toggle_control_name": "seed_slime_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/slime_seeds",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_2_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_resources_tier_2_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "plant_rows@uc.seed_resources_tier_2_plant_rows": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.seed_drop_result_header": {}
+      },
+      {
+        "plant_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "ghast_seeds_results@uc.seed_ghast_seeds_results": {}
+            },
+            {
+              "glowstone_seeds_results@uc.seed_glowstone_seeds_results": {}
+            },
+            {
+              "gold_seeds_results@uc.seed_gold_seeds_results": {}
+            },
+            {
+              "honey_seeds_results@uc.seed_honey_seeds_results": {}
+            },
+            {
+              "lapis_seeds_results@uc.seed_lapis_seeds_results": {}
+            },
+            {
+              "lava_seeds_results@uc.seed_lava_seeds_results": {}
+            },
+            {
+              "quartz_seeds_results@uc.seed_quartz_seeds_results": {}
+            },
+            {
+              "redstone_seeds_results@uc.seed_redstone_seeds_results": {}
+            },
+            {
+              "resin_seeds_results@uc.seed_resin_seeds_results": {}
+            },
+            {
+              "slime_seeds_results@uc.seed_slime_seeds_results": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_3_plant_rows": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      36
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "input_row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "amethyst_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_3_inputs",
+                "$toggle_index": 0,
+                "$toggle_default_state": true,
+                "$toggle_hover_text": "Amethyst Seeds",
+                "$toggle_control_name": "seed_amethyst_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/amethyst_seeds",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "blaze_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_3_inputs",
+                "$toggle_index": 1,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Blaze Seeds",
+                "$toggle_control_name": "seed_blaze_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/blaze_seeds",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "diamond_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_3_inputs",
+                "$toggle_index": 2,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Diamond Seeds",
+                "$toggle_control_name": "seed_diamond_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/diamond_seeds",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "emerald_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_3_inputs",
+                "$toggle_index": 3,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Emerald Seeds",
+                "$toggle_control_name": "seed_emerald_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/emerald_seeds",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "enderpearl_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_3_inputs",
+                "$toggle_index": 4,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Enderpearl Seeds",
+                "$toggle_control_name": "seed_enderpearl_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/ender_pearl_seeds",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            },
+            {
+              "obsidian_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_3_inputs",
+                "$toggle_index": 5,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Obsidian Seeds",
+                "$toggle_control_name": "seed_obsidian_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/obsidian_seeds",
+                "offset": [
+                  90,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_1": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_3_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_resources_tier_3_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "plant_rows@uc.seed_resources_tier_3_plant_rows": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.seed_drop_result_header": {}
+      },
+      {
+        "plant_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "amethyst_seeds_results@uc.seed_amethyst_seeds_results": {}
+            },
+            {
+              "blaze_seeds_results@uc.seed_blaze_seeds_results": {}
+            },
+            {
+              "diamond_seeds_results@uc.seed_diamond_seeds_results": {}
+            },
+            {
+              "emerald_seeds_results@uc.seed_emerald_seeds_results": {}
+            },
+            {
+              "enderpearl_seeds_results@uc.seed_enderpearl_seeds_results": {}
+            },
+            {
+              "obsidian_seeds_results@uc.seed_obsidian_seeds_results": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_4_plant_rows": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      36
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "input_row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": [
+            {
+              "nether_star_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_4_inputs",
+                "$toggle_index": 0,
+                "$toggle_default_state": true,
+                "$toggle_hover_text": "Nether Star Seeds",
+                "$toggle_control_name": "seed_nether_star_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/nether_star_seeds",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            },
+            {
+              "netherite_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_4_inputs",
+                "$toggle_index": 1,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Netherite Seeds",
+                "$toggle_control_name": "seed_netherite_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/netherite_seeds",
+                "offset": [
+                  18,
+                  0
+                ]
+              }
+            },
+            {
+              "shulker_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_4_inputs",
+                "$toggle_index": 2,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Shulker Seeds",
+                "$toggle_control_name": "seed_shulker_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/shulker_seeds",
+                "offset": [
+                  36,
+                  0
+                ]
+              }
+            },
+            {
+              "totem_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_4_inputs",
+                "$toggle_index": 3,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Totem Seeds",
+                "$toggle_control_name": "seed_totem_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/totem_seeds",
+                "offset": [
+                  54,
+                  0
+                ]
+              }
+            },
+            {
+              "wither_seeds_toggle@uc.seed_input_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_name": "seed_resources_tier_4_inputs",
+                "$toggle_index": 4,
+                "$toggle_default_state": false,
+                "$toggle_hover_text": "Wither Seeds",
+                "$toggle_control_name": "seed_wither_seeds_recipe",
+                "$recipe_icon": "textures/items/seeds/wither_seeds",
+                "offset": [
+                  72,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "input_row_1": {
+          "type": "panel",
+          "size": [
+            126,
+            18
+          ],
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_resources_tier_4_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_resources_tier_4_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "plant_rows@uc.seed_resources_tier_4_plant_rows": {}
+      },
+      {
+        "results_separator@uc.recipe_separator": {}
+      },
+      {
+        "results_header@uc.seed_drop_result_header": {}
+      },
+      {
+        "plant_result_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "nether_star_seeds_results@uc.seed_nether_star_seeds_results": {}
+            },
+            {
+              "netherite_seeds_results@uc.seed_netherite_seeds_results": {}
+            },
+            {
+              "shulker_seeds_results@uc.seed_shulker_seeds_results": {}
+            },
+            {
+              "totem_seeds_results@uc.seed_totem_seeds_results": {}
+            },
+            {
+              "wither_seeds_results@uc.seed_wither_seeds_results": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "seed_soils_category_content": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_soils_category",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "soil_header@uc.seed_soil_header": {}
+      },
+      {
+        "dirt_soil_strip@uc.seed_soil_strip": {
+          "$soil_texture": "textures/blocks/dirt",
+          "$soil_name": "Dirt",
+          "$soil_speed_text": "x1",
+          "$soil_efficiency_text": "x2"
+        }
+      },
+      {
+        "grass_block_soil_strip@uc.seed_soil_strip": {
+          "$soil_texture": "textures/blocks/grass_carried",
+          "$soil_name": "Grass Block",
+          "$soil_speed_text": "x1",
+          "$soil_efficiency_text": "x1.5"
+        }
+      },
+      {
+        "yellow_soil_soil_strip@uc.seed_soil_strip": {
+          "$soil_texture": "textures/blocks/crops/soil_1",
+          "$soil_name": "Yellow Soil",
+          "$soil_speed_text": "x1",
+          "$soil_efficiency_text": "x1"
+        }
+      },
+      {
+        "red_soil_soil_strip@uc.seed_soil_strip": {
+          "$soil_texture": "textures/blocks/crops/soil_2",
+          "$soil_name": "Red Soil",
+          "$soil_speed_text": "x2",
+          "$soil_efficiency_text": "x0.75"
+        }
+      },
+      {
+        "blue_soil_soil_strip@uc.seed_soil_strip": {
+          "$soil_texture": "textures/blocks/crops/soil_3",
+          "$soil_name": "Blue Soil",
+          "$soil_speed_text": "x3",
+          "$soil_efficiency_text": "x0.5"
+        }
+      },
+      {
+        "black_soil_soil_strip@uc.seed_soil_strip": {
+          "$soil_texture": "textures/blocks/crops/soil_4",
+          "$soil_name": "Black Soil",
+          "$soil_speed_text": "x4",
+          "$soil_efficiency_text": "x0.25"
+        }
+      },
+      {
+        "addon_soil_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_synthesizer_recipe_content": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "categories_label@uc.addon_recipe_separator": {
+          "$separator_label": "Categories"
+        }
+      },
+      {
+        "category_row@uc.seed_category_row": {}
+      },
+      {
+        "category_separator@uc.recipe_separator": {}
+      },
+      {
+        "category_views": {
+          "type": "panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "controls": [
+            {
+              "trees_content@uc.seed_trees_category_content": {}
+            },
+            {
+              "plants_content@uc.seed_plants_category_content": {}
+            },
+            {
+              "resources_tier_1_content@uc.seed_resources_tier_1_category_content": {}
+            },
+            {
+              "resources_tier_2_content@uc.seed_resources_tier_2_category_content": {}
+            },
+            {
+              "resources_tier_3_content@uc.seed_resources_tier_3_category_content": {}
+            },
+            {
+              "resources_tier_4_content@uc.seed_resources_tier_4_category_content": {}
+            },
+            {
+              "soils_content@uc.seed_soils_category_content": {}
+            }
+          ]
+        }
+      },
+      {
+        "bottom_padding": {
+          "type": "panel",
+          "size": [
+            126,
+            8
+          ]
+        }
+      }
+    ]
+  },
+  "seed_acacia_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_acacia_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "acacia_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_acacia",
+          "$result_item_name": "Acacia Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "acacia_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_acacia",
+          "$result_item_name": "Acacia Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "acacia_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/sapling_acacia",
+          "$result_item_name": "Acacia Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_azalea_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_azalea_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "oak_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_oak",
+          "$result_item_name": "Oak Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
+      {
+        "azalea_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/azalea_leaves",
+          "$result_item_name": "Azalea Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-5"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "azalea_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/azalea_plant",
+          "$result_item_name": "Azalea",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "flowering_azalea_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flowering_azalea_side",
+          "$result_item_name": "Flowering Azalea",
+          "$result_chance_text": "2%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_flowering_azalea_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_flowering_azalea_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "oak_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_oak",
+          "$result_item_name": "Oak Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
+      {
+        "flowering_azalea_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/azalea_leaves_flowers",
+          "$result_item_name": "Flowering Azalea Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-5"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "flowering_azalea_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flowering_azalea_side",
+          "$result_item_name": "Flowering Azalea",
+          "$result_chance_text": "20%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "spore_flower_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/spore_blossom",
+          "$result_item_name": "Spore Blossom",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_apple_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_apple_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_oak",
+          "$result_item_name": "Oak Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_oak",
+          "$result_item_name": "Oak Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "apple_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/misc/apple_tree",
+          "$result_item_name": "Apple Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "apple_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/apple",
+          "$result_item_name": "Apple",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "enchanted_golden_apple_5_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/apple_golden",
+          "$result_item_name": "Enchanted Golden Apple",
+          "$result_chance_text": "0.01%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "golden_apple_6_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/apple_golden",
+          "$result_item_name": "Golden Apple",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_birch_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_birch_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "birch_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_birch",
+          "$result_item_name": "Birch Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "birch_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_birch",
+          "$result_item_name": "Birch Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "birch_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/sapling_birch",
+          "$result_item_name": "Birch Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_cherry_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_cherry_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cherry_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/cherry_log_side",
+          "$result_item_name": "Cherry Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "cherry_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/cherry_leaves",
+          "$result_item_name": "Cherry Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "cherry_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/cherry_sapling",
+          "$result_item_name": "Cherry Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_dark_oak_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_dark_oak_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "dark_oak_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_big_oak",
+          "$result_item_name": "Dark Oak Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "dark_oak_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_big_oak",
+          "$result_item_name": "Dark Oak Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "dark_oak_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/sapling_roofed_oak",
+          "$result_item_name": "Dark Oak Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_jungle_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_jungle_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "jungle_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_jungle",
+          "$result_item_name": "Jungle Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "jungle_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_jungle",
+          "$result_item_name": "Jungle Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "cocoa_beans_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_brown",
+          "$result_item_name": "Cocoa Beans",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "stick_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "jungle_sapling_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/sapling_jungle",
+          "$result_item_name": "Jungle Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_mangrove_propagule_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_mangrove_propagule_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "mangrove_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/mangrove_log_side",
+          "$result_item_name": "Mangrove Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "mangrove_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/mangrove_leaves",
+          "$result_item_name": "Mangrove Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "mangrove_propagule_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/mangrove_propagule",
+          "$result_item_name": "Mangrove Propagule",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_oak_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_oak_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_oak",
+          "$result_item_name": "Oak Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_oak",
+          "$result_item_name": "Oak Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "oak_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/sapling_oak",
+          "$result_item_name": "Oak Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_pale_oak_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_pale_oak_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "pale_oak_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/pale_oak_log_side",
+          "$result_item_name": "Pale Oak Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "pale_oak_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/pale_oak_leaves",
+          "$result_item_name": "Pale Oak Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "resin_clump_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/resin_clump",
+          "$result_item_name": "Resin Clump",
+          "$result_chance_text": "3%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "pale_oak_sapling_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/pale_oak_sapling",
+          "$result_item_name": "Pale Oak Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_spruce_sapling_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_spruce_sapling_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "spruce_log_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/log_spruce",
+          "$result_item_name": "Spruce Log",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "spruce_leaves_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/leaves_spruce",
+          "$result_item_name": "Spruce Leaves",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "stick_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "spruce_sapling_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/sapling_spruce",
+          "$result_item_name": "Spruce Sapling",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_bamboo_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_bamboo_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "bamboo_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/bamboo",
+          "$result_item_name": "Bamboo",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_beetroot_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_beetroot_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "beetroot_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/beetroot",
+          "$result_item_name": "Beetroot",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "beetroot_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds_beetroot",
+          "$result_item_name": "Beetroot Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_cactus_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_cactus_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "cactus_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/cactus_side",
+          "$result_item_name": "Cactus",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_carrot_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_carrot_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "carrot_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/carrot",
+          "$result_item_name": "Carrot",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "golden_carrot_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/carrot_golden",
+          "$result_item_name": "Golden Carrot",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_chorus_fruit_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_chorus_fruit_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "chorus_fruit_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/chorus_fruit",
+          "$result_item_name": "Chorus Fruit",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "chorus_flower_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/chorus_flower",
+          "$result_item_name": "Chorus Flower",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_chorus_flower_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_chorus_flower_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "chorus_fruit_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/chorus_fruit",
+          "$result_item_name": "Chorus Fruit",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "chorus_flower_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/chorus_flower",
+          "$result_item_name": "Chorus Flower",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_crimson_fungus_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_crimson_fungus_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "crimson_stem_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/huge_fungus/crimson_log_side",
+          "$result_item_name": "Crimson Stem",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "nether_wart_block_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/nether_wart_block",
+          "$result_item_name": "Nether Wart Block",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "shroomlight_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/shroomlight",
+          "$result_item_name": "Shroomlight",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "stick_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "crimson_fungus_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/crimson_fungus",
+          "$result_item_name": "Crimson Fungus",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_kelp_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_kelp_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "kelp_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/kelp",
+          "$result_item_name": "Kelp",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_melon_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_melon_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "melon_slice_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/melon",
+          "$result_item_name": "Melon Slice",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "melon_block_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/melon_side",
+          "$result_item_name": "Melon",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_red_mushroom_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_red_mushroom_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "red_mushroom_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/mushroom_red",
+          "$result_item_name": "Red Mushroom",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_brown_mushroom_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_brown_mushroom_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "brown_mushroom_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/mushroom_brown",
+          "$result_item_name": "Brown Mushroom",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_nether_wart_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_nether_wart_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "nether_wart_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/nether_wart",
+          "$result_item_name": "Nether Wart",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_potato_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_potato_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "potato_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/potato",
+          "$result_item_name": "Potato",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "poisonous_potato_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/potato_poisonous",
+          "$result_item_name": "Poisonous Potato",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_pumpkin_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_pumpkin_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "pumpkin_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/pumpkin_side",
+          "$result_item_name": "Pumpkin",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "pumpkin_pie_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pumpkin_pie",
+          "$result_item_name": "Pumpkin Pie",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_sugar_cane_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_sugar_cane_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "sugar_cane_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/reeds",
+          "$result_item_name": "Sugar Cane",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_sweet_berries_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_sweet_berries_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "sweet_berries_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/sweet_berries",
+          "$result_item_name": "Sweet Berries",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_warped_fungus_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_warped_fungus_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "warped_stem_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/huge_fungus/warped_stem_side",
+          "$result_item_name": "Warped Stem",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-10"
+        }
+      },
+      {
+        "warped_wart_block_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/warped_wart_block",
+          "$result_item_name": "Warped Wart Block",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-4"
+        }
+      },
+      {
+        "shroomlight_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/shroomlight",
+          "$result_item_name": "Shroomlight",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "stick_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/stick",
+          "$result_item_name": "Stick",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x0-6"
+        }
+      },
+      {
+        "warped_fungus_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/warped_fungus",
+          "$result_item_name": "Warped Fungus",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_wheat_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_wheat_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "wheat_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/wheat",
+          "$result_item_name": "Wheat",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "wheat_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds_wheat",
+          "$result_item_name": "Wheat Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "bread_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/bread",
+          "$result_item_name": "Bread",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_poppy_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_poppy_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "dandelion_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_dandelion",
+          "$result_item_name": "Dandelion",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "poppy_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_rose",
+          "$result_item_name": "Poppy",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "blue_orchid_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_blue_orchid",
+          "$result_item_name": "Blue Orchid",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "allium_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_allium",
+          "$result_item_name": "Allium",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "azure_bluet_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_houstonia",
+          "$result_item_name": "Azure Bluet",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "red_tulip_5_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_tulip_red",
+          "$result_item_name": "Red Tulip",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "orange_tulip_6_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_tulip_orange",
+          "$result_item_name": "Orange Tulip",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "white_tulip_7_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_tulip_white",
+          "$result_item_name": "White Tulip",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pink_tulip_8_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_tulip_pink",
+          "$result_item_name": "Pink Tulip",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "oxeye_daisy_9_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_oxeye_daisy",
+          "$result_item_name": "Oxeye Daisy",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "cornflower_10_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_cornflower",
+          "$result_item_name": "Cornflower",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "lily_of_the_valley_11_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/flower_lily_of_the_valley",
+          "$result_item_name": "Lily Of The Valley",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "sunflower_12_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/double_plant_sunflower_front",
+          "$result_item_name": "Sunflower",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "lilac_13_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/double_plant_syringa_top",
+          "$result_item_name": "Lilac",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "rose_bush_14_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/double_plant_rose_top",
+          "$result_item_name": "Rose Bush",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "peony_15_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/double_plant_paeonia_top",
+          "$result_item_name": "Peony",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pitcher_plant_16_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/pitcher_crop_top_stage_4",
+          "$result_item_name": "Pitcher Plant",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "torchflower_17_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/torchflower",
+          "$result_item_name": "Torchflower",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "cactus_flower_18_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/cactus_flower",
+          "$result_item_name": "Cactus Flower",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_glow_berries_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_glow_berries_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "glow_berries_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/glow_berries",
+          "$result_item_name": "Glow Berries",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-16"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_coal_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_coal_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "coal_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/coal",
+          "$result_item_name": "Coal",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "coal_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/coal_seeds",
+          "$result_item_name": "Coal Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_copper_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_copper_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "raw_copper_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/raw_copper",
+          "$result_item_name": "Raw Copper",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "copper_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/copper_seeds",
+          "$result_item_name": "Copper Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_dyes_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_dyes_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "black_dye_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_black",
+          "$result_item_name": "Black Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "blue_dye_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_blue",
+          "$result_item_name": "Blue Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "brown_dye_2_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_brown",
+          "$result_item_name": "Brown Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "cyan_dye_3_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_cyan",
+          "$result_item_name": "Cyan Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "gray_dye_4_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_gray",
+          "$result_item_name": "Gray Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "green_dye_5_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_green",
+          "$result_item_name": "Green Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "light_blue_dye_6_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_light_blue",
+          "$result_item_name": "Light Blue Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "light_gray_dye_7_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_silver",
+          "$result_item_name": "Light Gray Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "lime_dye_8_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_lime",
+          "$result_item_name": "Lime Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "magenta_dye_9_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_magenta",
+          "$result_item_name": "Magenta Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "orange_dye_10_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_orange",
+          "$result_item_name": "Orange Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "pink_dye_11_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_pink",
+          "$result_item_name": "Pink Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "purple_dye_12_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_purple",
+          "$result_item_name": "Purple Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "red_dye_13_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_red",
+          "$result_item_name": "Red Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "white_dye_14_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_white",
+          "$result_item_name": "White Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "yellow_dye_15_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_yellow",
+          "$result_item_name": "Yellow Dye",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "dyes_seeds_16_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/dye_seeds",
+          "$result_item_name": "Dyes Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_glass_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_glass_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "glass_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/glass",
+          "$result_item_name": "Glass",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-16"
+        }
+      },
+      {
+        "glass_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/glass_seeds",
+          "$result_item_name": "Glass Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_gunpowder_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_gunpowder_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "gunpowder_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/gunpowder",
+          "$result_item_name": "Gunpowder",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "gunpowder_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/gunpowder_seeds",
+          "$result_item_name": "Gunpowder Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_iron_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_iron_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "raw_iron_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/raw_iron",
+          "$result_item_name": "Raw Iron",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "iron_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/iron_seeds",
+          "$result_item_name": "Iron Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_leather_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_leather_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "leather_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/leather",
+          "$result_item_name": "Leather",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "leather_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/leather_seeds",
+          "$result_item_name": "Leather Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_prismarine_crystals_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_prismarine_crystals_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "prismarine_crystals_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_crystals",
+          "$result_item_name": "Prismarine Crystals",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-12"
+        }
+      },
+      {
+        "prismarine_crystals_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/prismarine_crystals_seeds",
+          "$result_item_name": "Prismarine Crystals Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_prismarine_shards_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_prismarine_shards_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "prismarine_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/prismarine_shard",
+          "$result_item_name": "Prismarine Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-12"
+        }
+      },
+      {
+        "prismarine_shards_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/prismarine_shards_seeds",
+          "$result_item_name": "Prismarine Shards Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_water_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_water_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "water_ball_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/misc/waterball",
+          "$result_item_name": "Water Ball",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "water_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/water_seeds",
+          "$result_item_name": "Water Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_wool_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_wool_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "wool_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/wool_colored_white",
+          "$result_item_name": "Wool",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "wool_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/wool_seeds",
+          "$result_item_name": "Wool Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_ghast_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_ghast_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "ghast_tear_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/ghast_tear",
+          "$result_item_name": "Ghast Tear",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "ghast_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/ghast_seeds",
+          "$result_item_name": "Ghast Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_glowstone_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_glowstone_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "glowstone_dust_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/glowstone_dust",
+          "$result_item_name": "Glowstone Dust",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "glowstone_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/glowstone_seeds",
+          "$result_item_name": "Glowstone Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_gold_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_gold_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "raw_gold_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/raw_gold",
+          "$result_item_name": "Raw Gold",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "gold_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/gold_seeds",
+          "$result_item_name": "Gold Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_honey_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_honey_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "honey_ball_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/misc/honey_ball",
+          "$result_item_name": "Honey Ball",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "honey_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/honey_seeds",
+          "$result_item_name": "Honey Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_lapis_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_lapis_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "lapis_lazuli_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/dye_powder_blue",
+          "$result_item_name": "Lapis Lazuli",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
+      {
+        "lapis_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/lapis_seeds",
+          "$result_item_name": "Lapis Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_lava_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_lava_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "lava_ball_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/misc/lavaball",
+          "$result_item_name": "Lava Ball",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "lava_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/lava_seeds",
+          "$result_item_name": "Lava Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_quartz_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_quartz_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "quartz_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/quartz",
+          "$result_item_name": "Nether Quartz",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "quartz_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/quartz_seeds",
+          "$result_item_name": "Quartz Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_redstone_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_redstone_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "redstone_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/redstone_dust",
+          "$result_item_name": "Redstone",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-8"
+        }
+      },
+      {
+        "redstone_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/redstone_seeds",
+          "$result_item_name": "Redstone Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_resin_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_resin_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "resin_clump_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/resin_clump",
+          "$result_item_name": "Resin Clump",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "resin_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/base_seeds",
+          "$result_item_name": "Resin Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_slime_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_slime_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "slime_ball_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/slimeball",
+          "$result_item_name": "Slime Ball",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-3"
+        }
+      },
+      {
+        "slime_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/slime_seeds",
+          "$result_item_name": "Slime Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_amethyst_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_amethyst_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "amethyst_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/amethyst_shard",
+          "$result_item_name": "Amethyst Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-4"
+        }
+      },
+      {
+        "amethyst_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/amethyst_seeds",
+          "$result_item_name": "Amethyst Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_blaze_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_blaze_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "blaze_rod_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/blaze_rod",
+          "$result_item_name": "Blaze Rod",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "blaze_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/blaze_seeds",
+          "$result_item_name": "Blaze Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_diamond_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_diamond_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "diamond_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/diamond_shard",
+          "$result_item_name": "Diamond Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "diamond_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/diamond_seeds",
+          "$result_item_name": "Diamond Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_emerald_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_emerald_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "emerald_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/emerald_shard",
+          "$result_item_name": "Emerald Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "emerald_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/emerald_seeds",
+          "$result_item_name": "Emerald Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_enderpearl_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_enderpearl_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "ender_pearl_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/ender_pearl",
+          "$result_item_name": "Ender Pearl",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "enderpearl_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/ender_pearl_seeds",
+          "$result_item_name": "Enderpearl Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_obsidian_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_obsidian_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "obsidian_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/blocks/obsidian",
+          "$result_item_name": "Obsidian",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1-2"
+        }
+      },
+      {
+        "obsidian_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/obsidian_seeds",
+          "$result_item_name": "Obsidian Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_nether_star_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_nether_star_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "nether_star_fragment_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/nether_star_fragment",
+          "$result_item_name": "Nether Star Fragment",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "nether_star_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/nether_star_seeds",
+          "$result_item_name": "Nether Star Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_netherite_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_netherite_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "netherite_nugget_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/ores/netherite_nugget",
+          "$result_item_name": "Netherite Nugget",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "netherite_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/netherite_seeds",
+          "$result_item_name": "Netherite Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_shulker_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_shulker_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "shulker_shell_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/shulker_shell_shard",
+          "$result_item_name": "Shulker Shell Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "shulker_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/shulker_seeds",
+          "$result_item_name": "Shulker Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_totem_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_totem_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "totem_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/totem_shard",
+          "$result_item_name": "Totem Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "totem_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/totem_seeds",
+          "$result_item_name": "Totem Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_wither_seeds_results": {
+    "type": "stack_panel",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "orientation": "vertical",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "seed_wither_seeds_recipe",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "wither_skull_shard_0_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/pebbles/wither_skull_shard",
+          "$result_item_name": "Wither Skull Shard",
+          "$result_chance_text": "100%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "wither_seeds_1_strip@uc.seed_drop_result_strip": {
+          "$result_item_texture": "textures/items/seeds/wither_seeds",
+          "$result_item_name": "Wither Seeds",
+          "$result_chance_text": "5%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "addon_recipe_rows": {
+          "type": "stack_panel",
+          "size": [
+            126,
+            "100%c"
+          ],
+          "orientation": "vertical",
+          "controls": []
+        }
+      }
+    ]
+  },
+  "seed_synthesizer_recipes_side_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      154,
+      166
+    ],
+    "offset": [
+      -91,
+      0
+    ],
+    "layer": 10,
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "panel_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/background_panel",
+          "size": [
+            140,
+            145
+          ],
+          "offset": [
+            7,
+            10.5
+          ],
+          "layer": -5
+        }
+      },
+      {
+        "top_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/dark_top_tab",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [
+            140,
+            24
+          ],
+          "offset": [
+            7,
+            0
+          ],
+          "layer": -6
+        }
+      },
+      {
+        "title": {
+          "type": "label",
+          "text": "Drop Tables",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [
+            7,
+            7
+          ],
+          "color": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "layer": -3,
+          "font_scale_factor": 1
+        }
+      },
+      {
+        "recipes_grid_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_grid_bg",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": -4
+        }
+      },
+      {
+        "recipes_grid_border": {
+          "type": "image",
+          "texture": "textures/ui/background_border",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": 4
+        }
+      },
+      {
+        "recipes_scroll@common.scrolling_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            142,
+            130
+          ],
+          "offset": [
+            13,
+            -2
+          ],
+          "$show_background": false,
+          "layer": -2,
+          "$scroll_size": [
+            4,
+            "100% - 4px"
+          ],
+          "$scrolling_pane_size": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset": [
+            -2,
+            30
+          ],
+          "$scroll_view_port_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset": [
+            -44,
+            0
+          ],
+          "$scrolling_pane_size_touch": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset_touch": [
+            0,
+            30
+          ],
+          "$scroll_view_port_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset_touch": [
+            -46,
+            0
+          ],
+          "$scroll_size_touch": [
+            4,
+            "100% - 4px"
+          ],
+          "$scroll_box_visible_touch": true,
+          "$use_touch_mode": false,
+          "$scrolling_content": "uc.seed_synthesizer_recipe_content",
+          "$scroll_track_image_control": "common.empty_image"
+        }
+      }
+    ]
+  },
+  "seed_synthesizer_recipes_connector": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      12,
+      160
+    ],
+    "offset": [
+      -14,
+      0
+    ],
+    "layer": -20,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "connector_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_book_side_toggle_dark",
+          "size": [
+            12,
+            160
+          ],
+          "layer": 0
+        }
+      }
+    ]
+  }
+}

@@ -8,15 +8,29 @@
     "offset": [-10, -40],
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
+    "$energy_bar_offset|default": [-101, -13],
+    "$energy_bar_bg_texture|default": "textures/ui/toggle_button/left_bg",
+    "$right_machine_tabs_name|default": "right_machine_tabs",
+    "$upgrade_toggle_control_name|default": "upgrade_toggle_button",
+    "$io_toggle_control_name|default": "io_toggle_button",
+    "$io_config_tabs_name|default": "io_config_tabs",
+    "$io_items_toggle_control_name|default": "io_items_toggle_button",
+    "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
+    "$info_toggle_control_name|default": "info_toggle_button",
     "controls": [
       {
         "machine_name@uc.machine_name": {}
       },
       {
-        "machine_screen@uc.machine_small_screen": {}
+        "machine_screen@uc.machine_small_screen": {
+          "layer": 1
+        }
       },
       {
-        "energy_bar@uc.energy_bar": {}
+        "energy_bar@uc.energy_bar": {
+          "offset": "$energy_bar_offset",
+          "$bar_bg_texture": "$energy_bar_bg_texture"
+        }
       },
       {
         "machine_description@uc.text_label": {
@@ -69,10 +83,18 @@
         }
       },
       {
-        "upgrades_tab@uc.upgrades_tab": {}
+        "upgrades_tab@uc.upgrades_tab": {
+          "$right_machine_tabs_name": "$right_machine_tabs_name",
+          "$upgrade_toggle_control_name": "$upgrade_toggle_control_name"
+        }
       },
       {
         "io_tab@uc.io_tab": {
+          "$right_machine_tabs_name": "$right_machine_tabs_name",
+          "$io_toggle_control_name": "$io_toggle_control_name",
+          "$io_config_tabs_name": "$io_config_tabs_name",
+          "$io_items_toggle_control_name": "$io_items_toggle_control_name",
+          "$io_fluids_toggle_control_name": "$io_fluids_toggle_control_name",
           "$io_items_modes_description": "ui.utilitycraft:io.seed_synthesizer.items",
           "$io_top_texture": "textures/blocks/machines/seed_synthesizer_off_up",
           "$io_left_texture": "textures/blocks/machines/seed_synthesizer_off_west",
@@ -90,6 +112,8 @@
       },
       {
         "info_tab@uc.info_tab": {
+          "$right_machine_tabs_name": "$right_machine_tabs_name",
+          "$info_toggle_control_name": "$info_toggle_control_name",
           "$info_description": "ui.utilitycraft:info.seed_synthesizer"
         }
       }
@@ -139,24 +163,114 @@
           "layer": 1,
           "controls": [
             {
-              "common_panel@common.common_panel": {}
-            },
-            {
               "chest_panel": {
                 "type": "panel",
                 "layer": 5,
                 "controls": [
                   {
-                    "seed_synthesizer_top@seed_synthesizer.seed_synthesizer_top": {}
+                    "recipes_side_panel@uc.seed_synthesizer_recipes_side_panel": {}
                   },
                   {
-                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                    "recipes_connector@uc.seed_synthesizer_recipes_connector": {}
                   },
                   {
-                    "hotbar_grid@common.hotbar_grid_template": {}
+                    "normal_content": {
+                      "type": "panel",
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "recipes_toggle_button",
+                          "source_property_name": "(not (#toggle_state))",
+                          "target_property_name": "#visible",
+                          "resolve_sibling_scope": false
+                        }
+                      ],
+                      "controls": [
+                        {
+                          "common_panel@common.common_panel": {
+                            "$show_close_button": false
+                          }
+                        },
+                        {
+                          "view_top_bar@uc.machine_recipe_view_top_bar": {
+                            "$machine_toggle_unchecked": "textures/ui/toggle_button/tab_pressed",
+                            "$machine_toggle_checked": "textures/ui/toggle_button/tab_pressed",
+                            "$machine_toggle_unchecked_hover": "textures/ui/toggle_button/tab_hover_pressed",
+                            "$machine_toggle_checked_hover": "textures/ui/toggle_button/tab_hover_pressed",
+                            "$recipes_toggle_checked": "textures/ui/toggle_button/tab",
+                            "$recipes_toggle_checked_hover": "textures/ui/toggle_button/tab_hover"
+                          }
+                        },
+                        {
+                          "seed_synthesizer_top@seed_synthesizer.seed_synthesizer_top": {}
+                        },
+                        {
+                          "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                          "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                          "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                      ]
+                    }
                   },
                   {
-                    "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                    "recipes_content": {
+                      "type": "panel",
+                      "offset": [76, 0],
+                      "bindings": [
+                        {
+                          "binding_type": "view",
+                          "source_control_name": "recipes_toggle_button",
+                          "source_property_name": "#toggle_state",
+                          "target_property_name": "#visible",
+                          "resolve_sibling_scope": false
+                        }
+                      ],
+                      "controls": [
+                        {
+                          "common_panel@common.common_panel": {
+                            "$show_close_button": false
+                          }
+                        },
+                        {
+                          "view_top_bar@uc.machine_recipe_view_top_bar": {
+                            "$machine_toggle_default_state": false,
+                            "$recipes_toggle_default_state": true,
+                            "$machine_toggle_checked": "textures/ui/toggle_button/tab",
+                            "$machine_toggle_checked_hover": "textures/ui/toggle_button/tab_hover",
+                            "$recipes_toggle_unchecked": "textures/ui/toggle_button/tab_pressed",
+                            "$recipes_toggle_checked": "textures/ui/toggle_button/tab_pressed",
+                            "$recipes_toggle_unchecked_hover": "textures/ui/toggle_button/tab_hover_pressed",
+                            "$recipes_toggle_checked_hover": "textures/ui/toggle_button/tab_hover_pressed"
+                          }
+                        },
+                        {
+                          "seed_synthesizer_top@seed_synthesizer.seed_synthesizer_top": {
+                            "$energy_bar_offset": [97, 64],
+                            "$energy_bar_bg_texture": "textures/ui/toggle_button/right_bg",
+                            "$right_machine_tabs_name": "right_machine_tabs_recipes",
+                            "$upgrade_toggle_control_name": "upgrade_toggle_button_recipes",
+                            "$io_toggle_control_name": "io_toggle_button_recipes",
+                            "$io_config_tabs_name": "io_config_tabs_recipes",
+                            "$io_items_toggle_control_name": "io_items_toggle_button_recipes",
+                            "$io_fluids_toggle_control_name": "io_fluids_toggle_button_recipes",
+                            "$info_toggle_control_name": "info_toggle_button_recipes"
+                          }
+                        },
+                        {
+                          "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                          "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                          "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                      ]
+                    }
                   }
                 ]
               }

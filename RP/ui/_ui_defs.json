@@ -37,6 +37,7 @@
                     "ui/recipes/electro_press.json",
                     "ui/recipes/sieve.json",
                     "ui/recipes/fisher.json",
+                    "ui/recipes/seed_synthesizer.json",
                     "ui/recipes/magmatic_chamber.json"
                 ]
 }

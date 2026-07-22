@@ -1317,7 +1317,15 @@
         }
       },
       {
-        "stick_20_strip@uc.drop_table_result_strip": {
+        "heart_of_the_sea_20_strip@uc.drop_table_result_strip": {
+          "$result_item_texture": "textures/items/heartofthesea_closed",
+          "$result_item_name": "Heart of the Sea",
+          "$result_chance_text": "0.3%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
+        "stick_21_strip@uc.drop_table_result_strip": {
           "$result_item_texture": "textures/items/stick",
           "$result_item_name": "Stick",
           "$result_chance_text": "30%%",
@@ -1325,7 +1333,7 @@
         }
       },
       {
-        "leather_boots_21_strip@uc.drop_table_result_strip": {
+        "leather_boots_22_strip@uc.drop_table_result_strip": {
           "$result_item_texture": "textures/items/leather_boots",
           "$result_item_name": "Leather Boots",
           "$result_chance_text": "0.24%%",
@@ -1333,7 +1341,7 @@
         }
       },
       {
-        "sand_handful_22_strip@uc.drop_table_result_strip": {
+        "sand_handful_23_strip@uc.drop_table_result_strip": {
           "$result_item_texture": "textures/items/pebbles/sand_handful",
           "$result_item_name": "Sand Handful",
           "$result_chance_text": "6%%",

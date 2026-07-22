@@ -138,7 +138,7 @@ export const autoFisherLoot = [
         }
     },
     { item: 'minecraft:trident', amount: 1, chance: 0.0005, tier: 6 },
-    { item: 'minecraft:heart_of_the_sea', amount: 1, chance: 0.001, tier: 6 },
+    { item: 'minecraft:heart_of_the_sea', amount: 1, chance: 0.001, tier: 5 },
     { item: 'minecraft:stick', amount: [0, 2], chance: 0.10, tier: 0 },
     { 
         item: 'minecraft:leather_boots',
