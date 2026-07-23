@@ -5,10 +5,7 @@
 			"identifier": "utilitycraft:speed_upgrade"
 		},
 		"components": {
-			"utilitycraft:machine_upgrade": {
-				"type": "speed",
-				"value": 1
-			},
+			"utilitycraft:machine_upgrade": {},
 			"minecraft:icon": "utilitycraft_speed_upgrade",
 			"minecraft:tags": {
 				"tags": [

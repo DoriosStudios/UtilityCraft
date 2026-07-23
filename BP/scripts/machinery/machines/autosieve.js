@@ -73,17 +73,13 @@ DoriosLib.registry.blockComponent('utilitycraft:autosieve', {
             return;
         }
 
-        const upgrades = {
-            hasSpeed: machine.upgrades.speed !== 0,
-            hasEnergy: machine.upgrades.energy !== 0
-        };
-
-        // Base count of empty slots
+        // Base count of empty slots.
         let filledSlots = inv.emptySlotsCount;
 
-        // Subtract empty upgrade slots so they don't count as usable space
-        if (!upgrades.hasSpeed) filledSlots--;
-        if (!upgrades.hasEnergy) filledSlots--;
+        // Empty upgrade slots are UI capacity, not machine output capacity.
+        for (const slot of settings.machine.upgrades ?? []) {
+            if (!inv.getItem(slot)) filledSlots--;
+        }
 
         // Check how many items can still fit in the output slot
         if (filledSlots == 0) {

@@ -5,10 +5,7 @@
 			"identifier": "utilitycraft:range_upgrade"
 		},
 		"components": {
-			"utilitycraft:machine_upgrade": {
-				"type": "range",
-				"value": 1
-			},
+			"utilitycraft:machine_upgrade": {},
 			"minecraft:icon": "utilitycraft_range_upgrade",
 			"minecraft:tags": {
 				"tags": [

@@ -5,10 +5,7 @@
 			"identifier": "utilitycraft:energy_upgrade"
 		},
 		"components": {
-			"utilitycraft:machine_upgrade": {
-				"type": "energy",
-				"value": 1
-			},
+			"utilitycraft:machine_upgrade": {},
 			"minecraft:icon": "utilitycraft_energy_upgrade",
 			"minecraft:tags": {
 				"tags": [

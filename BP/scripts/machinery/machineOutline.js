@@ -84,7 +84,7 @@ function getInstalledRangeLevel(block, machineEntity) {
     const definition = getMachineUpgradeItemDefinition(item)
     if (!item || definition?.type !== "range") return 0
 
-    return Math.min(rangeSlot.max, item.amount * definition.value)
+    return Math.min(rangeSlot.max, definition.maxLevel, item.amount * definition.value)
 }
 
 function getFixedMachineTransform(block) {
@@ -162,9 +162,10 @@ export function syncHarvesterOutlineIfNeeded(machine) {
     const outline = findMachineOutlineEntity(machine?.block)
     if (!outline || !machine?.entity) return
 
-    const expectedSide = getHarvesterSide(machine.upgrades.range)
+    const range = Math.max(0, Math.floor(machine.boosts.range ?? 0))
+    const expectedSide = getHarvesterSide(range)
     if (outline.getProperty(OUTLINE_SIZE_PROPERTY) === expectedSide) return
-    syncMachineOutline(machine.block, outline, machine.entity, machine.upgrades.range)
+    syncMachineOutline(machine.block, outline, machine.entity, range)
 }
 
 async function openMachineOutlineMenu(block, player, machineEntity) {

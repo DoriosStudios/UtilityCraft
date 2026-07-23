@@ -62,9 +62,11 @@ DoriosLib.registry.blockComponent('utilitycraft:assembler', {
 
         let outputSlot = inv.getItem(OUTPUT_SLOT);
 
-        const speedFactor = machine.upgrades.speed <= 1
-            ? machine.upgrades.speed + 1
-            : machine.upgrades.speed ** 2;
+        const speedLevel = Math.max(0, Math.floor(machine.boosts.speed_level ?? 0));
+        const speedFactor = Math.min(
+            64,
+            speedLevel <= 1 ? speedLevel + 1 : speedLevel ** 2
+        );
 
         // --- 1) Validate blueprint ---
         const blueprint = inv.getItem(BLUEPRINT_SLOT);

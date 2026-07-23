@@ -36,7 +36,7 @@
  * @property {number} machine.energy_cost Energy consumed per operation.
  * @property {number} generator.fluidCap Maximum internal fluid capacity.
  * @property {number} machine.rate_speed_base Base processing rate (DE/t).
- * @property {number[]} machine.upgrades List of accepted upgrade IDs.
+ * @property {number[]} machine.upgrades Ordered inventory slots scanned for registered upgrades.
  */
 
 /**
@@ -55,23 +55,6 @@
  * @property {number} generator.rate_speed_base Base processing rate (DE/t).
  */
 
-
-/**
- * @global
- * @typedef {"energy" | "filter" | "quantity" | "range" | "speed" | "ultimate"} UpgradeType
- */
-
-/**
- * Object mapping upgrade levels by type.
- * Keys are autocompleted from UpgradeType.
- *
- * @global
- * @typedef {Object} UpgradeLevels
- * @property {number} energy
- * @property {number} range
- * @property {number} speed
- * @property {number} ultimate
- */
 
 /**
  * Parameters stored in a sieve mesh item.

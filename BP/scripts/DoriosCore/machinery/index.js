@@ -1,5 +1,6 @@
 export * from "./basicMachine.js"
 export * from "./machine.js"
+export * from "./machineUpgrades.js"
 export * from "./generator.js"
 export * from "./energyStorage.js"
 export * from "./fluidStorage.js"

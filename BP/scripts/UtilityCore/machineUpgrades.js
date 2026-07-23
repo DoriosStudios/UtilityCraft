@@ -1,6 +1,7 @@
 // @ts-check
 
 import * as DoriosLib from "DoriosLib/index.js";
+import { MachineUpgradeRegistry } from "DoriosCore/index.js";
 
 export const MACHINE_UPGRADES_COMPONENT_ID = "utilitycraft:machine_upgrades";
 export const MACHINE_UPGRADE_ITEM_COMPONENT_ID = "utilitycraft:machine_upgrade";
@@ -18,6 +19,7 @@ const DEFAULT_MAX_LEVEL = 8;
  * @typedef {object} MachineUpgradeItemDefinition
  * @property {string} type Semantic upgrade type installed by the item.
  * @property {number} value Effective levels contributed by each item in the stack.
+ * @property {number} maxLevel Highest registered level for this exact item.
  */
 
 /**
@@ -70,17 +72,13 @@ export function getMachineUpgradeSlots(block) {
  */
 export function getMachineUpgradeItemDefinition(item) {
   if (!item) return undefined;
-
-  const component = item.getComponent(MACHINE_UPGRADE_ITEM_COMPONENT_ID);
-  const rawParams = component?.customComponentParameters?.params;
-  if (!rawParams || typeof rawParams !== "object") return undefined;
-
-  const params = /** @type {{type?: unknown, value?: unknown}} */ (rawParams);
-  const type = typeof params.type === "string" ? params.type.trim() : "";
-  const value = Number(params.value ?? 1);
-  if (!type || !Number.isFinite(value) || value <= 0) return undefined;
-
-  return { type, value };
+  const definition = MachineUpgradeRegistry.get(item.typeId);
+  if (!definition) return undefined;
+  return {
+    type: definition.type,
+    value: definition.value,
+    maxLevel: definition.maxLevel,
+  };
 }
 
 /**
@@ -146,6 +144,7 @@ function installMachineUpgrade(event) {
   }
 
   const installedDefinition = getMachineUpgradeItemDefinition(installed);
+  const maxLevel = Math.min(target.max, itemDefinition.maxLevel);
   const currentLevel = installed
     ? installed.amount * (installedDefinition?.value ?? itemDefinition.value)
     : 0;
@@ -160,7 +159,7 @@ function installMachineUpgrade(event) {
 
   const currentAmount = installed?.amount ?? 0;
   const stackCapacity = (installed?.maxAmount ?? mainHand.maxAmount) - currentAmount;
-  const levelCapacity = Math.floor((target.max - currentLevel) / itemDefinition.value);
+  const levelCapacity = Math.floor((maxLevel - currentLevel) / itemDefinition.value);
   const availableAmount = DoriosLib.player.isCreative(player)
     ? Number.POSITIVE_INFINITY
     : mainHand.amount;
@@ -174,7 +173,7 @@ function installMachineUpgrade(event) {
 
   if (!Number.isFinite(amountToInstall) || amountToInstall <= 0) {
     player.onScreenDisplay.setActionBar(
-      upgradeMessage("message.utilitycraft.upgrade.max", itemStack.typeId, [target.max]),
+      upgradeMessage("message.utilitycraft.upgrade.max", itemStack.typeId, [maxLevel]),
     );
     return;
   }
@@ -215,7 +214,7 @@ function installMachineUpgrade(event) {
   }
 
   player.onScreenDisplay.setActionBar(
-    upgradeMessage("message.utilitycraft.upgrade.applied", itemStack.typeId, [nextLevel, target.max]),
+    upgradeMessage("message.utilitycraft.upgrade.applied", itemStack.typeId, [nextLevel, maxLevel]),
   );
 }
 

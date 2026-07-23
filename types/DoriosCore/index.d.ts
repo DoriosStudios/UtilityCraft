@@ -91,7 +91,7 @@ export interface MachineRuntimeConfig {
   gas_cap?: number;
   /** Number of independent indexed gas tanks stored by the entity. */
   gas_types?: number;
-  /** Upgrade slots scanned for speed/efficiency boosts. */
+  /** Ordered inventory slots scanned for registered machine upgrades. */
   upgrades?: number[];
 }
 
@@ -201,24 +201,47 @@ export interface WarningOptions extends ProgressOptions {
   displayProgress?: boolean;
 }
 
-/** Aggregated upgrade item counts detected in a machine upgrade slot set. */
-export interface UpgradeLevels {
-  /** Energy/efficiency upgrade count. */
-  energy: number;
-  /** Range upgrade count. */
-  range: number;
-  /** Speed upgrade count. */
-  speed: number;
-  /** Ultimate upgrade count. */
-  ultimate: number;
-}
-
-/** Effective multipliers calculated from upgrade levels. */
+/** Flat additive perk values resolved from all accepted machine upgrades. */
 export interface MachineBoosts {
-  /** Processing speed multiplier. */
+  /** Custom registered perks remain directly readable by name. */
+  [perk: string]: number;
+  /** Final processing speed multiplier, including the base value of 1. */
   speed: number;
+  /** Additive energy-efficiency bonus, where 0.2 means 20%. */
+  efficiency: number;
   /** Energy consumption multiplier. Lower values are more efficient. */
   consumption: number;
+}
+
+/** Script registration for one exact machine-upgrade item type id. */
+export interface MachineUpgradeRegistration {
+  /** Semantic category used to prevent equivalent upgrades from stacking. */
+  type: string;
+  /** Per-level additive perk contributions. Missing levels inherit the previous level. */
+  levels: Record<number, Record<string, number>> | Array<Record<string, number>>;
+  /** Effective levels contributed by each item in the installed stack. */
+  value?: number;
+}
+
+/** Machine-upgrade definition compiled for direct runtime lookup. */
+export interface CompiledMachineUpgrade {
+  itemTypeId: string;
+  type: string;
+  typeIndex: number;
+  value: number;
+  maxLevel: number;
+  levels: Array<Record<string, number>>;
+}
+
+/** Global script-only registry for machine upgrade items and their perks. */
+export class MachineUpgradeRegistry {
+  static register(itemTypeId: string, registration: MachineUpgradeRegistration): CompiledMachineUpgrade;
+  static get(itemTypeId: string): CompiledMachineUpgrade | undefined;
+  static resolveBoosts(
+    container: Container,
+    slots: number[] | undefined,
+    defaults?: Record<string, number>,
+  ): Record<string, number>;
 }
 
 /** Constructor options accepted by {@link BasicMachine}. */
@@ -582,9 +605,7 @@ export class BasicMachine {
 export class Machine extends BasicMachine {
   /** Full machine configuration passed into the constructor. */
   settings: MachineSettings;
-  /** Upgrade counts detected from configured upgrade slots. */
-  upgrades?: UpgradeLevels;
-  /** Effective speed and consumption multipliers calculated from upgrades. */
+  /** Global resolved upgrade perks, including custom registered values. */
   boosts: MachineBoosts;
 
   /** Creates a machine runtime bound to a machine block. */

@@ -51,7 +51,7 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
         syncHarvesterOutlineIfNeeded(machine)
 
         // --- Machine parameters ---
-        const range = machine.upgrades.range
+        const range = Math.max(0, Math.floor(machine.boosts.range ?? 0))
         const side = getHarvesterSide(range)
         const area = side ** 2;
 
@@ -139,7 +139,7 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
             }
 
             // Collect items back to machine center after delay
-            if (hasHarvesterCollection(machine.upgrades.range)) {
+            if (hasHarvesterCollection(range)) {
                 system.runTimeout(() => {
                     dimension.runCommand(
                         `tp @e[x=${x},y=${y - 1},z=${z},dx=${side},dz=${side},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`

@@ -6,6 +6,7 @@ import "./fluidContainers.js";
 import "./gasContainers.js";
 import "./infiniteTanks.js";
 import "./infiniteEnergySource.js";
+import "./upgradeRegister.js";
 import "./machineUpgrades.js";
 import "./upgradeable.js";
 
