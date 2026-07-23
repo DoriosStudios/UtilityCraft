@@ -12,6 +12,7 @@ import { InterfaceManager } from "../interfaces/index.js";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
 import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
 import { ensureGasIOConfig } from "../interfaces/gasIO.js";
+import { ensureBlockIOInterface } from "../interfaces/IOInterface.js";
 
 function translate(key) {
   return { translate: key };
@@ -130,6 +131,7 @@ export class Generator extends BasicMachine {
     const gas = gasLine ? GasStorage.getGasFromText(gasLine) : undefined;
 
     system.run(() => {
+      ensureBlockIOInterface(block);
       const entity = Utils.spawnEntity(block, config);
       const energyManager = new EnergyStorage(entity);
       energyManager.setCap(config.generator.energy_cap);

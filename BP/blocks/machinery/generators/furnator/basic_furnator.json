@@ -76,6 +76,7 @@
 			"minecraft:destructible_by_explosion": false,
 			"tag:dorios:generator": {},
 			"tag:dorios:io": {},
+			"tag:utilitycraft:io.furnator": {},
 			"tag:dorios:energy": {},
 			"tag:dorios:item": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {}

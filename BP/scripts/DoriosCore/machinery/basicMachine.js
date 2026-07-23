@@ -21,6 +21,7 @@ import * as Utils from "../utils/entity";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
 import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
 import { ensureGasIOConfig } from "../interfaces/gasIO.js";
+import { ensureBlockIOInterface } from "../interfaces/IOInterface.js";
 import { DIRECTIONS, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
@@ -58,6 +59,7 @@ export class BasicMachine {
     const inventory = this.entity.getComponent("inventory");
     if (!inventory) return;
     this.container = inventory.container;
+    ensureBlockIOInterface(block);
     this.baseRate = options.rate;
     this.processingInterval = TickScheduler.getProcessingInterval(this.entity);
     this.rate = options.rate * this.processingInterval;

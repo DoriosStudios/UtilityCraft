@@ -24,6 +24,21 @@ import {
 
 const FACES = RELATIVE_IO_FACES;
 
+/** Tagged IO templates keyed by their exact runtime block tag. */
+const blockTagDefinitions = new Map();
+
+/** Block types with a complete item/liquid/gas IO registration. */
+const registeredBlockTypes = new Set();
+
+/** Block types already checked for an exact registration or tagged fallback. */
+const resolvedBlockTypes = new Set();
+
+/** Tagged templates materialized as ordinary block-type registrations. */
+const materializedBlockTags = new Map();
+
+/** Conflicts already reported during the current registry revision. */
+const warnedTagConflicts = new Set();
+
 /** @typedef {"top"|"left"|"front"|"right"|"bottom"|"back"} IOFace */
 /** @typedef {import("./itemIO.js").ItemIOMode} ItemIOMode */
 /** @typedef {import("./fluidIO.js").FluidIOMode} FluidIOMode */
@@ -246,7 +261,7 @@ function addGasButtons(buttons, blockTypeId, definition, registeredDefinition, i
  * @param {IOInterfaceConfig} [config={}] Item/liquid declaration.
  * @returns {boolean} True when a backend group or visual interface was registered.
  */
-export function registerIOInterface(blockTypeId, config = {}) {
+function registerIOInterfaceDefinition(blockTypeId, config = {}, sourceTag) {
   if (typeof blockTypeId !== "string" || blockTypeId.length === 0) return false;
 
   /** @type {Record<string, any>} */
@@ -283,10 +298,123 @@ export function registerIOInterface(blockTypeId, config = {}) {
     InterfaceManager.linkBlockInterface(blockTypeId, interfaceId);
   }
 
+  if (registered) {
+    registeredBlockTypes.add(blockTypeId);
+    resolvedBlockTypes.add(blockTypeId);
+
+    if (sourceTag === undefined) {
+      materializedBlockTags.delete(blockTypeId);
+    } else {
+      materializedBlockTags.set(blockTypeId, sourceTag);
+    }
+  }
+
   return registered;
+}
+
+/**
+ * Registers a machine's IO policy directly for one exact block type.
+ * Exact registrations always take priority over tagged fallbacks.
+ *
+ * @param {string} blockTypeId Block identifier, e.g. `utilitycraft:infuser`.
+ * @param {IOInterfaceConfig} [config={}] Item/liquid/gas declaration.
+ * @returns {boolean} True when a backend group or visual interface was registered.
+ */
+export function registerIOInterface(blockTypeId, config = {}) {
+  return registerIOInterfaceDefinition(blockTypeId, config);
+}
+
+/**
+ * Registers a reusable IO template for one exact block tag.
+ *
+ * The template is not checked every tick. The first encountered block type
+ * carrying this tag is materialized through the ordinary block-type registry,
+ * after which all existing IO paths continue resolving by `block.typeId`.
+ *
+ * Runtime tag names do not include the JSON `tag:` component prefix.
+ *
+ * @param {string} blockTag Exact runtime tag, e.g. `utilitycraft:io.furnator`.
+ * @param {IOInterfaceConfig} [config={}] Item/liquid/gas declaration.
+ * @returns {boolean} True when the tagged template was stored.
+ */
+export function registerIOInterfaceForBlockTag(blockTag, config = {}) {
+  if (typeof blockTag !== "string" || blockTag.length === 0 || blockTag.startsWith("tag:")) {
+    return false;
+  }
+  if (!config || typeof config !== "object" || Array.isArray(config)) return false;
+
+  blockTagDefinitions.set(blockTag, config);
+  resolvedBlockTypes.clear();
+  warnedTagConflicts.clear();
+
+  // Tagged definitions are normally installed before gameplay. Supporting an
+  // update here keeps already materialized external block types deterministic.
+  for (const [blockTypeId, materializedTag] of materializedBlockTags) {
+    if (materializedTag !== blockTag) continue;
+    registerIOInterfaceDefinition(blockTypeId, config, blockTag);
+  }
+
+  return true;
+}
+
+/**
+ * Returns whether one exact block type already owns a complete IO registration.
+ *
+ * @param {string} blockTypeId Block identifier.
+ * @returns {boolean}
+ */
+export function hasRegisteredIOInterface(blockTypeId) {
+  return typeof blockTypeId === "string" && registeredBlockTypes.has(blockTypeId);
+}
+
+/**
+ * Resolves a tagged IO template for a block type that has no exact registration.
+ *
+ * Resolution is cached per block type. Exactly one registered family tag must
+ * match; ambiguous blocks fail closed instead of depending on tag order.
+ *
+ * @param {import("@minecraft/server").Block|undefined} block Block to resolve.
+ * @returns {boolean} True when the block type has a usable IO registration.
+ */
+export function ensureBlockIOInterface(block) {
+  const blockTypeId = block?.typeId;
+  if (typeof blockTypeId !== "string" || blockTypeId.length === 0) return false;
+
+  if (registeredBlockTypes.has(blockTypeId)) {
+    resolvedBlockTypes.add(blockTypeId);
+    return true;
+  }
+  if (resolvedBlockTypes.has(blockTypeId)) return false;
+
+  let tags;
+  try {
+    tags = block.getTags();
+  } catch {
+    return false;
+  }
+
+  const matches = tags.filter((tag) => blockTagDefinitions.has(tag));
+  resolvedBlockTypes.add(blockTypeId);
+
+  if (matches.length === 0) return false;
+  if (matches.length > 1) {
+    if (!warnedTagConflicts.has(blockTypeId)) {
+      warnedTagConflicts.add(blockTypeId);
+      console.warn(
+        `[DoriosCore:IOInterface] ${blockTypeId} has multiple registered IO family tags: ${matches.join(", ")}`,
+      );
+    }
+    return false;
+  }
+
+  const blockTag = matches[0];
+  return registerIOInterfaceDefinition(blockTypeId, blockTagDefinitions.get(blockTag), blockTag);
 }
 
 /** Namespace-style export for callers that prefer `IOInterface.registerIOInterface`. */
 export const IOInterface = {
+  ensureBlockIOInterface,
+  hasRegisteredIOInterface,
   registerIOInterface,
+  registerIOInterfaceForBlockTag,
 };

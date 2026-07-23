@@ -15,6 +15,7 @@ import { InterfaceManager } from "../interfaces/index.js";
 import { ensureItemIOConfig } from "../interfaces/itemIO.js";
 import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
 import { ensureGasIOConfig } from "../interfaces/gasIO.js";
+import { ensureBlockIOInterface } from "../interfaces/IOInterface.js";
 import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 
@@ -166,6 +167,7 @@ export class Machine extends BasicMachine {
     }
 
     system.run(() => {
+      ensureBlockIOInterface(block);
       const entity = Utils.spawnEntity(block, config);
       const energyManager = new EnergyStorage(entity);
       energyManager.setCap(config.machine.energy_cap);

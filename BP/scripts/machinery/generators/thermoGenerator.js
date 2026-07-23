@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
+import { Generator, EnergyStorage, FluidStorage, registerIOInterfaceForBlockTag } from "DoriosCore/index.js"
 import { coolants } from '../../config/coolants.js';
 
 export const heatSources = {
@@ -16,24 +16,17 @@ export const heatSources = {
 }
 const ENERGY_PER_COOLANT_MB = 1
 
-for (const blockTypeId of [
-    "utilitycraft:basic_thermo_generator",
-    "utilitycraft:advanced_thermo_generator",
-    "utilitycraft:expert_thermo_generator",
-    "utilitycraft:ultimate_thermo_generator"
-]) {
-    registerIOInterface(blockTypeId, {
-        liquids: {
-            buttonSlots: [3, 8],
-            anyInputIndices: [0],
-            anyOutputIndices: [],
-            modes: [
-                { id: "disabled" },
-                { id: "input_2", inputIndices: [0] }
-            ]
-        }
-    });
-}
+registerIOInterfaceForBlockTag("utilitycraft:io.thermo_generator", {
+    liquids: {
+        buttonSlots: [3, 8],
+        anyInputIndices: [0],
+        anyOutputIndices: [],
+        modes: [
+            { id: "disabled" },
+            { id: "input_2", inputIndices: [0] }
+        ]
+    }
+});
 
 DoriosLib.registry.blockComponent('utilitycraft:thermo_generator', {
     /**

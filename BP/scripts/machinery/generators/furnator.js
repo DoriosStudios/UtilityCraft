@@ -1,25 +1,18 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Generator, EnergyStorage, registerIOInterface } from "DoriosCore/index.js"
+import { Generator, EnergyStorage, registerIOInterfaceForBlockTag } from "DoriosCore/index.js"
 import { solidFuels } from "../../config/recipes/fuel.js";
 
-for (const blockTypeId of [
-    "utilitycraft:basic_furnator",
-    "utilitycraft:advanced_furnator",
-    "utilitycraft:expert_furnator",
-    "utilitycraft:ultimate_furnator"
-]) {
-    registerIOInterface(blockTypeId, {
-        items: {
-            buttonSlots: [4, 9],
-            anyInputSlots: [3],
-            anyOutputSlots: [],
-            modes: [
-                { id: "disabled" },
-                { id: "fuel", inputSlots: [3] }
-            ]
-        }
-    });
-}
+registerIOInterfaceForBlockTag("utilitycraft:io.furnator", {
+    items: {
+        buttonSlots: [4, 9],
+        anyInputSlots: [3],
+        anyOutputSlots: [],
+        modes: [
+            { id: "disabled" },
+            { id: "fuel", inputSlots: [3] }
+        ]
+    }
+});
 
 DoriosLib.registry.blockComponent('utilitycraft:furnator', {
     /**

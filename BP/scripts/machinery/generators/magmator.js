@@ -1,35 +1,28 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
+import { Generator, EnergyStorage, FluidStorage, registerIOInterfaceForBlockTag } from "DoriosCore/index.js"
 
 const ENERGY_PER_LAVA_MB = 100
 
 const MAGMATOR_MACHINE_ID = "utilitycraft:magmator"
 
-for (const blockTypeId of [
-    "utilitycraft:basic_magmator",
-    "utilitycraft:advanced_magmator",
-    "utilitycraft:expert_magmator",
-    "utilitycraft:ultimate_magmator"
-]) {
-    registerIOInterface(blockTypeId, {
-        items: {
-            anyInputSlots: [],
-            anyOutputSlots: [],
-            modes: [
-                { id: "disabled" }
-            ]
-        },
-        liquids: {
-            buttonSlots: [3, 8],
-            anyInputIndices: [0],
-            anyOutputIndices: [],
-            modes: [
-                { id: "disabled" },
-                { id: "fuel", inputIndices: [0] }
-            ]
-        }
-    });
-}
+registerIOInterfaceForBlockTag("utilitycraft:io.magmator", {
+    items: {
+        anyInputSlots: [],
+        anyOutputSlots: [],
+        modes: [
+            { id: "disabled" }
+        ]
+    },
+    liquids: {
+        buttonSlots: [3, 8],
+        anyInputIndices: [0],
+        anyOutputIndices: [],
+        modes: [
+            { id: "disabled" },
+            { id: "fuel", inputIndices: [0] }
+        ]
+    }
+});
 
 DoriosLib.registry.blockComponent(MAGMATOR_MACHINE_ID, {
     /**

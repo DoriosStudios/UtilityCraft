@@ -344,9 +344,21 @@ export interface ProcessIOSummary {
 /** Registers one machine's item policy and optional item/liquid IO buttons. */
 export function registerIOInterface(blockTypeId: string, config?: IOInterfaceConfig): boolean;
 
+/** Registers a reusable IO template selected by one exact runtime block tag. */
+export function registerIOInterfaceForBlockTag(blockTag: string, config?: IOInterfaceConfig): boolean;
+
+/** Resolves and caches a tagged IO fallback when the block type has no exact registration. */
+export function ensureBlockIOInterface(block?: Block): boolean;
+
+/** Returns whether one exact block type already owns an IO registration. */
+export function hasRegisteredIOInterface(blockTypeId: string): boolean;
+
 /** Namespace-style IO interface export. */
 export const IOInterface: {
+  ensureBlockIOInterface: typeof ensureBlockIOInterface;
+  hasRegisteredIOInterface: typeof hasRegisteredIOInterface;
   registerIOInterface: typeof registerIOInterface;
+  registerIOInterfaceForBlockTag: typeof registerIOInterfaceForBlockTag;
 };
 
 /** Per-face fluid tank-index arrays stored by Complex fluid containers. */

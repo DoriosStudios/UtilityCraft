@@ -513,7 +513,13 @@ world.afterEvents.entityItemDrop.subscribe((event) => {
   InterfaceManager.handleEntityItemDrop(event);
 });
 
-export { IOInterface, registerIOInterface } from "./IOInterface.js";
+export {
+  IOInterface,
+  ensureBlockIOInterface,
+  hasRegisteredIOInterface,
+  registerIOInterface,
+  registerIOInterfaceForBlockTag,
+} from "./IOInterface.js";
 export {
   DEFAULT_FLUID_IO_MODE,
   FLUID_CONTAINER_FAMILY,
