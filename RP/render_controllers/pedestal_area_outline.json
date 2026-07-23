@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.utilitycraft_pedestal_area_outline": {
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"Texture.default"
+			],
+			"ignore_lighting": true
+		}
+	}
+}

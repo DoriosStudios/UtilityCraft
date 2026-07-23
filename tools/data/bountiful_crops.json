@@ -1,0 +1,359 @@
+{
+	"tiers": {
+		"1": {
+			"growthInterval": [800, 1120],
+			"seedChance": 0.12
+		},
+		"2": {
+			"growthInterval": [1400, 1960],
+			"seedChance": 0.1
+		},
+		"3": {
+			"growthInterval": [2200, 3080],
+			"seedChance": 0.08
+		},
+		"4": {
+			"growthInterval": [3200, 4480],
+			"seedChance": 0.06
+		}
+	},
+	"crops": [
+		{
+			"key": "coal",
+			"cropId": "utilitycraft:coal_crop",
+			"seedId": "utilitycraft:coal_seeds",
+			"lootFile": "coal",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:coal", "amount": [3, 6], "chance": 1 }]
+		},
+		{
+			"key": "copper",
+			"cropId": "utilitycraft:copper_crop",
+			"seedId": "utilitycraft:copper_seeds",
+			"lootFile": "copper",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:raw_copper", "amount": [4, 8], "chance": 1 }]
+		},
+		{
+			"key": "dyes",
+			"cropId": "utilitycraft:dyes_crop",
+			"seedId": "utilitycraft:dyes_seeds",
+			"lootFile": "dyes",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [
+				{ "item": "minecraft:black_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:blue_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:brown_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:cyan_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:gray_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:green_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:light_blue_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:light_gray_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:lime_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:magenta_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:orange_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:pink_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:purple_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:red_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:white_dye", "amount": [1, 2], "chance": 0.5 },
+				{ "item": "minecraft:yellow_dye", "amount": [1, 2], "chance": 0.5 }
+			]
+		},
+		{
+			"key": "glass",
+			"cropId": "utilitycraft:glass_crop",
+			"seedId": "utilitycraft:glass_seeds",
+			"lootFile": "glass",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:glass", "amount": [8, 16], "chance": 1 }]
+		},
+		{
+			"key": "gunpowder",
+			"cropId": "utilitycraft:gunpowder_crop",
+			"seedId": "utilitycraft:gunpowder_seeds",
+			"lootFile": "gunpowder",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:gunpowder", "amount": [5, 10], "chance": 1 }]
+		},
+		{
+			"key": "iron",
+			"cropId": "utilitycraft:iron_crop",
+			"seedId": "utilitycraft:iron_seeds",
+			"lootFile": "iron",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:raw_iron", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "leather",
+			"cropId": "utilitycraft:leather_crop",
+			"seedId": "utilitycraft:leather_seeds",
+			"lootFile": "leather",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:leather", "amount": [4, 8], "chance": 1 }]
+		},
+		{
+			"key": "prismarine_crystals",
+			"cropId": "utilitycraft:prismarine_crystal_crop",
+			"seedId": "utilitycraft:prismarine_crystals_seeds",
+			"lootFile": "prismarine_crystals",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:prismarine_crystals", "amount": [6, 12], "chance": 1 }]
+		},
+		{
+			"key": "prismarine_shards",
+			"cropId": "utilitycraft:prismarine_shards_crop",
+			"seedId": "utilitycraft:prismarine_shards_seeds",
+			"lootFile": "prismarine_shards",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:prismarine_shard", "amount": [8, 16], "chance": 1 }]
+		},
+		{
+			"key": "water",
+			"cropId": "utilitycraft:water_crop",
+			"seedId": "utilitycraft:water_seeds",
+			"lootFile": "water",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "utilitycraft:water_ball", "amount": [2, 3], "chance": 1 }]
+		},
+		{
+			"key": "wool",
+			"cropId": "utilitycraft:wool_crop",
+			"seedId": "utilitycraft:wool_seeds",
+			"lootFile": "wool",
+			"tier": 1,
+			"soil": "utilitycraft:yellow_soil",
+			"cost": 64000,
+			"drops": [{ "item": "minecraft:wool", "amount": [4, 8], "chance": 1 }]
+		},
+		{
+			"key": "ghast",
+			"cropId": "utilitycraft:ghast_crop",
+			"seedId": "utilitycraft:ghast_seeds",
+			"lootFile": "ghast_tear",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:ghast_tear", "amount": [2, 3], "chance": 1 }]
+		},
+		{
+			"key": "glowstone",
+			"cropId": "utilitycraft:glowstone_crop",
+			"seedId": "utilitycraft:glowstone_seeds",
+			"lootFile": "glowstone",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:glowstone_dust", "amount": [6, 12], "chance": 1 }]
+		},
+		{
+			"key": "gold",
+			"cropId": "utilitycraft:gold_crop",
+			"seedId": "utilitycraft:gold_seeds",
+			"lootFile": "gold",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:raw_gold", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "honey",
+			"cropId": "utilitycraft:honey_crop",
+			"seedId": "utilitycraft:honey_seeds",
+			"lootFile": "honey",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "utilitycraft:honey_ball", "amount": [2, 3], "chance": 1 }]
+		},
+		{
+			"key": "lapis",
+			"cropId": "utilitycraft:lapis_crop",
+			"seedId": "utilitycraft:lapis_seeds",
+			"lootFile": "lapis",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:lapis_lazuli", "amount": [6, 12], "chance": 1 }]
+		},
+		{
+			"key": "lava",
+			"cropId": "utilitycraft:lava_crop",
+			"seedId": "utilitycraft:lava_seeds",
+			"lootFile": "lava",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "utilitycraft:lava_ball", "amount": [2, 3], "chance": 1 }]
+		},
+		{
+			"key": "quartz",
+			"cropId": "utilitycraft:quartz_crop",
+			"seedId": "utilitycraft:quartz_seeds",
+			"lootFile": "quartz",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:quartz", "amount": [6, 12], "chance": 1 }]
+		},
+		{
+			"key": "redstone",
+			"cropId": "utilitycraft:redstone_crop",
+			"seedId": "utilitycraft:redstone_seeds",
+			"lootFile": "redstone",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:redstone", "amount": [6, 12], "chance": 1 }]
+		},
+		{
+			"key": "resin",
+			"cropId": "utilitycraft:resin_crop",
+			"seedId": "utilitycraft:resin_seeds",
+			"lootFile": "resin",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:resin_clump", "amount": [3, 6], "chance": 1 }]
+		},
+		{
+			"key": "slime",
+			"cropId": "utilitycraft:slime_crop",
+			"seedId": "utilitycraft:slime_seeds",
+			"lootFile": "slime",
+			"tier": 2,
+			"soil": "utilitycraft:red_soil",
+			"cost": 128000,
+			"drops": [{ "item": "minecraft:slime_ball", "amount": [3, 6], "chance": 1 }]
+		},
+		{
+			"key": "amethyst",
+			"cropId": "utilitycraft:amethyst_crop",
+			"seedId": "utilitycraft:amethyst_seeds",
+			"lootFile": "amethyst",
+			"tier": 3,
+			"soil": "utilitycraft:blue_soil",
+			"cost": 512000,
+			"drops": [{ "item": "minecraft:amethyst_shard", "amount": [4, 8], "chance": 1 }]
+		},
+		{
+			"key": "blaze",
+			"cropId": "utilitycraft:blaze_crop",
+			"seedId": "utilitycraft:blaze_seeds",
+			"lootFile": "blaze",
+			"tier": 3,
+			"soil": "utilitycraft:blue_soil",
+			"cost": 512000,
+			"drops": [{ "item": "minecraft:blaze_rod", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "diamond",
+			"cropId": "utilitycraft:diamond_crop",
+			"seedId": "utilitycraft:diamond_seeds",
+			"lootFile": "diamond",
+			"tier": 3,
+			"soil": "utilitycraft:blue_soil",
+			"cost": 512000,
+			"drops": [{ "item": "utilitycraft:diamond_shard", "amount": [2, 3], "chance": 1 }]
+		},
+		{
+			"key": "emerald",
+			"cropId": "utilitycraft:emerald_crop",
+			"seedId": "utilitycraft:emerald_seeds",
+			"lootFile": "emerald",
+			"tier": 3,
+			"soil": "utilitycraft:blue_soil",
+			"cost": 512000,
+			"drops": [{ "item": "utilitycraft:emerald_shard", "amount": [2, 3], "chance": 1 }]
+		},
+		{
+			"key": "ender_pearl",
+			"cropId": "utilitycraft:enderpearl_crop",
+			"seedId": "utilitycraft:enderpearl_seeds",
+			"lootFile": "ender_pearl",
+			"tier": 3,
+			"soil": "utilitycraft:blue_soil",
+			"cost": 512000,
+			"drops": [{ "item": "minecraft:ender_pearl", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "obsidian",
+			"cropId": "utilitycraft:obsidian_crop",
+			"seedId": "utilitycraft:obsidian_seeds",
+			"lootFile": "obsidian",
+			"tier": 3,
+			"soil": "utilitycraft:blue_soil",
+			"cost": 512000,
+			"drops": [{ "item": "minecraft:obsidian", "amount": [3, 6], "chance": 1 }]
+		},
+		{
+			"key": "netherite",
+			"cropId": "utilitycraft:netherite_crop",
+			"seedId": "utilitycraft:netherite_seeds",
+			"lootFile": "netherite",
+			"tier": 4,
+			"soil": "utilitycraft:black_soil",
+			"cost": 1024000,
+			"drops": [{ "item": "utilitycraft:netherite_nugget", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "nether_star",
+			"cropId": "utilitycraft:netherstar_crop",
+			"seedId": "utilitycraft:nether_star_seeds",
+			"lootFile": "nether_star",
+			"tier": 4,
+			"soil": "utilitycraft:black_soil",
+			"cost": 1024000,
+			"drops": [{ "item": "utilitycraft:nether_star_fragment", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "shulker",
+			"cropId": "utilitycraft:shulker_crop",
+			"seedId": "utilitycraft:shulker_seeds",
+			"lootFile": "shulker",
+			"tier": 4,
+			"soil": "utilitycraft:black_soil",
+			"cost": 1024000,
+			"drops": [{ "item": "utilitycraft:shulker_shell_shard", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "totem",
+			"cropId": "utilitycraft:totem_crop",
+			"seedId": "utilitycraft:totem_seeds",
+			"lootFile": "totem",
+			"tier": 4,
+			"soil": "utilitycraft:black_soil",
+			"cost": 1024000,
+			"drops": [{ "item": "utilitycraft:totem_shard", "amount": [2, 4], "chance": 1 }]
+		},
+		{
+			"key": "wither",
+			"cropId": "utilitycraft:wither_crop",
+			"seedId": "utilitycraft:wither_seeds",
+			"lootFile": "wither",
+			"tier": 4,
+			"soil": "utilitycraft:black_soil",
+			"cost": 1024000,
+			"drops": [{ "item": "utilitycraft:wither_skull_shard", "amount": [2, 4], "chance": 1 }]
+		}
+	]
+}

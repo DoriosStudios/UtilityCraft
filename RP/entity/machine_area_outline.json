@@ -1,0 +1,29 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "utilitycraft:machine_area_outline",
+			"materials": {
+				"default": "utilitycraft_pedestal_outline"
+			},
+			"textures": {
+				"green": "textures/entity/pedestal_area_outline",
+				"red": "textures/entity/machine_area_outline_red"
+			},
+			"geometry": {
+				"default": "geometry.utilitycraft_machine_area_outline"
+			},
+			"animations": {
+				"outline": "animation.utilitycraft.machine_area_outline"
+			},
+			"scripts": {
+				"animate": [
+					"outline"
+				]
+			},
+			"render_controllers": [
+				"controller.render.utilitycraft_machine_area_outline"
+			]
+		}
+	}
+}

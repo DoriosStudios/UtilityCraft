@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "utilitycraft:pedestal_area_outline",
+			"materials": {
+				"default": "utilitycraft_pedestal_outline"
+			},
+			"textures": {
+				"default": "textures/entity/pedestal_area_outline"
+			},
+			"geometry": {
+				"default": "geometry.utilitycraft_pedestal_area_outline"
+			},
+			"render_controllers": [
+				"controller.render.utilitycraft_pedestal_area_outline"
+			],
+			"animations": {
+				"preview": "animation.utilitycraft.pedestal_area_outline.preview"
+			},
+			"scripts": {
+				"animate": [
+					"preview"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "utilitycraft:pedestal_area_outline",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"utilitycraft:despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"inanimate",
+					"utilitycraft_outline"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0,
+				"height": 0
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:timer": {
+				"looping": false,
+				"time": [
+					3,
+					3
+				],
+				"time_down_event": {
+					"event": "utilitycraft:despawn"
+				}
+			}
+		},
+		"events": {
+			"utilitycraft:despawn": {
+				"add": {
+					"component_groups": [
+						"utilitycraft:despawn"
+					]
+				}
+			}
+		}
+	}
+}

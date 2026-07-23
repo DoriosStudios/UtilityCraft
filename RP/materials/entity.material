@@ -1,0 +1,18 @@
+{
+	"materials": {
+		"version": "1.0.0",
+		"utilitycraft_pedestal_outline:entity_alphatest": {
+			"+states": [
+				"Blending",
+				"DisableDepthWrite"
+			],
+			"+defines": [
+				"USE_EMISSIVE"
+			],
+			"-defines": [
+				"FANCY"
+			],
+			"depthFunc": "Always"
+		}
+	}
+}

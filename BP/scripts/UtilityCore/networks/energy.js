@@ -47,7 +47,9 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
       continue;
     }
 
-    let entity = dimension.getEntitiesAtBlockLocation(position)[0];
+    let entity = dimension
+      .getEntitiesAtBlockLocation(position)
+      .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
     if (block.hasTag("dorios:multiblock.port")) {
       entity = dimension.getEntities({
         tags: [`input:[${position.x},${position.y},${position.z}]`],
@@ -113,7 +115,9 @@ async function searchEnergyStorages(startPositions, generator) {
       continue;
     }
 
-    let entity = dimension.getEntitiesAtBlockLocation(position)[0];
+    let entity = dimension
+      .getEntitiesAtBlockLocation(position)
+      .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
     if (block.hasTag("dorios:multiblock.port")) {
       entity = dimension.getEntities({
         tags: [`input:[${position.x},${position.y},${position.z}]`],

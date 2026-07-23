@@ -1,0 +1,66 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.utilitycraft_machine_area_outline": {
+			"arrays": {
+				"textures": {
+					"Array.outline": [
+						"Texture.green",
+						"Texture.red"
+					]
+				}
+			},
+			"geometry": "Geometry.default",
+			"materials": [
+				{
+					"*": "Material.default"
+				}
+			],
+			"textures": [
+				"Array.outline[query.property('utilitycraft:outline_color')]"
+			],
+			"part_visibility": [
+				{
+					"outline": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_x_y0_z0": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_x_y0_z1": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_x_y1_z0": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_x_y1_z1": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_y_x0_z0": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_y_x0_z1": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_y_x1_z0": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_y_x1_z1": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_z_x0_y0": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_z_x0_y1": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_z_x1_y0": "query.property('utilitycraft:outline_enabled')"
+				},
+				{
+					"edge_z_x1_y1": "query.property('utilitycraft:outline_enabled')"
+				}
+			],
+			"ignore_lighting": true
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:nether_star_accelerator_clock",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_nether_star_accelerator_clock",
+			"minecraft:max_stack_size": 1
+		}
+	}
+}

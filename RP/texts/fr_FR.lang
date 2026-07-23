@@ -906,3 +906,7 @@ tile.utilitycraft:expert_energy_receiver.name=§bRécepteur d'énergie expert \n
 tile.utilitycraft:ultimate_energy_receiver.name=§8Récepteur d'énergie ultime \n §7 Taux : 100 kDE/t\n §7 Capacité : 6,4 MDE\n§o§9@UtilityCraft
 
 item.utilitycraft:settings=Paramètres\n §7 Interagissez pour ouvrir les paramètres d'UtilityCraft\n§o§9@UtilityCraft
+message.utilitycraft.machine_outline.wrench_hint=Utilisez une clé pour modifier le mode du contour.
+ui.utilitycraft:machine_outline.title=Contour de la zone de travail
+ui.utilitycraft:machine_outline.enabled=Afficher la zone de travail
+ui.utilitycraft:machine_outline.save=Enregistrer

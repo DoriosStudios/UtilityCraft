@@ -906,3 +906,7 @@ tile.utilitycraft:expert_energy_receiver.name=§bЭкспертный энерг
 tile.utilitycraft:ultimate_energy_receiver.name=§8Рецептор предельной энергии \n §7 Скорость: 100 кДЭ/т\n §7 Емкость: 6,4 MDE\n§o§9@UtilityCraft
 
 item.utilitycraft:settings=Настройки\n §7 Взаимодействуйте, чтобы открыть настройки UtilityCraft.\n§o§9@UtilityCraft
+message.utilitycraft.machine_outline.wrench_hint=Используйте гаечный ключ, чтобы изменить режим контура.
+ui.utilitycraft:machine_outline.title=Контур рабочей зоны
+ui.utilitycraft:machine_outline.enabled=Показывать рабочую зону
+ui.utilitycraft:machine_outline.save=Сохранить

@@ -9,32 +9,32 @@
 		],
 		"key": {
 			"C": {
-				"item": "clock"
+				"item": "minecraft:clock"
 			},
-			"D": {
-				"item": "diamond_block"
+			"S": {
+				"item": "minecraft:sugar"
 			},
 			"G": {
-				"item": "gold_block"
+				"item": "minecraft:gold_block"
 			}
 		},
 		"pattern": [
-			"DGD",
+			"SGS",
 			"GCG",
-			"DGD"
+			"SGS"
 		],
 		"result": {
 			"item": "utilitycraft:accelerator_clock"
 		},
 		"unlock": [
 			{
-				"item": "clock"
+				"item": "minecraft:clock"
 			},
 			{
-				"item": "diamond_block"
+				"item": "minecraft:sugar"
 			},
 			{
-				"item": "gold_block"
+				"item": "minecraft:gold_block"
 			}
 		]
 	}

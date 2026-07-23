@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:diamond_accelerator_clock"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"G": {
+				"item": "utilitycraft:accelerator_clock"
+			},
+			"D": {
+				"item": "minecraft:diamond_block"
+			},
+			"A": {
+				"item": "minecraft:amethyst_shard"
+			}
+		},
+		"pattern": [
+			"ADA",
+			"DGD",
+			"ADA"
+		],
+		"result": {
+			"item": "utilitycraft:diamond_accelerator_clock"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:accelerator_clock"
+			},
+			{
+				"item": "minecraft:diamond_block"
+			},
+			{
+				"item": "minecraft:amethyst_shard"
+			}
+		]
+	}
+}

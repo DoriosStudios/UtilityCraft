@@ -1,72 +1,55 @@
-import * as DoriosLib from "DoriosLib/index.js";
+import * as DoriosLib from "DoriosLib/index.js"
 import { ItemStack, system } from "@minecraft/server"
-import { plantsData, data } from "../config/recipes/plants.js"
+import {
+    getCropDefinition,
+    harvestCrop,
+    harvestCropArea,
+    spawnBrokenCropFortuneBonus
+} from "../crops/harvest.js"
 
 DoriosLib.registry.blockComponent("utilitycraft:crop", {
     onTick({ block }) {
         const age = DoriosLib.block.getState(block, "utilitycraft:age")
-        if (age < 5) {
-            DoriosLib.block.setState(block, "utilitycraft:age", age + 1)
-        }
+        if (age < 5) DoriosLib.block.setState(block, "utilitycraft:age", age + 1)
     },
 
     onPlayerInteract({ block, player }) {
-        const blockId = block.typeId
-        const crop = data[blockId]
-        if (!crop) return
+        if (!getCropDefinition(block)) return
 
-        const mainHand = player.getComponent("equippable").getEquipment("Mainhand")
-        const age = DoriosLib.block.getState(block, "utilitycraft:age")
+        const mainHand = player.getComponent("equippable")?.getEquipment("Mainhand")
+        const areaHarvest = mainHand
+            ?.getComponent("utilitycraft:hoe")
+            ?.customComponentParameters
+            ?.params
+            ?.runAreaHarvest ?? false
 
-        // Fully grown crop
-        if (age === 5) {
-            const enchantable = mainHand?.getComponent("minecraft:enchantable")
-            const fortune = enchantable?.getEnchantment("minecraft:fortune")
+        const harvested = areaHarvest
+            ? harvestCropArea(block, { tool: mainHand })
+            : Number(harvestCrop(block, { tool: mainHand }))
 
-            if (!fortune) {
-                const { x, y, z } = block.location
-                block.dimension.runCommand(`loot spawn ${x} ${y} ${z} loot "${crop.loot}"`)
-            } else {
-                const drops = plantsData[crop.seed]?.drops ?? []
-                const fortuneLevel = fortune.level
+        if (harvested <= 0) return
+        block.dimension.playSound("dig.grass", block.location)
 
-                drops.forEach(drop => {
-                    const randomChance = Math.random() * 100
-                    if (randomChance <= drop.prob) {
-                        if (drop.item.endsWith("_seeds")) {
-                            DoriosLib.player.giveItem(player, { item: drop.item })
-                        } else {
-                            const amount = DoriosLib.math.randomInt(drop.min, drop.max * fortuneLevel)
-                            block.dimension.spawnItem(new ItemStack(drop.item, amount), block.location)
-                        }
-                    }
-                })
-            }
-
+        if (areaHarvest) {
             system.run(() => {
-                let { x, y, z } = block.location;
-                if (mainHand?.getComponent("utilitycraft:hoe")?.customComponentParameters?.params?.runAreaHarvest ?? false) {
-                    block.dimension.runCommand(
-                        `execute positioned ${x} ${y} ${z} run function area_harvest`
-                    );
-                }
+                const { x, y, z } = block.location
+                block.dimension.runCommand(
+                    `execute positioned ${x} ${y} ${z} run function area_harvest`
+                )
             })
-
-
-            block.dimension.playSound("dig.grass", block.location)
-            DoriosLib.block.setState(block, "utilitycraft:age", 0)
-        }
-    },
-    onPlayerBreak({ brokenBlockPermutation, block }) {
-        const blockId = brokenBlockPermutation.type.id
-        const crop = data[blockId]
-        if (!crop) return
-
-        const { x, y, z } = block.location
-        const age = brokenBlockPermutation.getState("utilitycraft:age")
-        if (age === 5) {
-            block.dimension.spawnItem(new ItemStack(crop.seed, 1), { x, y, z })
         }
     },
 
+    onPlayerBreak({ brokenBlockPermutation, block, player }) {
+        const definition = getCropDefinition(brokenBlockPermutation.type.id)
+        if (!definition) return
+        if (brokenBlockPermutation.getState("utilitycraft:age") !== 5) return
+
+        const location = block.location
+        const mainHand = player?.getComponent("equippable")?.getEquipment("Mainhand")
+
+        // A mature plant always returns the seed required to replant it.
+        block.dimension.spawnItem(new ItemStack(definition.seedId, 1), location)
+        spawnBrokenCropFortuneBonus(definition, block.dimension, location, mainHand)
+    }
 })

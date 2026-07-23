@@ -1,0 +1,81 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.utilitycraft_pedestal_area_outline",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 11,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [
+					0,
+					0.5,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "edge_x_y0_z0",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, -0.15, -72.15], "size": [144.3, 0.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_x_y0_z1",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, -0.15, 71.85], "size": [144.3, 0.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_x_y1_z0",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, 15.85, -72.15], "size": [144.3, 0.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_x_y1_z1",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, 15.85, 71.85], "size": [144.3, 0.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_y_x0_z0",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, -0.15, -72.15], "size": [0.3, 16.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_y_x0_z1",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, -0.15, 71.85], "size": [0.3, 16.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_y_x1_z0",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [71.85, -0.15, -72.15], "size": [0.3, 16.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_y_x1_z1",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [71.85, -0.15, 71.85], "size": [0.3, 16.3, 0.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_z_x0_y0",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, -0.15, -72.15], "size": [0.3, 0.3, 144.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_z_x0_y1",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [-72.15, 15.85, -72.15], "size": [0.3, 0.3, 144.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_z_x1_y0",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [71.85, -0.15, -72.15], "size": [0.3, 0.3, 144.3], "uv": [0, 0] }]
+				},
+				{
+					"name": "edge_z_x1_y1",
+					"pivot": [0, 0, 0],
+					"cubes": [{ "origin": [71.85, 15.85, -72.15], "size": [0.3, 0.3, 144.3], "uv": [0, 0] }]
+				}
+			]
+		}
+	]
+}

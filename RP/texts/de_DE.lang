@@ -906,3 +906,7 @@ tile.utilitycraft:expert_energy_receiver.name=§bExpert Energy Receptor \n §7 R
 tile.utilitycraft:ultimate_energy_receiver.name=§8Ultimate Energy Receptor \n §7 Rate: 100 kDE/t\n §7 Kapazität: 6,4 MDE\n§o§9@UtilityCraft
 
 item.utilitycraft:settings=Settings\n §7 Interagieren Sie, um die UtilityCraft-Einstellungen zu öffnen\n§o§9@UtilityCraft
+message.utilitycraft.machine_outline.wrench_hint=Benutze einen Schraubenschlüssel, um den Umrissmodus zu ändern.
+ui.utilitycraft:machine_outline.title=Arbeitsbereichsumriss
+ui.utilitycraft:machine_outline.enabled=Arbeitsbereich anzeigen
+ui.utilitycraft:machine_outline.save=Speichern

@@ -56,7 +56,9 @@ export function initializeEntity(entity) {
  * @returns {import("@minecraft/server").Entity | undefined} The first entity found at the block location, or undefined if none exist.
  */
 export function tryGetEntityFromBlock(block) {
-  return block.dimension.getEntitiesAtBlockLocation(block.location)[0];
+  return block.dimension
+    .getEntitiesAtBlockLocation(block.location)
+    .find((entity) => entity.typeId !== "utilitycraft:machine_area_outline");
 }
 
 /**

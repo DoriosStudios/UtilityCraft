@@ -479,6 +479,12 @@
 		"utilitycraft_accelerator_clock": {
 			"textures": "textures/items/misc/accelerator_clock"
 		},
+		"utilitycraft_diamond_accelerator_clock": {
+			"textures": "textures/items/misc/accelerator_clock_1"
+		},
+		"utilitycraft_nether_star_accelerator_clock": {
+			"textures": "textures/items/misc/accelerator_clock_2"
+		},
 		"utilitycraft_raw_steel": {
 			"textures": "textures/items/ores/raw_steel"
 		},

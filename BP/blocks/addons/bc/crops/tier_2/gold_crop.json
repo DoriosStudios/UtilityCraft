@@ -190,12 +190,13 @@
 			"minecraft:collision_box": false,
 			"minecraft:loot": "loot_tables/bc/seeds/gold.json",
 			"minecraft:light_dampening": 0,
-				"utilitycraft:crop":{},
+			"utilitycraft:crop": {},
 			"minecraft:tick": {
 				"interval_range": [
-					2400,
-					4800
-				]
+					1400,
+					1960
+				],
+				"looping": true
 			}
 		}
 	}

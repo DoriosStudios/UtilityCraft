@@ -1,6 +1,11 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, registerIOInterface } from "DoriosCore/index.js"
 import { getOppositeFacingBlock } from "./oppositeFacing.js";
+import {
+    handleMachineOutlineInteract,
+    initializeMachineOutline,
+    removeMachineOutline
+} from "../machineOutline.js"
 
 const INPUTSLOT = 3
 
@@ -25,10 +30,11 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnEntity(e, settings, () => {
+        Machine.spawnEntity(e, settings, (entity) => {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
             DoriosLib.entity.setNewItem(machine.entity, { slot: 2, typeId: 'utilitycraft:arrow_right_0', amount: 1, nameTag: " " })
+            initializeMachineOutline(e.block, entity, e.player)
         });
     },
 
@@ -98,7 +104,12 @@ DoriosLib.registry.blockComponent('utilitycraft:block_placer', {
         machine.showStatus('Running');
     },
 
+    onPlayerInteract(e) {
+        handleMachineOutlineInteract(e)
+    },
+
     onPlayerBreak(e) {
+        removeMachineOutline(e.block)
         Machine.onDestroy(e);
     }
 });

@@ -187,9 +187,10 @@
 			"utilitycraft:crop": {},
 			"minecraft:tick": {
 				"interval_range": [
-					1200,
-					2400
-				]
+					800,
+					1120
+				],
+				"looping": true
 			}
 		}
 	}

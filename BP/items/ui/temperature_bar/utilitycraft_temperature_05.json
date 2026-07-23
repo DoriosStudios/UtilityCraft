@@ -8,7 +8,12 @@
             }
         },
         "components": {
-            "minecraft:icon": "utilitycraft:temperature_05"
+            "minecraft:icon": "utilitycraft:temperature_05",
+            "minecraft:tags": {
+                "tags": [
+                    "utilitycraft:ui_element"
+                ]
+            }
         }
     }
 }

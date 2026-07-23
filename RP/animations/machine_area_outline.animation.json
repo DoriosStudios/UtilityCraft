@@ -1,0 +1,102 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.utilitycraft.machine_area_outline": {
+			"loop": true,
+			"bones": {
+				"edge_x_y0_z0": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8"
+					],
+					"scale": ["query.property('utilitycraft:outline_size')", 1, 1]
+				},
+				"edge_x_y0_z1": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8"
+					],
+					"scale": ["query.property('utilitycraft:outline_size')", 1, 1]
+				},
+				"edge_x_y1_z0": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8"
+					],
+					"scale": ["query.property('utilitycraft:outline_size')", 1, 1]
+				},
+				"edge_x_y1_z1": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8"
+					],
+					"scale": ["query.property('utilitycraft:outline_size')", 1, 1]
+				},
+				"edge_y_x0_z0": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8"
+					]
+				},
+				"edge_y_x0_z1": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8"
+					]
+				},
+				"edge_y_x1_z0": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8"
+					]
+				},
+				"edge_y_x1_z1": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8"
+					]
+				},
+				"edge_z_x0_y0": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16"
+					],
+					"scale": [1, 1, "query.property('utilitycraft:outline_size')"]
+				},
+				"edge_z_x0_y1": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 - (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16"
+					],
+					"scale": [1, 1, "query.property('utilitycraft:outline_size')"]
+				},
+				"edge_z_x1_y0": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16"
+					],
+					"scale": [1, 1, "query.property('utilitycraft:outline_size')"]
+				},
+				"edge_z_x1_y1": {
+					"position": [
+						"query.property('utilitycraft:outline_offset_x') * 16 + (query.property('utilitycraft:outline_size') - 1) * 8",
+						"query.property('utilitycraft:outline_offset_y') * 16",
+						"query.property('utilitycraft:outline_offset_z') * 16"
+					],
+					"scale": [1, 1, "query.property('utilitycraft:outline_size')"]
+				}
+			}
+		}
+	}
+}

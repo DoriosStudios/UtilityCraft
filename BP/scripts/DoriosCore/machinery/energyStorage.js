@@ -663,7 +663,9 @@ export class EnergyStorage {
       // Filtrar entidades válidas
       const validEntities = [];
       for (const loc of orderedTargets) {
-        const [target] = dim.getEntitiesAtBlockLocation(loc);
+        const target = dim
+          .getEntitiesAtBlockLocation(loc)
+          .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
         if (!target) {
           invalidKeys.add(getLocationKey(loc));
           continue;
@@ -713,7 +715,9 @@ export class EnergyStorage {
       for (const loc of orderedTargets) {
         if (available <= 0 || speed <= 0) break;
 
-        const [target] = dim.getEntitiesAtBlockLocation(loc);
+        const target = dim
+          .getEntitiesAtBlockLocation(loc)
+          .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
         if (!target) {
           invalidKeys.add(getLocationKey(loc));
           continue;

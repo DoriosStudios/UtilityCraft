@@ -23,6 +23,7 @@
 		"components": {
 			"utilitycraft:block_breaker": {
 				"entity": {
+					"identifier": "utilitycraft:machine_entity",
 					"type": "machine",
 					"inventory_size": 4
 				},

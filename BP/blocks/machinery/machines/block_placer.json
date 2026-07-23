@@ -23,6 +23,7 @@
 		"components": {
 			"utilitycraft:block_placer": {
 				"entity": {
+					"identifier": "utilitycraft:machine_entity",
 					"type": "machine",
 					"inventory_size": 12
 				},

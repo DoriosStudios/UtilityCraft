@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "generate:crops": "node tools/generate_bountiful_crops.mjs"
+  },
   "dependencies": {
     "@minecraft/server": "^2.8.0"
   },

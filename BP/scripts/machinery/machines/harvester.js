@@ -2,6 +2,17 @@ import * as DoriosLib from "DoriosLib/index.js";
 import { system } from "@minecraft/server";
 import { Machine } from "DoriosCore/index.js"
 import { getOppositeFacingDirection } from "./oppositeFacing.js";
+import { harvestAutomatedCrop } from "../../crops/harvest.js";
+import {
+    getHarvesterSide,
+    hasHarvesterCollection
+} from "./harvesterArea.js"
+import {
+    handleMachineOutlineInteract,
+    initializeMachineOutline,
+    removeMachineOutline,
+    syncHarvesterOutlineIfNeeded
+} from "../machineOutline.js"
 
 /**
  * Harvester Machine Component
@@ -16,9 +27,10 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
      * @param {{ params: MachineSettings }} ctx
      */
     beforeOnPlayerPlace(e, { params: settings }) {
-        Machine.spawnEntity(e, settings, () => {
+        Machine.spawnEntity(e, settings, (entity) => {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.displayEnergy();
+            initializeMachineOutline(e.block, entity, e.player)
         });
     },
 
@@ -36,10 +48,11 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
 
         const machine = new Machine(block, settings);
         if (!machine.valid) return
+        syncHarvesterOutlineIfNeeded(machine)
 
         // --- Machine parameters ---
         const range = machine.upgrades.range
-        const side = (range * 2) + 3;
+        const side = getHarvesterSide(range)
         const area = side ** 2;
 
 
@@ -62,8 +75,6 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
 
             let xtp = x, ytp = y, ztp = z;
             let tx = 1, tz = 1;
-            let adjustedSide = (side === 11) ? 9 : side;
-
             // Facing direction handling
             const axis = getOppositeFacingDirection(block)
                 ?? DoriosLib.block.getState(block, "utilitycraft:axis");
@@ -71,59 +82,67 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
                 case "up":
                     y--;
                     ytp++;
-                    x += ((adjustedSide - 1) / 2);
-                    z -= ((adjustedSide - 1) / 2) + 1;
+                    x += ((side - 1) / 2);
+                    z -= ((side - 1) / 2) + 1;
                     tx = -1;
                     break;
                 case "down":
                     y += 2;
                     ytp--;
-                    x += ((adjustedSide - 1) / 2);
-                    z -= ((adjustedSide - 1) / 2) + 1;
+                    x += ((side - 1) / 2);
+                    z -= ((side - 1) / 2) + 1;
                     tx = -1;
                     break;
                 case "north":
-                    x += ((adjustedSide - 1) / 2);
+                    x += ((side - 1) / 2);
                     tx = -1;
                     ztp--;
                     break;
                 case "south":
-                    z -= (1 + adjustedSide);
-                    x += ((adjustedSide - 1) / 2);
+                    z -= (1 + side);
+                    x += ((side - 1) / 2);
                     tx = -1;
                     ztp++;
                     break;
                 case "west":
-                    x += (adjustedSide);
-                    z -= ((adjustedSide - 1) / 2) + 1;
+                    x += (side);
+                    z -= ((side - 1) / 2) + 1;
                     tx = -1;
                     xtp--;
                     break;
                 case "east":
                     x--;
-                    z -= ((adjustedSide - 1) / 2) + 1;
+                    z -= ((side - 1) / 2) + 1;
                     tx = -1;
                     xtp++;
                     break;
             }
 
             // Perform harvest using function call
-            for (let i = 1; i <= adjustedSide; i++) {
-                for (let j = 1; j <= adjustedSide; j++) {
+            for (let i = 1; i <= side; i++) {
+                for (let j = 1; j <= side; j++) {
                     z += tz;
-                    dimension.runCommand(
-                        `execute positioned ${x} ${y} ${z} run function harvester`
-                    );
+                    const targetBlock = dimension.getBlock({
+                        x: Math.floor(x),
+                        y: Math.floor(y),
+                        z: Math.floor(z)
+                    });
+
+                    if (!targetBlock || !harvestAutomatedCrop(targetBlock)) {
+                        dimension.runCommand(
+                            `execute positioned ${x} ${y} ${z} run function harvester`
+                        );
+                    }
                 }
-                z -= adjustedSide * tz;
+                z -= side * tz;
                 x += tx;
             }
 
             // Collect items back to machine center after delay
-            if (machine.upgrades.range >= 4) {
+            if (hasHarvesterCollection(machine.upgrades.range)) {
                 system.runTimeout(() => {
                     dimension.runCommand(
-                        `tp @e[x=${x},y=${y - 1},z=${z},dx=${adjustedSide},dz=${adjustedSide},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`
+                        `tp @e[x=${x},y=${y - 1},z=${z},dx=${side},dz=${side},dy=${y - 1},type=item] ${xtp} ${ytp} ${ztp}`
                     );
                 }, 30);
             }
@@ -146,7 +165,12 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
         machine.showStatus("Running");
     },
 
+    onPlayerInteract(e) {
+        handleMachineOutlineInteract(e)
+    },
+
     onPlayerBreak(e) {
+        removeMachineOutline(e.block)
         Machine.onDestroy(e);
     }
 });

@@ -8,16 +8,12 @@
 			"crafting_table"
 		],
 		"key": {
-			"S": {
-				"item": "nether_star"
-			},
 			"B": {
-				"item": "end_bricks"
+				"item": "minecraft:end_bricks"
 			}
 		},
 		"pattern": [
-			" S",
-			" B",
+			" B ",
 			"BBB"
 		],
 		"result": {
@@ -25,10 +21,7 @@
 		},
 		"unlock": [
 			{
-				"item": "end_bricks"
-			},
-			{
-				"item": "nether_star"
+				"item": "minecraft:end_bricks"
 			}
 		]
 	}

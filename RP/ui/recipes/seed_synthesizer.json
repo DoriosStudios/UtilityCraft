@@ -4202,14 +4202,14 @@
           "$result_item_texture": "textures/items/coal",
           "$result_item_name": "Coal",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-4"
+          "$result_amount_text": "x3-6"
         }
       },
       {
         "coal_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/coal_seeds",
           "$result_item_name": "Coal Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4248,14 +4248,14 @@
           "$result_item_texture": "textures/items/raw_copper",
           "$result_item_name": "Raw Copper",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-4"
+          "$result_amount_text": "x4-8"
         }
       },
       {
         "copper_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/copper_seeds",
           "$result_item_name": "Copper Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4293,135 +4293,135 @@
         "black_dye_0_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_black",
           "$result_item_name": "Black Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "blue_dye_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Blue Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "brown_dye_2_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_brown",
           "$result_item_name": "Brown Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "cyan_dye_3_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_cyan",
           "$result_item_name": "Cyan Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "gray_dye_4_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_gray",
           "$result_item_name": "Gray Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "green_dye_5_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_green",
           "$result_item_name": "Green Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "light_blue_dye_6_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_light_blue",
           "$result_item_name": "Light Blue Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "light_gray_dye_7_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_silver",
           "$result_item_name": "Light Gray Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "lime_dye_8_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_lime",
           "$result_item_name": "Lime Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "magenta_dye_9_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_magenta",
           "$result_item_name": "Magenta Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "orange_dye_10_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_orange",
           "$result_item_name": "Orange Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "pink_dye_11_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_pink",
           "$result_item_name": "Pink Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "purple_dye_12_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_purple",
           "$result_item_name": "Purple Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "red_dye_13_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_red",
           "$result_item_name": "Red Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "white_dye_14_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_white",
           "$result_item_name": "White Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "yellow_dye_15_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/dye_powder_yellow",
           "$result_item_name": "Yellow Dye",
-          "$result_chance_text": "5%%",
-          "$result_amount_text": "x1"
+          "$result_chance_text": "50%%",
+          "$result_amount_text": "x1-2"
         }
       },
       {
         "dyes_seeds_16_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/dye_seeds",
           "$result_item_name": "Dyes Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4460,14 +4460,14 @@
           "$result_item_texture": "textures/blocks/glass",
           "$result_item_name": "Glass",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-16"
+          "$result_amount_text": "x8-16"
         }
       },
       {
         "glass_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/glass_seeds",
           "$result_item_name": "Glass Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4506,14 +4506,14 @@
           "$result_item_texture": "textures/items/gunpowder",
           "$result_item_name": "Gunpowder",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-8"
+          "$result_amount_text": "x5-10"
         }
       },
       {
         "gunpowder_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/gunpowder_seeds",
           "$result_item_name": "Gunpowder Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4552,14 +4552,14 @@
           "$result_item_texture": "textures/items/raw_iron",
           "$result_item_name": "Raw Iron",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-3"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "iron_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/iron_seeds",
           "$result_item_name": "Iron Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4598,14 +4598,14 @@
           "$result_item_texture": "textures/items/leather",
           "$result_item_name": "Leather",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-8"
+          "$result_amount_text": "x4-8"
         }
       },
       {
         "leather_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/leather_seeds",
           "$result_item_name": "Leather Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4644,14 +4644,14 @@
           "$result_item_texture": "textures/items/prismarine_crystals",
           "$result_item_name": "Prismarine Crystals",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-12"
+          "$result_amount_text": "x6-12"
         }
       },
       {
         "prismarine_crystals_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/prismarine_crystals_seeds",
           "$result_item_name": "Prismarine Crystals Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4690,14 +4690,14 @@
           "$result_item_texture": "textures/items/prismarine_shard",
           "$result_item_name": "Prismarine Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-12"
+          "$result_amount_text": "x8-16"
         }
       },
       {
         "prismarine_shards_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/prismarine_shards_seeds",
           "$result_item_name": "Prismarine Shards Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4736,14 +4736,14 @@
           "$result_item_texture": "textures/items/misc/waterball",
           "$result_item_name": "Water Ball",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x2-3"
         }
       },
       {
         "water_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/water_seeds",
           "$result_item_name": "Water Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4782,14 +4782,14 @@
           "$result_item_texture": "textures/blocks/wool_colored_white",
           "$result_item_name": "Wool",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-4"
+          "$result_amount_text": "x4-8"
         }
       },
       {
         "wool_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/wool_seeds",
           "$result_item_name": "Wool Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "12%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4828,14 +4828,14 @@
           "$result_item_texture": "textures/items/ghast_tear",
           "$result_item_name": "Ghast Tear",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x2-3"
         }
       },
       {
         "ghast_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/ghast_seeds",
           "$result_item_name": "Ghast Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4874,14 +4874,14 @@
           "$result_item_texture": "textures/items/glowstone_dust",
           "$result_item_name": "Glowstone Dust",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-4"
+          "$result_amount_text": "x6-12"
         }
       },
       {
         "glowstone_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/glowstone_seeds",
           "$result_item_name": "Glowstone Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4920,14 +4920,14 @@
           "$result_item_texture": "textures/items/raw_gold",
           "$result_item_name": "Raw Gold",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-3"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "gold_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/gold_seeds",
           "$result_item_name": "Gold Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -4966,14 +4966,14 @@
           "$result_item_texture": "textures/items/misc/honey_ball",
           "$result_item_name": "Honey Ball",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x2-3"
         }
       },
       {
         "honey_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/honey_seeds",
           "$result_item_name": "Honey Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5012,14 +5012,14 @@
           "$result_item_texture": "textures/items/dye_powder_blue",
           "$result_item_name": "Lapis Lazuli",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-9"
+          "$result_amount_text": "x6-12"
         }
       },
       {
         "lapis_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/lapis_seeds",
           "$result_item_name": "Lapis Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5058,14 +5058,14 @@
           "$result_item_texture": "textures/items/misc/lavaball",
           "$result_item_name": "Lava Ball",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x2-3"
         }
       },
       {
         "lava_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/lava_seeds",
           "$result_item_name": "Lava Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5104,14 +5104,14 @@
           "$result_item_texture": "textures/items/quartz",
           "$result_item_name": "Nether Quartz",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-8"
+          "$result_amount_text": "x6-12"
         }
       },
       {
         "quartz_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/quartz_seeds",
           "$result_item_name": "Quartz Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5150,14 +5150,14 @@
           "$result_item_texture": "textures/items/redstone_dust",
           "$result_item_name": "Redstone",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-8"
+          "$result_amount_text": "x6-12"
         }
       },
       {
         "redstone_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/redstone_seeds",
           "$result_item_name": "Redstone Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5196,14 +5196,14 @@
           "$result_item_texture": "textures/items/resin_clump",
           "$result_item_name": "Resin Clump",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x3-6"
         }
       },
       {
         "resin_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/base_seeds",
           "$result_item_name": "Resin Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5242,14 +5242,14 @@
           "$result_item_texture": "textures/items/slimeball",
           "$result_item_name": "Slime Ball",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-3"
+          "$result_amount_text": "x3-6"
         }
       },
       {
         "slime_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/slime_seeds",
           "$result_item_name": "Slime Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "10%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5288,14 +5288,14 @@
           "$result_item_texture": "textures/items/amethyst_shard",
           "$result_item_name": "Amethyst Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-4"
+          "$result_amount_text": "x4-8"
         }
       },
       {
         "amethyst_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/amethyst_seeds",
           "$result_item_name": "Amethyst Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "8%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5334,14 +5334,14 @@
           "$result_item_texture": "textures/items/blaze_rod",
           "$result_item_name": "Blaze Rod",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "blaze_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/blaze_seeds",
           "$result_item_name": "Blaze Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "8%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5380,14 +5380,14 @@
           "$result_item_texture": "textures/items/pebbles/diamond_shard",
           "$result_item_name": "Diamond Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-3"
         }
       },
       {
         "diamond_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/diamond_seeds",
           "$result_item_name": "Diamond Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "8%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5426,14 +5426,14 @@
           "$result_item_texture": "textures/items/pebbles/emerald_shard",
           "$result_item_name": "Emerald Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-3"
         }
       },
       {
         "emerald_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/emerald_seeds",
           "$result_item_name": "Emerald Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "8%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5472,14 +5472,14 @@
           "$result_item_texture": "textures/items/ender_pearl",
           "$result_item_name": "Ender Pearl",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "enderpearl_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/ender_pearl_seeds",
           "$result_item_name": "Enderpearl Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "8%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5518,14 +5518,14 @@
           "$result_item_texture": "textures/blocks/obsidian",
           "$result_item_name": "Obsidian",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1-2"
+          "$result_amount_text": "x3-6"
         }
       },
       {
         "obsidian_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/obsidian_seeds",
           "$result_item_name": "Obsidian Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "8%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5564,14 +5564,14 @@
           "$result_item_texture": "textures/items/pebbles/nether_star_fragment",
           "$result_item_name": "Nether Star Fragment",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "nether_star_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/nether_star_seeds",
           "$result_item_name": "Nether Star Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "6%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5610,14 +5610,14 @@
           "$result_item_texture": "textures/items/ores/netherite_nugget",
           "$result_item_name": "Netherite Nugget",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "netherite_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/netherite_seeds",
           "$result_item_name": "Netherite Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "6%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5656,14 +5656,14 @@
           "$result_item_texture": "textures/items/pebbles/shulker_shell_shard",
           "$result_item_name": "Shulker Shell Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "shulker_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/shulker_seeds",
           "$result_item_name": "Shulker Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "6%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5702,14 +5702,14 @@
           "$result_item_texture": "textures/items/pebbles/totem_shard",
           "$result_item_name": "Totem Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "totem_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/totem_seeds",
           "$result_item_name": "Totem Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "6%%",
           "$result_amount_text": "x1"
         }
       },
@@ -5748,14 +5748,14 @@
           "$result_item_texture": "textures/items/pebbles/wither_skull_shard",
           "$result_item_name": "Wither Skull Shard",
           "$result_chance_text": "100%%",
-          "$result_amount_text": "x1"
+          "$result_amount_text": "x2-4"
         }
       },
       {
         "wither_seeds_1_strip@uc.seed_drop_result_strip": {
           "$result_item_texture": "textures/items/seeds/wither_seeds",
           "$result_item_name": "Wither Seeds",
-          "$result_chance_text": "5%%",
+          "$result_chance_text": "6%%",
           "$result_amount_text": "x1"
         }
       },

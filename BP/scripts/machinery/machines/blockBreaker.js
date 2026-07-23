@@ -1,6 +1,11 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine } from "DoriosCore/index.js"
 import { getOppositeFacingBlock } from "./oppositeFacing.js";
+import {
+    handleMachineOutlineInteract,
+    initializeMachineOutline,
+    removeMachineOutline
+} from "../machineOutline.js"
 
 DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
     /**
@@ -13,6 +18,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
         Machine.spawnEntity(e, settings, (entity) => {
             const machine = new Machine(e.block, { ...settings, ignoreTick: true });
             machine.setEnergyCost(settings.machine.energy_cost);
+            initializeMachineOutline(e.block, entity, e.player)
         });
     },
 
@@ -80,7 +86,12 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
         machine.showStatus('Running');
     },
 
+    onPlayerInteract(e) {
+        handleMachineOutlineInteract(e)
+    },
+
     onPlayerBreak(e) {
+        removeMachineOutline(e.block)
         Machine.onDestroy(e);
     }
 });

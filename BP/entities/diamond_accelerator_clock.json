@@ -1,0 +1,89 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "utilitycraft:diamond_accelerator_clock",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:nameable": {
+				"always_show": false,
+				"allow_name_tag_renaming": false
+			},
+			"minecraft:type_family": {
+				"family": [
+					"inanimate",
+					"utilitycraft_container"
+				]
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": true
+					}
+				]
+			},
+			"minecraft:health": {
+				"max": 0,
+				"min": 1,
+				"value": 1
+			},
+			"minecraft:knockback_resistance": {
+				"value": 1,
+				"max": 1
+			},
+			"minecraft:collision_box": {
+				"height": 0.5,
+				"width": 0.5
+			},
+			"minecraft:scale": {
+				"value": 0.75
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"filters": {
+							"test": "in_block",
+							"value": "air"
+						},
+						"event": "trydespawn"
+					},
+					{
+						"filters": {
+							"test": "has_tag",
+							"value": "despawn"
+						},
+						"event": "despawn"
+					}
+				]
+			}
+		},
+		"events": {
+			"despawn": {
+				"add": {
+					"component_groups": [
+						"despawn"
+					]
+				}
+			},
+			"trydespawn": {
+				"sequence": [
+					{
+						"queue_command": {
+							"command": "execute unless block ~~-1~ utilitycraft:pedestal run tag @e[r=0.1] add despawn"
+						}
+					}
+				]
+			}
+		}
+	}
+}

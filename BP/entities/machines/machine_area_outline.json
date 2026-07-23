@@ -1,0 +1,76 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "utilitycraft:machine_area_outline",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"properties": {
+				"utilitycraft:outline_enabled": {
+					"type": "bool",
+					"default": true,
+					"client_sync": true
+				},
+				"utilitycraft:outline_color": {
+					"type": "int",
+					"range": [0, 1],
+					"default": 0,
+					"client_sync": true
+				},
+				"utilitycraft:outline_size": {
+					"type": "int",
+					"range": [1, 9],
+					"default": 1,
+					"client_sync": true
+				},
+				"utilitycraft:outline_offset_x": {
+					"type": "int",
+					"range": [-8, 8],
+					"default": 0,
+					"client_sync": true
+				},
+				"utilitycraft:outline_offset_y": {
+					"type": "int",
+					"range": [-8, 8],
+					"default": 0,
+					"client_sync": true
+				},
+				"utilitycraft:outline_offset_z": {
+					"type": "int",
+					"range": [-8, 8],
+					"default": 0,
+					"client_sync": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"inanimate",
+					"utilitycraft_outline"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0,
+				"height": 0
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			}
+		}
+	}
+}

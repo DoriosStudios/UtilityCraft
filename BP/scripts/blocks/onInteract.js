@@ -1,5 +1,15 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { ItemStack, Block, Player } from '@minecraft/server'
+import { ItemStack } from '@minecraft/server'
+import {
+    ACCELERATOR_CLOCKS_BY_ENTITY,
+    ACCELERATOR_CLOCKS_BY_ITEM,
+    findAcceleratorClock,
+    getAcceleratorClockFromEntity
+} from "../config/acceleratorClocks.js"
+import {
+    removePedestalAreaOutline,
+    showPedestalAreaOutline
+} from "./pedestalOutline.js"
 
 /**
  * List of interactable block IDs mapped to custom behavior.
@@ -14,8 +24,8 @@ const interactHandlers = {
      * - If pedestal is empty and player holds an accelerator clock → places it on the pedestal.
      * - Uses a custom block state `utilitycraft:hasItem` to track pedestal contents.
      *
-     * @param {Block} block The interacted block
-     * @param {Player} player The player who interacted
+     * @param {import("@minecraft/server").Block} block The interacted block
+     * @param {import("@minecraft/server").Player} player The player who interacted
      */
     'utilitycraft:pedestal': (block, player) => {
         let { x, y, z } = block.location
@@ -29,34 +39,34 @@ const interactHandlers = {
 
         // Remove item from pedestal
         if (state === 1) {
-            const clockEntity = dimension.getEntities({
-                type: 'utilitycraft:accelerator_clock',
-                maxDistance: 1,
-                location: { x, y, z }
-            })[0]
+            const clockEntity = findAcceleratorClock(dimension, { x, y, z }, 2)
+            const clock = getAcceleratorClockFromEntity(clockEntity)
 
             if (clockEntity) clockEntity.addTag('despawn')
+            removePedestalAreaOutline(block)
 
-            dimension.spawnItem(new ItemStack('utilitycraft:accelerator_clock', 1), { x, y, z })
+            // Gold preserves legacy pedestals whose display entity was lost.
+            const itemId = clock?.itemId ?? 'utilitycraft:accelerator_clock'
+            dimension.spawnItem(new ItemStack(itemId, 1), { x, y, z })
             block.setPermutation(block.permutation.withState('utilitycraft:hasItem', 0))
+            return
         }
 
         // Add item to pedestal
-        if (invSlot && state === 0) {
-            if (invSlot.typeId === 'utilitycraft:accelerator_clock') {
-                const existsNearby = dimension.getEntities({
-                    type: 'utilitycraft:accelerator_clock',
-                    maxDistance: 5,
-                    location: { x, y, z }
-                })[0]
+        const clock = invSlot ? ACCELERATOR_CLOCKS_BY_ITEM[invSlot.typeId] : null
+        if (!clock || state !== 0) return
 
-                if (existsNearby) return
+        const existsNearby = dimension.getEntities({
+            maxDistance: 5,
+            location: { x, y, z }
+        }).some(entity => ACCELERATOR_CLOCKS_BY_ENTITY[entity.typeId])
 
-                dimension.spawnEntity('utilitycraft:accelerator_clock', { x, y, z })
-                player.runCommand('clear @s utilitycraft:accelerator_clock 0 1')
-                block.setPermutation(block.permutation.withState('utilitycraft:hasItem', 1))
-            }
-        }
+        if (existsNearby) return
+
+        dimension.spawnEntity(clock.entityId, { x, y, z })
+        player.runCommand(`clear @s ${clock.itemId} 0 1`)
+        block.setPermutation(block.permutation.withState('utilitycraft:hasItem', 1))
+        showPedestalAreaOutline(block)
     }
 }
 

@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:nether_star_accelerator_clock"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"D": {
+				"item": "utilitycraft:diamond_accelerator_clock"
+			},
+			"S": {
+				"item": "minecraft:nether_star"
+			},
+			"N": {
+				"item": "minecraft:netherite_ingot"
+			}
+		},
+		"pattern": [
+			"NSN",
+			"SDS",
+			"NSN"
+		],
+		"result": {
+			"item": "utilitycraft:nether_star_accelerator_clock"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:diamond_accelerator_clock"
+			},
+			{
+				"item": "minecraft:nether_star"
+			},
+			{
+				"item": "minecraft:netherite_ingot"
+			}
+		]
+	}
+}
