@@ -19,6 +19,7 @@
 // ==================================================
 
 import './fluids/items.js';
+import './coolants.js';
 
 import './recipes/crafter.js';
 import './recipes/crusher.js';

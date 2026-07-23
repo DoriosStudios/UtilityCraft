@@ -132,6 +132,38 @@ registrar
   .install();
 ```
 
+UtilityCraft runtime registrations can be sent without manually serializing a
+ScriptEvent payload:
+
+```js
+DoriosLib.registry.registerCrusherRecipe({
+  "example:raw_ore": {
+    output: "example:crushed_ore",
+    amount: 2,
+    cost: 1000,
+    tier: 1,
+  },
+});
+```
+
+Coolants use their fluid type as the key. `efficiency` divides consumption, so
+an efficiency of `2` consumes half as much coolant. The Thermo Generator keeps
+`tier` for compatibility with the shared format but does not enforce it:
+
+```js
+DoriosLib.registry.registerCoolant({
+  example_coolant: { efficiency: 2, tier: 0 },
+});
+```
+
+The registry exposes matching helpers for every UtilityCraft registration
+event: `registerAutoFisherDrop`, `registerBonsai` (legacy),
+`registerCoolant`, `registerCrafterRecipe`, `registerCrusherRecipe`,
+`registerFluidHolder`, `registerFluidItem`, `registerFuel`, `registerFurnaceRecipe`,
+`registerGasHolder`, `registerGasItem`, `registerInfuserRecipe`,
+`registerMelterRecipe`, `registerPlant`, `registerPressRecipe`,
+`registerSieveDrop`, and `registerSpecialContainerSlots`.
+
 Dependency discovery starts automatically when the main DoriosLib entry point
 is imported. It uses:
 

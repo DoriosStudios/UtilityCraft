@@ -1,5 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Generator, EnergyStorage, FluidStorage, registerIOInterface } from "DoriosCore/index.js"
+import { coolants } from '../../config/coolants.js';
 
 export const heatSources = {
     'utilitycraft:blaze_block': 1.5,
@@ -13,7 +14,7 @@ export const heatSources = {
     'minecraft:magma': 0.5,
     'minecraft:torch': 0.25
 }
-const ENERGY_PER_WATER_MB = 1
+const ENERGY_PER_COOLANT_MB = 1
 
 for (const blockTypeId of [
     "utilitycraft:basic_thermo_generator",
@@ -101,7 +102,8 @@ DoriosLib.registry.blockComponent('utilitycraft:thermo_generator', {
             return
         }
 
-        if (fluid.type != 'water') {
+        const coolant = coolants[fluid.type]
+        if (!coolant) {
             generator.displayEnergy();
             fluid.display(2)
             generator.off();
@@ -139,10 +141,10 @@ DoriosLib.registry.blockComponent('utilitycraft:thermo_generator', {
         burnSpeed = Math.min(
             burnSpeed,
             energy.getFreeSpace(),
-            fluid.get() * ENERGY_PER_WATER_MB
+            fluid.get() * ENERGY_PER_COOLANT_MB * coolant.efficiency
         )
 
-        fluid.consume(burnSpeed / ENERGY_PER_WATER_MB)
+        fluid.consume(burnSpeed / ENERGY_PER_COOLANT_MB / coolant.efficiency)
         energy.add(burnSpeed)
 
         // Update visuals

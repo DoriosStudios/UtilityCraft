@@ -16,6 +16,141 @@ export { COMMAND_PARAMETER_TYPES, PERMISSION_LEVELS };
 /** Alias kept for concise command-definition terminology. */
 export const PARAMETER_TYPES = COMMAND_PARAMETER_TYPES;
 
+/** Script events exposed by UtilityCraft's runtime registries. */
+export const REGISTRATION_EVENT_IDS = Object.freeze({
+  AUTO_FISHER_DROP: "utilitycraft:register_autofisher_drop",
+  BONSAI: "utilitycraft:register_bonsai",
+  COOLANT: "utilitycraft:register_coolant",
+  CRAFTER_RECIPE: "utilitycraft:register_crafter_recipe",
+  CRUSHER_RECIPE: "utilitycraft:register_crusher_recipe",
+  FLUID_HOLDER: "utilitycraft:register_fluid_holder",
+  FLUID_ITEM: "utilitycraft:register_fluid_item",
+  FUEL: "utilitycraft:register_fuel",
+  FURNACE_RECIPE: "utilitycraft:register_furnace_recipe",
+  GAS_HOLDER: "utilitycraft:register_gas_holder",
+  GAS_ITEM: "utilitycraft:register_gas_item",
+  INFUSER_RECIPE: "utilitycraft:register_infuser_recipe",
+  MELTER_RECIPE: "utilitycraft:register_melter_recipe",
+  PLANT: "utilitycraft:register_plant",
+  PRESS_RECIPE: "utilitycraft:register_press_recipe",
+  SIEVE_DROP: "utilitycraft:register_sieve_drop",
+  SPECIAL_CONTAINER_SLOTS: "utilitycraft:register_special_container_slots",
+});
+
+/** @typedef {Record<string, unknown>} RegistrationPayload */
+
+/**
+ * @typedef {object} CoolantRegistration
+ * @property {number} efficiency Consumption divisor used by coolant-powered machines.
+ * @property {number} [tier=0] Compatibility tier for machines that enforce coolant tiers.
+ */
+
+/**
+ * Registers one or more Auto Fisher drops.
+ *
+ * @param {RegistrationPayload|RegistrationPayload[]} payload
+ */
+export function registerAutoFisherDrop(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.AUTO_FISHER_DROP, payload);
+}
+
+/**
+ * Registers legacy bonsai definitions. Prefer {@link registerPlant} for new integrations.
+ *
+ * @param {RegistrationPayload} payload
+ */
+export function registerBonsai(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.BONSAI, payload);
+}
+
+/** @param {Record<string, CoolantRegistration>} payload */
+export function registerCoolant(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.COOLANT, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerCrafterRecipe(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.CRAFTER_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerCrusherRecipe(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.CRUSHER_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerFluidHolder(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.FLUID_HOLDER, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerFluidItem(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.FLUID_ITEM, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerFuel(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.FUEL, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerFurnaceRecipe(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.FURNACE_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerGasHolder(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.GAS_HOLDER, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerGasItem(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.GAS_ITEM, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerInfuserRecipe(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.INFUSER_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerMelterRecipe(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.MELTER_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerPlant(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.PLANT, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerPressRecipe(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.PRESS_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerSieveDrop(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.SIEVE_DROP, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerSpecialContainerSlots(payload) {
+  sendRegistration(REGISTRATION_EVENT_IDS.SPECIAL_CONTAINER_SLOTS, payload);
+}
+
+/**
+ * Serializes and publishes one UtilityCraft registration payload.
+ *
+ * @param {string} eventId
+ * @param {RegistrationPayload|RegistrationPayload[]} payload
+ */
+function sendRegistration(eventId, payload) {
+  if (payload === null || typeof payload !== "object") {
+    throw new TypeError(`Registration payload for ${eventId} must be an object`);
+  }
+  system.sendScriptEvent(eventId, JSON.stringify(payload));
+}
+
 /** @type {Map<string, Registrar>} */
 const sharedRegistrars = new Map();
 let sharedRegistryInstalled = false;
