@@ -1,4 +1,6 @@
-﻿import { world, system } from "@minecraft/server";
+﻿import { system } from "@minecraft/server";
+
+import * as DoriosLib from "DoriosLib/index.js";
 
 /**
  * Pressing and compression recipes for the Electro Press machine.
@@ -99,17 +101,16 @@ const pressRecipesRegister = {
   "utilitycraft:wither_skull_shard": { output: "minecraft:wither_skeleton_skull", required: 9 },
 };
 
-world.afterEvents.worldLoad.subscribe(() => {
-  system.sendScriptEvent("utilitycraft:register_press_recipe", JSON.stringify(pressRecipesRegister));
-});
+DoriosLib.registry.registerPressRecipe(pressRecipesRegister);
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_press_recipe"
  *
  * Allows other addons or scripts to dynamically add or replace Electro Press recipes.
+ * Queue the object with `DoriosLib.registry.registerPressRecipe(payload)`.
  * If the item already exists in `pressRecipes`, it will be replaced.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  * ```json
  * {
  *   "minecraft:stone": { "output": "minecraft:deepslate", "required": 4 },
@@ -152,25 +153,16 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES â€“ How to register custom Electro Press recipes
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace press recipes dynamically
-    const newRecipes = {
-        "minecraft:stone": { output: "minecraft:deepslate", required: 4 },
-        "minecraft:ice": { output: "minecraft:packed_ice", required: 9 },
-        // This one replaces an existing recipe
-        "minecraft:sand": { output: "utilitycraft:compressed_glass", required: 9 }
-    };
+// Add or replace press recipes through DoriosLib's world-load queue.
+const newRecipes = {
+    "minecraft:stone": { output: "minecraft:deepslate", required: 4 },
+    "minecraft:ice": { output: "minecraft:packed_ice", required: 9 },
+    // This one replaces an existing recipe
+    "minecraft:sand": { output: "utilitycraft:compressed_glass", required: 9 }
+};
 
-    // Send the event to the press script
-    system.sendScriptEvent("utilitycraft:register_press_recipe", JSON.stringify(newRecipes));
-
-    console.warn("[Addon] Custom press recipes registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_press_recipe {"minecraft:stone":{"output":"minecraft:deepslate","required":4},"minecraft:sand":{"output":"utilitycraft:compressed_glass","required":9}}
+DoriosLib.registry.registerPressRecipe(newRecipes);
 */
 

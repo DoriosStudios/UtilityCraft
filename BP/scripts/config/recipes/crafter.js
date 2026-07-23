@@ -1,4 +1,5 @@
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
+import { system } from "@minecraft/server";
 
 /**
  * @typedef {Object} CrafterRecipe
@@ -11,8 +12,8 @@ import { system, world } from "@minecraft/server";
  * Crafter recipes for the UtilityCraft Crafter machine.
  *
  * This table starts empty on purpose. Recipes with the "utilitycraft_workbench"
- * recipe tag are registered through the "utilitycraft:register_crafter_recipe"
- * script event at world load, matching the other machine recipe registries.
+ * recipe tag are queued through `DoriosLib.registry.registerCrafterRecipe()`
+ * and dispatched after world load with the other machine recipe registries.
  *
  * Keys use unnamespaced item ids because the crafter grid stores item.typeId
  * as the segment after ":".
@@ -479,25 +480,24 @@ const crafterRecipeBatches = [
   }
 ];
 
-world.afterEvents.worldLoad.subscribe(() => {
-  for (const batch of crafterRecipeBatches) {
-    system.sendScriptEvent("utilitycraft:register_crafter_recipe", JSON.stringify(batch));
-  }
-});
+for (const batch of crafterRecipeBatches) {
+  DoriosLib.registry.registerCrafterRecipe(batch);
+}
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_crafter_recipe"
  *
  * Allows other addons or scripts to dynamically add or replace Crafter recipes.
  * The key must contain exactly 9 comma-separated entries.
+ * Queue the object with `DoriosLib.registry.registerCrafterRecipe(payload)`.
  *
- * Expected payload format (JSON):
- * {
+ * Example:
+ * DoriosLib.registry.registerCrafterRecipe({
  *   "iron_ingot,iron_ingot,iron_ingot,air,redstone,air,iron_ingot,iron_ingot,iron_ingot": {
  *     "output": "utilitycraft:machine_case",
  *     "amount": 1
  *   }
- * }
+ * });
  */
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
   if (id !== "utilitycraft:register_crafter_recipe") return;

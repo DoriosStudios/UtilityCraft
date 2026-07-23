@@ -60,9 +60,10 @@ export const solidFuels = [
  * ScriptEvent receiver: "utilitycraft:register_fuel"
  *
  * Allows other addons or scripts to dynamically add or replace solid fuels.
+ * Queue the object with `DoriosLib.registry.registerFuel(payload)`.
  * If a fuel with the same ID already exists, it will be replaced.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  * ```json
  * {
  *   "custom_fuel_1": 50000,
@@ -106,24 +107,15 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES – How to register custom Furnator fuels
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace solid fuels dynamically
-    const newFuels = {
-        "utilitycraft:bio_fuel": 12000,
-        "minecraft:bamboo_block": 4000,
-        // This one replaces an existing entry
-        "minecraft:coal": 10000
-    };
+// Add or replace solid fuels through DoriosLib's world-load queue.
+const newFuels = {
+    "utilitycraft:bio_fuel": 12000,
+    "minecraft:bamboo_block": 4000,
+    // This one replaces an existing entry
+    "minecraft:coal": 10000
+};
 
-    // Send the event to the Furnator script
-    system.sendScriptEvent("utilitycraft:register_fuel", JSON.stringify(newFuels));
-
-    console.warn("[Addon] Custom Furnator fuels registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_fuel {"utilitycraft:bio_fuel":12000,"minecraft:coal":10000}
+DoriosLib.registry.registerFuel(newFuels);
 */

@@ -159,14 +159,16 @@ export const autoFisherLoot = [
 
 /**
  * Allows external addons to register new Auto Fisher drops at runtime.
+ * Queue a single drop or array with
+ * `DoriosLib.registry.registerAutoFisherDrop(payload)`.
  *
- * Expected payload (array or single object):
- *   {
+ * Example with a single drop (an array is also accepted):
+ * DoriosLib.registry.registerAutoFisherDrop({
  *     "item": "minecraft:apple",            // The Item identifier
  *     "amount": 1,                          // Optional, number or [min,max] range, default 1
  *     "chance": 0.05,                       // Optional, drop chance between 0 and 1, default 0.1
  *     "tier": 0                             // Optional, minimum fishing net tier required, default 0
- *   }
+ * });
  */
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
     if (id !== "utilitycraft:register_autofisher_drop") return;

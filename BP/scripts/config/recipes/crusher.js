@@ -1,4 +1,6 @@
-﻿import { world, system } from "@minecraft/server";
+﻿import { system } from "@minecraft/server";
+
+import * as DoriosLib from "DoriosLib/index.js";
 
 /**
  * Recipes for the Crusher machine.
@@ -204,17 +206,16 @@ const crusherRecipesRegister = {
     "ae2be:sky_stone": { output: "ae2be:sky_stone_dust", amount: 1 }
 }
 
-world.afterEvents.worldLoad.subscribe(() => {
-    system.sendScriptEvent("utilitycraft:register_crusher_recipe", JSON.stringify(crusherRecipesRegister));
-});
+DoriosLib.registry.registerCrusherRecipe(crusherRecipesRegister);
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_crusher_recipe"
  *
  * Allows other addons or scripts to dynamically add or replace crusher recipes.
+ * Queue the object with `DoriosLib.registry.registerCrusherRecipe(payload)`.
  * If the item already exists in `crusherRecipes`, it will be replaced.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  * ```json
  * {
  *   "minecraft:stone": { "output": "minecraft:cobblestone", "amount": 1, "cost": 1000, "tier": 1 },
@@ -258,25 +259,16 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES â€“ How to register custom crusher recipes
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace crusher recipes dynamically
-    const newRecipes = {
-        "minecraft:stone": { output: "minecraft:cobblestone", amount: 1, cost: 1000, tier: 1 },
-        "minecraft:clay": { output: "minecraft:clay_ball", amount: 4 },
-        "minecraft:sponge": { output: "minecraft:string", amount: 2, cost: 1600 },
-        // This one replaces an existing recipe
-        "minecraft:cobblestone": { output: "minecraft:sand", amount: 1, cost: 1200 }
-    };
+// Add or replace crusher recipes through DoriosLib's world-load queue.
+const newRecipes = {
+    "minecraft:stone": { output: "minecraft:cobblestone", amount: 1, cost: 1000, tier: 1 },
+    "minecraft:clay": { output: "minecraft:clay_ball", amount: 4 },
+    "minecraft:sponge": { output: "minecraft:string", amount: 2, cost: 1600 },
+    // This one replaces an existing recipe
+    "minecraft:cobblestone": { output: "minecraft:sand", amount: 1, cost: 1200 }
+};
 
-    // Send the event to the crusher script
-    system.sendScriptEvent("utilitycraft:register_crusher_recipe", JSON.stringify(newRecipes));
-
-    console.warn("[Addon] Custom crusher recipes registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_crusher_recipe {"minecraft:stone":{"output":"minecraft:cobblestone","amount":1,"cost":1000,"tier":1},"minecraft:cobblestone":{"output":"minecraft:sand","amount":1,"cost":1200}}
+DoriosLib.registry.registerCrusherRecipe(newRecipes);
 */

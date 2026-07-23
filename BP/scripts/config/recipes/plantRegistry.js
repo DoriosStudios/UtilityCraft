@@ -194,7 +194,8 @@ function registerPlantPayload(payload) {
  * Backwards-compatible adapter for addons that still send
  * `utilitycraft:register_bonsai` with top-level sapling/entity fields.
  * New integrations may put the same metadata in `bonsai` and send it
- * through `utilitycraft:register_plant`.
+ * through `DoriosLib.registry.registerPlant(payload)`. Legacy integrations
+ * can use `DoriosLib.registry.registerBonsai(payload)`.
  */
 function registerLegacyBonsaiPayload(payload) {
     if (!payload || typeof payload !== "object") return
@@ -232,6 +233,17 @@ function registerLegacyBonsaiPayload(payload) {
     }
 }
 
+/**
+ * Example for the preferred unified plant registration:
+ *
+ * DoriosLib.registry.registerPlant({
+ *   "example:sapling": {
+ *     cost: 8000,
+ *     drops: [{ item: "example:log", amount: 4, chance: 1 }],
+ *     bonsai: { entityTypeId: "example:tree", durationTicks: 1200 }
+ *   }
+ * });
+ */
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
     if (id !== "utilitycraft:register_plant" && id !== "utilitycraft:register_bonsai") return
 

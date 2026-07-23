@@ -1,4 +1,5 @@
-import { world, system } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
+import { system } from "@minecraft/server";
 
 /**
  * Recipes for the Incinerator machine.
@@ -457,10 +458,6 @@ const furnaceRecipesRegister = {
     },
 }
 
-world.afterEvents.worldLoad.subscribe(() => {
-    system.sendScriptEvent("utilitycraft:register_furnace_recipe", JSON.stringify(furnaceRecipesRegister));
-});
-
 // Auto-map terracotta -> glazed terracotta for all colors
 // This avoids manually listing 16 entries and keeps the register compact.
 {
@@ -514,13 +511,16 @@ world.afterEvents.worldLoad.subscribe(() => {
     }
 }
 
+DoriosLib.registry.registerFurnaceRecipe(furnaceRecipesRegister);
+
 /**
  * ScriptEvent receiver: "utilitycraft:register_furnace_recipe"
  *
  * Allows other addons or scripts to dynamically add or replace furnace recipes.
+ * Queue the object with `DoriosLib.registry.registerFurnaceRecipe(payload)`.
  * If the item already exists in `furnaceRecipes`, it will be replaced.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  * ```json
  * {
  *   "minecraft:stone": { "output": "minecraft:smooth_stone" },
@@ -564,24 +564,15 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES – How to register custom furnace recipes
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace furnace recipes dynamically
-    const newRecipes = {
-        "minecraft:stone": { output: "minecraft:smooth_stone" },
-        "minecraft:rotten_flesh": { output: "strat:coagulated_blood" },
-        // This one replaces an existing recipe
-        "minecraft:cobblestone": { output: "minecraft:deepslate" }
-    };
+// Add or replace furnace recipes through DoriosLib's world-load queue.
+const newRecipes = {
+    "minecraft:stone": { output: "minecraft:smooth_stone" },
+    "minecraft:rotten_flesh": { output: "strat:coagulated_blood" },
+    // This one replaces an existing recipe
+    "minecraft:cobblestone": { output: "minecraft:deepslate" }
+};
 
-    // Send the event to the furnace script
-    system.sendScriptEvent("utilitycraft:register_furnace_recipe", JSON.stringify(newRecipes));
-
-    console.warn("[Addon] Custom furnace recipes registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_furnace_recipe {"minecraft:stone":{"output":"minecraft:smooth_stone"},"minecraft:cobblestone":{"output":"minecraft:deepslate"}}
+DoriosLib.registry.registerFurnaceRecipe(newRecipes);
 */

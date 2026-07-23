@@ -1,4 +1,5 @@
-import { world, system } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
+import { system } from "@minecraft/server";
 
 /**
  * Infusing recipes for the Infuser machine.
@@ -420,22 +421,17 @@ function expandColorPatterns(register) {
   return expanded;
 }
 
-world.afterEvents.worldLoad.subscribe(() => {
-  const expanded = expandColorPatterns(infuserRecipesRegister);
-  try {
-    system.sendScriptEvent("utilitycraft:register_infuser_recipe", JSON.stringify(expanded));
-  } catch (err) {
-    console.warn("[UtilityCraft] Failed to send expanded infuser recipes:", err);
-  }
-});
+const expandedInfuserRecipes = expandColorPatterns(infuserRecipesRegister);
+DoriosLib.registry.registerInfuserRecipe(expandedInfuserRecipes);
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_infuser_recipe"
  *
  * Allows other addons or scripts to dynamically add or replace Infuser recipes.
+ * Queue the object with `DoriosLib.registry.registerInfuserRecipe(payload)`.
  * The key must be in `"catalyst|input"` format.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  * ```json
  * {
  *   "minecraft:redstone|minecraft:iron_ingot": { "output": "utilitycraft:energized_iron_ingot", "required": 4 },
@@ -488,24 +484,15 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES – How to register custom Infuser recipes
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace infuser recipes dynamically
-    const newRecipes = {
-        "minecraft:redstone|minecraft:copper_ingot": { output: "utilitycraft:charged_copper_ingot", required: 2 },
-        "minecraft:coal|minecraft:iron_ingot": { output: "utilitycraft:steel_ingot" },
-        // This one replaces an existing recipe
-        "minecraft:redstone|minecraft:iron_ingot": { output: "utilitycraft:energized_iron_ingot", required: 2 }
-    };
+// Add or replace Infuser recipes through DoriosLib's world-load queue.
+const newRecipes = {
+    "minecraft:redstone|minecraft:copper_ingot": { output: "utilitycraft:charged_copper_ingot", required: 2 },
+    "minecraft:coal|minecraft:iron_ingot": { output: "utilitycraft:steel_ingot" },
+    // This one replaces an existing recipe
+    "minecraft:redstone|minecraft:iron_ingot": { output: "utilitycraft:energized_iron_ingot", required: 2 }
+};
 
-    // Send the event to the Infuser script
-    system.sendScriptEvent("utilitycraft:register_infuser_recipe", JSON.stringify(newRecipes));
-
-    console.warn("[Addon] Custom infuser recipes registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_infuser_recipe {"minecraft:redstone|minecraft:copper_ingot":{"output":"utilitycraft:charged_copper_ingot","required":2},"minecraft:coal|minecraft:iron_ingot":{"output":"utilitycraft:steel_ingot"}}
+DoriosLib.registry.registerInfuserRecipe(newRecipes);
 */

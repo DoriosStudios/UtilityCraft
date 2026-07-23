@@ -132,7 +132,7 @@ registrar
   .install();
 ```
 
-UtilityCraft runtime registrations can be sent without manually serializing a
+UtilityCraft runtime registrations can be queued without manually serializing a
 ScriptEvent payload:
 
 ```js
@@ -145,6 +145,10 @@ DoriosLib.registry.registerCrusherRecipe({
   },
 });
 ```
+
+Calls preserve their insertion order. DoriosLib waits for `worldLoad` and then
+dispatches exactly one queued registration ScriptEvent per tick. Registrations
+queued after the world has loaded join the same dispatcher.
 
 Coolants use their fluid type as the key. `efficiency` divides consumption, so
 an efficiency of `2` consumes half as much coolant. The Thermo Generator keeps

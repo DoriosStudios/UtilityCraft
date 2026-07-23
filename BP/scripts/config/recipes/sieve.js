@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { world, system } from "@minecraft/server";
+import { system } from "@minecraft/server";
 
 const mesh_tiers = ["string", "flint", "copper", "iron", "golden", "emerald", "diamond", "netherite"];
 const utility_meshes = new Set(mesh_tiers.map((tier) => `utilitycraft:${tier}_mesh`));
@@ -249,16 +249,15 @@ const sieveRecipesRegister = {
   ],
 };
 
-world.afterEvents.worldLoad.subscribe(() => {
-  system.sendScriptEvent("utilitycraft:register_sieve_drop", JSON.stringify(sieveRecipesRegister));
-});
+DoriosLib.registry.registerSieveDrop(sieveRecipesRegister);
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_sieve_drop"
  *
  * Allows other addons or scripts to **add new drops to existing blocks only**.
+ * Queue the object with `DoriosLib.registry.registerSieveDrop(payload)`.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  *
  * {
  *   "minecraft:gravel": [
@@ -314,32 +313,21 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES – How to register custom sieve drops
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add new custom drops for blocks
-    // You can add drops to existing blocks (like gravel)
-    // or define completely new ones that didn’t exist before.
-    const newDrops = {
-        "utilitycraft:crushed_basalt": [
-            { item: "minecraft:blackstone", amount: 1, chance: 0.3, tier: 1 },
-            { item: "minecraft:basalt", amount: 1, chance: 0.15, tier: 1 },
-            { item: "minecraft:coal", amount: 1, chance: 0.1, tier: 2 }
-        ],
-        "minecraft:gravel": [
-            { item: "minecraft:string", amount: 1, chance: 0.05 },
-            { item: "minecraft:bone_meal", amount: 1, chance: 0.15 }
-        ]
-    };
+// Add custom drops through DoriosLib's world-load queue.
+// Drops can target existing blocks or define completely new entries.
+const newDrops = {
+    "utilitycraft:crushed_basalt": [
+        { item: "minecraft:blackstone", amount: 1, chance: 0.3, tier: 1 },
+        { item: "minecraft:basalt", amount: 1, chance: 0.15, tier: 1 },
+        { item: "minecraft:coal", amount: 1, chance: 0.1, tier: 2 }
+    ],
+    "minecraft:gravel": [
+        { item: "minecraft:string", amount: 1, chance: 0.05 },
+        { item: "minecraft:bone_meal", amount: 1, chance: 0.15 }
+    ]
+};
 
-    // Send the event to the sieve script
-    // This tells UtilityCraft to register your new drops dynamically.
-    system.sendScriptEvent("utilitycraft:register_sieve_drop", JSON.stringify(newDrops));
-
-    console.warn("[Addon] Custom sieve drops registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_sieve_drop {"utilitycraft:crushed_endstone":[{"item":"minecraft:dragon_breath","amount":1,"chance":0.05,"tier":5}]}
+DoriosLib.registry.registerSieveDrop(newDrops);
 */

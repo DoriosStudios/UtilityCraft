@@ -5,6 +5,7 @@ import {
   CommandPermissionLevel,
   CustomCommandParamType,
   system,
+  world,
 } from "@minecraft/server";
 import {
   COMMAND_PARAMETER_TYPES,
@@ -51,7 +52,7 @@ export const REGISTRATION_EVENT_IDS = Object.freeze({
  * @param {RegistrationPayload|RegistrationPayload[]} payload
  */
 export function registerAutoFisherDrop(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.AUTO_FISHER_DROP, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.AUTO_FISHER_DROP, payload);
 }
 
 /**
@@ -60,95 +61,137 @@ export function registerAutoFisherDrop(payload) {
  * @param {RegistrationPayload} payload
  */
 export function registerBonsai(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.BONSAI, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.BONSAI, payload);
 }
 
 /** @param {Record<string, CoolantRegistration>} payload */
 export function registerCoolant(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.COOLANT, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.COOLANT, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerCrafterRecipe(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.CRAFTER_RECIPE, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.CRAFTER_RECIPE, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerCrusherRecipe(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.CRUSHER_RECIPE, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.CRUSHER_RECIPE, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerFluidHolder(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.FLUID_HOLDER, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.FLUID_HOLDER, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerFluidItem(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.FLUID_ITEM, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.FLUID_ITEM, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerFuel(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.FUEL, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.FUEL, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerFurnaceRecipe(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.FURNACE_RECIPE, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.FURNACE_RECIPE, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerGasHolder(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.GAS_HOLDER, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.GAS_HOLDER, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerGasItem(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.GAS_ITEM, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.GAS_ITEM, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerInfuserRecipe(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.INFUSER_RECIPE, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.INFUSER_RECIPE, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerMelterRecipe(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.MELTER_RECIPE, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.MELTER_RECIPE, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerPlant(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.PLANT, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.PLANT, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerPressRecipe(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.PRESS_RECIPE, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.PRESS_RECIPE, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerSieveDrop(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.SIEVE_DROP, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.SIEVE_DROP, payload);
 }
 
 /** @param {RegistrationPayload} payload */
 export function registerSpecialContainerSlots(payload) {
-  sendRegistration(REGISTRATION_EVENT_IDS.SPECIAL_CONTAINER_SLOTS, payload);
+  enqueueRegistration(REGISTRATION_EVENT_IDS.SPECIAL_CONTAINER_SLOTS, payload);
 }
 
+/** @typedef {{eventId: string, message: string}} QueuedRegistration */
+
+/** @type {QueuedRegistration[]} */
+const registrationQueue = [];
+let registrationDispatchEnabled = false;
+let registrationDispatchScheduled = false;
+
+world.afterEvents.worldLoad.subscribe(() => {
+  registrationDispatchEnabled = true;
+  scheduleNextRegistration();
+});
+
 /**
- * Serializes and publishes one UtilityCraft registration payload.
+ * Serializes and queues one UtilityCraft registration payload.
  *
  * @param {string} eventId
  * @param {RegistrationPayload|RegistrationPayload[]} payload
  */
-function sendRegistration(eventId, payload) {
+function enqueueRegistration(eventId, payload) {
   if (payload === null || typeof payload !== "object") {
     throw new TypeError(`Registration payload for ${eventId} must be an object`);
   }
-  system.sendScriptEvent(eventId, JSON.stringify(payload));
+
+  const message = JSON.stringify(payload);
+  if (typeof message !== "string") {
+    throw new TypeError(`Registration payload for ${eventId} must be JSON serializable`);
+  }
+
+  registrationQueue.push({ eventId, message });
+  scheduleNextRegistration();
+}
+
+/** Schedules exactly one queued registration for the next tick. */
+function scheduleNextRegistration() {
+  if (
+    !registrationDispatchEnabled
+    || registrationDispatchScheduled
+    || registrationQueue.length === 0
+  ) return;
+
+  registrationDispatchScheduled = true;
+  system.run(() => {
+    const registration = registrationQueue.shift();
+
+    try {
+      if (registration) system.sendScriptEvent(registration.eventId, registration.message);
+    } catch (error) {
+      console.warn(`[DoriosLib:registry] Failed to dispatch ${registration?.eventId}:`, error);
+    } finally {
+      registrationDispatchScheduled = false;
+      scheduleNextRegistration();
+    }
+  });
 }
 
 /** @type {Map<string, Registrar>} */

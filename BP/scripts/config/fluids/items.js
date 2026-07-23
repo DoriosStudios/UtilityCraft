@@ -1,10 +1,10 @@
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
 /**
  * Registers the default item-to-fluid insertion mappings for UtilityCraft.
  *
- * This block runs when the world loads and sends a ScriptEvent containing
- * all predefined fluid container items used by machines and tanks.
+ * Queues all predefined fluid container items through
+ * `DoriosLib.registry.registerFluidItem()` during module evaluation.
  *
  * These mappings are delivered to the listener associated with
  * "utilitycraft:register_fluid_item", which then populates
@@ -16,14 +16,14 @@ import { system, world } from "@minecraft/server";
  * - Provides a single centralized source of truth for insertable fluid items.
  *
  * Behavior:
- * - Sends a JSON object of all container definitions.
+ * - DoriosLib snapshots the complete definition object.
+ * - The shared queue dispatches it after world load.
  * - The receiver handles adding or replacing entries.
  *
- * This registration runs automatically during world load and requires no
- * manual user interaction.
+ * External addons can call the same helper without creating a world-load
+ * subscription or serializing the payload themselves.
  */
-world.afterEvents.worldLoad.subscribe(() => {
-    const defaultFluids = {
+const defaultFluids = {
         'minecraft:lava_bucket': { amount: 1000, type: 'lava', output: 'minecraft:bucket' },
         'utilitycraft:lava_ball': { amount: 1000, type: 'lava' },
         'minecraft:water_bucket': { amount: 1000, type: 'water', output: 'minecraft:bucket' },
@@ -41,21 +41,16 @@ world.afterEvents.worldLoad.subscribe(() => {
         'fluidcells:lava_cell_2': { amount: 3000, type: 'lava', output: 'fluidcells:empty_cell' },
         'fluidcells:lava_cell_3': { amount: 2000, type: 'lava', output: 'fluidcells:empty_cell' },
         'fluidcells:lava_cell_4': { amount: 1000, type: 'lava', output: 'fluidcells:empty_cell' }
-    };
+};
 
-    // Send the event → registers all default fluids
-    system.sendScriptEvent(
-        "utilitycraft:register_fluid_item",
-        JSON.stringify(defaultFluids)
-    );
-});
+DoriosLib.registry.registerFluidItem(defaultFluids);
 
 
 /**
  * Registers the default fluid-extraction holders for UtilityCraft.
  *
- * Executed on world load, this block sends a ScriptEvent containing every
- * item capable of extracting fluid from tanks (e.g. buckets, fluid cells).
+ * Queues every item capable of extracting fluid from tanks through
+ * `DoriosLib.registry.registerFluidHolder()`.
  *
  * The payload is consumed by the listener for
  * "utilitycraft:register_fluid_holder", which updates
@@ -67,15 +62,13 @@ world.afterEvents.worldLoad.subscribe(() => {
  * - Allows external addons to extend or override behavior cleanly.
  *
  * Behavior:
- * - Sends a structured JSON map of extraction rules.
+ * - Queues a structured object of extraction rules.
  * - The receiver creates or replaces holder definitions as needed.
  *
- * This registration is executed automatically when the world loads and
- * ensures the system starts with the complete set of built-in fluid holders.
+ * DoriosLib dispatches it after world load, one queue entry per tick.
  */
 
-world.afterEvents.worldLoad.subscribe(() => {
-    const holders = {
+const holders = {
 
         // Vanilla buckets
         "minecraft:bucket": {
@@ -113,10 +106,6 @@ world.afterEvents.worldLoad.subscribe(() => {
         "fluidcells:lava_cell": { types: { lava: "fluidcells:lava_cell_2" }, required: 3000 },
         "fluidcells:lava_cell_2": { types: { lava: "fluidcells:lava_cell_3" }, required: 2000 },
         "fluidcells:lava_cell_3": { types: { lava: "fluidcells:lava_cell_4" }, required: 1000 }
-    };
+};
 
-    system.sendScriptEvent(
-        "utilitycraft:register_fluid_holder",
-        JSON.stringify(holders)
-    );
-});
+DoriosLib.registry.registerFluidHolder(holders);

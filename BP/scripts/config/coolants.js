@@ -1,6 +1,6 @@
 // @ts-check
 
-import { system, world } from "@minecraft/server";
+import { system } from "@minecraft/server";
 import * as DoriosLib from "DoriosLib/index.js";
 
 /**
@@ -20,9 +20,7 @@ const defaultCoolants = {
   },
 };
 
-world.afterEvents.worldLoad.subscribe(() => {
-  DoriosLib.registry.registerCoolant(defaultCoolants);
-});
+DoriosLib.registry.registerCoolant(defaultCoolants);
 
 system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
   if (id !== DoriosLib.registry.REGISTRATION_EVENT_IDS.COOLANT) return;

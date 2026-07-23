@@ -1,4 +1,5 @@
-import { world, system } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
+import { system } from "@minecraft/server";
 
 /**
  * @typedef {Object} LiquidRecipe
@@ -28,17 +29,16 @@ const melterRecipesRegister = {
     "minecraft:magma_cream": { liquid: "lava", amount: 250 }
 };
 
-world.afterEvents.worldLoad.subscribe(() => {
-    system.sendScriptEvent("utilitycraft:register_melter_recipe", JSON.stringify(melterRecipesRegister));
-});
+DoriosLib.registry.registerMelterRecipe(melterRecipesRegister);
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_melter_recipe"
  *
  * Allows other addons or scripts to dynamically add or replace Melter recipes.
+ * Queue the object with `DoriosLib.registry.registerMelterRecipe(payload)`.
  * If the item already exists in `melterRecipes`, it will be replaced.
  *
- * Expected payload format (JSON):
+ * Registration object shape:
  * ```json
  * {
  *   "minecraft:cobblestone": { "liquid": "lava", "amount": 250 },
@@ -82,24 +82,15 @@ system.afterEvents.scriptEventReceive.subscribe(({ id, message }) => {
 // EXAMPLES – How to register custom Melter recipes
 // ==================================================
 /*
-import { system, world } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
-world.afterEvents.worldLoad.subscribe(() => {
-    // Add or replace Melter recipes dynamically
-    const newRecipes = {
-        "minecraft:ice": { liquid: "water", amount: 1000 },
-        "minecraft:obsidian": { liquid: "lava", amount: 500 },
-        // This one replaces an existing recipe
-        "minecraft:netherrack": { liquid: "lava", amount: 750 }
-    };
+// Add or replace Melter recipes through DoriosLib's world-load queue.
+const newRecipes = {
+    "minecraft:ice": { liquid: "water", amount: 1000 },
+    "minecraft:obsidian": { liquid: "lava", amount: 500 },
+    // This one replaces an existing recipe
+    "minecraft:netherrack": { liquid: "lava", amount: 750 }
+};
 
-    // Send the event to the Melter script
-    system.sendScriptEvent("utilitycraft:register_melter_recipe", JSON.stringify(newRecipes));
-
-    console.warn("[Addon] Custom melter recipes registered via system event.");
-});
-
-// You can also do this directly with a command inside Minecraft:
-Command:
-/scriptevent utilitycraft:register_melter_recipe {"minecraft:ice":{"liquid":"water","amount":1000},"minecraft:netherrack":{"liquid":"lava","amount":750}}
+DoriosLib.registry.registerMelterRecipe(newRecipes);
 */
