@@ -207,8 +207,12 @@ export interface MachineBoosts {
   [perk: string]: number;
   /** Final processing speed multiplier, including the base value of 1. */
   speed: number;
-  /** Additive energy-efficiency bonus, where 0.2 means 20%. */
-  efficiency: number;
+  /** Final energy-cost multiplier before efficiency, including the base value of 1. */
+  energy_cost: number;
+  /** Final energy-efficiency multiplier, including the base value of 1. */
+  energy_efficiency: number;
+  /** Final recipe operations produced per completed process, including the base value of 1. */
+  process_batch: number;
   /** Energy consumption multiplier. Lower values are more efficient. */
   consumption: number;
 }

@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Machine, registerIOInterface } from "DoriosCore/index.js";
+import { EnergyStorage, Machine, registerIOInterface } from "DoriosCore/index.js";
 import { crafterRecipes } from "../../config/recipes/crafter.js";
 import { ItemStack, system } from "@minecraft/server";
 import { writeBlueprintData, sendBlueprintDataEvent } from "../blueprint.js";
@@ -59,12 +59,12 @@ DoriosLib.registry.blockComponent("utilitycraft:digitizer", {
 
         const blueprint = inv.getItem(BLUEPRINT_SLOT);
         if (!blueprint || blueprint.typeId !== BLUEPRINT_ITEM) {
-            machine.showWarning("No Blueprint");
+            showWarning(machine, "No Blueprint");
             return;
         }
 
         if (inv.getItem(OUTPUT_SLOT)) {
-            machine.showWarning("Output Full");
+            showWarning(machine, "Output Full");
             return;
         }
 
@@ -74,17 +74,17 @@ DoriosLib.registry.blockComponent("utilitycraft:digitizer", {
         }
 
         if (materialCount === 0) {
-            machine.showWarning("No Materials");
+            showWarning(machine, "No Materials");
             return;
         }
 
         if (machine.energy.get() <= 0) {
-            machine.showWarning("No Energy", false);
+            showWarning(machine, "No Energy", false);
             return;
         }
 
         if (machine.entity.getDynamicProperty("crafting")) {
-            machine.showWarning("Crafting", false);
+            showWarning(machine, "Crafting", false);
             return;
         }
 
@@ -106,7 +106,7 @@ DoriosLib.registry.blockComponent("utilitycraft:digitizer", {
         if (progress < energyCost) {
             machine.on();
             machine.displayProgress({ maxValue: settings.machine.energy_cost });
-            machine.showStatus("Running");
+            showStatus(machine, "Running");
             return;
         }
 
@@ -200,7 +200,7 @@ DoriosLib.registry.blockComponent("utilitycraft:digitizer", {
 
         machine.on();
         machine.displayProgress({ maxValue: settings.machine.energy_cost });
-        machine.showStatus("Running");
+        showStatus(machine, "Running");
     },
 
     onPlayerBreak(e) {
@@ -216,4 +216,36 @@ function removeCrafter(dimension, { x, y, z }, entity, crafterBlockId, redstoneB
     dimension.setBlockType({ x, y: minY, z }, crafterBlockId);
     dimension.setBlockType({ x, y: minY + 1, z }, redstoneBlockId);
     entity?.setDynamicProperty("crafting", false);
+}
+
+function showWarning(machine, message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
+    }
+
+    machine.displayEnergy();
+    machine.off();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.yellow}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ---
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+`);
+}
+
+function showStatus(machine, message) {
+    machine.displayEnergy();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.darkGreen}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
 }

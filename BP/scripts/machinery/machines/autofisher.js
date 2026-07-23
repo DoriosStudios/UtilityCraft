@@ -1,6 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, EnchantmentTypes } from '@minecraft/server';
-import { Machine, registerIOInterface } from "DoriosCore/index.js"
+import { EnergyStorage, Machine, registerIOInterface } from "DoriosCore/index.js"
 import { autoFisherConfig, autoFisherLoot } from '../../config/recipes/fisher.js';
 
 const NET_SLOT = 6;
@@ -634,12 +634,12 @@ DoriosLib.registry.blockComponent('utilitycraft:autofisher', {
 
         const netItem = inv.getItem(NET_SLOT);
         if (!netItem || !netItem.hasComponent('utilitycraft:fishing_net')) {
-            machine.showWarning('No Net Item');
+            showWarning(machine, 'No Net Item');
             return;
         }
 
         if (!hasWaterNearby(block)) {
-            machine.showWarning('Need Water!');
+            showWarning(machine, 'Need Water!');
             return;
         }
 
@@ -660,12 +660,12 @@ DoriosLib.registry.blockComponent('utilitycraft:autofisher', {
         }
 
         if (freeSlots <= 0) {
-            machine.showWarning('Output Full');
+            showWarning(machine, 'Output Full');
             return;
         }
 
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy');
+            showWarning(machine, 'No Energy');
             return;
         }
 
@@ -739,10 +739,42 @@ DoriosLib.registry.blockComponent('utilitycraft:autofisher', {
 
         machine.on();
         machine.displayProgress();
-        machine.showStatus('Fishing');
+        showStatus(machine, 'Fishing');
     },
 
     onPlayerBreak(e) {
         Machine.onDestroy(e);
     }
 });
+
+function showWarning(machine, message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
+    }
+
+    machine.displayEnergy();
+    machine.off();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.yellow}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ---
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+`);
+}
+
+function showStatus(machine, message) {
+    machine.displayEnergy();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.darkGreen}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
+}

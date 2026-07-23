@@ -120,8 +120,9 @@ DoriosLib.registry.blockComponent('utilitycraft:simple_machine_liquid', {
         }
 
         const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, inputSlot.amount))
+        const processBatch = Math.max(1, Math.floor(machine.boosts.process_batch));
         const consumption = machine.boosts.consumption
-        const maxProgress = maxAmountToCraft * energyCost;
+        const maxProgress = Math.ceil(maxAmountToCraft / processBatch) * energyCost;
         const progressCapacity = Math.max(0, maxProgress - progress);
         const energyToConsume = Math.min(machine.energy.get(), machine.rate, progressCapacity * consumption);
 
@@ -131,8 +132,9 @@ DoriosLib.registry.blockComponent('utilitycraft:simple_machine_liquid', {
             machine.setProgress(progress, { display: false });
         }
 
+        const completedProcesses = Math.floor(progress / energyCost);
         const processCount = Math.min(
-            Math.floor(progress / energyCost),
+            completedProcesses * processBatch,
             maxAmountToCraft
         );
         if (processCount > 0) {
@@ -140,7 +142,7 @@ DoriosLib.registry.blockComponent('utilitycraft:simple_machine_liquid', {
             liquid.add(recipeAmount * processCount)
             if (liquid.type == 'empty') liquid.setType(recipe.liquid)
             // Deduct progress and input items while preserving leftover progress.
-            progress -= processCount * energyCost;
+            progress -= Math.ceil(processCount / processBatch) * energyCost;
             machine.setProgress(progress, { display: false });
             DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUTSLOT, amount: -processCount });
         }

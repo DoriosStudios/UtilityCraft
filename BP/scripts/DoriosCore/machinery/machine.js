@@ -37,9 +37,19 @@ export class Machine extends BasicMachine {
     this.boosts = MachineUpgradeRegistry.resolveBoosts(
       this.container,
       machineSettings.upgrades,
-      { speed: 1, efficiency: 0 },
+      {
+        speed: 1,
+        energy_cost: 1,
+        energy_efficiency: 1,
+        process_batch: 1,
+      },
     );
-    this.boosts.consumption = Math.max(0, 1 - this.boosts.efficiency) * this.boosts.speed;
+    this.boosts.energy_cost = Math.max(0.01, this.boosts.energy_cost);
+    this.boosts.energy_efficiency = Math.max(0.01, this.boosts.energy_efficiency);
+    this.boosts.consumption = Math.max(
+      0.01,
+      this.boosts.energy_cost / this.boosts.energy_efficiency,
+    );
 
     const adjustedRate = baseRate * this.boosts.speed * this.boosts.consumption;
     this.setRate(adjustedRate);
@@ -393,7 +403,8 @@ export class Machine extends BasicMachine {
 §r${Constants.MACHINE_TEXT_COLORS.yellow}${message}!
 
 §r${Constants.MACHINE_TEXT_COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${Constants.MACHINE_TEXT_COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${Constants.MACHINE_TEXT_COLORS.green}Efficiency x${(1 / this.boosts.consumption).toFixed(2)}
+§r${Constants.MACHINE_TEXT_COLORS.green}Recipe Batch x${Math.max(1, Math.floor(this.boosts.process_batch))}
 §r${Constants.MACHINE_TEXT_COLORS.green}Cost ---
 
 §r${Constants.MACHINE_TEXT_COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t
@@ -414,7 +425,8 @@ export class Machine extends BasicMachine {
 §r${Constants.MACHINE_TEXT_COLORS.darkGreen}${message}!
 
 §r${Constants.MACHINE_TEXT_COLORS.green}Speed x${this.boosts.speed.toFixed(2)}
-§r${Constants.MACHINE_TEXT_COLORS.green}Efficiency ${((1 / this.boosts.consumption) * 100).toFixed(0)}%%
+§r${Constants.MACHINE_TEXT_COLORS.green}Efficiency x${(1 / this.boosts.consumption).toFixed(2)}
+§r${Constants.MACHINE_TEXT_COLORS.green}Recipe Batch x${Math.max(1, Math.floor(this.boosts.process_batch))}
 §r${Constants.MACHINE_TEXT_COLORS.green}Cost ${EnergyStorage.formatEnergyToText(this.getEnergyCost() * this.boosts.consumption)}
 
 §r${Constants.MACHINE_TEXT_COLORS.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(this.baseRate))}/t

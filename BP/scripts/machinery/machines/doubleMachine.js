@@ -127,8 +127,9 @@ DoriosLib.registry.blockComponent('utilitycraft:double_machine', {
         }
 
         const maxAmountToCraft = Math.floor(Math.min(spaceLeft / recipeAmount, catalystSlot.amount / requiredCatalyst, inputSlot.amount / requiredInput))
+        const processBatch = Math.max(1, Math.floor(machine.boosts.process_batch));
         const consumption = machine.boosts.consumption
-        const maxProgress = maxAmountToCraft * energyCost;
+        const maxProgress = Math.ceil(maxAmountToCraft / processBatch) * energyCost;
         const progressCapacity = Math.max(0, maxProgress - progress);
         const energyToConsume = Math.min(machine.energy.get(), machine.rate, progressCapacity * consumption);
 
@@ -138,8 +139,9 @@ DoriosLib.registry.blockComponent('utilitycraft:double_machine', {
             machine.setProgress(progress, { display: false });
         }
 
+        const completedProcesses = Math.floor(progress / energyCost);
         const processCount = Math.min(
-            Math.floor(progress / energyCost),
+            completedProcesses * processBatch,
             maxAmountToCraft
         );
         if (processCount > 0) {
@@ -151,7 +153,7 @@ DoriosLib.registry.blockComponent('utilitycraft:double_machine', {
             }
 
             // Deduct progress and input items while preserving leftover progress.
-            progress -= processCount * energyCost;
+            progress -= Math.ceil(processCount / processBatch) * energyCost;
             machine.setProgress(progress, { display: false });
             DoriosLib.entity.changeItemAmount(machine.entity, { slot: INPUT_SLOT, amount: -processCount * requiredInput });
             DoriosLib.entity.changeItemAmount(machine.entity, { slot: CATALYST_SLOT, amount: -processCount * requiredCatalyst });

@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Machine, registerIOInterface } from "DoriosCore/index.js"
+import { EnergyStorage, Machine, registerIOInterface } from "DoriosCore/index.js"
 
 const INPUTSLOT = 3
 
@@ -45,7 +45,7 @@ DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
 
         // No item
         if (!stack) {
-            machine.showWarning("No Item", { displayProgress: false });
+            showWarning(machine, "No Item", { displayProgress: false });
             return;
         }
 
@@ -53,7 +53,7 @@ DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
         const durability = DoriosLib.item.durability.getInfo(stack)
 
         if (!durability) {
-            machine.showWarning("Invalid Item", { displayProgress: false });
+            showWarning(machine, "Invalid Item", { displayProgress: false });
             return;
         }
 
@@ -62,13 +62,13 @@ DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
 
         // Fully repaired
         if (remaining >= max) {
-            machine.showWarning("Fully Repaired", { displayProgress: false });
+            showWarning(machine, "Fully Repaired", { displayProgress: false });
             return;
         }
 
         // No energy at all
         if (machine.energy.get() <= 0) {
-            machine.showWarning("No Energy", { displayProgress: false });
+            showWarning(machine, "No Energy", { displayProgress: false });
             return;
         }
 
@@ -84,7 +84,7 @@ DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
         const canRepair = Math.floor(energyAvailableThisTick / ENERGY_PER_DURABILITY);
 
         if (canRepair <= 0) {
-            machine.showWarning("No Energy", { displayProgress: false });
+            showWarning(machine, "No Energy", { displayProgress: false });
             return;
         }
 
@@ -96,16 +96,48 @@ DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
             inv.setItem(INPUTSLOT, stack);
             machine.energy.consume(energyToConsume);
         } catch {
-            machine.showWarning("Invalid Item", { displayProgress: false });
+            showWarning(machine, "Invalid Item", { displayProgress: false });
             return;
         }
 
         // Update visuals
         machine.on();
-        machine.showStatus("Running");
+        showStatus(machine, "Running");
     },
 
     onPlayerBreak(e) {
         Machine.onDestroy(e);
     }
 });
+
+function showWarning(machine, message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
+    }
+
+    machine.displayEnergy();
+    machine.off();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.yellow}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ---
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+`);
+}
+
+function showStatus(machine, message) {
+    machine.displayEnergy();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.darkGreen}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
+}

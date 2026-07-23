@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Machine } from "DoriosCore/index.js"
+import { EnergyStorage, Machine } from "DoriosCore/index.js"
 import { getOppositeFacingBlock } from "./oppositeFacing.js";
 import {
     handleMachineOutlineInteract,
@@ -38,7 +38,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', { resetProgress: true, displayProgress: false });
+            showWarning(machine, 'No Energy', { resetProgress: true, displayProgress: false });
             return;
         }
 
@@ -74,7 +74,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
                     })
                     machine.setProgress(0, { display: false });
                 } else {
-                    machine.showWarning('Nothing to Break', { resetProgress: false, displayProgress: false });
+                    showWarning(machine, 'Nothing to Break', { resetProgress: false, displayProgress: false });
                     return;
                 }
             }
@@ -83,7 +83,7 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
         }
 
         // Update visuals
-        machine.showStatus('Running');
+        showStatus(machine, 'Running');
     },
 
     onPlayerInteract(e) {
@@ -95,3 +95,35 @@ DoriosLib.registry.blockComponent('utilitycraft:block_breaker', {
         Machine.onDestroy(e);
     }
 });
+
+function showWarning(machine, message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
+    }
+
+    machine.displayEnergy();
+    machine.off();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.yellow}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ---
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+`);
+}
+
+function showStatus(machine, message) {
+    machine.displayEnergy();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.darkGreen}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
+}

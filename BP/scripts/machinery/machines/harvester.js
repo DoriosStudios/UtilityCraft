@@ -1,6 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { system } from "@minecraft/server";
-import { Machine } from "DoriosCore/index.js"
+import { EnergyStorage, Machine } from "DoriosCore/index.js"
 import { getOppositeFacingDirection } from "./oppositeFacing.js";
 import { harvestAutomatedCrop } from "../../crops/harvest.js";
 import {
@@ -64,7 +64,7 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
         machine.setEnergyCost(energyCost * area)
         // --- Energy check ---
         if (machine.energy.get() <= 0) {
-            machine.showWarning("No Energy", { displayProgress: false });
+            showWarning(machine, "No Energy", { displayProgress: false });
             return;
         }
 
@@ -162,7 +162,7 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
 
         // --- Visual updates ---
         machine.on();
-        machine.showStatus("Running");
+        showStatus(machine, "Running");
     },
 
     onPlayerInteract(e) {
@@ -174,3 +174,35 @@ DoriosLib.registry.blockComponent("utilitycraft:harvester", {
         Machine.onDestroy(e);
     }
 });
+
+function showWarning(machine, message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
+    }
+
+    machine.displayEnergy();
+    machine.off();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.yellow}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ---
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+`);
+}
+
+function showStatus(machine, message) {
+    machine.displayEnergy();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.darkGreen}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
+}

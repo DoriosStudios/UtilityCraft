@@ -1,5 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
-import { Machine, registerIOInterface } from "DoriosCore/index.js"
+import { EnergyStorage, Machine, registerIOInterface } from "DoriosCore/index.js"
 import { plantsData } from "../../config/recipes/plants.js";
 
 const INPUT_SLOT = 3
@@ -68,26 +68,26 @@ DoriosLib.registry.blockComponent('utilitycraft:seed_synthesizer', {
         // Get the input slot (slot 3 in this case)
         const inputSlot = inv.getItem(INPUT_SLOT);
         if (!inputSlot) {
-            machine.showWarning('No Seed')
+            showWarning(machine, 'No Seed')
             return;
         }
 
         const soilSlot = inv.getItem(SOIL_SLOT)
         if (!soilSlot) {
-            machine.showWarning('No Soil')
+            showWarning(machine, 'No Soil')
             return;
         }
 
         const soil = acceptedSoils[soilSlot.typeId]
         if (!soil) {
-            machine.showWarning('Invalid Soil')
+            showWarning(machine, 'Invalid Soil')
             return;
         }
 
         // Validate recipe based on the input item
         const recipe = plantsData[inputSlot?.typeId]
         if (!recipe) {
-            machine.showWarning('Invalid Seed')
+            showWarning(machine, 'Invalid Seed')
             return;
         }
 
@@ -101,7 +101,7 @@ DoriosLib.registry.blockComponent('utilitycraft:seed_synthesizer', {
 
         // Check how many items can still fit in the output slot
         if (filledSlots == 0) {
-            machine.showWarning('Output Full')
+            showWarning(machine, 'Output Full')
             return;
         }
 
@@ -111,7 +111,7 @@ DoriosLib.registry.blockComponent('utilitycraft:seed_synthesizer', {
 
         // Check energy availability
         if (machine.energy.get() <= 0) {
-            machine.showWarning('No Energy', { resetProgress: false })
+            showWarning(machine, 'No Energy', { resetProgress: false })
             return;
         }
 
@@ -163,10 +163,42 @@ DoriosLib.registry.blockComponent('utilitycraft:seed_synthesizer', {
         machine.on();
         machine.displayProgress();
         // Machine operating normally
-        machine.showStatus('Running')
+        showStatus(machine, 'Running')
 
     },
     onPlayerBreak(e) {
         Machine.onDestroy(e);
     }
 });
+
+function showWarning(machine, message, options) {
+    options ??= {};
+    if (options.resetProgress !== false) {
+        machine.setProgress(0, { ...options, display: options.displayProgress !== false });
+    }
+
+    machine.displayEnergy();
+    machine.off();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.yellow}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ---
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+`);
+}
+
+function showStatus(machine, message) {
+    machine.displayEnergy();
+    machine.setLabel(`
+§r${DoriosLib.text.FORMAT.darkGreen}${message}!
+
+§r${DoriosLib.text.FORMAT.green}Speed x${machine.boosts.speed.toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Efficiency x${(1 / machine.boosts.consumption).toFixed(2)}
+§r${DoriosLib.text.FORMAT.green}Cost ${EnergyStorage.formatEnergyToText(machine.getEnergyCost() * machine.boosts.consumption)}
+
+§r${DoriosLib.text.FORMAT.red}Rate ${EnergyStorage.formatEnergyToText(Math.floor(machine.baseRate))}/t
+    `);
+}
