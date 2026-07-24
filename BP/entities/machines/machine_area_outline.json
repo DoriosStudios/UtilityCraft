@@ -20,7 +20,25 @@
 				},
 				"utilitycraft:outline_size": {
 					"type": "int",
-					"range": [1, 9],
+					"range": [1, 11],
+					"default": 1,
+					"client_sync": true
+				},
+				"utilitycraft:outline_width": {
+					"type": "int",
+					"range": [1, 11],
+					"default": 1,
+					"client_sync": true
+				},
+				"utilitycraft:outline_height": {
+					"type": "int",
+					"range": [1, 11],
+					"default": 1,
+					"client_sync": true
+				},
+				"utilitycraft:outline_depth": {
+					"type": "int",
+					"range": [1, 11],
 					"default": 1,
 					"client_sync": true
 				},

@@ -18,6 +18,11 @@ const WRENCH_ITEM_ID = "utilitycraft:wrench"
 const OUTLINE_ENABLED_PROPERTY = "utilitycraft:outline_enabled"
 const OUTLINE_COLOR_PROPERTY = "utilitycraft:outline_color"
 const OUTLINE_SIZE_PROPERTY = "utilitycraft:outline_size"
+const OUTLINE_DIMENSION_PROPERTIES = {
+    width: "utilitycraft:outline_width",
+    height: "utilitycraft:outline_height",
+    depth: "utilitycraft:outline_depth"
+}
 const OUTLINE_OFFSET_PROPERTIES = Object.freeze({
     x: "utilitycraft:outline_offset_x",
     y: "utilitycraft:outline_offset_y",
@@ -124,6 +129,9 @@ export function syncMachineOutline(
     setPropertyIfChanged(outline, OUTLINE_ENABLED_PROPERTY, true)
     setPropertyIfChanged(outline, OUTLINE_COLOR_PROPERTY, color)
     setPropertyIfChanged(outline, OUTLINE_SIZE_PROPERTY, transform.size)
+    setPropertyIfChanged(outline, OUTLINE_DIMENSION_PROPERTIES.width, transform.size)
+    setPropertyIfChanged(outline, OUTLINE_DIMENSION_PROPERTIES.height, 1)
+    setPropertyIfChanged(outline, OUTLINE_DIMENSION_PROPERTIES.depth, transform.size)
     setPropertyIfChanged(outline, OUTLINE_OFFSET_PROPERTIES.x, transform.offset.x)
     setPropertyIfChanged(outline, OUTLINE_OFFSET_PROPERTIES.y, transform.offset.y)
     setPropertyIfChanged(outline, OUTLINE_OFFSET_PROPERTIES.z, transform.offset.z)
@@ -164,7 +172,12 @@ export function syncHarvesterOutlineIfNeeded(machine) {
 
     const range = Math.max(0, Math.floor(machine.boosts.range ?? 0))
     const expectedSide = getHarvesterSide(range)
-    if (outline.getProperty(OUTLINE_SIZE_PROPERTY) === expectedSide) return
+    if (
+        outline.getProperty(OUTLINE_SIZE_PROPERTY) === expectedSide
+        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.width) === expectedSide
+        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.height) === 1
+        && outline.getProperty(OUTLINE_DIMENSION_PROPERTIES.depth) === expectedSide
+    ) return
     syncMachineOutline(machine.block, outline, machine.entity, range)
 }
 

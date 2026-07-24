@@ -33,7 +33,9 @@ export class MultiblockMachine extends BasicMachine {
    * @param {MachineSettings} config Multiblock machine configuration.
    */
   constructor(block, config) {
-    super(block, config?.machine?.rate_speed_base ?? 0);
+    const configuredRate = config?.machine?.rate_speed_base ?? 0;
+    super(block, { rate: configuredRate, ignoreTick: config?.ignoreTick });
+    this.configuredRate = configuredRate;
     if (!this.valid) return;
 
     const state = this.entity.getDynamicProperty(Constants.STATE_PROPERTY_ID);
@@ -44,6 +46,23 @@ export class MultiblockMachine extends BasicMachine {
 
     this.config = config;
     this.settings = config;
+  }
+
+  /**
+   * Applies a multiplier to the configured machine rate.
+   *
+   * The configured value is kept separately so repeated calls never compound
+   * the previous effective rate. Call {@link BasicMachine#setRate} directly
+   * when a machine needs a completely custom absolute rate.
+   *
+   * @param {number} [multiplier=1] Multiplier applied to `rate_speed_base`.
+   * @returns {void}
+   */
+  setRateMultiplier(multiplier = 1) {
+    const normalizedMultiplier = Number.isFinite(multiplier)
+      ? Math.max(0, multiplier)
+      : 1;
+    this.setRate(this.configuredRate * normalizedMultiplier);
   }
 
   /**
@@ -383,11 +402,7 @@ export class MultiblockMachine extends BasicMachine {
   }
 
   /**
-   * Sets the current machine progress using legacy multiblock visuals.
-   *
-   * Multiblocks still rely on the classic 0-16 arrow textures, so this wrapper
-   * keeps `legacy: true` and the expected scale while allowing callers to
-   * provide the rest of the progress config as an object.
+   * Sets the current machine progress using its configured energy cost.
    *
    * @param {number} value New progress value.
    * @param {Object} [options={}]
@@ -395,31 +410,40 @@ export class MultiblockMachine extends BasicMachine {
    * @param {number} [options.maxValue=this.getEnergyCost(options.index)] Maximum progress value.
    * @param {boolean} [options.display=true] Whether to redraw the progress item.
    * @param {number} [options.index=0] Progress index.
-   * @param {string} [options.type] Optional legacy progress item prefix.
+   * @param {string} [options.type] Optional progress item prefix.
    */
   setProgress(value, options = {}) {
-    super.setProgress(value, {
-      ...options,
-      maxValue: options.maxValue ?? this.getEnergyCost(options.index),
-    });
+    const maxValue = options.maxValue ?? this.getEnergyCost(options.index);
+    super.setProgress(value, maxValue, options);
   }
 
   /**
    * Displays progress using the configured multiblock energy cost.
    *
-   * @param {Object} [options={}]
-   * @param {number} [options.slot=2] Inventory slot used to display progress.
-   * @param {number} [options.maxValue=this.getEnergyCost(options.index)] Maximum progress value.
-   * @param {number} [options.index=0] Progress index.
-   * @param {string} [options.type] Optional legacy progress item prefix.
+   * Supports direct calls with an options object and internal base-class calls
+   * that provide `maxValue` and `options` separately.
+   *
+   * @param {number|Object} [maxValueOrOptions]
+   * @param {Object} [maybeOptions]
+   * @param {number} [maybeOptions.slot=2] Inventory slot used to display progress.
+   * @param {number} [maybeOptions.maxValue=this.getEnergyCost(maybeOptions.index)] Maximum progress value.
+   * @param {number} [maybeOptions.index=0] Progress index.
+   * @param {string} [maybeOptions.type] Optional progress item prefix.
    */
-  displayProgress(options = {}) {
-    const energyCost = options.maxValue ?? this.getEnergyCost(options.index);
-    if (!energyCost || energyCost <= 0) return;
+  displayProgress(maxValueOrOptions, maybeOptions) {
+    let maxValue;
+    let options;
 
-    super.displayProgress(energyCost, {
-      ...options,
-    });
+    if (typeof maxValueOrOptions === "number") {
+      maxValue = maxValueOrOptions;
+      options = maybeOptions ?? {};
+    } else {
+      options = maxValueOrOptions ?? {};
+      maxValue = options.maxValue ?? this.getEnergyCost(options.index);
+    }
+
+    if (!maxValue || maxValue <= 0) return;
+    super.displayProgress(maxValue, options);
   }
 
   /**
@@ -497,6 +521,61 @@ export class MultiblockMachine extends BasicMachine {
   }
 
   /**
+   * Builds the shared machine-information section used by multiblock UIs.
+   *
+   * The cost is formatted exactly as provided by the machine. The label helper
+   * does not apply batch or processing multipliers because cost semantics are
+   * machine-specific.
+   *
+   * @param {ReturnType<typeof MultiblockMachine.computeMachineStats> & { cost?: number }} data
+   * Computed machine stats plus the current machine cost.
+   * @param {string} [status="§aRunning"] Current machine status text.
+   * @returns {string} Formatted machine information label.
+   */
+  static getMachineInfoLabel(data, status = "§aRunning") {
+    const processingAmount = data?.processing?.amount ?? 1;
+    const speedMultiplier = data?.speed?.multiplier ?? 1;
+    const energyMultiplier = data?.energyMultiplier ?? 1;
+    const efficiency = energyMultiplier > 0
+      ? (processingAmount / energyMultiplier) * 100
+      : 0;
+    const cost = Number.isFinite(data?.cost)
+      ? EnergyStorage.formatEnergyToText(data.cost)
+      : "---";
+
+    return `§r§7Status: ${status}
+
+§r§eMachine Information
+
+§r§aInput Capacity §fx${processingAmount}
+§r§aCost §f${cost}
+§r§aSpeed §fx${speedMultiplier.toFixed(2)}
+§r§aEfficiency §f${efficiency.toFixed(2)}%%
+`;
+  }
+
+  /**
+   * Builds the shared energy-information section used by multiblock UIs.
+   *
+   * `baseRate` is displayed instead of the scheduler-compensated burst rate so
+   * the UI reports the average rate per game tick.
+   *
+   * @param {MultiblockMachine} controller Active multiblock controller.
+   * @returns {string} Formatted energy information label.
+   */
+  static getEnergyInfoLabel(controller) {
+    const energy = controller.energy;
+    const baseRate = Number.isFinite(controller.baseRate) ? controller.baseRate : 0;
+
+    return `§r§eEnergy Information
+
+§r§bCapacity §f${Math.floor(energy.getPercent())}%%
+§r§bStored §f${EnergyStorage.formatEnergyToText(energy.get())} / ${EnergyStorage.formatEnergyToText(energy.cap)}
+§r§bRate §f${EnergyStorage.formatEnergyToText(baseRate)}/t
+`;
+  }
+
+  /**
    * Writes the standard machine information label into the controller UI.
    *
    * The returned newline padding string is useful when callers want to append
@@ -509,15 +588,7 @@ export class MultiblockMachine extends BasicMachine {
    * @returns {string} Newline padding string for additional label sections.
    */
   static setMachineInfoLabel(controller, data, status = "§aRunning") {
-    const infoText = `§r§7Status: ${status}
-
-§r§eMachine Information
-
-§r§aInput Capacity §fx${data.processing.amount}
-§r§aCost §f${data.cost ? EnergyStorage.formatEnergyToText(data.cost * data.processing.amount) : "---"}
-§r§aSpeed §fx${data.speed.multiplier.toFixed(2)}
-§r§aEfficiency §f${((data.processing.amount / data.energyMultiplier) * 100).toFixed(2)}%%
-`;
+    const infoText = this.getMachineInfoLabel(data, status);
 
     controller.setLabel(infoText, 1);
     return "\n".repeat(infoText.split("\n").length - 1);

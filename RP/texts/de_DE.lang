@@ -639,28 +639,28 @@ tile.utilitycraft:basic_magmator.name=§eBasic Magmator \n §7 Rate: 50 DE/t\n§
 tile.utilitycraft:basic_thermo_generator.name=§eBasis-Thermogenerator \n §7 Rate: 20 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_battery.name=§eBasisbatterie \n §7 Rate: 100 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_solar_panel.name=§eBasis-Solarmodul \n §7 Rate: 12 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:basic_wind_turbine.name=§eBasis-Windkraftanlage \n §7 Basisrate: 8 DE/t\n §7 Maximaler Höhenmultiplikator: 300 %\n §7 Funktioniert nicht unter y20\n§o§9@UtilityCraft
+tile.utilitycraft:basic_wind_turbine.name=§eBasis-Windkraftanlage \n §7 Basisrate: 8 DE/t\n §7 Maximaler Höhenmultiplikator: 200 %\n §7 Funktioniert nicht unter y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:advanced_furnator.name=§cAdvanced Furnator \n §7 Rate: 160 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_magmator.name=§cAdvanced Magmator \n §7 Rate: 200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_thermo_generator.name=§cAdvanced Thermo Generator \n §7 Rate: 80 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_battery.name=§cAdvanced Battery \n §7 Rate: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_solar_panel.name=§cAdvanced Solar Panel \n §7 Rate: 48 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_wind_turbine.name=§cAdvanced Wind Turbine \n §7 Basisrate: 32 DE/t\n §7 Maximaler Höhenmultiplikator: 300 %\n §7 Funktioniert nicht unter y20\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_wind_turbine.name=§cAdvanced Wind Turbine \n §7 Basisrate: 32 DE/t\n §7 Maximaler Höhenmultiplikator: 200 %\n §7 Funktioniert nicht unter y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:expert_furnator.name=§bExpert Furnator \n §7 Rate: 640 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_magmator.name=§bExpert Magmator \n §7 Rate: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_thermo_generator.name=§bExpert Thermogenerator \n §7 Rate: 320 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_battery.name=§bExpert-Batterie \n §7 Rate: 1,6 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_solar_panel.name=§bExpert Solar Panel \n §7 Rate: 192 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Basisrate: 128 DE/t\n §7 Maximaler Höhenmultiplikator: 300 %\n §7 Funktioniert nicht unter y20\n§o§9@UtilityCraft
+tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Basisrate: 128 DE/t\n §7 Maximaler Höhenmultiplikator: 200 %\n §7 Funktioniert nicht unter y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator \n §7 Rate: 4 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Rate: 5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8Ultimate Thermo Generator \n §7 Rate: 2 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8Ultimate Battery \n §7 Rate: 10 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_solar_panel.name=§8Ultimate Solar Panel \n §7 Rate: 1200 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Basisrate: 800 DE/t\n §7 Maximaler Höhenmultiplikator: 300 %\n §7 Funktioniert nicht unter y16\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Basisrate: 800 DE/t\n §7 Maximaler Höhenmultiplikator: 250 %\n §7 Funktioniert nicht unter y16\n§o§9@UtilityCraft
 
 
 < Energy Generators =Geradores de Energy ##///////////////////////////////////////////////////////////

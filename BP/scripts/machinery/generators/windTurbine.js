@@ -103,6 +103,7 @@ DoriosLib.registry.blockComponent('utilitycraft:wind_turbine', {
         const weatherMultiplier = getWeatherMultiplier(weather)
         const effectiveRate = altitudeRate * weatherMultiplier
         const effectiveRateInt = Math.max(0, Math.floor(effectiveRate))
+        const ratePerTick = effectiveRateInt / Math.max(1, generator.processingInterval)
         const efficiency = baseRate > 0 ? Math.max(0, Math.round((altitudeRate / baseRate) * 1000) / 10) : 0
         const realEfficiency = baseRate > 0 ? Math.max(0, Math.round((effectiveRate / baseRate) * 1000) / 10) : 0
         const belowMinAltitude = altitude < altitudeConfig.minAltitude
@@ -137,7 +138,7 @@ DoriosLib.registry.blockComponent('utilitycraft:wind_turbine', {
 
         generator.on()
         generator.displayEnergy()
-        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, effectiveRateInt))
+        generator.setLabel(buildStatusLabel('Running', 'a', efficiency, realEfficiency, weatherMultiplier, energy.getPercent(), altitude, ratePerTick))
     },
 
     onPlayerBreak(e) {
@@ -236,22 +237,24 @@ function getWeatherForDimension(dimension) {
 /**
  * Builds the inventory label text shown to the player.
  *
- * @param {string} header
- * @param {number} altitude
- * @param {string} weather
+ * @param {string} status
+ * @param {string} color
  * @param {number} efficiency
+ * @param {number} realEfficiency
+ * @param {number} weatherMultiplier
  * @param {number} percent
- * @param {number} rate
+ * @param {number} altitude
+ * @param {number} [ratePerTick]
  * @returns {string}
  */
-function buildStatusLabel(status, color, efficiency, realEfficiency, weatherMultiplier, percent, altitude, transferRate = 0) {
+function buildStatusLabel(status, color, efficiency, realEfficiency, weatherMultiplier, percent, altitude, ratePerTick = 0) {
     const clampedEfficiency = Math.max(0, efficiency)
     const formattedEfficiency = clampedEfficiency.toFixed(1).replace('.', ',')
     const formattedRealEfficiency = Math.max(0, realEfficiency ?? clampedEfficiency)
         .toFixed(1)
         .replace('.', ',')
     const formattedWeatherMultiplier = Math.max(0, weatherMultiplier ?? 1).toFixed(2).replace('.', ',')
-    const transferText = transferRate > 0 ? EnergyStorage.formatEnergyToText(transferRate) : '0 DE'
+    const rateText = ratePerTick > 0 ? EnergyStorage.formatEnergyToText(ratePerTick) : '0 DE'
 
     return `
 §r§${color ?? 'e'}${status}
@@ -261,7 +264,7 @@ function buildStatusLabel(status, color, efficiency, realEfficiency, weatherMult
  §r§bWeather Multiplier §f${formattedWeatherMultiplier}x
  
 §r§bEnergy at ${Math.floor(percent)}%%
-§r§cRate ${transferText}/t
+§r§cRate ${rateText}/t
     `
 }
 

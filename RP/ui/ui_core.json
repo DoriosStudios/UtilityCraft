@@ -3170,9 +3170,15 @@
         "$upgrade_index_1|default": 4,
         "$upgrade_index_2|default": 5,
         "$upgrade_index_3|default": 6,
+        "$upgrade_index_4|default": 7,
         "$has_first_upgrade|default": true,
         "$has_second_upgrade|default": true,
         "$has_third_upgrade|default": false,
+        "$has_fourth_upgrade|default": false,
+        "$upgrade_overlay_1|default": "textures/items/machinery/speed_upgrade",
+        "$upgrade_overlay_2|default": "textures/items/machinery/energy_upgrade",
+        "$upgrade_overlay_3|default": "textures/items/machinery/range_upgrade",
+        "$upgrade_overlay_4|default": "textures/items/machinery/quantity_upgrade",
         "$right_machine_tabs_name|default": "right_machine_tabs",
         "$upgrade_toggle_control_name|default": "upgrade_toggle_button",
         "controls": [
@@ -3296,9 +3302,15 @@
                                 "$index_1": "$upgrade_index_1",
                                 "$index_2": "$upgrade_index_2",
                                 "$index_3": "$upgrade_index_3",
+                                "$index_4": "$upgrade_index_4",
                                 "$has_first": "$has_first_upgrade",
                                 "$has_second": "$has_second_upgrade",
-                                "$has_third": "$has_third_upgrade"
+                                "$has_third": "$has_third_upgrade",
+                                "$has_fourth": "$has_fourth_upgrade",
+                                "$overlay_1": "$upgrade_overlay_1",
+                                "$overlay_2": "$upgrade_overlay_2",
+                                "$overlay_3": "$upgrade_overlay_3",
+                                "$overlay_4": "$upgrade_overlay_4"
                             }
                         },
                         {
@@ -3976,7 +3988,7 @@
                                 "texture": "textures/ui/background/background_panel",
                                 "size": [
                                     132,
-                                    90
+                                    114
                                 ],
                                 "offset": [
                                     18,
@@ -4019,7 +4031,7 @@
                                 "anchor_to": "top_middle",
                                 "size": [
                                     120,
-                                    40
+                                    80
                                 ],
                                 "offset": [
                                     103,
@@ -4052,7 +4064,7 @@
                                 "anchor_to": "top_middle",
                                 "size": [
                                     120,
-                                    40
+                                    80
                                 ],
                                 "offset": [
                                     103,
@@ -4085,7 +4097,7 @@
                                 "anchor_to": "top_middle",
                                 "size": [
                                     120,
-                                    40
+                                    80
                                 ],
                                 "offset": [
                                     103,

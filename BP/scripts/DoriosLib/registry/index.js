@@ -32,6 +32,7 @@ export const REGISTRATION_EVENT_IDS = Object.freeze({
   GAS_ITEM: "utilitycraft:register_gas_item",
   INFUSER_RECIPE: "utilitycraft:register_infuser_recipe",
   MELTER_RECIPE: "utilitycraft:register_melter_recipe",
+  MACHINE_UPGRADE: "utilitycraft:register_machine_upgrade",
   PLANT: "utilitycraft:register_plant",
   PRESS_RECIPE: "utilitycraft:register_press_recipe",
   SIEVE_DROP: "utilitycraft:register_sieve_drop",
@@ -117,6 +118,11 @@ export function registerInfuserRecipe(payload) {
 /** @param {RegistrationPayload} payload */
 export function registerMelterRecipe(payload) {
   enqueueRegistration(REGISTRATION_EVENT_IDS.MELTER_RECIPE, payload);
+}
+
+/** @param {RegistrationPayload} payload */
+export function registerMachineUpgrade(payload) {
+  enqueueRegistration(REGISTRATION_EVENT_IDS.MACHINE_UPGRADE, payload);
 }
 
 /** @param {RegistrationPayload} payload */

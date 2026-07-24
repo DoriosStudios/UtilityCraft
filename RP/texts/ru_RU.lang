@@ -639,28 +639,28 @@ tile.utilitycraft:basic_magmator.name=§eБазовый Магматор \n §7 
 tile.utilitycraft:basic_thermo_generator.name=§eБазовый термогенератор \n §7 Производительность: 20 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_battery.name=§eБазовая батарея \n §7 Скорость: 100 DE/т\n§o§9@UtilityCraft
 tile.utilitycraft:basic_solar_panel.name=§eБазовая солнечная панель \n §7 Скорость: 12 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:basic_wind_turbine.name=§eБазовая ветряная турбина \n §7 Базовая скорость: 8 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y20\n§o§9@UtilityCraft
+tile.utilitycraft:basic_wind_turbine.name=§eБазовая ветряная турбина \n §7 Базовая скорость: 8 DE/t\n §7 Множитель максимальной высоты: 200%\n §7 Не работает ниже y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:advanced_furnator.name=§cУсовершенствованная печь \n §7 Скорость: 160 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_magmator.name=§cУсовершенствованный Магматор \n §7 Скорость: 200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_thermo_generator.name=§cУсовершенствованный термогенератор \n §7 Производительность: 80 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_battery.name=§cУсовершенствованная батарея \n §7 Скорость: 800 DE/т\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_solar_panel.name=§cУсовершенствованная солнечная панель \n §7 Скорость: 48 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_wind_turbine.name=§cУсовершенствованная ветряная турбина \n §7 Базовая скорость: 32 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y20\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_wind_turbine.name=§cУсовершенствованная ветряная турбина \n §7 Базовая скорость: 32 DE/t\n §7 Множитель максимальной высоты: 200%\n §7 Не работает ниже y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:expert_furnator.name=§bExpert Furnator \n §7 Скорость: 640 DE/т\n§o§9@UtilityCraft
 tile.utilitycraft:expert_magmator.name=§bЭксперт Магматор \n §7 Скорость: 800 DE/т\n§o§9@UtilityCraft
 tile.utilitycraft:expert_thermo_generator.name=§bЭкспертный термогенератор \n §7 Производительность: 320 DE/т\n§o§9@UtilityCraft
 tile.utilitycraft:expert_battery.name=§bExpert Battery \n §7 Скорость: 1,6 кДЭ/т\n§o§9@UtilityCraft
 tile.utilitycraft:expert_solar_panel.name=§bСолнечная панель Expert \n §7 Скорость: 192 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Базовая скорость: 128 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y20\n§o§9@UtilityCraft
+tile.utilitycraft:expert_wind_turbine.name=§bExpert Wind Turbine \n §7 Базовая скорость: 128 DE/t\n §7 Множитель максимальной высоты: 200%\n §7 Не работает ниже y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator \n §7 Скорость: 4 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Скорость: 5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8Ультимативный термогенератор \n §7 Производительность: 2 кДЭ/т\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8Ultimate Battery \n §7 Скорость: 10 кДЭ/т\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_solar_panel.name=§8Солнечная панель Ultimate \n §7 Скорость: 1200 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Базовая скорость: 800 DE/t\n §7 Множитель максимальной высоты: 300%\n §7 Не работает ниже y16\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_wind_turbine.name=§8Ultimate Wind Turbine \n §7 Базовая скорость: 800 DE/t\n §7 Множитель максимальной высоты: 250%\n §7 Не работает ниже y16\n§o§9@UtilityCraft
 
 
 < Energy Generators =Geradores de Energy ##////////////////////////////////////////////////////////////////

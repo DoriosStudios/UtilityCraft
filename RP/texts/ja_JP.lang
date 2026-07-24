@@ -639,28 +639,28 @@ tile.utilitycraft:basic_magmator.name=§eベーシックマグメーター \n §
 tile.utilitycraft:basic_thermo_generator.name=§eベーシックサーモジェネレーター \n §7 レート: 20 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_battery.name=§e基本バッテリー \n §7 レート: 100 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_solar_panel.name=§eベーシックソーラーパネル \n §7 レート: 12 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:basic_wind_turbine.name=§e基本風車 \n §7 基本レート: 8 DE/t\n §7 最大高さ倍率: 300%\n §7 y20 以下では機能しません\n§o§9@UtilityCraft
+tile.utilitycraft:basic_wind_turbine.name=§e基本風車 \n §7 基本レート: 8 DE/t\n §7 最大高さ倍率: 200%\n §7 y20 以下では機能しません\n§o§9@UtilityCraft
 
 tile.utilitycraft:advanced_furnator.name=§cアドバンストファーネーター \n §7 レート: 160 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_magmator.name=§cアドバンスマグメーター \n §7 レート: 200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_thermo_generator.name=§cアドバンストサーモジェネレーター \n §7 レート: 80 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_battery.name=§cアドバンストバッテリー \n §7 レート: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_solar_panel.name=§c先進的なソーラーパネル \n §7 レート: 48 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_wind_turbine.name=§c高度な風力タービン \n §7 基本レート: 32 DE/t\n §7 最大高さ倍率: 300%\n §7 y20 以下では機能しません\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_wind_turbine.name=§c高度な風力タービン \n §7 基本レート: 32 DE/t\n §7 最大高さ倍率: 200%\n §7 y20 以下では機能しません\n§o§9@UtilityCraft
 
 tile.utilitycraft:expert_furnator.name=§bエキスパートファーネーター \n §7 レート: 640 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_magmator.name=§bエキスパートマグメーター \n §7 レート: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_thermo_generator.name=§bエキスパートサーモジェネレーター \n §7 レート: 320 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_battery.name=§bエキスパートバッテリー \n §7 レート: 1.6 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_solar_panel.name=§bExpert ソーラーパネル \n §7 レート: 192 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:expert_wind_turbine.name=§bエキスパート風力タービン \n §7 基本レート: 128 DE/t\n §7 最大高さ倍率: 300%\n §7 y20 未満では機能しません\n§o§9@UtilityCraft
+tile.utilitycraft:expert_wind_turbine.name=§bエキスパート風力タービン \n §7 基本レート: 128 DE/t\n §7 最大高さ倍率: 200%\n §7 y20 未満では機能しません\n§o§9@UtilityCraft
 
 tile.utilitycraft:ultimate_furnator.name=§8究極の炉 \n §7 速度: 4 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_magmator.name=§8究極のマグメーター \n §7 速度: 5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8究極のサーモジェネレーター \n §7 レート: 2 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8究極のバッテリー \n §7 レート: 10 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_solar_panel.name=§8究極のソーラーパネル \n §7 レート: 1200 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_wind_turbine.name=§8究極の風車 \n §7 基本レート: 800 DE/t\n §7 最大高さ倍率: 300%\n §7 y16 未満では機能しません\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_wind_turbine.name=§8究極の風車 \n §7 基本レート: 800 DE/t\n §7 最大高さ倍率: 250%\n §7 y16 未満では機能しません\n§o§9@UtilityCraft
 
 
 < Energy Generators =ジェラドレス デ エネルギー ##////////////////////////////////////////////////////////////

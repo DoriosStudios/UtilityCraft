@@ -639,28 +639,28 @@ tile.utilitycraft:basic_magmator.name=§e基本岩浆机 \n §7 速率：50 DE/t
 tile.utilitycraft:basic_thermo_generator.name=§e基本热发生器 \n §7 速率：20 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_battery.name=§e基本电池 \n §7 速率：100 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_solar_panel.name=§e基本太阳能电池板 \n §7 速率：12 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:basic_wind_turbine.name=§e基本风力发电机 \n §7 基本速率：8 DE/t\n §7 最大高度乘数：300%\n §7 在 y20 以下不起作用\n§o§9@UtilityCraft
+tile.utilitycraft:basic_wind_turbine.name=§e基本风力发电机 \n §7 基本速率：8 DE/t\n §7 最大高度乘数：200%\n §7 在 y20 以下不起作用\n§o§9@UtilityCraft
 
 tile.utilitycraft:advanced_furnator.name=§c高级熔炉 \n §7 速率：160 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_magmator.name=§c高级熔浆机 \n §7 速率：200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_thermo_generator.name=§c高级热发生器 \n §7 速率：80 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_battery.name=§c高级电池 \n §7 速率：800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_solar_panel.name=§c高级太阳能电池板 \n §7 速率：48 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_wind_turbine.name=§c高级风力涡轮机 \n §7 基本速率：32 DE/t\n §7 最大高度乘数：300%\n §7 在 y20 以下不起作用\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_wind_turbine.name=§c高级风力涡轮机 \n §7 基本速率：32 DE/t\n §7 最大高度乘数：200%\n §7 在 y20 以下不起作用\n§o§9@UtilityCraft
 
 tile.utilitycraft:expert_furnator.name=§b专家熔炉 \n §7 速率：640 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_magmator.name=§b专家级熔浆机 \n §7 速率：800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_thermo_generator.name=§b专家热发生器 \n §7 速率：320 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_battery.name=§b专家电池 \n §7 速率：1.6 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_solar_panel.name=§b专家太阳能电池板 \n §7 速率：192 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:expert_wind_turbine.name=§b专家风力涡轮机 \n §7 基本速率：128 DE/t\n §7 最大高度乘数：300%\n §7 在 y20 以下不起作用\n§o§9@UtilityCraft
+tile.utilitycraft:expert_wind_turbine.name=§b专家风力涡轮机 \n §7 基本速率：128 DE/t\n §7 最大高度乘数：200%\n §7 在 y20 以下不起作用\n§o§9@UtilityCraft
 
 tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator \n §7 速率：4 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_magmator.name=§8终极熔浆机 \n §7 速率：5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8终极热发生器 \n §7 速率：2 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8终极电池 \n §7 速率：10 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_solar_panel.name=§8终极太阳能电池板 \n §7 速率：1200 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_wind_turbine.name=§8终极风力涡轮机 \n §7 基本速率：800 DE/t\n §7 最大高度乘数：300%\n §7 在 y16 以下不起作用\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_wind_turbine.name=§8终极风力涡轮机 \n §7 基本速率：800 DE/t\n §7 最大高度乘数：250%\n §7 在 y16 以下不起作用\n§o§9@UtilityCraft
 
 
 < Energy Generators =能源热拉多雷斯##////////////////////////////////////////////////////////////////

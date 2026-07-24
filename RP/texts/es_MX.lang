@@ -712,21 +712,21 @@ tile.utilitycraft:basic_magmator.name=§eMagmador Básico\n §7 Velocidad: 50 DE
 tile.utilitycraft:basic_thermo_generator.name=§eTermogenerador Básico\n §7 Velocidad: 20 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_battery.name=§eBatería Básica\n §7 Velocidad: 100 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_solar_panel.name=§ePanel Solar Básico\n §7 Velocidad: 12 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidad Base: 8 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20\n§o§9@UtilityCraft
+tile.utilitycraft:basic_wind_turbine.name=§eTurbina Eólica Básica\n §7 Velocidad Base: 8 DE/t\n §7 Multiplicador de Altura Máximo: 200%\n §7 No funciona debajo de y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:advanced_furnator.name=§cHorno Generador Avanzado\n §7 Velocidad: 160 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_magmator.name=§cMagmador Avanzado\n §7 Velocidad: 200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_thermo_generator.name=§cTermogenerador Avanzado\n §7 Velocidad: 80 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_battery.name=§cBatería Avanzada\n §7 Velocidad: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_solar_panel.name=§cPanel Solar Avanzado\n §7 Velocidad: 48 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avanzada\n §7 Velocidad Base: 32 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_wind_turbine.name=§cTurbina Eólica Avanzada\n §7 Velocidad Base: 32 DE/t\n §7 Multiplicador de Altura Máximo: 200%\n §7 No funciona debajo de y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:expert_furnator.name=§3Horno Generador Experto\n §7 Velocidad: 640 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_magmator.name=§3Magmador Experto\n §7 Velocidad: 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_thermo_generator.name=§3Termogenerador Experto\n §7 Velocidad: 320 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_battery.name=§3Batería Experta\n §7 Velocidad: 1.6 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_solar_panel.name=§3Panel Solar Experto\n §7 Velocidad: 192 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Experta\n §7 Velocidad Base: 128 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y20\n§o§9@UtilityCraft
+tile.utilitycraft:expert_wind_turbine.name=§3Turbina Eólica Experta\n §7 Velocidad Base: 128 DE/t\n §7 Multiplicador de Altura Máximo: 200%\n §7 No funciona debajo de y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:ultimate_furnator.name=§8Horno Generador Definitivo\n §7 Velocidad: 4 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_magmator.name=§8Magmador Definitivo\n §7 Velocidad: 5 kDE/t\n§o§9@UtilityCraft
@@ -735,7 +735,7 @@ tile.utilitycraft:ultimate_battery.name=§8Batería Definitiva\n §7 Velocidad: 
 tile.utilitycraft:creative_battery.name=§dBatería Creativa\n §7 Energía infinita\n §7 Velocidad: 10 kDE/t\n§o§9@UtilityCraft
 entity.utilitycraft:infinite_energy_source.name=Batería Creativa
 tile.utilitycraft:ultimate_solar_panel.name=§8Panel Solar Definitivo\n §7 Velocidad: 1200 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 300%\n §7 No funciona debajo de y16\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_wind_turbine.name=§8Turbina Eólica Definitiva\n §7 Velocidad Base: 800 DE/t\n §7 Multiplicador de Altura Máximo: 250%\n §7 No funciona debajo de y16\n§o§9@UtilityCraft
 
 
 < Energy Generators = Geradores de Energía ##///////////////////////////////////////////////////////////////

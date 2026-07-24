@@ -70,6 +70,9 @@ export const REGISTER_GAS_ITEM_EVENT_ID = "utilitycraft:register_gas_item";
 /** Script event used to register gas holder items at runtime. */
 export const REGISTER_GAS_HOLDER_EVENT_ID = "utilitycraft:register_gas_holder";
 
+/** Script event used to register machine upgrade items and their level perks. */
+export const REGISTER_MACHINE_UPGRADE_EVENT_ID = "utilitycraft:register_machine_upgrade";
+
 /**
  * Script event used to update the shared machinery tick speed.
  */

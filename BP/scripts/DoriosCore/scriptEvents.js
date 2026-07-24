@@ -2,7 +2,7 @@ import * as DoriosLib from "DoriosLib/index.js";
 import { ItemStack, system, world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import * as MachineryConstants from "./machinery/constants.js";
-import { FluidStorage, GasStorage, Generator, Machine } from "DoriosCore/index.js";
+import { FluidStorage, GasStorage, Generator, Machine, MachineUpgradeRegistry } from "DoriosCore/index.js";
 import { TickScheduler } from "./machinery/tickScheduler.js";
 
 export const scriptEventHandler = {
@@ -252,6 +252,41 @@ export const scriptEventHandler = {
             }
         } catch (err) {
             console.warn("[UtilityCraft] Failed to parse gas-holder registration payload:", err);
+        }
+    },
+    /**
+     * Script event: "utilitycraft:register_machine_upgrade"
+     *
+     * Registers exact item identifiers in the compiled DoriosCore upgrade
+     * registry. The event is processed only when definitions are received;
+     * machines continue to use direct Map lookups while ticking.
+     *
+     * Payload format:
+     * {
+     *   "addon:upgrade_item": {
+     *     "type": "super_upgrade",
+     *     "value": 1,
+     *     "levels": {
+     *       "1": { "speed": 0.25, "energy_cost": 0.5 },
+     *       "2": { "speed": 0.75, "energy_cost": 1 }
+     *     }
+     *   }
+     * }
+     */
+    [Constants.REGISTER_MACHINE_UPGRADE_EVENT_ID]: ({ message }) => {
+        try {
+            const payload = JSON.parse(message);
+            if (!payload || typeof payload !== "object" || Array.isArray(payload)) return;
+
+            for (const [itemTypeId, registration] of Object.entries(payload)) {
+                try {
+                    MachineUpgradeRegistry.register(itemTypeId, registration);
+                } catch (error) {
+                    console.warn(`[UtilityCraft] Failed to register machine upgrade ${itemTypeId}:`, error);
+                }
+            }
+        } catch (error) {
+            console.warn("[UtilityCraft] Failed to parse machine-upgrade registration payload:", error);
         }
     },
     /**

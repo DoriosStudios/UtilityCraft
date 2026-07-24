@@ -639,28 +639,28 @@ tile.utilitycraft:basic_magmator.name=§eBasic Magmator \n §7 Débit : 50 DE/t
 tile.utilitycraft:basic_thermo_generator.name=§eGénérateur Thermo Basique \n §7 Débit : 20 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_battery.name=§eBatterie de base \n §7 Tarif : 100 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:basic_solar_panel.name=§ePanneau Solaire Basique \n §7 Tarif : 12 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:basic_wind_turbine.name=§eÉolienne de base \n §7 Taux de base : 8 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y20\n§o§9@UtilityCraft
+tile.utilitycraft:basic_wind_turbine.name=§eÉolienne de base \n §7 Taux de base : 8 DE/t\n §7 Multiplicateur de hauteur maximale : 200 %\n §7 Ne fonctionne pas en dessous de y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:advanced_furnator.name=§cFour avancé \n §7 Taux : 160 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_magmator.name=§cMagmateur avancé \n §7 Taux : 200 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_thermo_generator.name=§cGénérateur thermique avancé \n §7 Taux : 80 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_battery.name=§cBatterie avancée \n §7 Taux : 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_solar_panel.name=§cPanneau solaire avancé \n §7 Tarif : 48 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_wind_turbine.name=§cÉolienne avancée \n §7 Taux de base : 32 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y20\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_wind_turbine.name=§cÉolienne avancée \n §7 Taux de base : 32 DE/t\n §7 Multiplicateur de hauteur maximale : 200 %\n §7 Ne fonctionne pas en dessous de y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:expert_furnator.name=§bFour Expert \n §7 Tarif : 640 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_magmator.name=§bExpert Magmator \n §7 Taux : 800 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_thermo_generator.name=§bGénérateur Thermo Expert \n §7 Débit : 320 DE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_battery.name=§bBatterie Expert \n §7 Débit : 1,6 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:expert_solar_panel.name=§bPanneau Solaire Expert \n §7 Tarif : 192 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:expert_wind_turbine.name=§bÉolienne Expert \n §7 Taux de base : 128 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y20\n§o§9@UtilityCraft
+tile.utilitycraft:expert_wind_turbine.name=§bÉolienne Expert \n §7 Taux de base : 128 DE/t\n §7 Multiplicateur de hauteur maximale : 200 %\n §7 Ne fonctionne pas en dessous de y20\n§o§9@UtilityCraft
 
 tile.utilitycraft:ultimate_furnator.name=§8Fournateur ultime \n §7 Débit : 4 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator \n §7 Débit : 5 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_thermo_generator.name=§8Générateur Thermo Ultime \n §7 Débit : 2 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_battery.name=§8Batterie ultime \n §7 Débit : 10 kDE/t\n§o§9@UtilityCraft
 tile.utilitycraft:ultimate_solar_panel.name=§8Panneau Solaire Ultime \n §7 Tarif : 1200 DE/t\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_wind_turbine.name=§8Éolienne ultime \n §7 Taux de base : 800 DE/t\n §7 Multiplicateur de hauteur maximale : 300 %\n §7 Ne fonctionne pas en dessous de y16\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_wind_turbine.name=§8Éolienne ultime \n §7 Taux de base : 800 DE/t\n §7 Multiplicateur de hauteur maximale : 250 %\n §7 Ne fonctionne pas en dessous de y16\n§o§9@UtilityCraft
 
 
 < Energy Generators =Geradores d'Énergie ##///////////////////////////////////////////////////////////

@@ -146,6 +146,25 @@ DoriosLib.registry.registerCrusherRecipe({
 });
 ```
 
+Machine upgrades use the same queued cross-addon protocol. Every addon keeps
+its own compiled DoriosCore registry, and every DoriosCore receiver applies the
+same broadcast definition to its local registry:
+
+```js
+DoriosLib.registry.registerMachineUpgrade({
+  "example:super_upgrade": {
+    type: "super_upgrade",
+    levels: {
+      1: { speed: 0.25, energy_cost: 0.5 },
+      2: { speed: 0.75, energy_cost: 1, process_batch: 1 },
+    },
+  },
+});
+```
+
+The underlying event is `utilitycraft:register_machine_upgrade`. Queueing it
+through DoriosLib ensures every addon's receiver is installed before dispatch.
+
 Calls preserve their insertion order. DoriosLib waits for `worldLoad` and then
 dispatches exactly one queued registration ScriptEvent per tick. Registrations
 queued after the world has loaded join the same dispatcher.
@@ -165,7 +184,7 @@ event: `registerAutoFisherDrop`, `registerBonsai` (legacy),
 `registerCoolant`, `registerCrafterRecipe`, `registerCrusherRecipe`,
 `registerFluidHolder`, `registerFluidItem`, `registerFuel`, `registerFurnaceRecipe`,
 `registerGasHolder`, `registerGasItem`, `registerInfuserRecipe`,
-`registerMelterRecipe`, `registerPlant`, `registerPressRecipe`,
+`registerMachineUpgrade`, `registerMelterRecipe`, `registerPlant`, `registerPressRecipe`,
 `registerSieveDrop`, and `registerSpecialContainerSlots`.
 
 Dependency discovery starts automatically when the main DoriosLib entry point

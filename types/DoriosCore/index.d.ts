@@ -217,7 +217,7 @@ export interface MachineBoosts {
   consumption: number;
 }
 
-/** Script registration for one exact machine-upgrade item type id. */
+/** Registration definition for one exact machine-upgrade item type id. */
 export interface MachineUpgradeRegistration {
   /** Semantic category used to prevent equivalent upgrades from stacking. */
   type: string;
@@ -237,7 +237,7 @@ export interface CompiledMachineUpgrade {
   levels: Array<Record<string, number>>;
 }
 
-/** Global script-only registry for machine upgrade items and their perks. */
+/** Compiled runtime registry for machine upgrade items and their perks. */
 export class MachineUpgradeRegistry {
   static register(itemTypeId: string, registration: MachineUpgradeRegistration): CompiledMachineUpgrade;
   static get(itemTypeId: string): CompiledMachineUpgrade | undefined;
@@ -1463,3 +1463,4 @@ export const GAS_TANK_CAPACITIES: Record<string, number>;
 
 export const REGISTER_GAS_ITEM_EVENT_ID: "utilitycraft:register_gas_item";
 export const REGISTER_GAS_HOLDER_EVENT_ID: "utilitycraft:register_gas_holder";
+export const REGISTER_MACHINE_UPGRADE_EVENT_ID: "utilitycraft:register_machine_upgrade";

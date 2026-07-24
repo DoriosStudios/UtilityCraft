@@ -79,11 +79,13 @@ function compileLevels(rawLevels) {
 }
 
 /**
- * Script-only registry and hot-path resolver for machine upgrades.
+ * Local compiled registry and hot-path resolver for machine upgrades.
  *
- * Definitions are indexed by exact item type id. Multiple item ids may share
- * the same semantic `type`; only the first such type found in a machine's
- * ordered upgrade slots contributes perks.
+ * Every addon owns a separate instance of this registry. DoriosCore's machine
+ * upgrade ScriptEvent receiver forwards shared definitions into each local
+ * instance. Definitions are indexed by exact item type id. Multiple item ids
+ * may share the same semantic `type`; only the first such type found in a
+ * machine's ordered upgrade slots contributes perks.
  */
 export class MachineUpgradeRegistry {
   /**
