@@ -7,6 +7,7 @@ import {
   PIPE_DIRECTION_OFFSETS,
   getConnectionStateDirection,
   isPipeFaceDisabled,
+  isUniversalPipe,
 } from "./pipeFaces.js";
 
 export { OPPOSITE_DIRECTIONS } from "./pipeFaces.js";
@@ -138,45 +139,79 @@ export function getNetworkColor(block) {
   return "dorios:color.default";
 }
 
+const VISUAL_NETWORK_TAGS = Object.freeze([
+  "dorios:item",
+  "dorios:fluid",
+  "dorios:gas",
+  "dorios:energy",
+  "dorios:overclock_network",
+]);
+
+/** @param {string} tag */
+function resourceFromNetworkTag(tag) {
+  if (tag === "dorios:overclock_network") return "overclock";
+  return tag.startsWith("dorios:") ? tag.slice("dorios:".length) : undefined;
+}
+
+/**
+ * Tests one logical resource channel. Universal pipes call this for every
+ * channel and retain the union in their physical connection states.
+ *
+ * @param {Block} block
+ * @param {Block|undefined} neighbor
+ * @param {keyof typeof PIPE_DIRECTION_OFFSETS} direction
+ * @param {string} tag
+ * @param {ReadonlyArray<string>} colorTags
+ */
+function shouldConnectForNetwork(block, neighbor, direction, tag, colorTags) {
+  if (!neighbor) return false;
+
+  let shouldConnect = false;
+  if (neighbor.hasTag(tag)) {
+    if (!neighbor.hasTag("dorios:isTube")) {
+      shouldConnect = true;
+    } else {
+      for (const color of colorTags) {
+        if (neighbor.hasTag(color)) {
+          shouldConnect = true;
+          break;
+        }
+      }
+    }
+  } else if (tag === "dorios:item") {
+    shouldConnect = Boolean(
+      DoriosContainer.resolve(neighbor)
+      ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
+    );
+  }
+
+  if (!shouldConnect) return false;
+  const resource = resourceFromNetworkTag(tag);
+  return !isPipeFaceDisabled(block, direction, resource)
+    && !isPipeFaceDisabled(neighbor, OPPOSITE_DIRECTIONS[direction], resource);
+}
+
 /**
  * Updates the six visual connection states of a normal cable/pipe.
  *
  * @param {Block} block
- * @param {string} tag Fully-qualified network tag.
+ * @param {string|ReadonlyArray<string>} tag Fully-qualified network tag(s).
  */
 export function updateGeometry(block, tag) {
   if (!block?.permutation || !block?.dimension) return;
 
   let permutation = block.permutation;
-  const isItemConduit = block.hasTag("dorios:item");
+  const requestedTags = Array.isArray(tag) ? tag : [tag];
+  const tags = (isUniversalPipe(block) ? VISUAL_NETWORK_TAGS : requestedTags)
+    .filter((networkTag) => block.hasTag(networkTag));
+  const colorTags = block.getTags().filter((entry) => entry.startsWith("dorios:color."));
 
   for (const [rawDirection, offset] of Object.entries(PIPE_DIRECTION_OFFSETS)) {
     const direction = /** @type {keyof typeof PIPE_DIRECTION_OFFSETS} */ (rawDirection);
     const neighbor = safeGetBlock(block.dimension, offsetLocation(block.location, offset));
-    let shouldConnect = false;
-
-    if (neighbor?.hasTag(tag)) {
-      if (!neighbor.hasTag("dorios:isTube")) {
-        shouldConnect = true;
-      } else {
-        for (const color of block.getTags()) {
-          if (color.startsWith("dorios:color.") && neighbor.hasTag(color)) {
-            shouldConnect = true;
-            break;
-          }
-        }
-      }
-    } else if (isItemConduit && neighbor) {
-      shouldConnect = Boolean(
-        DoriosContainer.resolve(neighbor)
-        ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
-      );
-    }
-
-    if (shouldConnect && neighbor && (
-      isPipeFaceDisabled(block, direction)
-      || isPipeFaceDisabled(neighbor, OPPOSITE_DIRECTIONS[direction])
-    )) shouldConnect = false;
+    const shouldConnect = tags.some((networkTag) => (
+      shouldConnectForNetwork(block, neighbor, direction, networkTag, colorTags)
+    ));
 
     const stateId = `utilitycraft:${direction}`;
     if (permutation.getState(stateId) !== shouldConnect) {
@@ -194,45 +229,31 @@ export function updateGeometry(block, tag) {
  * rotation map used by their models.
  *
  * @param {Block} block
- * @param {string} tag Fully-qualified network tag.
+ * @param {string|ReadonlyArray<string>} tag Fully-qualified network tag(s).
  */
 export function updateEndpointGeometry(block, tag) {
   if (!block?.permutation || !block?.dimension) return;
-  const isItemEndpoint = block.hasTag("dorios:item");
   let permutation = block.permutation;
+  const requestedTags = Array.isArray(tag) ? tag : [tag];
+  const tags = (isUniversalPipe(block) ? VISUAL_NETWORK_TAGS : requestedTags)
+    .filter((networkTag) => block.hasTag(networkTag));
+  const colorTags = block.getTags().filter((entry) => entry.startsWith("dorios:color."));
 
   for (const [rawDirection, offset] of Object.entries(PIPE_DIRECTION_OFFSETS)) {
     const direction = /** @type {keyof typeof PIPE_DIRECTION_OFFSETS} */ (rawDirection);
     const visualDirection = getConnectionStateDirection(block, direction);
     const neighbor = safeGetBlock(block.dimension, offsetLocation(block.location, offset));
-    let shouldConnect = false;
+    const shouldConnect = tags.some((networkTag) => (
+      shouldConnectForNetwork(block, neighbor, direction, networkTag, colorTags)
+    ));
 
-    if (neighbor?.hasTag(tag)) {
-      if (!neighbor.hasTag("dorios:isTube")) {
-        shouldConnect = true;
-      } else {
-        for (const color of block.getTags()) {
-          if (color.startsWith("dorios:color.") && neighbor.hasTag(color)) {
-            shouldConnect = true;
-            break;
-          }
-        }
-      }
-    } else if (isItemEndpoint && neighbor) {
-      shouldConnect = Boolean(
-        DoriosContainer.resolve(neighbor)
-        ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
-      );
+    const stateId = `utilitycraft:${visualDirection}`;
+    if (permutation.getState(stateId) !== shouldConnect) {
+      try {
+        permutation = permutation.withState(stateId, shouldConnect);
+      } catch {}
     }
-    if (shouldConnect && neighbor && (
-      isPipeFaceDisabled(block, direction)
-      || isPipeFaceDisabled(neighbor, OPPOSITE_DIRECTIONS[direction])
-    )) shouldConnect = false;
-
-    try {
-      permutation = permutation.withState(`utilitycraft:${visualDirection}`, shouldConnect);
-    } catch {}
   }
 
-  block.setPermutation(permutation);
+  if (permutation !== block.permutation) block.setPermutation(permutation);
 }

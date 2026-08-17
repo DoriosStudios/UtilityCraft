@@ -1,6 +1,6 @@
 // @ts-check
 
-export { updateNetworksAt } from "./listener.js";
+export { updateNetworksAt, updateNetworksAtMany } from "./listener.js";
 export { rescanEnergyNetwork, scheduleEnergyNetworkRescan } from "./energy.js";
 export {
   applyFluidExtractorCopyConfig,

@@ -1,6 +1,6 @@
 // @ts-check
 
-import { world } from "@minecraft/server";
+import { system, world } from "@minecraft/server";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -8,7 +8,15 @@ import { world } from "@minecraft/server";
 /** @typedef {"north"|"south"|"east"|"west"|"up"|"down"} PipeDirection */
 
 const PIPE_FACE_PROPERTY_PREFIX = "utilitycraft:pf";
-const PIPE_FACE_DOCUMENT_VERSION = 1;
+const PIPE_FACE_DOCUMENT_VERSION = 2;
+export const UNIVERSAL_PIPE_TAG = "dorios:universal_pipe";
+export const PIPE_RESOURCES = Object.freeze([
+  "item",
+  "fluid",
+  "gas",
+  "energy",
+  "overclock",
+]);
 const PIPE_NETWORK_TAGS = Object.freeze([
   "dorios:energy",
   "dorios:item",
@@ -53,7 +61,16 @@ const ENDPOINT_STATE_DIRECTION_MAP = Object.freeze({
   down: Object.freeze({ north: "down", south: "up", east: "east", west: "west", up: "north", down: "south" }),
 });
 
-/** @type {Map<string,ReadonlySet<PipeDirection>>} */
+/** @typedef {"item"|"fluid"|"gas"|"energy"|"overclock"} PipeResource */
+
+/**
+ * @typedef {object} PipeFaceState
+ * @property {ReadonlySet<PipeDirection>} disabled Every resource is blocked.
+ * @property {ReadonlyMap<PipeDirection,ReadonlySet<PipeResource>>} resources
+ * Per-resource blocks, used only by universal pipes.
+ */
+
+/** @type {Map<string,PipeFaceState>} */
 const disabledFaceCache = new Map();
 
 /** @param {string} dimensionId */
@@ -82,34 +99,143 @@ export function normalizePipeDirection(value) {
     : undefined;
 }
 
-/** @param {unknown} value @returns {ReadonlySet<PipeDirection>} */
-function normalizeDisabledFaces(value) {
-  if (!value || typeof value !== "object") return new Set();
-  const raw = /** @type {{disabled?:unknown}} */ (value);
+/** @param {unknown} value @returns {PipeResource|undefined} */
+export function normalizePipeResource(value) {
+  const resource = String(value ?? "").toLowerCase();
+  return PIPE_RESOURCES.includes(resource)
+    ? /** @type {PipeResource} */ (resource)
+    : undefined;
+}
+
+/** @param {import("@minecraft/server").Block|undefined} block */
+export function isUniversalPipe(block) {
+  return block?.hasTag?.(UNIVERSAL_PIPE_TAG) === true;
+}
+
+/** @param {unknown} value @returns {PipeFaceState} */
+function normalizePipeFaceState(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return { disabled: new Set(), resources: new Map() };
+  }
+  const raw = /** @type {{disabled?:unknown,resources?:unknown}} */ (value);
   const disabled = new Set();
   for (const entry of Array.isArray(raw.disabled) ? raw.disabled : []) {
     const direction = normalizePipeDirection(entry);
     if (direction) disabled.add(direction);
   }
-  return disabled;
+
+  /** @type {Map<PipeDirection,ReadonlySet<PipeResource>>} */
+  const resources = new Map();
+  if (raw.resources && typeof raw.resources === "object" && !Array.isArray(raw.resources)) {
+    for (const [rawDirection, rawResources] of Object.entries(raw.resources)) {
+      const direction = normalizePipeDirection(rawDirection);
+      if (!direction || !Array.isArray(rawResources)) continue;
+      /** @type {Set<PipeResource>} */
+      const blocked = new Set();
+      for (const rawResource of rawResources) {
+        const resource = normalizePipeResource(rawResource);
+        if (resource) blocked.add(resource);
+      }
+      if (blocked.size > 0) resources.set(direction, blocked);
+    }
+  }
+
+  return { disabled, resources };
 }
 
 /** @param {Dimension} dimension @param {Vector3} location */
-function readDisabledFacesAt(dimension, location) {
+function readPipeFaceStateAt(dimension, location) {
   const key = pipeFacePropertyKey(dimension, location);
   const cached = disabledFaceCache.get(key);
   if (cached) return cached;
 
-  let disabled = new Set();
+  /** @type {PipeFaceState} */
+  let state = { disabled: new Set(), resources: new Map() };
   try {
     const raw = world.getDynamicProperty(key);
     if (typeof raw === "string" && raw.length > 0) {
-      disabled = new Set(normalizeDisabledFaces(JSON.parse(raw)));
+      state = normalizePipeFaceState(JSON.parse(raw));
     }
   } catch {}
 
-  disabledFaceCache.set(key, disabled);
-  return disabled;
+  disabledFaceCache.set(key, state);
+  return state;
+}
+
+/**
+ * @param {Dimension} dimension
+ * @param {Vector3} location
+ * @param {PipeFaceState} state
+ */
+function writePipeFaceStateAt(dimension, location, state) {
+  const key = pipeFacePropertyKey(dimension, location);
+  /** @type {Set<PipeDirection>} */
+  const disabled = new Set();
+  for (const entry of state.disabled) {
+    const direction = normalizePipeDirection(entry);
+    if (direction) disabled.add(direction);
+  }
+  /** @type {Record<string,string[]>} */
+  const resources = {};
+  for (const [rawDirection, rawResources] of state.resources) {
+    const direction = normalizePipeDirection(rawDirection);
+    if (!direction) continue;
+    const normalized = [];
+    for (const rawResource of rawResources) {
+      const resource = normalizePipeResource(rawResource);
+      if (resource && !normalized.includes(resource)) normalized.push(resource);
+    }
+    if (normalized.length > 0) resources[direction] = normalized;
+  }
+
+  try {
+    world.setDynamicProperty(
+      key,
+      disabled.size > 0 || Object.keys(resources).length > 0
+        ? JSON.stringify({
+          version: PIPE_FACE_DOCUMENT_VERSION,
+          ...(disabled.size > 0 ? { disabled: [...disabled] } : {}),
+          ...(Object.keys(resources).length > 0 ? { resources } : {}),
+        })
+        : undefined,
+    );
+  } catch {
+    return false;
+  }
+
+  if (disabled.size > 0 || Object.keys(resources).length > 0) {
+    disabledFaceCache.set(key, {
+      disabled,
+      resources: new Map(Object.entries(resources).map(([direction, values]) => [
+        /** @type {PipeDirection} */ (direction),
+        new Set(/** @type {PipeResource[]} */ (values)),
+      ])),
+    });
+  }
+  else disabledFaceCache.delete(key);
+  return true;
+}
+
+/** @param {Block} block @param {PipeFaceState} state */
+function writeBlockPipeFaceState(block, state) {
+  const changed = writePipeFaceStateAt(block.dimension, block.location, state);
+  if (changed) notifyOverclockPipeFaceChange(block);
+  return changed;
+}
+
+/** Keeps optional overclock integrations synchronized with persisted faces. */
+function notifyOverclockPipeFaceChange(block) {
+  if (!block?.hasTag?.("dorios:overclock_network")) return;
+  try {
+    system.sendScriptEvent("utilitycraft:universal_pipe_face_update", JSON.stringify({
+      dimensionId: block.dimension.id,
+      location: {
+        x: Math.floor(block.location.x),
+        y: Math.floor(block.location.y),
+        z: Math.floor(block.location.z),
+      },
+    }));
+  } catch {}
 }
 
 /**
@@ -118,35 +244,77 @@ function readDisabledFacesAt(dimension, location) {
  * @param {ReadonlySet<PipeDirection>} disabled
  */
 function writeDisabledFacesAt(dimension, location, disabled) {
-  const key = pipeFacePropertyKey(dimension, location);
-  /** @type {Set<PipeDirection>} */
-  const normalized = new Set();
-  for (const entry of disabled) {
-    const direction = normalizePipeDirection(entry);
-    if (direction) normalized.add(direction);
-  }
-
-  try {
-    world.setDynamicProperty(
-      key,
-      normalized.size > 0
-        ? JSON.stringify({ version: PIPE_FACE_DOCUMENT_VERSION, disabled: [...normalized] })
-        : undefined,
-    );
-  } catch {
-    return false;
-  }
-
-  if (normalized.size > 0) disabledFaceCache.set(key, normalized);
-  else disabledFaceCache.delete(key);
-  return true;
+  return writePipeFaceStateAt(dimension, location, {
+    disabled,
+    resources: new Map(),
+  });
 }
 
-/** @param {Block} block @param {PipeDirection} direction */
-export function isPipeFaceDisabled(block, direction) {
+/**
+ * @param {Block} block
+ * @param {PipeDirection} direction
+ * @param {PipeResource|string|undefined} [rawResource]
+ */
+export function isPipeFaceDisabled(block, direction, rawResource) {
   if (!block?.hasTag("dorios:isTube")) return false;
   if (getProtectedEndpointDirection(block) === direction) return false;
-  return readDisabledFacesAt(block.dimension, block.location).has(direction);
+  const state = readPipeFaceStateAt(block.dimension, block.location);
+  if (state.disabled.has(direction)) return true;
+  if (!isUniversalPipe(block)) return false;
+  const resource = normalizePipeResource(rawResource);
+  return resource
+    ? state.resources.get(direction)?.has(resource) === true
+    : false;
+}
+
+/**
+ * Returns the channels currently blocked on one Universal Cable face.
+ *
+ * @param {Block} block
+ * @param {unknown} rawDirection
+ * @returns {PipeResource[]}
+ */
+export function getUniversalPipeFaceDisabledResources(block, rawDirection) {
+  const direction = normalizePipeDirection(rawDirection);
+  if (!direction || !isUniversalPipe(block)) return [];
+  if (getProtectedEndpointDirection(block) === direction) return [];
+
+  const state = readPipeFaceStateAt(block.dimension, block.location);
+  if (state.disabled.has(direction)) return [...PIPE_RESOURCES];
+  const blocked = state.resources.get(direction);
+  return PIPE_RESOURCES.filter((resource) => blocked?.has(resource));
+}
+
+/**
+ * Replaces the channels blocked on one Universal Cable face. This intentionally
+ * does not use the legacy all-resource toggle, so each resource stays
+ * independently controllable.
+ *
+ * @param {Block} block
+ * @param {unknown} rawDirection
+ * @param {unknown} rawResources
+ */
+export function setUniversalPipeFaceDisabledResources(block, rawDirection, rawResources) {
+  const direction = normalizePipeDirection(rawDirection);
+  if (!direction || !isUniversalPipe(block)) return false;
+  if (getProtectedEndpointDirection(block) === direction) return false;
+
+  /** @type {Set<PipeResource>} */
+  const resources = new Set();
+  for (const rawResource of Array.isArray(rawResources) ? rawResources : []) {
+    const resource = normalizePipeResource(rawResource);
+    if (resource) resources.add(resource);
+  }
+
+  const current = readPipeFaceStateAt(block.dimension, block.location);
+  const next = {
+    disabled: new Set(current.disabled),
+    resources: new Map(current.resources),
+  };
+  next.disabled.delete(direction);
+  if (resources.size > 0) next.resources.set(direction, resources);
+  else next.resources.delete(direction);
+  return writeBlockPipeFaceState(block, next);
 }
 
 /**
@@ -158,10 +326,21 @@ export function isPipeFaceDisabled(block, direction) {
 export function getPipeFaceCopyConfig(block) {
   if (!block?.hasTag("dorios:isTube")) return undefined;
   const protectedDirection = getProtectedEndpointDirection(block);
+  const state = readPipeFaceStateAt(block.dimension, block.location);
+  const disabled = [...state.disabled]
+    .filter((direction) => direction !== protectedDirection);
+  /** @type {Record<string,PipeResource[]>} */
+  const resources = {};
+  if (isUniversalPipe(block)) {
+    for (const [direction, blocked] of state.resources) {
+      if (direction === protectedDirection || blocked.size === 0) continue;
+      resources[direction] = PIPE_RESOURCES.filter((resource) => blocked.has(resource));
+    }
+  }
   return {
     version: PIPE_FACE_DOCUMENT_VERSION,
-    disabled: [...readDisabledFacesAt(block.dimension, block.location)]
-      .filter((direction) => direction !== protectedDirection),
+    ...(disabled.length > 0 ? { disabled } : {}),
+    ...(Object.keys(resources).length > 0 ? { resources } : {}),
   };
 }
 
@@ -208,12 +387,15 @@ export function getPhysicalConnectionState(block, physicalDirection) {
  * @param {Block} block
  * @param {PipeDirection} direction
  * @param {Block} neighbor
+ * @param {PipeResource|string|undefined} [resource]
  */
-export function isNetworkConnectionOpen(block, direction, neighbor) {
+export function isNetworkConnectionOpen(block, direction, neighbor, resource) {
   if (!block || !neighbor) return false;
   if (block.hasTag("dorios:isTube") && !getPhysicalConnectionState(block, direction)) return false;
   const opposite = /** @type {PipeDirection} */ (OPPOSITE_DIRECTIONS[direction]);
   if (neighbor.hasTag("dorios:isTube") && !getPhysicalConnectionState(neighbor, opposite)) return false;
+  if (isPipeFaceDisabled(block, direction, resource)) return false;
+  if (isPipeFaceDisabled(neighbor, opposite, resource)) return false;
   return true;
 }
 
@@ -230,10 +412,14 @@ function areCompatiblePipes(block, neighbor) {
 
 /** @param {Block} block @param {PipeDirection} direction @param {boolean} disabled */
 function setPipeFaceDisabled(block, direction, disabled) {
-  const faces = new Set(readDisabledFacesAt(block.dimension, block.location));
+  const current = readPipeFaceStateAt(block.dimension, block.location);
+  const faces = new Set(current.disabled);
   if (disabled) faces.add(direction);
   else faces.delete(direction);
-  return writeDisabledFacesAt(block.dimension, block.location, faces);
+  return writeBlockPipeFaceState(block, {
+    disabled: faces,
+    resources: current.resources,
+  });
 }
 
 /**
@@ -248,7 +434,7 @@ export function applyPipeFaceCopyConfig(block, value) {
   if (!block?.hasTag("dorios:isTube")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
-  const raw = /** @type {{disabled?:unknown}} */ (value);
+  const raw = /** @type {{disabled?:unknown,resources?:unknown}} */ (value);
   const protectedDirection = getProtectedEndpointDirection(block);
   /** @type {Set<PipeDirection>} */
   const disabled = new Set();
@@ -256,7 +442,25 @@ export function applyPipeFaceCopyConfig(block, value) {
     const direction = normalizePipeDirection(entry);
     if (direction && direction !== protectedDirection) disabled.add(direction);
   }
-  return writeDisabledFacesAt(block.dimension, block.location, disabled);
+  /** @type {Map<PipeDirection,ReadonlySet<PipeResource>>} */
+  const resources = new Map();
+  if (isUniversalPipe(block)
+    && raw.resources
+    && typeof raw.resources === "object"
+    && !Array.isArray(raw.resources)) {
+    for (const [rawDirection, rawValues] of Object.entries(raw.resources)) {
+      const direction = normalizePipeDirection(rawDirection);
+      if (!direction || direction === protectedDirection || !Array.isArray(rawValues)) continue;
+      /** @type {Set<PipeResource>} */
+      const blocked = new Set();
+      for (const rawResource of rawValues) {
+        const resource = normalizePipeResource(rawResource);
+        if (resource) blocked.add(resource);
+      }
+      if (blocked.size > 0) resources.set(direction, blocked);
+    }
+  }
+  return writeBlockPipeFaceState(block, { disabled, resources });
 }
 
 /**
@@ -329,7 +533,7 @@ export function reconcileMovedPipeFaces(dimension, movements) {
     if (!targetBlock?.hasTag("dorios:isTube")) continue;
     snapshots.push({
       target: movement.target,
-      disabled: new Set(readDisabledFacesAt(dimension, movement.source)),
+      state: readPipeFaceStateAt(dimension, movement.source),
     });
   }
 
@@ -338,8 +542,8 @@ export function reconcileMovedPipeFaces(dimension, movements) {
     clearPipeFacesAt(dimension, movement.target);
   }
   for (const snapshot of snapshots) {
-    if (snapshot.disabled.size > 0) {
-      writeDisabledFacesAt(dimension, snapshot.target, snapshot.disabled);
+    if (snapshot.state.disabled.size > 0 || snapshot.state.resources.size > 0) {
+      writePipeFaceStateAt(dimension, snapshot.target, snapshot.state);
     }
   }
 }
