@@ -1,11 +1,21 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
-import { updateNetworksAt } from "../UtilityCore/networks/index.js";
-import { togglePipeFace } from "../UtilityCore/networks/pipeFaces.js";
+import { updateNetworksAtMany } from "../UtilityCore/networks/index.js";
+import {
+    PIPE_RESOURCES,
+    getProtectedEndpointDirection,
+    getUniversalPipeFaceDisabledResources,
+    isUniversalPipe,
+    normalizePipeDirection,
+    setUniversalPipeFaceDisabledResources,
+    togglePipeFace,
+} from "../UtilityCore/networks/pipeFaces.js";
 
-function translate(key) {
-    return { translate: key };
+function translate(key, withArgs) {
+    return withArgs
+        ? { translate: key, with: withArgs }
+        : { translate: key };
 }
 
 // --- REGISTRO DEL COMPONENTE ---
@@ -17,6 +27,10 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
     onUseOn(e) {
         const { source, block, blockFace } = e;
         if (block.hasTag("dorios:isTube")) {
+            if (isUniversalPipe(block)) {
+                openUniversalPipeFaceMenu(block, blockFace, source);
+                return;
+            }
             const result = togglePipeFace(block, blockFace);
             if (result.protected) {
                 source.onScreenDisplay.setActionBar(translate("message.utilitycraft.pipe.face_protected"));
@@ -25,10 +39,7 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
             }
             if (!result.changed) return;
 
-            if (block.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
-            if (block.hasTag("dorios:item")) updateNetworksAt(block, "item");
-            if (block.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
-            if (block.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
+            refreshPipeNetworks(block);
 
             source.onScreenDisplay.setActionBar(
                 translate(result.disabled
@@ -62,6 +73,72 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
         Rotation.handleRotation(block, blockFace)
     },
 });
+
+/**
+ * Universal Cables expose five independently controllable channels on a face.
+ * The values mean “disable this channel”; confirmation is required so a wrench
+ * click never silently removes an active transport path.
+ */
+function openUniversalPipeFaceMenu(block, rawDirection, source) {
+    const direction = normalizePipeDirection(rawDirection);
+    if (!direction) return;
+    if (getProtectedEndpointDirection(block) === direction) {
+        source.onScreenDisplay.setActionBar(translate("message.utilitycraft.pipe.face_protected"));
+        source.playSound("random.break");
+        return;
+    }
+
+    const disabled = new Set(getUniversalPipeFaceDisabledResources(block, direction));
+    const form = new ModalFormData()
+        .title(translate("ui.utilitycraft:universal_pipe.face_title"))
+        .label(translate("ui.utilitycraft:universal_pipe.face_label", [
+            translate(`ui.utilitycraft:universal_pipe.face_${direction}`),
+        ]))
+        .toggle(translate("ui.utilitycraft:universal_pipe.channel_items"), {
+            defaultValue: disabled.has("item"),
+        })
+        .toggle(translate("ui.utilitycraft:universal_pipe.channel_fluids"), {
+            defaultValue: disabled.has("fluid"),
+        })
+        .toggle(translate("ui.utilitycraft:universal_pipe.channel_gases"), {
+            defaultValue: disabled.has("gas"),
+        })
+        .toggle(translate("ui.utilitycraft:universal_pipe.channel_energy"), {
+            defaultValue: disabled.has("energy"),
+        })
+        .toggle(translate("ui.utilitycraft:universal_pipe.channel_overclock"), {
+            defaultValue: disabled.has("overclock"),
+        })
+        .submitButton(translate("ui.utilitycraft:universal_pipe.confirm"));
+
+    form.show(source).then((result) => {
+        if (result.canceled) return;
+        const values = Array.isArray(result.formValues) ? result.formValues : [];
+        const toggles = values.filter((value) => typeof value === "boolean");
+        const resources = PIPE_RESOURCES.filter((resource, index) => toggles[index] === true);
+        if (!setUniversalPipeFaceDisabledResources(block, direction, resources)) {
+            source.playSound("random.break");
+            return;
+        }
+
+        refreshPipeNetworks(block);
+        source.onScreenDisplay.setActionBar(
+            translate("message.utilitycraft.universal_pipe.face_saved"),
+        );
+        source.playSound("place.iron");
+    });
+}
+
+function refreshPipeNetworks(block) {
+    /** @type {Array<"energy"|"item"|"fluid"|"gas"|"overclock">} */
+    const types = [];
+    if (block.hasTag("dorios:energy")) types.push("energy");
+    if (block.hasTag("dorios:item")) types.push("item");
+    if (block.hasTag("dorios:fluid")) types.push("fluid");
+    if (block.hasTag("dorios:gas")) types.push("gas");
+    if (block.hasTag("dorios:overclock_network")) types.push("overclock");
+    updateNetworksAtMany(block, types);
+}
 
 /**
  * Opens the Energy Node configuration menu.

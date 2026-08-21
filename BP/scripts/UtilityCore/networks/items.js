@@ -655,7 +655,7 @@ function getHeldFilterItemType(block, player) {
 }
 
 /** @param {Block} block @param {Player} player */
-function openExporterMenu(block, player) {
+export function openItemExporterMenu(block, player) {
   const runtime = getExporterRuntime(block);
   const menu = new ActionFormData()
     .title(translate("ui.utilitycraft:item_transfer.exporter_title"))
@@ -760,12 +760,12 @@ function openExporterRemoveMenu(block, runtime, player) {
       "message.utilitycraft.item_transfer.item_removed",
       [formatIdentifier(selected)],
     ));
-    openExporterMenu(block, player);
+    openItemExporterMenu(block, player);
   });
 }
 
 /** @param {Block} block @param {Player} player */
-function openImporterMenu(block, player) {
+export function openItemImporterMenu(block, player) {
   const runtime = getImporterRuntime(block.dimension, block.location);
   const menu = new ActionFormData()
     .title(translate("ui.utilitycraft:item_transfer.importer_title"))
@@ -860,7 +860,7 @@ function openImporterRemoveMenu(block, runtime, player) {
       "message.utilitycraft.item_transfer.item_removed",
       [formatIdentifier(selected)],
     ));
-    openImporterMenu(block, player);
+    openItemImporterMenu(block, player);
   });
 }
 
@@ -893,7 +893,7 @@ const exporterComponent = {
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
-    openExporterMenu(block, player);
+    openItemExporterMenu(block, player);
   },
 
   onTick({ block, dimension }) {
@@ -930,13 +930,24 @@ const importerComponent = {
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
-    openImporterMenu(block, player);
+    openItemImporterMenu(block, player);
   },
 };
 
 networkRegistrar
   .block("exporter", exporterComponent)
-  .block("item_importer", importerComponent);
+  .block("item_importer", importerComponent)
+  .block("universal_item_exporter", {
+    beforeOnPlayerPlace: exporterComponent.beforeOnPlayerPlace,
+    onPlayerBreak: exporterComponent.onPlayerBreak,
+    onBreak: exporterComponent.onBreak,
+    onTick: exporterComponent.onTick,
+  })
+  .block("universal_item_importer", {
+    beforeOnPlayerPlace: importerComponent.beforeOnPlayerPlace,
+    onPlayerBreak: importerComponent.onPlayerBreak,
+    onBreak: importerComponent.onBreak,
+  });
 
 /** @param {Dimension} dimension @param {Vector3} location */
 function deleteExporterState(dimension, location) {
@@ -1207,7 +1218,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
-      if (!isNetworkConnectionOpen(block, direction, neighbor)) continue;
+      if (!isNetworkConnectionOpen(block, direction, neighbor, "item")) continue;
 
       if (isItemNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
