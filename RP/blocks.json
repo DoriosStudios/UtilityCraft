@@ -1,4 +1,15 @@
 {
+	"utilitycraft:creative_depleted_uranium_hexafluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_enriched_uranium_hexafluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_fluorine_tank": {"sound": "metal"},
+	"utilitycraft:creative_hydrogen_fluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_natural_uranium_hexafluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_saline_coolant_tank": {"sound": "metal"},
+	"utilitycraft:creative_crude_oil_tank": {"sound": "metal"},
+	"utilitycraft:creative_petroleum_tank": {"sound": "metal"},
+	"utilitycraft:creative_diesel_tank": {"sound": "metal"},
+	"utilitycraft:creative_heated_saline_coolant_tank": {"sound": "metal"},
+	"utilitycraft:creative_nuclear_waste_tank": {"sound": "metal"},
 	"utilitycraft:deepslate_uranium_ore": {
 		"sound": "stone",
 		"textures": "utilitycraft_deepslate_uranium_ore"

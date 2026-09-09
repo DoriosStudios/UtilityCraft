@@ -1574,3 +1574,16 @@ entity.utilitycraft:gas_tank_natural_uranium_hexafluoride_gas.name=Natural Urani
 entity.utilitycraft:gas_tank_enriched_uranium_hexafluoride_gas.name=Enriched Uranium Hexafluoride Tank
 entity.utilitycraft:gas_tank_depleted_uranium_hexafluoride_gas.name=Depleted Uranium Hexafluoride Tank
 entity.utilitycraft:gas_tank_nuclear_waste_gas.name=Nuclear Waste Tank
+tile.utilitycraft:creative_saline_coolant_tank.name=Creative Saline Coolant Tank\n§7- Infinite Saline Coolant\n§o§9@UtilityCraft
+tile.utilitycraft:creative_fluorine_tank.name=Creative Fluorine Tank\n§7- Infinite Fluorine\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_fluoride_tank.name=Creative Hydrogen Fluoride Tank\n§7- Infinite Hydrogen Fluoride\n§o§9@UtilityCraft
+tile.utilitycraft:creative_natural_uranium_hexafluoride_tank.name=Creative Natural Uranium Hexafluoride Tank\n§7- Infinite Natural Uranium Hexafluoride\n§o§9@UtilityCraft
+tile.utilitycraft:creative_enriched_uranium_hexafluoride_tank.name=Creative Enriched Uranium Hexafluoride Tank\n§7- Infinite Enriched Uranium Hexafluoride\n§o§9@UtilityCraft
+tile.utilitycraft:creative_depleted_uranium_hexafluoride_tank.name=Creative Depleted Uranium Hexafluoride Tank\n§7- Infinite Depleted Uranium Hexafluoride\n§o§9@UtilityCraft
+tile.utilitycraft:creative_crude_oil_tank.name=Creative Crude Oil Tank\n§7- Infinite Crude Oil\n§o§9@UtilityCraft
+tile.utilitycraft:creative_petroleum_tank.name=Creative Petroleum Tank\n§7- Infinite Petroleum\n§o§9@UtilityCraft
+tile.utilitycraft:creative_diesel_tank.name=Creative Diesel Tank\n§7- Infinite Diesel\n§o§9@UtilityCraft
+tile.utilitycraft:creative_nuclear_waste_tank.name=Creative Nuclear Waste Tank\n§7- Infinite Nuclear Waste\n§o§9@UtilityCraft
+
+entity.utilitycraft:gas_tank_heated_saline_coolant_gas.name=Heated Saline Coolant
+tile.utilitycraft:creative_heated_saline_coolant_tank.name=Creative Heated Saline Coolant Tank\n§7- Heated Saline Coolant\n§o§9@UtilityCraft

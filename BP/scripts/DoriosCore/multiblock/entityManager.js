@@ -1,10 +1,10 @@
 import * as Constants from "./constants.js";
 
-/** @param {import("@minecraft/server").Entity} entity */
-function isMultiblockEntity(entity) {
-  return entity
-    ?.getComponent("minecraft:type_family")
-    ?.hasTypeFamily(Constants.MULTIBLOCK_FAMILY) === true;
+/** Only live multiblock controllers may receive controller events. */
+export function isMultiblockEntity(entity) {
+  return entity?.isValid === true
+    && entity.typeId !== "minecraft:player"
+    && entity.getComponent("minecraft:type_family")?.hasTypeFamily(Constants.MULTIBLOCK_FAMILY) === true;
 }
 
 export class EntityManager {
@@ -94,6 +94,7 @@ export class EntityManager {
         families: [Constants.MULTIBLOCK_FAMILY],
       })
       .find((entity) => {
+        if (!isMultiblockEntity(entity)) return false;
         if (entity.getDynamicProperty(Constants.STATE_PROPERTY_ID) !== Constants.ACTIVE_STATE_VALUE) {
           return false;
         }

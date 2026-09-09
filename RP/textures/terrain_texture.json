@@ -4,6 +4,11 @@
 	"resource_pack_name": "UtilityCraft 3.0",
 	"texture_name": "atlas.terrain",
 	"texture_data": {
+		"utilitycraft_heated_saline_coolant_gas": {"textures":"textures/entity/heated_saline_coolant_gas"},
+		"utilitycraft_crude_oil_fluid": {"textures":"textures/static/images/crude_oil"},
+		"utilitycraft_petroleum_fluid": {"textures":"textures/static/images/petroleum"},
+		"utilitycraft_diesel_fluid": {"textures":"textures/static/images/diesel"},
+		"utilitycraft_nuclear_waste_gas": {"textures":"textures/entity/nuclear_waste_gas"},
 		"utilitycraft_saline_coolant_fluid": {
 			"textures": "textures/entity/saline_coolant_fluid"
 		},

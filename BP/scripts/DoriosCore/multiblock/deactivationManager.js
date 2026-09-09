@@ -1,6 +1,6 @@
 import { system } from "@minecraft/server";
 import * as Constants from "./constants.js";
-import { EntityManager } from "./entityManager.js";
+import { EntityManager, isMultiblockEntity } from "./entityManager.js";
 import { isLinkNode, parseLinkNodeTag } from "../../DoriosLib/linkNodes/index.js";
 import { setTaggedBlocksWaterlogged } from "./waterlogging.js";
 
@@ -90,7 +90,7 @@ export class DeactivationManager {
    * @returns {import("@minecraft/server").Entity | undefined} The controller entity, if supplied.
    */
   static deactivateEntity(entity, player, emptyBlocksConfig) {
-    if (!entity) return;
+    if (!isMultiblockEntity(entity)) return;
 
     const wasActive = entity.getDynamicProperty(Constants.STATE_PROPERTY_ID) === Constants.ACTIVE_STATE_VALUE
       && entity.getDynamicProperty(Constants.BOUNDS_PROPERTY_ID) !== undefined;
@@ -142,7 +142,7 @@ export class DeactivationManager {
    */
   static handleBreakController(block, player, emptyBlocksConfig, controllerPermutation = block?.permutation) {
     const entity = EntityManager.getControllerEntityFromBlock(block, controllerPermutation);
-    if (!entity) return;
+    if (!isMultiblockEntity(entity)) return;
 
     DeactivationManager.deactivateEntity(entity, player, emptyBlocksConfig);
     system.runTimeout(() => entity.remove(), 2);

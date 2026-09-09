@@ -15,7 +15,7 @@ export const coolants = {};
 /** @type {Record<string, CoolantDefinition>} */
 const defaultCoolants = {
   water: {
-    efficiency: 1,
+    efficiency: 0.5,
     tier: 0,
   },
 };

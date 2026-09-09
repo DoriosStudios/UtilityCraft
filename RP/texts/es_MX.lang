@@ -1475,3 +1475,16 @@ entity.utilitycraft:gas_tank_natural_uranium_hexafluoride_gas.name=Tanque de Hex
 entity.utilitycraft:gas_tank_enriched_uranium_hexafluoride_gas.name=Tanque de Hexafluoruro de Uranio Enriquecido
 entity.utilitycraft:gas_tank_depleted_uranium_hexafluoride_gas.name=Tanque de Hexafluoruro de Uranio Empobrecido
 entity.utilitycraft:gas_tank_nuclear_waste_gas.name=Tanque de Residuos Nucleares
+tile.utilitycraft:creative_saline_coolant_tank.name=Tanque Creativo de Refrigerante Salino\n§7- Refrigerante Salino Infinito\n§o§9@UC: heavy Machinery
+tile.utilitycraft:creative_fluorine_tank.name=Tanque Creativo de Flúor\n§7- Suministro infinito de Flúor\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_fluoride_tank.name=Tanque Creativo de Fluoruro de Hidrógeno\n§7- Suministro infinito de Fluoruro de Hidrógeno\n§o§9@UtilityCraft
+tile.utilitycraft:creative_natural_uranium_hexafluoride_tank.name=Tanque Creativo de Hexafluoruro de Uranio Natural\n§7- Suministro infinito de Hexafluoruro de Uranio Natural\n§o§9@UtilityCraft
+tile.utilitycraft:creative_enriched_uranium_hexafluoride_tank.name=Tanque Creativo de Hexafluoruro de Uranio Enriquecido\n§7- Suministro infinito de Hexafluoruro de Uranio Enriquecido\n§o§9@UtilityCraft
+tile.utilitycraft:creative_depleted_uranium_hexafluoride_tank.name=Tanque Creativo de Hexafluoruro de Uranio Empobrecido\n§7- Suministro infinito de Hexafluoruro de Uranio Empobrecido\n§o§9@UtilityCraft
+tile.utilitycraft:creative_crude_oil_tank.name=Tanque Creativo de Petróleo Crudo\n§7- Suministro infinito de Petróleo Crudo\n§o§9@UtilityCraft
+tile.utilitycraft:creative_petroleum_tank.name=Tanque Creativo de Petróleo\n§7- Suministro infinito de Petróleo\n§o§9@UtilityCraft
+tile.utilitycraft:creative_diesel_tank.name=Tanque Creativo de Diésel\n§7- Suministro infinito de Diésel\n§o§9@UtilityCraft
+tile.utilitycraft:creative_nuclear_waste_tank.name=Tanque Creativo de Residuos Nucleares\n§7- Suministro infinito de Residuos Nucleares\n§o§9@UtilityCraft
+
+entity.utilitycraft:gas_tank_heated_saline_coolant_gas.name=Refrigerante salino caliente
+tile.utilitycraft:creative_heated_saline_coolant_tank.name=Tanque creativo de refrigerante salino caliente\n§7- Refrigerante salino caliente\n§o§9@UtilityCraft

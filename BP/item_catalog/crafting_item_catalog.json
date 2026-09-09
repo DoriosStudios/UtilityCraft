@@ -220,6 +220,17 @@
                             "utilitycraft:creative_hydrogen_tank",
                             "utilitycraft:creative_oxygen_tank",
                             "utilitycraft:creative_methane_tank",
+                            "utilitycraft:creative_depleted_uranium_hexafluoride_tank",
+                            "utilitycraft:creative_enriched_uranium_hexafluoride_tank",
+                            "utilitycraft:creative_fluorine_tank",
+                            "utilitycraft:creative_hydrogen_fluoride_tank",
+                            "utilitycraft:creative_natural_uranium_hexafluoride_tank",
+                            "utilitycraft:creative_saline_coolant_tank",
+                            "utilitycraft:creative_crude_oil_tank",
+                            "utilitycraft:creative_petroleum_tank",
+                            "utilitycraft:creative_diesel_tank",
+                            "utilitycraft:creative_nuclear_waste_tank",
+                            "utilitycraft:creative_heated_saline_coolant_tank",
                             "utilitycraft:xp_drain",
                             "utilitycraft:xp_spout"
                         ]

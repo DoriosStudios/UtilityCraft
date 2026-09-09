@@ -1,8 +1,8 @@
-# UtilityCraft v3.5.5
-
-This update adds reversible Nether Star storage and four increasingly compact tiers.
+# UtilityCraft v3.6.0
 
 ## ADDED
+- Added Heated Saline Coolant gas: 49 native gas bar levels, tank entity, darkened Saline Coolant sprites and a Creative Tank. Heavy Machinery uses it for thermal heat recovery.
+- Completed Creative Tanks for all 20 liquid/gas bar resources: migrated six Saline Coolant and nuclear gas tanks from Heavy Machinery with their existing IDs, and added Crude Oil, Petroleum, Diesel and Nuclear Waste tanks using the shared infinite-storage component.
 - Added shared Saline Coolant, Fluorine, Hydrogen Fluoride, Natural/Enriched/Depleted Uranium Hexafluoride and Nuclear Waste resources migrated from Heavy Machinery: 343 hidden bar items/frames, tank entities/textures and localized names. Existing type IDs and mB units remain unchanged; production recipes and machine behavior stay in Heavy Machinery.
 - Migrated basic Uranium materials from Heavy Machinery: ingot, dust, raw uranium, deepslate ore/chunk, raw/storage blocks and normal pellet, including textures, localized UtilityCraft names, Creative entries, ore drops, crafting and crusher/furnace/press recipes. Existing identifiers and recipe values are preserved. Uranium sieve drops are registered only by Heavy Machinery and are unavailable with UtilityCraft alone.
 - Completed the static 16x16 liquid/gas sprite set with Heavy Water, Sulfuric Acid, Crude Oil, Petroleum and Diesel icons, extracted from their existing entity textures or full bars. All 13 built-in liquid/gas bar types now have icons in textures/static/images.
@@ -16,7 +16,9 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
-- Recolored all Methane gas bar fill levels muted sage green with soft mint highlights to distinguish them from pink Hydrogen and blue Oxygen, preserving the original gas pixel pattern, empty background and item identifiers.
+- Set the shared Water coolant efficiency to 0.5 (Tier 0), making it the basic coolant for Heavy Machinery heat recovery. Consumers of the shared registry use this value; HM no longer needs a duplicate Water registration.
+- Updated the Stabilized Obsidian Dust texture with the supplied artwork.
+- Updated the supplied Amethyst, Diamond, Emerald, Quartz, Obsidian and Crying Obsidian dust textures; Lead materials and blocks; Brute Steel; and Uranium ingot/dust textures.
 - Differentiated Electrolyzer liquid/gas input outlines (1/2) and Chemical Converter item/liquid/gas inputs (1/2/3), with matching resource-specific IO outlines and localized legend colors. Existing saved IO modes are preserved.
 - Moved Electrolyzer and Chemical Converter status screens into the main UI at the Crusher position, removed the side extension, moved energy bars to the left, and compacted recipe slots on the right while retaining the original progress-arrow size. Shifted outputs eight pixels and progress arrows four pixels right to use the available space. Moved status screens and text one pixel left for extra input spacing.
 - Compacted machine and generator side tabs when Upgrades or IO is absent. Toggles move up by 26 pixels per missing tab. Information moves together with its toggle; IO and upgrade panels keep their original positions. Information grows to 80x134 with two tabs or 80x160 with one; IO and upgrade panel sizes remain unchanged.
@@ -31,7 +33,6 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Reworked the visual Primitive Forge panel with left-aligned text and a horizontal recipe: decorative input slots, the existing animated steel catalyst texture, a progress arrow and a larger Brute Steel output slot without a quantity label. Faster-furnace details appear below.
 - Replaced Primitive Forge info text with a custom visual recipe panel, showing Iron Dust and Coal producing Brute Steel, alternative coal icons, refining instructions and processing times. Keeps the shared 80x160 frame and ends with the faster-furnace note.
 - Added a Primitive Forge information tab at the top, matching Storage Drive placement and 80x160 panel size. Three short paragraphs with blue highlights explain Steel ingredients, faster furnace use and normal recipes processing up to four items per two-second batch in English, Spanish, Brazilian Portuguese and European Portuguese.
-- Added a Primitive Forge block description: "Build a 2x2x2 structure to activate".
 - Removed the obsolete Mortar item icon and sapling/water-bottle recipe. Updated the English and Simplified Chinese water guide to explain placed Mortar leaf crushing, full turns, four water levels and bucket collection, with the 3D block render replacing the old item and recipe images.
 - Added the supplied Primitive Forge facade, preserved pixel-for-pixel as four 16x16 front textures that form a shared 32x32 face after assembly. Side faces reconstruct uninterrupted red bricks and brown borders; the roof repeats the brown border pattern. All four orientations are supported. Unassembled casings use a 16x16 texture reconstructed from the same central red bricks.
 - Added English descriptions to all eight Hammers explaining block conversion and ore crushing into dust.
@@ -53,6 +54,8 @@ This update adds reversible Nether Star storage and four increasingly compact ti
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Updated Methane tank and static UI sprites to match the current green gas-bar texture.
+- Restricted multiblock entity lookup and deactivation to live dorios:multiblock controllers, preventing hide events and removal from targeting players, dropped items or visual entities.
 - Kept the Electrolyzer paired recipe hover background at the full 42x18 button size with a dedicated nine-slice copy of the vanilla hover texture, preserving its border and both output icons.
 - Aligned the Electrolyzer two-output recipe selector with the standard recipe button inside the scrolling viewport, preventing it from being clipped off-screen. Explicitly forwards the initial selection to its native toggle, retaining both output icons and their shared tooltip.
 - Aligned fluid recipe item overlays with their slots, placed fluid sprites below the bar frames, moved energy to the right in expanded recipe views, and removed the recipe list's extra top pixel.
