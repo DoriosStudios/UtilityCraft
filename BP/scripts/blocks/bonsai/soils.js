@@ -63,6 +63,12 @@ const soilByTypeId = new Map([
         yieldMultiplier: 4,
         tillable: false,
         universal: true
+    }],
+    ["utilitycraft:pink_soil", {
+        speedMultiplier: 15,
+        yieldMultiplier: 10,
+        tillable: false,
+        universal: true
     }]
 ])
 

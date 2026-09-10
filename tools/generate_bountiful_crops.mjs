@@ -46,6 +46,8 @@ const BONSAI_DURATION_SECONDS_BY_TIER = Object.freeze({
   4: 600
 });
 
+const HIGHEST_SOIL_TIER = 5;
+
 const BONSAI_GEOMETRIES = Object.freeze({
   "geometry.utilitycraft_crop": {
     sourceFile: "crop.geo.json",
@@ -272,7 +274,9 @@ function configureCropBlock(block, definition) {
   if (!Array.isArray(placementConditions) || !placementConditions[0]) {
     throw new Error(`Missing placement filter: ${block.description.identifier}`);
   }
-  placementConditions[0].block_filter = [definition.soil];
+  placementConditions[0].block_filter = [{
+    tags: createCompatibleSoilTagQuery(definition.tier)
+  }];
 
   const maturePermutation = block.permutations.find(permutation =>
     typeof permutation.condition === "string" && permutation.condition.includes("age')==5")
@@ -281,6 +285,14 @@ function configureCropBlock(block, definition) {
     throw new Error(`Missing mature permutation: ${block.description.identifier}`);
   }
   maturePermutation.components["minecraft:loot"] = `loot_tables/bc/crops/${definition.lootFile}.json`;
+}
+
+function createCompatibleSoilTagQuery(minimumTier) {
+  const tags = [];
+  for (let tier = minimumTier; tier <= HIGHEST_SOIL_TIER; tier++) {
+    tags.push(`'utilitycraft:soil_tier_${tier}'`);
+  }
+  return `query.any_tag(${tags.join(", ")})`;
 }
 
 async function validateItemDefinitions(crops) {
