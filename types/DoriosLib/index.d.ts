@@ -820,6 +820,8 @@ export namespace registry {
     MELTER_RECIPE: "utilitycraft:register_melter_recipe";
     MACHINE_UPGRADE: "utilitycraft:register_machine_upgrade";
     PLANT: "utilitycraft:register_plant";
+    ELECTROLYZER_RECIPE: "utilitycraft:register_electrolyzer_recipe";
+    CHEMICAL_CONVERTER_RECIPE: "utilitycraft:register_chemical_converter_recipe";
     PRESS_RECIPE: "utilitycraft:register_press_recipe";
     SIEVE_DROP: "utilitycraft:register_sieve_drop";
     SPECIAL_CONTAINER_SLOTS: "utilitycraft:register_special_container_slots";
@@ -845,6 +847,8 @@ export namespace registry {
   function registerMelterRecipe(payload: RegistrationPayload): void;
   function registerMachineUpgrade(payload: RegistrationPayload): void;
   function registerPlant(payload: RegistrationPayload): void;
+  function registerElectrolyzerRecipe(payload: RegistrationPayload): void;
+  function registerChemicalConverterRecipe(payload: RegistrationPayload): void;
   function registerPressRecipe(payload: RegistrationPayload): void;
   function registerSieveDrop(payload: RegistrationPayload): void;
   function registerSpecialContainerSlots(payload: RegistrationPayload): void;

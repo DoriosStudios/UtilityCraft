@@ -1,0 +1,38 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:ultimate_gas_generator"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "utilitycraft:netherite_plate"
+			},
+			"B": {
+				"item": "utilitycraft:expert_gas_generator"
+			},
+			"D": {
+				"item": "utilitycraft:ultimate_gas_tank"
+			},
+			"E": {
+				"item": "utilitycraft:ultimate_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"GEG"
+		],
+		"result": {
+			"item": "utilitycraft:ultimate_gas_generator"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:ultimate_chip"
+			}
+		]
+	}
+}

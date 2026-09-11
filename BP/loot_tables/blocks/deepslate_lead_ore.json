@@ -1,0 +1,29 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [{ "condition": "match_tool", "minecraft:match_tool_filter_any": ["minecraft:is_pickaxe"], "enchantments": [{ "enchantment": "silk_touch", "levels": { "range_min": 1 } }] }],
+      "entries": [{ "type": "item", "name": "utilitycraft:deepslate_lead_ore" }]
+    },
+    {
+      "rolls": 1,
+      "conditions": [{ "condition": "match_tool", "minecraft:match_tool_filter_any": ["minecraft:is_pickaxe"], "enchantments": [{ "enchantment": "silk_touch", "levels": { "range_max": 0 } }] }],
+      "entries": [{ "type": "item", "name": "utilitycraft:raw_lead" }]
+    },
+    {
+      "rolls": 1,
+      "conditions": [{ "condition": "match_tool", "minecraft:match_tool_filter_any": ["minecraft:is_pickaxe"], "enchantments": [{ "enchantment": "silk_touch", "levels": { "range_max": 0 } }, { "enchantment": "fortune", "levels": { "range_min": 1 } }] }],
+      "entries": [{ "type": "item", "name": "utilitycraft:raw_lead" }, { "type": "empty" }]
+    },
+    {
+      "rolls": 1,
+      "conditions": [{ "condition": "match_tool", "minecraft:match_tool_filter_any": ["minecraft:is_pickaxe"], "enchantments": [{ "enchantment": "silk_touch", "levels": { "range_max": 0 } }, { "enchantment": "fortune", "levels": { "range_min": 2 } }] }],
+      "entries": [{ "type": "item", "name": "utilitycraft:raw_lead" }, { "type": "empty" }]
+    },
+    {
+      "rolls": 1,
+      "conditions": [{ "condition": "match_tool", "minecraft:match_tool_filter_any": ["minecraft:is_pickaxe"], "enchantments": [{ "enchantment": "silk_touch", "levels": { "range_max": 0 } }, { "enchantment": "fortune", "levels": { "range_min": 3 } }] }],
+      "entries": [{ "type": "item", "name": "utilitycraft:raw_lead" }, { "type": "empty" }]
+    }
+  ]
+}

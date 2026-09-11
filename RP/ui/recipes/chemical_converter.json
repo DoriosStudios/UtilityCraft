@@ -1,0 +1,350 @@
+{
+  "namespace": "uc",
+  "chemical_converter_recipes_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      162,
+      72
+    ],
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "chemical_converter_0_preview": {
+          "type": "collection_panel",
+          "size": [
+            162,
+            72
+          ],
+          "collection_name": "container_items",
+          "$item_collection_name": "container_items",
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "chemical_converter_0_recipe",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible",
+              "resolve_sibling_scope": false
+            }
+          ],
+          "controls": [
+            {
+              "item_0@uc.recipe_slot_overlay": {
+                "collection_index": 3,
+                "$slot_offset": [
+                  -8,
+                  5
+                ],
+                "$slot_red_size": [
+                  16,
+                  16
+                ],
+                "$slot_item_texture": "textures/items/dusts/charcoal_dust",
+                "$has_slot_hover": false,
+                "$has_slot_count": false
+              }
+            },
+            {
+              "fluid_1@uc.fluid_recipe_ingredient": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [
+                  105,
+                  49
+                ],
+                "$recipe_icon": "textures/static/images/hydrogen_gas",
+                "$toggle_control_name": "chemical_converter_0_ingredient_1",
+                "$toggle_name": "chemical_converter_0_ingredient_1",
+                "$toggle_hover_text": "ui.utilitycraft:recipe.chemical_converter_0.ingredient_1"
+              }
+            },
+            {
+              "fluid_2@uc.fluid_recipe_ingredient": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [
+                  153,
+                  49
+                ],
+                "$recipe_icon": "textures/static/images/methane_gas",
+                "$toggle_control_name": "chemical_converter_0_ingredient_2",
+                "$toggle_name": "chemical_converter_0_ingredient_2",
+                "$toggle_hover_text": "ui.utilitycraft:recipe.chemical_converter_0.ingredient_2"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "chemical_converter_recipes_buttons": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [
+      126,
+      "100%c"
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "orientation": "vertical",
+    "controls": [
+      {
+        "row_0": {
+          "type": "panel",
+          "size": [
+            126,
+            20
+          ],
+          "controls": [
+            {
+              "chemical_converter_0_toggle@uc.recipe_toggle": {
+                "$toggle_name": "chemical_converter_recipes",
+                "$toggle_index": 0,
+                "$toggle_control_name": "chemical_converter_0_recipe",
+                "$toggle_hover_text": "ui.utilitycraft:recipe.chemical_converter_0.summary",
+                "$toggle_default_state": true,
+                "$recipe_icon": "textures/static/images/methane_gas",
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [
+                  0,
+                  0
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "chemical_converter_recipes_side_panel": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      154,
+      166
+    ],
+    "offset": [
+      -91,
+      0
+    ],
+    "layer": 10,
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "panel_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/background_panel",
+          "size": [
+            140,
+            145
+          ],
+          "offset": [
+            7,
+            10.5
+          ],
+          "layer": -5
+        }
+      },
+      {
+        "top_bg": {
+          "type": "image",
+          "texture": "textures/ui/background/dark_top_tab",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [
+            140,
+            24
+          ],
+          "offset": [
+            7,
+            0
+          ],
+          "layer": -6
+        }
+      },
+      {
+        "title": {
+          "type": "label",
+          "text": "ui.utilitycraft:recipes_panel.name",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [
+            7,
+            7
+          ],
+          "color": [
+            0.9,
+            0.9,
+            0.9
+          ],
+          "layer": -3,
+          "font_scale_factor": 1
+        }
+      },
+      {
+        "recipes_grid_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_grid_bg",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": -4
+        }
+      },
+      {
+        "recipes_grid_border": {
+          "type": "image",
+          "texture": "textures/ui/background_border",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            128,
+            134
+          ],
+          "offset": [
+            20,
+            27
+          ],
+          "layer": 4
+        }
+      },
+      {
+        "recipes_scroll@common.scrolling_panel": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [
+            142,
+            130
+          ],
+          "offset": [
+            13,
+            -2
+          ],
+          "$show_background": false,
+          "layer": -2,
+          "$scroll_size": [
+            4,
+            "100% - 4px"
+          ],
+          "$scrolling_pane_size": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset": [
+            -2,
+            30
+          ],
+          "$scroll_view_port_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset": [
+            -44,
+            0
+          ],
+          "$scrolling_pane_size_touch": [
+            "100% + 6px",
+            "100% + 3px"
+          ],
+          "$scrolling_pane_offset_touch": [
+            0,
+            30
+          ],
+          "$scroll_view_port_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_max_size_touch": [
+            "100% + 80px",
+            "100% + 3px"
+          ],
+          "$scroll_view_port_offset_touch": [
+            -46,
+            0
+          ],
+          "$scroll_size_touch": [
+            4,
+            "100% - 4px"
+          ],
+          "$scroll_box_visible_touch": true,
+          "$use_touch_mode": false,
+          "$scrolling_content": "uc.chemical_converter_recipes_buttons",
+          "$scroll_track_image_control": "common.empty_image"
+        }
+      }
+    ]
+  },
+  "chemical_converter_recipes_connector": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      12,
+      160
+    ],
+    "offset": [
+      -14,
+      0
+    ],
+    "layer": -20,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "recipes_toggle_button",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible",
+        "resolve_sibling_scope": false
+      }
+    ],
+    "controls": [
+      {
+        "connector_bg": {
+          "type": "image",
+          "texture": "textures/ui/recipe_book_side_toggle_dark",
+          "size": [
+            12,
+            160
+          ],
+          "layer": 0
+        }
+      }
+    ]
+  }
+}

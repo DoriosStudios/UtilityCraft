@@ -1,0 +1,84 @@
+{
+  "blocks": [
+    {
+      "name": "forge_0",
+      "model": "primitive_forge_parts_on/part_0.json",
+      "resource_pack": "../../RP",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "forge_1",
+      "model": "primitive_forge_parts_on/part_1.json",
+      "resource_pack": "../../RP",
+      "position": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "forge_2",
+      "model": "primitive_forge_parts_on/part_2.json",
+      "resource_pack": "../../RP",
+      "position": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "forge_3",
+      "model": "primitive_forge_parts_on/part_3.json",
+      "resource_pack": "../../RP",
+      "position": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "forge_4",
+      "model": "primitive_forge_parts_on/part_4.json",
+      "resource_pack": "../../RP",
+      "position": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "forge_5",
+      "model": "primitive_forge_parts_on/part_5.json",
+      "resource_pack": "../../RP",
+      "position": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "forge_6",
+      "model": "primitive_forge_parts_on/part_6.json",
+      "resource_pack": "../../RP",
+      "position": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "forge_7",
+      "model": "primitive_forge_parts_on/part_7.json",
+      "resource_pack": "../../RP",
+      "position": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import * as EntityUtils from "../DoriosCore/utils/entity.js";
 import * as Constants from "../DoriosCore/machinery/constants.js";
 
 const ENTITY_ID = "utilitycraft:machine_entity";
-const DEFAULT_RATE = 10_000;
+const DEFAULT_RATE = Constants.INFINITE_STORAGE_CAPACITY;
 const ENTITY_SETTINGS = {
   name: "infinite_energy_source",
   type: "generator",
@@ -74,12 +74,13 @@ DoriosLib.registry.blockComponent("utilitycraft:infinite_energy_source", {
     if (!generator.valid) return;
 
     const transferred = generator.energy.transferToNetwork(generator.rate);
+    const transferRate = transferred / generator.processingInterval;
     generator.displayEnergy();
     generator.setLabel(`
 §r§eInfinite Energy Source
 
 §r§bStored §fInfinite
-§r§cOutput §f${EnergyStorage.formatEnergyToText(transferred)}/t
+§r§cOutput §f${EnergyStorage.formatEnergyToText(transferRate)}/t
     `);
   },
 

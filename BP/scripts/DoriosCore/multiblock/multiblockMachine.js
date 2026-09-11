@@ -12,6 +12,7 @@ import {
 } from "../machinery/resourceLore.js";
 import { ActivationManager } from "./activationManager.js";
 import { DeactivationManager } from "./deactivationManager.js";
+import { EntityManager } from "./entityManager.js";
 import { StructureDetector } from "./structureDetection.js";
 import * as Utils from "../utils/entity.js";
 import * as Constants from "./constants.js";
@@ -39,7 +40,11 @@ export class MultiblockMachine extends BasicMachine {
    */
   constructor(block, config) {
     const configuredRate = config?.machine?.rate_speed_base ?? 0;
-    super(block, { rate: configuredRate, ignoreTick: config?.ignoreTick });
+    super(block, {
+      rate: configuredRate,
+      ignoreTick: config?.ignoreTick,
+      entityResolver: EntityManager.getControllerEntityFromBlock,
+    });
     this.configuredRate = configuredRate;
     if (!this.valid) return;
 
@@ -161,7 +166,7 @@ export class MultiblockMachine extends BasicMachine {
       successMessages,
     } = handlers;
     const { block, player } = e;
-    const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
+    const entity = EntityManager.getControllerEntityFromBlock(block);
     const mainHandTypeId = DoriosLib.entity.getEquipment(player, "Mainhand")?.typeId ?? "";
     if (mainHandTypeId === "utilitycraft:copy_paste_tool") return;
     const isUsingWrench = mainHandTypeId.includes("wrench");
@@ -200,7 +205,7 @@ export class MultiblockMachine extends BasicMachine {
    */
   static onDestroy(e) {
     const { block, brokenBlockPermutation, player, dimension: dim } = e;
-    const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+    const entity = EntityManager.getControllerEntityFromBlock(block, brokenBlockPermutation);
     if (!entity) return false;
 
     const blockItemId = brokenBlockPermutation.type.id;
@@ -268,7 +273,7 @@ export class MultiblockMachine extends BasicMachine {
     const { block, player } = e;
     const requirements = config.requirements ?? {};
 
-    DeactivationManager.deactivateMultiblock(block, player);
+    DeactivationManager.deactivateEntity(entity, player);
 
     const structure = await StructureDetector.detectFromController(e, config.required_case);
     if (!structure) return;
@@ -276,7 +281,7 @@ export class MultiblockMachine extends BasicMachine {
     const failure = this.validateRequirements(structure.components, requirements);
     if (failure) {
       player.sendMessage(failure.warning);
-      DeactivationManager.deactivateMultiblock(block, player);
+      DeactivationManager.deactivateEntity(entity, player);
       return;
     }
 
@@ -299,7 +304,7 @@ export class MultiblockMachine extends BasicMachine {
     if (onActivate) {
       const result = await onActivate(context);
       if (result === false) {
-        DeactivationManager.deactivateMultiblock(block, player);
+        DeactivationManager.deactivateEntity(entity, player);
         return;
       }
     }

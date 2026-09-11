@@ -10,6 +10,7 @@ import {
 } from "../machinery/resourceLore.js";
 import { ActivationManager } from "./activationManager.js";
 import { DeactivationManager } from "./deactivationManager.js";
+import { EntityManager } from "./entityManager.js";
 import { StructureDetector } from "./structureDetection.js";
 import * as Utils from "../utils/entity.js";
 import { ensureGasIOConfig } from "../interfaces/gasIO.js";
@@ -35,7 +36,7 @@ export class MultiblockGenerator extends Generator {
    * @param {GeneratorSettings} config Multiblock generator configuration.
    */
   constructor(block, config) {
-    super(block, config);
+    super(block, config, EntityManager.getControllerEntityFromBlock);
     if (!this.valid) return;
 
     this.config = config;
@@ -122,7 +123,7 @@ export class MultiblockGenerator extends Generator {
       successMessages,
     } = handlers;
     const { block, player } = e;
-    const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
+    const entity = EntityManager.getControllerEntityFromBlock(block);
     const mainHandTypeId = DoriosLib.entity.getEquipment(player, "Mainhand")?.typeId ?? "";
     if (mainHandTypeId === "utilitycraft:copy_paste_tool") return;
     const isUsingWrench = mainHandTypeId.includes("wrench");
@@ -176,7 +177,7 @@ export class MultiblockGenerator extends Generator {
     const fillBlocksConfig = config.fillBlocksConfig;
     const missingEnergyWarning = config.missingEnergyWarning;
 
-    DeactivationManager.deactivateMultiblock(block, player, deactivateConfig);
+    DeactivationManager.deactivateEntity(entity, player, deactivateConfig);
 
     const structure = await StructureDetector.detectFromController(e, config.required_case);
     if (!structure) return;
@@ -184,14 +185,14 @@ export class MultiblockGenerator extends Generator {
     const failure = this.validateRequirements(structure.components ?? {}, requirements);
     if (failure) {
       player.sendMessage(failure.warning);
-      DeactivationManager.deactivateMultiblock(block, player, deactivateConfig);
+      DeactivationManager.deactivateEntity(entity, player, deactivateConfig);
       return;
     }
 
     const energyCap = ActivationManager.activateMultiblock(entity, structure, fillBlocksConfig);
     if (missingEnergyWarning && energyCap <= 0) {
       player.sendMessage(missingEnergyWarning);
-      DeactivationManager.deactivateMultiblock(block, player, deactivateConfig);
+      DeactivationManager.deactivateEntity(entity, player, deactivateConfig);
       return;
     }
 
@@ -209,7 +210,7 @@ export class MultiblockGenerator extends Generator {
     if (onActivate) {
       const result = await onActivate(context);
       if (result === false) {
-        DeactivationManager.deactivateMultiblock(block, player, deactivateConfig);
+        DeactivationManager.deactivateEntity(entity, player, deactivateConfig);
         return;
       }
     }

@@ -9,7 +9,7 @@
 		},
 		"components": {
 			"utilitycraft:infinite_energy_source": {
-				"rate_speed_base": 10000
+				"rate_speed_base": 1000000000
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

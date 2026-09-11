@@ -2544,7 +2544,7 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
-        "$slot_outline_texture|default": "textures/ui/slots/default_slot",
+        "$slot_outline_texture|default": "textures/ui/slots/transparent_slot",
         "$collection_index_1|default": 0,
         "$collection_index_2|default": 1,
         "$collection_index_3|default": 2,
@@ -2683,7 +2683,7 @@
         ],
         "collection_name": "container_items",
         "$item_collection_name": "container_items",
-        "$slot_outline_texture|default": "textures/ui/slots/default_slot",
+        "$slot_outline_texture|default": "textures/ui/slots/transparent_slot",
         "$collection_index_1|default": 0,
         "$collection_index_2|default": 1,
         "$collection_index_3|default": 2,
@@ -3945,6 +3945,9 @@
         ]
     },
     "io_tab": {
+        "$io_toggle_offset|default": [109, 1],
+        "$io_fluid_input_1_texture|default": "textures/ui/slots/input_1_slot",
+        "$io_gas_input_1_texture|default": "textures/ui/slots/input_1_slot",
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
@@ -4009,10 +4012,7 @@
                 "io_toggle@uc.toggle_button": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "offset": [
-                        109,
-                        1
-                    ],
+                    "offset": "$io_toggle_offset",
                     "visible": "$has_io_config",
                     "$toggle_name": "$right_machine_tabs_name",
                     "$toggle_layer": -5,
@@ -4048,10 +4048,7 @@
                 "io_toggle_close@uc.toggle_button": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "offset": [
-                        109,
-                        1
-                    ],
+                    "offset": "$io_toggle_offset",
                     "visible": "$has_io_config",
                     "$toggle_name": "$right_machine_tabs_name",
                     "$toggle_layer": -4,
@@ -4105,6 +4102,178 @@
                     "layer": 30,
                     "$item_collection_name": "container_items",
                     "controls": [
+                        {
+                            "io_resource_tabs": {
+                                "type": "panel",
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "size": [
+                                    144,
+                                    114
+                                ],
+                                "controls": [
+                                    {
+                                        "io_items_toggle@uc.toggle_button": {
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left",
+                                            "size": [
+                                                24,
+                                                24
+                                            ],
+                                            "offset": [
+                                                -23,
+                                                4
+                                            ],
+                                            "visible": "$has_item_io",
+                                            "$toggle_name": "$io_config_tabs_name",
+                                            "$toggle_layer": 3,
+                                            "$toggle_index": 0,
+                                            "$toggle_group": true,
+                                            "$toggle_default_state": "$io_items_default",
+                                            "$toggle_group_default_selected": "$io_default_tab_index",
+                                            "$toggle_hover_text": "ui.utilitycraft:machine_view.items",
+                                            "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.items",
+                                            "$toggle_hover_text_localize": true,
+                                            "$toggle_checked_hover_text_localize": true,
+                                            "$toggle_control_name": "$io_items_toggle_control_name",
+                                            "$toggle_size": [
+                                                18,
+                                                18
+                                            ],
+                                            "$has_toggle_bg": true,
+                                            "$toggle_bg_size": [
+                                                24,
+                                                24
+                                            ],
+                                            "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                            "$toggle_bg_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "$toggle_unchecked": "textures/ui/toggle_button/item_unchecked",
+                                            "$toggle_checked": "textures/ui/toggle_button/item_checked",
+                                            "$toggle_unchecked_hover": "textures/ui/toggle_button/item_unchecked_hover",
+                                            "$toggle_checked_hover": "textures/ui/toggle_button/item_checked_hover"
+                                        }
+                                    },
+                                    {
+                                        "io_fluids_toggle@uc.toggle_button": {
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left",
+                                            "size": [
+                                                24,
+                                                24
+                                            ],
+                                            "offset": "$io_fluid_tab_offset",
+                                            "visible": "$has_fluid_io",
+                                            "$toggle_name": "$io_config_tabs_name",
+                                            "$toggle_layer": 3,
+                                            "$toggle_index": 1,
+                                            "$toggle_group": true,
+                                            "$toggle_default_state": "$io_fluids_default",
+                                            "$toggle_group_default_selected": "$io_default_tab_index",
+                                            "$toggle_hover_text": "ui.utilitycraft:machine_view.liquids",
+                                            "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.liquids",
+                                            "$toggle_hover_text_localize": true,
+                                            "$toggle_checked_hover_text_localize": true,
+                                            "$toggle_control_name": "$io_fluids_toggle_control_name",
+                                            "$toggle_size": [
+                                                18,
+                                                18
+                                            ],
+                                            "$has_toggle_bg": true,
+                                            "$toggle_bg_size": [
+                                                24,
+                                                24
+                                            ],
+                                            "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                            "$toggle_bg_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "$toggle_unchecked": "textures/ui/toggle_button/fluid_unchecked",
+                                            "$toggle_checked": "textures/ui/toggle_button/fluid_checked",
+                                            "$toggle_unchecked_hover": "textures/ui/toggle_button/fluid_unchecked_hover",
+                                            "$toggle_checked_hover": "textures/ui/toggle_button/fluid_checked_hover",
+                                            "$io_fluid_tab_offset|default": [
+                                                -23,
+                                                4
+                                            ],
+                                            "variables": [
+                                                {
+                                                    "requires": "$has_item_io",
+                                                    "$io_fluid_tab_offset": [
+                                                        -23,
+                                                        30
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "io_gases_toggle@uc.toggle_button": {
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left",
+                                            "size": [
+                                                24,
+                                                24
+                                            ],
+                                            "offset": "$io_gas_tab_offset",
+                                            "visible": "$has_gas_io",
+                                            "$toggle_name": "$io_config_tabs_name",
+                                            "$toggle_layer": 3,
+                                            "$toggle_index": 2,
+                                            "$toggle_group": true,
+                                            "$toggle_default_state": "$io_gases_default",
+                                            "$toggle_group_default_selected": "$io_default_tab_index",
+                                            "$toggle_hover_text": "ui.utilitycraft:machine_view.gases",
+                                            "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.gases",
+                                            "$toggle_hover_text_localize": true,
+                                            "$toggle_checked_hover_text_localize": true,
+                                            "$toggle_control_name": "$io_gases_toggle_control_name",
+                                            "$toggle_size": [
+                                                18,
+                                                18
+                                            ],
+                                            "$has_toggle_bg": true,
+                                            "$toggle_bg_size": [
+                                                24,
+                                                24
+                                            ],
+                                            "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
+                                            "$toggle_bg_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "$toggle_unchecked": "textures/ui/toggle_button/gas_unchecked",
+                                            "$toggle_checked": "textures/ui/toggle_button/gas_checked",
+                                            "$toggle_unchecked_hover": "textures/ui/toggle_button/gas_unchecked_hover",
+                                            "$toggle_checked_hover": "textures/ui/toggle_button/gas_checked_hover",
+                                            "$io_gas_tab_offset|default": [
+                                                -23,
+                                                4
+                                            ],
+                                            "variables": [
+                                                {
+                                                    "requires": "(($has_item_io or $has_fluid_io) and not ($has_item_io and $has_fluid_io))",
+                                                    "$io_gas_tab_offset": [
+                                                        -23,
+                                                        30
+                                                    ]
+                                                },
+                                                {
+                                                    "requires": "($has_item_io and $has_fluid_io)",
+                                                    "$io_gas_tab_offset": [
+                                                        -23,
+                                                        56
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
                         {
                             "io_panel_content": {
                                 "type": "panel",
@@ -4254,138 +4423,6 @@
                             }
                         },
                         {
-                            "io_items_toggle@uc.toggle_button": {
-                                "anchor_from": "top_left",
-                                "anchor_to": "top_left",
-                                "size": [
-                                    24,
-                                    24
-                                ],
-                                "offset": [
-                                    -23,
-                                    4
-                                ],
-                                "visible": "$has_item_io",
-                                "$toggle_name": "$io_config_tabs_name",
-                                "$toggle_layer": 3,
-                                "$toggle_index": 0,
-                                "$toggle_group": true,
-                                "$toggle_default_state": "$io_items_default",
-                                "$toggle_group_default_selected": "$io_default_tab_index",
-                                "$toggle_hover_text": "ui.utilitycraft:machine_view.items",
-                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.items",
-                                "$toggle_hover_text_localize": true,
-                                "$toggle_checked_hover_text_localize": true,
-                                "$toggle_control_name": "$io_items_toggle_control_name",
-                                "$toggle_size": [
-                                    18,
-                                    18
-                                ],
-                                "$has_toggle_bg": true,
-                                "$toggle_bg_size": [
-                                    24,
-                                    24
-                                ],
-                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
-                                "$toggle_bg_offset": [
-                                    0,
-                                    0
-                                ],
-                                "$toggle_unchecked": "textures/ui/toggle_button/item_unchecked",
-                                "$toggle_checked": "textures/ui/toggle_button/item_checked",
-                                "$toggle_unchecked_hover": "textures/ui/toggle_button/item_unchecked_hover",
-                                "$toggle_checked_hover": "textures/ui/toggle_button/item_checked_hover"
-                            }
-                        },
-                        {
-                            "io_fluids_toggle@uc.toggle_button": {
-                                "anchor_from": "top_left",
-                                "anchor_to": "top_left",
-                                "size": [
-                                    24,
-                                    24
-                                ],
-                                "offset": [
-                                    -23,
-                                    30
-                                ],
-                                "visible": "$has_fluid_io",
-                                "$toggle_name": "$io_config_tabs_name",
-                                "$toggle_layer": 3,
-                                "$toggle_index": 1,
-                                "$toggle_group": true,
-                                "$toggle_default_state": "$io_fluids_default",
-                                "$toggle_group_default_selected": "$io_default_tab_index",
-                                "$toggle_hover_text": "ui.utilitycraft:machine_view.liquids",
-                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.liquids",
-                                "$toggle_hover_text_localize": true,
-                                "$toggle_checked_hover_text_localize": true,
-                                "$toggle_control_name": "$io_fluids_toggle_control_name",
-                                "$toggle_size": [
-                                    18,
-                                    18
-                                ],
-                                "$has_toggle_bg": true,
-                                "$toggle_bg_size": [
-                                    24,
-                                    24
-                                ],
-                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
-                                "$toggle_bg_offset": [
-                                    0,
-                                    0
-                                ],
-                                "$toggle_unchecked": "textures/ui/toggle_button/fluid_unchecked",
-                                "$toggle_checked": "textures/ui/toggle_button/fluid_checked",
-                                "$toggle_unchecked_hover": "textures/ui/toggle_button/fluid_unchecked_hover",
-                                "$toggle_checked_hover": "textures/ui/toggle_button/fluid_checked_hover"
-                            }
-                        },
-                        {
-                            "io_gases_toggle@uc.toggle_button": {
-                                "anchor_from": "top_left",
-                                "anchor_to": "top_left",
-                                "size": [
-                                    24,
-                                    24
-                                ],
-                                "offset": [
-                                    -23,
-                                    56
-                                ],
-                                "visible": "$has_gas_io",
-                                "$toggle_name": "$io_config_tabs_name",
-                                "$toggle_layer": 3,
-                                "$toggle_index": 2,
-                                "$toggle_group": true,
-                                "$toggle_default_state": "$io_gases_default",
-                                "$toggle_group_default_selected": "$io_default_tab_index",
-                                "$toggle_hover_text": "ui.utilitycraft:machine_view.gases",
-                                "$toggle_checked_hover_text": "ui.utilitycraft:machine_view.gases",
-                                "$toggle_hover_text_localize": true,
-                                "$toggle_checked_hover_text_localize": true,
-                                "$toggle_control_name": "$io_gases_toggle_control_name",
-                                "$toggle_size": [
-                                    18,
-                                    18
-                                ],
-                                "$has_toggle_bg": true,
-                                "$toggle_bg_size": [
-                                    24,
-                                    24
-                                ],
-                                "$toggle_bg_texture": "textures/ui/toggle_button/left_bg",
-                                "$toggle_bg_offset": [
-                                    0,
-                                    0
-                                ],
-                                "$toggle_unchecked": "textures/ui/toggle_button/gas_unchecked",
-                                "$toggle_checked": "textures/ui/toggle_button/gas_checked",
-                                "$toggle_unchecked_hover": "textures/ui/toggle_button/gas_unchecked_hover",
-                                "$toggle_checked_hover": "textures/ui/toggle_button/gas_checked_hover"
-                            }
-                        },
-                        {
                             "io_items_panel": {
                                 "type": "panel",
                                 "anchor_from": "center",
@@ -4446,6 +4483,7 @@
                                 "controls": [
                                     {
                                         "fluid_faces@uc.io_face_slots": {
+                                        "$io_input_1_texture": "$io_fluid_input_1_texture",
                                             "$io_top_index": "$io_fluid_top_index",
                                             "$io_left_index": "$io_fluid_left_index",
                                             "$io_front_index": "$io_fluid_front_index",
@@ -4485,6 +4523,7 @@
                                 "controls": [
                                     {
                                         "gas_faces@uc.io_face_slots": {
+                                        "$io_input_1_texture": "$io_gas_input_1_texture",
                                             "$io_top_index": "$io_gas_top_index",
                                             "$io_left_index": "$io_gas_left_index",
                                             "$io_front_index": "$io_gas_front_index",
@@ -4610,6 +4649,7 @@
         ]
     },
     "info_tab": {
+        "$info_content|default": "uc.info_description_scroll_content",
         "type": "collection_panel",
         "anchor_from": "center",
         "anchor_to": "center",
@@ -4782,7 +4822,7 @@
                                 "$scroll_bar_contained_touch": false,
                                 "$scroll_box_visible_touch": true,
                                 "$use_touch_mode": false,
-                                "$scrolling_content": "uc.info_description_scroll_content"
+                                "$scrolling_content": "$info_content"
                             }
                         },
                         {

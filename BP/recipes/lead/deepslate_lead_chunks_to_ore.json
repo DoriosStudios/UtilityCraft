@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:deepslate_lead_chunks_to_ore"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"C": {
+				"item": "utilitycraft:deepslate_lead_chunk"
+			}
+		},
+		"pattern": [
+			"CC",
+			"CC"
+		],
+		"result": {
+			"item": "utilitycraft:deepslate_lead_ore"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:deepslate_lead_chunk"
+			}
+		]
+	}
+}

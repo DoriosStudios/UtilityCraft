@@ -236,10 +236,15 @@ export class ButtonManager {
     const buttons = this.machineDefinitions.get(machineId);
     if (!buttons?.length) return false;
 
+    const watcher = this.activeWatchers.get(entity.id);
+    if (watcher?.machineId === machineId) {
+      watcher.entity = entity;
+      return true;
+    }
+
     const container = entity.getComponent("minecraft:inventory")?.container;
     if (!container) return false;
 
-    const watcher = this.activeWatchers.get(entity.id);
     if (watcher) {
       watcher.entity = entity;
       watcher.machineId = machineId;

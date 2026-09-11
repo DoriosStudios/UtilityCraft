@@ -1,0 +1,191 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:chemical_converter",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					],
+					"y_rotation_offset": 180
+				}
+			},
+			"states": {
+				"utilitycraft:on": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"utilitycraft:fluid_container": {},
+			"utilitycraft:chemical_converter": {
+				"entity": {
+					"type": "fluid_gas_machine",
+					"inventory_size": 27
+				},
+				"machine": {
+					"energy_cap": 8192000,
+					"energy_cost": 32000,
+					"fluid_cap": 32000,
+					"fluid_types": 1,
+					"gas_cap": 32000,
+					"gas_types": 2,
+					"rate_speed_base": 1600,
+					"overclock": false,
+					"upgrades": [
+						7,
+						8
+					]
+				}
+			},
+			"utilitycraft:machine_upgrades": [
+				{
+					"type": "speed",
+					"slot": 7
+				},
+				{
+					"type": "energy",
+					"slot": 8
+				}
+			],
+			"minecraft:tick": {
+				"interval_range": [
+					4,
+					4
+				]
+			},
+			"tag:dorios:machine": {},
+			"tag:dorios:energy": {},
+			"tag:dorios:fluid": {},
+			"tag:dorios:gas": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_chemical_converter_off_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_chemical_converter_off_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_chemical_converter_off_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_chemical_converter_off_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_chemical_converter_off_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_chemical_converter_off_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_chemical_converter_off_down",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.5
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:dorios:item": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('utilitycraft:on')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_chemical_converter_on_north",
+							"render_method": "alpha_test"
+						},
+						"north": {
+							"texture": "utilitycraft_chemical_converter_on_north",
+							"render_method": "alpha_test"
+						},
+						"south": {
+							"texture": "utilitycraft_chemical_converter_on_south",
+							"render_method": "alpha_test"
+						},
+						"east": {
+							"texture": "utilitycraft_chemical_converter_on_east",
+							"render_method": "alpha_test"
+						},
+						"west": {
+							"texture": "utilitycraft_chemical_converter_on_west",
+							"render_method": "alpha_test"
+						},
+						"up": {
+							"texture": "utilitycraft_chemical_converter_on_up",
+							"render_method": "alpha_test"
+						},
+						"down": {
+							"texture": "utilitycraft_chemical_converter_on_down",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 4
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

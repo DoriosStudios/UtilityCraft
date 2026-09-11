@@ -33,6 +33,7 @@ const acceptedSoils = {
     'utilitycraft:red_soil': { cost: 0.75, multi: 2 },
     'utilitycraft:blue_soil': { cost: 0.5, multi: 3 },
     'utilitycraft:black_soil': { cost: 0.25, multi: 4 },
+    'utilitycraft:pink_soil': { cost: 0.1, multi: 10 },
 };
 
 

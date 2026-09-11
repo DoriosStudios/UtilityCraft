@@ -182,7 +182,9 @@
 							"up"
 						],
 						"block_filter": [
-							"utilitycraft:blue_soil"
+							{
+								"tags": "query.any_tag('utilitycraft:soil_tier_3', 'utilitycraft:soil_tier_4', 'utilitycraft:soil_tier_5')"
+							}
 						]
 					}
 				]

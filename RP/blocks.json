@@ -1,4 +1,48 @@
 {
+	"utilitycraft:creative_depleted_uranium_hexafluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_enriched_uranium_hexafluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_fluorine_tank": {"sound": "metal"},
+	"utilitycraft:creative_hydrogen_fluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_natural_uranium_hexafluoride_tank": {"sound": "metal"},
+	"utilitycraft:creative_saline_coolant_tank": {"sound": "metal"},
+	"utilitycraft:creative_crude_oil_tank": {"sound": "metal"},
+	"utilitycraft:creative_petroleum_tank": {"sound": "metal"},
+	"utilitycraft:creative_diesel_tank": {"sound": "metal"},
+	"utilitycraft:creative_heated_saline_coolant_tank": {"sound": "metal"},
+	"utilitycraft:creative_nuclear_waste_tank": {"sound": "metal"},
+	"utilitycraft:deepslate_uranium_ore": {
+		"sound": "stone",
+		"textures": "utilitycraft_deepslate_uranium_ore"
+	},
+	"utilitycraft:raw_uranium_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_raw_uranium_block"
+	},
+	"utilitycraft:uranium_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_uranium_block"
+	},
+    "utilitycraft:mortar": { "sound": "stone" },
+    "utilitycraft:primitive_forge": { "sound": "stone" },
+	"utilitycraft:electrolyzer": {
+		"sound": "metal"
+	},
+	"utilitycraft:lead_ore": {
+		"sound": "stone",
+		"textures": "utilitycraft_lead_ore"
+	},
+	"utilitycraft:deepslate_lead_ore": {
+		"sound": "stone",
+		"textures": "utilitycraft_deepslate_lead_ore"
+	},
+	"utilitycraft:raw_lead_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_raw_lead_block"
+	},
+	"utilitycraft:lead_block": {
+		"sound": "metal",
+		"textures": "utilitycraft_lead_block"
+	},
 	"format_version": "1.1.0",
 	"utilitycraft:yellow_soil": {
 		"textures": {
@@ -1283,6 +1327,21 @@
 	},
 	"utilitycraft:wither_seeds": {
 		"sound": "grass"
-	}
+	},
 // END GENERATED BOUNTIFUL CROP SEED BLOCKS
+	"utilitycraft:creative_sulfuric_acid_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_heavy_water_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_hydrogen_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_oxygen_tank": {
+		"sound": "metal"
+	},
+	"utilitycraft:creative_methane_tank": {
+		"sound": "metal"
+	}
 }

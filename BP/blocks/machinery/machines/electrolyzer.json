@@ -1,0 +1,157 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:electrolyzer",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					],
+					"y_rotation_offset": 180
+				}
+			},
+			"states": {
+				"utilitycraft:on": [false, true]
+			}
+		},
+		"components": {
+			"utilitycraft:fluid_container": {},
+			"utilitycraft:electrolyzer": {
+				"entity": {
+					"type": "fluid_gas_machine",
+					"inventory_size": 21
+				},
+				"machine": {
+					"energy_cap": 4096000,
+					"energy_cost": 512000,
+					"fluid_cap": 64000,
+					"fluid_types": 1,
+					"gas_cap": 32000,
+					"gas_types": 3,
+					"rate_speed_base": 1280,
+					"overclock": false,
+					"upgrades": [6, 7]
+				}
+			},
+			"utilitycraft:machine_upgrades": [
+				{ "type": "speed", "slot": 6 },
+				{ "type": "energy", "slot": 7 }
+			],
+			"minecraft:tick": { "interval_range": [4, 4] },
+			"tag:dorios:machine": {},
+			"tag:dorios:energy": {},
+			"tag:dorios:fluid": {},
+			"tag:dorios:gas": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_electrolyzer_off_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_electrolyzer_off_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_electrolyzer_off_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_electrolyzer_off_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_electrolyzer_off_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_electrolyzer_off_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_electrolyzer_off_down",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.5
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('utilitycraft:on')",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "utilitycraft_electrolyzer_on_north",
+							"render_method": "alpha_test"
+						},
+						"north": {
+							"texture": "utilitycraft_electrolyzer_on_north",
+							"render_method": "alpha_test"
+						},
+						"south": {
+							"texture": "utilitycraft_electrolyzer_on_south",
+							"render_method": "alpha_test"
+						},
+						"east": {
+							"texture": "utilitycraft_electrolyzer_on_east",
+							"render_method": "alpha_test"
+						},
+						"west": {
+							"texture": "utilitycraft_electrolyzer_on_west",
+							"render_method": "alpha_test"
+						},
+						"up": {
+							"texture": "utilitycraft_electrolyzer_on_up",
+							"render_method": "alpha_test"
+						},
+						"down": {
+							"texture": "utilitycraft_electrolyzer_on_down",
+							"render_method": "alpha_test"
+						}
+					},
+					"minecraft:light_emission": 4
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 180, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, -90, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 90, 0]
+					}
+				}
+			}
+		]
+	}
+}

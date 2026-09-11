@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "utilitycraft:lead_ingot_from_ore"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "utilitycraft:lead_ore",
+		"output": "utilitycraft:lead_ingot"
+	}
+}

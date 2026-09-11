@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:uranium_pellet"
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_uranium_pellet"
+		}
+	}
+}

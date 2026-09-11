@@ -4,6 +4,138 @@
 	"resource_pack_name": "UtilityCraft 3.0",
 	"texture_name": "atlas.terrain",
 	"texture_data": {
+		"utilitycraft_heated_saline_coolant_gas": {"textures":"textures/entity/heated_saline_coolant_gas"},
+		"utilitycraft_crude_oil_fluid": {"textures":"textures/static/images/crude_oil"},
+		"utilitycraft_petroleum_fluid": {"textures":"textures/static/images/petroleum"},
+		"utilitycraft_diesel_fluid": {"textures":"textures/static/images/diesel"},
+		"utilitycraft_nuclear_waste_gas": {"textures":"textures/entity/nuclear_waste_gas"},
+		"utilitycraft_saline_coolant_fluid": {
+			"textures": "textures/entity/saline_coolant_fluid"
+		},
+		"utilitycraft_fluorine_gas": {
+			"textures": "textures/entity/fluorine_gas"
+		},
+		"utilitycraft_hydrogen_fluoride_gas": {
+			"textures": "textures/entity/hydrogen_fluoride_gas"
+		},
+		"utilitycraft_natural_uranium_hexafluoride_gas": {
+			"textures": "textures/entity/natural_uranium_hexafluoride_gas"
+		},
+		"utilitycraft_enriched_uranium_hexafluoride_gas": {
+			"textures": "textures/entity/enriched_uranium_hexafluoride_gas"
+		},
+		"utilitycraft_depleted_uranium_hexafluoride_gas": {
+			"textures": "textures/entity/depleted_uranium_hexafluoride_gas"
+		},
+		"utilitycraft_deepslate_uranium_ore": {
+			"textures": "textures/blocks/ores/deepslate_uranium_ore"
+		},
+		"utilitycraft_raw_uranium_block": {
+			"textures": "textures/blocks/block_of_raw_uranium"
+		},
+		"utilitycraft_uranium_block": {
+			"textures": "textures/blocks/block_of_uranium"
+		},
+        "utilitycraft_primitive_forge": {"textures": "textures/blocks/primitive_forge/side_bricks"},
+        "utilitycraft_primitive_forge_bottom": {"textures": "textures/blocks/primitive_forge/bottom"},
+        "utilitycraft_primitive_forge_bottom_left": {"textures": "textures/blocks/primitive_forge/bottom_left"},
+        "utilitycraft_primitive_forge_bottom_left_on": {"textures": "textures/blocks/primitive_forge/bottom_left_on"},
+        "utilitycraft_primitive_forge_bottom_right": {"textures": "textures/blocks/primitive_forge/bottom_right"},
+        "utilitycraft_primitive_forge_bottom_right_on": {"textures": "textures/blocks/primitive_forge/bottom_right_on"},
+        "utilitycraft_primitive_forge_bottom_side": {"textures": "textures/blocks/primitive_forge/bottom_side"},
+        "utilitycraft_primitive_forge_side_bricks": {"textures": "textures/blocks/primitive_forge/side_bricks"},
+        "utilitycraft_primitive_forge_top_left": {"textures": "textures/blocks/primitive_forge/top_left"},
+        "utilitycraft_primitive_forge_top_right": {"textures": "textures/blocks/primitive_forge/top_right"},
+
+
+		"utilitycraft_mortar_leaves": {
+			"textures": "textures/blocks/leaves_oak_carried"
+		},
+        "utilitycraft_mortar_block": { "textures": "textures/blocks/cobblestone" },
+		"utilitycraft_chemical_converter_off_north": {
+			"textures": "textures/blocks/machines/chemical_converter_off_north"
+		},
+		"utilitycraft_chemical_converter_off_south": {
+			"textures": "textures/blocks/machines/chemical_converter_off_south"
+		},
+		"utilitycraft_chemical_converter_off_east": {
+			"textures": "textures/blocks/machines/chemical_converter_off_east"
+		},
+		"utilitycraft_chemical_converter_off_west": {
+			"textures": "textures/blocks/machines/chemical_converter_off_west"
+		},
+		"utilitycraft_chemical_converter_off_up": {
+			"textures": "textures/blocks/machines/chemical_converter_off_up"
+		},
+		"utilitycraft_chemical_converter_off_down": {
+			"textures": "textures/blocks/machines/chemical_converter_off_down"
+		},
+		"utilitycraft_chemical_converter_on_north": {
+			"textures": "textures/blocks/machines/chemical_converter_on_north"
+		},
+		"utilitycraft_chemical_converter_on_south": {
+			"textures": "textures/blocks/machines/chemical_converter_on_south"
+		},
+		"utilitycraft_chemical_converter_on_east": {
+			"textures": "textures/blocks/machines/chemical_converter_on_east"
+		},
+		"utilitycraft_chemical_converter_on_west": {
+			"textures": "textures/blocks/machines/chemical_converter_on_west"
+		},
+		"utilitycraft_chemical_converter_on_up": {
+			"textures": "textures/blocks/machines/chemical_converter_on_up"
+		},
+		"utilitycraft_chemical_converter_on_down": {
+			"textures": "textures/blocks/machines/chemical_converter_on_down"
+		},
+		"utilitycraft_electrolyzer_off_north": {
+			"textures": "textures/blocks/machines/electrolyzer_off_north"
+		},
+		"utilitycraft_electrolyzer_off_south": {
+			"textures": "textures/blocks/machines/electrolyzer_off_south"
+		},
+		"utilitycraft_electrolyzer_off_east": {
+			"textures": "textures/blocks/machines/electrolyzer_off_east"
+		},
+		"utilitycraft_electrolyzer_off_west": {
+			"textures": "textures/blocks/machines/electrolyzer_off_west"
+		},
+		"utilitycraft_electrolyzer_off_up": {
+			"textures": "textures/blocks/machines/electrolyzer_off_up"
+		},
+		"utilitycraft_electrolyzer_off_down": {
+			"textures": "textures/blocks/machines/electrolyzer_off_down"
+		},
+		"utilitycraft_electrolyzer_on_north": {
+			"textures": "textures/blocks/machines/electrolyzer_on_north"
+		},
+		"utilitycraft_electrolyzer_on_south": {
+			"textures": "textures/blocks/machines/electrolyzer_on_south"
+		},
+		"utilitycraft_electrolyzer_on_east": {
+			"textures": "textures/blocks/machines/electrolyzer_on_east"
+		},
+		"utilitycraft_electrolyzer_on_west": {
+			"textures": "textures/blocks/machines/electrolyzer_on_west"
+		},
+		"utilitycraft_electrolyzer_on_up": {
+			"textures": "textures/blocks/machines/electrolyzer_on_up"
+		},
+		"utilitycraft_electrolyzer_on_down": {
+			"textures": "textures/blocks/machines/electrolyzer_on_down"
+		},
+		"utilitycraft_lead_ore": {
+			"textures": "textures/blocks/ores/lead_ore"
+		},
+		"utilitycraft_deepslate_lead_ore": {
+			"textures": "textures/blocks/ores/deepslate_lead_ore"
+		},
+		"utilitycraft_raw_lead_block": {
+			"textures": "textures/blocks/block_of_raw_lead"
+		},
+		"utilitycraft_lead_block": {
+			"textures": "textures/blocks/block_of_lead"
+		},
 		"utilitycraft_wood_sieve_grass": {
 			"textures": "textures/blocks/grass_carried"
 		},
@@ -3105,6 +3237,201 @@
 		},
 		"utilitycraft_compressed_nether_star_block_4": {
 			"textures": "textures/blocks/compressed/nether_star_4"
+		},
+		"utilitycraft_basic_gas_generator_on": {
+			"textures": "textures/blocks/generators/basic_gas_generator_on"
+		},
+		"utilitycraft_basic_gas_generator_off": {
+			"textures": "textures/blocks/generators/basic_gas_generator_off"
+		},
+		"utilitycraft_advanced_gas_generator_on": {
+			"textures": "textures/blocks/generators/advanced_gas_generator_on"
+		},
+		"utilitycraft_advanced_gas_generator_off": {
+			"textures": "textures/blocks/generators/advanced_gas_generator_off"
+		},
+		"utilitycraft_expert_gas_generator_on": {
+			"textures": "textures/blocks/generators/expert_gas_generator_on"
+		},
+		"utilitycraft_expert_gas_generator_off": {
+			"textures": "textures/blocks/generators/expert_gas_generator_off"
+		},
+		"utilitycraft_ultimate_gas_generator_on": {
+			"textures": "textures/blocks/generators/ultimate_gas_generator_on"
+		},
+		"utilitycraft_ultimate_gas_generator_off": {
+			"textures": "textures/blocks/generators/ultimate_gas_generator_off"
+		},
+		"utilitycraft_advanced_gas_generator_off_down": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_off_down"
+		},
+		"utilitycraft_advanced_gas_generator_off_east": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_off_east"
+		},
+		"utilitycraft_advanced_gas_generator_off_north": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_off_north"
+		},
+		"utilitycraft_advanced_gas_generator_off_south": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_off_south"
+		},
+		"utilitycraft_advanced_gas_generator_off_up": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_off_up"
+		},
+		"utilitycraft_advanced_gas_generator_off_west": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_off_west"
+		},
+		"utilitycraft_advanced_gas_generator_on_down": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_on_down"
+		},
+		"utilitycraft_advanced_gas_generator_on_east": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_on_east"
+		},
+		"utilitycraft_advanced_gas_generator_on_north": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_on_north"
+		},
+		"utilitycraft_advanced_gas_generator_on_south": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_on_south"
+		},
+		"utilitycraft_advanced_gas_generator_on_up": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_on_up"
+		},
+		"utilitycraft_advanced_gas_generator_on_west": {
+			"textures": "textures/blocks/generators/gas_generator/advanced_on_west"
+		},
+		"utilitycraft_basic_gas_generator_off_down": {
+			"textures": "textures/blocks/generators/gas_generator/basic_off_down"
+		},
+		"utilitycraft_basic_gas_generator_off_east": {
+			"textures": "textures/blocks/generators/gas_generator/basic_off_east"
+		},
+		"utilitycraft_basic_gas_generator_off_north": {
+			"textures": "textures/blocks/generators/gas_generator/basic_off_north"
+		},
+		"utilitycraft_basic_gas_generator_off_south": {
+			"textures": "textures/blocks/generators/gas_generator/basic_off_south"
+		},
+		"utilitycraft_basic_gas_generator_off_up": {
+			"textures": "textures/blocks/generators/gas_generator/basic_off_up"
+		},
+		"utilitycraft_basic_gas_generator_off_west": {
+			"textures": "textures/blocks/generators/gas_generator/basic_off_west"
+		},
+		"utilitycraft_basic_gas_generator_on_down": {
+			"textures": "textures/blocks/generators/gas_generator/basic_on_down"
+		},
+		"utilitycraft_basic_gas_generator_on_east": {
+			"textures": "textures/blocks/generators/gas_generator/basic_on_east"
+		},
+		"utilitycraft_basic_gas_generator_on_north": {
+			"textures": "textures/blocks/generators/gas_generator/basic_on_north"
+		},
+		"utilitycraft_basic_gas_generator_on_south": {
+			"textures": "textures/blocks/generators/gas_generator/basic_on_south"
+		},
+		"utilitycraft_basic_gas_generator_on_up": {
+			"textures": "textures/blocks/generators/gas_generator/basic_on_up"
+		},
+		"utilitycraft_basic_gas_generator_on_west": {
+			"textures": "textures/blocks/generators/gas_generator/basic_on_west"
+		},
+		"utilitycraft_expert_gas_generator_off_down": {
+			"textures": "textures/blocks/generators/gas_generator/expert_off_down"
+		},
+		"utilitycraft_expert_gas_generator_off_east": {
+			"textures": "textures/blocks/generators/gas_generator/expert_off_east"
+		},
+		"utilitycraft_expert_gas_generator_off_north": {
+			"textures": "textures/blocks/generators/gas_generator/expert_off_north"
+		},
+		"utilitycraft_expert_gas_generator_off_south": {
+			"textures": "textures/blocks/generators/gas_generator/expert_off_south"
+		},
+		"utilitycraft_expert_gas_generator_off_up": {
+			"textures": "textures/blocks/generators/gas_generator/expert_off_up"
+		},
+		"utilitycraft_expert_gas_generator_off_west": {
+			"textures": "textures/blocks/generators/gas_generator/expert_off_west"
+		},
+		"utilitycraft_expert_gas_generator_on_down": {
+			"textures": "textures/blocks/generators/gas_generator/expert_on_down"
+		},
+		"utilitycraft_expert_gas_generator_on_east": {
+			"textures": "textures/blocks/generators/gas_generator/expert_on_east"
+		},
+		"utilitycraft_expert_gas_generator_on_north": {
+			"textures": "textures/blocks/generators/gas_generator/expert_on_north"
+		},
+		"utilitycraft_expert_gas_generator_on_south": {
+			"textures": "textures/blocks/generators/gas_generator/expert_on_south"
+		},
+		"utilitycraft_expert_gas_generator_on_up": {
+			"textures": "textures/blocks/generators/gas_generator/expert_on_up"
+		},
+		"utilitycraft_expert_gas_generator_on_west": {
+			"textures": "textures/blocks/generators/gas_generator/expert_on_west"
+		},
+		"utilitycraft_ultimate_gas_generator_off_down": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_off_down"
+		},
+		"utilitycraft_ultimate_gas_generator_off_east": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_off_east"
+		},
+		"utilitycraft_ultimate_gas_generator_off_north": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_off_north"
+		},
+		"utilitycraft_ultimate_gas_generator_off_south": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_off_south"
+		},
+		"utilitycraft_ultimate_gas_generator_off_up": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_off_up"
+		},
+		"utilitycraft_ultimate_gas_generator_off_west": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_off_west"
+		},
+		"utilitycraft_ultimate_gas_generator_on_down": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_on_down"
+		},
+		"utilitycraft_ultimate_gas_generator_on_east": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_on_east"
+		},
+		"utilitycraft_ultimate_gas_generator_on_north": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_on_north"
+		},
+		"utilitycraft_ultimate_gas_generator_on_south": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_on_south"
+		},
+		"utilitycraft_ultimate_gas_generator_on_up": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_on_up"
+		},
+		"utilitycraft_ultimate_gas_generator_on_west": {
+			"textures": "textures/blocks/generators/gas_generator/ultimate_on_west"
+		},
+		"utilitycraft_liquid_trash_can": {
+			"textures": "textures/blocks/utility/liquid_trash_can"
+		},
+		"utilitycraft_gas_trash_can": {
+			"textures": "textures/blocks/utility/gas_trash_can"
+		},
+		"utilitycraft_energy_trash_can": {
+			"textures": "textures/blocks/utility/energy_trash_can"
+		},
+		"utilitycraft_ultimate_trash_can": {
+			"textures": "textures/blocks/utility/ultimate_trash_can"
+		},
+		"utilitycraft_sulfuric_acid_fluid": {
+			"textures": "textures/entity/sulfuric_acid_fluid"
+		},
+		"utilitycraft_heavy_water_fluid": {
+			"textures": "textures/entity/heavy_water_fluid"
+		},
+		"utilitycraft_hydrogen_gas": {
+			"textures": "textures/entity/hydrogen_gas"
+		},
+		"utilitycraft_oxygen_gas": {
+			"textures": "textures/entity/oxygen_gas"
+		},
+		"utilitycraft_methane_gas": {
+			"textures": "textures/entity/methane_gas"
 		}
 	}
 }

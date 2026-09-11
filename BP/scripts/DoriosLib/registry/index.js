@@ -18,6 +18,8 @@ export const PARAMETER_TYPES = COMMAND_PARAMETER_TYPES;
 
 /** Script events exposed by UtilityCraft's runtime registries. */
 export const REGISTRATION_EVENT_IDS = Object.freeze({
+  ELECTROLYZER_RECIPE: "utilitycraft:register_electrolyzer_recipe",
+  CHEMICAL_CONVERTER_RECIPE: "utilitycraft:register_chemical_converter_recipe",
   AUTO_FISHER_DROP: "utilitycraft:register_autofisher_drop",
   BONSAI: "utilitycraft:register_bonsai",
   COOLANT: "utilitycraft:register_coolant",
@@ -551,4 +553,14 @@ function assertMutable(installed) {
  */
 function defaultErrorHandler(error, context) {
   console.warn(`[DoriosLib:${context}]`, error);
+}
+
+/** Queue liquid/gas separation recipes for the Electrolyzer. */
+export function registerElectrolyzerRecipe(payload) {
+  enqueueRegistration(REGISTRATION_EVENT_IDS.ELECTROLYZER_RECIPE, payload);
+}
+
+/** Queue item/liquid/gas conversion recipes for the Chemical Converter. */
+export function registerChemicalConverterRecipe(payload) {
+  enqueueRegistration(REGISTRATION_EVENT_IDS.CHEMICAL_CONVERTER_RECIPE, payload);
 }

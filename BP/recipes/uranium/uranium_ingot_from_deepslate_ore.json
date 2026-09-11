@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "utilitycraft:uranium_ingot_from_deepslate_ore"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "utilitycraft:deepslate_uranium_ore",
+		"output": "utilitycraft:uranium_ingot"
+	}
+}

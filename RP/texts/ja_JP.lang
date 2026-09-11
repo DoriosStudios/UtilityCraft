@@ -49,10 +49,10 @@ tile.utilitycraft:cobble_gen_5.name=丸石ジェネレーター (§jTier 6§r) \
 tile.utilitycraft:mechanic_hopper.name=メカニック ホッパー\n§7- 受け入れられたアップグレード:\n §7、§fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=メカニックアッパー\n§7- 受け入れられたアップグレード:\n §7、§fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eベーシック液体タンク\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§c高度な液体タンク\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bエキスパート液体タンク\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8究極の液体タンク\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eベーシック液体タンク\n§7- 最大容量: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§c高度な液体タンク\n§7- 最大容量: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bエキスパート液体タンク\n§7- 最大容量: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8究極の液体タンク\n§7- 最大容量: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## 盆栽が豊富
 tile.utilitycraft:bonsai.name=盆栽\n§o§9@UtilityCraft
 
@@ -419,14 +419,14 @@ item.utilitycraft:stone_paxel=ストーン・パクセル\n§o§9@UtilityCraft
 item.utilitycraft:wooden_paxel=木製パクセル\n§o§9@UtilityCraft
 
 -- Hammers =## マルテロス
-item.utilitycraft:golden_hammer=ゴールデンハンマー\n§o§9@UtilityCraft
-item.utilitycraft:netherite_hammer=ネザライトハンマー\n§o§9@UtilityCraft
-item.utilitycraft:diamond_hammer=ダイヤモンドハンマー\n§o§9@UtilityCraft
-item.utilitycraft:steel_hammer=スチールハンマー\n§o§9@UtilityCraft
-item.utilitycraft:iron_hammer=アイアンハンマー\n§o§9@UtilityCraft
-item.utilitycraft:copper_hammer=銅ハンマー\n§o§9@UtilityCraft
-item.utilitycraft:stone_hammer=ストーンハンマー\n§o§9@UtilityCraft
-item.utilitycraft:wooden_hammer=木製ハンマー\n§o§9@UtilityCraft
+item.utilitycraft:golden_hammer=ゴールデンハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:netherite_hammer=ネザライトハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:diamond_hammer=ダイヤモンドハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:steel_hammer=スチールハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:iron_hammer=アイアンハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:copper_hammer=銅ハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:stone_hammer=ストーンハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
+item.utilitycraft:wooden_hammer=木製ハンマー\n§7- ブロックを砕いて別のブロックにします\n§7- 鉱石ブロックを砕いて粉にします\n§o§9@UtilityCraft
 
 -- Steel =## アソ
 item.utilitycraft:steel_sword=鋼の剣\n§o§9@UtilityCraft
@@ -439,7 +439,6 @@ item.utilitycraft:steel_hoe=スチールクワ\n§o§9@UtilityCraft
 item.utilitycraft:lucky_pickaxe=§a幸運のつるはし\n§o§9@UtilityCraft
 item.utilitycraft:lucky_sword=§a幸運の剣\n§o§9@UtilityCraft
 item.utilitycraft:smelting_pickaxe=§6精錬つるはし\n§7- 鉱石を壊すときに精錬します\n§o§9@UtilityCraft
-item.utilitycraft:bionic_arm=バイオニック アーム (テスト)\n§o§9@UtilityCraft
 item.utilitycraft:lucky_fishing_rod=§aラッキーフィッシングロッド\n§o§9@UtilityCraft
 
 -- Drills =## ブロカス
@@ -554,7 +553,7 @@ item.utilitycraft:infinite_enderpearl=インフィニットエンダーパール
 item.utilitycraft:raw_leather=原皮\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=解毒ポーション\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=解毒ポーション スプラッシュ\n§o§9@UtilityCraft
-item.utilitycraft:wrench=レンチ §r\n§7- スニーク時にマシンを回転させます §r\n§7- 車両を取り外します\n§o§9@UtilityCraft
+item.utilitycraft:wrench=レンチ §r\n§7- スニーク時にマシンを回転させます §r\n§7- マルチブロック機械の構造を起動します\n§o§9@UtilityCraft
 
 - Saplings =## ムダス
 item.utilitycraft:apple_sapling=リンゴの苗木\n§o§9@UtilityCraft
@@ -813,7 +812,6 @@ tile.utilitycraft:item_exporter_blue.name=アイテムエクスポーター (青
 tile.utilitycraft:item_exporter_red.name=アイテムエクスポーター (赤)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_yellow.name=アイテムエクスポーター (黄色)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_purple.name=アイテムエクスポーター (紫)\n§7- 受け入れられたアップグレード:\n §a§7 §f§7\n§o§9@UtilityCraft
-item.utilitycraft:mortar=モルタル\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor.name=液体抽出器 (デフォルト)\n§7- 受け入れられたアップグレード:\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_blue.name=液体抽出器 (青)\n§7- 受け入れられたアップグレード:\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_green.name=液体抽出器 (緑)\n§7- 受け入れられたアップグレード:\n §a§7\n§o§9@UtilityCraft
@@ -860,7 +858,7 @@ tile.utilitycraft:blaze_block.name=ブレイズコア\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=クラッシュ昆布\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=基本的なゴミ箱\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=アイテム用ゴミ箱\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§e基本エネルギー送信機 \n §7 レート: 1 kDE/t\n §7 容量: 64 kDE\n §7 範囲: 32 ブロック\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§c高度なエネルギー送信機 \n §7 レート: 4 kDE/t\n §7 容量: 256 kDE\n §7 範囲: 64 ブロック\n§o§9@UtilityCraft
@@ -1038,3 +1036,52 @@ tile.utilitycraft:compressed_nether_star_block.name=圧縮ネザースターブ�
 tile.utilitycraft:compressed_nether_star_block_2.name=二重圧縮ネザースターブロック\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=三重圧縮ネザースターブロック\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=4重圧縮ネザースターブロック\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eガスタンク (ベーシック)\n§7- 最大容量: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cガスタンク (アドバンス)\n§7- 最大容量: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bガスタンク (エキスパート)\n§7- 最大容量: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8ガスタンク (アルティメット)\n§7- 最大容量: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=ガスパイプ\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=ガスパイプ (青)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=ガスパイプ (緑)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=ガスパイプ (赤)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=ガスパイプ (オレンジ)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=ガスパイプ (黄)\n§7- 気体を輸送します\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=ガス抽出器\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=ガス抽出器 (青)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=ガス抽出器 (緑)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=ガス抽出器 (赤)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=ガス抽出器 (オレンジ)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=ガス抽出器 (黄)\n§7- 対応アップグレード:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=クリエイティブタンク（硫酸）\n§7- 硫酸を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=クリエイティブタンク（重水）\n§7- 重水を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=クリエイティブタンク（水素）\n§7- 水素を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=クリエイティブタンク（酸素）\n§7- 酸素を無限に供給\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=クリエイティブタンク（メタン）\n§7- メタンを無限に供給\n§o§9@UtilityCraft
+
+## Primitive Forge
+tile.utilitycraft:primitive_forge.name=原始的な鍛冶炉\n§7- 2x2x2の構造を組み立てると起動します\n§7- 粗鋼を作るために使用します\n§o§9@UtilityCraft
+entity.utilitycraft:primitive_forge.name=原始的な鍛冶炉
+
+tile.utilitycraft:mortar.name=すり鉢\n§7- 葉をすりつぶして水を作ります\n§o§9@UtilityCraft
+howtoplay.uc:first_steps_steel=鋼への第一歩
+howtoplay.uc:first_steps_steel.title=UtilityCraft - 鋼への第一歩
+howtoplay.utilitycraft.first_steps_steel.h1=原始的な鍛冶炉を作る
+howtoplay.utilitycraft.first_steps_steel.h2=粗鋼を作る
+howtoplay.utilitycraft.first_steps_steel.h3=Workbenchを作る
+howtoplay.utilitycraft.first_steps_steel.h4=機械の時代
+howtoplay.utilitycraft.first_steps_steel.p1=資源、水、溶岩、丸石を入手できるようになりました。
+howtoplay.utilitycraft.first_steps_steel.p2=次は鋼を作り、機械の時代へ進みましょう。
+howtoplay.utilitycraft.first_steps_steel.p3=四隅にレンガ4個、上段中央と中段の両端に粘土玉3個、下段中央に泥レンガのハーフブロック1個を置き、中央を空けます。鍛冶炉ブロックが4個できます。2回クラフトし、8個を隙間のない2x2x2の立方体に組み立てます。自動で完成し、最後に置いたブロックの向きが正面を決めます。
+howtoplay.utilitycraft.first_steps_steel.p4=正面中央の容器を開きます。上の2スロットは材料、下のスロットは燃料用です。矢印は加工の進行、炎は残りの燃料を示します。燃料の石炭1個でレシピ8回分を加工できます。
+howtoplay.utilitycraft.first_steps_steel.p5=鉄の粉と石炭、木炭、石炭の粉、木炭の粉のいずれかを組み合わせます。1回につき各材料を1個消費し、粗鋼1個を作ります。燃料があれば8秒で最大4回分を加工します。
+howtoplay.utilitycraft.first_steps_steel.p6=粗鋼を精錬すると鋼インゴットになります。かまど、SmeltFlare、または材料スロットを1つ空けた鍛冶炉を使えます。通常の精錬は2秒で最大4個を加工します。構造を壊すと中身が返されます。
+howtoplay.utilitycraft.first_steps_steel.p7=高度な設備の前にWorkbenchを作りましょう。機械、発電機、アップグレードはここで作ります。
+howtoplay.utilitycraft.first_steps_steel.p8=これがWorkbenchのレシピです。
+howtoplay.utilitycraft.first_steps_steel.p9=機械の時代に到達しました。エネルギーを使う生産、貯蔵、自動化を始めましょう。
+howtoplay.utilitycraft.first_steps_steel.p10=最初の機械やアップグレードのために、鋼、鉄、銅、レッドストーン、石炭を確保しましょう。
+howtoplay.utilitycraft.first_steps_steel.p11=最初の機械を作り、エネルギー源につないで自動化を始めましょう。
+howtoplay.utilitycraft.first_steps_steel.forge_render=完成した原始的な鍛冶炉：2x2x2の構造。
+ui.utilitycraft:forge_info.recipe=原始的な鍛冶炉は§9粗鋼§8を作るために使います：
+ui.utilitycraft:forge_info.steel_time=§91バッチ8秒
+ui.utilitycraft:forge_info.normal_time=通常のレシピ：2秒で最大4個。
+ui.utilitycraft:forge_info.footer=通常のかまどより速く精錬することもできます

@@ -437,7 +437,29 @@
             }
         ]
     },
-    "guide_mortar_item": {
+    "guide_primitive_forge_render": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": [
+        "90%",
+        90
+    ],
+    "controls": [
+        {
+            "image@how_to_play_common.image": {
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "texture": "textures/static/images/primitive_forge_assembled",
+                "size": [
+                    80,
+                    80
+                ]
+            }
+        }
+    ]
+},
+    "guide_mortar_render": {
         "type": "panel",
         "anchor_from": "top_middle",
         "anchor_to": "top_middle",
@@ -450,57 +472,11 @@
                 "image@how_to_play_common.image": {
                     "anchor_from": "top_middle",
                     "anchor_to": "top_middle",
-                    "texture": "textures/items/tools/mortar",
+                    "texture": "textures/static/images/mortar_render",
                     "offset": [ 0, 0 ],
                     "size": [
                         "60px",
                         "60px"
-                    ]
-                }
-            }
-        ]
-    },
-    "guide_water_bottle_recipe": {
-        "type": "panel",
-        "anchor_from": "top_middle",
-        "anchor_to": "top_middle",
-        "size": [
-            "90%",
-            "60px"
-        ],
-        "controls": [
-            {
-                "image@how_to_play_common.image": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "texture": "textures/static/images/water_bottle_recipe",
-                    "offset": [ 0, 0 ],
-                    "size": [
-                        "120px",
-                        "60px"
-                    ]
-                }
-            }
-        ]
-    },
-    "guide_cauldron_water_process_render": {
-        "type": "panel",
-        "anchor_from": "top_middle",
-        "anchor_to": "top_middle",
-        "size": [
-            "90%",
-            "90px"
-        ],
-        "controls": [
-            {
-                "image@how_to_play_common.image": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "texture": "textures/static/images/cauldron_water_process_render",
-                    "offset": [ 0, 0 ],
-                    "size": [
-                        "176px",
-                        "90px"
                     ]
                 }
             }
@@ -593,52 +569,6 @@
                     "size": [
                         "150px",
                         "30px"
-                    ]
-                }
-            }
-        ]
-    },
-    "guide_smeltflare_recipe_render": {
-        "type": "panel",
-        "anchor_from": "top_middle",
-        "anchor_to": "top_middle",
-        "size": [
-            "90%",
-            "60px"
-        ],
-        "controls": [
-            {
-                "image@how_to_play_common.image": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "texture": "textures/static/images/smeltflare_recipe_render",
-                    "offset": [ 0, 0 ],
-                    "size": [
-                        "120px",
-                        "60px"
-                    ]
-                }
-            }
-        ]
-    },
-    "guide_brute_steel_recipe": {
-        "type": "panel",
-        "anchor_from": "top_middle",
-        "anchor_to": "top_middle",
-        "size": [
-            "90%",
-            "60px"
-        ],
-        "controls": [
-            {
-                "image@how_to_play_common.image": {
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "texture": "textures/static/images/brute_steel_recipe",
-                    "offset": [ 0, 0 ],
-                    "size": [
-                        "120px",
-                        "60px"
                     ]
                 }
             }
@@ -1985,7 +1915,7 @@
                 }
             },
             {
-                "water_mortar_item@how_to_play.guide_mortar_item": {}
+                "water_mortar_render@how_to_play.guide_mortar_render": {}
             },
             {
                 "water_padding_2@how_to_play_common.small_padding": {}
@@ -1996,18 +1926,12 @@
                 }
             },
             {
-                "water_bottle_recipe@how_to_play.guide_water_bottle_recipe": {}
-            },
-            {
                 "water_padding_3@how_to_play_common.small_padding": {}
             },
             {
                 "water_paragraph_5@how_to_play.wide_paragraph": {
                     "$text": "howtoplay.utilitycraft.water_lava_production.p5"
                 }
-            },
-            {
-                "water_cauldron_process@how_to_play.guide_cauldron_water_process_render": {}
             },
             {
                 "water_padding_4@how_to_play_common.padding": {}
@@ -2130,9 +2054,8 @@
                     "$text": "howtoplay.utilitycraft.first_steps_steel.p3"
                 }
             },
-            {
-                "smeltflare_recipe@how_to_play.guide_smeltflare_recipe_render": {}
-            },
+            { "primitive_forge_render@how_to_play.guide_primitive_forge_render": {} },
+            { "primitive_forge_caption@how_to_play.wide_paragraph": { "$text": "howtoplay.utilitycraft.first_steps_steel.forge_render" } },
             {
                 "padding_2@how_to_play_common.small_padding": {}
             },
@@ -2153,9 +2076,6 @@
                 "paragraph_5@how_to_play.wide_paragraph": {
                     "$text": "howtoplay.utilitycraft.first_steps_steel.p5"
                 }
-            },
-            {
-                "brute_steel_recipe@how_to_play.guide_brute_steel_recipe": {}
             },
             {
                 "padding_4@how_to_play_common.small_padding": {}

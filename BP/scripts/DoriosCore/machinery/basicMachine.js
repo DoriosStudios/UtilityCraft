@@ -46,10 +46,14 @@ export class BasicMachine {
    * @param {Object} options Constructor options.
    * @param {number} options.rate Base rate designed for 20 TPS logic.
    * @param {boolean} [options.ignoreTick=false] Whether to bypass scheduler throttling.
+   * @param {(block: import("@minecraft/server").Block) => import("@minecraft/server").Entity|undefined} [options.entityResolver]
+   * Optional helper-entity resolver used by specialized machine runtimes.
    */
   constructor(block, options) {
     this.valid = false;
-    this.entity = Utils.tryGetEntityFromBlock(block);
+    this.entity = options.entityResolver
+      ? options.entityResolver(block)
+      : Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
     this.shouldUpdateUI = Utils.hasOpenUI(this.entity);
     if (!options.ignoreTick && !TickScheduler.shouldProcessMachine(this.entity)) return;
@@ -276,19 +280,13 @@ export class BasicMachine {
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       if (!neighborLocation) continue;
 
-      const outputSlots = DoriosContainer.getOutputSlots(this.entity, {
-        face: direction,
-        automatic: true,
-      });
+      const outputSlots = DoriosContainer.getOutputSlots(this.entity, { face: direction, automatic: true });
       if (outputSlots.length > 0 && maxOutputSlots > 0) {
         const result = this.#pushOutputItems(neighborLocation, outputSlots, direction, maxOutputSlots);
         summary.itemsMoved += result.itemsMoved;
       }
 
-      const inputSlots = DoriosContainer.getInputSlots(this.entity, {
-        face: direction,
-        automatic: true,
-      });
+      const inputSlots = DoriosContainer.getInputSlots(this.entity, { face: direction, automatic: true });
       if (inputSlots.length === 0 || maxInputScans <= 0) continue;
 
       const result = this.#pullInputItems(neighborLocation, inputSlots, direction, maxInputScans);
@@ -369,10 +367,7 @@ export class BasicMachine {
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       if (!neighborLocation) continue;
 
-      const outputIndices = getFluidOutputIndices(this.entity, {
-        face: direction,
-        automatic: true,
-      });
+      const outputIndices = getFluidOutputIndices(this.entity, { face: direction, automatic: true });
       for (const sourceIndex of outputIndices) {
         if (summary.fluidMoved >= maxFluid) break;
         summary.fluidMoved += transferFluid(this.entity, {
@@ -383,10 +378,7 @@ export class BasicMachine {
         });
       }
 
-      const inputIndices = getFluidInputIndices(this.entity, {
-        face: direction,
-        automatic: true,
-      });
+      const inputIndices = getFluidInputIndices(this.entity, { face: direction, automatic: true });
       if (inputIndices.length === 0 || summary.fluidMoved >= maxFluid) continue;
       const source = resolveFluidContainerAt(this.dimension, neighborLocation);
       if (!source) continue;
@@ -410,10 +402,7 @@ export class BasicMachine {
       const neighborLocation = OutputTracker.getNeighborLocation(this.block, direction);
       if (!neighborLocation) continue;
 
-      const outputIndices = getGasOutputIndices(this.entity, {
-        face: direction,
-        automatic: true,
-      });
+      const outputIndices = getGasOutputIndices(this.entity, { face: direction, automatic: true });
       for (const sourceIndex of outputIndices) {
         if (summary.gasMoved >= maxGas) break;
         summary.gasMoved += transferGas(this.entity, {
@@ -424,10 +413,7 @@ export class BasicMachine {
         });
       }
 
-      const inputIndices = getGasInputIndices(this.entity, {
-        face: direction,
-        automatic: true,
-      });
+      const inputIndices = getGasInputIndices(this.entity, { face: direction, automatic: true });
       if (inputIndices.length === 0 || summary.gasMoved >= maxGas) continue;
       const source = resolveGasContainerAt(this.dimension, neighborLocation);
       if (!source) continue;

@@ -2,6 +2,7 @@ import { system } from "@minecraft/server";
 import { EnergyStorage } from "../machinery/energyStorage.js";
 import * as Constants from "./constants.js";
 import { isLinkNode, parseLinkNodeTag } from "../../DoriosLib/linkNodes/index.js";
+import { setTaggedBlocksWaterlogged } from "./waterlogging.js";
 
 export class ActivationManager {
   /**
@@ -30,7 +31,10 @@ export class ActivationManager {
 
     system.run(async () => {
       for (let y = yBottom; y <= yTop; y++) {
-        dim.runCommand(`fill ${xA} ${y} ${zA} ${xB} ${y} ${zB} ${blockId} replace air`);
+        await dim.runCommand(`fill ${xA} ${y} ${zA} ${xB} ${y} ${zB} ${blockId} replace air`);
+        if (blockId === "minecraft:water") {
+          setTaggedBlocksWaterlogged(bounds, dim, y, true);
+        }
         await system.waitTicks(4);
       }
     });

@@ -4,7 +4,8 @@ import { system } from "@minecraft/server";
 /**
  * Recipes for the Incinerator machine.
  *
- * Each key represents an input item identifier, and its value specifies
+ * Keys are a single input ID, or first_input|second_input for forge combinations.
+ * Each value specifies
  * the resulting output item, required input quantity, and output amount.
  *
  * @constant
@@ -13,6 +14,17 @@ import { system } from "@minecraft/server";
 export const furnaceRecipes = {}
 
 const furnaceRecipesRegister = {
+  // Uranium
+  "utilitycraft:deepslate_uranium_ore": { output: "utilitycraft:uranium_ingot" },
+  "utilitycraft:uranium_dust": { output: "utilitycraft:uranium_ingot" },
+  "utilitycraft:raw_uranium": { output: "utilitycraft:uranium_ingot" },
+  "utilitycraft:raw_uranium_block": { output: "utilitycraft:uranium_block" },
+  // Lead
+    "utilitycraft:lead_ore": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:deepslate_lead_ore": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:lead_dust": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:raw_lead": { output: "utilitycraft:lead_ingot" },
+    "utilitycraft:raw_lead_block": { output: "utilitycraft:lead_block" },
     // UtilityCraft
     "utilitycraft:raw_steel": {
         output: "utilitycraft:steel_ingot"
@@ -524,6 +536,7 @@ DoriosLib.registry.registerFurnaceRecipe(furnaceRecipesRegister);
  * ```json
  * {
  *   "minecraft:stone": { "output": "minecraft:smooth_stone" },
+ *   "utilitycraft:iron_dust|minecraft:coal": { "output": "utilitycraft:raw_steel", "required": 1, "secondary_required": 1, "amount": 1 },
  *   "minecraft:rotten_flesh": { "output": "strat:coagulated_blood" }
  * }
  * ```

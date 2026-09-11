@@ -16,6 +16,7 @@ import './blocks/fan.js'
 import './blocks/lightBlocks.js'
 import './blocks/mechSpawners.js'
 import './blocks/mobGrinder.js'
+import './blocks/mortar.js'
 import './blocks/onInteract.js'
 import './blocks/pedestal.js'
 import './blocks/sieve.js'
@@ -41,3 +42,5 @@ DoriosLib.registry.install()
 DoriosLib.container.initialize()
 DoriosLib.linkNode.initializeLinkNodeIO()
 
+
+import './blocks/primitiveForge.js'

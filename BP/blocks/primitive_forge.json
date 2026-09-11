@@ -1,0 +1,1488 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:primitive_forge",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ],
+          "y_rotation_offset": 180
+        }
+      },
+      "states": {
+        "utilitycraft:formed": [
+          false,
+          true
+        ],
+        "utilitycraft:on": [
+          false,
+          true
+        ],
+        "utilitycraft:forge_part": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "utilitycraft:forge_owner": [
+          false,
+          true
+        ]
+      }
+    },
+    "components": {
+      "utilitycraft:primitive_forge": {},
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_primitive_forge",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:movable": {
+        "movement_type": "immovable"
+      },
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:tick": {
+        "interval_range": [
+          1000000,
+          1000000
+        ],
+        "looping": true
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:light_emission": 8
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:forge_owner')",
+        "components": {
+          "minecraft:tick": {
+            "interval_range": [
+              4,
+              4
+            ],
+            "looping": true
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_right",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_top_right",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_left",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_top_left",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_left",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_top_left",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_right",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_top_right",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_right",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_left",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_top_right",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_top_left",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_left",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_right",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_top_left",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_top_right",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 0 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_right_on",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('utilitycraft:forge_part') == 4 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_left_on",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 1 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_left_on",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('utilitycraft:forge_part') == 5 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_right_on",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 4 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_right_on",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('utilitycraft:forge_part') == 5 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_left_on",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 0 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_left_on",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:formed') && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('utilitycraft:forge_part') == 1 && q.block_state('utilitycraft:on')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_primitive_forge",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_primitive_forge_side_bricks",
+              "render_method": "opaque"
+            },
+            "down": {
+              "texture": "utilitycraft_primitive_forge_bottom",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "south": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "east": {
+              "texture": "utilitycraft_primitive_forge_bottom_side",
+              "render_method": "opaque"
+            },
+            "west": {
+              "texture": "utilitycraft_primitive_forge_bottom_right_on",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

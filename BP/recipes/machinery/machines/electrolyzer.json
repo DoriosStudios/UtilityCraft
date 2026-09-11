@@ -1,0 +1,45 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:electrolyzer"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "key": {
+            "P": {
+                "item": "utilitycraft:lead_plate"
+            },
+            "F": {
+                "item": "utilitycraft:fluid_pipe"
+            },
+            "G": {
+                "item": "utilitycraft:gas_pipe"
+            },
+            "C": {
+                "item": "utilitycraft:expert_chip"
+            },
+            "M": {
+                "item": "utilitycraft:machine_case"
+            },
+            "E": {
+                "item": "utilitycraft:stabilized_obsidian_dust"
+            }
+        },
+        "pattern": [
+            "PFP",
+            "CMC",
+            "GEG"
+        ],
+        "result": {
+            "item": "utilitycraft:electrolyzer",
+            "count": 1
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:expert_chip"
+            }
+        ]
+    }
+}

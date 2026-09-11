@@ -1,0 +1,28 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "utilitycraft:gas_tank_enriched_uranium_hexafluoride_gas",
+            "materials": {
+                "default": "entity_alphablend"
+            },
+            "textures": {
+                "default": "textures/entity/enriched_uranium_hexafluoride_gas"
+            },
+            "geometry": {
+                "default": "geometry.utilitycraft_gas_tank_entity"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "animations": {
+                "fill": "animation.utilitycraft_gas_tank_entity.fill"
+            },
+            "animation_controllers": [
+                {
+                    "gas_fill": "controller.animation.gas_fill"
+                }
+            ]
+        }
+    }
+}

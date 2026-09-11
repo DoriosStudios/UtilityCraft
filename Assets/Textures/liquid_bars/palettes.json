@@ -1,0 +1,38 @@
+{
+  "crude_oil": {
+    "shadow": [
+      20,
+      13,
+      6
+    ],
+    "highlight": [
+      99,
+      74,
+      44
+    ]
+  },
+  "petroleum": {
+    "shadow": [
+      16,
+      16,
+      15
+    ],
+    "highlight": [
+      88,
+      87,
+      85
+    ]
+  },
+  "diesel": {
+    "shadow": [
+      188,
+      162,
+      89
+    ],
+    "highlight": [
+      241,
+      237,
+      168
+    ]
+  }
+}

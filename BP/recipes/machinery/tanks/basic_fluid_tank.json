@@ -8,33 +8,45 @@
 			"utilitycraft_workbench"
 		],
 		"key": {
-			"S": {
-				"item": "utilitycraft:basic_chip"
-			},
 			"R": {
-				"item": "utilitycraft:gold_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			"G": {
 				"item": "minecraft:glass"
+			},
+			"C": {
+				"item": "utilitycraft:basic_chip"
+			},
+			"T": {
+				"item": "minecraft:bucket"
+			},
+			"P": {
+				"item": "utilitycraft:fluid_pipe"
 			}
 		},
 		"pattern": [
 			"RGR",
-			"GSG",
-			"RGR"
+			"CTC",
+			"RPR"
 		],
 		"result": {
 			"item": "utilitycraft:basic_fluid_tank"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:gold_plate"
+				"item": "utilitycraft:steel_plate"
 			},
 			{
 				"item": "minecraft:glass"
 			},
 			{
 				"item": "utilitycraft:basic_chip"
+			},
+			{
+				"item": "minecraft:bucket"
+			},
+			{
+				"item": "utilitycraft:fluid_pipe"
 			}
 		]
 	}

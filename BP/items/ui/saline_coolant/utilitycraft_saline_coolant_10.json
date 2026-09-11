@@ -1,0 +1,19 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:item": {
+        "description": {
+            "identifier": "utilitycraft:saline_coolant_10",
+            "menu_category": {
+                "category": "none"
+            }
+        },
+        "components": {
+            "minecraft:icon": "utilitycraft:saline_coolant_10",
+            "minecraft:tags": {
+                "tags": [
+                    "utilitycraft:ui_element"
+                ]
+            }
+        }
+    }
+}

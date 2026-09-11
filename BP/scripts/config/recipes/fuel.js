@@ -1,4 +1,5 @@
 import { system } from "@minecraft/server";
+import * as DoriosLib from "DoriosLib/index.js";
 
 /**
  * Represents a solid fuel entry for the Furnator.
@@ -15,46 +16,49 @@ import { system } from "@minecraft/server";
  * @constant
  * @type {SolidFuel[]}
  */
-export const solidFuels = [
-    { id: "compressed_charcoal_block_4", de: 800000000 },
-    { id: "compressed_coal_block_4", de: 800000000 },
-    { id: "compressed_charcoal_block_3", de: 80000000 },
-    { id: "compressed_coal_block_3", de: 80000000 },
-    { id: "compressed_charcoal_block_2", de: 8000000 },
-    { id: "compressed_coal_block_2", de: 8000000 },
-    { id: "compressed_charcoal_block", de: 800000 },
-    { id: "compressed_coal_block", de: 800000 },
-    { id: "utilitycraft:compressed_*_wood_4", de: 15000000 },
-    { id: "utilitycraft:compressed_*_wood_3", de: 1500000 },
-    { id: "utilitycraft:compressed_*_wood_2", de: 150000 },
-    { id: "utilitycraft:compressed_*_wood", de: 15000 },
-    { id: "bundle_of_blaze_rods", de: 108000 },
-    { id: "lava_ball", de: 100000 },
-    { id: "charcoal_block", de: 80000 },
-    { id: "coal_block", de: 80000 },
-    { id: "dried_kelp_block", de: 20000 },
-    { id: "blaze_rod", de: 12000 },
-    { id: "coal", de: 8000 },
-    { id: "charcoal", de: 8000 },
-    { id: "boat", de: 6000 },
-    { id: "chest", de: 3000 },
-    { id: "plank", de: 1500 },
-    { id: "stair", de: 1500 },
-    { id: "fence", de: 1500 },
-    { id: "log", de: 1500 },
-    { id: "_wood", de: 1500 },
-    { id: "stem", de: 1500 },
-    { id: "hyphae", de: 1500 },
-    { id: "banner", de: 1500 },
-    { id: "wooden", de: 1000 },
-    { id: "_door", de: 1000 },
-    { id: "ladder", de: 750 },
-    { id: "stick", de: 500 },
-    { id: "sapling", de: 500 },
-    { id: "button", de: 500 },
-    { id: "leaves", de: 500 },
-    { id: "scaffolding", de: 250 },
-];
+export const solidFuels = [];
+
+// Defaults use the same registration event as addon-provided fuels.
+DoriosLib.registry.registerFuel({
+    "compressed_charcoal_block_4": 800000000,
+    "compressed_coal_block_4": 800000000,
+    "compressed_charcoal_block_3": 80000000,
+    "compressed_coal_block_3": 80000000,
+    "compressed_charcoal_block_2": 8000000,
+    "compressed_coal_block_2": 8000000,
+    "compressed_charcoal_block": 800000,
+    "compressed_coal_block": 800000,
+    "utilitycraft:compressed_*_wood_4": 15000000,
+    "utilitycraft:compressed_*_wood_3": 1500000,
+    "utilitycraft:compressed_*_wood_2": 150000,
+    "utilitycraft:compressed_*_wood": 15000,
+    "bundle_of_blaze_rods": 108000,
+    "lava_ball": 100000,
+    "charcoal_block": 80000,
+    "coal_block": 80000,
+    "dried_kelp_block": 20000,
+    "blaze_rod": 12000,
+    "coal": 8000,
+    "charcoal": 8000,
+    "boat": 6000,
+    "chest": 3000,
+    "plank": 1500,
+    "stair": 1500,
+    "fence": 1500,
+    "log": 1500,
+    "_wood": 1500,
+    "stem": 1500,
+    "hyphae": 1500,
+    "banner": 1500,
+    "wooden": 1000,
+    "_door": 1000,
+    "ladder": 750,
+    "stick": 500,
+    "sapling": 500,
+    "button": 500,
+    "leaves": 500,
+    "scaffolding": 250,
+});
 
 /**
  * ScriptEvent receiver: "utilitycraft:register_fuel"

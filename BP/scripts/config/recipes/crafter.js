@@ -24,6 +24,50 @@ import { system } from "@minecraft/server";
 export const crafterRecipes = {};
 
 const crafterRecipeBatches = [
+{
+  "lead_plate,glass,lead_plate,basic_chip,bucket,basic_chip,lead_plate,gas_pipe,lead_plate": {
+    "output": "utilitycraft:basic_gas_tank",
+    "amount": 1
+  },
+  "lead_plate,glass,lead_plate,advanced_chip,basic_gas_tank,advanced_chip,lead_plate,gas_pipe,lead_plate": {
+    "output": "utilitycraft:advanced_gas_tank",
+    "amount": 1
+  },
+  "lead_plate,glass,lead_plate,expert_chip,advanced_gas_tank,expert_chip,lead_plate,gas_pipe,lead_plate": {
+    "output": "utilitycraft:expert_gas_tank",
+    "amount": 1
+  },
+  "lead_plate,glass,lead_plate,ultimate_chip,expert_gas_tank,ultimate_chip,lead_plate,gas_pipe,lead_plate": {
+    "output": "utilitycraft:ultimate_gas_tank",
+    "amount": 1
+  }
+},
+{
+    "air,fluid_pipe,air,fluid_pipe,basic_trash_can,fluid_pipe,air,fluid_pipe,air": {
+        "output": "utilitycraft:liquid_trash_can",
+        "amount": 1
+    },
+    "air,gas_pipe,air,gas_pipe,basic_trash_can,gas_pipe,air,gas_pipe,air": {
+        "output": "utilitycraft:gas_trash_can",
+        "amount": 1
+    },
+    "air,energy_cable,air,energy_cable,basic_trash_can,energy_cable,air,energy_cable,air": {
+        "output": "utilitycraft:energy_trash_can",
+        "amount": 1
+    },
+    "air,liquid_trash_can,air,gas_trash_can,expert_chip,basic_trash_can,air,energy_trash_can,air": {
+        "output": "utilitycraft:ultimate_trash_can",
+        "amount": 1
+    }
+},
+  {
+    "lead_plate,fluid_pipe,lead_plate,expert_chip,machine_case,expert_chip,gas_pipe,stabilized_obsidian_dust,gas_pipe": {"output":"utilitycraft:electrolyzer","amount":1},
+    "lead_plate,gas_pipe,lead_plate,ultimate_chip,machine_case,ultimate_chip,lead_plate,stabilized_obsidian_dust,lead_plate": {"output":"utilitycraft:chemical_converter","amount":1},
+    "gold_plate,basic_gas_tank,gold_plate,basic_chip,furnace,basic_chip,lead_plate,basic_chip,lead_plate": {"output":"utilitycraft:basic_gas_generator","amount":1},
+    "energized_iron_plate,advanced_gas_tank,energized_iron_plate,advanced_chip,basic_gas_generator,advanced_chip,lead_plate,advanced_chip,lead_plate": {"output":"utilitycraft:advanced_gas_generator","amount":1},
+    "diamond_dust,expert_gas_tank,diamond_dust,expert_chip,advanced_gas_generator,expert_chip,lead_plate,expert_chip,lead_plate": {"output":"utilitycraft:expert_gas_generator","amount":1},
+    "netherite_plate,ultimate_gas_tank,netherite_plate,ultimate_chip,expert_gas_generator,ultimate_chip,netherite_plate,ultimate_chip,netherite_plate": {"output":"utilitycraft:ultimate_gas_generator","amount":1},
+  },
   {
     "advanced_chip,basic_battery,advanced_chip,basic_battery,redstone_block,basic_battery,advanced_chip,energized_iron_dust,advanced_chip": {
       "output": "utilitycraft:advanced_battery",
@@ -299,19 +343,19 @@ const crafterRecipeBatches = [
       "output": "utilitycraft:mechanic_upper",
       "amount": 1
     },
-    "energized_iron_ingot,basic_fluid_tank,energized_iron_ingot,basic_fluid_tank,advanced_chip,basic_fluid_tank,energized_iron_ingot,glass,energized_iron_ingot": {
+    "steel_plate,glass,steel_plate,advanced_chip,basic_fluid_tank,advanced_chip,steel_plate,fluid_pipe,steel_plate": {
       "output": "utilitycraft:advanced_fluid_tank",
       "amount": 1
     },
-    "gold_plate,glass,gold_plate,glass,basic_chip,glass,gold_plate,glass,gold_plate": {
+    "steel_plate,glass,steel_plate,basic_chip,bucket,basic_chip,steel_plate,fluid_pipe,steel_plate": {
       "output": "utilitycraft:basic_fluid_tank",
       "amount": 1
     },
-    "diamond_dust,advanced_fluid_tank,diamond_dust,advanced_fluid_tank,expert_chip,advanced_fluid_tank,diamond_dust,glass,diamond_dust": {
+    "steel_plate,glass,steel_plate,expert_chip,advanced_fluid_tank,expert_chip,steel_plate,fluid_pipe,steel_plate": {
       "output": "utilitycraft:expert_fluid_tank",
       "amount": 1
     },
-    "netherite_dust,expert_fluid_tank,netherite_dust,expert_fluid_tank,ultimate_chip,expert_fluid_tank,netherite_dust,glass,netherite_dust": {
+    "steel_plate,glass,steel_plate,ultimate_chip,expert_fluid_tank,ultimate_chip,steel_plate,fluid_pipe,steel_plate": {
       "output": "utilitycraft:ultimate_fluid_tank",
       "amount": 1
     },

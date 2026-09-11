@@ -1,0 +1,42 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:chemical_converter"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "key": {
+            "L": {
+                "item": "utilitycraft:lead_plate"
+            },
+            "G": {
+                "item": "utilitycraft:gas_pipe"
+            },
+            "A": {
+                "item": "utilitycraft:ultimate_chip"
+            },
+            "C": {
+                "item": "utilitycraft:machine_case"
+            },
+            "E": {
+                "item": "utilitycraft:stabilized_obsidian_dust"
+            }
+        },
+        "pattern": [
+            "LGL",
+            "ACA",
+            "LEL"
+        ],
+        "result": {
+            "item": "utilitycraft:chemical_converter",
+            "count": 1
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:gas_pipe"
+            }
+        ]
+    }
+}

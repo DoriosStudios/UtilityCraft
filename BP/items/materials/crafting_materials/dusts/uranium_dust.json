@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:uranium_dust"
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_uranium_dust"
+		}
+	}
+}

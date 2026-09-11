@@ -47,6 +47,11 @@ export const ACTIVE_STATE_ID = "utilitycraft:active";
 export const MULTIBLOCK_CASE_TAG_PREFIX = "dorios:multiblock.case";
 
 /**
+ * Block tag used to identify multiblock controller blocks.
+ */
+export const MULTIBLOCK_CONTROLLER_TAG = "dorios:multiblock.controller";
+
+/**
  * Block tag used by internal multiblock component blocks.
  */
 export const MULTIBLOCK_COMPONENT_TAG = "dorios:multiblock_component";
@@ -80,6 +85,11 @@ export const ITEM_BLOCK_TAG = "dorios:item";
  * Block tag used by gas-capable multiblock link nodes.
  */
 export const GAS_BLOCK_TAG = "dorios:gas";
+
+/**
+ * Block tag used by reactor components that support scripted waterlogging.
+ */
+export const WATERLOGGABLE_BLOCK_TAG = "dorios:waterloggable";
 
 /**
  * Dynamic property used to store detected multiblock bounds.

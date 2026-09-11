@@ -1,0 +1,110 @@
+{
+  "namespace": "uc",
+  "fluid_pair_recipe_toggle": {
+    "type": "panel",
+    "size": [
+      42,
+      18
+    ],
+    "$recipe_icon|default": "",
+    "$recipe_icon_2|default": "",
+    "$pair_default_state|default": false,
+    "controls": [
+      {
+        "button@uc.recipe_toggle": {
+          "size": [
+            42,
+            18
+          ],
+          "$toggle_size": [
+            42,
+            18
+          ],
+          "$has_toggle_icon": false,
+          "$toggle_default_state": "$pair_default_state",
+          "$toggle_unchecked_hover": "textures/ui/recipe_pair_hover",
+          "$toggle_checked_hover": "textures/ui/recipe_pair_hover"
+        }
+      },
+      {
+        "first_icon": {
+          "type": "image",
+          "texture": "$recipe_icon",
+          "size": [
+            16,
+            16
+          ],
+          "offset": [
+            2,
+            1
+          ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 1
+        }
+      },
+      {
+        "plus": {
+          "type": "label",
+          "text": "+",
+          "size": [
+            6,
+            10
+          ],
+          "offset": [
+            18,
+            4
+          ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "text_alignment": "left",
+          "font_scale_factor": 0.8,
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "shadow": true,
+          "layer": 1
+        }
+      },
+      {
+        "second_icon": {
+          "type": "image",
+          "texture": "$recipe_icon_2",
+          "size": [
+            16,
+            16
+          ],
+          "offset": [
+            24,
+            1
+          ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 1
+        }
+      }
+    ]
+  },
+  "fluid_recipe_ingredient@uc.recipe_toggle": {
+    "size": [
+      16,
+      16
+    ],
+    "$toggle_size": [
+      16,
+      16
+    ],
+    "$toggle_icon_size": [
+      16,
+      16
+    ],
+    "$toggle_group": false,
+    "$toggle_layer": 7,
+    "$toggle_unchecked": "textures/ui/slots/transparent_slot",
+    "$toggle_checked": "textures/ui/slots/transparent_slot",
+    "$toggle_unchecked_hover": "textures/ui/slots/transparent_slot",
+    "$toggle_checked_hover": "textures/ui/slots/transparent_slot"
+  }
+}

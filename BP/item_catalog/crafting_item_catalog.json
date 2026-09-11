@@ -38,7 +38,11 @@
                             "utilitycraft:basic_energy_receiver",
                             "utilitycraft:advanced_energy_receiver",
                             "utilitycraft:expert_energy_receiver",
-                            "utilitycraft:ultimate_energy_receiver"
+                            "utilitycraft:ultimate_energy_receiver",
+                            "utilitycraft:basic_gas_generator",
+                            "utilitycraft:advanced_gas_generator",
+                            "utilitycraft:expert_gas_generator",
+                            "utilitycraft:ultimate_gas_generator"
                         ]
                     },
                     {
@@ -63,7 +67,9 @@
                             "utilitycraft:magmatic_chamber",
                             "utilitycraft:seed_synthesizer",
                             "utilitycraft:waycenter",
-                            "utilitycraft:xp_condenser"
+                            "utilitycraft:xp_condenser",
+                            "utilitycraft:electrolyzer",
+                            "utilitycraft:chemical_converter"
                         ]
                     },
                     {
@@ -135,7 +141,11 @@
                             "utilitycraft:mechanic_upper",
                             "utilitycraft:mechanic_dropper",
                             "utilitycraft:ender_hopper",
-                            "utilitycraft:basic_trash_can"
+                            "utilitycraft:basic_trash_can",
+                            "utilitycraft:liquid_trash_can",
+                            "utilitycraft:gas_trash_can",
+                            "utilitycraft:energy_trash_can",
+                            "utilitycraft:ultimate_trash_can"
                         ]
                     },
                     {
@@ -147,6 +157,8 @@
                             "utilitycraft:sieve",
                             "utilitycraft:bonsai",
                             "utilitycraft:crucible",
+                            "utilitycraft:mortar",
+                            "utilitycraft:primitive_forge",
                             "utilitycraft:sink",
                             "utilitycraft:big_torch",
                             "utilitycraft:lantern",
@@ -203,6 +215,22 @@
                             "utilitycraft:creative_milk_tank",
                             "utilitycraft:creative_xp_tank",
                             "utilitycraft:creative_steam_tank",
+                            "utilitycraft:creative_sulfuric_acid_tank",
+                            "utilitycraft:creative_heavy_water_tank",
+                            "utilitycraft:creative_hydrogen_tank",
+                            "utilitycraft:creative_oxygen_tank",
+                            "utilitycraft:creative_methane_tank",
+                            "utilitycraft:creative_depleted_uranium_hexafluoride_tank",
+                            "utilitycraft:creative_enriched_uranium_hexafluoride_tank",
+                            "utilitycraft:creative_fluorine_tank",
+                            "utilitycraft:creative_hydrogen_fluoride_tank",
+                            "utilitycraft:creative_natural_uranium_hexafluoride_tank",
+                            "utilitycraft:creative_saline_coolant_tank",
+                            "utilitycraft:creative_crude_oil_tank",
+                            "utilitycraft:creative_petroleum_tank",
+                            "utilitycraft:creative_diesel_tank",
+                            "utilitycraft:creative_nuclear_waste_tank",
+                            "utilitycraft:creative_heated_saline_coolant_tank",
                             "utilitycraft:xp_drain",
                             "utilitycraft:xp_spout"
                         ]
@@ -599,7 +627,17 @@
                             "utilitycraft:raw_steel",
                             "utilitycraft:steel_ingot",
                             "utilitycraft:steel_nugget",
-                            "utilitycraft:silicon"
+                            "utilitycraft:silicon",
+                            "utilitycraft:lead_ingot",
+                            "utilitycraft:lead_nugget",
+                            "utilitycraft:raw_lead",
+                            "utilitycraft:lead_block",
+                            "utilitycraft:raw_lead_block",
+                            "utilitycraft:raw_uranium",
+                            "utilitycraft:raw_uranium_block",
+                            "utilitycraft:uranium_ingot",
+                            "utilitycraft:uranium_pellet",
+                            "utilitycraft:uranium_block"
                         ]
                     },
                     {
@@ -628,7 +666,8 @@
                             "utilitycraft:gold_plate",
                             "utilitycraft:steel_plate",
                             "utilitycraft:iron_plate",
-                            "utilitycraft:copper_plate"
+                            "utilitycraft:copper_plate",
+                            "utilitycraft:lead_plate"
                         ]
                     },
                     {
@@ -653,7 +692,9 @@
                             "utilitycraft:obsidian_dust",
                             "utilitycraft:quartz_dust",
                             "utilitycraft:stabilized_obsidian_dust",
-                            "utilitycraft:steel_dust"
+                            "utilitycraft:steel_dust",
+                            "utilitycraft:lead_dust",
+                            "utilitycraft:uranium_dust"
                         ]
                     },
                     {
@@ -693,7 +734,10 @@
                             "utilitycraft:stone_pebble",
                             "utilitycraft:totem_shard",
                             "utilitycraft:tuff_pebble",
-                            "utilitycraft:wither_skull_shard"
+                            "utilitycraft:wither_skull_shard",
+                            "utilitycraft:deepslate_lead_chunk",
+                            "utilitycraft:lead_chunk",
+                            "utilitycraft:deepslate_uranium_chunk"
                         ]
                     }
                 ]

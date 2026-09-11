@@ -1,0 +1,42 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:ultimate_trash_can"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            " L ",
+            "GTB",
+            " E "
+        ],
+        "key": {
+            "L": {
+                "item": "utilitycraft:liquid_trash_can"
+            },
+            "G": {
+                "item": "utilitycraft:gas_trash_can"
+            },
+            "E": {
+                "item": "utilitycraft:energy_trash_can"
+            },
+            "B": {
+                "item": "utilitycraft:basic_trash_can"
+            },
+            "T": {
+                "item": "utilitycraft:expert_chip"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:ultimate_trash_can",
+            "count": 1
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:basic_trash_can"
+            }
+        ]
+    }
+}

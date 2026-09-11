@@ -49,10 +49,10 @@ tile.utilitycraft:cobble_gen_5.name=Kopfsteinpflaster-Generator (§jTier 6§r) \
 tile.utilitycraft:mechanic_hopper.name=Mechanischer Hopper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mechanic Upper\n§7- Akzeptierte Upgrades:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eBasis-Flüssigkeitstank\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cErweiterter Flüssigkeitstank\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bExpert-Flüssigkeitstank\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Ultimate-Flüssigkeitstank\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eBasis-Flüssigkeitstank\n§7- Maximale Kapazität: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cErweiterter Flüssigkeitstank\n§7- Maximale Kapazität: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bExpert-Flüssigkeitstank\n§7- Maximale Kapazität: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Ultimate-Flüssigkeitstank\n§7- Maximale Kapazität: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Bonsais Abundantes
 tile.utilitycraft:bonsai.name=Bonsai\n§o§9@UtilityCraft
 
@@ -419,14 +419,14 @@ item.utilitycraft:stone_paxel=Steinpaxel\n§o§9@UtilityCraft
 item.utilitycraft:wooden_paxel=Holzpaxel\n§o§9@UtilityCraft
 
 -- Hammers =##Martelos
-item.utilitycraft:golden_hammer=Goldener Hammer\n§o§9@UtilityCraft
-item.utilitycraft:netherite_hammer=Netherit-Hammer\n§o§9@UtilityCraft
-item.utilitycraft:diamond_hammer=Diamanthammer\n§o§9@UtilityCraft
-item.utilitycraft:steel_hammer=Stahlhammer\n§o§9@UtilityCraft
-item.utilitycraft:iron_hammer=Eisenhammer\n§o§9@UtilityCraft
-item.utilitycraft:copper_hammer=Kupferhammer\n§o§9@UtilityCraft
-item.utilitycraft:stone_hammer=Steinhammer\n§o§9@UtilityCraft
-item.utilitycraft:wooden_hammer=Holzhammer\n§o§9@UtilityCraft
+item.utilitycraft:golden_hammer=Goldener Hammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:netherite_hammer=Netherit-Hammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:diamond_hammer=Diamanthammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:steel_hammer=Stahlhammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:iron_hammer=Eisenhammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:copper_hammer=Kupferhammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:stone_hammer=Steinhammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
+item.utilitycraft:wooden_hammer=Holzhammer\n§7- Zerkleinert Blöcke zu anderen Blöcken\n§7- Zerkleinert Erzblöcke zu Staub\n§o§9@UtilityCraft
 
 -- Steel =## Aço
 item.utilitycraft:steel_sword=Stahlschwert\n§o§9@UtilityCraft
@@ -439,7 +439,6 @@ item.utilitycraft:steel_hoe=Stahlhacke\n§o§9@UtilityCraft
 item.utilitycraft:lucky_pickaxe=§aGlücksspitzhacke\n§o§9@UtilityCraft
 item.utilitycraft:lucky_sword=§aGlücksschwert\n§o§9@UtilityCraft
 item.utilitycraft:smelting_pickaxe=§6Schmelzspitzhacke\n§7- Schmelzt Erze, wenn sie zerbrochen werden\n§o§9@UtilityCraft
-item.utilitycraft:bionic_arm=Bionischer Arm (Test)\n§o§9@UtilityCraft
 item.utilitycraft:lucky_fishing_rod=§aGlücksangel\n§o§9@UtilityCraft
 
 -- Drills =## Brocas
@@ -554,7 +553,7 @@ item.utilitycraft:infinite_enderpearl=Unendliche Enderperle\n§o§9@UtilityCraft
 item.utilitycraft:raw_leather=Rohes Leder\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=Gegenmitteltrank\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=Gegengift-Trankspritzer\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Schraubenschlüssel §r\n§7- Dreht die Maschine beim Schleichen §r\n§7- Entfernt Fahrzeuge\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Schraubenschlüssel §r\n§7- Dreht die Maschine beim Schleichen §r\n§7- Aktiviert Multiblock-Maschinenstrukturen\n§o§9@UtilityCraft
 
 - Saplings =## Mudas
 item.utilitycraft:apple_sapling=Apfelsetzling\n§o§9@UtilityCraft
@@ -813,7 +812,6 @@ tile.utilitycraft:item_exporter_blue.name=Artikelexporteur (blau)\n§7- Akzeptie
 tile.utilitycraft:item_exporter_red.name=Artikelexporteur (Rot)\n§7- Akzeptierte Upgrades:\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_yellow.name=Artikelexporteur (Gelb)\n§7- Akzeptierte Upgrades:\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_purple.name=Artikelexporteur (Lila)\n§7- Akzeptierte Upgrades:\n §a§7 §f§7\n§o§9@UtilityCraft
-item.utilitycraft:mortar=Mörtel\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor.name=Flüssigkeitsextraktor (Standard)\n§7- Akzeptierte Upgrades:\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_blue.name=Flüssigkeitsabsauger (blau)\n§7- Akzeptierte Upgrades:\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_green.name=Flüssigkeitsabsauger (grün)\n§7- Akzeptierte Upgrades:\n §a§7\n§o§9@UtilityCraft
@@ -860,7 +858,7 @@ tile.utilitycraft:blaze_block.name=Blaze Core\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Zerkleinerter Seetang\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=Einfacher Mülleimer\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Gegenstand-Mülleimer\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§eGrundenergiesender \n §7 Rate: 1 kDE/t\n §7 Kapazität: 64 kDE\n §7 Reichweite: 32 Blöcke\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§cAdvanced Energy Transmitter \n §7 Rate: 4 kDE/t\n §7 Kapazität: 256 kDE\n §7 Reichweite: 64 Blöcke\n§o§9@UtilityCraft
@@ -1038,3 +1036,52 @@ tile.utilitycraft:compressed_nether_star_block.name=Komprimierter Nethersternblo
 tile.utilitycraft:compressed_nether_star_block_2.name=Doppelt komprimierter Nethersternblock\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Dreifach komprimierter Nethersternblock\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Vierfach komprimierter Nethersternblock\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eGastank (Basis)\n§7- Maximale Kapazität: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cGastank (Fortgeschritten)\n§7- Maximale Kapazität: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bGastank (Experte)\n§7- Maximale Kapazität: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Gastank (Ultimativ)\n§7- Maximale Kapazität: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Gasrohr\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Gasrohr (Blau)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Gasrohr (Grün)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Gasrohr (Rot)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Gasrohr (Orange)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Gasrohr (Gelb)\n§7- Transportiert Gase\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Gasextraktor\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Gasextraktor (Blau)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Gasextraktor (Grün)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Gasextraktor (Rot)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Gasextraktor (Orange)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Gasextraktor (Gelb)\n§7- Akzeptierte Upgrades:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Kreativtank: Schwefelsäure\n§7- Unbegrenzter Vorrat: Schwefelsäure\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Kreativtank: Schweres Wasser\n§7- Unbegrenzter Vorrat: Schweres Wasser\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Kreativtank: Wasserstoff\n§7- Unbegrenzter Vorrat: Wasserstoff\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Kreativtank: Sauerstoff\n§7- Unbegrenzter Vorrat: Sauerstoff\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Kreativtank: Methan\n§7- Unbegrenzter Vorrat: Methan\n§o§9@UtilityCraft
+
+## Primitive Forge
+tile.utilitycraft:primitive_forge.name=Primitive Schmiede\n§7- Baue zur Aktivierung eine 2x2x2-Struktur\n§7- Zum Schmieden von Rohstahl\n§o§9@UtilityCraft
+entity.utilitycraft:primitive_forge.name=Primitive Schmiede
+
+tile.utilitycraft:mortar.name=Mörser\n§7- Zerkleinert Blätter, um Wasser zu gewinnen\n§o§9@UtilityCraft
+howtoplay.uc:first_steps_steel=Erste Schritte zum Stahl
+howtoplay.uc:first_steps_steel.title=UtilityCraft - Erste Schritte zum Stahl
+howtoplay.utilitycraft.first_steps_steel.h1=Die primitive Schmiede bauen
+howtoplay.utilitycraft.first_steps_steel.h2=Rohstahl herstellen
+howtoplay.utilitycraft.first_steps_steel.h3=Die Workbench herstellen
+howtoplay.utilitycraft.first_steps_steel.h4=Das Maschinenzeitalter
+howtoplay.utilitycraft.first_steps_steel.p1=Du kannst bereits Ressourcen, Wasser, Lava und Bruchstein gewinnen.
+howtoplay.utilitycraft.first_steps_steel.p2=Jetzt kannst du Stahl herstellen und das Maschinenzeitalter beginnen.
+howtoplay.utilitycraft.first_steps_steel.p3=Lege 4 Ziegel in die Ecken, 3 Tonklumpen oben in die Mitte und auf die beiden Seiten sowie 1 Schlammziegelstufe unten in die Mitte. Die Mitte bleibt leer. Das Rezept ergibt 4 Schmiedeblöcke. Stelle es zweimal her und baue aus den 8 Blöcken einen massiven 2x2x2-Würfel. Die Schmiede bildet sich automatisch; der letzte Block bestimmt die Vorderseite.
+howtoplay.utilitycraft.first_steps_steel.p4=Öffne den Behälter mittig an der Vorderseite. Die beiden oberen Plätze sind für Zutaten, der untere für Brennstoff. Der Pfeil zeigt den Fortschritt und die Flamme den verbleibenden Brennstoff. Eine Kohle als Brennstoff reicht für 8 Einheiten.
+howtoplay.utilitycraft.first_steps_steel.p5=Kombiniere Eisenstaub mit Kohle, Holzkohle oder deren Staubformen. Jedes Rezept verbraucht je eine Zutat und ergibt 1 Rohstahl. Mit Brennstoff verarbeitet die Schmiede bis zu 4 Rezepte in 8 Sekunden.
+howtoplay.utilitycraft.first_steps_steel.p6=Schmilz Rohstahl zu Stahlbarren. Nutze einen Ofen, SmeltFlare oder die Schmiede mit einem leeren Zutatenplatz. Normale Rezepte verarbeiten bis zu 4 Einheiten in 2 Sekunden. Beim Abbau erhältst du den Inhalt zurück.
+howtoplay.utilitycraft.first_steps_steel.p7=Baue zuerst eine Workbench. Dort werden Maschinen, Generatoren und Verbesserungen hergestellt.
+howtoplay.utilitycraft.first_steps_steel.p8=Hier ist das Rezept der Workbench.
+howtoplay.utilitycraft.first_steps_steel.p9=Du hast das Maschinenzeitalter erreicht: energiegestützte Produktion, Speicherung und Automatisierung.
+howtoplay.utilitycraft.first_steps_steel.p10=Bewahre Stahl, Eisen, Kupfer, Redstone und Kohle für deine ersten Maschinen und Verbesserungen auf.
+howtoplay.utilitycraft.first_steps_steel.p11=Stelle deine ersten Maschinen her, verbinde sie mit einer Energiequelle und beginne zu automatisieren.
+howtoplay.utilitycraft.first_steps_steel.forge_render=Zusammengebaute primitive Schmiede: 2x2x2-Struktur.
+ui.utilitycraft:forge_info.recipe=Die primitive Schmiede stellt §9Rohstahl§8 her:
+ui.utilitycraft:forge_info.steel_time=§98 Sekunden pro Charge
+ui.utilitycraft:forge_info.normal_time=Normale Rezepte: bis zu 4 Einheiten in 2 Sekunden.
+ui.utilitycraft:forge_info.footer=Funktioniert auch als schnellerer Ofen

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:uranium_ingot_to_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:uranium_ingot",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:uranium_block",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:uranium_ingot"
+      }
+    ]
+  }
+}

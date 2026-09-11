@@ -1,0 +1,11 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:raw_uranium"
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_raw_uranium"
+		}
+	}
+}

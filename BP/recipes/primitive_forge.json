@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:primitive_forge"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "BCB",
+      "C C",
+      "BSB"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:brick"
+      },
+      "C": {
+        "item": "minecraft:clay_ball"
+      },
+      "S": {
+        "item": "minecraft:mud_brick_slab"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:primitive_forge",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "minecraft:brick"
+      }
+    ]
+  }
+}

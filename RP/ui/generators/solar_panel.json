@@ -32,6 +32,8 @@
       },
       {
         "info_tab@uc.info_tab": {
+          "offset": [0, -52],
+          "$info_panel_size": [80, 160],
           "$info_description": "ui.utilitycraft:info.solar_panel"
         }
       }

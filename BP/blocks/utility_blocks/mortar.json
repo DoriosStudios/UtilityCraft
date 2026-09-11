@@ -1,0 +1,169 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:mortar",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ],
+          "y_rotation_offset": 180
+        }
+      },
+      "states": {
+        "utilitycraft:pestle_frame": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "utilitycraft:leaves": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "utilitycraft:water": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "utilitycraft:crushing": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    "components": {
+      "minecraft:geometry": {
+        "identifier": "geometry.utilitycraft_mortar",
+        "bone_visibility": {
+          "pestle_0": "q.block_state('utilitycraft:pestle_frame') == 0",
+          "pestle_1": "q.block_state('utilitycraft:pestle_frame') == 1",
+          "pestle_2": "q.block_state('utilitycraft:pestle_frame') == 2",
+          "pestle_3": "q.block_state('utilitycraft:pestle_frame') == 3",
+          "pestle_4": "q.block_state('utilitycraft:pestle_frame') == 4",
+          "pestle_5": "q.block_state('utilitycraft:pestle_frame') == 5",
+          "pestle_6": "q.block_state('utilitycraft:pestle_frame') == 6",
+          "pestle_7": "q.block_state('utilitycraft:pestle_frame') == 7",
+          "content_1": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 1",
+          "content_2": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 2",
+          "content_3": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 3",
+          "content_4": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 4"
+        }
+      },
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_mortar_block",
+          "render_method": "opaque"
+        },
+        "content": {
+          "texture": "utilitycraft_mortar_leaves",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:collision_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          7,
+          14
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          7,
+          14
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6
+      },
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "utilitycraft:mortar": {}
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:water') > 0 && q.block_state('utilitycraft:water') >= q.block_state('utilitycraft:leaves')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_mortar_block",
+              "render_method": "opaque"
+            },
+            "content": {
+              "texture": "utilitycraft_water_fluid",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

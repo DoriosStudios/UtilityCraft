@@ -8,36 +8,45 @@
 			"utilitycraft_workbench"
 		],
 		"key": {
-			"S": {
-				"item": "utilitycraft:expert_chip"
-			},
 			"R": {
-				"item": "utilitycraft:diamond_dust"
+				"item": "utilitycraft:steel_plate"
 			},
 			"G": {
 				"item": "minecraft:glass"
 			},
+			"C": {
+				"item": "utilitycraft:expert_chip"
+			},
 			"T": {
 				"item": "utilitycraft:advanced_fluid_tank"
+			},
+			"P": {
+				"item": "utilitycraft:fluid_pipe"
 			}
 		},
 		"pattern": [
-			"RTR",
-			"TST",
-			"RGR"
+			"RGR",
+			"CTC",
+			"RPR"
 		],
 		"result": {
 			"item": "utilitycraft:expert_fluid_tank"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:diamond_dust"
+				"item": "utilitycraft:steel_plate"
+			},
+			{
+				"item": "minecraft:glass"
 			},
 			{
 				"item": "utilitycraft:expert_chip"
 			},
 			{
 				"item": "utilitycraft:advanced_fluid_tank"
+			},
+			{
+				"item": "utilitycraft:fluid_pipe"
 			}
 		]
 	}

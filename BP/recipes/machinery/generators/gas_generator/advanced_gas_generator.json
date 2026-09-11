@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:advanced_gas_generator"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "utilitycraft:energized_iron_plate"
+			},
+			"B": {
+				"item": "utilitycraft:basic_gas_generator"
+			},
+			"S": {
+				"item": "utilitycraft:lead_plate"
+			},
+			"D": {
+				"item": "utilitycraft:advanced_gas_tank"
+			},
+			"E": {
+				"item": "utilitycraft:advanced_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"SES"
+		],
+		"result": {
+			"item": "utilitycraft:advanced_gas_generator"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:advanced_chip"
+			}
+		]
+	}
+}

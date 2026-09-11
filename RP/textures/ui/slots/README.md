@@ -31,8 +31,8 @@ The outline shading follows the same pattern for every slot:
 
 | Type | Texture | Hex | Minecraft Code |
 |---|---|---:|---:|
-| Default / Transparent | `default_slot.png` | transparent | none |
-| None / Neutral | `none_slot.png`, `normal_slot.png` | `#555555` | `§8` |
+| Transparent grid fallback | `transparent_slot.png` | transparent | none |
+| Default / Neutral | `default_slot.png`, `none_slot.png`, `normal_slot.png` | `#555555` | `§8` |
 | Disabled | `disabled_slot.png` | black + hazard yellow | none |
 | Input | `input_slot.png` | `#5555FF` | `§9` |
 | Input Extra | `input_extra_slot.png` | `#55FFFF` | `§b` |
@@ -41,5 +41,6 @@ The outline shading follows the same pattern for every slot:
 | Fuel | `fuel_slot.png` | `#EB7114` | `§v` |
 | Input + Output | `both_slot.png` | `#5555FF` + `#FF5555` | `§9` + `§c` |
 
-`disabled_slot.png` is a 6x6 hazard outline with a 2px nineslice cut so
-the black-yellow-black-black-yellow-black pattern keeps its proportions.
+`disabled_slot.png` is a static 18x18 outline. Its one-pixel border alternates
+dark and hazard-yellow pixels continuously around a transparent center; it must
+not have nineslice metadata or be stretched.

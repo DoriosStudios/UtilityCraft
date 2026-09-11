@@ -351,10 +351,6 @@ function normalizeDefinition(value) {
   const anyInputIndices = normalizeDeclaredIndices(value.anyInputIndices, "liquids.anyInputIndices");
   const anyOutputIndices = normalizeDeclaredIndices(value.anyOutputIndices, "liquids.anyOutputIndices");
   const modes = normalizeModes(value.modes);
-  const declaredInputs = new Set(modes.flatMap((mode) => mode.inputIndices));
-  const declaredOutputs = new Set(modes.flatMap((mode) => mode.outputIndices));
-  assertSubset(anyInputIndices, declaredInputs, "liquids.anyInputIndices", "mode inputIndices");
-  assertSubset(anyOutputIndices, declaredOutputs, "liquids.anyOutputIndices", "mode outputIndices");
   return { anyInputIndices, anyOutputIndices, modes };
 }
 
@@ -463,15 +459,6 @@ function cloneFaceConfig(config) {
     if (config[face]) clone[face] = [...config[face]];
   }
   return clone;
-}
-
-/** @param {number[]} values @param {Set<number>} allowed @param {string} valuePath @param {string} allowedPath */
-function assertSubset(values, allowed, valuePath, allowedPath) {
-  for (const fluidIndex of values) {
-    if (!allowed.has(fluidIndex)) {
-      throw new RangeError(`${valuePath} index ${fluidIndex} is not declared by any ${allowedPath}`);
-    }
-  }
 }
 
 /** @param {FluidIODefinition} definition */

@@ -44,6 +44,8 @@ const RESOURCE_METADATA = {
   },
 };
 
+const RESERVED_GROUP_IDS = new Set(["default", "disabled"]);
+
 /** @typedef {"items"|"liquids"|"gases"} LinkNodeResource */
 /** @typedef {{id:string,label:string,color:string,values:number[]}} LinkNodeIOGroup */
 /** @typedef {{anyInput:number[],anyOutput:number[],inputs:LinkNodeIOGroup[],outputs:LinkNodeIOGroup[]}} LinkNodeResourceDefinition */
@@ -150,18 +152,26 @@ export async function openLinkNodeIOForm(block, player) {
     const prefix = sections.length > 1 ? `${section.metadata.title} - ` : "";
     form.dropdown(
       `${prefix}Input to`,
-      ["§8Disabled§r", ...section.definition.inputs.map((group) => `${group.color}${group.label}§r`)],
+      [
+        "§8Default§r",
+        ...section.definition.inputs.map((group) => `${group.color}${group.label}§r`),
+        "§eDisabled§r",
+      ],
       {
         defaultValueIndex: getSelectedIndex(linked.entity, block.location, section, "input"),
-        tooltip: `${section.metadata.title} entering through this node will be routed to the selected input group.`,
+        tooltip: `${section.metadata.title} entering through this node will use the machine default, the selected input group, or be disabled.`,
       },
     );
     form.dropdown(
       `${prefix}Output from`,
-      ["§8Disabled§r", ...section.definition.outputs.map((group) => `${group.color}${group.label}§r`)],
+      [
+        "§8Default§r",
+        ...section.definition.outputs.map((group) => `${group.color}${group.label}§r`),
+        "§eDisabled§r",
+      ],
       {
         defaultValueIndex: getSelectedIndex(linked.entity, block.location, section, "output"),
-        tooltip: `${section.metadata.title} leaving through this node will be taken from the selected output group.`,
+        tooltip: `${section.metadata.title} leaving through this node will use the machine default, the selected output group, or be disabled.`,
       },
     );
   }
@@ -175,22 +185,23 @@ export async function openLinkNodeIOForm(block, player) {
     for (const section of sections) {
       const inputIndex = normalizeDropdownIndex(values[cursor++]);
       const outputIndex = normalizeDropdownIndex(values[cursor++]);
-      const input = inputIndex === 0
-        ? []
-        : section.definition.inputs[inputIndex - 1]?.values;
-      const output = outputIndex === 0
-        ? []
-        : section.definition.outputs[outputIndex - 1]?.values;
-      if (!input || !output) throw new RangeError("Invalid link-node IO selection");
+      const input = resolveDropdownSelection(inputIndex, section.definition.inputs);
+      const output = resolveDropdownSelection(outputIndex, section.definition.outputs);
+      if (input === undefined || output === undefined) {
+        throw new RangeError("Invalid link-node IO selection");
+      }
 
       const capacity = getResourceCapacity(linked.entity, section.resource);
-      if (!isWithinCapacity(input, capacity) || !isWithinCapacity(output, capacity)) {
+      if (
+        (input !== null && !isWithinCapacity(input, capacity))
+        || (output !== null && !isWithinCapacity(output, capacity))
+      ) {
         throw new RangeError(`${section.resource} selection exceeds the machine capacity`);
       }
 
       setLinkNodeIO(linked.entity, block.location, section.resource, {
-        input: arraysEqual(input, section.definition.anyInput) ? null : input,
-        output: arraysEqual(output, section.definition.anyOutput) ? null : output,
+        input,
+        output,
       });
     }
     showMessage(player, "Link node IO updated.");
@@ -211,8 +222,6 @@ function normalizeResourceDefinition(value, resource) {
   const anyInput = normalizeValues(value[metadata.anyInput], `${resource}.${metadata.anyInput}`);
   const anyOutput = normalizeValues(value[metadata.anyOutput], `${resource}.${metadata.anyOutput}`);
 
-  assertDefaultRepresentable(anyInput, inputs, `${resource}.${metadata.anyInput}`);
-  assertDefaultRepresentable(anyOutput, outputs, `${resource}.${metadata.anyOutput}`);
   return { anyInput, anyOutput, inputs, outputs };
 }
 
@@ -224,7 +233,7 @@ function normalizeGroups(value, path, defaultColor) {
   const signatures = new Set();
   for (const [index, entry] of value.entries()) {
     if (!isPlainObject(entry)) throw new TypeError(`${path}[${index}] must be an object`);
-    if (typeof entry.id !== "string" || entry.id.length === 0 || entry.id === "disabled") {
+    if (typeof entry.id !== "string" || entry.id.length === 0 || RESERVED_GROUP_IDS.has(entry.id)) {
       throw new TypeError(`${path}[${index}].id must be a valid non-empty ID`);
     }
     if (ids.has(entry.id)) throw new RangeError(`${path} contains duplicate ID ${entry.id}`);
@@ -263,12 +272,6 @@ function normalizeValues(value, path) {
   return result;
 }
 
-/** @param {number[]} fallback @param {LinkNodeIOGroup[]} groups @param {string} path */
-function assertDefaultRepresentable(fallback, groups, path) {
-  if (fallback.length === 0 || groups.some((group) => arraysEqual(group.values, fallback))) return;
-  throw new RangeError(`${path} must be empty or match exactly one declared group`);
-}
-
 /** @param {LinkNodeResource} resource @param {LinkNodeResourceDefinition} definition */
 function createBackendDefinition(resource, definition) {
   const metadata = RESOURCE_METADATA[resource];
@@ -292,12 +295,19 @@ function createBackendDefinition(resource, definition) {
 /** @param {import("@minecraft/server").Entity} entity @param {import("@minecraft/server").Vector3} location @param {any} section @param {"input"|"output"} operation */
 function getSelectedIndex(entity, location, section, operation) {
   const override = getLinkNodeIOOverride(entity, location, section.resource, operation);
-  const fallback = operation === "input" ? section.definition.anyInput : section.definition.anyOutput;
-  const values = override ?? fallback;
-  if (values.length === 0) return 0;
   const groups = operation === "input" ? section.definition.inputs : section.definition.outputs;
-  const index = groups.findIndex((group) => arraysEqual(group.values, values));
-  return index < 0 ? 0 : index + 1;
+  const disabledIndex = groups.length + 1;
+  if (override === undefined) return 0;
+  if (override.length === 0) return disabledIndex;
+  const index = groups.findIndex((group) => arraysEqual(group.values, override));
+  return index < 0 ? disabledIndex : index + 1;
+}
+
+/** @param {number} index @param {LinkNodeIOGroup[]} groups @returns {number[]|null|undefined} */
+function resolveDropdownSelection(index, groups) {
+  if (index === 0) return null;
+  if (index === groups.length + 1) return [];
+  return groups[index - 1]?.values;
 }
 
 /** @param {import("@minecraft/server").Entity} entity @param {LinkNodeResource} resource */

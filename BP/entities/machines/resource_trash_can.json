@@ -1,0 +1,156 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "utilitycraft:resource_trash_can",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "utilitycraft:liquid": {
+                "minecraft:type_family": {
+                    "family": [
+                        "inanimate",
+                        "dorios:machine",
+                        "dorios:fluid_container"
+                    ]
+                }
+            },
+            "utilitycraft:gas": {
+                "minecraft:type_family": {
+                    "family": [
+                        "inanimate",
+                        "dorios:machine",
+                        "dorios:gas_container"
+                    ]
+                }
+            },
+            "utilitycraft:energy": {
+                "minecraft:type_family": {
+                    "family": [
+                        "inanimate",
+                        "dorios:machine",
+                        "dorios:energy_container"
+                    ]
+                }
+            },
+            "utilitycraft:ultimate": {
+                "minecraft:type_family": {
+                    "family": [
+                        "inanimate",
+                        "dorios:machine",
+                        "dorios:container",
+                        "dorios:fluid_container",
+                        "dorios:gas_container",
+                        "dorios:energy_container"
+                    ]
+                },
+                "minecraft:inventory": {
+                    "inventory_size": 27,
+                    "container_type": "container",
+                    "can_be_siphoned_from": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "inanimate",
+                    "dorios:machine"
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:health": {
+                "max": 1,
+                "min": 1,
+                "value": 1
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1000,
+                "max": 1000
+            },
+            "minecraft:collision_box": {
+                "width": 0.01,
+                "height": 0.01
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:environment_sensor": {
+                "triggers": {
+                    "filters": {
+                        "test": "has_tag",
+                        "value": "despawn"
+                    },
+                    "event": "despawn"
+                }
+            },
+            "minecraft:inside_block_notifier": {
+                "block_list": [
+                    {
+                        "block": {
+                            "name": "air"
+                        },
+                        "entered_block_event": {
+                            "event": "despawn"
+                        }
+                    }
+                ]
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            }
+        },
+        "events": {
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawn"
+                    ]
+                }
+            },
+            "utilitycraft:liquid": {
+                "add": {
+                    "component_groups": [
+                        "utilitycraft:liquid"
+                    ]
+                }
+            },
+            "utilitycraft:gas": {
+                "add": {
+                    "component_groups": [
+                        "utilitycraft:gas"
+                    ]
+                }
+            },
+            "utilitycraft:energy": {
+                "add": {
+                    "component_groups": [
+                        "utilitycraft:energy"
+                    ]
+                }
+            },
+            "utilitycraft:ultimate": {
+                "add": {
+                    "component_groups": [
+                        "utilitycraft:ultimate"
+                    ]
+                }
+            }
+        }
+    }
+}

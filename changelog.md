@@ -1,16 +1,72 @@
-# UtilityCraft v3.5.5
-
-This update adds reversible Nether Star storage and four increasingly compact tiers.
+# UtilityCraft v3.6.0
 
 ## ADDED
+- Registered default Furnator fuels through the existing register_fuel event, starting with an empty registry so UC and dependent addons receive the same defaults and custom fuel registrations.
+- Added Heated Saline Coolant gas: 49 native gas bar levels, tank entity, darkened Saline Coolant sprites and a Creative Tank. Heavy Machinery uses it for thermal heat recovery.
+- Completed Creative Tanks for all 20 liquid/gas bar resources: migrated six Saline Coolant and nuclear gas tanks from Heavy Machinery with their existing IDs, and added Crude Oil, Petroleum, Diesel and Nuclear Waste tanks using the shared infinite-storage component.
+- Added shared Saline Coolant, Fluorine, Hydrogen Fluoride, Natural/Enriched/Depleted Uranium Hexafluoride and Nuclear Waste resources migrated from Heavy Machinery: 343 hidden bar items/frames, tank entities/textures and localized names. Existing type IDs and mB units remain unchanged; production recipes and machine behavior stay in Heavy Machinery.
+- Migrated basic Uranium materials from Heavy Machinery: ingot, dust, raw uranium, deepslate ore/chunk, raw/storage blocks and normal pellet, including textures, localized UtilityCraft names, Creative entries, ore drops, crafting and crusher/furnace/press recipes. Existing identifiers and recipe values are preserved. Uranium sieve drops are registered only by Heavy Machinery and are unavailable with UtilityCraft alone.
+- Completed the static 16x16 liquid/gas sprite set with Heavy Water, Sulfuric Acid, Crude Oil, Petroleum and Diesel icons, extracted from their existing entity textures or full bars. All 13 built-in liquid/gas bar types now have icons in textures/static/images.
+- Added Crude Oil, Petroleum and Diesel liquid UI bars, each with 49 fill levels (00-48), hidden UI items and registered textures compatible with FluidStorage. Recolors the exact Heavy Water pixel pattern: brown-black Crude Oil, charcoal-black Petroleum and pale golden-yellow Diesel, preserving the original ripple placement and shared empty-bar background.
+- Added Electrolyzer and Chemical Converter recipe books that shift the complete live machine UI and overlay recipe ingredients. Items use Crusher-style red backgrounds and counts only above one; fluid sprites sit at the bottom of existing bars, with quantities shown only in tooltips. The native Electrolyzer selector displays both output icons with a plus sign and lists only output names in its tooltip. Recipe UI generation reads the default runtime recipes.
+- Added the Primitive Forge: eight inexpensive casing blocks automatically form a 2x2x2 structure facing the last placed block. Its front container processes Iron Dust with Coal or Charcoal into Brute Steel in eight-second batches of up to four without an energy network, with the existing machine progress bar, persistent processing and safe dismantling. Uses temporary block textures and a behavior-only controller entity; the UI shows its title, side-by-side inputs, a large output, vertically centered animated recipe progress and a large vanilla output without a machine outline. A separate fuel slot and flame use the existing solid-fuel registry (1,000 DE per recipe); single-input smelting and two-input combinations use furnaceRecipes. The separate primitiveForgeRecipes file imports furnaceRecipes and directly inserts its own recipes during script initialization, without queued events; the existing utilitycraft:register_furnace_recipe scriptevent can add or replace both normal recipes and combinations. Normal smelting takes two seconds per batch, with up to four recipes per batch and 1,000 DE worth of fuel per recipe. Processing runs every four ticks on one front owner block; other blocks use a 1,000,000-tick interval.
+- Added Liquid, Gas, Energy and Ultimate Trash Cans with the existing trash-can model and yellow, purple, cyan and red accents. Passive inputs clear every 10 ticks without UI: two tanks per supported fluid/gas type, one energy store, and 27 item slots on Ultimate. Includes Workbench/Crafter recipes and localized descriptions.
+- Added four Gas Generator tiers with Magmator-based temporary textures/UI, one gas tank, Hydrogen/Methane fuel values and tier-dependent output. Moved the Electrolyzer and Chemical Converter into UC, added their native crafts and profitable Methane production, and exposed recipe registries for addons.
 - Added the Nether Star Block, crafted from nine Nether Stars and reversible back into them.
 - Added Compressed, Double Compressed, Triple Compressed and Quadruple Compressed Nether Star Blocks.
+- Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Set the shared Water coolant efficiency to 0.5 (Tier 0), making it the basic coolant for Heavy Machinery heat recovery. Consumers of the shared registry use this value; HM no longer needs a duplicate Water registration.
+- Updated the Stabilized Obsidian Dust texture with the supplied artwork.
+- Updated the supplied Amethyst, Diamond, Emerald, Quartz, Obsidian and Crying Obsidian dust textures; Lead materials and blocks; Brute Steel; and Uranium ingot/dust textures.
+- Differentiated Electrolyzer liquid/gas input outlines (1/2) and Chemical Converter item/liquid/gas inputs (1/2/3), with matching resource-specific IO outlines and localized legend colors. Existing saved IO modes are preserved.
+- Moved Electrolyzer and Chemical Converter status screens into the main UI at the Crusher position, removed the side extension, moved energy bars to the left, and compacted recipe slots on the right while retaining the original progress-arrow size. Shifted outputs eight pixels and progress arrows four pixels right to use the available space. Moved status screens and text one pixel left for extra input spacing.
+- Compacted machine and generator side tabs when Upgrades or IO is absent. Toggles move up by 26 pixels per missing tab. Information moves together with its toggle; IO and upgrade panels keep their original positions. Information grows to 80x134 with two tabs or 80x160 with one; IO and upgrade panel sizes remain unchanged.
+- Active Primitive Forges emit vanilla flame and smoke at the lower front opening, matching Better Smelters closed-furnace frequency (10% chance every 20 ticks).
+- Primitive Forge top faces now use the same red side_bricks texture as the upper sides.
+- Raised the Solar Panel and Wind Turbine information tabs and enlarged their panels to 80x160, matching Digital Storage's Storage Drive.
+- Replaced Primitive Forge textures with the supplied 16x16 set and added lit lower-front textures while processing. Upper front, sides, roof and base remain unchanged between power states. Updated assembled forge renders.
+- Completed Primitive Forge, Mortar and Hammer tooltips and the current Forge info panel in all ten locales; removed superseded Forge panel text keys.
+- Grouped Mortar and Primitive Forge under Basics in the Construction creative category.
+- Added "Used to forge Brute Steel" to the Primitive Forge block tooltip.
+- Changed Primitive Forge crafting to four Bricks, three Clay Balls and one Mud Brick Slab, yielding four casings. Added a deterministic render of the assembled 2x2x2 forge to the Steel guide and completed that section in all ten supported locales.
+- Reworked the visual Primitive Forge panel with left-aligned text and a horizontal recipe: decorative input slots, the existing animated steel catalyst texture, a progress arrow and a larger Brute Steel output slot without a quantity label. Faster-furnace details appear below.
+- Replaced Primitive Forge info text with a custom visual recipe panel, showing Iron Dust and Coal producing Brute Steel, alternative coal icons, refining instructions and processing times. Keeps the shared 80x160 frame and ends with the faster-furnace note.
+- Added a Primitive Forge information tab at the top, matching Storage Drive placement and 80x160 panel size. Three short paragraphs with blue highlights explain Steel ingredients, faster furnace use and normal recipes processing up to four items per two-second batch in English, Spanish, Brazilian Portuguese and European Portuguese.
+- Removed the obsolete Mortar item icon and sapling/water-bottle recipe. Updated the English and Simplified Chinese water guide to explain placed Mortar leaf crushing, full turns, four water levels and bucket collection, with the 3D block render replacing the old item and recipe images.
+- Added the supplied Primitive Forge facade, preserved pixel-for-pixel as four 16x16 front textures that form a shared 32x32 face after assembly. Side faces reconstruct uninterrupted red bricks and brown borders; the roof repeats the brown border pattern. All four orientations are supported. Unassembled casings use a 16x16 texture reconstructed from the same central red bricks.
+- Added English descriptions to all eight Hammers explaining block conversion and ore crushing into dust.
+- Added the Mortar tooltip: "Breaks down leaves into water".
+- Added vanilla Mortar sounds: dig.grass when inserting leaves, use.grass while grinding leaves, and bucket.fill_water when collecting a full bucket.
+- Converted Mortar into a placeable block with a square hollow bowl, thick walls and an inclined pestle. Uses vanilla Cobblestone texture at native pixel scale, preserves existing crafting recipes and has eight pestle poses controlled by bone visibility. It starts in a corner; each empty-hand interaction advances one frame through the four corners and four sides. Accepts any block item ending in leaves, with four shared units of leaves/water capacity. Each complete eight-step turn crushes one leaf into 250 mB of water; a full mortar fills one bucket. Top-only content surfaces show four levels with Oak Leaves or water textures.
+- Updated the English and Simplified Chinese steel guide for Primitive Forge assembly, separate fuel, all eight ingredient variants and batch timings; removed the obsolete Smeltflare and Brute Steel crafting images from that section.
+- Removed the old crafting-table recipe that combined Raw Iron, Coal and Smeltflare into Brute Steel. Primitive Forge recipes and existing Brute Steel refining recipes remain available.
+- Removed the Bionic Arm test item, its unused texture registration and all localized names.
+- Gas Pipes now use Lead Nuggets instead of Steel Nuggets; Gas Pipe and Gas Extractor unlocks now use Lead Ingots. Patterns and output counts are unchanged.
+- Added the complete Lead material family, ore drops, sieve/press/crusher/furnace recipes and Creative/localized entries migrated from Heavy Machinery. Added shared Oxygen, Hydrogen, Sulfuric Acid and Heavy Water UI bars and tank entities/textures with unchanged identifiers.
+- Synchronized DoriosCore with Heavy Machinery, including safe multiblock controller resolution, deactivation cleanup and component waterlogging.
+- Liquid and gas bar tooltips now identify their resource category, including empty tanks.
+- Reworked Fluid and Gas Tank recipes to use one glass block and their corresponding transport pipes, with upgrades now requiring only one tank from the previous tier.
+- Increased the Creative Battery's sustained network transfer rate from 10 kDE/t to 1 GDE/t.
 - Reworked item, liquid and gas machine IO so the default face is passive: it does not pull or push automatically, but accepts insertion through `anyInput` and allows extraction through `anyOutput`.
 - Moved the fully blocking `disabled` mode to the end of every machine IO cycle and gave it a distinct black-and-yellow hazard outline.
+- Added explicit `Default` and `Disabled` choices to Link Node IO, with new and unconfigured nodes using the machine's independent `anyInput` and `anyOutput` declarations.
+- Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Fixed liquid and gas displays generating invalid NaN bar items at zero capacity; they now show an empty frame and 0%.
+- Updated Methane tank and static UI sprites to match the current green gas-bar texture.
+- Restricted multiblock entity lookup and deactivation to live dorios:multiblock controllers, preventing hide events and removal from targeting players, dropped items or visual entities.
+- Kept the Electrolyzer paired recipe hover background at the full 42x18 button size with a dedicated nine-slice copy of the vanilla hover texture, preserving its border and both output icons.
+- Aligned the Electrolyzer two-output recipe selector with the standard recipe button inside the scrolling viewport, preventing it from being clipped off-screen. Explicitly forwards the initial selection to its native toggle, retaining both output icons and their shared tooltip.
+- Aligned fluid recipe item overlays with their slots, placed fluid sprites below the bar frames, moved energy to the right in expanded recipe views, and removed the recipe list's extra top pixel.
+- Disabled interaction and focus on Primitive Forge decorative recipe slots, centered the recipe row and inset its descriptive labels by two pixels.
+- Fixed Primitive Forge info recipe slots reporting unknown collection_index properties by placing them inside a container_items collection panel.
+- Tightened Mortar selection to its 14x7x14 bowl and repositioned its pestle to rest on the interior floor and rim.
+- Fixed resource Trash Can placement by initializing the entity scoreboard identity before liquid/gas storage; already placed sinks with missing identities recover on their next tick.
+- Anchored machine I/O resource tabs at the upper-left corner in a fixed-height container, without leaving empty rows for unavailable resource types.
+- Fixed repeated machine watcher registration restoring pressed interface buttons before their actions could be detected.
 - Fixed the Assembler assuming every crafted output could stack to 64, so items with smaller maximum stack sizes now craft correctly.
 
 ---
@@ -25,9 +81,11 @@ This update improves cross-addon machine-port compatibility, refreshes Simplifie
 - Removed obsolete Bountiful Crops `*_crop` blocks while retaining the functional `*_seeds` blocks.
 
 ## CHANGED
+- Replaced Electrolyzer, Chemical Converter and all four Gas Generator tier textures with the supplied 16x16 face sprites, including off/on states.
 - Improved Simplified Chinese translations across machines, items, guides, recipes and Bountiful content.
 
 ## FIXED
+- Removed the trailing _liquid suffix from liquid bar display names.
 - Fixed fluid and gas input items without an output container not being consumed after successful insertion.
 
 ## COMPATIBILITY

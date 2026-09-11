@@ -1,0 +1,174 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "utilitycraft:basic_gas_generator",
+			"menu_category": {
+				"category": "construction"
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					],
+					"y_rotation_offset": 180
+				}
+			},
+			"states": {
+				"utilitycraft:on": [
+					false,
+					true
+				]
+			}
+		},
+		"components": {
+			"utilitycraft:gas_container": {},
+			"utilitycraft:gas_generator": {
+				"entity": {
+					"name": "gas_generator",
+					"type": "gas_generator",
+					"inventory_size": 9
+				},
+				"generator": {
+					"energy_cap": 80000,
+					"gas_cap": 32000,
+					"gas_types": 1,
+					"rate_speed_base": 50
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_basic_gas_generator_off_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_basic_gas_generator_off_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_basic_gas_generator_off_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_basic_gas_generator_off_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_basic_gas_generator_off_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_basic_gas_generator_off_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_basic_gas_generator_off_down",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					4,
+					4
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": false,
+			"tag:dorios:generator": {},
+			"tag:dorios:io": {},
+			"tag:utilitycraft:io.gas_generator": {},
+			"tag:dorios:energy": {},
+			"tag:dorios:gas": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('utilitycraft:on') == true ",
+				"components": {
+					"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_basic_gas_generator_on_north",
+					"render_method": "alpha_test"
+				},
+				"north": {
+					"texture": "utilitycraft_basic_gas_generator_on_north",
+					"render_method": "alpha_test"
+				},
+				"south": {
+					"texture": "utilitycraft_basic_gas_generator_on_south",
+					"render_method": "alpha_test"
+				},
+				"east": {
+					"texture": "utilitycraft_basic_gas_generator_on_east",
+					"render_method": "alpha_test"
+				},
+				"west": {
+					"texture": "utilitycraft_basic_gas_generator_on_west",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "utilitycraft_basic_gas_generator_on_up",
+					"render_method": "alpha_test"
+				},
+				"down": {
+					"texture": "utilitycraft_basic_gas_generator_on_down",
+					"render_method": "alpha_test"
+				}
+			},
+					"minecraft:light_emission": 4
+				}
+			}
+		]
+	}
+}

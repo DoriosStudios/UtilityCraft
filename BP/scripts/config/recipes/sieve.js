@@ -68,6 +68,7 @@ export const sieveRecipes = {};
 
 const sieveRecipesRegister = {
   "minecraft:gravel": [
+{ item: "utilitycraft:lead_chunk", amount: 1, chance: 0.04, tier: 4 },
     { item: "minecraft:flint", amount: 1, chance: 0.2, tier: 0 },
     { item: "utilitycraft:dripstone_pebble", amount: 1, chance: 0.15, tier: 1 },
     { item: "utilitycraft:iron_chunk", amount: 1, chance: 0.15, tier: 1 },
@@ -153,6 +154,7 @@ const sieveRecipesRegister = {
     { item: "utilitycraft:shulker_shell_shard", amount: 1, chance: 0.005, tier: 6 },
   ],
   "utilitycraft:crushed_cobbled_deepslate": [
+{ item: "utilitycraft:deepslate_lead_chunk", amount: 1, chance: 0.04, tier: 4 },
     { item: "minecraft:echo_shard", amount: 1, chance: 0.025, tier: 5 },
     { item: "minecraft:sculk_catalyst", amount: 1, chance: 0.005, tier: 5 },
     { item: "utilitycraft:geode", amount: 1, chance: 0.025, tier: 5 },
@@ -167,6 +169,7 @@ const sieveRecipesRegister = {
   ],
   //Compressed
   "utilitycraft:compressed_gravel": [
+{ item: "utilitycraft:lead_chunk", amount: 9, chance: 0.04, tier: 4 },
     { item: "minecraft:flint", amount: 9, chance: 0.2, tier: 0 },
     { item: "utilitycraft:dripstone_pebble", amount: 9, chance: 0.15, tier: 1 },
     { item: "utilitycraft:iron_chunk", amount: 9, chance: 0.15, tier: 1 },
@@ -229,6 +232,7 @@ const sieveRecipesRegister = {
     { item: "utilitycraft:ancient_debris_chunk", amount: 9, chance: 0.02, tier: 5 },
   ],
   "utilitycraft:compressed_crushed_cobbled_deepslate": [
+{ item: "utilitycraft:deepslate_lead_chunk", amount: 9, chance: 0.04, tier: 4 },
     { item: "minecraft:echo_shard", amount: 9, chance: 0.025, tier: 5 },
     { item: "minecraft:sculk_catalyst", amount: 9, chance: 0.005, tier: 5 },
     { item: "utilitycraft:geode", amount: 9, chance: 0.025, tier: 5 },

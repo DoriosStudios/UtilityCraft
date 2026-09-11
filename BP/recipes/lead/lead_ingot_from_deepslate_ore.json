@@ -1,0 +1,14 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "utilitycraft:lead_ingot_from_deepslate_ore"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "utilitycraft:deepslate_lead_ore",
+		"output": "utilitycraft:lead_ingot"
+	}
+}

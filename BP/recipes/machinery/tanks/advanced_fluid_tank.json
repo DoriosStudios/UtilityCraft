@@ -8,36 +8,45 @@
 			"utilitycraft_workbench"
 		],
 		"key": {
-			"S": {
-				"item": "utilitycraft:advanced_chip"
-			},
 			"R": {
-				"item": "utilitycraft:energized_iron_ingot"
+				"item": "utilitycraft:steel_plate"
 			},
 			"G": {
 				"item": "minecraft:glass"
 			},
+			"C": {
+				"item": "utilitycraft:advanced_chip"
+			},
 			"T": {
 				"item": "utilitycraft:basic_fluid_tank"
+			},
+			"P": {
+				"item": "utilitycraft:fluid_pipe"
 			}
 		},
 		"pattern": [
-			"RTR",
-			"TST",
-			"RGR"
+			"RGR",
+			"CTC",
+			"RPR"
 		],
 		"result": {
 			"item": "utilitycraft:advanced_fluid_tank"
 		},
 		"unlock": [
 			{
-				"item": "utilitycraft:energized_iron_ingot"
+				"item": "utilitycraft:steel_plate"
+			},
+			{
+				"item": "minecraft:glass"
 			},
 			{
 				"item": "utilitycraft:advanced_chip"
 			},
 			{
 				"item": "utilitycraft:basic_fluid_tank"
+			},
+			{
+				"item": "utilitycraft:fluid_pipe"
 			}
 		]
 	}

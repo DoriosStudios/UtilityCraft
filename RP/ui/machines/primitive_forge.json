@@ -1,0 +1,481 @@
+{
+  "namespace": "primitive_forge",
+  "utility_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "container_gamepad_helpers@common.container_gamepad_helpers": {}
+      },
+      {
+        "flying_item_renderer@common.flying_item_renderer": {
+          "layer": 40
+        }
+      },
+      {
+        "selected_item_details_factory@common.selected_item_details_factory": {}
+      },
+      {
+        "item_lock_notification_factory@common.item_lock_notification_factory": {}
+      },
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "controls": [
+            {
+              "common_panel@common.common_panel": {}
+            },
+            {
+              "chest_panel": {
+                "type": "panel",
+                "layer": 5,
+                "controls": [
+                  {
+                    "primitive_forge_top@primitive_forge.primitive_forge_top": {}
+                  },
+                  {
+                    "inventory_panel_bottom_half@common.inventory_panel_bottom_half": {}
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {}
+                  },
+                  {
+                    "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                  }
+                ]
+              }
+            },
+            {
+              "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+              "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "primitive_forge_top": {
+    "type": "collection_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [
+      162,
+      72
+    ],
+    "offset": [
+      -10,
+      -40
+    ],
+    "collection_name": "container_items",
+    "$item_collection_name": "container_items",
+    "controls": [
+      {
+        "title@uc.machine_name": {}
+      },
+      {
+        "iron@common.container_item": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "collection_index": 0,
+          "offset": [
+            -40,
+            14
+          ],
+          "size": [
+            18,
+            18
+          ],
+          "$cell_image_size": [
+            18,
+            18
+          ]
+        }
+      },
+      {
+        "coal@common.container_item": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "collection_index": 1,
+          "offset": [
+            -18,
+            14
+          ],
+          "size": [
+            18,
+            18
+          ],
+          "$cell_image_size": [
+            18,
+            18
+          ]
+        }
+      },
+      {
+        "fuel@uc.item_display": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "collection_index": 4,
+          "offset": [
+            -29,
+            33
+          ]
+        }
+      },
+      {
+        "progress@uc.progress_display": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "collection_index": 3,
+          "offset": [
+            12,
+            25
+          ]
+        }
+      },
+      {
+        "output@common.container_item": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "collection_index": 2,
+          "offset": [
+            54,
+            29
+          ],
+          "size": [
+            26,
+            26
+          ],
+          "$cell_image_size": [
+            26,
+            26
+          ]
+        }
+      },
+      {
+        "fuel_input@common.container_item": {
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "collection_index": 5,
+          "offset": [
+            -29,
+            52
+          ],
+          "size": [
+            18,
+            18
+          ],
+          "$cell_image_size": [
+            18,
+            18
+          ]
+        }
+      },
+      {
+        "info_tab@uc.info_tab": {
+          "offset": [0, -52],
+          "$info_panel_size": [
+            80,
+            160
+          ],
+          "$info_content": "primitive_forge.forge_info_content",
+          "$info_description": ""
+        }
+      }
+    ]
+  },
+  "forge_info_content": {
+    "type": "stack_panel",
+    "size": [
+      "100% - 20px",
+      "default"
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "orientation": "vertical",
+    "controls": [
+      {
+        "recipe_title": {
+          "type": "label",
+          "text": "ui.utilitycraft:forge_info.recipe",
+          "size": [
+            "100% - 2px",
+            "default"
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.7,
+          "layer": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            2,
+            0
+          ]
+        }
+      },
+      {
+        "recipe_slots": {
+          "type": "panel",
+          "size": [
+            "100%",
+            32
+          ],
+          "controls": [
+            {
+              "centered_recipe": {
+                "type": "collection_panel",
+                "size": [
+                  92,
+                  32
+                ],
+                "controls": [
+                  {
+                    "iron_slot@common.container_item": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        0,
+                        7
+                      ],
+                      "size": [
+                        18,
+                        18
+                      ],
+                      "$cell_image_size": [
+                        18,
+                        18
+                      ],
+                      "collection_index": 100,
+                      "layer": 1,
+                      "enabled": false,
+                      "focus_enabled": false,
+                      "focus_magnet_enabled": false
+                    }
+                  },
+                  {
+                    "iron_icon": {
+                      "type": "image",
+                      "texture": "textures/items/dusts/iron_dust",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        1,
+                        8
+                      ],
+                      "size": [
+                        16,
+                        16
+                      ],
+                      "layer": 5
+                    }
+                  },
+                  {
+                    "catalyst_slot@common.container_item": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        20,
+                        7
+                      ],
+                      "size": [
+                        18,
+                        18
+                      ],
+                      "$cell_image_size": [
+                        18,
+                        18
+                      ],
+                      "collection_index": 101,
+                      "layer": 1,
+                      "enabled": false,
+                      "focus_enabled": false,
+                      "focus_magnet_enabled": false
+                    }
+                  },
+                  {
+                    "catalyst_icon": {
+                      "type": "image",
+                      "texture": "textures/static/images/steel_catalyst_flipbook",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        21,
+                        8
+                      ],
+                      "size": [
+                        16,
+                        16
+                      ],
+                      "layer": 5,
+                      "uv": "@uc.steel_catalyst_animation",
+                      "uv_size": [
+                        16,
+                        16
+                      ]
+                    }
+                  },
+                  {
+                    "result_slot@common.container_item": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        66,
+                        3
+                      ],
+                      "size": [
+                        26,
+                        26
+                      ],
+                      "$cell_image_size": [
+                        26,
+                        26
+                      ],
+                      "collection_index": 102,
+                      "layer": 1,
+                      "enabled": false,
+                      "focus_enabled": false,
+                      "focus_magnet_enabled": false
+                    }
+                  },
+                  {
+                    "result_icon": {
+                      "type": "image",
+                      "texture": "textures/items/ores/raw_steel",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        71,
+                        8
+                      ],
+                      "size": [
+                        16,
+                        16
+                      ],
+                      "layer": 5
+                    }
+                  },
+                  {
+                    "progress": {
+                      "type": "image",
+                      "texture": "textures/ui/progress_bar/arrow_right_22",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "offset": [
+                        40,
+                        4
+                      ],
+                      "size": [
+                        24,
+                        24
+                      ],
+                      "layer": 5
+                    }
+                  }
+                ],
+                "collection_name": "container_items",
+                "$item_collection_name": "container_items",
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "steel_time": {
+          "type": "label",
+          "text": "ui.utilitycraft:forge_info.steel_time",
+          "size": [
+            "100% - 2px",
+            "default"
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.7,
+          "layer": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            2,
+            0
+          ]
+        }
+      },
+      {
+        "spacing": {
+          "type": "panel",
+          "size": [
+            "100%",
+            6
+          ]
+        }
+      },
+      {
+        "footer": {
+          "type": "label",
+          "text": "ui.utilitycraft:forge_info.footer",
+          "size": [
+            "100% - 2px",
+            "default"
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.7,
+          "layer": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            2,
+            0
+          ]
+        }
+      },
+      {
+        "normal_time_spacing": {
+          "type": "panel",
+          "size": [
+            "100%",
+            5
+          ]
+        }
+      },
+      {
+        "normal_time": {
+          "type": "label",
+          "text": "ui.utilitycraft:forge_info.normal_time",
+          "size": [
+            "100% - 2px",
+            "default"
+          ],
+          "text_alignment": "left",
+          "color": [
+            0.3,
+            0.3,
+            0.3
+          ],
+          "font_scale_factor": 0.7,
+          "layer": 1,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [
+            2,
+            0
+          ]
+        }
+      }
+    ]
+  }
+}

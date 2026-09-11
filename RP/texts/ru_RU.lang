@@ -54,10 +54,10 @@ tile.utilitycraft:cobble_gen_5.name=Генератор булыжника (§jTi
 tile.utilitycraft:mechanic_hopper.name=Механический бункер\n§7- Принимаемые обновления:\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Механический верхний\n§7- Принимаемые обновления:\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eБазовый бак для жидкости\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cУсовершенствованный бак для жидкости\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bБачок для экспертной жидкости\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Идеальный бак для жидкости\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eБазовый бак для жидкости\n§7- Максимальная вместимость: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cУсовершенствованный бак для жидкости\n§7- Максимальная вместимость: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bБачок для экспертной жидкости\n§7- Максимальная вместимость: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Идеальный бак для жидкости\n§7- Максимальная вместимость: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Бонсаис Обильные
 tile.utilitycraft:bonsai.name=Бонсай\n§o§9@UtilityCraft
 
@@ -419,14 +419,14 @@ item.utilitycraft:stone_paxel=Каменный Паксель\n§o§9@UtilityCra
 item.utilitycraft:wooden_paxel=Деревянный Паксел\n§o§9@UtilityCraft
 
 -- Hammers =## Мартелос
-item.utilitycraft:golden_hammer=Золотой Молот\n§o§9@UtilityCraft
-item.utilitycraft:netherite_hammer=Незеритовый молот\n§o§9@UtilityCraft
-item.utilitycraft:diamond_hammer=Алмазный молот\n§o§9@UtilityCraft
-item.utilitycraft:steel_hammer=Стальной молот\n§o§9@UtilityCraft
-item.utilitycraft:iron_hammer=Железный молот\n§o§9@UtilityCraft
-item.utilitycraft:copper_hammer=Медный молот\n§o§9@UtilityCraft
-item.utilitycraft:stone_hammer=Каменный молот\n§o§9@UtilityCraft
-item.utilitycraft:wooden_hammer=Деревянный молоток\n§o§9@UtilityCraft
+item.utilitycraft:golden_hammer=Золотой Молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:netherite_hammer=Незеритовый молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:diamond_hammer=Алмазный молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:steel_hammer=Стальной молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:iron_hammer=Железный молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:copper_hammer=Медный молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:stone_hammer=Каменный молот\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
+item.utilitycraft:wooden_hammer=Деревянный молоток\n§7- Дробит блоки, превращая их в другие блоки\n§7- Дробит рудные блоки в пыль\n§o§9@UtilityCraft
 
 -- Steel =## Асо
 item.utilitycraft:steel_sword=Стальной меч\n§o§9@UtilityCraft
@@ -439,7 +439,6 @@ item.utilitycraft:steel_hoe=Стальная мотыга\n§o§9@UtilityCraft
 item.utilitycraft:lucky_pickaxe=§aСчастливая кирка\n§o§9@UtilityCraft
 item.utilitycraft:lucky_sword=§aСчастливый меч\n§o§9@UtilityCraft
 item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7 — плавит руду при ее разрушении.\n§o§9@UtilityCraft
-item.utilitycraft:bionic_arm=Бионическая рука (тест)\n§o§9@UtilityCraft
 item.utilitycraft:lucky_fishing_rod=§aСчастливая удочка\n§o§9@UtilityCraft
 
 -- Drills =## Брокас
@@ -554,7 +553,7 @@ item.utilitycraft:infinite_enderpearl=Бесконечная жемчужина 
 item.utilitycraft:raw_leather=Необработанная кожа\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=Зелье-противоядие\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=Всплеск зелья противоядия\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Гаечный ключ §r\n§7- Вращает машину при подкрадывании §r\n§7- Убирает транспортные средства\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Гаечный ключ §r\n§7- Вращает машину при подкрадывании §r\n§7- Активирует многоблочные структуры машин\n§o§9@UtilityCraft
 
 - Saplings =## Мудас
 item.utilitycraft:apple_sapling=Саженец яблони\n§o§9@UtilityCraft
@@ -813,7 +812,6 @@ tile.utilitycraft:item_exporter_blue.name=Экспортер предметов 
 tile.utilitycraft:item_exporter_red.name=Экспортер предметов (красный)\n§7- Принимаемые обновления:\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_yellow.name=Экспортер предметов (желтый)\n§7- Принимаемые обновления:\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_purple.name=Экспортер предметов (фиолетовый)\n§7- Принимаемые обновления:\n §a§7 §f§7\n§o§9@UtilityCraft
-item.utilitycraft:mortar=миномет\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor.name=Экстрактор жидкости (по умолчанию)\n§7- Допустимые обновления:\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_blue.name=Экстрактор жидкости (синий)\n§7- Допустимые обновления:\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_green.name=Экстрактор жидкости (зеленый)\n§7- Допустимые обновления:\n §a§7\n§o§9@UtilityCraft
@@ -860,7 +858,7 @@ tile.utilitycraft:blaze_block.name=Пылающее ядро\n§o§9@UtilityCraf
 item.utilitycraft:crushed_kelp=Измельченная водоросль\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=Базовый мусорный бак\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Мусорный бак для предметов\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§eБазовый передатчик энергии \n §7 Скорость: 1 kDE/t\n §7 Емкость: 64 kDE\n §7 Диапазон: 32 блока\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§cУсовершенствованный передатчик энергии \n §7 Скорость: 4 kDE/t\n §7 Емкость: 256 kDE\n §7 Диапазон: 64 блока\n§o§9@UtilityCraft
@@ -1038,3 +1036,52 @@ tile.utilitycraft:compressed_nether_star_block.name=Сжатый блок звё
 tile.utilitycraft:compressed_nether_star_block_2.name=Блок звёзд Незера с двойным сжатием\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Тройной сжатый блок звёзд Незера\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Четырехкратный сжатый блок звёзд Незера\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eГазовый бак (Базовый)\n§7- Максимальная вместимость: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cГазовый бак (Продвинутый)\n§7- Максимальная вместимость: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bГазовый бак (Экспертный)\n§7- Максимальная вместимость: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Газовый бак (Предельный)\n§7- Максимальная вместимость: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Газовая труба\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Газовая труба (Синий)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Газовая труба (Зелёный)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Газовая труба (Красный)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Газовая труба (Оранжевый)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Газовая труба (Жёлтый)\n§7- Транспортирует газы\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Газовый экстрактор\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Газовый экстрактор (Синий)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Газовый экстрактор (Зелёный)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Газовый экстрактор (Красный)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Газовый экстрактор (Оранжевый)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Газовый экстрактор (Жёлтый)\n§7- Допустимые улучшения:\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Творческий бак: Серная кислота\n§7- Бесконечный запас: Серная кислота\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Творческий бак: Тяжёлая вода\n§7- Бесконечный запас: Тяжёлая вода\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Творческий бак: Водород\n§7- Бесконечный запас: Водород\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Творческий бак: Кислород\n§7- Бесконечный запас: Кислород\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Творческий бак: Метан\n§7- Бесконечный запас: Метан\n§o§9@UtilityCraft
+
+## Primitive Forge
+tile.utilitycraft:primitive_forge.name=Примитивная кузница\n§7- Постройте конструкцию 2x2x2 для активации\n§7- Используется для ковки сырой стали\n§o§9@UtilityCraft
+entity.utilitycraft:primitive_forge.name=Примитивная кузница
+
+tile.utilitycraft:mortar.name=Ступка\n§7- Измельчает листья для получения воды\n§o§9@UtilityCraft
+howtoplay.uc:first_steps_steel=Первые шаги к стали
+howtoplay.uc:first_steps_steel.title=UtilityCraft - Первые шаги к стали
+howtoplay.utilitycraft.first_steps_steel.h1=Строительство примитивной кузницы
+howtoplay.utilitycraft.first_steps_steel.h2=Создание сырой стали
+howtoplay.utilitycraft.first_steps_steel.h3=Создание Workbench
+howtoplay.utilitycraft.first_steps_steel.h4=Эра машин
+howtoplay.utilitycraft.first_steps_steel.p1=Вы уже умеете добывать ресурсы, воду, лаву и булыжник.
+howtoplay.utilitycraft.first_steps_steel.p2=Теперь можно создать сталь и перейти к эре машин.
+howtoplay.utilitycraft.first_steps_steel.p3=Разместите 4 кирпича по углам, 3 комка глины сверху по центру и по бокам, а 1 плиту из саманных кирпичей снизу по центру. Центр оставьте пустым. Рецепт даёт 4 блока кузницы. Выполните его дважды и соберите из 8 блоков сплошной куб 2x2x2. Кузница сформируется автоматически; последний блок определяет переднюю сторону.
+howtoplay.utilitycraft.first_steps_steel.p4=Откройте контейнер в центре передней стороны. Два верхних слота предназначены для ингредиентов, нижний — для топлива. Стрелка показывает прогресс, пламя — остаток топлива. Одна единица угля в топливном слоте позволяет обработать 8 единиц рецепта.
+howtoplay.utilitycraft.first_steps_steel.p5=Соедините железную пыль с углём, древесным углём или их пылью. Каждый рецепт расходует по одному ингредиенту и даёт 1 сырую сталь. При наличии топлива кузница обрабатывает до 4 рецептов за 8 секунд.
+howtoplay.utilitycraft.first_steps_steel.p6=Переплавьте сырую сталь в стальные слитки. Используйте печь, SmeltFlare или кузницу с одним пустым слотом ингредиентов. Обычные рецепты обрабатывают до 4 единиц за 2 секунды. При разборке кузницы содержимое возвращается.
+howtoplay.utilitycraft.first_steps_steel.p7=Перед созданием сложных систем изготовьте Workbench. В нём создаются машины, генераторы и улучшения.
+howtoplay.utilitycraft.first_steps_steel.p8=Это рецепт Workbench.
+howtoplay.utilitycraft.first_steps_steel.p9=Вы достигли эры машин: производство с энергией, хранение и автоматизация.
+howtoplay.utilitycraft.first_steps_steel.p10=Запасите сталь, железо, медь, редстоун и уголь для первых машин и улучшений.
+howtoplay.utilitycraft.first_steps_steel.p11=Создайте первые машины, подключите их к источнику энергии и начните автоматизацию.
+howtoplay.utilitycraft.first_steps_steel.forge_render=Собранная примитивная кузница: конструкция 2x2x2.
+ui.utilitycraft:forge_info.recipe=Примитивная кузница создаёт §9сырую сталь§8:
+ui.utilitycraft:forge_info.steel_time=§98 секунд на партию
+ui.utilitycraft:forge_info.normal_time=Обычные рецепты: до 4 единиц за 2 секунды.
+ui.utilitycraft:forge_info.footer=Также работает как ускоренная печь

@@ -48,6 +48,7 @@
       },
       {
         "io_tab@uc.io_tab": {
+          "$io_toggle_offset": [109, -25],
           "$io_items_modes_description": "ui.utilitycraft:io.furnator.items",
           "$has_item_io": true,
           "$has_fluid_io": false,
@@ -67,6 +68,8 @@
       },
       {
         "info_tab@uc.info_tab": {
+          "offset": [0, -26],
+          "$info_panel_size": [80,134],
           "$info_description": "ui.utilitycraft:info.furnator"
         }
       }

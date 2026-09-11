@@ -1,0 +1,41 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:forge_render_6"
+    },
+    "components": {
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_primitive_forge",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "utilitycraft_primitive_forge_side_bricks",
+          "render_method": "opaque"
+        },
+        "down": {
+          "texture": "utilitycraft_primitive_forge_bottom",
+          "render_method": "opaque"
+        },
+        "north": {
+          "texture": "utilitycraft_primitive_forge_top_left",
+          "render_method": "opaque"
+        },
+        "south": {
+          "texture": "utilitycraft_primitive_forge_side_bricks",
+          "render_method": "opaque"
+        },
+        "east": {
+          "texture": "utilitycraft_primitive_forge_side_bricks",
+          "render_method": "opaque"
+        },
+        "west": {
+          "texture": "utilitycraft_primitive_forge_side_bricks",
+          "render_method": "opaque"
+        }
+      }
+    }
+  }
+}

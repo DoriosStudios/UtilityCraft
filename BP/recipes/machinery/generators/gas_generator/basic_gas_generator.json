@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:basic_gas_generator"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "utilitycraft:gold_plate"
+			},
+			"B": {
+				"item": "furnace"
+			},
+			"S": {
+				"item": "utilitycraft:lead_plate"
+			},
+			"D": {
+				"item": "utilitycraft:basic_gas_tank"
+			},
+			"E": {
+				"item": "utilitycraft:basic_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"SES"
+		],
+		"result": {
+			"item": "utilitycraft:basic_gas_generator"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:basic_chip"
+			}
+		]
+	}
+}

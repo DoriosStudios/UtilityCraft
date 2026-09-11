@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:lead_chunks_to_ore"
+		},
+		"tags": [
+			"crafting_table"
+		],
+		"key": {
+			"C": {
+				"item": "utilitycraft:lead_chunk"
+			}
+		},
+		"pattern": [
+			"CC",
+			"CC"
+		],
+		"result": {
+			"item": "utilitycraft:lead_ore"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:lead_chunk"
+			}
+		]
+	}
+}

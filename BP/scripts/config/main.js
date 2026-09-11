@@ -25,6 +25,7 @@ import './recipes/crafter.js';
 import './recipes/crusher.js';
 import './recipes/fuel.js';
 import './recipes/furnace.js';
+import './recipes/primitiveForge.js';
 import './recipes/infuser.js';
 import './recipes/melter.js';
 import './recipes/press.js';
@@ -32,3 +33,6 @@ import './recipes/sieve.js';
 import './recipes/fisher.js';
 import './recipes/plants.js';
 import './recipes/plantRegistry.js';
+
+import './recipes/electrolyzer.js';
+import './recipes/chemical_converter.js';

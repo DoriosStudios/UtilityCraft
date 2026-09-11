@@ -1,0 +1,53 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:expert_gas_tank"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"R": {
+				"item": "utilitycraft:lead_plate"
+			},
+			"G": {
+				"item": "minecraft:glass"
+			},
+			"C": {
+				"item": "utilitycraft:expert_chip"
+			},
+			"T": {
+				"item": "utilitycraft:advanced_gas_tank"
+			},
+			"P": {
+				"item": "utilitycraft:gas_pipe"
+			}
+		},
+		"pattern": [
+			"RGR",
+			"CTC",
+			"RPR"
+		],
+		"result": {
+			"item": "utilitycraft:expert_gas_tank"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:lead_plate"
+			},
+			{
+				"item": "minecraft:glass"
+			},
+			{
+				"item": "utilitycraft:expert_chip"
+			},
+			{
+				"item": "utilitycraft:advanced_gas_tank"
+			},
+			{
+				"item": "utilitycraft:gas_pipe"
+			}
+		]
+	}
+}

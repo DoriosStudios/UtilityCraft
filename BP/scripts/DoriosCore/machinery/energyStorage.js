@@ -598,6 +598,8 @@ export class EnergyStorage {
    * - Caches the list sorted by distance for performance.
    * - Removes stale `pos:`/`net:` tags when a cached position no longer has an
    *   entity in the `dorios:energy_container` family.
+   * - Treats infinite storages as having enough energy for the requested batch,
+   *   so scheduler scaling does not reduce their sustained transfer rate.
    *
    * ## Transfer Modes
    * - `"nearest"` → Transfers to the closest valid target first.
@@ -610,7 +612,8 @@ export class EnergyStorage {
    */
   transferToNetwork(speed, mode) {
     mode = mode ?? this.entity.getDynamicProperty("transferMode");
-    let available = this.get();
+    const isInfinite = this.entity.hasTag(Constants.INFINITE_STORAGE_TAG);
+    let available = isInfinite ? speed : this.get();
     speed = Math.min(available, speed);
     if (available <= 0 || speed <= 0) return 0;
 

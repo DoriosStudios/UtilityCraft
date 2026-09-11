@@ -1,5 +1,12 @@
 import * as Constants from "./constants.js";
 
+/** Only live multiblock controllers may receive controller events. */
+export function isMultiblockEntity(entity) {
+  return entity?.isValid === true
+    && entity.typeId !== "minecraft:player"
+    && entity.getComponent("minecraft:type_family")?.hasTypeFamily(Constants.MULTIBLOCK_FAMILY) === true;
+}
+
 export class EntityManager {
   /**
    * Returns the geometric center of a bounding box.
@@ -49,21 +56,36 @@ export class EntityManager {
   }
 
   /**
-   * Resolves the controller entity associated with a block.
+   * Resolves the helper entity stored directly on a multiblock controller.
    *
-   * Resolution strategy:
-   * - First tries the entity directly stored at the exact block location.
-   * - Falls back to nearby entities in the `dorios:multiblock` family.
-   * - Uses serialized multiblock bounds to determine ownership.
+   * The supplied permutation must carry the controller tag. Passing the broken
+   * permutation allows this lookup to remain safe in post-break callbacks where
+   * the current block has already become air.
    *
-   * @param {import("@minecraft/server").Block} block Block belonging to or representing a multiblock.
+   * @param {import("@minecraft/server").Block} block Controller block location.
+   * @param {import("@minecraft/server").BlockPermutation} [permutation=block.permutation] Current or pre-break controller permutation.
    * @returns {import("@minecraft/server").Entity | undefined} Matching controller entity if one is found.
+   */
+  static getControllerEntityFromBlock(block, permutation = block?.permutation) {
+    if (!block || !permutation?.hasTag(Constants.MULTIBLOCK_CONTROLLER_TAG)) return;
+
+    return block.dimension
+      .getEntitiesAtBlockLocation(block.location)
+      .find(isMultiblockEntity);
+  }
+
+  /**
+   * Resolves the active multiblock structure that owns a general block position.
+   *
+   * Only nearby `dorios:multiblock` entities whose serialized bounds contain
+   * the position and whose state is active are eligible. Direct entities at the
+   * block location are intentionally ignored.
+   *
+   * @param {import("@minecraft/server").Block} block Block inside an active multiblock structure.
+   * @returns {import("@minecraft/server").Entity | undefined} Owning controller entity if one is found.
    */
   static getEntityFromBlock(block) {
     if (!block) return;
-
-    const directEntity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
-    if (directEntity) return directEntity;
 
     return block.dimension
       .getEntities({
@@ -72,6 +94,11 @@ export class EntityManager {
         families: [Constants.MULTIBLOCK_FAMILY],
       })
       .find((entity) => {
+        if (!isMultiblockEntity(entity)) return false;
+        if (entity.getDynamicProperty(Constants.STATE_PROPERTY_ID) !== Constants.ACTIVE_STATE_VALUE) {
+          return false;
+        }
+
         const raw = entity.getDynamicProperty(Constants.BOUNDS_PROPERTY_ID);
         if (!raw) return false;
 

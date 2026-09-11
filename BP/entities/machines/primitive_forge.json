@@ -1,0 +1,56 @@
+{
+  "format_version": "1.19.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "utilitycraft:primitive_forge",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "dorios:container",
+          "utilitycraft:primitive_forge"
+        ]
+      },
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 1,
+        "min": 1
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 0.5
+      },
+      "minecraft:inventory": {
+        "inventory_size": 6,
+        "container_type": "container",
+        "private": false,
+        "restrict_to_owner": false
+      }
+    }
+  }
+}

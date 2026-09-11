@@ -1,7 +1,6 @@
 import { world } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { DeactivationManager } from "./deactivationManager.js";
-import { EntityManager } from "./entityManager.js";
 
 /**
  * Global multiblock listeners.
@@ -15,9 +14,6 @@ world.afterEvents.playerBreakBlock.subscribe((e) => {
   const isCase = tags.some((tag) => tag.startsWith(Constants.MULTIBLOCK_CASE_TAG_PREFIX));
   if (!isCase) return;
 
-  const entity = EntityManager.getEntityFromBlock(block);
-  if (!entity) return;
-
   DeactivationManager.deactivateMultiblock(block, player, { blockId: "minecraft:water" });
 });
 
@@ -26,9 +22,6 @@ world.afterEvents.blockExplode.subscribe((e) => {
   const tags = explodedBlockPermutation.getTags();
   const isCase = tags.some((tag) => tag.startsWith(Constants.MULTIBLOCK_CASE_TAG_PREFIX));
   if (!isCase) return;
-
-  const entity = EntityManager.getEntityFromBlock(block);
-  if (!entity) return;
 
   DeactivationManager.deactivateMultiblock(block, undefined, { blockId: "minecraft:water" });
 });

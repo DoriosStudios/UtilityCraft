@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "utilitycraft:expert_gas_generator"
+		},
+		"tags": [
+			"utilitycraft_workbench"
+		],
+		"key": {
+			"G": {
+				"item": "utilitycraft:diamond_dust"
+			},
+			"B": {
+				"item": "utilitycraft:advanced_gas_generator"
+			},
+			"S": {
+				"item": "utilitycraft:lead_plate"
+			},
+			"D": {
+				"item": "utilitycraft:expert_gas_tank"
+			},
+			"E": {
+				"item": "utilitycraft:expert_chip"
+			}
+		},
+		"pattern": [
+			"GDG",
+			"EBE",
+			"SES"
+		],
+		"result": {
+			"item": "utilitycraft:expert_gas_generator"
+		},
+		"unlock": [
+			{
+				"item": "utilitycraft:expert_chip"
+			}
+		]
+	}
+}

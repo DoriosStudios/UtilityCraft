@@ -7,6 +7,7 @@ import * as DoriosGas from "../../DoriosCore/machinery/gasContainers.js";
 import { DIRECTIONS } from "../../DoriosCore/utils/directions.js";
 import { formatIdentifier } from "../../DoriosLib/text/index.js";
 import { isLinkedEntity } from "../../DoriosLib/linkNodes/index.js";
+import { isIOFaceDisabled } from "../../DoriosLib/containers/ioFaceState.js";
 import { getPersistentUpgradeLevel } from "../upgradeable.js";
 import {
   NETWORK_OFFSETS,
@@ -452,6 +453,26 @@ function getSourceAccess(runtime, dimension) {
   return runtime.sourceAccess;
 }
 
+/**
+ * A whitelist is an explicit request to recover selected gas types, so it may
+ * inspect both registered output and input tanks. Disabled direct faces remain
+ * an absolute block. Link nodes keep their own per-resource policy.
+ *
+ * @param {ResolvedGasContainer} resolved
+ * @param {GasFace} face
+ * @returns {number[]}
+ */
+function getFilteredSourceIndices(resolved, face) {
+  if (resolved.entity
+    && resolved.via !== "link_node"
+    && isIOFaceDisabled(resolved.entity, "gases", face)) return [];
+
+  return [...new Set([
+    ...DoriosGas.getGasOutputIndices(resolved),
+    ...DoriosGas.getGasInputIndices(resolved),
+  ])];
+}
+
 /** @param {PersistedGasEndpoint} endpoint */
 function endpointKey(endpoint) {
   const importer = endpoint.importerLocation
@@ -793,8 +814,13 @@ function processGasExporterTick(block, dimension) {
     * (getPersistentUpgradeLevel(block, "utilitycraft:speed", 4) + 1);
   const sourceAccess = getSourceAccess(runtime, dimension);
   if (sourceAccess) {
+    const sourceIndices = filterEnabled
+      && runtime.document.filter.mode === "whitelist"
+      && runtime.filterGases.size > 0
+      ? getFilteredSourceIndices(sourceAccess.resolved, runtime.document.source.face)
+      : sourceAccess.indices;
     let attempts = 0;
-    for (const sourceIndex of sourceAccess.indices) {
+    for (const sourceIndex of sourceIndices) {
       if (attempts >= MAX_SOURCE_INDEX_ATTEMPTS) break;
       const storage = DoriosGas.getGasStorage(sourceAccess.resolved, sourceIndex);
       if (!storage || storage.get() <= 0) continue;
@@ -873,7 +899,11 @@ function getSourceGasTypes(runtime, dimension) {
   const access = getSourceAccess(runtime, dimension);
   if (access) {
     const types = new Set();
-    for (const gasIndex of access.indices) {
+    const source = runtime.document.source;
+    const indices = source
+      ? getFilteredSourceIndices(access.resolved, source.face)
+      : access.indices;
+    for (const gasIndex of indices) {
       const storage = DoriosGas.getGasStorage(access.resolved, gasIndex);
       const type = storage?.getType();
       if (storage && storage.get() > 0 && type && type !== "empty") types.add(type);

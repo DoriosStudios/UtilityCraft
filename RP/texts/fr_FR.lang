@@ -49,10 +49,10 @@ tile.utilitycraft:cobble_gen_5.name=Générateur de pavés (§jTier 6§r) \n§7-
 tile.utilitycraft:mechanic_hopper.name=Trémie mécanique\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 tile.utilitycraft:mechanic_upper.name=Mécanicien supérieur\n§7- Mises à niveau acceptées :\n §7, §fFilter§7\n§o§9@UtilityCraft
 ##+
-tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de liquide de base\n§o§9@UtilityCraft
-tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de liquide avancé\n§o§9@UtilityCraft
-tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de liquide expert\n§o§9@UtilityCraft
-tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de liquide ultime\n§o§9@UtilityCraft
+tile.utilitycraft:basic_fluid_tank.name=§eRéservoir de liquide de base\n§7- Capacité maximale: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_fluid_tank.name=§cRéservoir de liquide avancé\n§7- Capacité maximale: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_fluid_tank.name=§bRéservoir de liquide expert\n§7- Capacité maximale: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_fluid_tank.name=§8Réservoir de liquide ultime\n§7- Capacité maximale: 512000 mB\n§o§9@UtilityCraft
 - Bountiful Bonsais =## Bonsaïs abondants
 tile.utilitycraft:bonsai.name=Bonsaï\n§o§9@UtilityCraft
 
@@ -419,14 +419,14 @@ item.utilitycraft:stone_paxel=Paxel en pierre\n§o§9@UtilityCraft
 item.utilitycraft:wooden_paxel=Paxel en bois\n§o§9@UtilityCraft
 
 -- Hammers =## Martelos
-item.utilitycraft:golden_hammer=Marteau d'or\n§o§9@UtilityCraft
-item.utilitycraft:netherite_hammer=Marteau de Netherite\n§o§9@UtilityCraft
-item.utilitycraft:diamond_hammer=Marteau de diamant\n§o§9@UtilityCraft
-item.utilitycraft:steel_hammer=Marteau en acier\n§o§9@UtilityCraft
-item.utilitycraft:iron_hammer=Marteau de fer\n§o§9@UtilityCraft
-item.utilitycraft:copper_hammer=Marteau en cuivre\n§o§9@UtilityCraft
-item.utilitycraft:stone_hammer=Marteau de pierre\n§o§9@UtilityCraft
-item.utilitycraft:wooden_hammer=Marteau en bois\n§o§9@UtilityCraft
+item.utilitycraft:golden_hammer=Marteau d'or\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:netherite_hammer=Marteau de Netherite\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:diamond_hammer=Marteau de diamant\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:steel_hammer=Marteau en acier\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:iron_hammer=Marteau de fer\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:copper_hammer=Marteau en cuivre\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:stone_hammer=Marteau de pierre\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
+item.utilitycraft:wooden_hammer=Marteau en bois\n§7- Broie les blocs pour les transformer en d’autres blocs\n§7- Broie les blocs de minerai en poudre\n§o§9@UtilityCraft
 
 -- Steel =## Aço
 item.utilitycraft:steel_sword=Épée en acier\n§o§9@UtilityCraft
@@ -439,7 +439,6 @@ item.utilitycraft:steel_hoe=Houe en acier\n§o§9@UtilityCraft
 item.utilitycraft:lucky_pickaxe=§aPioche porte-bonheur\n§o§9@UtilityCraft
 item.utilitycraft:lucky_sword=§aÉpée porte-bonheur\n§o§9@UtilityCraft
 item.utilitycraft:smelting_pickaxe=§6Smelting Pickaxe\n§7- Fond les minerais en les cassant\n§o§9@UtilityCraft
-item.utilitycraft:bionic_arm=Bras bionique (Test)\n§o§9@UtilityCraft
 item.utilitycraft:lucky_fishing_rod=§aCanne à pêche chanceuse\n§o§9@UtilityCraft
 
 -- Drills =## Broca
@@ -554,7 +553,7 @@ item.utilitycraft:infinite_enderpearl=Perle Ender infinie\n§o§9@UtilityCraft
 item.utilitycraft:raw_leather=Cuir brut\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion=Potion antidote\n§o§9@UtilityCraft
 item.utilitycraft:antidote_potion_splash=Éclaboussure de potion antidote\n§o§9@UtilityCraft
-item.utilitycraft:wrench=Clé §r\n§7- Fait tourner la machine en se faufilant §r\n§7- Supprime les véhicules\n§o§9@UtilityCraft
+item.utilitycraft:wrench=Clé §r\n§7- Fait tourner la machine en se faufilant §r\n§7- Active les structures de machines multiblocs\n§o§9@UtilityCraft
 
 - Saplings =## Mudas
 item.utilitycraft:apple_sapling=Jeune arbre de pomme\n§o§9@UtilityCraft
@@ -813,7 +812,6 @@ tile.utilitycraft:item_exporter_blue.name=Exportateur d'articles (bleu)\n§7- Mi
 tile.utilitycraft:item_exporter_red.name=Exportateur d'articles (rouge)\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_yellow.name=Exportateur d'articles (jaune)\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
 tile.utilitycraft:item_exporter_purple.name=Exportateur d'articles (violet)\n§7- Mises à niveau acceptées :\n §a§7 §f§7\n§o§9@UtilityCraft
-item.utilitycraft:mortar=Mortier\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor.name=Extracteur de liquide (par défaut)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_blue.name=Extracteur de liquide (bleu)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
 tile.utilitycraft:fluid_extractor_green.name=Extracteur de liquide (vert)\n§7- Mises à niveau acceptées :\n §a§7\n§o§9@UtilityCraft
@@ -860,7 +858,7 @@ tile.utilitycraft:blaze_block.name=Noyau de Blaze\n§o§9@UtilityCraft
 item.utilitycraft:crushed_kelp=Varech écrasé\n§o§9@UtilityCraft
 
 
-tile.utilitycraft:basic_trash_can.name=Poubelle de base\n§o§9@UtilityCraft
+tile.utilitycraft:basic_trash_can.name=Poubelle à objets\n§o§9@UtilityCraft
 
 tile.utilitycraft:basic_energy_transmitter.name=§eTransmetteur d'énergie de base \n §7 Débit : 1 kDE/t\n §7 Capacité : 64 kDE\n §7 Portée : 32 blocs\n§o§9@UtilityCraft
 tile.utilitycraft:advanced_energy_transmitter.name=§cÉmetteur d'énergie avancée \n §7 Débit : 4 kDE/t\n §7 Capacité : 256 kDE\n §7 Portée : 64 blocs\n§o§9@UtilityCraft
@@ -1038,3 +1036,52 @@ tile.utilitycraft:compressed_nether_star_block.name=Bloc d'étoiles du Nether co
 tile.utilitycraft:compressed_nether_star_block_2.name=Bloc d'étoiles du Nether double compressé\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_3.name=Bloc d'étoiles du Nether triple compressé\n§o§9@UtilityCraft
 tile.utilitycraft:compressed_nether_star_block_4.name=Bloc d'étoiles du Nether quadruple compressé\n§o§9@UtilityCraft
+tile.utilitycraft:basic_gas_tank.name=§eRéservoir de gaz (de base)\n§7- Capacité maximale: 8000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:advanced_gas_tank.name=§cRéservoir de gaz (avancé)\n§7- Capacité maximale: 32000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:expert_gas_tank.name=§bRéservoir de gaz (expert)\n§7- Capacité maximale: 128000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:ultimate_gas_tank.name=§8Réservoir de gaz (ultime)\n§7- Capacité maximale: 512000 mB\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe.name=Tuyau de gaz\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_blue.name=Tuyau de gaz (Bleu)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_green.name=Tuyau de gaz (Vert)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_red.name=Tuyau de gaz (Rouge)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_orange.name=Tuyau de gaz (Orange)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_pipe_yellow.name=Tuyau de gaz (Jaune)\n§7- Transporte les gaz\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor.name=Extracteur de gaz\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_blue.name=Extracteur de gaz (Bleu)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_green.name=Extracteur de gaz (Vert)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_red.name=Extracteur de gaz (Rouge)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_orange.name=Extracteur de gaz (Orange)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:gas_extractor_yellow.name=Extracteur de gaz (Jaune)\n§7- Mises à niveau acceptées :\n   §a§7\n§o§9@UtilityCraft
+tile.utilitycraft:creative_sulfuric_acid_tank.name=Réservoir créatif : Acide sulfurique\n§7- Réserve infinie : Acide sulfurique\n§o§9@UtilityCraft
+tile.utilitycraft:creative_heavy_water_tank.name=Réservoir créatif : Eau lourde\n§7- Réserve infinie : Eau lourde\n§o§9@UtilityCraft
+tile.utilitycraft:creative_hydrogen_tank.name=Réservoir créatif : Hydrogène\n§7- Réserve infinie : Hydrogène\n§o§9@UtilityCraft
+tile.utilitycraft:creative_oxygen_tank.name=Réservoir créatif : Oxygène\n§7- Réserve infinie : Oxygène\n§o§9@UtilityCraft
+tile.utilitycraft:creative_methane_tank.name=Réservoir créatif : Méthane\n§7- Réserve infinie : Méthane\n§o§9@UtilityCraft
+
+## Primitive Forge
+tile.utilitycraft:primitive_forge.name=Forge primitive\n§7- Construisez une structure de 2x2x2 pour l’activer\n§7- Permet de forger de l’acier brut\n§o§9@UtilityCraft
+entity.utilitycraft:primitive_forge.name=Forge primitive
+
+tile.utilitycraft:mortar.name=Mortier\n§7- Broie les feuilles pour obtenir de l’eau\n§o§9@UtilityCraft
+howtoplay.uc:first_steps_steel=Premiers pas vers l’acier
+howtoplay.uc:first_steps_steel.title=UtilityCraft - Premiers pas vers l’acier
+howtoplay.utilitycraft.first_steps_steel.h1=Construire la forge primitive
+howtoplay.utilitycraft.first_steps_steel.h2=Créer de l’acier brut
+howtoplay.utilitycraft.first_steps_steel.h3=Fabriquer le Workbench
+howtoplay.utilitycraft.first_steps_steel.h4=Ère des machines
+howtoplay.utilitycraft.first_steps_steel.p1=Vous savez désormais obtenir des ressources, de l’eau, de la lave et des pierres.
+howtoplay.utilitycraft.first_steps_steel.p2=Vous pouvez maintenant fabriquer de l’acier et entrer dans l’ère des machines.
+howtoplay.utilitycraft.first_steps_steel.p3=Placez 4 briques dans les coins, 3 boules d’argile en haut au centre et sur les deux côtés, puis 1 dalle en briques de terre crue en bas au centre. Laissez le centre vide. La recette produit 4 blocs de forge primitive. Réalisez-la deux fois, puis assemblez les 8 blocs en cube plein de 2x2x2. La forge se forme automatiquement ; le dernier bloc détermine la face avant.
+howtoplay.utilitycraft.first_steps_steel.p4=Ouvrez le conteneur au centre de la face avant. Les deux emplacements supérieurs accueillent les ingrédients et celui du bas le combustible. La flèche indique la progression et la flamme le combustible restant. Un charbon comme combustible permet de traiter 8 unités.
+howtoplay.utilitycraft.first_steps_steel.p5=Combinez de la poudre de fer avec du charbon, du charbon de bois ou leurs poudres. Chaque recette consomme un exemplaire de chaque ingrédient et produit 1 acier brut. Avec du combustible, la forge traite jusqu’à 4 recettes en 8 secondes.
+howtoplay.utilitycraft.first_steps_steel.p6=Faites cuire l’acier brut pour obtenir des lingots d’acier. Utilisez un fourneau, SmeltFlare ou la forge avec un emplacement d’ingrédient vide. Les recettes normales traitent jusqu’à 4 unités en 2 secondes. Démonter la forge restitue son contenu.
+howtoplay.utilitycraft.first_steps_steel.p7=Fabriquez un Workbench avant de construire des systèmes avancés. Les machines, générateurs et améliorations s’y fabriquent.
+howtoplay.utilitycraft.first_steps_steel.p8=Voici la recette du Workbench.
+howtoplay.utilitycraft.first_steps_steel.p9=Vous entrez dans l’ère des machines : production alimentée en énergie, stockage et automatisation.
+howtoplay.utilitycraft.first_steps_steel.p10=Gardez de l’acier, du fer, du cuivre, de la redstone et du charbon pour vos premières machines et améliorations.
+howtoplay.utilitycraft.first_steps_steel.p11=Fabriquez vos premières machines, raccordez-les à une source d’énergie et commencez à automatiser.
+howtoplay.utilitycraft.first_steps_steel.forge_render=Forge primitive assemblée : structure de 2x2x2.
+ui.utilitycraft:forge_info.recipe=La forge primitive sert à créer de l’§9acier brut§8 :
+ui.utilitycraft:forge_info.steel_time=§98 secondes par lot
+ui.utilitycraft:forge_info.normal_time=Recettes normales : jusqu’à 4 unités en 2 secondes.
+ui.utilitycraft:forge_info.footer=Sert aussi de fourneau plus rapide

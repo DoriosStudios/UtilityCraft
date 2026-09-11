@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:lead_ingot_to_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:lead_ingot",
+        "count": 9
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:lead_block",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:lead_ingot"
+      }
+    ]
+  }
+}

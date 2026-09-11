@@ -1,0 +1,33 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:gas_trash_can"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "pattern": [
+            " S ",
+            "STS",
+            " S "
+        ],
+        "key": {
+            "S": {
+                "item": "utilitycraft:gas_pipe"
+            },
+            "T": {
+                "item": "utilitycraft:basic_trash_can"
+            }
+        },
+        "result": {
+            "item": "utilitycraft:gas_trash_can",
+            "count": 1
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:basic_trash_can"
+            }
+        ]
+    }
+}

@@ -30,3 +30,7 @@ import "../UtilityCore/index.js";
 
 import "./wrench.js";
 import "./copyPasteTool.js";
+
+import "./machines/electrolyzer.js";
+import "./machines/chemical_converter.js";
+import "./generators/gas_generator.js";

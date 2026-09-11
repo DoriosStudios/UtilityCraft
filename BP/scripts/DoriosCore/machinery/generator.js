@@ -28,10 +28,12 @@ export class Generator extends BasicMachine {
    *
    * @param {import("@minecraft/server").Block} block The block representing the generator.
    * @param {Object} settings Generator configuration.
+   * @param {(block: import("@minecraft/server").Block) => import("@minecraft/server").Entity|undefined} [entityResolver]
+   * Optional helper-entity resolver used by specialized generators.
    */
-  constructor(block, settings) {
+  constructor(block, settings, entityResolver) {
     const baseRate = settings?.generator?.rate_speed_base ?? 0;
-    super(block, { rate: baseRate, ignoreTick: settings.ignoreTick });
+    super(block, { rate: baseRate, ignoreTick: settings.ignoreTick, entityResolver });
     if (!this.valid) return;
     this.settings = settings;
   }

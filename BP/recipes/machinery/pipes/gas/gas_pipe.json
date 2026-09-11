@@ -15,7 +15,7 @@
                 "item": "glass_bottle"
             },
             "S": {
-                "item": "utilitycraft:steel_nugget"
+                "item": "utilitycraft:lead_nugget"
             }
         },
         "pattern": [
@@ -29,7 +29,7 @@
         },
         "unlock": [
             {
-                "item": "utilitycraft:steel_ingot"
+                "item": "utilitycraft:lead_ingot"
             }
         ]
     }

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "utilitycraft:fluid_tank_saline_coolant",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/saline_coolant_fluid"
+			},
+			"geometry": {
+				"default": "geometry.utilitycraft_fluid_tank_entity"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"animations": {
+				"fill": "animation.utilitycraft_fluid_tank_entity.fill"
+			},
+			"animation_controllers": [
+				{
+					"fluid_fill": "controller.animation.fluid_fill"
+				}
+			]
+		}
+	}
+}
