@@ -1020,13 +1020,14 @@ export class FluidStorage {
       return;
     }
 
-    const frame = Math.max(0, Math.min(Constants.FLUID_BAR_FRAME_COUNT, Math.floor((fluid / cap) * Constants.FLUID_BAR_FRAME_COUNT)));
+    const ratio = cap > 0 ? Math.max(0, Math.min(1, fluid / cap)) : 0;
+    const frame = Math.floor(ratio * Constants.FLUID_BAR_FRAME_COUNT);
     const frameName = frame.toString().padStart(2, "0");
 
     const item = new ItemStack(`utilitycraft:${type}_${frameName}`, 1);
     item.nameTag = `§r${DoriosLib.text.formatIdentifier(type.replace(/_liquid$/, ""))} §7(Liquid)
 §r§7  Stored: ${FluidStorage.formatFluid(fluid)} / ${FluidStorage.formatFluid(cap)}
-§r§7  Percentage: ${((fluid / cap) * 100).toFixed(2)}%`;
+§r§7  Percentage: ${(ratio * 100).toFixed(2)}%`;
 
     inv.setItem(slot, item);
   }

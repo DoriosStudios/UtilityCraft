@@ -55,6 +55,7 @@
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Fixed liquid and gas displays generating invalid NaN bar items at zero capacity; they now show an empty frame and 0%.
 - Updated Methane tank and static UI sprites to match the current green gas-bar texture.
 - Restricted multiblock entity lookup and deactivation to live dorios:multiblock controllers, preventing hide events and removal from targeting players, dropped items or visual entities.
 - Kept the Electrolyzer paired recipe hover background at the full 42x18 button size with a dedicated nine-slice copy of the vanilla hover texture, preserving its border and both output icons.
