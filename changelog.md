@@ -1,6 +1,7 @@
 # UtilityCraft v3.6.0
 
 ## ADDED
+- Registered default Furnator fuels through the existing register_fuel event, starting with an empty registry so UC and dependent addons receive the same defaults and custom fuel registrations.
 - Added Heated Saline Coolant gas: 49 native gas bar levels, tank entity, darkened Saline Coolant sprites and a Creative Tank. Heavy Machinery uses it for thermal heat recovery.
 - Completed Creative Tanks for all 20 liquid/gas bar resources: migrated six Saline Coolant and nuclear gas tanks from Heavy Machinery with their existing IDs, and added Crude Oil, Petroleum, Diesel and Nuclear Waste tanks using the shared infinite-storage component.
 - Added shared Saline Coolant, Fluorine, Hydrogen Fluoride, Natural/Enriched/Depleted Uranium Hexafluoride and Nuclear Waste resources migrated from Heavy Machinery: 343 hidden bar items/frames, tank entities/textures and localized names. Existing type IDs and mB units remain unchanged; production recipes and machine behavior stay in Heavy Machinery.
@@ -79,6 +80,7 @@ This update improves cross-addon machine-port compatibility, refreshes Simplifie
 - Removed obsolete Bountiful Crops `*_crop` blocks while retaining the functional `*_seeds` blocks.
 
 ## CHANGED
+- Replaced Electrolyzer, Chemical Converter and all four Gas Generator tier textures with the supplied 16x16 face sprites, including off/on states.
 - Improved Simplified Chinese translations across machines, items, guides, recipes and Bountiful content.
 
 ## FIXED
