@@ -6,7 +6,12 @@ import {
   isLinkNode,
   resolveLinkNode,
 } from "../../DoriosLib/linkNodes/index.js";
-import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
+import {
+  NETWORK_OFFSETS,
+  getAttachedContainerEndpoint,
+  offsetLocation,
+  safeGetBlock,
+} from "./shared.js";
 import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
 import {
   NETWORK_SCAN_BATCH_SIZE,
@@ -47,12 +52,14 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
     const block = safeGetBlock(dimension, position);
     if (!block?.hasTag("dorios:energy")) continue;
 
-    if (block.hasTag("dorios:isTube")) {
+    if (block.hasTag("dorios:isTube")
+      || block.hasTag("dorios:multi_exporter")
+      || block.hasTag("dorios:multi_importer")) {
       networkNodes.add(key);
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor)) {
+        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor, "energy")) {
           queue.push(neighborLocation);
         }
       }
@@ -99,7 +106,9 @@ async function searchEnergyStorages(startPositions, generator) {
     for (const { direction, offset } of PIPE_DIRECTIONS) {
       const neighborLocation = offsetLocation(startPosition, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
-      if (neighbor && isNetworkConnectionOpen(startBlock, direction, neighbor)) {
+      if (neighbor?.hasTag("dorios:multi_importer")
+        && isEndpointAttachedTo(neighbor, startPosition)) continue;
+      if (neighbor && isNetworkConnectionOpen(startBlock, direction, neighbor, "energy")) {
         queue.push(neighborLocation);
       }
     }
@@ -121,11 +130,32 @@ async function searchEnergyStorages(startPositions, generator) {
     const block = safeGetBlock(dimension, position);
     if (!block?.hasTag("dorios:energy")) continue;
 
-    if (block.typeId === "utilitycraft:energy_cable") {
+    const isMultiExporter = block.hasTag("dorios:multi_exporter");
+    const isMultiImporter = block.hasTag("dorios:multi_importer");
+    if (block.hasTag("dorios:isTube") && !isMultiExporter && !isMultiImporter) {
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor)) {
+        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor, "energy")) {
+          queue.push(neighborLocation);
+        }
+      }
+      continue;
+    }
+
+    if (isMultiExporter || isMultiImporter) {
+      const attached = getAttachedContainerEndpoint(block);
+      for (const { direction, offset } of PIPE_DIRECTIONS) {
+        const neighborLocation = offsetLocation(position, offset);
+        const neighbor = safeGetBlock(dimension, neighborLocation);
+        if (!neighbor || !isNetworkConnectionOpen(block, direction, neighbor, "energy")) continue;
+
+        const isAttachment = attached && isSameLocation(attached.location, neighborLocation);
+        if (isAttachment) {
+          if (isMultiImporter) queue.push(neighborLocation);
+          continue;
+        }
+        if (neighbor.hasTag("dorios:energy") && neighbor.hasTag("dorios:isTube")) {
           queue.push(neighborLocation);
         }
       }
@@ -155,6 +185,19 @@ async function searchEnergyStorages(startPositions, generator) {
     generator.addTag(`net:[${position.x},${position.y},${position.z}]`);
   }
   generator.addTag("updateNetwork");
+}
+
+/** @param {Vector3} left @param {Vector3} right */
+function isSameLocation(left, right) {
+  return Math.floor(left.x) === Math.floor(right.x)
+    && Math.floor(left.y) === Math.floor(right.y)
+    && Math.floor(left.z) === Math.floor(right.z);
+}
+
+/** @param {import("@minecraft/server").Block} block @param {Vector3} location */
+function isEndpointAttachedTo(block, location) {
+  const attached = getAttachedContainerEndpoint(block);
+  return Boolean(attached && isSameLocation(attached.location, location));
 }
 
 /**

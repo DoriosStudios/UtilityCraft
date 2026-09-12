@@ -14,6 +14,8 @@ import {
   getAttachedContainerEndpoint,
   getContainerFace,
   getNetworkColor,
+  isExporterEndpoint,
+  isImporterEndpoint,
   networkRegistrar,
   offsetLocation,
   safeGetBlock,
@@ -43,6 +45,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:fluid_exporter:v1";
  * @typedef {object} PersistedFluidEndpoint
  * @property {Vector3} location
  * @property {FluidFace} face
+ * @property {Vector3} [importerLocation]
  */
 
 /**
@@ -170,7 +173,12 @@ function normalizeExporterDocument(value) {
     const targetRaw = /** @type {Record<string,unknown>} */ (entry);
     const location = normalizePersistedLocation(targetRaw.location);
     const face = normalizeFace(targetRaw.face);
-    if (location && face) targets.push({ location, face });
+    const importerLocation = normalizePersistedLocation(targetRaw.importerLocation);
+    if (location && face) targets.push({
+      location,
+      face,
+      ...(importerLocation ? { importerLocation } : {}),
+    });
   }
 
   return {
@@ -341,7 +349,7 @@ function persistExporterRuntime(runtime) {
  * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",fluids:string[]}}|undefined}
  */
 export function getFluidExtractorCopyConfig(block, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:fluid")) return undefined;
+  if (!isExporterEndpoint(block) || !block.hasTag("dorios:fluid")) return undefined;
 
   const runtime = getExporterRuntime(block);
   const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
@@ -367,7 +375,7 @@ export function getFluidExtractorCopyConfig(block, options = {}) {
  * @returns {boolean}
  */
 export function applyFluidExtractorCopyConfig(block, value, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:fluid")) return false;
+  if (!isExporterEndpoint(block) || !block.hasTag("dorios:fluid")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
   const runtime = getExporterRuntime(block);
@@ -439,7 +447,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const indices = DoriosFluid.getFluidOutputIndices(resolved, { face: source.face });
+  const indices = DoriosFluid.getFluidOutputIndices(resolved, { face: source.face, automatic: true });
   const revision = DoriosFluid.getFluidContainerRevision(resolved);
   runtime.sourceAccess = { resolved, indices, revision };
   return runtime.sourceAccess;
@@ -467,7 +475,10 @@ function getFilteredSourceIndices(resolved, face) {
 
 /** @param {PersistedFluidEndpoint} endpoint */
 function endpointKey(endpoint) {
-  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}`;
+  const importer = endpoint.importerLocation
+    ? `:${endpoint.importerLocation.x},${endpoint.importerLocation.y},${endpoint.importerLocation.z}`
+    : "";
+  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}${importer}`;
 }
 
 /** @param {FluidExporterRuntime} runtime @param {Dimension} dimension @param {PersistedFluidEndpoint} endpoint */
@@ -484,7 +495,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const indices = DoriosFluid.getFluidInputIndices(resolved, { face: endpoint.face });
+  const indices = DoriosFluid.getFluidInputIndices(resolved, { face: endpoint.face, automatic: true });
   const access = {
     resolved,
     indices,
@@ -519,7 +530,9 @@ function hasFilterUpgrade(block) {
 function getMenuBody(block) {
   return {
     rawtext: [
-      translate("ui.utilitycraft:fluid_transfer.extractor_description"),
+      translate(isImporterEndpoint(block)
+        ? "ui.utilitycraft:fluid_transfer.importer_description"
+        : "ui.utilitycraft:fluid_transfer.extractor_description"),
       { text: "\n\n" },
       translate(hasFilterUpgrade(block)
         ? "ui.utilitycraft:fluid_transfer.filter_installed"
@@ -552,10 +565,12 @@ function requireFilterUpgrade(block, player) {
 }
 
 /** @param {Block} block @param {Player} player */
-function openFluidExporterMenu(block, player) {
+export function openFluidEndpointMenu(block, player) {
   const runtime = getExporterRuntime(block);
   const menu = new ActionFormData()
-    .title(translate("ui.utilitycraft:fluid_transfer.extractor_title"))
+    .title(translate(isImporterEndpoint(block)
+      ? "ui.utilitycraft:fluid_transfer.importer_title"
+      : "ui.utilitycraft:fluid_transfer.extractor_title"))
     .body(getMenuBody(block))
     .button(translatedButton(
       "ui.utilitycraft:fluid_transfer.quick_settings",
@@ -630,22 +645,23 @@ function openFluidQuickSettings(block, runtime, player) {
 function openAddFluidMenu(block, runtime, player) {
   if (!requireFilterUpgrade(block, player)) return;
 
-  new ActionFormData()
+  const isImporter = isImporterEndpoint(block);
+  const menu = new ActionFormData()
     .title(translate("ui.utilitycraft:fluid_transfer.add_fluid"))
     .body(translate("ui.utilitycraft:fluid_transfer.add_fluid_prompt"))
     .button(translatedButton(
       "ui.utilitycraft:fluid_transfer.add_from_main_hand",
       "ui.utilitycraft:fluid_transfer.add_from_main_hand_description",
-    ), "textures/ui/icon_import.png")
-    .button(translatedButton(
+    ), "textures/ui/icon_import.png");
+  if (!isImporter) menu.button(translatedButton(
       "ui.utilitycraft:fluid_transfer.add_from_source",
       "ui.utilitycraft:fluid_transfer.add_from_source_description",
-    ), "textures/items/bucket_empty.png")
-    .button(translate("ui.utilitycraft:fluid_transfer.cancel"), "textures/ui/redX1.png")
+    ), "textures/items/bucket_empty.png");
+  menu.button(translate("ui.utilitycraft:fluid_transfer.cancel"), "textures/ui/redX1.png")
     .show(player)
     .then((result) => {
       if (result.selection === 0) addHeldFluidFilter(block, runtime, player);
-      else if (result.selection === 1) openSourceFluidFilterMenu(block, runtime, player);
+      else if (!isImporter && result.selection === 1) openSourceFluidFilterMenu(block, runtime, player);
     });
 }
 
@@ -718,18 +734,18 @@ function openRemoveFluidMenu(block, runtime, player) {
       "message.utilitycraft.fluid_transfer.fluid_removed",
       [formatIdentifier(selected)],
     ));
-    openFluidExporterMenu(block, player);
+    openFluidEndpointMenu(block, player);
   });
 }
 
-const fluidExporterComponent = {
+export const fluidExporterComponent = {
   beforeOnPlayerPlace({ block }) {
     const dimension = block.dimension;
     const location = normalizeLocation(block.location);
     system.run(() => {
       deleteExporterState(dimension, location);
       const placed = safeGetBlock(dimension, location);
-      if (!placed?.hasTag("dorios:isExporter")) return;
+      if (!isExporterEndpoint(placed) || !placed.hasTag("dorios:fluid")) return;
       const runtime = getExporterRuntime(placed);
       persistExporterRuntime(runtime);
       scheduleFluidNetworkRescan(location, dimension);
@@ -753,7 +769,7 @@ const fluidExporterComponent = {
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
-    openFluidExporterMenu(block, player);
+    openFluidEndpointMenu(block, player);
   },
 
   onTick({ block, dimension }) {
@@ -762,6 +778,30 @@ const fluidExporterComponent = {
 };
 
 networkRegistrar.block("fluid_extractor", fluidExporterComponent);
+
+export const fluidImporterComponent = {
+  beforeOnPlayerPlace({ block }) {
+    const dimension = block.dimension;
+    const location = normalizeLocation(block.location);
+    system.run(() => {
+      deleteExporterState(dimension, location);
+      const placed = safeGetBlock(dimension, location);
+      if (!isImporterEndpoint(placed) || !placed.hasTag("dorios:fluid")) return;
+      persistExporterRuntime(getExporterRuntime(placed));
+      scheduleFluidNetworkRescan(location, dimension);
+    });
+  },
+
+  onPlayerBreak({ block }) {
+    deleteExporterState(block.dimension, block.location);
+    scheduleFluidNetworkRescan(block.location, block.dimension);
+  },
+
+  onBreak({ block }) {
+    deleteExporterState(block.dimension, block.location);
+    scheduleFluidNetworkRescan(block.location, block.dimension);
+  },
+};
 
 /** @param {Block} block @param {Dimension} dimension */
 function processFluidExporterTick(block, dimension) {
@@ -788,7 +828,7 @@ function processFluidExporterTick(block, dimension) {
       if (!type || type === "empty") continue;
       if (filterEnabled && !passesFilter(runtime, type)) continue;
       attempts++;
-      if (transferContainerSource(runtime, dimension, sourceAccess, sourceIndex, transferLimit) > 0) break;
+      if (transferContainerSource(runtime, dimension, sourceAccess, sourceIndex, transferLimit, type) > 0) break;
     }
     return;
   }
@@ -806,13 +846,13 @@ function passesFilter(runtime, type) {
 }
 
 /** @param {FluidExporterRuntime} runtime @param {Dimension} dimension @param {FluidContainerAccess} source @param {number} sourceIndex @param {number} limit */
-function transferContainerSource(runtime, dimension, source, sourceIndex, limit) {
+function transferContainerSource(runtime, dimension, source, sourceIndex, limit, type) {
   return transferAcrossTargets(runtime, dimension, (target, remaining) => DoriosFluid.transferFluid(source.resolved, {
     sourceIndex,
     target: target.resolved,
     targetIndices: target.indices,
     maxAmount: remaining,
-  }), limit);
+  }), limit, type);
 }
 
 /**
@@ -841,7 +881,7 @@ function insertSpecialSource(runtime, dimension, source, maxAmount) {
       moved += added;
     }
     return moved;
-  }, limit);
+  }, limit, source.type);
 }
 
 /**
@@ -849,8 +889,9 @@ function insertSpecialSource(runtime, dimension, source, maxAmount) {
  * @param {Dimension} dimension
  * @param {(target:FluidContainerAccess, remaining:number)=>number} transfer
  * @param {number} [limit]
+ * @param {string} [type]
  */
-function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSFER_AMOUNT) {
+function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSFER_AMOUNT, type) {
   const targets = runtime.document.targets;
   const count = targets.length;
   if (count === 0 || limit <= 0) return 0;
@@ -862,6 +903,7 @@ function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSF
     if (runtime.document.mode === "farthest") index = count - 1 - offset;
     else if (runtime.document.mode === "round") index = (runtime.roundIndex + offset) % count;
     else index = offset;
+    if (type && !passesImporterFilter(dimension, targets[index], type)) continue;
     const access = getTargetAccess(runtime, dimension, targets[index]);
     if (!access || access.indices.length === 0) continue;
     const moved = transfer(access, remaining);
@@ -874,6 +916,16 @@ function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSF
     runtime.roundIndex = (lastMovedIndex + 1) % count;
   }
   return limit - remaining;
+}
+
+/** @param {Dimension} dimension @param {PersistedFluidEndpoint} endpoint @param {string} type */
+function passesImporterFilter(dimension, endpoint, type) {
+  if (!endpoint.importerLocation) return true;
+  const block = safeGetBlock(dimension, endpoint.importerLocation);
+  if (!isImporterEndpoint(block) || !block.hasTag("dorios:fluid")) return true;
+  const runtime = getExporterRuntime(block);
+  if (!runtime.document.enabled) return false;
+  return !hasFilterUpgrade(block) || passesFilter(runtime, type);
 }
 
 /** @param {FluidExporterRuntime} runtime @param {Dimension} dimension */
@@ -937,8 +989,8 @@ function getAttachedFluidEndpoint(block) {
 function isFluidNetworkBlock(block) {
   return Boolean(block?.hasTag("dorios:fluid") && (
     block.hasTag("dorios:isTube")
-    || block.hasTag("dorios:isExporter")
-    || block.hasTag("dorios:isImporter")
+    || isExporterEndpoint(block)
+    || isImporterEndpoint(block)
   ));
 }
 
@@ -994,31 +1046,42 @@ export async function rescanFluidNetwork(rootLocation, dimension) {
     if (!block || !isFluidNetworkBlock(block) || !block.hasTag(networkColor)) continue;
     visited.add(key);
 
-    const isExporter = block.hasTag("dorios:isExporter");
-    const source = isExporter ? getAttachedFluidEndpoint(block) : undefined;
-    const sourceOffset = source
+    const isExporter = isExporterEndpoint(block);
+    const isImporter = isImporterEndpoint(block);
+    const attached = isExporter || isImporter ? getAttachedFluidEndpoint(block) : undefined;
+    const source = isExporter ? attached : undefined;
+    const attachedOffset = attached
       ? {
-          x: source.location.x - block.location.x,
-          y: source.location.y - block.location.y,
-          z: source.location.z - block.location.z,
+          x: attached.location.x - block.location.x,
+          y: attached.location.y - block.location.y,
+          z: attached.location.z - block.location.z,
         }
       : undefined;
     if (isExporter) exporters.push({ location: normalizeLocation(block.location), source });
+    if (isImporter && attached && DoriosFluid.resolveFluidContainerAt(dimension, attached.location)) {
+      const route = {
+        location: normalizeLocation(attached.location),
+        face: attached.face,
+        importerLocation: normalizeLocation(block.location),
+      };
+      routes.set(endpointKey(route), route);
+    }
 
     for (const { direction, offset } of PIPE_DIRECTIONS) {
-      if (sourceOffset
-        && offset.x === sourceOffset.x
-        && offset.y === sourceOffset.y
-        && offset.z === sourceOffset.z) continue;
+      if (attachedOffset
+        && offset.x === attachedOffset.x
+        && offset.y === attachedOffset.y
+        && offset.z === attachedOffset.z) continue;
 
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
-      if (!isNetworkConnectionOpen(block, direction, neighbor)) continue;
+      if (!isNetworkConnectionOpen(block, direction, neighbor, "fluid")) continue;
       if (isFluidNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
         continue;
       }
+      if (isImporter) continue;
       if (!DoriosFluid.resolveFluidContainerAt(dimension, neighborLocation)) continue;
       const face = getContainerFace(offset);
       if (!face) continue;
@@ -1035,14 +1098,17 @@ export async function rescanFluidNetwork(rootLocation, dimension) {
 
   for (const exporter of exporters) {
     const block = safeGetBlock(dimension, exporter.location);
-    if (!block?.hasTag("dorios:isExporter")) continue;
+    if (!isExporterEndpoint(block)) continue;
     const runtime = getExporterRuntime(block);
     runtime.document.source = exporter.source
       ? { location: normalizeLocation(exporter.source.location), face: exporter.source.face }
       : null;
     runtime.document.targets = [...routes.values()]
       .filter((route) => !blockedSources.has(locationKey(dimension.id, route.location)))
-      .map((route) => ({ route, distance: squaredDistance(exporter.location, route.location) }))
+      .map((route) => ({
+        route,
+        distance: squaredDistance(exporter.location, route.importerLocation ?? route.location),
+      }))
       .sort((left, right) => left.distance - right.distance)
       .map(({ route }) => route);
     runtime.sourceAccess = undefined;
@@ -1064,7 +1130,7 @@ const queueFluidNetworkRescan = createNetworkRescanScheduler(
 );
 
 /**
- * Relocates position-keyed fluid exporter documents after a piston movement.
+ * Relocates position-keyed fluid endpoint documents after a piston movement.
  *
  * @param {Dimension} dimension
  * @param {ReadonlyArray<{source:Vector3,target:Vector3}>} movements
@@ -1073,7 +1139,8 @@ export function reconcileMovedFluidNodes(dimension, movements) {
   const snapshots = [];
   for (const movement of movements) {
     const targetBlock = safeGetBlock(dimension, movement.target);
-    if (!targetBlock?.hasTag("dorios:isExporter") || !targetBlock.hasTag("dorios:fluid")) continue;
+    if (!targetBlock?.hasTag("dorios:fluid")
+      || (!isExporterEndpoint(targetBlock) && !isImporterEndpoint(targetBlock))) continue;
     snapshots.push({
       targetKey: exporterPropertyKey(dimension, movement.target),
       document: readExporterDocument(exporterPropertyKey(dimension, movement.source)),

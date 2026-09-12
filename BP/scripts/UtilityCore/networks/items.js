@@ -12,6 +12,8 @@ import {
   getAttachedContainerEndpoint,
   getContainerFace,
   getNetworkColor,
+  isExporterEndpoint,
+  isImporterEndpoint,
   isItemNetworkBlock,
   networkRegistrar,
   offsetLocation,
@@ -415,7 +417,7 @@ function persistExporterRuntime(runtime) {
  * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",items:string[]}}|undefined}
  */
 export function getItemExporterCopyConfig(block, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:item")) return undefined;
+  if (!isExporterEndpoint(block) || !block.hasTag("dorios:item")) return undefined;
 
   const runtime = getExporterRuntime(block);
   const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
@@ -442,7 +444,7 @@ export function getItemExporterCopyConfig(block, options = {}) {
  * @returns {boolean}
  */
 export function applyItemExporterCopyConfig(block, value, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:item")) return false;
+  if (!isExporterEndpoint(block) || !block.hasTag("dorios:item")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
   const runtime = getExporterRuntime(block);
@@ -556,7 +558,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const slots = DoriosContainer.getOutputSlots(resolved, { face: source.face });
+  const slots = DoriosContainer.getOutputSlots(resolved, { face: source.face, automatic: true });
   runtime.sourceAccess = { resolved, slots, revision };
   return runtime.sourceAccess;
 }
@@ -583,7 +585,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const slots = DoriosContainer.getInputSlots(resolved, { face: endpoint.face });
+  const slots = DoriosContainer.getInputSlots(resolved, { face: endpoint.face, automatic: true });
   const access = { resolved, slots, revision };
   runtime.targetAccesses.set(key, access);
   return access;
@@ -655,7 +657,7 @@ function getHeldFilterItemType(block, player) {
 }
 
 /** @param {Block} block @param {Player} player */
-function openExporterMenu(block, player) {
+export function openItemExporterMenu(block, player) {
   const runtime = getExporterRuntime(block);
   const menu = new ActionFormData()
     .title(translate("ui.utilitycraft:item_transfer.exporter_title"))
@@ -760,12 +762,12 @@ function openExporterRemoveMenu(block, runtime, player) {
       "message.utilitycraft.item_transfer.item_removed",
       [formatIdentifier(selected)],
     ));
-    openExporterMenu(block, player);
+    openItemExporterMenu(block, player);
   });
 }
 
 /** @param {Block} block @param {Player} player */
-function openImporterMenu(block, player) {
+export function openItemImporterMenu(block, player) {
   const runtime = getImporterRuntime(block.dimension, block.location);
   const menu = new ActionFormData()
     .title(translate("ui.utilitycraft:item_transfer.importer_title"))
@@ -860,18 +862,18 @@ function openImporterRemoveMenu(block, runtime, player) {
       "message.utilitycraft.item_transfer.item_removed",
       [formatIdentifier(selected)],
     ));
-    openImporterMenu(block, player);
+    openItemImporterMenu(block, player);
   });
 }
 
-const exporterComponent = {
+export const itemExporterComponent = {
   beforeOnPlayerPlace({ block }) {
     const dimension = block.dimension;
     const location = normalizeLocation(block.location);
     system.run(() => {
       deleteExporterState(dimension, location);
       const placed = safeGetBlock(dimension, location);
-      if (!placed?.hasTag("dorios:isExporter")) return;
+      if (!isExporterEndpoint(placed) || !placed.hasTag("dorios:item")) return;
       const runtime = getExporterRuntime(placed);
       persistExporterRuntime(runtime);
       scheduleItemNetworkRescan(location, dimension);
@@ -893,7 +895,7 @@ const exporterComponent = {
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
-    openExporterMenu(block, player);
+    openItemExporterMenu(block, player);
   },
 
   onTick({ block, dimension }) {
@@ -901,14 +903,14 @@ const exporterComponent = {
   },
 };
 
-const importerComponent = {
+export const itemImporterComponent = {
   beforeOnPlayerPlace({ block }) {
     const dimension = block.dimension;
     const location = normalizeLocation(block.location);
     system.run(() => {
       deleteImporterState(dimension, location);
       const placed = safeGetBlock(dimension, location);
-      if (!placed?.hasTag("dorios:isImporter")) return;
+      if (!isImporterEndpoint(placed) || !placed.hasTag("dorios:item")) return;
       const runtime = getImporterRuntime(dimension, location);
       persistImporterRuntime(dimension, location, runtime);
       scheduleItemNetworkRescan(location, dimension);
@@ -930,13 +932,13 @@ const importerComponent = {
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
-    openImporterMenu(block, player);
+    openItemImporterMenu(block, player);
   },
 };
 
 networkRegistrar
-  .block("exporter", exporterComponent)
-  .block("item_importer", importerComponent);
+  .block("exporter", itemExporterComponent)
+  .block("item_importer", itemImporterComponent);
 
 /** @param {Dimension} dimension @param {Vector3} location */
 function deleteExporterState(dimension, location) {
@@ -1174,8 +1176,8 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
     if (!block || !isItemNetworkBlock(block) || !block.hasTag(networkColor)) continue;
     visited.add(key);
 
-    const isExporter = block.hasTag("dorios:isExporter");
-    const isImporter = block.hasTag("dorios:isImporter");
+    const isExporter = isExporterEndpoint(block);
+    const isImporter = isImporterEndpoint(block);
     const attached = isExporter || isImporter ? getAttachedContainerEndpoint(block) : undefined;
     const attachedOffset = attached
       ? {
@@ -1207,7 +1209,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
-      if (!isNetworkConnectionOpen(block, direction, neighbor)) continue;
+      if (!isNetworkConnectionOpen(block, direction, neighbor, "item")) continue;
 
       if (isItemNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
@@ -1233,7 +1235,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
 
   for (const exporter of exporters) {
     const block = safeGetBlock(dimension, exporter.location);
-    if (!block?.hasTag("dorios:isExporter")) continue;
+    if (!isExporterEndpoint(block)) continue;
     const runtime = getExporterRuntime(block);
     runtime.document.source = exporter.source
       ? { location: normalizeLocation(exporter.source.location), face: exporter.source.face }
@@ -1290,14 +1292,14 @@ export function reconcileMovedItemNodes(dimension, movements) {
 
   for (const movement of movements) {
     const targetBlock = safeGetBlock(dimension, movement.target);
-    if (targetBlock?.hasTag("dorios:isExporter")) {
+    if (isExporterEndpoint(targetBlock)) {
       const sourceKey = exporterPropertyKey(dimension, movement.source);
       exporterSnapshots.push({
         targetKey: exporterPropertyKey(dimension, movement.target),
         document: readExporterDocument(sourceKey),
       });
     }
-    if (targetBlock?.hasTag("dorios:isImporter")) {
+    if (isImporterEndpoint(targetBlock)) {
       const sourceKey = importerPropertyKey(dimension, movement.source);
       importerSnapshots.push({
         targetKey: importerPropertyKey(dimension, movement.target),

@@ -14,6 +14,8 @@ import {
   getAttachedContainerEndpoint,
   getContainerFace,
   getNetworkColor,
+  isExporterEndpoint,
+  isImporterEndpoint,
   networkRegistrar,
   offsetLocation,
   safeGetBlock,
@@ -43,6 +45,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:gas_exporter:v1";
  * @typedef {object} PersistedGasEndpoint
  * @property {Vector3} location
  * @property {GasFace} face
+ * @property {Vector3} [importerLocation]
  */
 
 /**
@@ -170,7 +173,12 @@ function normalizeExporterDocument(value) {
     const targetRaw = /** @type {Record<string,unknown>} */ (entry);
     const location = normalizePersistedLocation(targetRaw.location);
     const face = normalizeFace(targetRaw.face);
-    if (location && face) targets.push({ location, face });
+    const importerLocation = normalizePersistedLocation(targetRaw.importerLocation);
+    if (location && face) targets.push({
+      location,
+      face,
+      ...(importerLocation ? { importerLocation } : {}),
+    });
   }
 
   return {
@@ -341,7 +349,7 @@ function persistExporterRuntime(runtime) {
  * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",gases:string[]}}|undefined}
  */
 export function getGasExtractorCopyConfig(block, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:gas")) return undefined;
+  if (!isExporterEndpoint(block) || !block.hasTag("dorios:gas")) return undefined;
 
   const runtime = getExporterRuntime(block);
   const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
@@ -367,7 +375,7 @@ export function getGasExtractorCopyConfig(block, options = {}) {
  * @returns {boolean}
  */
 export function applyGasExtractorCopyConfig(block, value, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:gas")) return false;
+  if (!isExporterEndpoint(block) || !block.hasTag("dorios:gas")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
   const runtime = getExporterRuntime(block);
@@ -439,7 +447,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const indices = DoriosGas.getGasOutputIndices(resolved, { face: source.face });
+  const indices = DoriosGas.getGasOutputIndices(resolved, { face: source.face, automatic: true });
   const revision = DoriosGas.getGasContainerRevision(resolved);
   runtime.sourceAccess = { resolved, indices, revision };
   return runtime.sourceAccess;
@@ -467,7 +475,10 @@ function getFilteredSourceIndices(resolved, face) {
 
 /** @param {PersistedGasEndpoint} endpoint */
 function endpointKey(endpoint) {
-  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}`;
+  const importer = endpoint.importerLocation
+    ? `:${endpoint.importerLocation.x},${endpoint.importerLocation.y},${endpoint.importerLocation.z}`
+    : "";
+  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}${importer}`;
 }
 
 /** @param {GasExporterRuntime} runtime @param {Dimension} dimension @param {PersistedGasEndpoint} endpoint */
@@ -484,7 +495,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const indices = DoriosGas.getGasInputIndices(resolved, { face: endpoint.face });
+  const indices = DoriosGas.getGasInputIndices(resolved, { face: endpoint.face, automatic: true });
   const access = {
     resolved,
     indices,
@@ -519,7 +530,9 @@ function hasFilterUpgrade(block) {
 function getMenuBody(block) {
   return {
     rawtext: [
-      translate("ui.utilitycraft:gas_transfer.extractor_description"),
+      translate(isImporterEndpoint(block)
+        ? "ui.utilitycraft:gas_transfer.importer_description"
+        : "ui.utilitycraft:gas_transfer.extractor_description"),
       { text: "\n\n" },
       translate(hasFilterUpgrade(block)
         ? "ui.utilitycraft:gas_transfer.filter_installed"
@@ -552,10 +565,12 @@ function requireFilterUpgrade(block, player) {
 }
 
 /** @param {Block} block @param {Player} player */
-function openGasExporterMenu(block, player) {
+export function openGasEndpointMenu(block, player) {
   const runtime = getExporterRuntime(block);
   const menu = new ActionFormData()
-    .title(translate("ui.utilitycraft:gas_transfer.extractor_title"))
+    .title(translate(isImporterEndpoint(block)
+      ? "ui.utilitycraft:gas_transfer.importer_title"
+      : "ui.utilitycraft:gas_transfer.extractor_title"))
     .body(getMenuBody(block))
     .button(translatedButton(
       "ui.utilitycraft:gas_transfer.quick_settings",
@@ -630,22 +645,23 @@ function openGasQuickSettings(block, runtime, player) {
 function openAddGasMenu(block, runtime, player) {
   if (!requireFilterUpgrade(block, player)) return;
 
-  new ActionFormData()
+  const isImporter = isImporterEndpoint(block);
+  const menu = new ActionFormData()
     .title(translate("ui.utilitycraft:gas_transfer.add_gas"))
     .body(translate("ui.utilitycraft:gas_transfer.add_gas_prompt"))
     .button(translatedButton(
       "ui.utilitycraft:gas_transfer.add_from_main_hand",
       "ui.utilitycraft:gas_transfer.add_from_main_hand_description",
-    ), "textures/ui/icon_import.png")
-    .button(translatedButton(
+    ), "textures/ui/icon_import.png");
+  if (!isImporter) menu.button(translatedButton(
       "ui.utilitycraft:gas_transfer.add_from_source",
       "ui.utilitycraft:gas_transfer.add_from_source_description",
-    ), "textures/items/bucket_empty.png")
-    .button(translate("ui.utilitycraft:gas_transfer.cancel"), "textures/ui/redX1.png")
+    ), "textures/items/bucket_empty.png");
+  menu.button(translate("ui.utilitycraft:gas_transfer.cancel"), "textures/ui/redX1.png")
     .show(player)
     .then((result) => {
       if (result.selection === 0) addHeldGasFilter(block, runtime, player);
-      else if (result.selection === 1) openSourceGasFilterMenu(block, runtime, player);
+      else if (!isImporter && result.selection === 1) openSourceGasFilterMenu(block, runtime, player);
     });
 }
 
@@ -718,18 +734,18 @@ function openRemoveGasMenu(block, runtime, player) {
       "message.utilitycraft.gas_transfer.gas_removed",
       [formatIdentifier(selected)],
     ));
-    openGasExporterMenu(block, player);
+    openGasEndpointMenu(block, player);
   });
 }
 
-const gasExporterComponent = {
+export const gasExporterComponent = {
   beforeOnPlayerPlace({ block }) {
     const dimension = block.dimension;
     const location = normalizeLocation(block.location);
     system.run(() => {
       deleteExporterState(dimension, location);
       const placed = safeGetBlock(dimension, location);
-      if (!placed?.hasTag("dorios:isExporter")) return;
+      if (!isExporterEndpoint(placed) || !placed.hasTag("dorios:gas")) return;
       const runtime = getExporterRuntime(placed);
       persistExporterRuntime(runtime);
       scheduleGasNetworkRescan(location, dimension);
@@ -753,7 +769,7 @@ const gasExporterComponent = {
     const item = player.getComponent("equippable")?.getEquipment("Mainhand");
     if (item?.typeId === "utilitycraft:wrench" || item?.typeId === "utilitycraft:copy_paste_tool") return;
     if (item?.typeId?.includes("upgrade")) return;
-    openGasExporterMenu(block, player);
+    openGasEndpointMenu(block, player);
   },
 
   onTick({ block, dimension }) {
@@ -762,6 +778,30 @@ const gasExporterComponent = {
 };
 
 networkRegistrar.block("gas_extractor", gasExporterComponent);
+
+export const gasImporterComponent = {
+  beforeOnPlayerPlace({ block }) {
+    const dimension = block.dimension;
+    const location = normalizeLocation(block.location);
+    system.run(() => {
+      deleteExporterState(dimension, location);
+      const placed = safeGetBlock(dimension, location);
+      if (!isImporterEndpoint(placed) || !placed.hasTag("dorios:gas")) return;
+      persistExporterRuntime(getExporterRuntime(placed));
+      scheduleGasNetworkRescan(location, dimension);
+    });
+  },
+
+  onPlayerBreak({ block }) {
+    deleteExporterState(block.dimension, block.location);
+    scheduleGasNetworkRescan(block.location, block.dimension);
+  },
+
+  onBreak({ block }) {
+    deleteExporterState(block.dimension, block.location);
+    scheduleGasNetworkRescan(block.location, block.dimension);
+  },
+};
 
 /** @param {Block} block @param {Dimension} dimension */
 function processGasExporterTick(block, dimension) {
@@ -788,7 +828,7 @@ function processGasExporterTick(block, dimension) {
       if (!type || type === "empty") continue;
       if (filterEnabled && !passesFilter(runtime, type)) continue;
       attempts++;
-      if (transferContainerSource(runtime, dimension, sourceAccess, sourceIndex, transferLimit) > 0) break;
+      if (transferContainerSource(runtime, dimension, sourceAccess, sourceIndex, transferLimit, type) > 0) break;
     }
     return;
   }
@@ -801,13 +841,13 @@ function passesFilter(runtime, type) {
 }
 
 /** @param {GasExporterRuntime} runtime @param {Dimension} dimension @param {GasContainerAccess} source @param {number} sourceIndex @param {number} limit */
-function transferContainerSource(runtime, dimension, source, sourceIndex, limit) {
+function transferContainerSource(runtime, dimension, source, sourceIndex, limit, type) {
   return transferAcrossTargets(runtime, dimension, (target, remaining) => DoriosGas.transferGas(source.resolved, {
     sourceIndex,
     target: target.resolved,
     targetIndices: target.indices,
     maxAmount: remaining,
-  }), limit);
+  }), limit, type);
 }
 
 /**
@@ -815,8 +855,9 @@ function transferContainerSource(runtime, dimension, source, sourceIndex, limit)
  * @param {Dimension} dimension
  * @param {(target:GasContainerAccess, remaining:number)=>number} transfer
  * @param {number} [limit]
+ * @param {string} [type]
  */
-function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSFER_AMOUNT) {
+function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSFER_AMOUNT, type) {
   const targets = runtime.document.targets;
   const count = targets.length;
   if (count === 0 || limit <= 0) return 0;
@@ -828,6 +869,7 @@ function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSF
     if (runtime.document.mode === "farthest") index = count - 1 - offset;
     else if (runtime.document.mode === "round") index = (runtime.roundIndex + offset) % count;
     else index = offset;
+    if (type && !passesImporterFilter(dimension, targets[index], type)) continue;
     const access = getTargetAccess(runtime, dimension, targets[index]);
     if (!access || access.indices.length === 0) continue;
     const moved = transfer(access, remaining);
@@ -840,6 +882,16 @@ function transferAcrossTargets(runtime, dimension, transfer, limit = BASE_TRANSF
     runtime.roundIndex = (lastMovedIndex + 1) % count;
   }
   return limit - remaining;
+}
+
+/** @param {Dimension} dimension @param {PersistedGasEndpoint} endpoint @param {string} type */
+function passesImporterFilter(dimension, endpoint, type) {
+  if (!endpoint.importerLocation) return true;
+  const block = safeGetBlock(dimension, endpoint.importerLocation);
+  if (!isImporterEndpoint(block) || !block.hasTag("dorios:gas")) return true;
+  const runtime = getExporterRuntime(block);
+  if (!runtime.document.enabled) return false;
+  return !hasFilterUpgrade(block) || passesFilter(runtime, type);
 }
 
 /** @param {GasExporterRuntime} runtime @param {Dimension} dimension */
@@ -870,8 +922,8 @@ function getAttachedGasEndpoint(block) {
 function isGasNetworkBlock(block) {
   return Boolean(block?.hasTag("dorios:gas") && (
     block.hasTag("dorios:isTube")
-    || block.hasTag("dorios:isExporter")
-    || block.hasTag("dorios:isImporter")
+    || isExporterEndpoint(block)
+    || isImporterEndpoint(block)
   ));
 }
 
@@ -927,31 +979,42 @@ export async function rescanGasNetwork(rootLocation, dimension) {
     if (!block || !isGasNetworkBlock(block) || !block.hasTag(networkColor)) continue;
     visited.add(key);
 
-    const isExporter = block.hasTag("dorios:isExporter");
-    const source = isExporter ? getAttachedGasEndpoint(block) : undefined;
-    const sourceOffset = source
+    const isExporter = isExporterEndpoint(block);
+    const isImporter = isImporterEndpoint(block);
+    const attached = isExporter || isImporter ? getAttachedGasEndpoint(block) : undefined;
+    const source = isExporter ? attached : undefined;
+    const attachedOffset = attached
       ? {
-          x: source.location.x - block.location.x,
-          y: source.location.y - block.location.y,
-          z: source.location.z - block.location.z,
+          x: attached.location.x - block.location.x,
+          y: attached.location.y - block.location.y,
+          z: attached.location.z - block.location.z,
         }
       : undefined;
     if (isExporter) exporters.push({ location: normalizeLocation(block.location), source });
+    if (isImporter && attached && DoriosGas.resolveGasContainerAt(dimension, attached.location)) {
+      const route = {
+        location: normalizeLocation(attached.location),
+        face: attached.face,
+        importerLocation: normalizeLocation(block.location),
+      };
+      routes.set(endpointKey(route), route);
+    }
 
     for (const { direction, offset } of PIPE_DIRECTIONS) {
-      if (sourceOffset
-        && offset.x === sourceOffset.x
-        && offset.y === sourceOffset.y
-        && offset.z === sourceOffset.z) continue;
+      if (attachedOffset
+        && offset.x === attachedOffset.x
+        && offset.y === attachedOffset.y
+        && offset.z === attachedOffset.z) continue;
 
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
-      if (!isNetworkConnectionOpen(block, direction, neighbor)) continue;
+      if (!isNetworkConnectionOpen(block, direction, neighbor, "gas")) continue;
       if (isGasNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
         continue;
       }
+      if (isImporter) continue;
       if (!DoriosGas.resolveGasContainerAt(dimension, neighborLocation)) continue;
       const face = getContainerFace(offset);
       if (!face) continue;
@@ -968,14 +1031,17 @@ export async function rescanGasNetwork(rootLocation, dimension) {
 
   for (const exporter of exporters) {
     const block = safeGetBlock(dimension, exporter.location);
-    if (!block?.hasTag("dorios:isExporter")) continue;
+    if (!isExporterEndpoint(block)) continue;
     const runtime = getExporterRuntime(block);
     runtime.document.source = exporter.source
       ? { location: normalizeLocation(exporter.source.location), face: exporter.source.face }
       : null;
     runtime.document.targets = [...routes.values()]
       .filter((route) => !blockedSources.has(locationKey(dimension.id, route.location)))
-      .map((route) => ({ route, distance: squaredDistance(exporter.location, route.location) }))
+      .map((route) => ({
+        route,
+        distance: squaredDistance(exporter.location, route.importerLocation ?? route.location),
+      }))
       .sort((left, right) => left.distance - right.distance)
       .map(({ route }) => route);
     runtime.sourceAccess = undefined;
@@ -997,7 +1063,7 @@ const queueGasNetworkRescan = createNetworkRescanScheduler(
 );
 
 /**
- * Relocates position-keyed gas exporter documents after a piston movement.
+ * Relocates position-keyed gas endpoint documents after a piston movement.
  *
  * @param {Dimension} dimension
  * @param {ReadonlyArray<{source:Vector3,target:Vector3}>} movements
@@ -1006,7 +1072,8 @@ export function reconcileMovedGasNodes(dimension, movements) {
   const snapshots = [];
   for (const movement of movements) {
     const targetBlock = safeGetBlock(dimension, movement.target);
-    if (!targetBlock?.hasTag("dorios:isExporter") || !targetBlock.hasTag("dorios:gas")) continue;
+    if (!targetBlock?.hasTag("dorios:gas")
+      || (!isExporterEndpoint(targetBlock) && !isImporterEndpoint(targetBlock))) continue;
     snapshots.push({
       targetKey: exporterPropertyKey(dimension, movement.target),
       document: readExporterDocument(exporterPropertyKey(dimension, movement.source)),
