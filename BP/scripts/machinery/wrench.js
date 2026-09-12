@@ -94,12 +94,7 @@ function openMultiTubeFaceMenu(block, rawDirection, source) {
     const disabled = new Set(getMultiTubeFaceDisabledResources(block, direction));
     const form = new ModalFormData()
         .title(translate("ui.utilitycraft:multi_tube.face_title"))
-        .label({
-            translate: "ui.utilitycraft:multi_tube.face_label",
-            with: {
-                rawtext: [translate(`ui.utilitycraft:multi_tube.face_${direction}`)],
-            },
-        });
+        .label(translate(`ui.utilitycraft:multi_tube.face_${direction}`));
     for (const resource of resources) {
         const translationKey = getPipeResourceTranslationKey(resource);
         if (!translationKey) continue;
