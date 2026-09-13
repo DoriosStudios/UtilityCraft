@@ -5,13 +5,14 @@ export const chemicalConverterRecipes = {};
 
 const defaultRecipes = {
     "utilitycraft:charcoal_dust|empty|hydrogen_gas": {
-        "required_items": 1,
-        "required_gas": 1000,
+        "required_items": 4,
+        "required_gas": 125,
         "output_gas": {
             "type": "methane_gas",
-            "amount": 1000
+            "amount": 125
         },
-        "cost": 256000
+        "cost": 32000,
+        "minimum_consumption": 0.8
     }
 };
 DoriosLib.registry.registerChemicalConverterRecipe(defaultRecipes);

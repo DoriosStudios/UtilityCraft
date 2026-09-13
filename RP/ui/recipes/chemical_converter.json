@@ -52,7 +52,8 @@
                 ],
                 "$slot_item_texture": "textures/items/dusts/charcoal_dust",
                 "$has_slot_hover": false,
-                "$has_slot_count": false
+                "$has_slot_count": true,
+                "$slot_count_text": "4"
               }
             },
             {

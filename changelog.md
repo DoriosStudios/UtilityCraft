@@ -17,6 +17,7 @@
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Rebalanced gas energy: Hydrogen now yields 560 DE/mB (9.4% above its base electrolysis cost) and Methane 1,536 DE/mB. Default electrolysis and Methane recipes cap efficiency savings at 20%, keeping Hydrogen's maximum return at 36.7% above production cost. Methane now requires four Charcoal Dust and 125 mB Hydrogen per 125 mB output (32,000 DE); a complete unupgraded 1,000 mB chain yields 755,200 DE net before farming costs. Gas Generator tier output is reduced by 36% to 32/128/512/3,200 DE/t with Methane (half with Hydrogen).
 - Set the shared Water coolant efficiency to 0.5 (Tier 0), making it the basic coolant for Heavy Machinery heat recovery. Consumers of the shared registry use this value; HM no longer needs a duplicate Water registration.
 - Updated the Stabilized Obsidian Dust texture with the supplied artwork.
 - Updated the supplied Amethyst, Diamond, Emerald, Quartz, Obsidian and Crying Obsidian dust textures; Lead materials and blocks; Brute Steel; and Uranium ingot/dust textures.
