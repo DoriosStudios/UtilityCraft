@@ -12,7 +12,7 @@ const hidden = () => properties.get("utilitycraft:selection_empty");
 const block = {
     location: { x: -2, y: 10, z: -3 }, isAir: false,
     center: () => ({ x: -1.5, y: 10.5, z: -2.5 }),
-    hasTag: tag => tag === "dorios:machine",
+    hasTag() { throw new Error('Selection must not require block tags'); },
     setPermutation() { throw new Error("Block permutations must never be changed"); },
 };
 let loaded = true;
@@ -32,7 +32,11 @@ block.dimension = dimension;
 const machine = {
     id: 'machine', typeId: 'utilitycraft:machine_entity', isValid: true, dimension,
     location: { x: -1.5, y: 10.25, z: -2.5 },
-    getComponent: () => ({ hasTypeFamily: family => family === 'utilitycraft:block_container' }),
+    familyEnabled: true, scale: 1,
+    getComponent(type) {
+        if (type === 'minecraft:scale') return { value: this.scale };
+        return { hasTypeFamily: family => this.familyEnabled && family === 'utilitycraft:block_container' };
+    },
     getProperty: key => properties.get(key),
     teleport(location) { this.location = location; moves++; },
     triggerEvent(name) { properties.set('utilitycraft:selection_empty', name.endsWith('_empty')); modes++; },
@@ -120,6 +124,48 @@ flush();
 const allow = { block, player: a, cancel: false };
 events.playerBreakBlock(allow);
 assert.equal(allow.cancel, false, 'crouched player can mine the real block');
+// Entity definitions are the complete addon opt-in; no ID registry or block tags.
+const addonEntities = {
+    'UtilityCraft-Digital-Storage': ['blueprint_terminal', 'crafting_terminal', 'export_buffer', 'import_buffer', 'storage_cell_drive', 'storage_center', 'storage_terminal', 'storage_transfer_station'],
+    'UtilityCraft-Heavy-Machinery': ['combustion_chamber', 'gas_turbine', 'multiblock_machine', 'nuclear_reactor', 'thermo_reactor', 'power_condenser'],
+};
+const readAddon = (repo, name) => JSON.parse(fs.readFileSync(path.join(root, '..', repo, 'BP/entities', name + '.json'), 'utf8').replace(/^\uFEFF/, '').replace(/\/\/[^\r\n]*/g, ''))['minecraft:entity'];
+for (const [repo, names] of Object.entries(addonEntities)) for (const name of names) {
+    const e = readAddon(repo, name);
+    for (const group of [e.components, ...Object.values(e.component_groups)]) {
+        if (group['minecraft:type_family']) assert(group['minecraft:type_family'].family.includes('utilitycraft:block_container'));
+    }
+    assert.equal(e.components['minecraft:collision_box'].height, 1);
+    assert.equal(e.component_groups['utilitycraft:selection_empty']['minecraft:collision_box'].width, 0);
+    assert.equal(e.events['utilitycraft:selection_full'].set_property['utilitycraft:selection_empty'], false);
+    assert.equal(e.events['utilitycraft:selection_empty'].set_property['utilitycraft:selection_empty'], true);
+    machine.typeId = e.description.identifier;
+    a.entityHits = [{ distance: 1, entity: machine }];
+    machine.location.y = 10.25;
+    events.entityLoad({ entity: machine }); flush();
+    assert.equal(machine.location.y, 10.001, 'addon entity migrates on load');
+    a.isSneaking = false; interval(); assert.equal(hidden(), false);
+    a.isSneaking = true; interval(); assert.equal(hidden(), true);
+    a.entityHits = []; interval(); assert.equal(hidden(), true, 'hidden addon entity resolves from its block');
+    if (repo.includes('Digital')) assert.equal(e.description.properties['utilitycraft:orphan_cleanup'].default, false);
+    else assert.equal(e.components['minecraft:inside_block_notifier'].block_list[0].entered_block_event.event, 'utilitycraft:container_check_air');
+}
+machine.typeId = 'another_addon:unknown_controller';
+interval(); assert.equal(hidden(), true, 'an arbitrary new identifier works with the family');
+machine.scale = 0.1;
+interval(); assert.equal(hidden(), false, 'inactive multiblock keeps its scale-based block access');
+const inactiveBreak = { block, player: { ...a, isSneaking: false }, cancel: false };
+events.playerBreakBlock(inactiveBreak); assert.equal(inactiveBreak.cancel, false);
+machine.scale = 1;
+machine.familyEnabled = false;
+const oldLocation = machine.location;
+events.entityLoad({ entity: machine }); flush();
+interval(); assert.equal(machine.location, oldLocation, 'nonparticipants are not moved');
+machine.familyEnabled = true;
+for (const [repo, names] of Object.entries({
+    'UtilityCraft-Digital-Storage': ['storage_vault', 'wireless_storage_terminal'],
+    'UtilityCraft-Heavy-Machinery': ['gas_turbine_gas', 'gas_turbine_rotor'],
+})) for (const name of names) assert(!readAddon(repo, name).components['minecraft:type_family'].family.includes('utilitycraft:block_container'));
 // A near unsupported entity occludes the block and is never migrated.
 assert.equal(vm.runInContext('chooseTarget({x:0,y:0,z:0}, {block:{location:{x:0,y:0,z:2}},faceLocation:{x:0,y:0,z:0}}, {distance:3,entity:{id:"behind"}}).entity', context), undefined);
 // Exact hit surface distance, negative coordinates, and target ordering.
@@ -132,6 +178,11 @@ flush();
 assert.equal(drops, 0);
 loaded = true;
 block.isAir = true;
+properties.set('utilitycraft:orphan_cleanup', false);
+events.dataDrivenEntityTrigger({ entity: machine }); flush();
+assert.equal(drops, 0, 'virtual inventories retain addon-owned cleanup');
+assert.equal(machine.isValid, true);
+properties.delete('utilitycraft:orphan_cleanup');
 events.dataDrivenEntityTrigger({ entity: machine });
 events.dataDrivenEntityTrigger({ entity: machine });
 assert.equal(drops, 0, 'deferred cleanup lets normal breaking finish');

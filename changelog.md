@@ -1,6 +1,7 @@
 # UtilityCraft v3.6.0
 
 ## ADDED
+- Opened UtilityCore block-container selection to any entity with the `utilitycraft:block_container` family, including Digital Storage blocks and Heavy Machinery controllers, without requiring an entity ID or block tag. Inactive scaled-down controllers retain their block interaction, and addons can opt out of generic orphan drops when they own virtual-inventory cleanup.
 - Added UtilityCore block-container selection for the current machine entity: one global four-tick player raycast pass, a separate short-lived outline copied from ATA Advanced Furnaces (original geometry, texture and distance-scaled line thickness), visible only to its viewer; its lifetime is 0.3 seconds to cover the four-tick refresh, and full/hidden entity hitboxes for standing/sneaking. Existing entities are repositioned in place on discovery or load; orphan cleanup drops non-UI inventory after allowing normal destruction to finish. Block definitions, DoriosCore and the legacy machine entity are unchanged.
 - Registered default Furnator fuels through the existing register_fuel event, starting with an empty registry so UC and dependent addons receive the same defaults and custom fuel registrations.
 - Added Heated Saline Coolant gas: 49 native gas bar levels, tank entity, darkened Saline Coolant sprites and a Creative Tank. Heavy Machinery uses it for thermal heat recovery.

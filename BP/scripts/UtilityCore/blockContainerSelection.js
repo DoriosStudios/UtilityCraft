@@ -6,7 +6,6 @@ import {
     ownerLocation, containerLocation, needsPositionCorrection, sameBlock, chooseTarget,
 } from "./blockContainerTarget.js";
 
-const ENTITY_ID = "utilitycraft:machine_entity";
 const OUTLINE_ID = "utilitycraft:block_container_outline";
 const VISIBLE = "utilitycraft:selection_visible";
 const EMPTY = "utilitycraft:selection_empty";
@@ -18,12 +17,16 @@ const hints = new Map();
 
 function valid(entity) { return entity?.isValid === true; }
 function compatible(entity) {
-    return valid(entity) && entity.typeId === ENTITY_ID
+    return valid(entity)
         && entity.getComponent("minecraft:type_family")?.hasTypeFamily(BLOCK_CONTAINER_FAMILY);
 }
-// Existing tags are only a cheap prefilter. The helper's family is authoritative.
+// A container can belong to any non-air block; only its entity family opts in.
 function supported(block) {
-    return block && (block.hasTag("dorios:machine") || block.hasTag("dorios:generator"));
+    return block && !block.isAir;
+}
+function selectable(entity) {
+    // Inactive multiblock controllers shrink themselves to leave their block accessible.
+    return compatible(entity) && (entity.getComponent("minecraft:scale")?.value ?? 1) >= 1;
 }
 function blockKey(block) {
     const { x, y, z } = block.location;
@@ -32,6 +35,8 @@ function blockKey(block) {
 
 function checkOrphan(entity) {
     if (!valid(entity) || pendingOrphans.has(entity.id)) return;
+    // Addons with virtual inventories retain ownership of their cleanup lifecycle.
+    if (entity.getProperty("utilitycraft:orphan_cleanup") === false) return;
     pendingOrphans.add(entity.id);
     // Machine.onDestroy / Generator.onDestroy finish their deferred resource drop first.
     system.runTimeout(() => {
@@ -64,6 +69,7 @@ function prepare(entity, reset = false) {
     if (needsPositionCorrection(entity.location, expected)) entity.teleport(expected);
     const target = { entity, block };
     if (reset) setMode(target, false);
+    if (!selectable(entity)) return;
     return target;
 }
 
@@ -159,7 +165,7 @@ system.runInterval(() => {
 
 // Event-driven migration: no periodic world-wide entity enumeration.
 function initialize({ entity }) {
-    if (entity.typeId !== ENTITY_ID) return;
+    if (!compatible(entity)) return;
     system.run(() => { try { prepare(entity, true); } catch {} });
 }
 world.afterEvents.entitySpawn.subscribe(initialize);
@@ -168,12 +174,12 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => checkOrphan(
     eventTypes: [ORPHAN_EVENT],
 });
 world.afterEvents.entityHitEntity.subscribe(({ damagingEntity: player, hitEntity }) => {
-    if (player.typeId === "minecraft:player" && compatible(hitEntity)) hint(player);
+    if (player.typeId === "minecraft:player" && selectable(hitEntity)) hint(player);
 });
 world.beforeEvents.playerBreakBlock.subscribe(event => {
     if (!supported(event.block)) return;
     const entity = event.block.dimension.getEntitiesAtBlockLocation(event.block.location).find(compatible);
-    if (!entity) return;
+    if (!selectable(entity)) return;
     // Enforce sneak even during the four-tick transition window.
     if (!event.player.isSneaking || active.get(entity.id)?.standing) {
         event.cancel = true;
