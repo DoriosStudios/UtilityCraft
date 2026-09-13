@@ -1,0 +1,52 @@
+{
+  "format_version": "1.26.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "utilitycraft:block_container_outline",
+      "is_summonable": true,
+      "properties": {
+        "utilitycraft:selection_visible": {
+          "client_sync": true,
+          "default": false,
+          "type": "bool"
+        }
+      }
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:tick_world": {},
+      "minecraft:persistent": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "time": 0.3,
+        "looping": false,
+        "time_down_event": {
+          "event": "utilitycraft:outline_expire",
+          "target": "self"
+        }
+      },
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      }
+    },
+    "events": {
+      "utilitycraft:outline_expire": {
+        "add": {
+          "component_groups": ["despawn"]
+        }
+      }
+    }
+  }
+}

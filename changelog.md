@@ -1,6 +1,7 @@
 # UtilityCraft v3.6.0
 
 ## ADDED
+- Added UtilityCore block-container selection for the current machine entity: one global four-tick player raycast pass, a separate short-lived outline copied from ATA Advanced Furnaces (original geometry, texture and distance-scaled line thickness), visible only to its viewer; its lifetime is 0.3 seconds to cover the four-tick refresh, and full/hidden entity hitboxes for standing/sneaking. Existing entities are repositioned in place on discovery or load; orphan cleanup drops non-UI inventory after allowing normal destruction to finish. Block definitions, DoriosCore and the legacy machine entity are unchanged.
 - Registered default Furnator fuels through the existing register_fuel event, starting with an empty registry so UC and dependent addons receive the same defaults and custom fuel registrations.
 - Added Heated Saline Coolant gas: 49 native gas bar levels, tank entity, darkened Saline Coolant sprites and a Creative Tank. Heavy Machinery uses it for thermal heat recovery.
 - Completed Creative Tanks for all 20 liquid/gas bar resources: migrated six Saline Coolant and nuclear gas tanks from Heavy Machinery with their existing IDs, and added Crude Oil, Petroleum, Diesel and Nuclear Waste tanks using the shared infinite-storage component.

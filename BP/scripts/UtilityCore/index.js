@@ -2,6 +2,7 @@
 
 import "./commands.js";
 import "./containerEvent.js";
+import "./blockContainerSelection.js";
 import "./fluidContainers.js";
 import "./gasContainers.js";
 import "./infiniteTanks.js";
