@@ -62,6 +62,7 @@ export function getInfo(item) {
  * @returns {number} Amount of damage repaired.
  */
 export function repair(item, amount = 1) {
+  if (item?.hasTag("utilitycraft:energy_container")) return 0;
   const durability = getComponent(item);
   if (!durability || amount <= 0) return 0;
 

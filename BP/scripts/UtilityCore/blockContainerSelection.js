@@ -3,17 +3,15 @@ import { dropAllItems } from "../DoriosCore/utils/entity.js";
 import { TickScheduler } from "../DoriosCore/machinery/tickScheduler.js";
 import {
     BLOCK_CONTAINER_FAMILY, SELECTION_INTERVAL, SELECTION_REACH,
-    ownerLocation, containerLocation, needsPositionCorrection, sameBlock, chooseTarget,
+    ownerLocation, containerLocation, needsPositionCorrection, sameBlock,
 } from "./blockContainerTarget.js";
 
 const OUTLINE_ID = "utilitycraft:block_container_outline";
 const VISIBLE = "utilitycraft:selection_visible";
 const EMPTY = "utilitycraft:selection_empty";
-const ORPHAN_EVENT = "utilitycraft:container_check_air";
 const viewers = new Map();
 let active = new Map();
 const pendingOrphans = new Set();
-const hints = new Map();
 
 function valid(entity) { return entity?.isValid === true; }
 function compatible(entity) {
@@ -52,49 +50,54 @@ function checkOrphan(entity) {
     }, 2);
 }
 
+// Entity hits are only cleanup candidates; they never participate in selection.
+function cleanOrphansInView(player) {
+    for (const { entity } of player.getEntitiesFromViewDirection({ maxDistance: SELECTION_REACH })) {
+        try {
+            if (compatible(entity)
+                && entity.dimension.getBlock(ownerLocation(entity.location))?.isAir) checkOrphan(entity);
+        } catch { /* An unavailable entity must not interrupt selection or other cleanup. */ }
+    }
+}
+
+function positionContainer(entity, block) {
+    const expected = containerLocation(block.location);
+    if (needsPositionCorrection(entity.location, expected)) entity.teleport(expected);
+}
+
 function setMode(target, empty) {
     const { entity } = target;
     if (!valid(entity)) return;
+    // Recenter the entity before restoring its normal hitbox.
+    if (!empty) positionContainer(entity, target.block);
     if (entity.getProperty(EMPTY) !== empty) {
         entity.triggerEvent(empty ? "utilitycraft:selection_empty" : "utilitycraft:selection_full");
     }
 }
 
-function prepare(entity, reset = false) {
+function prepare(entity) {
     if (!compatible(entity)) return;
     const block = entity.dimension.getBlock(ownerLocation(entity.location));
     if (!block) return;
     if (block.isAir) { checkOrphan(entity); return; }
-    const expected = containerLocation(block.location);
-    if (needsPositionCorrection(entity.location, expected)) entity.teleport(expected);
+    positionContainer(entity, block);
     const target = { entity, block };
-    if (reset) setMode(target, false);
     if (!selectable(entity)) return;
     return target;
 }
 
 function resolve(player, previous, cache) {
-    const head = player.getHeadLocation();
-    const blockHit = player.getBlockFromViewDirection({
+    const block = player.getBlockFromViewDirection({
         maxDistance: SELECTION_REACH, includePassableBlocks: true,
-    });
-    // Do not filter out other entities before choosing the nearest target:
-    // a mob in front of the machine should still obstruct it.
-    const hits = player.getEntitiesFromViewDirection({ maxDistance: SELECTION_REACH });
-    let entityHit;
-    for (const hit of hits) {
-        if (hit.entity.id !== player.id && (!entityHit || hit.distance < entityHit.distance)) entityHit = hit;
-    }
-    const hit = chooseTarget(head, blockHit, entityHit);
-    if (hit?.entity) return prepare(hit.entity);
-    const block = hit?.block;
+    })?.block;
     if (!supported(block)) return;
     const key = blockKey(block);
     if (cache.has(key)) return cache.get(key);
     let entity = previous?.entity;
     if (!compatible(entity) || entity.dimension.id !== block.dimension.id
         || !sameBlock(ownerLocation(entity.location), block.location)) {
-        entity = block.dimension.getEntitiesAtBlockLocation(block.location).find(compatible);
+        entity = block.dimension.getEntitiesAtBlockLocation(block.location).find(candidate =>
+            compatible(candidate) && sameBlock(ownerLocation(candidate.location), block.location));
     }
     const target = prepare(entity);
     cache.set(key, target);
@@ -117,13 +120,6 @@ function createOutline(player, target) {
     }
 }
 
-function hint(player) {
-    if ((hints.get(player.id) ?? -100) + 20 > system.currentTick) return;
-    hints.set(player.id, system.currentTick);
-    player.onScreenDisplay.setActionBar("Sneak to break this machine");
-    player.playSound("note.bass");
-}
-
 // One global pass: two raycasts per player, never a scan over placed machines.
 system.runInterval(() => {
     const next = new Map();
@@ -131,6 +127,7 @@ system.runInterval(() => {
     const cache = new Map();
     for (const player of world.getAllPlayers()) {
         online.add(player.id);
+        try { cleanOrphansInView(player); } catch { /* Cleanup is independent of selection. */ }
         const previous = viewers.get(player.id);
         let outline;
         try {
@@ -151,10 +148,9 @@ system.runInterval(() => {
         try { removeOutline(viewer.outline); } catch {}
         viewers.delete(id);
     }
-    for (const id of hints.keys()) if (!online.has(id)) hints.delete(id);
     for (const [id, target] of active) {
         if (!next.has(id)) {
-            try { setMode(target, false); } catch { /* Reset on entity load. */ }
+            try { setMode(target, false); } catch { /* The entity may have unloaded. */ }
         }
     }
     for (const target of next.values()) {
@@ -163,26 +159,9 @@ system.runInterval(() => {
     active = next;
 }, SELECTION_INTERVAL);
 
-// Event-driven migration: no periodic world-wide entity enumeration.
-function initialize({ entity }) {
-    if (!compatible(entity)) return;
-    system.run(() => { try { prepare(entity, true); } catch {} });
-}
-world.afterEvents.entitySpawn.subscribe(initialize);
-world.afterEvents.entityLoad.subscribe(initialize);
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => checkOrphan(entity), {
-    eventTypes: [ORPHAN_EVENT],
-});
+// Feedback only: hitting a container does not change selection or collision.
 world.afterEvents.entityHitEntity.subscribe(({ damagingEntity: player, hitEntity }) => {
-    if (player.typeId === "minecraft:player" && selectable(hitEntity)) hint(player);
-});
-world.beforeEvents.playerBreakBlock.subscribe(event => {
-    if (!supported(event.block)) return;
-    const entity = event.block.dimension.getEntitiesAtBlockLocation(event.block.location).find(compatible);
-    if (!selectable(entity)) return;
-    // Enforce sneak even during the four-tick transition window.
-    if (!event.player.isSneaking || active.get(entity.id)?.standing) {
-        event.cancel = true;
-        system.run(() => { if (valid(event.player)) hint(event.player); });
+    if (player.typeId === "minecraft:player" && selectable(hitEntity)) {
+        player.onScreenDisplay.setActionBar("Sneak to mine");
     }
 });

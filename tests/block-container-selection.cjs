@@ -6,8 +6,8 @@ const root = path.resolve(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root, p), 'utf8');
 const strip = s => s.replace(/^import[\s\S]*?;\s*/gm, '').replace(/export /g, '');
 const properties = new Map([['utilitycraft:selection_empty', false]]);
-const events = {}, scheduled = [], players = [], outlines = [];
-let interval, intervalTicks, moves = 0, modes = 0, queries = 0, drops = 0, releases = 0;
+const scheduled = [], players = [], outlines = [];
+let hitEntityHandler, interval, intervalTicks, moves = 0, modes = 0, queries = 0, drops = 0, releases = 0;
 const hidden = () => properties.get("utilitycraft:selection_empty");
 const block = {
     location: { x: -2, y: 10, z: -3 }, isAir: false,
@@ -42,13 +42,11 @@ const machine = {
     triggerEvent(name) { properties.set('utilitycraft:selection_empty', name.endsWith('_empty')); modes++; },
     remove() { this.isValid = false; },
 };
-const signal = name => ({ subscribe(callback) { events[name] = callback; } });
 const context = {
     console,
     world: {
         getAllPlayers: () => players,
-        afterEvents: Object.fromEntries(['entitySpawn', 'entityLoad', 'dataDrivenEntityTrigger', 'entityHitEntity'].map(n => [n, signal(n)])),
-        beforeEvents: { playerBreakBlock: signal('playerBreakBlock') },
+        afterEvents: { entityHitEntity: { subscribe(callback) { hitEntityHandler = callback; } } },
     },
     system: {
         currentTick: 100,
@@ -62,7 +60,7 @@ const context = {
 vm.createContext(context);
 vm.runInContext(strip(read('BP/scripts/UtilityCore/blockContainerTarget.js')), context);
 vm.runInContext(strip(read('BP/scripts/UtilityCore/blockContainerSelection.js')), context);
-assert.equal(intervalTicks, 4);
+assert.equal(intervalTicks, 2);
 const flush = () => { while (scheduled.length) scheduled.shift()(); };
 const makePlayer = id => ({
     id, typeId: 'minecraft:player', isValid: true, isSneaking: false, dimension,
@@ -79,7 +77,7 @@ players.push(a);
 interval();
 assert.equal(moves, 1, 'old entity is migrated in place');
 assert.equal(a.calls, 2, 'only two raycasts per player per pass');
-assert.equal(machine.location.y, 10.001);
+assert.equal(machine.location.y, 10);
 const firstOutline = outlines.at(-1);
 assert(a.overrides.has(firstOutline.id));
 assert(!a.overrides.has(machine.id));
@@ -113,17 +111,10 @@ assert.equal(hidden(), false, 'leaving restores entity collision');
 a.noTarget = false;
 a.entityHits = [{ distance: 1, entity: { id: 'mob', typeId: 'minecraft:pig', isValid: true } }];
 interval();
-assert.equal(hidden(), false, 'nearby mob obstructs targeting');
+assert.equal(hidden(), true, 'entity hits cannot obstruct block selection');
 a.entityHits = [{ distance: 8, entity: machine }];
 interval();
 assert.equal(hidden(), true, 'far entity does not hide the nearer block');
-const cancel = { block, player: { ...a, isSneaking: false }, cancel: false };
-events.playerBreakBlock(cancel);
-assert.equal(cancel.cancel, true);
-flush();
-const allow = { block, player: a, cancel: false };
-events.playerBreakBlock(allow);
-assert.equal(allow.cancel, false, 'crouched player can mine the real block');
 // Entity definitions are the complete addon opt-in; no ID registry or block tags.
 const addonEntities = {
     'UtilityCraft-Digital-Storage': ['blueprint_terminal', 'crafting_terminal', 'export_buffer', 'import_buffer', 'storage_cell_drive', 'storage_center', 'storage_terminal', 'storage_transfer_station'],
@@ -142,8 +133,8 @@ for (const [repo, names] of Object.entries(addonEntities)) for (const name of na
     machine.typeId = e.description.identifier;
     a.entityHits = [{ distance: 1, entity: machine }];
     machine.location.y = 10.25;
-    events.entityLoad({ entity: machine }); flush();
-    assert.equal(machine.location.y, 10.001, 'addon entity migrates on load');
+    interval();
+    assert.equal(machine.location.y, 10, 'addon entity migrates when targeted');
     a.isSneaking = false; interval(); assert.equal(hidden(), false);
     a.isSneaking = true; interval(); assert.equal(hidden(), true);
     a.entityHits = []; interval(); assert.equal(hidden(), true, 'hidden addon entity resolves from its block');
@@ -154,37 +145,33 @@ machine.typeId = 'another_addon:unknown_controller';
 interval(); assert.equal(hidden(), true, 'an arbitrary new identifier works with the family');
 machine.scale = 0.1;
 interval(); assert.equal(hidden(), false, 'inactive multiblock keeps its scale-based block access');
-const inactiveBreak = { block, player: { ...a, isSneaking: false }, cancel: false };
-events.playerBreakBlock(inactiveBreak); assert.equal(inactiveBreak.cancel, false);
 machine.scale = 1;
 machine.familyEnabled = false;
 const oldLocation = machine.location;
-events.entityLoad({ entity: machine }); flush();
 interval(); assert.equal(machine.location, oldLocation, 'nonparticipants are not moved');
 machine.familyEnabled = true;
 for (const [repo, names] of Object.entries({
     'UtilityCraft-Digital-Storage': ['storage_vault', 'wireless_storage_terminal'],
     'UtilityCraft-Heavy-Machinery': ['gas_turbine_gas', 'gas_turbine_rotor'],
 })) for (const name of names) assert(!readAddon(repo, name).components['minecraft:type_family'].family.includes('utilitycraft:block_container'));
-// A near unsupported entity occludes the block and is never migrated.
-assert.equal(vm.runInContext('chooseTarget({x:0,y:0,z:0}, {block:{location:{x:0,y:0,z:2}},faceLocation:{x:0,y:0,z:0}}, {distance:3,entity:{id:"behind"}}).entity', context), undefined);
-// Exact hit surface distance, negative coordinates, and target ordering.
-assert.equal(vm.runInContext('blockHitDistance({x:0,y:0,z:0}, {block:{location:{x:0,y:0,z:3}},faceLocation:{x:0,y:0,z:0}})', context), 3);
+// Negative coordinates remain inside the owning block.
 assert.equal(vm.runInContext('ownerLocation(containerLocation({x:-3,y:-64,z:-9})).y', context), -64);
+// Orphan cleanup is triggered by discovery in the global pass, not world events.
+a.entityHits = [{ distance: 1, entity: machine }];
 // Unavailable chunks must not destroy inventories.
 loaded = false;
-events.dataDrivenEntityTrigger({ entity: machine });
+interval();
 flush();
 assert.equal(drops, 0);
 loaded = true;
 block.isAir = true;
 properties.set('utilitycraft:orphan_cleanup', false);
-events.dataDrivenEntityTrigger({ entity: machine }); flush();
+interval(); flush();
 assert.equal(drops, 0, 'virtual inventories retain addon-owned cleanup');
 assert.equal(machine.isValid, true);
 properties.delete('utilitycraft:orphan_cleanup');
-events.dataDrivenEntityTrigger({ entity: machine });
-events.dataDrivenEntityTrigger({ entity: machine });
+interval();
+interval();
 assert.equal(drops, 0, 'deferred cleanup lets normal breaking finish');
 flush();
 assert.equal(drops, 1);
@@ -192,7 +179,7 @@ assert.equal(releases, 1);
 assert.equal(machine.isValid, false);
 // Normal destruction removing the entity before the orphan callback cannot drop twice.
 machine.isValid = true;
-events.dataDrivenEntityTrigger({ entity: machine });
+interval();
 machine.isValid = false;
 flush();
 assert.equal(drops, 1);
@@ -257,4 +244,53 @@ for (const [source, destination] of [
 }
 assert.deepEqual(fs.readFileSync(path.join(root, 'RP/textures/entity/block_container_outline.png')),
     fs.readFileSync(path.join(ataRoot, 'rc_af_rp/textures/rc_af/common/entity/collision.png')));
-console.log('PASS: global selection, migration, cached lookup, multiplayer, obstruction, transitions and safe orphan cleanup');
+console.log('PASS: global selection with hit feedback only, discovery migration, cached lookup, multiplayer and safe orphan cleanup');
+
+// Normal and restored hitboxes use the same full size in all three packs.
+const fullDefinitions = [definition, ...Object.entries(addonEntities).flatMap(([repo, names]) => names.map(name => readAddon(repo, name)))];
+for (const entity of fullDefinitions) {
+    for (const box of [entity.components['minecraft:collision_box'], entity.component_groups['utilitycraft:selection_full']['minecraft:collision_box']]) {
+        assert.equal(box.width, 1);
+        assert.equal(box.height, 1);
+    }
+    const hiddenBox = entity.component_groups['utilitycraft:selection_empty']['minecraft:collision_box'];
+    assert.equal(hiddenBox.width, 0);
+    assert.equal(hiddenBox.height, 0);
+}
+console.log('PASS: all 15 compatible entities have 1 x 1 normal and 0 x 0 hidden hitboxes');
+
+// Even if the block query returns a neighbor first, only the owner is selected.
+machine.isValid = true;
+machine.location = {x:-1.5,y:10,z:-2.5};
+a.noTarget = false;
+a.entityHits = [];
+a.isSneaking = true;
+players.push(a);
+block.isAir = false;
+const neighbor = {...machine, id:'neighbor', location:{x:-1.5,y:11,z:-2.5},
+    triggerEvent() { throw new Error('Neighbor must not be selected'); }};
+dimension.getEntitiesAtBlockLocation = () => [neighbor, machine];
+interval();
+assert.equal(vm.runInContext('viewers.get("a").entity.id', context), machine.id);
+// Alternating visible entity hits never changes the block-driven target or mode.
+const modeCount = modes;
+for (let i = 0; i < 10; i++) {
+    a.entityHits = [{distance:i % 2 ? 0.1 : 3, entity:i % 2 ? neighbor : machine}];
+    interval();
+    assert.equal(vm.runInContext('viewers.get("a").entity.id', context), machine.id);
+    assert.equal(hidden(), true);
+}
+assert.equal(modes, modeCount, 'entity hit changes cannot toggle either machine');
+// Without a block hit, a healthy entity cannot become a selection target.
+a.noTarget = true;
+interval();
+assert.equal(vm.runInContext('viewers.has("a")', context), false);
+assert.equal(hidden(), false);
+// A failed cleanup raycast must not suppress valid block selection.
+a.noTarget = false;
+const entityRaycast = a.getEntitiesFromViewDirection;
+a.getEntitiesFromViewDirection = () => { throw new Error('unavailable cleanup raycast'); };
+interval();
+assert.equal(vm.runInContext('viewers.get("a").entity.id', context), machine.id);
+a.getEntitiesFromViewDirection = entityRaycast;
+console.log('PASS: block-only selection ignores alternating entity hits and cleanup failures');

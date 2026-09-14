@@ -50,6 +50,12 @@ DoriosLib.registry.blockComponent('utilitycraft:induction_anvil', {
             return;
         }
 
+        // Energy containers must not receive ordinary low-cost durability repairs.
+        if (stack.hasTag('utilitycraft:energy_container')) {
+            machine.showWarning('Use Reinforced Induction Anvil', { displayProgress: false });
+            return;
+        }
+
         // Must be a durable item
         const durability = DoriosLib.item.durability.getInfo(stack)
 
