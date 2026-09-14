@@ -23,6 +23,7 @@ export const DISABLED_ITEM_IO_MODE = "disabled";
 
 /**
  * @typedef {object} ItemIODefinition
+ * @property {"explicit"} [networkFaces] Applied only when creating a new policy.
  * @property {number[]} anyInputSlots Slots accepted when the source face is unavailable.
  * @property {number[]} anyOutputSlots Slots exposed when the destination face is unavailable.
  * @property {ItemIOMode[]} modes Ordered modes cycled by the six IO buttons.
@@ -198,7 +199,7 @@ export function ensureItemIOConfig(entity, blockTypeId, options = {}) {
   validatedEntities.delete(entity.id);
   publishConfig(
     entity,
-    createEmptyConfig(definition),
+    createEmptyConfig({ ...definition, networkFaces: status === "basic" ? definition.networkFaces : undefined }),
     blockTypeId,
     definitionRevisions.get(blockTypeId) ?? 0,
   );
@@ -335,7 +336,7 @@ function normalizeDefinition(value) {
   const anyOutputSlots = normalizeSlots(raw.anyOutputSlots, "items.anyOutputSlots");
   const modes = normalizeModes(raw.modes);
 
-  return { anyInputSlots, anyOutputSlots, modes };
+  return { anyInputSlots, anyOutputSlots, modes, ...(raw.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}), };
 }
 
 /**
@@ -436,6 +437,7 @@ function createEmptyConfig(definition) {
   return {
     version: DoriosContainer.ITEM_CONFIG_VERSION,
     type: "complex",
+    ...(definition.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputSlots: [...definition.anyInputSlots],
     anyOutputSlots: [...definition.anyOutputSlots],
     inputConfig: {},
@@ -453,6 +455,7 @@ function reconcileConfig(current, definition, entity) {
   const config = /** @type {ComplexItemConfig} */ ({
     version: DoriosContainer.ITEM_CONFIG_VERSION,
     type: "complex",
+    ...(current.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputSlots: [...definition.anyInputSlots],
     anyOutputSlots: [...definition.anyOutputSlots],
     inputConfig: {},
@@ -560,6 +563,7 @@ function getConfigSignature(config) {
   }));
 
   return JSON.stringify({
+    ...(config.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputSlots: config.anyInputSlots,
     anyOutputSlots: config.anyOutputSlots,
     faces,
@@ -585,6 +589,7 @@ function cloneComplexConfig(config) {
   return {
     version: DoriosContainer.ITEM_CONFIG_VERSION,
     type: "complex",
+    ...(config.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputSlots: [...config.anyInputSlots],
     anyOutputSlots: [...config.anyOutputSlots],
     inputConfig,
@@ -601,6 +606,7 @@ function cloneComplexConfig(config) {
  */
 function cloneDefinition(definition) {
   return {
+    ...(definition.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputSlots: [...definition.anyInputSlots],
     anyOutputSlots: [...definition.anyOutputSlots],
     modes: definition.modes.map((mode) => ({

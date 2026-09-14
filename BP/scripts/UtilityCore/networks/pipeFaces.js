@@ -350,8 +350,10 @@ function writeDisabledFacesAt(dimension, location, disabled) {
 /** @param {Block} block @param {PipeDirection} direction @param {string|undefined} [rawResource] */
 export function isPipeFaceDisabled(block, direction, rawResource) {
   if (!block?.hasTag("dorios:isTube")) return false;
-  if (getProtectedEndpointDirection(block) === direction) return false;
   const state = readPipeFaceStateAt(block.dimension, block.location);
+  // The ordinary unrestricted face needs no endpoint or channel classification.
+  if (!state.disabled.has(direction) && !state.resources.has(direction)) return false;
+  if (getProtectedEndpointDirection(block) === direction) return false;
   if (state.disabled.has(direction)) return true;
   if (!isMultiTube(block)) return false;
   const resource = normalizeStoredResource(rawResource);
@@ -468,19 +470,69 @@ export function getPhysicalConnectionState(block, physicalDirection) {
  * @param {PipeResource|string|undefined} [resource]
  */
 export function isNetworkConnectionOpen(block, direction, neighbor, resource) {
-  if (!block || !neighbor) return false;
-  const opposite = /** @type {PipeDirection} */ (OPPOSITE_DIRECTIONS[direction]);
-  if (block.hasTag("dorios:isTube")
-    && !isMultiTube(block)
-    && !isMultiEndpoint(block)
-    && !getPhysicalConnectionState(block, direction)) return false;
-  if (neighbor.hasTag("dorios:isTube")
-    && !isMultiTube(neighbor)
-    && !isMultiEndpoint(neighbor)
-    && !getPhysicalConnectionState(neighbor, opposite)) return false;
-  if (isPipeFaceDisabled(block, direction, resource)) return false;
-  if (isPipeFaceDisabled(neighbor, opposite, resource)) return false;
-  return true;
+  return createNetworkConnectionChecker(resource).isOpen(block, direction, neighbor);
+}
+
+/**
+ * A traversal-local snapshot, never a global block/type cache. Call clear()
+ * after every await (even if the tick did not advance) and after local topology
+ * writes. Distinct native wrappers for one position share the same snapshot.
+ * @param {string|undefined} resource
+ */
+export function createNetworkConnectionChecker(resource) {
+  const snapshots = new Map();
+  const channel = normalizeStoredResource(resource);
+
+  /** @param {Block} block */
+  function getInfo(block) {
+    const key = `${block.dimension.id}:${coordinateKey(block.location)}`;
+    let info = snapshots.get(key);
+    if (info) return info;
+    const tags = new Set(block.getTags());
+    const tube = tags.has("dorios:isTube");
+    const multi = tags.has(MULTI_TUBE_TAG);
+    const multiExporter = tags.has(MULTI_EXPORTER_TAG);
+    const multiImporter = tags.has(MULTI_IMPORTER_TAG);
+    const endpoint = multiExporter || multiImporter
+      || tags.has("dorios:isExporter") || tags.has("dorios:isImporter");
+    const facing = endpoint
+      ? normalizePipeDirection(block.permutation.getState("minecraft:block_face"))
+      : undefined;
+    info = {
+      tags, tube, multi, multiExporter, multiImporter, endpoint, facing,
+      protectedDirection: endpoint ? OPPOSITE_DIRECTIONS[facing] : undefined,
+      permutation: tube ? block.permutation : undefined,
+      faces: tube ? readPipeFaceStateAt(block.dimension, block.location) : undefined,
+    };
+    snapshots.set(key, info);
+    return info;
+  }
+
+  function allows(info, direction) {
+    if (!info.tube) return true;
+    if (!info.multi && !info.multiExporter && !info.multiImporter) {
+      const stateDirection = info.endpoint
+        ? ENDPOINT_STATE_DIRECTION_MAP[info.facing ?? "north"]?.[direction] ?? direction
+        : direction;
+      try {
+        if (info.permutation.getState(`utilitycraft:${stateDirection}`) !== true) return false;
+      } catch { return false; }
+    }
+    if (info.protectedDirection === direction) return true;
+    if (info.faces.disabled.has(direction)) return false;
+    return !info.multi || !channel || info.faces.resources.get(direction)?.has(channel) !== true;
+  }
+
+  return {
+    getInfo,
+    clear() { snapshots.clear(); },
+    /** @param {Block} block @param {PipeDirection} direction @param {Block} neighbor */
+    isOpen(block, direction, neighbor) {
+      if (!block || !neighbor) return false;
+      return allows(getInfo(block), direction)
+        && allows(getInfo(neighbor), OPPOSITE_DIRECTIONS[direction]);
+    },
+  };
 }
 
 /** @param {Block} block @param {Block} neighbor */

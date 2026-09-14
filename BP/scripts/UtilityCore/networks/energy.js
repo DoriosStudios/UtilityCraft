@@ -12,7 +12,7 @@ import {
   offsetLocation,
   safeGetBlock,
 } from "./shared.js";
-import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
+import { PIPE_DIRECTIONS, createNetworkConnectionChecker } from "./pipeFaces.js";
 import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
@@ -31,6 +31,7 @@ import {
  * @returns {Promise<Set<string>>} Positions covered by this traversal.
  */
 export async function rescanEnergyNetwork(startPosition, dimension) {
+  const connections = createNetworkConnectionChecker("energy");
   const queue = [startPosition];
   let queueHead = 0;
   let processed = 0;
@@ -40,6 +41,7 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
   while (queueHead < queue.length) {
     if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
       await system.waitTicks(1);
+      connections.clear();
     }
     processed++;
 
@@ -59,7 +61,7 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor, "energy")) {
+        if (neighbor && connections.isOpen(block, direction, neighbor)) {
           queue.push(neighborLocation);
         }
       }
@@ -74,11 +76,13 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
       if (!linked) continue;
       entity = linked.entity;
       await searchEnergyStorages(getLinkNodeLocations(entity), entity);
+      connections.clear();
       continue;
     }
 
     if (entity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:energy_source")) {
       await searchEnergyStorages([position], entity);
+      connections.clear();
     }
   }
   return networkNodes;
@@ -92,6 +96,7 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
  * @returns {Promise<void>}
  */
 async function searchEnergyStorages(startPositions, generator) {
+  const connections = createNetworkConnectionChecker("energy");
   const dimension = generator.dimension;
   const queue = [];
   let queueHead = 0;
@@ -108,7 +113,7 @@ async function searchEnergyStorages(startPositions, generator) {
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (neighbor?.hasTag("dorios:multi_importer")
         && isEndpointAttachedTo(neighbor, startPosition)) continue;
-      if (neighbor && isNetworkConnectionOpen(startBlock, direction, neighbor, "energy")) {
+      if (neighbor && connections.isOpen(startBlock, direction, neighbor)) {
         queue.push(neighborLocation);
       }
     }
@@ -118,6 +123,7 @@ async function searchEnergyStorages(startPositions, generator) {
   while (queueHead < queue.length) {
     if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
       await system.waitTicks(1);
+      connections.clear();
     }
     processed++;
 
@@ -136,7 +142,7 @@ async function searchEnergyStorages(startPositions, generator) {
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor, "energy")) {
+        if (neighbor && connections.isOpen(block, direction, neighbor)) {
           queue.push(neighborLocation);
         }
       }
@@ -148,7 +154,7 @@ async function searchEnergyStorages(startPositions, generator) {
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (!neighbor || !isNetworkConnectionOpen(block, direction, neighbor, "energy")) continue;
+        if (!neighbor || !connections.isOpen(block, direction, neighbor)) continue;
 
         const isAttachment = attached && isSameLocation(attached.location, neighborLocation);
         if (isAttachment) {

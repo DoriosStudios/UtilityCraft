@@ -58,6 +58,26 @@ export const DIRECTION_OFFSETS = {
 /** Shared UtilityCraft component registrar installed by the network listener. */
 export const networkRegistrar = createRegistrar("utilitycraft");
 
+/**
+ * Read only while refreshing an endpoint access cache, never per item/tank.
+ * Legacy documents retain passive face access. Explicit network policy is
+ * persisted per resource, so another pack's registration order cannot opt an
+ * existing machine into stricter access. Link-node overrides remain sovereign.
+ * @param {{entity?:import("@minecraft/server").Entity}} resolved
+ * @param {ContainerFace} face
+ * @param {"items"|"liquids"|"gases"} resource
+ */
+export function getNetworkFaceOptions(resolved, face, resource) {
+  if (!resolved.entity) return { face, automatic: false };
+  try {
+    const raw = resolved.entity.getDynamicProperty("utilitycraft:io_config");
+    const config = typeof raw === "string" ? JSON.parse(raw)?.[resource] : undefined;
+    return { face, automatic: config?.type === "complex" && config.networkFaces === "explicit" };
+  } catch {
+    return { face, automatic: true };
+  }
+}
+
 /** @param {Vector3} location @param {Vector3} offset */
 export function offsetLocation(location, offset) {
   return {

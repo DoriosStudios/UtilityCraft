@@ -14,6 +14,7 @@ import {
   getAttachedContainerEndpoint,
   getContainerFace,
   getNetworkColor,
+  getNetworkFaceOptions,
   isExporterEndpoint,
   isImporterEndpoint,
   networkRegistrar,
@@ -24,7 +25,7 @@ import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
 } from "./scheduler.js";
-import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
+import { PIPE_DIRECTIONS, createNetworkConnectionChecker } from "./pipeFaces.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -447,7 +448,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const indices = DoriosGas.getGasOutputIndices(resolved, { face: source.face, automatic: true });
+  const indices = DoriosGas.getGasOutputIndices(resolved, getNetworkFaceOptions(resolved, source.face, "gases"));
   const revision = DoriosGas.getGasContainerRevision(resolved);
   runtime.sourceAccess = { resolved, indices, revision };
   return runtime.sourceAccess;
@@ -495,7 +496,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const indices = DoriosGas.getGasInputIndices(resolved, { face: endpoint.face, automatic: true });
+  const indices = DoriosGas.getGasInputIndices(resolved, getNetworkFaceOptions(resolved, endpoint.face, "gases"));
   const access = {
     resolved,
     indices,
@@ -958,6 +959,7 @@ async function rebuildGasNetworkBatch(changedLocations, dimension) {
 
 /** @param {Vector3} rootLocation @param {Dimension} dimension @returns {Promise<Set<string>>} */
 export async function rescanGasNetwork(rootLocation, dimension) {
+  const connections = createNetworkConnectionChecker("gas");
   const rootBlock = safeGetBlock(dimension, rootLocation);
   if (!rootBlock) return new Set();
   const networkColor = getNetworkColor(rootBlock);
@@ -970,7 +972,10 @@ export async function rescanGasNetwork(rootLocation, dimension) {
   const routes = new Map();
 
   while (queueHead < queue.length) {
-    if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) await system.waitTicks(1);
+    if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
+      await system.waitTicks(1);
+      connections.clear();
+    }
     processed++;
     const position = queue[queueHead++];
     const key = locationKey(dimension.id, position);
@@ -1009,7 +1014,7 @@ export async function rescanGasNetwork(rootLocation, dimension) {
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
-      if (!isNetworkConnectionOpen(block, direction, neighbor, "gas")) continue;
+      if (!connections.isOpen(block, direction, neighbor)) continue;
       if (isGasNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
         continue;

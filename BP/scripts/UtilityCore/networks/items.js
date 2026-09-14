@@ -12,6 +12,7 @@ import {
   getAttachedContainerEndpoint,
   getContainerFace,
   getNetworkColor,
+  getNetworkFaceOptions,
   isExporterEndpoint,
   isImporterEndpoint,
   isItemNetworkBlock,
@@ -23,7 +24,7 @@ import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
 } from "./scheduler.js";
-import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
+import { PIPE_DIRECTIONS, createNetworkConnectionChecker } from "./pipeFaces.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -558,7 +559,7 @@ function getSourceAccess(runtime, dimension) {
     runtime.sourceAccess = undefined;
     return undefined;
   }
-  const slots = DoriosContainer.getOutputSlots(resolved, { face: source.face, automatic: true });
+  const slots = DoriosContainer.getOutputSlots(resolved, getNetworkFaceOptions(resolved, source.face, "items"));
   runtime.sourceAccess = { resolved, slots, revision };
   return runtime.sourceAccess;
 }
@@ -585,7 +586,7 @@ function getTargetAccess(runtime, dimension, endpoint) {
     runtime.targetAccesses.delete(key);
     return undefined;
   }
-  const slots = DoriosContainer.getInputSlots(resolved, { face: endpoint.face, automatic: true });
+  const slots = DoriosContainer.getInputSlots(resolved, getNetworkFaceOptions(resolved, endpoint.face, "items"));
   const access = { resolved, slots, revision };
   runtime.targetAccesses.set(key, access);
   return access;
@@ -1151,6 +1152,7 @@ const queueItemNetworkRescan = createNetworkRescanScheduler(
  * @returns {Promise<Set<string>>}
  */
 async function rebuildItemNetworkComponent(rootLocation, dimension) {
+  const connections = createNetworkConnectionChecker("item");
   const rootBlock = safeGetBlock(dimension, rootLocation);
   if (!rootBlock) return new Set();
   const networkColor = getNetworkColor(rootBlock);
@@ -1165,6 +1167,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
   while (queueHead < queue.length) {
     if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
       await system.waitTicks(1);
+      connections.clear();
     }
     processed++;
 
@@ -1209,7 +1212,7 @@ async function rebuildItemNetworkComponent(rootLocation, dimension) {
       const neighborLocation = offsetLocation(position, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
       if (!neighbor) continue;
-      if (!isNetworkConnectionOpen(block, direction, neighbor, "item")) continue;
+      if (!connections.isOpen(block, direction, neighbor)) continue;
 
       if (isItemNetworkBlock(neighbor)) {
         if (neighbor.hasTag(networkColor)) queue.push(normalizeLocation(neighborLocation));
