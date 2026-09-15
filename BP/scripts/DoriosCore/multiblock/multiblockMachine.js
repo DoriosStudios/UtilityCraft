@@ -465,21 +465,16 @@ export class MultiblockMachine extends BasicMachine {
     const speed = Math.max(0, components.speed_module | 0);
     const efficiency = Math.max(0, components.efficiency_module | 0);
 
-    const processAmount = 2 * processing;
-    const processingPenalty = 1 + 2.25 * (processing - 1);
-
-    const maxSpeedBonus = 999;
-    const speedK = 3200;
-    const speedMultiplier = 1 + (maxSpeedBonus * speed) / (speedK + speed);
-
-    const maxSpeedPenalty = 99;
-    const speedPenaltyK = 640;
-    const speedPenalty = 1 + (maxSpeedPenalty * speed) / (speedPenaltyK + speed);
-
-    const minEfficiency = 0.01;
-    const efficiencyRate = 0.15;
-    const efficiencyMultiplier =
-      minEfficiency + (1 - minEfficiency) * Math.exp(-efficiencyRate * efficiency);
+    // Square-root gains in both modules: doubling both doubles throughput.
+    // Round parallel lanes up and compensate the work rate to avoid free
+    // throughput at integer boundaries. Energy stays proportional to lanes.
+    const parallelGain = Math.sqrt(processing);
+    const processAmount = Math.ceil(2 * parallelGain);
+    const processingPenalty = processAmount / 2;
+    const speedMultiplier = Math.sqrt(Math.max(1, speed)) * (2 * parallelGain / processAmount);
+    const speedPenalty = 1;
+    // Efficiency saves up to 75% DE, without changing the work rate.
+    const efficiencyMultiplier = 0.25 + 0.75 * Math.exp(-0.15 * efficiency);
 
     return {
       raw: {
@@ -522,7 +517,7 @@ export class MultiblockMachine extends BasicMachine {
       ? (processingAmount / energyMultiplier) * 100
       : 0;
     const cost = Number.isFinite(data?.cost)
-      ? EnergyStorage.formatEnergyToText(data.cost)
+      ? EnergyStorage.formatEnergyToText(data.cost * energyMultiplier)
       : "---";
 
     return `§r§7Status: ${status}

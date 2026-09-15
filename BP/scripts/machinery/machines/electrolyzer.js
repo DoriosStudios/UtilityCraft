@@ -1,6 +1,7 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, FluidStorage, GasStorage, registerIOInterface } from "DoriosCore/index.js";
 import { electrolyzerRecipes } from "config/recipes/electrolyzer.js";
+import { applyRecipeEnergyLimit } from "./recipeEnergy.js";
 
 registerIOInterface("utilitycraft:electrolyzer", {
     items: {
@@ -63,6 +64,7 @@ DoriosLib.registry.blockComponent("utilitycraft:electrolyzer", {
             return;
         }
 
+        applyRecipeEnergyLimit(machine, recipe);
         const requiredLiquid = recipe.required_liquid ?? 0;
         const requiredGas = recipe.required_gas ?? 0;
         const output1 = recipe.output1;

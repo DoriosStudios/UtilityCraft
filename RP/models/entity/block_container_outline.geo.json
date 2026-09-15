@@ -1,0 +1,549 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.utilitycraft_block_container_outline",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 4,
+        "visible_bounds_height": 4,
+        "visible_bounds_offset": [0, 1, 0]
+      },
+      "bones": [
+        {
+          "name": "outline",
+          "pivot": [0, 0, 0]
+        },
+        {
+          "name": "above_west",
+          "parent": "outline",
+          "pivot": [8, 7.875, 0],
+          "cubes": [
+            {
+              "origin": [8, 7.875, -8],
+              "size": [0, 0, 16],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "above_east",
+          "parent": "outline",
+          "pivot": [-8, 7.875, 0],
+          "cubes": [
+            {
+              "origin": [-8, 7.875, -8],
+              "size": [0, 0, 16],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "above_north",
+          "parent": "outline",
+          "pivot": [0, 7.875, -8],
+          "cubes": [
+            {
+              "origin": [-8, 7.875, -8],
+              "size": [16, 0, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "above_south",
+          "parent": "outline",
+          "pivot": [0, 7.875, 8],
+          "cubes": [
+            {
+              "origin": [-8, 7.875, 8],
+              "size": [16, 0, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "below_north",
+          "parent": "outline",
+          "pivot": [0, -8.125, -8],
+          "cubes": [
+            {
+              "origin": [-8, -8.125, -8],
+              "size": [16, 0, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "below_south",
+          "parent": "outline",
+          "pivot": [0, -8.125, 8],
+          "cubes": [
+            {
+              "origin": [-8, -8.125, 8],
+              "size": [16, 0, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "below_west",
+          "parent": "outline",
+          "pivot": [8, -8.125, 0],
+          "cubes": [
+            {
+              "origin": [8, -8.125, -8],
+              "size": [0, 0, 16],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "below_east",
+          "parent": "outline",
+          "pivot": [-8, -8.125, 0],
+          "cubes": [
+            {
+              "origin": [-8, -8.125, -8],
+              "size": [0, 0, 16],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "north_west",
+          "parent": "outline",
+          "pivot": [8, -0.125, -8],
+          "cubes": [
+            {
+              "origin": [8, -8.125, -8],
+              "size": [0, 16, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "north_east",
+          "parent": "outline",
+          "pivot": [-8, -0.125, -8],
+          "cubes": [
+            {
+              "origin": [-8, -8.125, -8],
+              "size": [0, 16, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south_east",
+          "parent": "outline",
+          "pivot": [-8, -0.125, 8],
+          "cubes": [
+            {
+              "origin": [-8, -8.125, 8],
+              "size": [0, 16, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "south_west",
+          "parent": "outline",
+          "pivot": [8, -0.125, 8],
+          "cubes": [
+            {
+              "origin": [8, -8.125, 8],
+              "size": [0, 16, 0],
+              "inflate": 0.02,
+              "uv": {
+                "north": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "east": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "south": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "west": {
+                  "uv": [0, 0],
+                  "uv_size": [16, 16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "up": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                },
+                "down": {
+                  "uv": [16, 16],
+                  "uv_size": [-16, -16],
+                  "material_instance": "utilitycraft:outline"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,8 @@
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false,
-			"properties": {			
+			"properties": {
+				"utilitycraft:selection_empty": { "type": "bool", "default": false },
 				"utilitycraft:players": {
 					"type": "int",
 					"default": 0,
@@ -34,12 +35,15 @@
 			}
 		},
 		"component_groups": {
+			"utilitycraft:selection_full": { "minecraft:collision_box": { "height": 1, "width": 1 } },
+			"utilitycraft:selection_empty": { "minecraft:collision_box": { "height": 0, "width": 0 } },
 			"despawn": {
 				"minecraft:instant_despawn": {}
 			},
 			"utilitycraft:container": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:container"
 					]
@@ -48,6 +52,7 @@
 			"utilitycraft:machine": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
@@ -58,6 +63,7 @@
 			"utilitycraft:fluid_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
@@ -69,6 +75,7 @@
 			"utilitycraft:gas_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
@@ -80,6 +87,7 @@
 			"utilitycraft:fluid_gas_machine": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:machine",
 						"dorios:energy_container",
@@ -92,6 +100,7 @@
 			"utilitycraft:battery": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:battery",
 						"dorios:energy_source",
@@ -102,6 +111,7 @@
 			"utilitycraft:generator": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:generator",
 						"dorios:energy_source",
@@ -112,6 +122,7 @@
 			"utilitycraft:fluid_generator": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:generator",
 						"dorios:energy_source",
@@ -123,6 +134,7 @@
 			"utilitycraft:gas_generator": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:generator",
 						"dorios:energy_source",
@@ -134,6 +146,7 @@
 			"utilitycraft:fluid_gas_generator": {
 				"minecraft:type_family": {
 					"family": [
+						"utilitycraft:block_container",
 						"inanimate",
 						"dorios:generator",
 						"dorios:energy_source",
@@ -457,6 +470,7 @@
 			},
 			"minecraft:type_family": {
 				"family": [
+					"utilitycraft:block_container",
 					"inanimate",
 					"dorios:machine",
 					"dorios:energy_container",
@@ -481,7 +495,7 @@
 				"max": 1000
 			},
 			"minecraft:collision_box": {
-				"height": 0.5,
+				"height": 1,
 				"width": 1
 			},
 			"minecraft:fire_immune": true,
@@ -505,13 +519,24 @@
 							"name": "air"
 						},
 						"entered_block_event": {
-							"event": "despawn"
+							"event": "utilitycraft:container_check_air"
 						}
 					}
 				]
 			}
 		},
 		"events": {
+			"utilitycraft:container_check_air": {},
+			"utilitycraft:selection_full": {
+				"set_property": { "utilitycraft:selection_empty": false },
+				"remove": { "component_groups": ["utilitycraft:selection_empty"] },
+				"add": { "component_groups": ["utilitycraft:selection_full"] }
+			},
+			"utilitycraft:selection_empty": {
+				"set_property": { "utilitycraft:selection_empty": true },
+				"remove": { "component_groups": ["utilitycraft:selection_full"] },
+				"add": { "component_groups": ["utilitycraft:selection_empty"] }
+			},
 			"despawn": {
 				"add": {
 					"component_groups": [

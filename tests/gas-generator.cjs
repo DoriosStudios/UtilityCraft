@@ -58,10 +58,49 @@ for (const [name, symbol, method, expected] of [['electrolyzer', 'electrolyzerRe
     vm.runInNewContext(strip(read('BP/scripts/config/recipes/' + name + '.js')), ctx);
     for (const p of queue.splice(0)) callbacks.forEach(cb => cb({ id: event, message: JSON.stringify(p) }));
     const map = vm.runInNewContext(symbol, ctx);assert.equal(Object.keys(map).length, 1);
-    vm.runInNewContext(strip(fs.readFileSync(path.join(root, '../UtilityCraft-Heavy-Machinery/BP/scripts/config/recipes/' + name + '.js'), 'utf8')), ctx);
+    const addonRecipeFile = name === 'chemical_converter' ? 'chemicalConverter' : name;
+    vm.runInNewContext(strip(fs.readFileSync(path.join(root, '../UtilityCraft-Heavy-Machinery/BP/scripts/config/recipes/' + addonRecipeFile + '.js'), 'utf8')), ctx);
     for (const p of queue) callbacks.forEach(cb => cb({ id: event, message: JSON.stringify(p) }));
     assert.equal(Object.keys(map).length, expected);checks++;
 }
-assert(fuels.hydrogen_gas.energy * 1000 > 512000);
-assert(fuels.methane_gas.energy * 1000 > 512000 + 256000 + 800);
+const defaults = name => JSON.parse(read(`BP/scripts/config/recipes/${name}.js`).match(/const defaultRecipes = (\{[\s\S]*?\n\});/)[1]);
+const electrolysis = defaults('electrolyzer')['water|empty'];
+const methane = defaults('chemical_converter')['utilitycraft:charcoal_dust|empty|hydrogen_gas'];
+const limit = vm.runInNewContext(strip(read('BP/scripts/machinery/machines/recipeEnergy.js')) + '\napplyRecipeEnergyLimit');
+let upgrades;
+vm.runInNewContext(strip(read('BP/scripts/UtilityCore/upgradeRegister.js')), {
+    DoriosLib: { registry: { registerMachineUpgrade: value => { upgrades = value; } } },
+});
+// Hydrogen returns 5-10% above base production cost, before water supply costs.
+const hydrogenReturn = fuels.hydrogen_gas.energy * electrolysis.output1.amount / electrolysis.cost;
+assert(hydrogenReturn >= 1.05 && hydrogenReturn <= 1.1);
+checks++;
+// All built-in upgrade combinations: speed penalties remain, Hydrogen's return
+// is bounded, and the adjusted tick rate preserves processing speed.
+for (let speed = 0; speed <= 8; speed++) for (let efficiency = 0; efficiency <= 8; efficiency++) {
+    const s = upgrades['utilitycraft:speed_upgrade'].levels[speed] ?? {};
+    const e = upgrades['utilitycraft:energy_upgrade'].levels[efficiency] ?? {};
+    const consumption = (1 + (s.energy_cost ?? 0)) / (1 + (e.energy_efficiency ?? 0));
+    for (const recipe of [electrolysis, methane, { cost: 1234 }]) {
+        const machine = {
+            settings: { machine: { rate_speed_base: 1280 } },
+            boosts: { consumption, speed: 1 + (s.speed ?? 0) },
+            setRate(rate) { this.baseRate = rate; this.rate = rate * 4; },
+        };
+        machine.setRate(1280 * machine.boosts.speed * consumption);
+        limit(machine, recipe);
+        assert.equal(machine.boosts.consumption, Math.max(consumption, recipe.minimum_consumption ?? 0));
+        assert(Math.abs(machine.rate / machine.boosts.consumption - 5120 * machine.boosts.speed) < 1e-7);
+        if (recipe === electrolysis) assert(fuels.hydrogen_gas.energy * recipe.output1.amount / (recipe.cost * machine.boosts.consumption) < 1.375);
+        checks++;
+    }
+}
+// Complete methane chain at base speed, including crushing but excluding farms.
+for (const [consumption, crusherConsumption, expectedNet] of [[1, 1, 755200], [0.8, 0.05, 920960]]) {
+    const hydrogenCost = electrolysis.cost * methane.required_gas / electrolysis.output1.amount;
+    const crushingCost = 800 * methane.required_items / 2 * crusherConsumption;
+    const net = fuels.methane_gas.energy * methane.output_gas.amount - (hydrogenCost + methane.cost) * consumption - crushingCost;
+    assert.equal(net * 1000 / methane.output_gas.amount, expectedNet);
+    checks++;
+}
 console.log(`${checks} gas generation and recipe integration checks passed`);

@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.utilitycraft.block_container_outline": {
+      "loop": true,
+      "bones": {
+        "outline": {
+          "scale": "q.property('utilitycraft:selection_visible') ? 1 : 0"
+        },
+        "above_west": {
+          "scale": ["v.distance", "v.distance", 1]
+        },
+        "above_east": {
+          "scale": ["v.distance", "v.distance", 1]
+        },
+        "above_north": {
+          "scale": [1, "v.distance", "v.distance"]
+        },
+        "above_south": {
+          "scale": [1, "v.distance", "v.distance"]
+        },
+
+        "below_west": {
+          "scale": ["v.distance", "v.distance", 1]
+        },
+        "below_east": {
+          "scale": ["v.distance", "v.distance", 1]
+        },
+        "below_north": {
+          "scale": [1, "v.distance", "v.distance"]
+        },
+        "below_south": {
+          "scale": [1, "v.distance", "v.distance"]
+        },
+
+        "north_west": {
+          "scale": ["v.distance", 1, "v.distance"]
+        },
+        "south_west": {
+          "scale": ["v.distance", 1, "v.distance"]
+        },
+
+        "north_east": {
+          "scale": ["v.distance", 1, "v.distance"]
+        },
+        "south_east": {
+          "scale": ["v.distance", 1, "v.distance"]
+        }
+      }
+    }
+  }
+}

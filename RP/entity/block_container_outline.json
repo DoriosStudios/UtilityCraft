@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "utilitycraft:block_container_outline",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "geometry": {
+        "default": "geometry.utilitycraft_block_container_outline"
+      },
+      "textures": {
+        "default": "textures/entity/block_container_outline"
+      },
+      "animations": {
+        "size": "animation.utilitycraft.block_container_outline"
+      },
+      "scripts": {
+        "initialize": ["v.distance = 0;"],
+        "pre_animation": ["v.distance = math.pow(query.distance_from_camera / 1.9, 1.6);"],
+        "animate": ["size"]
+      },
+      "render_controllers": ["controller.render.default"]
+    }
+  }
+}

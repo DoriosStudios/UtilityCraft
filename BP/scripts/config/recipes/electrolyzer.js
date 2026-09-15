@@ -14,7 +14,8 @@ const defaultRecipes = {
             "type": "oxygen_gas",
             "amount": 500
         },
-        "cost": 512000
+        "cost": 512000,
+        "minimum_consumption": 0.8
     }
 };
 DoriosLib.registry.registerElectrolyzerRecipe(defaultRecipes);

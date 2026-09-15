@@ -1,6 +1,7 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { Machine, FluidStorage, GasStorage, registerIOInterface } from "DoriosCore/index.js";
 import { chemicalConverterRecipes } from "config/recipes/chemical_converter.js";
+import { applyRecipeEnergyLimit } from "./recipeEnergy.js";
 
 registerIOInterface("utilitycraft:chemical_converter", {
     "items": {
@@ -127,6 +128,7 @@ DoriosLib.registry.blockComponent("utilitycraft:chemical_converter", {
             return;
         }
 
+        applyRecipeEnergyLimit(machine, recipe);
         const cost = recipe.cost ?? settings.machine.energy_cost;
         if (machine.getEnergyCost() !== cost) machine.setProgress(0, { display: false });
         machine.setEnergyCost(cost);

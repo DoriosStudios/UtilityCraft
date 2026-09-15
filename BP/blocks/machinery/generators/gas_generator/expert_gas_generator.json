@@ -33,7 +33,7 @@
 					"energy_cap": 1280000,
 					"gas_cap": 512000,
 					"gas_types": 1,
-					"rate_speed_base": 800
+					"rate_speed_base": 512
 				}
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",

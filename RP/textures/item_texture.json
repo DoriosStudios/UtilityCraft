@@ -2,6 +2,13 @@
 	"resource_pack_name": "UtilityCraft",
 	"texture_name": "atlas.items",
 	"texture_data": {
+		"utilitycraft_heavy_water_bucket": {"textures": "textures/items/misc/heavy_water_bucket"},
+		"utilitycraft_sulfuric_acid_bucket": {"textures": "textures/items/misc/sulfuric_acid_bucket"},
+		"utilitycraft_xp_bucket": {"textures": "textures/items/misc/xp_bucket"},
+		"utilitycraft_crude_oil_bucket": {"textures": "textures/items/misc/crude_oil_bucket"},
+		"utilitycraft_petroleum_bucket": {"textures": "textures/items/misc/petroleum_bucket"},
+		"utilitycraft_diesel_bucket": {"textures": "textures/items/misc/diesel_bucket"},
+		"utilitycraft_saline_coolant_bucket": {"textures": "textures/items/misc/saline_coolant_bucket"},
 		"utilitycraft:heated_saline_coolant_gas_00": {"textures":"textures/ui/heated_saline_coolant_gas_bar/heated_saline_coolant_gas_00"},
 		"utilitycraft:heated_saline_coolant_gas_01": {"textures":"textures/ui/heated_saline_coolant_gas_bar/heated_saline_coolant_gas_01"},
 		"utilitycraft:heated_saline_coolant_gas_02": {"textures":"textures/ui/heated_saline_coolant_gas_bar/heated_saline_coolant_gas_02"},

@@ -620,6 +620,13 @@
                             "name": "dorios:itemGroup.name.uc_materials"
                         },
                         "items": [
+                            "utilitycraft:heavy_water_bucket",
+                            "utilitycraft:sulfuric_acid_bucket",
+                            "utilitycraft:xp_bucket",
+                            "utilitycraft:crude_oil_bucket",
+                            "utilitycraft:petroleum_bucket",
+                            "utilitycraft:diesel_bucket",
+                            "utilitycraft:saline_coolant_bucket",
                             "utilitycraft:raw_energized_iron",
                             "utilitycraft:energized_iron_ingot",
                             "utilitycraft:energized_iron_nugget",

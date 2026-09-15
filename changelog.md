@@ -1,6 +1,10 @@
 # UtilityCraft v3.6.0
 
 ## ADDED
+- Added 1,000 mB buckets for Heavy Water, Sulfuric Acid, Liquid Experience, Crude Oil, Petroleum and Diesel, with matching liquid colors, Creative entries and three-language names. Migrated the Saline Coolant Bucket from Heavy Machinery with its existing identifier and texture. All seven support filling and emptying through the shared fluid registry.
+- Added the shared DoriosCore ItemEnergyStorage class for durability-backed energy containers, with the same tag, 100,000 DE/point conversion and 100-point margins as Heavy Machinery. Ordinary Induction Anvil and durability-helper repairs now reject energy containers.
+- Opened UtilityCore block-container selection to any entity with the `utilitycraft:block_container` family, including Digital Storage blocks and Heavy Machinery controllers, without requiring an entity ID or block tag. Inactive scaled-down controllers retain their block interaction, and addons can opt out of generic orphan drops when they own virtual-inventory cleanup.
+- Added UtilityCore block-container selection for the current machine entity: one global four-tick player raycast pass, a separate short-lived outline copied from ATA Advanced Furnaces (original geometry, texture and distance-scaled line thickness), visible only to its viewer; its lifetime is 0.3 seconds to cover the four-tick refresh, and full/hidden entity hitboxes for standing/sneaking. Existing entities are repositioned in place on discovery or load; orphan cleanup drops non-UI inventory after allowing normal destruction to finish. Block definitions, DoriosCore and the legacy machine entity are unchanged.
 - Registered default Furnator fuels through the existing register_fuel event, starting with an empty registry so UC and dependent addons receive the same defaults and custom fuel registrations.
 - Added Heated Saline Coolant gas: 49 native gas bar levels, tank entity, darkened Saline Coolant sprites and a Creative Tank. Heavy Machinery uses it for thermal heat recovery.
 - Completed Creative Tanks for all 20 liquid/gas bar resources: migrated six Saline Coolant and nuclear gas tanks from Heavy Machinery with their existing IDs, and added Crude Oil, Petroleum, Diesel and Nuclear Waste tanks using the shared infinite-storage component.
@@ -17,6 +21,13 @@
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Synchronized DoriosCore factory square-root module scaling with HM: doubling both Processing and Speed doubles throughput; 64+64 reaches 128 maxed standard machines. Energy per operation remains constant before Efficiency, with up to 75% savings. Factory cost labels include modifiers.
+- UtilityCore now initializes all fresh items tagged utilitycraft:energy_container through player inventory-change events, starting them empty with 100 remaining durability; no intervals or addon-specific registration.
+- Item energy lore now reuses the exact machine-break energy lore builder, including gray color, indentation and stored/capacity spacing; removed the separate percentage display.
+- Item energy lore now uses the shared EnergyStorage formatter for stored energy and capacity, matching block energy units.
+- Restored normal block-container entity hitboxes to 1 x 1; the hidden selection state remains 0 x 0.
+- Simplified block-container selection to its existing global two-tick player pass. Removed spawn/load, entity-trigger and block-break subscriptions; entity-hit feedback only displays "Sneak to mine"; positioning and orphan cleanup now happen on discovery, while sneak interaction relies on the entity hitbox.
+- Rebalanced gas energy: Hydrogen now yields 560 DE/mB (9.4% above its base electrolysis cost) and Methane 1,536 DE/mB. Default electrolysis and Methane recipes cap efficiency savings at 20%, keeping Hydrogen's maximum return at 36.7% above production cost. Methane now requires four Charcoal Dust and 125 mB Hydrogen per 125 mB output (32,000 DE); a complete unupgraded 1,000 mB chain yields 755,200 DE net before farming costs. Gas Generator tier output is reduced by 36% to 32/128/512/3,200 DE/t with Methane (half with Hydrogen).
 - Set the shared Water coolant efficiency to 0.5 (Tier 0), making it the basic coolant for Heavy Machinery heat recovery. Consumers of the shared registry use this value; HM no longer needs a duplicate Water registration.
 - Updated the Stabilized Obsidian Dust texture with the supplied artwork.
 - Updated the supplied Amethyst, Diamond, Emerald, Quartz, Obsidian and Crying Obsidian dust textures; Lead materials and blocks; Brute Steel; and Uranium ingot/dust textures.
@@ -55,6 +66,8 @@
 - Fluid and gas extractor whitelists now act as explicit recovery overrides, allowing selected types to be drained from registered input tanks while still respecting disabled faces.
 
 ## FIXED
+- Fixed Exo durability overflow: pieces now use 10,200 maximum durability and ItemEnergyStorage uses 100,000 DE per point, preserving 1,000,000,000 DE capacity and 100-point margins within the signed 16-bit durability range.
+- Selection now uses only the block raycast and its own container, preventing visible/hidden neighboring entity hits from changing the selected machine. The independent entity raycast is used exclusively for orphan cleanup.
 - Fixed liquid and gas displays generating invalid NaN bar items at zero capacity; they now show an empty frame and 0%.
 - Updated Methane tank and static UI sprites to match the current green gas-bar texture.
 - Restricted multiblock entity lookup and deactivation to live dorios:multiblock controllers, preventing hide events and removal from targeting players, dropped items or visual entities.
