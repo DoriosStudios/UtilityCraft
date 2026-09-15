@@ -30,6 +30,13 @@ const defaultFluids = {
         'utilitycraft:water_ball': { amount: 1000, type: 'water' },
         'minecraft:experience_bottle': { amount: 8, type: 'xp', output: 'minecraft:glass_bottle' },
         'minecraft:milk_bucket': { amount: 1000, type: 'milk', output: 'minecraft:bucket' },
+        'utilitycraft:heavy_water_bucket': { amount: 1000, type: 'heavy_water', output: 'minecraft:bucket' },
+        'utilitycraft:sulfuric_acid_bucket': { amount: 1000, type: 'sulfuric_acid', output: 'minecraft:bucket' },
+        'utilitycraft:xp_bucket': { amount: 1000, type: 'xp', output: 'minecraft:bucket' },
+        'utilitycraft:crude_oil_bucket': { amount: 1000, type: 'crude_oil', output: 'minecraft:bucket' },
+        'utilitycraft:petroleum_bucket': { amount: 1000, type: 'petroleum', output: 'minecraft:bucket' },
+        'utilitycraft:diesel_bucket': { amount: 1000, type: 'diesel', output: 'minecraft:bucket' },
+        'utilitycraft:saline_coolant_bucket': { amount: 1000, type: 'saline_coolant', output: 'minecraft:bucket' },
 
         // Cloud's Fluid Cells
         'fluidcells:water_cell': { amount: 4000, type: 'water', output: 'fluidcells:empty_cell' },
@@ -75,7 +82,14 @@ const holders = {
             types: {
                 water: "minecraft:water_bucket",
                 lava: "minecraft:lava_bucket",
-                milk: "minecraft:milk_bucket"
+                milk: "minecraft:milk_bucket",
+                heavy_water: "utilitycraft:heavy_water_bucket",
+                sulfuric_acid: "utilitycraft:sulfuric_acid_bucket",
+                xp: "utilitycraft:xp_bucket",
+                crude_oil: "utilitycraft:crude_oil_bucket",
+                petroleum: "utilitycraft:petroleum_bucket",
+                diesel: "utilitycraft:diesel_bucket",
+                saline_coolant: "utilitycraft:saline_coolant_bucket"
             },
             required: 1000
         },

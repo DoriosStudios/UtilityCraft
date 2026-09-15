@@ -1,0 +1,12 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "utilitycraft:petroleum_bucket"
+		},
+		"components": {
+			"minecraft:icon": "utilitycraft_petroleum_bucket",
+			"minecraft:max_stack_size": 1
+		}
+	}
+}

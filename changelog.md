@@ -1,6 +1,7 @@
 # UtilityCraft v3.6.0
 
 ## ADDED
+- Added 1,000 mB buckets for Heavy Water, Sulfuric Acid, Liquid Experience, Crude Oil, Petroleum and Diesel, with matching liquid colors, Creative entries and three-language names. Migrated the Saline Coolant Bucket from Heavy Machinery with its existing identifier and texture. All seven support filling and emptying through the shared fluid registry.
 - Added the shared DoriosCore ItemEnergyStorage class for durability-backed energy containers, with the same tag, 100,000 DE/point conversion and 100-point margins as Heavy Machinery. Ordinary Induction Anvil and durability-helper repairs now reject energy containers.
 - Opened UtilityCore block-container selection to any entity with the `utilitycraft:block_container` family, including Digital Storage blocks and Heavy Machinery controllers, without requiring an entity ID or block tag. Inactive scaled-down controllers retain their block interaction, and addons can opt out of generic orphan drops when they own virtual-inventory cleanup.
 - Added UtilityCore block-container selection for the current machine entity: one global four-tick player raycast pass, a separate short-lived outline copied from ATA Advanced Furnaces (original geometry, texture and distance-scaled line thickness), visible only to its viewer; its lifetime is 0.3 seconds to cover the four-tick refresh, and full/hidden entity hitboxes for standing/sneaking. Existing entities are repositioned in place on discovery or load; orphan cleanup drops non-UI inventory after allowing normal destruction to finish. Block definitions, DoriosCore and the legacy machine entity are unchanged.
@@ -20,6 +21,7 @@
 - Added UtilityCraft Workbench recipes for Gas Pipes, Gas Extractors and all four Gas Tank tiers, plus crafting-table color conversions for gas transport blocks.
 
 ## CHANGED
+- Synchronized DoriosCore factory square-root module scaling with HM: doubling both Processing and Speed doubles throughput; 64+64 reaches 128 maxed standard machines. Energy per operation remains constant before Efficiency, with up to 75% savings. Factory cost labels include modifiers.
 - UtilityCore now initializes all fresh items tagged utilitycraft:energy_container through player inventory-change events, starting them empty with 100 remaining durability; no intervals or addon-specific registration.
 - Item energy lore now reuses the exact machine-break energy lore builder, including gray color, indentation and stored/capacity spacing; removed the separate percentage display.
 - Item energy lore now uses the shared EnergyStorage formatter for stored energy and capacity, matching block energy units.
