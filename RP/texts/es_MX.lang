@@ -1298,7 +1298,7 @@ tile.utilitycraft:lapis_seeds.name=Semillas de Lapislázuli §4Nivel II\n§o§9@
 tile.utilitycraft:lava_seeds.name=Semillas de Lava §4Nivel II\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=Semillas de Cuarzo §4Nivel II\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=Semillas de Redstone §4Nivel II\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=Semillas de Slime §4Nivel II\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=Semillas de Amatista §9Nivel III\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=Semillas de Blaze §9Nivel III\n§o§9@UtilityCraft
@@ -1495,3 +1495,6 @@ item.utilitycraft:crude_oil_bucket=Cubeta de crudo\n§o§9@UtilityCraft
 item.utilitycraft:petroleum_bucket=Cubeta de petróleo\n§o§9@UtilityCraft
 item.utilitycraft:diesel_bucket=Cubeta de diésel\n§o§9@UtilityCraft
 item.utilitycraft:saline_coolant_bucket=Cubeta de refrigerante salino\n§o§9@UtilityCraft
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

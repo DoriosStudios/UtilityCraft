@@ -1,5 +1,15 @@
 # UtilityCraft v3.6.0
 
+## Unreleased
+
+### CHANGED
+
+- Removed five duplicate vanilla textures and redirected pack references to Minecraft's originals. Bucket tooling reads a verified external vanilla reference instead of shipping the water bucket image.
+
+- Shortened all UI bar frame paths to per-type folders with `f_00`, `f_01`, etc. Updated texture references while preserving item identifiers, atlas keys and image contents.
+
+- Matched original-pack language files to ATA: Quick Info uses the shared `utilitycraft.identifier` label, while item and block tooltips preserve their individual `@Addon` attribution and existing descriptions.
+
 ## ADDED
 - Added 1,000 mB buckets for Heavy Water, Sulfuric Acid, Liquid Experience, Crude Oil, Petroleum and Diesel, with matching liquid colors, Creative entries and three-language names. Migrated the Saline Coolant Bucket from Heavy Machinery with its existing identifier and texture. All seven support filling and emptying through the shared fluid registry.
 - Added the shared DoriosCore ItemEnergyStorage class for durability-backed energy containers, with the same tag, 100,000 DE/point conversion and 100-point margins as Heavy Machinery. Ordinary Induction Anvil and durability-helper repairs now reject energy containers.

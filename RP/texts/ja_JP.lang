@@ -954,7 +954,7 @@ tile.utilitycraft:lapis_seeds.name=ラピスの種 \n§cTier 2\n§o§9@UtilityCr
 tile.utilitycraft:lava_seeds.name=溶岩の種 \n§cTier 2\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=クォーツシード \n§cTier 2\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=レッドストーンの種 \n§cTier 2\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=スライムの種 \n§cTier 2\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=アメジストの種 \n§bTier 3\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=ブレイズシード \n§bTier 3\n§o§9@UtilityCraft
@@ -1085,3 +1085,6 @@ ui.utilitycraft:forge_info.recipe=原始的な鍛冶炉は§9粗鋼§8を作る�
 ui.utilitycraft:forge_info.steel_time=§91バッチ8秒
 ui.utilitycraft:forge_info.normal_time=通常のレシピ：2秒で最大4個。
 ui.utilitycraft:forge_info.footer=通常のかまどより速く精錬することもできます
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

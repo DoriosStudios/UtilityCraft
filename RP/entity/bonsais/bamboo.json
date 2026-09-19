@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/bamboo_stem"
+				"default": "textures/blocks/bamboo_stem"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_bamboo"

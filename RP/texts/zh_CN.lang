@@ -1509,3 +1509,6 @@ ui.utilitycraft:forge_info.recipe=原始锻炉用于制作§9粗钢§8：
 ui.utilitycraft:forge_info.steel_time=§9每批8秒
 ui.utilitycraft:forge_info.normal_time=普通配方：2秒内最多加工4个。
 ui.utilitycraft:forge_info.footer=也可用作速度更快的熔炉
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft
