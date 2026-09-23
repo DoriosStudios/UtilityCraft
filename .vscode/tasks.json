@@ -2,9 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Dash Watch",
-      "type": "shell",
-      "command": "regolith watch",
+      "label": "Compiler Watch",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "if (Get-Command regolith -ErrorAction SilentlyContinue) { regolith watch } else { dash_compiler watch }; exit $LASTEXITCODE"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen"
