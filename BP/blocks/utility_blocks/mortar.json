@@ -24,31 +24,24 @@
           5,
           6,
           7
-        ],
-        "utilitycraft:leaves": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ],
-        "utilitycraft:water": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ],
-        "utilitycraft:crushing": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-        ]
+		],
+		"utilitycraft:content": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12,
+			13,
+			14
+		]
       }
     },
     "components": {
@@ -63,10 +56,10 @@
           "pestle_5": "q.block_state('utilitycraft:pestle_frame') == 5",
           "pestle_6": "q.block_state('utilitycraft:pestle_frame') == 6",
           "pestle_7": "q.block_state('utilitycraft:pestle_frame') == 7",
-          "content_1": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 1",
-          "content_2": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 2",
-          "content_3": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 3",
-          "content_4": "math.max(q.block_state('utilitycraft:leaves'), q.block_state('utilitycraft:water')) == 4"
+          "content_1": "(q.block_state('utilitycraft:content') == 1 || q.block_state('utilitycraft:content') == 5 || q.block_state('utilitycraft:content') == 6)",
+          "content_2": "(q.block_state('utilitycraft:content') == 2 || q.block_state('utilitycraft:content') == 7 || q.block_state('utilitycraft:content') == 9 || q.block_state('utilitycraft:content') == 10 || q.block_state('utilitycraft:content') == 11)",
+          "content_3": "(q.block_state('utilitycraft:content') == 3 || q.block_state('utilitycraft:content') == 8 || q.block_state('utilitycraft:content') == 12 || q.block_state('utilitycraft:content') == 13)",
+          "content_4": "(q.block_state('utilitycraft:content') == 4 || q.block_state('utilitycraft:content') == 14)"
         }
       },
       "minecraft:material_instances": {
@@ -150,7 +143,7 @@
         }
       },
       {
-        "condition": "q.block_state('utilitycraft:water') > 0 && q.block_state('utilitycraft:water') >= q.block_state('utilitycraft:leaves')",
+        "condition": "(q.block_state('utilitycraft:content') == 1 || q.block_state('utilitycraft:content') == 2 || q.block_state('utilitycraft:content') == 3 || q.block_state('utilitycraft:content') == 4 || q.block_state('utilitycraft:content') == 6 || q.block_state('utilitycraft:content') == 7 || q.block_state('utilitycraft:content') == 8 || q.block_state('utilitycraft:content') == 11)",
         "components": {
           "minecraft:material_instances": {
             "*": {

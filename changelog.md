@@ -4,6 +4,8 @@
 
 ### CHANGED
 
+- Reduced Mortar, Crucible and Fan block-state combinations to 480, 25 and 60 while preserving visuals, original Crucible lava/cobble states and all pipe code. Processing progress and selected fan range now persist in world dynamic properties by dimension and coordinates. Legacy placed blocks require a fresh-world/copy test because retired block states are not automatically migrated.
+
 - Removed five duplicate vanilla textures and redirected pack references to Minecraft's originals. Bucket tooling reads a verified external vanilla reference instead of shipping the water bucket image.
 
 - Shortened all UI bar frame paths to per-type folders with `f_00`, `f_01`, etc. Updated texture references while preserving item identifiers, atlas keys and image contents.
