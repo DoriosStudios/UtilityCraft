@@ -27,13 +27,13 @@ This update introduces gas processing and power generation, reworks early Steel 
 
 ### Machines
 
-- Added **Chemical Converter** to UtilityCraft.
+- Added **Chemical Converter**
     - Combines item, liquid and gas inputs into a gas product, including native Methane production.
     - Includes one item input, one liquid tank, two gas tanks, two upgrade slots, and 8.192 MDE energy capacity.
-- Added **Electrolyzer** to UtilityCraft.
+- Added **Electrolyzer**
     - Separates supported inputs into two gas products, including Hydrogen and Oxygen from Water.
     - Includes one liquid tank, three gas tanks, two upgrade slots, and 4.096 MDE energy capacity.
-- Added **Primitive Forge**.
+- Added **Primitive Forge**
     - Automatically assembles from eight casing blocks placed as a solid 2x2x2 cube; the last placed block determines the front.
     - Produces Brute Steel from Iron Dust and Coal, Charcoal, Coal Dust or Charcoal Dust, using a separate solid-fuel slot.
     - Processes up to four Brute Steel recipes per eight-second batch, or up to four normal furnace recipes per two-second batch.
