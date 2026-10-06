@@ -1149,7 +1149,7 @@
                 "controls": [
                   {
                     "catalyst@uc.infuser_recipe_catalyst": {
-                      "$slot_item_texture": "textures/blocks/materials/redstone_block",
+                      "$slot_item_texture": "textures/blocks/redstone_block",
                       "$slot_hover_text": "tile.redstone_block.name",
                       "$has_slot_hover": true,
                       "$slot_count_text": "4",

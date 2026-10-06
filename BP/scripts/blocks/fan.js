@@ -1,7 +1,10 @@
 import * as DoriosLib from "DoriosLib/index.js";
+import { readBlockValue, writeBlockValue, clearBlockValue } from './compactState.js';
 import { ModalFormData } from '@minecraft/server-ui'
 
 DoriosLib.registry.blockComponent('utilitycraft:fan', {
+    onPlace({ block }) { clearBlockValue(block, 'fan'); },
+    onBreak({ block }) { clearBlockValue(block, 'fan'); },
     /**
      * Opens a modal form when the player interacts with the Fan.
      * Allows toggling the fan state and adjusting its range.
@@ -15,18 +18,18 @@ DoriosLib.registry.blockComponent('utilitycraft:fan', {
 
         const currentRange = DoriosLib.block.getState(block, 'utilitycraft:range')
         const currentState = DoriosLib.block.getState(block, 'utilitycraft:state')
-        const currentRangeSel = DoriosLib.block.getState(block, 'utilitycraft:rangeSelected')
+        const currentRangeSel = readBlockValue(block, 'fan', 11)
 
         const modal = new ModalFormData()
             .title('Fan Settings')
             .toggle('Off / On', { defaultValue: currentState })
-            .slider('Range', 0, 3 + currentRange * 2, { defaultValue: currentRangeSel })
+            .slider('Range', 0, 3 + currentRange * 2, { defaultValue: Math.min(currentRangeSel, 3 + currentRange * 2) })
 
         modal.show(player).then(res => {
-            if (!res.formValues) return
+            if (!res.formValues || !block.isValid || block.typeId !== 'utilitycraft:fan') return
             const [state, rangeSelected] = res.formValues
             DoriosLib.block.setState(block, 'utilitycraft:state', state)
-            DoriosLib.block.setState(block, 'utilitycraft:rangeSelected', rangeSelected)
+            writeBlockValue(block, 'fan', rangeSelected)
         })
     },
 
@@ -38,11 +41,11 @@ DoriosLib.registry.blockComponent('utilitycraft:fan', {
         const { block } = e
         if (!DoriosLib.block.getState(block, 'utilitycraft:state')) return
 
-        const range = DoriosLib.block.getState(block, 'utilitycraft:rangeSelected')
+        const range = readBlockValue(block, 'fan', 11)
         const maxRange = 3 + DoriosLib.block.getState(block, 'utilitycraft:range') * 2
 
         if (range > maxRange) {
-            DoriosLib.block.setState(block, 'utilitycraft:rangeSelected', 3)
+            writeBlockValue(block, 'fan', 3)
             return
         }
 

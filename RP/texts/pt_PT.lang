@@ -1260,7 +1260,7 @@ tile.utilitycraft:lapis_seeds.name=Sementes de Lápis-lazúli §4Nível 2\n§o§
 tile.utilitycraft:lava_seeds.name=Sementes de Lava §4Nível 2\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=Sementes de Quartzo §4Nível 2\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=Sementes de Redstone §4Nível 2\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=Sementes de Slime §4Nível 2\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=Sementes de Ametista §9Nível 3\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=Sementes de Blaze §9Nível 3\n§o§9@UtilityCraft
@@ -1391,3 +1391,6 @@ howtoplay.utilitycraft.first_steps_steel.p9=Chegaste à era das máquinas: produ
 howtoplay.utilitycraft.first_steps_steel.p10=Guarda aço, ferro, cobre, redstone e carvão para as tuas primeiras máquinas e melhorias.
 howtoplay.utilitycraft.first_steps_steel.p11=Agora fabrica as tuas primeiras máquinas, liga-as a uma fonte de energia e começa a automatizar.
 howtoplay.utilitycraft.first_steps_steel.forge_render=Primitive Forge montada: estrutura de 2x2x2.
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

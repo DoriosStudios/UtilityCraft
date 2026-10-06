@@ -954,7 +954,7 @@ tile.utilitycraft:lapis_seeds.name=Graines de lapis \n§cTier 2\n§o§9@UtilityC
 tile.utilitycraft:lava_seeds.name=Graines de lave \n§cTier 2\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=Graines de quartz \n§cTier 2\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=Graines de Redstone \n§cTier 2\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=Graines de slime \n§cTier 2\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=Graines d'améthyste \n§bTier 3\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=Blaze Seeds \n§bTier 3\n§o§9@UtilityCraft
@@ -1085,3 +1085,6 @@ ui.utilitycraft:forge_info.recipe=La forge primitive sert à créer de l’§9ac
 ui.utilitycraft:forge_info.steel_time=§98 secondes par lot
 ui.utilitycraft:forge_info.normal_time=Recettes normales : jusqu’à 4 unités en 2 secondes.
 ui.utilitycraft:forge_info.footer=Sert aussi de fourneau plus rapide
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

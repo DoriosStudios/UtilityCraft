@@ -1,4 +1,5 @@
 import * as DoriosLib from "DoriosLib/index.js";
+import { readBlockValue, writeBlockValue, clearBlockValue } from './compactState.js';
 import { ItemStack } from '@minecraft/server'
 
 /**
@@ -12,7 +13,7 @@ import { ItemStack } from '@minecraft/server'
  * States used:
  * - utilitycraft:cobble    (number, cobble units queued for smelting)
  * - utilitycraft:lava      (number, lava level in steps of 250mB, max 4)
- * - utilitycraft:smelting  (number, current heat progress)
+ * Heat progress is persisted by dimension and block coordinates.
  */
 
 
@@ -42,6 +43,8 @@ const heatSources = {
 }
 
 DoriosLib.registry.blockComponent('utilitycraft:crucible', {
+    onPlace({ block }) { clearBlockValue(block, 'crucible'); },
+    onBreak({ block }) { clearBlockValue(block, 'crucible'); },
     /**
      * Handles player interaction with the crucible.
      */
@@ -95,12 +98,12 @@ DoriosLib.registry.blockComponent('utilitycraft:crucible', {
      */
     onTick({ block }) {
         const heat = heatSources[block.below(1)?.typeId]
-        let smelt = DoriosLib.block.getState(block, 'utilitycraft:smelting')
+        let smelt = readBlockValue(block, 'crucible', 15)
         let cobble = DoriosLib.block.getState(block, 'utilitycraft:cobble')
         let lava = DoriosLib.block.getState(block, 'utilitycraft:lava')
 
         if (!heat || cobble === 0 || lava === 4) {
-            DoriosLib.block.setState(block, 'utilitycraft:smelting', 0)
+            writeBlockValue(block, 'crucible', 0)
             return
         }
 
@@ -114,6 +117,6 @@ DoriosLib.registry.blockComponent('utilitycraft:crucible', {
 
         DoriosLib.block.setState(block, 'utilitycraft:cobble', cobble)
         DoriosLib.block.setState(block, 'utilitycraft:lava', lava)
-        DoriosLib.block.setState(block, 'utilitycraft:smelting', smelt)
+        writeBlockValue(block, 'crucible', smelt)
     }
 })

@@ -954,7 +954,7 @@ tile.utilitycraft:lapis_seeds.name=Lapissamen \n§cStufe 2\n§o§9@UtilityCraft
 tile.utilitycraft:lava_seeds.name=Lavasamen \n§cStufe 2\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=Quarzsamen \n§cStufe 2\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=Redstone Seeds \n§cStufe 2\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=Schleimsamen \n§cStufe 2\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=Amethyst-Samen \n§bStufe 3\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=Blaze Seeds \n§bStufe 3\n§o§9@UtilityCraft
@@ -1085,3 +1085,6 @@ ui.utilitycraft:forge_info.recipe=Die primitive Schmiede stellt §9Rohstahl§8 h
 ui.utilitycraft:forge_info.steel_time=§98 Sekunden pro Charge
 ui.utilitycraft:forge_info.normal_time=Normale Rezepte: bis zu 4 Einheiten in 2 Sekunden.
 ui.utilitycraft:forge_info.footer=Funktioniert auch als schnellerer Ofen
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

@@ -954,7 +954,7 @@ tile.utilitycraft:lapis_seeds.name=Семена ляписа \n§cУровень
 tile.utilitycraft:lava_seeds.name=Семена лавы \n§cУровень 2\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=Кварцевые семена \n§cУровень 2\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=Семена красного камня \n§cУровень 2\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=Семена слизи \n§cУровень 2\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=Семена аметиста \n§bУровень 3\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=Семена пламени \n§bУровень 3\n§o§9@UtilityCraft
@@ -1085,3 +1085,6 @@ ui.utilitycraft:forge_info.recipe=Примитивная кузница созд
 ui.utilitycraft:forge_info.steel_time=§98 секунд на партию
 ui.utilitycraft:forge_info.normal_time=Обычные рецепты: до 4 единиц за 2 секунды.
 ui.utilitycraft:forge_info.footer=Также работает как ускоренная печь
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

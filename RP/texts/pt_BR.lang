@@ -1247,7 +1247,7 @@ tile.utilitycraft:lapis_seeds.name=Sementes de Lápis-lazúli §4Tier 2\n§o§9@
 tile.utilitycraft:lava_seeds.name=Sementes de Lava §4Tier 2\n§o§9@UtilityCraft
 tile.utilitycraft:quartz_seeds.name=Sementes de Quartzo §4Tier 2\n§o§9@UtilityCraft
 tile.utilitycraft:redstone_seeds.name=Sementes de Redstone §4Tier 2\n§o§9@UtilityCraft
-tile.utilitycraft:resin_seeds.name=Resin Seeds
+tile.utilitycraft:resin_seeds.name=Resin Seeds\n§o§9@UtilityCraft
 tile.utilitycraft:slime_seeds.name=Sementes de Slime §4Tier 2\n§o§9@UtilityCraft
 tile.utilitycraft:amethyst_seeds.name=Sementes de Ametista §9Tier 3\n§o§9@UtilityCraft
 tile.utilitycraft:blaze_seeds.name=Sementes de Blaze §9Tier 3\n§o§9@UtilityCraft
@@ -1460,3 +1460,6 @@ item.utilitycraft:crude_oil_bucket=Balde de óleo bruto\n§o§9@UtilityCraft
 item.utilitycraft:petroleum_bucket=Balde de petróleo\n§o§9@UtilityCraft
 item.utilitycraft:diesel_bucket=Balde de diesel\n§o§9@UtilityCraft
 item.utilitycraft:saline_coolant_bucket=Balde de líquido arrefecedor salino\n§o§9@UtilityCraft
+
+## Quick Info addon name
+utilitycraft.identifier=§o§9@UtilityCraft

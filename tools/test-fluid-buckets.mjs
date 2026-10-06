@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
+import { vanillaWaterBucket } from './vanilla-water-bucket.mjs';
 
 process.chdir(fileURLToPath(new URL('../', import.meta.url)));
 const read = file => fs.readFileSync(file, 'utf8');
@@ -36,7 +37,7 @@ function tank(type, amount, capacity = 2000) {
 }
 const atlas = json('RP/textures/item_texture.json').texture_data;
 const catalog = read('BP/item_catalog/crafting_item_catalog.json');
-const base = PNG.sync.read(fs.readFileSync('RP/textures/items/misc/bucket_water.png'));
+const base = PNG.sync.read(await vanillaWaterBucket());
 for (const type of types) {
     const id = `utilitycraft:${type}_bucket`;
     const item = json(`BP/items/utility_items/${type}_bucket.json`)['minecraft:item'];

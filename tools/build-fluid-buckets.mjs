@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
+import { vanillaWaterBucket } from './vanilla-water-bucket.mjs';
 
 process.chdir(fileURLToPath(new URL('../', import.meta.url)));
 const read = file => PNG.sync.read(fs.readFileSync(file));
-const base = read('RP/textures/items/misc/bucket_water.png');
+const base = PNG.sync.read(await vanillaWaterBucket());
 const luminance = ([r, g, b]) => r * 0.2126 + g * 0.7152 + b * 0.0722;
 const isLiquid = ([r, g, b, a]) => a > 0 && b > r + 20 && b > g + 20;
 const shades = [...new Set(Array.from({ length: base.width * base.height }, (_, i) =>

@@ -1,19 +1,19 @@
 import * as DoriosLib from '../DoriosLib/index.js';
 
+import { readContent, contentCode, readBlockValue, writeBlockValue, clearBlockValue } from './compactState.js';
+
 const FRAME = 'utilitycraft:pestle_frame';
-const LEAVES = 'utilitycraft:leaves';
-const WATER = 'utilitycraft:water';
-const CRUSHING = 'utilitycraft:crushing';
 
 DoriosLib.registry.blockComponent('utilitycraft:mortar', {
+    onPlace({ block }) { clearBlockValue(block, 'mortar'); },
+    onBreak({ block }) { clearBlockValue(block, 'mortar'); },
     onPlayerInteract({ block, player }) {
         const equipment = player?.getComponent('equippable');
         if (!equipment) return;
         const mainhand = equipment.getEquipment('Mainhand');
         let permutation = block.permutation;
-        let leaves = permutation.getState(LEAVES);
-        let water = permutation.getState(WATER);
-        let crushing = permutation.getState(CRUSHING);
+        let [leaves, water] = readContent(block);
+        let crushing = readBlockValue(block, 'mortar', 7);
 
         if (!mainhand) {
             const frame = permutation.getState(FRAME);
@@ -40,8 +40,8 @@ DoriosLib.registry.blockComponent('utilitycraft:mortar', {
             return;
         }
 
-        block.setPermutation(permutation.withState(LEAVES, leaves)
-            .withState(WATER, water).withState(CRUSHING, leaves > 0 ? crushing : 0));
+        block.setPermutation(permutation.withState('utilitycraft:content', contentCode(leaves, water)));
+        writeBlockValue(block, 'mortar', leaves > 0 ? crushing : 0);
         player.onScreenDisplay.setActionBar(`Leaves: ${leaves}   Water: ${water * 250}mB`);
     },
 });

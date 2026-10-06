@@ -7,7 +7,7 @@
 				"default": "entity_alphatest"
 			},
 			"textures": {
-				"default": "textures/entity/mushroom_red"
+				"default": "textures/blocks/mushroom_red"
 			},
 			"geometry": {
 				"default": "geometry.utilitycraft_mushroom"
