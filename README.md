@@ -1,15 +1,12 @@
 # UtilityCraft
-UtilityCraft Minecraft Bedrock Add-On
+UtilityCraft Minecraft Bedrock Add-On  
+- [Changelog](./changelog.md)  
 
-###### See the changelog [here](https://github.com/RealMilo504/UtilityCraft/releases)
-
-See also UtilityCraft Expansions:
-
+See also UtilityCraft Expansions:  
 - [Ascendant Technology](https://github.com/DoriosStudios/Ascendant-Technology)
 - [Heavy Machinery](https://github.com/DoriosStudios/UtilityCraft-Heavy-Machinery)
 
-More Dorios Studios projects:
-
+More Dorios Studios projects:  
 - [Better Smelters](https://www.curseforge.com/minecraft-bedrock/addons/better-smelters/files?page=1&pageSize=20&showAlphaFiles=hide)
 - [Bountiful Bonsais](https://www.curseforge.com/minecraft-bedrock/addons/bountiful-bonsais/files?page=1&pageSize=20&showAlphaFiles=hide)
 - [Bountiful Crops](https://www.curseforge.com/minecraft-bedrock/addons/bountiful-crops/files?page=1&pageSize=20&showAlphaFiles=hide)
