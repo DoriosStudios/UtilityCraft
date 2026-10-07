@@ -24,6 +24,8 @@ import {
 } from "./items.js";
 import {
   NETWORK_OFFSETS,
+  isExporterEndpoint,
+  isImporterEndpoint,
   networkRegistrar,
   offsetLocation,
   safeGetBlock,
@@ -31,6 +33,7 @@ import {
   updateGeometry,
 } from "./shared.js";
 import { clearPipeFacesAt, reconcileMovedPipeFaces } from "./pipeFaces.js";
+import "./multiEndpoints.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -39,6 +42,12 @@ import { clearPipeFacesAt, reconcileMovedPipeFaces } from "./pipeFaces.js";
 /** @typedef {"energy"|"item"|"fluid"|"gas"} NetworkType */
 
 const NETWORK_TYPES = new Set(["energy", "item", "fluid", "gas"]);
+const NETWORK_TAGS = Object.freeze({
+  energy: "dorios:energy",
+  item: "dorios:item",
+  fluid: "dorios:fluid",
+  gas: "dorios:gas",
+});
 
 // All network block and item components are registered by one startup listener.
 networkRegistrar.install();
@@ -52,38 +61,64 @@ networkRegistrar.install();
  * @returns {boolean} Whether a matching network block was found.
  */
 export function updateNetworksAt(changedBlock, type) {
-  if (!changedBlock?.dimension) return false;
+  return updateNetworksAtMany(changedBlock, [type]).has(type);
+}
+
+/**
+ * Updates several UtilityCraft networks while reading the center and its six
+ * neighbors only once. Multi-resource geometry is refreshed once per block.
+ *
+ * @param {Block} changedBlock
+ * @param {ReadonlyArray<NetworkType>} types
+ * @returns {Set<NetworkType>} Network types found around the changed position.
+ */
+export function updateNetworksAtMany(changedBlock, types) {
+  if (!changedBlock?.dimension) return new Set();
 
   const dimension = changedBlock.dimension;
-  const networkTag = `dorios:${type}`;
+  const requestedTypes = [...new Set(types)].filter((type) => NETWORK_TYPES.has(type));
+  if (requestedTypes.length === 0) return new Set();
   const locations = [
     changedBlock.location,
     ...NETWORK_OFFSETS.map((offset) => offsetLocation(changedBlock.location, offset)),
   ];
 
-  /** @type {Block[]} */
-  const blocks = [];
+  /** @type {Map<Block,Set<string>>} */
+  const visualBlocks = new Map();
+  /** @type {Set<NetworkType>} */
+  const touchedTypes = new Set();
   for (const location of locations) {
     const block = safeGetBlock(dimension, location);
-    if (block?.hasTag(networkTag)) blocks.push(block);
-  }
-  if (blocks.length === 0) return false;
-
-  // One queued request rebuilds the center and all six neighbors after the
-  // shared debounce window. Geometry remains immediate and inexpensive.
-  if (type === "energy") scheduleEnergyNetworkRescan(changedBlock.location, dimension);
-  else if (type === "fluid") scheduleFluidNetworkRescan(changedBlock.location, dimension);
-  else if (type === "gas") scheduleGasNetworkRescan(changedBlock.location, dimension);
-  else scheduleItemNetworkRescan(changedBlock.location, dimension);
-
-  for (const block of blocks) {
-    if (block.hasTag("dorios:isExporter") || block.hasTag("dorios:isImporter")) {
-      updateEndpointGeometry(block, networkTag);
-    } else if (block.hasTag("dorios:isTube")) {
-      updateGeometry(block, networkTag);
+    if (!block) continue;
+    for (const type of requestedTypes) {
+      const networkTag = NETWORK_TAGS[type];
+      if (!block.hasTag(networkTag)) continue;
+      touchedTypes.add(type);
+      let blockTags = visualBlocks.get(block);
+      if (!blockTags) {
+        blockTags = new Set();
+        visualBlocks.set(block, blockTags);
+      }
+      blockTags.add(networkTag);
     }
   }
-  return true;
+  if (touchedTypes.size === 0) return touchedTypes;
+
+  for (const type of touchedTypes) {
+    if (type === "energy") scheduleEnergyNetworkRescan(changedBlock.location, dimension);
+    else if (type === "fluid") scheduleFluidNetworkRescan(changedBlock.location, dimension);
+    else if (type === "gas") scheduleGasNetworkRescan(changedBlock.location, dimension);
+    else scheduleItemNetworkRescan(changedBlock.location, dimension);
+  }
+
+  for (const [block, networkTags] of visualBlocks) {
+    if (isExporterEndpoint(block) || isImporterEndpoint(block)) {
+      updateEndpointGeometry(block, [...networkTags]);
+    } else if (block.hasTag("dorios:isTube")) {
+      updateGeometry(block, [...networkTags]);
+    }
+  }
+  return touchedTypes;
 }
 
 system.afterEvents.scriptEventReceive.subscribe((event) => {
@@ -142,13 +177,17 @@ world.afterEvents.playerBreakBlock.subscribe(({ block, brokenBlockPermutation })
   }
 
   system.run(() => {
-    if (brokenBlockPermutation.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
-    if (brokenBlockPermutation.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
-    if (brokenBlockPermutation.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
+    /** @type {NetworkType[]} */
+    const types = ["item"];
+    if (brokenBlockPermutation.hasTag("dorios:energy")) types.push("energy");
+    if (brokenBlockPermutation.hasTag("dorios:fluid")) types.push("fluid");
+    if (brokenBlockPermutation.hasTag("dorios:gas")) types.push("gas");
 
     // Checking adjacent item nodes is intentionally capability-agnostic here:
     // after a break, the removed vanilla container can no longer be resolved.
-    if (updateNetworksAt(block, "item")) invalidateItemContainerAt(dimension, location);
+    if (updateNetworksAtMany(block, types).has("item")) {
+      invalidateItemContainerAt(dimension, location);
+    }
   });
 });
 
@@ -163,16 +202,21 @@ world.afterEvents.playerPlaceBlock.subscribe(({ block }) => {
     const placedBlock = safeGetBlock(dimension, location);
     if (!placedBlock) return;
 
-    if (placedBlock.hasTag("dorios:energy")) updateNetworksAt(placedBlock, "energy");
-    if (placedBlock.hasTag("dorios:fluid")) updateNetworksAt(placedBlock, "fluid");
-    if (placedBlock.hasTag("dorios:gas")) updateNetworksAt(placedBlock, "gas");
+    /** @type {NetworkType[]} */
+    const types = [];
+    if (placedBlock.hasTag("dorios:energy")) types.push("energy");
+    if (placedBlock.hasTag("dorios:fluid")) types.push("fluid");
+    if (placedBlock.hasTag("dorios:gas")) types.push("gas");
 
     if (
       placedBlock.hasTag("dorios:item")
       || DoriosContainer.resolve(placedBlock)
       || DoriosContainer.resolveAt(dimension, location)
     ) {
-      if (updateNetworksAt(placedBlock, "item")) invalidateItemContainerAt(dimension, location);
+      types.push("item");
+    }
+    if (updateNetworksAtMany(placedBlock, types).has("item")) {
+      invalidateItemContainerAt(dimension, location);
     }
   });
 });
@@ -206,23 +250,16 @@ world.afterEvents.pistonActivate.subscribe(({ piston, isExpanding, dimension }) 
       const pairedBlock = safeGetBlock(dimension, pairedLocation);
       if (!block || !pairedBlock) continue;
 
-      if (block.hasTag("dorios:energy") || pairedBlock.hasTag("dorios:energy")) {
-        updateNetworksAt(block, "energy");
-        updateNetworksAt(pairedBlock, "energy");
-      }
-      if (block.hasTag("dorios:fluid") || pairedBlock.hasTag("dorios:fluid")) {
-        updateNetworksAt(block, "fluid");
-        updateNetworksAt(pairedBlock, "fluid");
-      }
-      if (block.hasTag("dorios:gas") || pairedBlock.hasTag("dorios:gas")) {
-        updateNetworksAt(block, "gas");
-        updateNetworksAt(pairedBlock, "gas");
-      }
+      /** @type {NetworkType[]} */
+      const types = ["item"];
+      if (block.hasTag("dorios:energy") || pairedBlock.hasTag("dorios:energy")) types.push("energy");
+      if (block.hasTag("dorios:fluid") || pairedBlock.hasTag("dorios:fluid")) types.push("fluid");
+      if (block.hasTag("dorios:gas") || pairedBlock.hasTag("dorios:gas")) types.push("gas");
 
       // Containers do not necessarily carry dorios:item, so always let the
       // adjacent item nodes decide whether a rebuild is needed.
-      const firstTouchesItemNetwork = updateNetworksAt(block, "item");
-      const secondTouchesItemNetwork = updateNetworksAt(pairedBlock, "item");
+      const firstTouchesItemNetwork = updateNetworksAtMany(block, types).has("item");
+      const secondTouchesItemNetwork = updateNetworksAtMany(pairedBlock, types).has("item");
       if (firstTouchesItemNetwork || secondTouchesItemNetwork) {
         invalidateItemContainerAt(dimension, location);
         invalidateItemContainerAt(dimension, pairedLocation);

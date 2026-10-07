@@ -80,6 +80,8 @@ export type FaceSlotConfig = Partial<Record<ContainerFace, number[]>>;
 
 /** Item-slot rules that may vary by absolute block face. */
 export interface ComplexItemConfig {
+  /** New policies may require explicit network faces; absent preserves legacy access. */
+  networkFaces?: "explicit";
   /** DoriosLib item-configuration schema version. */
   version: 1;
   /** Selects the face-aware configuration format. */

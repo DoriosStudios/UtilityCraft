@@ -1,6 +1,6 @@
 // @ts-check
 
-export { updateNetworksAt } from "./listener.js";
+export { updateNetworksAt, updateNetworksAtMany } from "./listener.js";
 export { rescanEnergyNetwork, scheduleEnergyNetworkRescan } from "./energy.js";
 export {
   applyFluidExtractorCopyConfig,
@@ -24,4 +24,11 @@ export {
   reconcileMovedItemNodes,
   scheduleItemNetworkRescan,
 } from "./items.js";
+export {
+  getPipeResourceTranslationKey,
+  getRegisteredPipeResources,
+  registerPipeResource,
+  PIPE_RESOURCE_REGISTER_EVENT,
+  PIPE_RESOURCE_REGISTRY_READY_EVENT,
+} from "./pipeFaces.js";
 export { NETWORK_DEBOUNCE_TICKS, NETWORK_SCAN_BATCH_SIZE } from "./scheduler.js";

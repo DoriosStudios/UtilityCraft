@@ -1,11 +1,23 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
 import { Rotation, Generator } from "DoriosCore/index.js"
-import { updateNetworksAt } from "../UtilityCore/networks/index.js";
-import { togglePipeFace } from "../UtilityCore/networks/pipeFaces.js";
+import { updateNetworksAtMany } from "../UtilityCore/networks/index.js";
+import { openMultiEndpointMenu } from "../UtilityCore/networks/multiEndpoints.js";
+import {
+    getMultiTubeFaceDisabledResources,
+    getPipeResourceTranslationKey,
+    getProtectedEndpointDirection,
+    getSupportedPipeResources,
+    isImporterEndpoint,
+    isMultiEndpoint,
+    isMultiTube,
+    normalizePipeDirection,
+    setMultiTubeFaceDisabledResources,
+    togglePipeFace,
+} from "../UtilityCore/networks/pipeFaces.js";
 
-function translate(key) {
-    return { translate: key };
+function translate(key, withArgs) {
+    return withArgs ? { translate: key, with: withArgs } : { translate: key };
 }
 
 // --- REGISTRO DEL COMPONENTE ---
@@ -17,6 +29,14 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
     onUseOn(e) {
         const { source, block, blockFace } = e;
         if (block.hasTag("dorios:isTube")) {
+            if (isMultiEndpoint(block)) {
+                openMultiEndpointMenu(block, source, isImporterEndpoint(block));
+                return;
+            }
+            if (isMultiTube(block)) {
+                openMultiTubeFaceMenu(block, blockFace, source);
+                return;
+            }
             const result = togglePipeFace(block, blockFace);
             if (result.protected) {
                 source.onScreenDisplay.setActionBar(translate("message.utilitycraft.pipe.face_protected"));
@@ -25,10 +45,7 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
             }
             if (!result.changed) return;
 
-            if (block.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
-            if (block.hasTag("dorios:item")) updateNetworksAt(block, "item");
-            if (block.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
-            if (block.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
+            refreshPipeNetworks(block);
 
             source.onScreenDisplay.setActionBar(
                 translate(result.disabled
@@ -62,6 +79,58 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
         Rotation.handleRotation(block, blockFace)
     },
 });
+
+function openMultiTubeFaceMenu(block, rawDirection, source) {
+    const direction = normalizePipeDirection(rawDirection);
+    if (!direction) return;
+    if (getProtectedEndpointDirection(block) === direction) {
+        source.onScreenDisplay.setActionBar(translate("message.utilitycraft.pipe.face_protected"));
+        source.playSound("random.break");
+        return;
+    }
+
+    const resources = getSupportedPipeResources(block);
+    if (resources.length === 0) return;
+    const disabled = new Set(getMultiTubeFaceDisabledResources(block, direction));
+    const form = new ModalFormData()
+        .title(translate("ui.utilitycraft:multi_tube.face_title"))
+        .label(translate(`ui.utilitycraft:multi_tube.face_${direction}`));
+    for (const resource of resources) {
+        const translationKey = getPipeResourceTranslationKey(resource);
+        if (!translationKey) continue;
+        form.toggle(translate(translationKey), {
+            defaultValue: disabled.has(resource),
+        });
+    }
+    form.submitButton(translate("ui.utilitycraft:multi_tube.confirm"));
+
+    form.show(source).then((result) => {
+        if (result.canceled) return;
+        const toggles = (Array.isArray(result.formValues) ? result.formValues : [])
+            .filter((value) => typeof value === "boolean");
+        const blocked = resources.filter((resource, index) => toggles[index] === true);
+        if (!setMultiTubeFaceDisabledResources(block, direction, blocked)) {
+            source.playSound("random.break");
+            return;
+        }
+
+        refreshPipeNetworks(block);
+        source.onScreenDisplay.setActionBar(
+            translate("message.utilitycraft.multi_tube.face_saved"),
+        );
+        source.playSound("place.iron");
+    });
+}
+
+function refreshPipeNetworks(block) {
+    /** @type {Array<"energy"|"item"|"fluid"|"gas">} */
+    const types = [];
+    if (block.hasTag("dorios:energy")) types.push("energy");
+    if (block.hasTag("dorios:item")) types.push("item");
+    if (block.hasTag("dorios:fluid")) types.push("fluid");
+    if (block.hasTag("dorios:gas")) types.push("gas");
+    updateNetworksAtMany(block, types);
+}
 
 /**
  * Opens the Energy Node configuration menu.

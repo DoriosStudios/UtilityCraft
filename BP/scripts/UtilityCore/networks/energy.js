@@ -6,8 +6,13 @@ import {
   isLinkNode,
   resolveLinkNode,
 } from "../../DoriosLib/linkNodes/index.js";
-import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
-import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
+import {
+  NETWORK_OFFSETS,
+  getAttachedContainerEndpoint,
+  offsetLocation,
+  safeGetBlock,
+} from "./shared.js";
+import { PIPE_DIRECTIONS, createNetworkConnectionChecker } from "./pipeFaces.js";
 import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
@@ -26,6 +31,7 @@ import {
  * @returns {Promise<Set<string>>} Positions covered by this traversal.
  */
 export async function rescanEnergyNetwork(startPosition, dimension) {
+  const connections = createNetworkConnectionChecker("energy");
   const queue = [startPosition];
   let queueHead = 0;
   let processed = 0;
@@ -35,6 +41,7 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
   while (queueHead < queue.length) {
     if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
       await system.waitTicks(1);
+      connections.clear();
     }
     processed++;
 
@@ -47,12 +54,14 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
     const block = safeGetBlock(dimension, position);
     if (!block?.hasTag("dorios:energy")) continue;
 
-    if (block.hasTag("dorios:isTube")) {
+    if (block.hasTag("dorios:isTube")
+      || block.hasTag("dorios:multi_exporter")
+      || block.hasTag("dorios:multi_importer")) {
       networkNodes.add(key);
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor)) {
+        if (neighbor && connections.isOpen(block, direction, neighbor)) {
           queue.push(neighborLocation);
         }
       }
@@ -67,11 +76,13 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
       if (!linked) continue;
       entity = linked.entity;
       await searchEnergyStorages(getLinkNodeLocations(entity), entity);
+      connections.clear();
       continue;
     }
 
     if (entity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:energy_source")) {
       await searchEnergyStorages([position], entity);
+      connections.clear();
     }
   }
   return networkNodes;
@@ -85,6 +96,7 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
  * @returns {Promise<void>}
  */
 async function searchEnergyStorages(startPositions, generator) {
+  const connections = createNetworkConnectionChecker("energy");
   const dimension = generator.dimension;
   const queue = [];
   let queueHead = 0;
@@ -99,7 +111,9 @@ async function searchEnergyStorages(startPositions, generator) {
     for (const { direction, offset } of PIPE_DIRECTIONS) {
       const neighborLocation = offsetLocation(startPosition, offset);
       const neighbor = safeGetBlock(dimension, neighborLocation);
-      if (neighbor && isNetworkConnectionOpen(startBlock, direction, neighbor)) {
+      if (neighbor?.hasTag("dorios:multi_importer")
+        && isEndpointAttachedTo(neighbor, startPosition)) continue;
+      if (neighbor && connections.isOpen(startBlock, direction, neighbor)) {
         queue.push(neighborLocation);
       }
     }
@@ -109,6 +123,7 @@ async function searchEnergyStorages(startPositions, generator) {
   while (queueHead < queue.length) {
     if (processed > 0 && processed % NETWORK_SCAN_BATCH_SIZE === 0) {
       await system.waitTicks(1);
+      connections.clear();
     }
     processed++;
 
@@ -121,11 +136,32 @@ async function searchEnergyStorages(startPositions, generator) {
     const block = safeGetBlock(dimension, position);
     if (!block?.hasTag("dorios:energy")) continue;
 
-    if (block.typeId === "utilitycraft:energy_cable") {
+    const isMultiExporter = block.hasTag("dorios:multi_exporter");
+    const isMultiImporter = block.hasTag("dorios:multi_importer");
+    if (block.hasTag("dorios:isTube") && !isMultiExporter && !isMultiImporter) {
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
-        if (neighbor && isNetworkConnectionOpen(block, direction, neighbor)) {
+        if (neighbor && connections.isOpen(block, direction, neighbor)) {
+          queue.push(neighborLocation);
+        }
+      }
+      continue;
+    }
+
+    if (isMultiExporter || isMultiImporter) {
+      const attached = getAttachedContainerEndpoint(block);
+      for (const { direction, offset } of PIPE_DIRECTIONS) {
+        const neighborLocation = offsetLocation(position, offset);
+        const neighbor = safeGetBlock(dimension, neighborLocation);
+        if (!neighbor || !connections.isOpen(block, direction, neighbor)) continue;
+
+        const isAttachment = attached && isSameLocation(attached.location, neighborLocation);
+        if (isAttachment) {
+          if (isMultiImporter) queue.push(neighborLocation);
+          continue;
+        }
+        if (neighbor.hasTag("dorios:energy") && neighbor.hasTag("dorios:isTube")) {
           queue.push(neighborLocation);
         }
       }
@@ -155,6 +191,19 @@ async function searchEnergyStorages(startPositions, generator) {
     generator.addTag(`net:[${position.x},${position.y},${position.z}]`);
   }
   generator.addTag("updateNetwork");
+}
+
+/** @param {Vector3} left @param {Vector3} right */
+function isSameLocation(left, right) {
+  return Math.floor(left.x) === Math.floor(right.x)
+    && Math.floor(left.y) === Math.floor(right.y)
+    && Math.floor(left.z) === Math.floor(right.z);
+}
+
+/** @param {import("@minecraft/server").Block} block @param {Vector3} location */
+function isEndpointAttachedTo(block, location) {
+  const attached = getAttachedContainerEndpoint(block);
+  return Boolean(attached && isSameLocation(attached.location, location));
 }
 
 /**

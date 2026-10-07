@@ -38,7 +38,7 @@ import {
   getFluidExtractorCopyConfig,
   getGasExtractorCopyConfig,
   getItemExporterCopyConfig,
-  updateNetworksAt,
+  updateNetworksAtMany,
 } from "../UtilityCore/networks/index.js";
 import {
   applyPipeFaceCopyConfig,
@@ -415,10 +415,13 @@ function refreshBlockIOAndNetworks(block) {
     console.warn(`[CopyPasteTool] Failed to refresh machine IO targets: ${error?.message ?? error}`);
   }
 
-  if (block.hasTag("dorios:energy")) updateNetworksAt(block, "energy");
-  if (block.hasTag("dorios:item")) updateNetworksAt(block, "item");
-  if (block.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
-  if (block.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
+  /** @type {Array<"energy"|"item"|"fluid"|"gas">} */
+  const types = [];
+  if (block.hasTag("dorios:energy")) types.push("energy");
+  if (block.hasTag("dorios:item")) types.push("item");
+  if (block.hasTag("dorios:fluid")) types.push("fluid");
+  if (block.hasTag("dorios:gas")) types.push("gas");
+  updateNetworksAtMany(block, types);
 }
 
 /**
@@ -555,7 +558,16 @@ function pasteBlockSnapshot(block, snapshot, settings) {
       const disabled = Array.isArray(sections.pipeFaces.disabled)
         ? sections.pipeFaces.disabled.map((direction) => rotateDirection(sourceRelative, block, direction))
         : [];
-      return applyPipeFaceCopyConfig(block, { version: 1, disabled });
+      /** @type {Record<string,unknown[]>} */
+      const resources = {};
+      if (isPlainObject(sections.pipeFaces.resources)) {
+        for (const [sourceDirection, channels] of Object.entries(sections.pipeFaces.resources)) {
+          const targetDirection = rotateDirection(sourceRelative, block, sourceDirection);
+          if (!targetDirection || !Array.isArray(channels)) continue;
+          resources[targetDirection] = channels;
+        }
+      }
+      return applyPipeFaceCopyConfig(block, { version: 2, disabled, resources });
     });
   }
 
