@@ -20,5 +20,5 @@ export const ADDON_METADATA = {
 /** @type {import("./dependencies/index.js").InitializeOptions} */
 export const DEPENDENCY_OPTIONS = {
   validationDelayTicks: 300,
-  announceSuccess: true,
+  announceSuccess: false,
 };
