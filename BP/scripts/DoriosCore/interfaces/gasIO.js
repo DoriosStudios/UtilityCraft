@@ -33,6 +33,7 @@ export const DISABLED_GAS_IO_MODE = "disabled";
  * @typedef {object} ComplexGasConfig
  * @property {1} version
  * @property {"complex"} type
+ * @property {"explicit"} [networkFaces] Absent preserves legacy network access.
  * @property {number[]} anyInputIndices
  * @property {number[]} anyOutputIndices
  * @property {FaceIndexConfig} inputConfig
@@ -50,6 +51,7 @@ export const DISABLED_GAS_IO_MODE = "disabled";
 
 /**
  * @typedef {object} GasIODefinition
+ * @property {"explicit"} [networkFaces] Applied only when creating a new policy.
  * @property {number[]} anyInputIndices
  * @property {number[]} anyOutputIndices
  * @property {GasIOMode[]} modes
@@ -185,7 +187,7 @@ export function ensureGasIOConfig(entity, blockTypeId) {
   }
 
   validatedEntities.delete(entity.id);
-  publishConfig(entity, createEmptyConfig(definition), blockTypeId, definitionRevision);
+  publishConfig(entity, createEmptyConfig({ ...definition, networkFaces: status === "basic" ? definition.networkFaces : undefined }), blockTypeId, definitionRevision);
   return false;
 }
 
@@ -316,6 +318,7 @@ export function normalizeGasConfig(value, count) {
     return {
       version: GAS_CONFIG_VERSION,
       type: "complex",
+      ...(value.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
       anyInputIndices: normalizeIndices(value.anyInputIndices, count, "anyInputIndices"),
       anyOutputIndices: normalizeIndices(value.anyOutputIndices, count, "anyOutputIndices"),
       inputConfig: normalizeFaceConfig(value.inputConfig, count, "inputConfig"),
@@ -338,6 +341,7 @@ export function cloneGasConfig(config) {
   return {
     version: GAS_CONFIG_VERSION,
     type: "complex",
+    ...(config.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputIndices: [...config.anyInputIndices],
     anyOutputIndices: [...config.anyOutputIndices],
     inputConfig: cloneFaceConfig(config.inputConfig),
@@ -351,7 +355,7 @@ function normalizeDefinition(value) {
   const anyInputIndices = normalizeDeclaredIndices(value.anyInputIndices, "gases.anyInputIndices");
   const anyOutputIndices = normalizeDeclaredIndices(value.anyOutputIndices, "gases.anyOutputIndices");
   const modes = normalizeModes(value.modes);
-  return { anyInputIndices, anyOutputIndices, modes };
+  return { anyInputIndices, anyOutputIndices, modes, ...(value.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}), };
 }
 
 /** @param {unknown} value @returns {GasIOMode[]} */
@@ -478,6 +482,7 @@ function createEmptyConfig(definition) {
   return {
     version: GAS_CONFIG_VERSION,
     type: "complex",
+    ...(definition.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputIndices: [...definition.anyInputIndices],
     anyOutputIndices: [...definition.anyOutputIndices],
     inputConfig: {},
@@ -487,7 +492,7 @@ function createEmptyConfig(definition) {
 
 /** @param {ComplexGasConfig} current @param {GasIODefinition} definition @param {import("@minecraft/server").Entity} entity */
 function reconcileConfig(current, definition, entity) {
-  const config = createEmptyConfig(definition);
+  const config = createEmptyConfig({ ...definition, networkFaces: current.networkFaces });
   let changed = !arraysEqual(current.anyInputIndices, definition.anyInputIndices)
     || !arraysEqual(current.anyOutputIndices, definition.anyOutputIndices);
 
@@ -544,6 +549,7 @@ function getModeSignature(inputs, outputs) {
 /** @param {ComplexGasConfig} config */
 function getConfigSignature(config) {
   return JSON.stringify({
+    ...(config.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputIndices: config.anyInputIndices,
     anyOutputIndices: config.anyOutputIndices,
     faces: DIRECTIONS.map((direction) => {
@@ -556,6 +562,7 @@ function getConfigSignature(config) {
 /** @param {GasIODefinition} definition */
 function cloneDefinition(definition) {
   return {
+    ...(definition.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputIndices: [...definition.anyInputIndices],
     anyOutputIndices: [...definition.anyOutputIndices],
     modes: definition.modes.map((mode) => ({

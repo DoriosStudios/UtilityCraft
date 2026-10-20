@@ -274,6 +274,8 @@ export interface ItemIOModeConfig {
 
 /** Static item policy registered for one machine block type. */
 export interface ItemIOGroupConfig {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   /** Optional six UI button slots, explicit or as an inclusive start/end range. */
   buttonSlots?: number[] | [number, number];
   /** Insertion fallback used without a face or through passive default faces. */
@@ -296,6 +298,8 @@ export interface FluidIOModeConfig {
 
 /** Static indexed-fluid policy registered for one machine block type. */
 export interface LiquidIOGroupConfig {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   /** Optional six UI button slots, explicit or as an inclusive start/end range. */
   buttonSlots?: number[] | [number, number];
   /** Insertion fallback used without a face or through passive default faces. */
@@ -315,6 +319,8 @@ export interface GasIOModeConfig {
 
 /** Static indexed-gas policy registered for one machine block type. */
 export interface GasIOGroupConfig {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   buttonSlots?: number[] | [number, number];
   anyInputIndices: number[];
   anyOutputIndices: number[];
@@ -559,6 +565,8 @@ export interface SimpleFluidConfig {
 
 /** Face-aware fluid policy stored under `utilitycraft:io_config.liquids`. */
 export interface ComplexFluidConfig {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   version: 1;
   type: "complex";
   anyInputIndices: number[];
@@ -578,6 +586,8 @@ export interface FluidIOMode {
 
 /** Normalized static fluid policy returned by the registration API. */
 export interface FluidIODefinition {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   anyInputIndices: number[];
   anyOutputIndices: number[];
   modes: FluidIOMode[];
@@ -652,6 +662,8 @@ export interface SimpleGasConfig {
 
 /** Face-aware gas policy stored under `utilitycraft:io_config.gases`. */
 export interface ComplexGasConfig {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   version: 1;
   type: "complex";
   anyInputIndices: number[];
@@ -669,6 +681,8 @@ export interface GasIOMode {
 }
 
 export interface GasIODefinition {
+  /** Absent preserves legacy network access. Only new policies opt in. */
+  networkFaces?: "explicit";
   anyInputIndices: number[];
   anyOutputIndices: number[];
   modes: GasIOMode[];

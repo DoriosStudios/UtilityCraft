@@ -18,6 +18,7 @@ import { DIRECTIONS, ITEM_CONFIG_VERSION } from "./constants.js";
  * @typedef {object} ComplexItemConfig
  * @property {1} version
  * @property {"complex"} type
+ * @property {"explicit"} [networkFaces] Opt new configurations into explicit network faces; absent retains legacy access.
  * @property {number[]} anyInputSlots Explicit fallback used when no input face is known.
  * @property {number[]} anyOutputSlots Explicit fallback used when no output face is known.
  * @property {FaceSlotConfig} inputConfig
@@ -65,6 +66,7 @@ export function normalizeItemConfig(value, containerSize) {
     return {
       version: ITEM_CONFIG_VERSION,
       type: "complex",
+      ...(value.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
       anyInputSlots,
       anyOutputSlots,
       inputConfig,
@@ -95,6 +97,7 @@ export function cloneItemConfig(config) {
   return {
     version: ITEM_CONFIG_VERSION,
     type: "complex",
+    ...(config.networkFaces === "explicit" ? { networkFaces: "explicit" } : {}),
     anyInputSlots: [...config.anyInputSlots],
     anyOutputSlots: [...config.anyOutputSlots],
     inputConfig: cloneFaceConfig(config.inputConfig),
