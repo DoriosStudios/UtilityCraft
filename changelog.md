@@ -1,4 +1,6 @@
-This update introduces gas processing and power generation, reworks early Steel and Water production, expands shared resources, and adds more control over machine I/O and multi-resource networks.
+# UtilityCraft v3.6.0
+
+This update introduces gas processing and power generation, reworks early Steel and Water production, expands shared resources, and adds more control over machine I/O.
 
 > [!WARNING]
 > Early progression has changed: the Mortar now produces Water by grinding leaves as a placed block, and the Raw Iron, Coal and SmeltFlare crafting recipe for Brute Steel has been removed. Use the Primitive Forge to produce Brute Steel. Mortar, Crucible and Fan block states have also changed; retired states are not automatically migrated in existing worlds.
@@ -9,7 +11,6 @@ This update introduces gas processing and power generation, reworks early Steel 
 - Lead and Uranium materials, additional liquids and gases, and matching Creative Tanks are now available in UtilityCraft.
 - Machine I/O now separates passive Default faces from fully Disabled faces.
 - Mortar and Primitive Forge introduce new Water and Steel production steps.
-- Multi-resource networks now support configurable channels and accepted colors on compatible Universal Cables and endpoints.
 
 ## BLOCKS
 
@@ -70,14 +71,6 @@ This update introduces gas processing and power generation, reworks early Steel 
 
 ### Networks
 
-- Added support for **Multi-Resource Networks** on compatible cables, importers and exporters supplied by extensions.
-    - Items, liquids, gases and energy can share the same transport block.
-    - Use a Wrench on a multi-resource cable face to disable individual resource channels.
-    - Sneak and use a Wrench to select accepted colors from Default and the sixteen Minecraft colors.
-    - Universal Cables start with only Default enabled; Default and White are separate choices.
-    - Enabled colors join one shared network. An empty selection blocks pipe-to-pipe connections while retaining direct machine connections.
-    - Multi-resource endpoints provide separate item, liquid and gas configuration menus, including importer filters.
-    - Color selections and channel restrictions persist through reloads, piston movement and Copy/Paste Tool use.
 - **Liquid and Gas Extractors**
     - Whitelist filters can recover selected resources from registered input tanks while still respecting explicitly Disabled faces.
 
@@ -176,7 +169,6 @@ This update introduces gas processing and power generation, reworks early Steel 
     - Updated How to Play Water and Steel instructions with Mortar and assembled Primitive Forge illustrations.
     - Added a visual Primitive Forge Information panel showing the Brute Steel recipe and processing times.
     - Added Hammer conversion guidance, Tank capacity descriptions and Gas Pipe and Extractor tooltips.
-    - Expanded translations for new content across the ten supported locales; accepted-color controls include English and Brazilian Portuguese translations.
     - Grouped Mortar and Primitive Forge under Basics in the Creative menu.
     - Standardized Quick Info to use the shared addon label while retaining each item and block tooltip's individual addon attribution.
 
@@ -194,7 +186,6 @@ This update introduces gas processing and power generation, reworks early Steel 
 - Completed the `ItemEnergyStorage` type declaration and synchronized the DoriosCore/DoriosLib API inventories with the exported item-energy and gas-recipe APIs.
 - Reduced Mortar, Crucible and Fan block-state combinations to 480, 25 and 60; Mortar and Crucible processing progress and the Fan's selected range now persist by dimension and block coordinates.
 - Shortened resource-bar asset paths while preserving item identifiers, atlas keys and image contents, and reused vanilla textures in place of five duplicate images.
-- Optimized network topology and geometry updates by sharing connection snapshots and neighboring-block reads across resource channels.
 - Updated shared DoriosCore multiblock handling to resolve only valid controller entities, clean up filled blocks before clearing structure bounds, and manage tagged component waterlogging.
 - Reworked shared factory module scaling: doubling Processing and Speed modules together doubles throughput, while Efficiency modules save up to 75% of energy without reducing processing speed.
 - Moved default solid fuels into the shared registration flow used by addon-provided fuels.
@@ -203,8 +194,6 @@ This update introduces gas processing and power generation, reworks early Steel 
 
 - Added Electrolyzer and Chemical Converter recipe registration through `utilitycraft:register_electrolyzer_recipe` and `utilitycraft:register_chemical_converter_recipe`, with matching DoriosLib registrar helpers.
 - Extended `utilitycraft:register_furnace_recipe` to support two-input Primitive Forge combinations alongside normal smelting recipes.
-- Added generic multi-resource cable and endpoint components for extensions, plus `utilitycraft:register_pipe_resource` for additional face-configurable channels. Extensions provide routing for their own channels.
-- Added explicit network-face policies through `networkFaces: "explicit"`, while retaining existing fallback access for legacy machine configurations and Link Node overrides.
 - Added shared `ItemEnergyStorage` support for durability-backed energy items tagged `utilitycraft:energy_container`.
     - Fresh tagged items initialize empty when entering player inventories; charge uses 100,000 DE per durability point with 100-point safety margins.
 - Added block-container selection support for entities in the `utilitycraft:block_container` family, including companion-addon containers, with an opt-out for addons that own virtual-inventory cleanup.
