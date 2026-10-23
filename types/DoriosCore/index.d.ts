@@ -5,6 +5,7 @@
   Dimension,
   Entity,
   EntityItemDropAfterEvent,
+  ItemDurabilityComponent,
   ItemStack,
   Player,
   ScoreboardIdentity,
@@ -953,6 +954,44 @@ export class EnergyStorage {
    * when their position no longer contains an energy container entity.
    */
   transferToNetwork(speed: number, mode?: TransferMode): number;
+}
+
+/**
+ * Durability-backed energy storage for items tagged utilitycraft:energy_container.
+ * Construction only reads the item and is safe in before-events. Mutating methods
+ * require a writable event; the caller must save the modified stack back to its slot.
+ */
+export class ItemEnergyStorage {
+  /** Required item tag. */
+  static TAG: string;
+  /** DE stored per useful durability point (100,000 by default). */
+  static ENERGY_PER_POINT: number;
+  /** Reserved durability points at each end of the bar (100 by default). */
+  static MARGIN: number;
+
+  /** Caller-owned stack whose durability stores the charge. */
+  item: ItemStack | undefined;
+  /** Durability component, if present on the stack. */
+  durability: ItemDurabilityComponent | undefined;
+  /** Whether the stack has the required tag and sufficient maximum durability. */
+  isValid: boolean;
+
+  /** Accepts an empty slot; invalid stacks expose zero capacity and charge. */
+  constructor(item?: ItemStack);
+  /** Returns capacity in DE after excluding the reserved durability margins. */
+  getCap(): number;
+  /** Returns stored DE, clamped to capacity. */
+  get(): number;
+  /** Returns remaining capacity in DE. */
+  getFreeSpace(): number;
+  /** Clamps and rounds down to whole durability points; returns the resulting DE. */
+  set(amount: number): number;
+  /** Adds whole durability points, rounding down; returns the actual DE accepted. */
+  add(amount: number): number;
+  /** Rounds up to whole points, capped at stored charge; returns actual DE consumed. */
+  consume(amount: number): number;
+  /** Clamps the durability bar and refreshes energy lore; returns whether the item changed. */
+  display(): boolean;
 }
 
 /** Fluid item that inserts liquid into a tank or machine. */

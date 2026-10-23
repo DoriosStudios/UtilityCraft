@@ -41,6 +41,8 @@ The audit tool compares every dotted path below with the JavaScript modules and
 - Time foundation: `time.TICKS_PER_SECOND`, `time.TICKS`, `time.formatClock`, `time.formatDuration`, `time.runAfterTicks`, `time.runAfterSeconds`, `time.runAfterMinutes`, `time.waitTicks`, `time.waitSeconds`, `time.waitMinutes`.
 - Utils foundation: `utils.json`, `utils.json.tryParse`, `utils.json.parseOr`, `utils.json.tryStringify`, `utils.json.stringify`, `utils.json.clone`, `utils.toArray`, `utils.isPlainObject`.
 
+- Gas processing recipes: `registry.registerChemicalConverterRecipe`, `registry.registerElectrolyzerRecipe`.
+
 <!-- runtime-exports:end -->
 
 ## Type-only exports

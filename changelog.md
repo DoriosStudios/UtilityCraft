@@ -191,6 +191,7 @@ This update introduces gas processing and power generation, reworks early Steel 
 
 ## TECHNICAL CHANGES
 
+- Completed the `ItemEnergyStorage` type declaration and synchronized the DoriosCore/DoriosLib API inventories with the exported item-energy and gas-recipe APIs.
 - Reduced Mortar, Crucible and Fan block-state combinations to 480, 25 and 60; Mortar and Crucible processing progress and the Fan's selected range now persist by dimension and block coordinates.
 - Shortened resource-bar asset paths while preserving item identifiers, atlas keys and image contents, and reused vanilla textures in place of five duplicate images.
 - Optimized network topology and geometry updates by sharing connection snapshots and neighboring-block reads across resource channels.

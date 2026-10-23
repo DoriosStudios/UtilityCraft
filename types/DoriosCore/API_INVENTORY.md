@@ -23,7 +23,7 @@ module such as `ADDONNAME_CORE` or `ExampleCore`.
 
 ## Runtime exports
 
-The following 103 names are resolvable from `DoriosCore/index.js`. The audit
+The following 106 names are resolvable from `DoriosCore/index.js`. The audit
 tool verifies that every name is declared by `index.d.ts` and appears exactly
 once in this section.
 
@@ -32,6 +32,7 @@ once in this section.
 | Area | Classification | Runtime exports | Template coverage |
 | --- | --- | --- | --- |
 | Machinery foundation | Primary | `BasicMachine`, `Machine`, `Generator`, `EnergyStorage`, `FluidStorage`, `GasStorage`, `MachineUpgradeRegistry` | Normal machines, active/passive generators, liquid/gas machinery, and ExampleCore subclasses |
+| Item energy storage | Primary | `ItemEnergyStorage` | Durability-backed charge storage for tagged items; callers persist modified stacks |
 | Runtime helpers | Primary / Advanced | `Rotation`, `TickScheduler`, `OutputTracker`, `resolveItemContainerAt` | Rotatable machines, scheduler-aware ticks, IO targets, and multiblock ports |
 | IO authoring | Primary | `registerIOInterface`, `registerIOInterfaceForBlockTag`, `ensureBlockIOInterface`, `hasRegisteredIOInterface`, `IOInterface`, `registerLinkNodeIO`, `getLinkNodeIODefinition`, `openLinkNodeIOForm` | Machine face controls and multiblock link-node routing |
 | Container UI interfaces | Advanced | `InterfaceManager`, `encodeInterfaceSlot`, `decodeInterfaceSlot`, `stripInterfaceSlotCode` | Shared IO buttons and custom entity-container buttons |
