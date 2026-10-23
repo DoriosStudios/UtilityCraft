@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "audit:langs": "node tools/audit-localizations.mjs",
     "audit:dorioscore": "node tools/audit-dorioscore-api.mjs",
     "audit:dorioslib": "node tools/audit-dorioslib-api.mjs",
     "generate:crops": "node tools/generate_bountiful_crops.mjs",

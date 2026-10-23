@@ -407,11 +407,17 @@ async function updateLocalizations(writer, definition) {
     let text = await readFile(path, "utf8");
     for (const tier of tiers) {
       const key = `tile.${compressedId(definition.key, tier)}.name`;
-      const line = `${key}=${names[tier - 1]}\\n\u00a7o\u00a79@UtilityCraft`;
+      const line = `${key}=${names[tier - 1]}`;
       const pattern = new RegExp(`^${escapeRegex(key)}=.*$`, "m");
       text = pattern.test(text)
         ? text.replace(pattern, line)
         : `${text}${text.endsWith("\n") ? "" : "\n"}${line}\n`;
+      const tooltipKey = `tile.${compressedId(definition.key, tier)}.tooltip`;
+      const tooltipLine = `${tooltipKey}=\u00a7r\u00a7o\u00a79@UtilityCraft`;
+      const tooltipPattern = new RegExp(`^${escapeRegex(tooltipKey)}=.*$`, "m");
+      text = tooltipPattern.test(text)
+        ? text.replace(tooltipPattern, tooltipLine)
+        : text.replace(line, `${line}\n${tooltipLine}`);
     }
     await writer.writeText(path, text);
   }

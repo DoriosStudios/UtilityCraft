@@ -171,6 +171,8 @@ This update introduces gas processing and power generation, reworks early Steel 
     - Added a personal outline for the block container being aimed at and a "Sneak to mine" prompt.
     - Sneaking hides the container hitbox so its block can be mined.
 - **Tooltips and Guides**
+    - Separated item and block display names from their additional descriptions using dedicated tooltip translations.
+    - Completed missing translations across all ten supported locales and aligned their keys, sections and ordering with English (US).
     - Updated How to Play Water and Steel instructions with Mortar and assembled Primitive Forge illustrations.
     - Added a visual Primitive Forge Information panel showing the Brute Steel recipe and processing times.
     - Added Hammer conversion guidance, Tank capacity descriptions and Gas Pipe and Extractor tooltips.
