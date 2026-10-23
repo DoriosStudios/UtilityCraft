@@ -46,7 +46,7 @@
         "height": 0.5
       },
       "minecraft:inventory": {
-        "inventory_size": 6,
+        "inventory_size": 9,
         "container_type": "container",
         "private": false,
         "restrict_to_owner": false

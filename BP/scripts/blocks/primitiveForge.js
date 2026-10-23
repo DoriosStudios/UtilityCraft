@@ -12,8 +12,34 @@ const BATCH_SIZE = 4;
 // Preserve the existing saved fuel units (1,200 units per 1,000 DE).
 const FUEL_UNITS_PER_RECIPE = 1200;
 const STEP_TICKS = 4;
-const INPUT = 0, SECONDARY = 1, OUTPUT = 2, PROGRESS = 3, FUEL_BAR = 4, FUEL = 5;
+const INPUT = 0, SECONDARY = 1, PROGRESS = 3, FUEL_BAR = 4, FUEL = 5;
+// Keep the original output slot and append the other three to preserve saved items.
+const OUTPUTS = [2, 6, 7, 8];
+const INPUTS = [INPUT, SECONDARY, FUEL];
 const RECIPE_DE = 1000;
+
+function configureInventory(entity) {
+    const config = DoriosLib.container.getConfig(entity);
+    if (config?.type === 'simple'
+        && config.inputConfig.length === INPUTS.length && INPUTS.every(slot => config.inputConfig.includes(slot))
+        && config.outputConfig.length === OUTPUTS.length && OUTPUTS.every(slot => config.outputConfig.includes(slot))) return;
+    DoriosLib.container.setConfig(entity, {
+        version: 1, type: 'simple', inputConfig: INPUTS, outputConfig: OUTPUTS,
+    });
+}
+
+function availableOutputs(inventory, output) {
+    const stacks = [], empty = [];
+    for (const slot of OUTPUTS) {
+        const item = inventory.getItem(slot);
+        if (!item) empty.push({ slot, space: output.maxAmount });
+        else if (item.isStackableWith(output) && item.amount < item.maxAmount) {
+            stacks.push({ slot, item, space: item.maxAmount - item.amount });
+        }
+    }
+    // Fill compatible stacks before opening another slot.
+    return [...stacks, ...empty];
+}
 
 function positions(origin) {
     const result = [];
@@ -78,9 +104,7 @@ function form(block) {
             entity.setDynamicProperty(STRUCTURE, JSON.stringify({ origin, facing }));
             entity.setRotation({ x: 0, y: { north: 180, south: 0, east: -90, west: 90 }[facing] });
             entity.nameTag = `entity.${FORGE_ID}.name`;
-            DoriosLib.container.setConfig(entity, {
-                version: 1, type: 'simple', inputConfig: [INPUT, SECONDARY, FUEL], outputConfig: [OUTPUT],
-            });
+            configureInventory(entity);
             updateDisplay(entity.getComponent('minecraft:inventory').container, 0, 0, 0);
             parts.forEach((part, index) => part.setPermutation(part.permutation
                 .withState(FORMED, true).withState(PART, index).withState(OWNER, index === OWNER_PART[facing])
@@ -100,7 +124,7 @@ function form(block) {
 function dismantle(entity, structure) {
     const inventory = entity.getComponent('minecraft:inventory')?.container;
     // Clear each real slot after dropping it; never drop the progress UI item.
-    if (inventory) for (const slot of [INPUT, SECONDARY, FUEL, OUTPUT]) {
+    if (inventory) for (const slot of [...INPUTS, ...OUTPUTS]) {
         const item = inventory.getItem(slot);
         if (item) {
             entity.dimension.spawnItem(item, entity.location);
@@ -152,11 +176,14 @@ function tick(entity, owner) {
     if (!owner) return;
     const inventory = entity.getComponent('minecraft:inventory')?.container;
     if (!inventory) return;
+    // Refresh persisted extraction slots for forges assembled before the 2x2 output grid.
+    configureInventory(entity);
     const mainSlot = inventory.getItem(INPUT) ? INPUT : SECONDARY;
     const input = inventory.getItem(mainSlot);
     const secondary = mainSlot === INPUT ? inventory.getItem(SECONDARY) : undefined;
     const key = secondary ? `${input?.typeId}|${secondary.typeId}` : input?.typeId;
     const recipe = furnaceRecipes[key];
+    const output = recipe ? new ItemStack(recipe.output) : undefined;
     const duration = secondary && recipe?.output === 'utilitycraft:raw_steel' ? STEEL_TICKS : PROCESS_TICKS;
     const signature = recipe ? JSON.stringify([key, recipe, duration]) : '';
     let progress = Number(entity.getDynamicProperty(PROGRESS_PROPERTY)) || 0;
@@ -170,12 +197,12 @@ function tick(entity, owner) {
     let budget = STEP_TICKS;
     // Carry the unused fraction of a tick into the next batch, preserving the configured recipe duration.
     while (recipe && budget > 0.000001) {
-        const main = inventory.getItem(mainSlot), extra = secondary ? inventory.getItem(SECONDARY) : undefined, result = inventory.getItem(OUTPUT);
+        const main = inventory.getItem(mainSlot), extra = secondary ? inventory.getItem(SECONDARY) : undefined;
         if (main?.typeId !== input.typeId || extra?.typeId !== secondary?.typeId) break;
         const available = Math.min(BATCH_SIZE, Math.floor(main.amount / required),
             secondaryRequired ? Math.floor(extra.amount / secondaryRequired) : BATCH_SIZE);
-        const space = !result ? new ItemStack(recipe.output).maxAmount
-            : result.typeId === recipe.output ? result.maxAmount - result.amount : 0;
+        const outputs = availableOutputs(inventory, output);
+        const space = outputs.reduce((sum, entry) => sum + entry.space, 0);
         if (!available || space < amount) break;
         // Adding inputs never enlarges a batch already in progress.
         if (batch > available) { progress = 0; batch = 0; }
@@ -199,8 +226,15 @@ function tick(entity, owner) {
         if (progress >= duration - 0.000001) {
             consume(inventory, mainSlot, required * batch);
             if (secondaryRequired) consume(inventory, SECONDARY, secondaryRequired * batch);
-            if (result) { result.amount += amount * batch; inventory.setItem(OUTPUT, result); }
-            else inventory.setItem(OUTPUT, new ItemStack(recipe.output, amount * batch));
+            let pending = amount * batch;
+            for (const entry of outputs) {
+                if (pending <= 0) break;
+                const added = Math.min(entry.space, pending);
+                const result = entry.item ?? output.clone();
+                result.amount = (entry.item?.amount ?? 0) + added;
+                inventory.setItem(entry.slot, result);
+                pending -= added;
+            }
             progress = 0;
             batch = 0;
         }

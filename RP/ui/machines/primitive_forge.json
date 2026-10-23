@@ -74,7 +74,8 @@
         "title@uc.machine_name": {}
       },
       {
-        "iron@common.container_item": {
+        "iron@uc.input_slot": {
+          "$slot_background_texture": "textures/ui/slots/input_slot",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "collection_index": 0,
@@ -93,7 +94,8 @@
         }
       },
       {
-        "coal@common.container_item": {
+        "coal@uc.input_slot": {
+          "$slot_background_texture": "textures/ui/slots/input_slot",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "collection_index": 1,
@@ -134,26 +136,22 @@
         }
       },
       {
-        "output@common.container_item": {
+        "output_grid@uc.slot_grid_2x2": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "collection_index": 2,
           "offset": [
             54,
-            29
+            24
           ],
-          "size": [
-            26,
-            26
-          ],
-          "$cell_image_size": [
-            26,
-            26
-          ]
+          "$collection_index_1": 2,
+          "$collection_index_2": 6,
+          "$collection_index_3": 7,
+          "$collection_index_4": 8,
+          "$slot_outline_texture": "textures/ui/slots/output_slot"
         }
       },
       {
-        "fuel_input@common.container_item": {
+        "fuel_input@uc.fuel_slot": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
           "collection_index": 5,
