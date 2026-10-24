@@ -7065,6 +7065,14 @@
     ],
     "controls": [
       {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
         "flint_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/flint",
           "$result_item_name": "Flint",
@@ -7809,6 +7817,14 @@
     ],
     "controls": [
       {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
         "calcite_pebble_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
@@ -7902,6 +7918,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
       {
         "flint_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/flint",
@@ -8437,6 +8461,14 @@
     ],
     "controls": [
       {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "8%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
+      {
         "calcite_pebble_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/pebbles/calcite_pebble",
           "$result_item_name": "Calcite Pebble",
@@ -8962,6 +8994,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
       {
         "flint_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/flint",
@@ -9731,6 +9771,14 @@
     ],
     "controls": [
       {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
         "echo_shard_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
@@ -9848,6 +9896,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
       {
         "flint_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/flint",
@@ -10407,6 +10463,14 @@
     ],
     "controls": [
       {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "10%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
+      {
         "echo_shard_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
@@ -10956,6 +11020,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1"
+        }
+      },
       {
         "flint_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/flint",
@@ -11741,6 +11813,14 @@
     ],
     "controls": [
       {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
         "echo_shard_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
@@ -11858,6 +11938,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
       {
         "flint_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/flint",
@@ -12416,6 +12504,14 @@
       }
     ],
     "controls": [
+      {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "12%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
       {
         "echo_shard_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/echo_shard",
@@ -12982,6 +13078,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1"
+        }
+      },
       {
         "dripstone_pebble_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
@@ -13759,6 +13863,14 @@
     ],
     "controls": [
       {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1"
+        }
+      },
+      {
         "echo_shard_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/echo_shard",
           "$result_item_name": "Echo Shard",
@@ -13876,6 +13988,14 @@
       }
     ],
     "controls": [
+      {
+        "lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/lead_chunk",
+          "$result_item_name": "Lead Chunk",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
       {
         "dripstone_pebble_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/pebbles/dripstone_pebble",
@@ -14426,6 +14546,14 @@
       }
     ],
     "controls": [
+      {
+        "deepslate_lead_chunk_strip@uc.sieve_result_strip": {
+          "$result_item_texture": "textures/items/deepslate_lead_chunk",
+          "$result_item_name": "Deepslate Lead Chunk",
+          "$result_chance_text": "16%%",
+          "$result_amount_text": "x1-9"
+        }
+      },
       {
         "echo_shard_0_strip@uc.sieve_result_strip": {
           "$result_item_texture": "textures/items/echo_shard",

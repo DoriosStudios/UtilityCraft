@@ -1,13 +1,5 @@
 {
   "namespace": "uc",
-  "stabilized_obsidian_input_animation": {
-    "anim_type": "flip_book",
-    "frame_count": 2,
-    "frame_step": 0,
-    "fps": 1,
-    "easing": "linear",
-    "initial_uv": [0, 0]
-  },
   "steel_catalyst_animation": {
     "anim_type": "flip_book",
     "frame_count": 4,
@@ -667,6 +659,17 @@
                 "$recipe_icon": "textures/blocks/crying_obsidian",
                 "offset": [54, 0]
               }
+            },
+            {
+              "stabilized_obsidian_dust_from_crying_obsidian_toggle@uc.infuser_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 46,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "stabilized_obsidian_dust_from_crying_obsidian_recipe",
+                "$recipe_icon": "textures/items/dusts/stabilized_obsidian_dust",
+                "offset": [72, 0]
+              }
             }
           ]
         }
@@ -949,8 +952,7 @@
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
                       "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
-                      "$slot_hover_text": "tile.coal_block.name",
-                      "$has_slot_hover": true,
+                      "$has_slot_hover": false,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
                     }
                   },
@@ -1353,8 +1355,7 @@
                 "controls": [
                   {
                     "catalyst@uc.infuser_recipe_catalyst": {
-                      "$slot_hover_text": "tile.mushroom.name",
-                      "$has_slot_hover": true,
+                      "$has_slot_hover": false,
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
                       "$slot_item_flipbook_texture": "textures/static/images/infuser_mycelium_catalyst_flipbook",
@@ -1681,12 +1682,7 @@
                   },
                   {
                     "input@uc.infuser_recipe_input": {
-                      "$has_slot_item": false,
-                      "$has_slot_flipbook": true,
-                      "$slot_item_flipbook_texture": "textures/static/images/stabilized_obsidian_input_flipbook",
-                      "$slot_hover_text": "tile.obsidian.name",
-                      "$has_slot_hover": true,
-                      "$slot_item_flipbook_uv": "@uc.stabilized_obsidian_input_animation"
+                      "$slot_item_texture": "textures/items/dusts/obsidian_dust"
                     }
                   },
                   {
@@ -1736,8 +1732,7 @@
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
                       "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
-                      "$slot_hover_text": "tile.coal_block.name",
-                      "$has_slot_hover": true,
+                      "$has_slot_hover": false,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
                     }
                   },
@@ -1767,8 +1762,7 @@
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
                       "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
-                      "$slot_hover_text": "tile.coal_block.name",
-                      "$has_slot_hover": true,
+                      "$has_slot_hover": false,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
                     }
                   },
@@ -1798,8 +1792,7 @@
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
                       "$slot_item_flipbook_texture": "textures/static/images/steel_catalyst_flipbook",
-                      "$slot_hover_text": "tile.coal_block.name",
-                      "$has_slot_hover": true,
+                      "$has_slot_hover": false,
                       "$slot_item_flipbook_uv": "@uc.steel_catalyst_animation"
                     }
                   },
@@ -2129,8 +2122,7 @@
                       "$has_slot_item": false,
                       "$has_slot_flipbook": true,
                       "$slot_item_flipbook_texture": "textures/blocks/sculk",
-                      "$slot_hover_text": "tile.sculk.name",
-                      "$has_slot_hover": true,
+                      "$has_slot_hover": false,
                       "$slot_item_flipbook_uv": "@uc.sculk_output_animation"
                     }
                   }
@@ -2190,6 +2182,28 @@
                       "$slot_item_texture": "textures/items/machinery/ultimate_chip",
                       "$slot_hover_text": "item.utilitycraft:ultimate_chip",
                       "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "stabilized_obsidian_dust_from_crying_obsidian_panel@uc.recipe_panel": {
+                "$recipe_control_name": "stabilized_obsidian_dust_from_crying_obsidian_recipe",
+                "controls": [
+                  {
+                    "catalyst@uc.infuser_recipe_catalyst": {
+                      "$slot_item_texture": "textures/items/dusts/amethyst_dust"
+                    }
+                  },
+                  {
+                    "input@uc.infuser_recipe_input": {
+                      "$slot_item_texture": "textures/items/dusts/crying_obsidian_dust"
+                    }
+                  },
+                  {
+                    "output@uc.infuser_recipe_output": {
+                      "$slot_item_texture": "textures/items/dusts/stabilized_obsidian_dust"
                     }
                   }
                 ]

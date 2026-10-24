@@ -1454,6 +1454,146 @@
                 "$recipe_icon": "textures/blocks/compressed/crushed_cobbled_deepslate_4",
                 "offset": [0, 0]
               }
+            },
+            {
+              "deepslate_uranium_ore_to_uranium_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 106,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "deepslate_uranium_ore_to_uranium_dust_recipe",
+                "$recipe_icon": "textures/items/uranium_dust",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "raw_uranium_to_uranium_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 107,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "raw_uranium_to_uranium_dust_recipe",
+                "$recipe_icon": "textures/items/uranium_dust",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "uranium_ingot_to_uranium_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 108,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "uranium_ingot_to_uranium_dust_recipe",
+                "$recipe_icon": "textures/items/uranium_dust",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "raw_uranium_block_to_uranium_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 109,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "raw_uranium_block_to_uranium_dust_recipe",
+                "$recipe_icon": "textures/items/uranium_dust",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "uranium_block_to_uranium_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 110,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "uranium_block_to_uranium_dust_recipe",
+                "$recipe_icon": "textures/items/uranium_dust",
+                "offset": [90, 0]
+              }
+            },
+            {
+              "lead_ore_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 111,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "lead_ore_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [108, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "recipe_row_16": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "deepslate_lead_ore_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 112,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "deepslate_lead_ore_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "raw_lead_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 113,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "raw_lead_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "lead_ingot_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 114,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "lead_ingot_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "lead_plate_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 115,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "lead_plate_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "raw_lead_block_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 116,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "raw_lead_block_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [72, 0]
+              }
+            },
+            {
+              "lead_block_to_lead_dust_toggle@uc.crusher_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 117,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "lead_block_to_lead_dust_recipe",
+                "$recipe_icon": "textures/items/lead_dust",
+                "offset": [90, 0]
+              }
             }
           ]
         }
@@ -4019,6 +4159,228 @@
                       "$slot_hover_text": "item.utilitycraft:silicon",
                       "$has_slot_hover": true,
                       "$slot_count_text": "9",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_uranium_ore_to_uranium_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_uranium_ore_to_uranium_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/ores/deepslate_uranium_ore"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/uranium_dust",
+                      "$slot_count_text": "2",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "raw_uranium_to_uranium_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "raw_uranium_to_uranium_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/items/raw_uranium"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/uranium_dust",
+                      "$slot_count_text": "2",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "uranium_ingot_to_uranium_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "uranium_ingot_to_uranium_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/items/uranium_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/uranium_dust"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "raw_uranium_block_to_uranium_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "raw_uranium_block_to_uranium_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/block_of_raw_uranium"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/uranium_dust",
+                      "$slot_count_text": "12",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "uranium_block_to_uranium_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "uranium_block_to_uranium_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/block_of_uranium"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/uranium_dust",
+                      "$slot_count_text": "6",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "lead_ore_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "lead_ore_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/ores/lead_ore"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust",
+                      "$slot_count_text": "2",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_lead_ore_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_lead_ore_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/ores/deepslate_lead_ore"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust",
+                      "$slot_count_text": "2",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "raw_lead_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "raw_lead_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/items/raw_lead"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust",
+                      "$slot_count_text": "2",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "lead_ingot_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "lead_ingot_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/items/lead_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "lead_plate_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "lead_plate_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/items/lead_plate"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "raw_lead_block_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "raw_lead_block_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/block_of_raw_lead"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust",
+                      "$slot_count_text": "12",
+                      "$has_slot_count": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "lead_block_to_lead_dust_panel@uc.recipe_panel": {
+                "$recipe_control_name": "lead_block_to_lead_dust_recipe",
+                "controls": [
+                  {
+                    "input@uc.crusher_recipe_input": {
+                      "$slot_item_texture": "textures/blocks/block_of_lead"
+                    }
+                  },
+                  {
+                    "output@uc.crusher_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_dust",
+                      "$slot_count_text": "6",
                       "$has_slot_count": true
                     }
                   }

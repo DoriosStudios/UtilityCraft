@@ -981,6 +981,69 @@
         }
       },
       {
+        "recipe_row_11": {
+          "type": "panel",
+          "size": [126, 18],
+          "controls": [
+            {
+              "deepslate_uranium_chunk_to_deepslate_uranium_ore_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 77,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "deepslate_uranium_chunk_to_deepslate_uranium_ore_recipe",
+                "$recipe_icon": "textures/blocks/ores/deepslate_uranium_ore",
+                "offset": [0, 0]
+              }
+            },
+            {
+              "uranium_ingot_to_uranium_pellet_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 78,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "uranium_ingot_to_uranium_pellet_recipe",
+                "$recipe_icon": "textures/items/uranium_pellet",
+                "offset": [18, 0]
+              }
+            },
+            {
+              "lead_chunk_to_lead_ore_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 79,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "lead_chunk_to_lead_ore_recipe",
+                "$recipe_icon": "textures/blocks/ores/lead_ore",
+                "offset": [36, 0]
+              }
+            },
+            {
+              "deepslate_lead_chunk_to_deepslate_lead_ore_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 80,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "deepslate_lead_chunk_to_deepslate_lead_ore_recipe",
+                "$recipe_icon": "textures/blocks/ores/deepslate_lead_ore",
+                "offset": [54, 0]
+              }
+            },
+            {
+              "lead_ingot_to_lead_plate_toggle@uc.electro_press_recipe_toggle": {
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "$toggle_index": 81,
+                "$toggle_hover_text": "",
+                "$toggle_control_name": "lead_ingot_to_lead_plate_recipe",
+                "$recipe_icon": "textures/items/lead_plate",
+                "offset": [72, 0]
+              }
+            }
+          ]
+        }
+      },
+      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [126, "100%c"],
@@ -2914,6 +2977,97 @@
                       "$slot_item_texture": "textures/blocks/materials/silicon_block",
                       "$slot_hover_text": "tile.utilitycraft:silicon_block.name",
                       "$has_slot_hover": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_uranium_chunk_to_deepslate_uranium_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_uranium_chunk_to_deepslate_uranium_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_item_texture": "textures/items/deepslate_uranium_chunk",
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/ores/deepslate_uranium_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "uranium_ingot_to_uranium_pellet_panel@uc.recipe_panel": {
+                "$recipe_control_name": "uranium_ingot_to_uranium_pellet_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_item_texture": "textures/items/uranium_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/uranium_pellet"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "lead_chunk_to_lead_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "lead_chunk_to_lead_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_item_texture": "textures/items/lead_chunk",
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/ores/lead_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "deepslate_lead_chunk_to_deepslate_lead_ore_panel@uc.recipe_panel": {
+                "$recipe_control_name": "deepslate_lead_chunk_to_deepslate_lead_ore_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_item_texture": "textures/items/deepslate_lead_chunk",
+                      "$slot_count_text": "4",
+                      "$has_slot_count": true
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/blocks/ores/deepslate_lead_ore"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "lead_ingot_to_lead_plate_panel@uc.recipe_panel": {
+                "$recipe_control_name": "lead_ingot_to_lead_plate_recipe",
+                "controls": [
+                  {
+                    "input@uc.electro_press_recipe_input": {
+                      "$slot_item_texture": "textures/items/lead_ingot"
+                    }
+                  },
+                  {
+                    "output@uc.electro_press_recipe_output": {
+                      "$slot_item_texture": "textures/items/lead_plate"
                     }
                   }
                 ]
