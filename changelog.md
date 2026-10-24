@@ -1,4 +1,4 @@
-This update expands the Primitive Forge's output storage and clarifies its input, fuel and output slots.
+This update expands the Primitive Forge's output storage, clarifies its input, fuel and output slots, and fixes normal tank support for Crude Oil, Petroleum and Diesel.
 
 <!-- Upcoming release: v3.6.1. -->
 <!-- Previous release: extras/past_changelogs/changelog_v3.6.0.md -->
@@ -15,3 +15,8 @@ This update expands the Primitive Forge's output storage and clarifies its input
 - **Primitive Forge**
     - Added matching blue outlines to both ingredient slots and an orange outline to the fuel slot.
     - Added a red outline around the 2x2 output grid.
+
+## BUG FIXES
+
+- **Fluid Tanks**
+    - Fixed normal tanks being unable to store and transfer Crude Oil, Petroleum and Diesel because their tank entities were missing.
