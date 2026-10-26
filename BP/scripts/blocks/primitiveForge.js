@@ -11,6 +11,9 @@ const STEEL_TICKS = 160;
 const BATCH_SIZE = 4;
 // Preserve the existing saved fuel units (1,200 units per 1,000 DE).
 const FUEL_UNITS_PER_RECIPE = 1200;
+// Keep the previous full steel batch's burn rate for every active cycle,
+// regardless of recipe duration, input count or batch size.
+const FUEL_UNITS_PER_TICK = BATCH_SIZE * FUEL_UNITS_PER_RECIPE / STEEL_TICKS;
 const STEP_TICKS = 4;
 const INPUT = 0, SECONDARY = 1, PROGRESS = 3, FUEL_BAR = 4, FUEL = 5;
 // Keep the original output slot and append the other three to preserve saved items.
@@ -39,6 +42,69 @@ function availableOutputs(inventory, output) {
     }
     // Fill compatible stacks before opening another slot.
     return [...stacks, ...empty];
+}
+
+function forgeRecipes(inventory) {
+    const first = inventory.getItem(INPUT), second = inventory.getItem(SECONDARY);
+    const combinedKey = first && second ? `${first.typeId}|${second.typeId}` : undefined;
+    const combined = combinedKey && furnaceRecipes[combinedKey];
+    const entries = combined
+        ? [{ key: combinedKey, recipe: combined, inputs: [
+            { slot: INPUT, typeId: first.typeId, required: combined.required ?? 1 },
+            { slot: SECONDARY, typeId: second.typeId, required: combined.secondary_required ?? 1 },
+        ] }]
+        : [INPUT, SECONDARY].flatMap(slot => {
+            const item = inventory.getItem(slot);
+            const recipe = item && furnaceRecipes[item.typeId];
+            return recipe ? [{ key: item.typeId, recipe, inputs: [
+                { slot, typeId: item.typeId, required: recipe.required ?? 1 },
+            ] }] : [];
+        });
+    const duration = combined?.output === 'utilitycraft:raw_steel' ? STEEL_TICKS : PROCESS_TICKS;
+    return {
+        duration,
+        signature: entries.length ? JSON.stringify([entries, duration]) : '',
+        jobs: entries.map(entry => ({
+            ...entry,
+            output: new ItemStack(entry.recipe.output),
+            amount: entry.recipe.amount ?? 1,
+        })),
+    };
+}
+
+function availableBatch(inventory, job) {
+    return Math.min(BATCH_SIZE, ...job.inputs.map(input => {
+        const item = inventory.getItem(input.slot);
+        return item?.typeId === input.typeId ? Math.floor(item.amount / input.required) : 0;
+    }));
+}
+
+function planBatch(inventory, jobs, batches) {
+    // Reserve shared output space before processing either input. A second result
+    // must see the first result's reservation, even when both use an empty slot.
+    const outputs = new Map(OUTPUTS.map(slot => [slot, inventory.getItem(slot)]));
+    const writes = new Map(), counts = [];
+    for (let index = 0; index < jobs.length; index++) {
+        const job = jobs[index];
+        const entries = availableOutputs({ getItem: slot => outputs.get(slot) }, job.output);
+        const space = entries.reduce((sum, entry) => sum + entry.space, 0);
+        const capacity = Math.min(availableBatch(inventory, job), Math.floor(space / job.amount));
+        const count = batches ? batches[index] : capacity;
+        // An active shared cycle pauses until all its reserved results fit.
+        if (count > capacity) return undefined;
+        counts.push(count);
+        let pending = count * job.amount;
+        for (const entry of entries) {
+            if (pending <= 0) break;
+            const added = Math.min(entry.space, pending);
+            const result = entry.item ?? job.output.clone();
+            result.amount = (entry.item?.amount ?? 0) + added;
+            outputs.set(entry.slot, result);
+            writes.set(entry.slot, result);
+            pending -= added;
+        }
+    }
+    return { counts, writes };
 }
 
 function positions(origin) {
@@ -178,36 +244,46 @@ function tick(entity, owner) {
     if (!inventory) return;
     // Refresh persisted extraction slots for forges assembled before the 2x2 output grid.
     configureInventory(entity);
-    const mainSlot = inventory.getItem(INPUT) ? INPUT : SECONDARY;
-    const input = inventory.getItem(mainSlot);
-    const secondary = mainSlot === INPUT ? inventory.getItem(SECONDARY) : undefined;
-    const key = secondary ? `${input?.typeId}|${secondary.typeId}` : input?.typeId;
-    const recipe = furnaceRecipes[key];
-    const output = recipe ? new ItemStack(recipe.output) : undefined;
-    const duration = secondary && recipe?.output === 'utilitycraft:raw_steel' ? STEEL_TICKS : PROCESS_TICKS;
-    const signature = recipe ? JSON.stringify([key, recipe, duration]) : '';
+    let signature = entity.getDynamicProperty('utilitycraft:forge_recipe');
     let progress = Number(entity.getDynamicProperty(PROGRESS_PROPERTY)) || 0;
-    let batch = Number(entity.getDynamicProperty('utilitycraft:forge_batch')) || 0;
-    if (entity.getDynamicProperty('utilitycraft:forge_recipe') !== signature) { progress = 0; batch = 0; }
-    const required = recipe?.required ?? 1, secondaryRequired = secondary ? (recipe?.secondary_required ?? 1) : 0;
-    const amount = recipe?.amount ?? 1;
+    const savedBatches = entity.getDynamicProperty('utilitycraft:forge_batches');
+    let batches = savedBatches ? JSON.parse(savedBatches) : undefined;
+    const legacyBatch = Number(entity.getDynamicProperty('utilitycraft:forge_batch')) || 0;
+    let duration = PROCESS_TICKS;
     let remaining = Number(entity.getDynamicProperty('utilitycraft:forge_fuel_remaining')) || 0;
     let total = Number(entity.getDynamicProperty('utilitycraft:forge_fuel_total')) || 0;
     let working = false;
     let budget = STEP_TICKS;
     // Carry the unused fraction of a tick into the next batch, preserving the configured recipe duration.
-    while (recipe && budget > 0.000001) {
-        const main = inventory.getItem(mainSlot), extra = secondary ? inventory.getItem(SECONDARY) : undefined;
-        if (main?.typeId !== input.typeId || extra?.typeId !== secondary?.typeId) break;
-        const available = Math.min(BATCH_SIZE, Math.floor(main.amount / required),
-            secondaryRequired ? Math.floor(extra.amount / secondaryRequired) : BATCH_SIZE);
-        const outputs = availableOutputs(inventory, output);
-        const space = outputs.reduce((sum, entry) => sum + entry.space, 0);
-        if (!available || space < amount) break;
-        // Adding inputs never enlarges a batch already in progress.
-        if (batch > available) { progress = 0; batch = 0; }
-        if (!batch) batch = Math.min(available, Math.floor(space / amount));
-        if (space < amount * batch) break;
+    while (budget > 0.000001) {
+        const selected = forgeRecipes(inventory);
+        const { jobs } = selected;
+        duration = selected.duration;
+        if (signature !== selected.signature) {
+            // Preserve an already-paid single-input or alloy cycle in existing
+            // worlds when upgrading from the previous batch format.
+            const legacySignature = jobs.length === 1
+                ? JSON.stringify([jobs[0].key, jobs[0].recipe, duration]) : undefined;
+            if (legacyBatch > 0 && signature === legacySignature) {
+                batches = [legacyBatch];
+            } else {
+                progress = 0;
+                batches = undefined;
+            }
+            signature = selected.signature;
+        }
+        if (!jobs.length) break;
+        // Keep both batch sizes fixed until the shared cycle finishes. Removing
+        // reserved ingredients restarts the cycle; adding more never enlarges it.
+        if (batches && jobs.some((job, index) => batches[index] > availableBatch(inventory, job))) {
+            progress = 0;
+            batches = undefined;
+        }
+        const plan = planBatch(inventory, jobs, batches);
+        if (!plan) break;
+        const operations = plan.counts.reduce((sum, count) => sum + count, 0);
+        if (!operations) break;
+        batches = plan.counts;
         if (remaining <= 0.000001) {
             const item = inventory.getItem(FUEL);
             const fuel = item && solidFuels.find(f => f.id.includes('*')
@@ -217,30 +293,26 @@ function tick(entity, owner) {
             consume(inventory, FUEL);
             remaining = total = fuel.de * FUEL_UNITS_PER_RECIPE / RECIPE_DE;
         }
-        const fuelRate = batch * FUEL_UNITS_PER_RECIPE / duration;
-        const work = Math.min(budget, remaining / fuelRate, duration - progress);
+        const work = Math.min(budget, remaining / FUEL_UNITS_PER_TICK, duration - progress);
         working = true;
         progress += work;
         budget -= work;
-        remaining = Math.max(0, remaining - work * fuelRate);
+        remaining = Math.max(0, remaining - work * FUEL_UNITS_PER_TICK);
         if (progress >= duration - 0.000001) {
-            consume(inventory, mainSlot, required * batch);
-            if (secondaryRequired) consume(inventory, SECONDARY, secondaryRequired * batch);
-            let pending = amount * batch;
-            for (const entry of outputs) {
-                if (pending <= 0) break;
-                const added = Math.min(entry.space, pending);
-                const result = entry.item ?? output.clone();
-                result.amount = (entry.item?.amount ?? 0) + added;
-                inventory.setItem(entry.slot, result);
-                pending -= added;
+            for (let index = 0; index < jobs.length; index++) {
+                if (!batches[index]) continue;
+                for (const input of jobs[index].inputs) {
+                    consume(inventory, input.slot, input.required * batches[index]);
+                }
             }
+            for (const [slot, result] of plan.writes) inventory.setItem(slot, result);
             progress = 0;
-            batch = 0;
+            batches = undefined;
         }
     }
     furnaceParticles(entity, structure, working);
-    entity.setDynamicProperty('utilitycraft:forge_batch', batch);
+    entity.setDynamicProperty('utilitycraft:forge_batches', batches ? JSON.stringify(batches) : undefined);
+    entity.setDynamicProperty('utilitycraft:forge_batch', undefined);
     for (const part of parts) if (part.permutation.getState('utilitycraft:on') !== working) {
         part.setPermutation(part.permutation.withState('utilitycraft:on', working));
     }

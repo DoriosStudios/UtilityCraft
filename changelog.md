@@ -1,4 +1,4 @@
-This update expands the Primitive Forge's output storage, refreshes machine recipe books, and fixes normal tank support for Crude Oil, Petroleum and Diesel.
+This update expands the Primitive Forge's smelting and output storage, refreshes machine recipe books, and fixes normal tank support for Crude Oil, Petroleum and Diesel.
 
 <!-- Upcoming release: v3.6.1. -->
 <!-- Previous release: extras/past_changelogs/changelog_v3.6.0.md -->
@@ -9,6 +9,9 @@ This update expands the Primitive Forge's output storage, refreshes machine reci
 - **Primitive Forge**
     - Expanded output storage from one slot to four slots arranged in a 2x2 grid.
     - Processing and automatic extraction now use all four output slots.
+    - Both input slots can now smelt together in one shared cycle, processing up to four recipes per input.
+    - Fuel burns at a constant rate while processing, matching the previous full Steel batch rate regardless of the recipe or number of occupied inputs.
+    - Steel combinations retain priority over individual smelting and keep their existing processing time.
 
 ## UI/UX
 
