@@ -15,6 +15,7 @@ This update expands the Primitive Forge's smelting and output storage, refreshes
 
 ## UI/UX
 
+- Machine containers now switch between entity interaction while standing and block selection while sneaking, keeping their original hitbox sizes.
 - **Auto Sieve**
     - Added Lead Chunk and Deepslate Lead Chunk drops to the appropriate mesh and material tables.
 - **Crusher and Electro Press**

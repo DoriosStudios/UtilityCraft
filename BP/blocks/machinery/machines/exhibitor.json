@@ -3,10 +3,17 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:ehxibitor",
+			"states": { "utilitycraft:has_selection": [true, false] },
 			"menu_category": {
 				"category": "construction"
 			}
 		},
+		"permutations": [
+			{
+				"condition": "!q.block_state('utilitycraft:has_selection')",
+				"components": { "minecraft:selection_box": false }
+			}
+		],
 		"components": {
 			"utilitycraft:ehxibitor": {
 				"entity": {

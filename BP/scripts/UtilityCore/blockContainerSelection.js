@@ -9,6 +9,7 @@ import {
 const OUTLINE_ID = "utilitycraft:block_container_outline";
 const VISIBLE = "utilitycraft:selection_visible";
 const EMPTY = "utilitycraft:selection_empty";
+const BLOCK_SELECTION = "utilitycraft:has_selection";
 const viewers = new Map();
 let active = new Map();
 const pendingOrphans = new Set();
@@ -50,9 +51,8 @@ function checkOrphan(entity) {
     }, 2);
 }
 
-// Entity hits are only cleanup candidates; they never participate in selection.
-function cleanOrphansInView(player) {
-    for (const { entity } of player.getEntitiesFromViewDirection({ maxDistance: SELECTION_REACH })) {
+function cleanOrphansInView(hits) {
+    for (const { entity } of hits) {
         try {
             if (compatible(entity)
                 && entity.dimension.getBlock(ownerLocation(entity.location))?.isAir) checkOrphan(entity);
@@ -65,13 +65,19 @@ function positionContainer(entity, block) {
     if (needsPositionCorrection(entity.location, expected)) entity.teleport(expected);
 }
 
-function setMode(target, empty) {
-    const { entity } = target;
+function setMode(target, empty, reset = false) {
+    const { entity, block } = target;
     if (!valid(entity)) return;
     // Recenter the entity before restoring its normal hitbox.
     if (!empty) positionContainer(entity, target.block);
     if (entity.getProperty(EMPTY) !== empty) {
         entity.triggerEvent(empty ? "utilitycraft:selection_empty" : "utilitycraft:selection_full");
+    }
+    // Only opted-in blocks change selection; other addons retain their existing behavior.
+    const selection = block.permutation.getState(BLOCK_SELECTION);
+    const enabled = reset || empty;
+    if (typeof selection === "boolean" && selection !== enabled) {
+        block.setPermutation(block.permutation.withState(BLOCK_SELECTION, enabled));
     }
 }
 
@@ -86,10 +92,34 @@ function prepare(entity) {
     return target;
 }
 
-function resolve(player, previous, cache) {
-    const block = player.getBlockFromViewDirection({
+function resolve(player, previous, cache, entityHits) {
+    const blockHit = player.getBlockFromViewDirection({
         maxDistance: SELECTION_REACH, includePassableBlocks: true,
-    })?.block;
+    });
+    const block = blockHit?.block;
+    const head = player.getHeadLocation();
+    const blockDistance = blockHit ? Math.hypot(
+        block.location.x + blockHit.faceLocation.x - head.x,
+        block.location.y + blockHit.faceLocation.y - head.y,
+        block.location.z + blockHit.faceLocation.z - head.z,
+    ) : Infinity;
+    // A block with selection disabled may disappear from the block raycast.
+    // Reuse the cleanup raycast, while keeping solid blocks in front as occluders.
+    let nearest;
+    for (const hit of entityHits) {
+        if (hit.distance > blockDistance + 0.01 || (nearest && hit.distance >= nearest.distance)) continue;
+        if (!selectable(hit.entity)) continue;
+        const owner = hit.entity.dimension.getBlock(ownerLocation(hit.entity.location));
+        if (!supported(owner) || typeof owner.permutation.getState(BLOCK_SELECTION) !== "boolean") continue;
+        nearest = hit;
+    }
+    if (nearest) {
+        const target = prepare(nearest.entity);
+        if (target) {
+            cache.set(blockKey(target.block), target);
+            return target;
+        }
+    }
     if (!supported(block)) return;
     const key = blockKey(block);
     if (cache.has(key)) return cache.get(key);
@@ -127,11 +157,12 @@ system.runInterval(() => {
     const cache = new Map();
     for (const player of world.getAllPlayers()) {
         online.add(player.id);
-        try { cleanOrphansInView(player); } catch { /* Cleanup is independent of selection. */ }
         const previous = viewers.get(player.id);
         let outline;
         try {
-            const target = resolve(player, previous, cache);
+            const entityHits = player.getEntitiesFromViewDirection({ maxDistance: SELECTION_REACH });
+            try { cleanOrphansInView(entityHits); } catch { /* Cleanup is independent of selection. */ }
+            const target = resolve(player, previous, cache, entityHits);
             removeOutline(previous?.outline);
             outline = createOutline(player, target);
             if (!target) { viewers.delete(player.id); continue; }
@@ -150,7 +181,7 @@ system.runInterval(() => {
     }
     for (const [id, target] of active) {
         if (!next.has(id)) {
-            try { setMode(target, false); } catch { /* The entity may have unloaded. */ }
+            try { setMode(target, false, true); } catch { /* The entity may have unloaded. */ }
         }
     }
     for (const target of next.values()) {
