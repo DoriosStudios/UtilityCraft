@@ -9,7 +9,8 @@ This update expands the Primitive Forge's smelting and output storage, refreshes
 - **Primitive Forge**
     - Expanded output storage from one slot to four slots arranged in a 2x2 grid.
     - Processing and automatic extraction now use all four output slots.
-    - Both input slots can now smelt together in one shared cycle, processing up to four recipes per input.
+    - Both input slots can now smelt together in one shared cycle, processing one recipe per input instead of batches of up to four.
+    - Brute Steel processing is also limited to one recipe per cycle.
     - Fuel burns at a constant rate while processing, matching the previous full Steel batch rate regardless of the recipe or number of occupied inputs.
     - Steel combinations retain priority over individual smelting and keep their existing processing time.
 

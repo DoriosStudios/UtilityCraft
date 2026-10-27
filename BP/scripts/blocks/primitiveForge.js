@@ -8,12 +8,12 @@ const PART = 'utilitycraft:forge_part';
 // Recipe durations in game ticks, independent of the owner tick interval.
 const PROCESS_TICKS = 40;
 const STEEL_TICKS = 160;
-const BATCH_SIZE = 4;
+const BATCH_SIZE = 1;
 // Preserve the existing saved fuel units (1,200 units per 1,000 DE).
 const FUEL_UNITS_PER_RECIPE = 1200;
 // Keep the previous full steel batch's burn rate for every active cycle,
 // regardless of recipe duration, input count or batch size.
-const FUEL_UNITS_PER_TICK = BATCH_SIZE * FUEL_UNITS_PER_RECIPE / STEEL_TICKS;
+const FUEL_UNITS_PER_TICK = 30;
 const STEP_TICKS = 4;
 const INPUT = 0, SECONDARY = 1, PROGRESS = 3, FUEL_BAR = 4, FUEL = 5;
 // Keep the original output slot and append the other three to preserve saved items.
@@ -247,8 +247,9 @@ function tick(entity, owner) {
     let signature = entity.getDynamicProperty('utilitycraft:forge_recipe');
     let progress = Number(entity.getDynamicProperty(PROGRESS_PROPERTY)) || 0;
     const savedBatches = entity.getDynamicProperty('utilitycraft:forge_batches');
-    let batches = savedBatches ? JSON.parse(savedBatches) : undefined;
-    const legacyBatch = Number(entity.getDynamicProperty('utilitycraft:forge_batch')) || 0;
+    // Limit saved cycles to one recipe per input without discarding paid progress.
+    let batches = savedBatches ? JSON.parse(savedBatches).map(count => Math.min(BATCH_SIZE, count)) : undefined;
+    const legacyBatch = Math.min(BATCH_SIZE, Number(entity.getDynamicProperty('utilitycraft:forge_batch')) || 0);
     let duration = PROCESS_TICKS;
     let remaining = Number(entity.getDynamicProperty('utilitycraft:forge_fuel_remaining')) || 0;
     let total = Number(entity.getDynamicProperty('utilitycraft:forge_fuel_total')) || 0;
