@@ -1,0 +1,4 @@
+{
+  "description": "This update restores machine interaction, rebalances the Primitive Forge and refreshes machine recipe books.",
+  "highlights": "- Restored machine inventory interaction.\n- Primitive Forge: dual-input smelting, 2x2 output and one recipe per input.\n- Corrected machine recipe books and Crude Oil, Petroleum and Diesel tanks."
+}

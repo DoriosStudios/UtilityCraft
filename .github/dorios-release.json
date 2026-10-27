@@ -6,7 +6,7 @@
     "slug": "utilitycraft"
   },
   "release": {
-    "changelogPath": "changelog.md",
+    "changelogPath": ".github/release-notes.md",
     "defaultChannel": "stable",
     "bedrockManifestPaths": [
       "BP/manifest.json",
