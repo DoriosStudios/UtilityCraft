@@ -33,5 +33,6 @@ This update expands the Primitive Forge's smelting and output storage, refreshes
 
 ## BUG FIXES
 
+- Fixed UtilityCraft reporting an outdated version to other addons during dependency checks.
 - **Fluid Tanks**
     - Fixed normal tanks being unable to store and transfer Crude Oil, Petroleum and Diesel because their tank entities were missing.
