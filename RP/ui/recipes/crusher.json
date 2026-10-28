@@ -3260,7 +3260,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:double_compressed_cobblestone.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/double_compressed_cobblestone"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_2"
                     }
                   },
                   {
@@ -3281,7 +3281,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:triple_compressed_cobblestone.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/triple_compressed_cobblestone"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_3"
                     }
                   },
                   {
@@ -3302,7 +3302,7 @@
                     "input@uc.crusher_recipe_input": {
                       "$slot_hover_text": "tile.utilitycraft:quadruple_compressed_cobblestone.name",
                       "$has_slot_hover": true,
-                      "$slot_item_texture": "textures/blocks/quadruple_compressed_cobblestone"
+                      "$slot_item_texture": "textures/blocks/compressed/cobblestone_4"
                     }
                   },
                   {

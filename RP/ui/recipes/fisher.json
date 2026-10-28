@@ -1341,14 +1341,6 @@
         }
       },
       {
-        "empty_liquid_capsule_23_strip@uc.drop_table_result_strip": {
-          "$result_item_texture": "textures/items/misc/liquid_capsule_0",
-          "$result_item_name": "Empty Liquid Capsule",
-          "$result_chance_text": "1.2%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
         "sand_handful_24_strip@uc.drop_table_result_strip": {
           "$result_item_texture": "textures/items/pebbles/sand_handful",
           "$result_item_name": "Sand Handful",
@@ -1575,14 +1567,6 @@
           "$result_item_texture": "textures/items/leather_boots",
           "$result_item_name": "Leather Boots",
           "$result_chance_text": "0.32%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
-        "empty_liquid_capsule_24_strip@uc.drop_table_result_strip": {
-          "$result_item_texture": "textures/items/misc/liquid_capsule_0",
-          "$result_item_name": "Empty Liquid Capsule",
-          "$result_chance_text": "1.6%%",
           "$result_amount_text": "x1"
         }
       },

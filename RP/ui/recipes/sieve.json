@@ -5753,14 +5753,6 @@
         }
       },
       {
-        "certus_quartz_crystal_12_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "25.5%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
@@ -6422,14 +6414,6 @@
           "$result_item_name": "Redstone",
           "$result_chance_text": "30%%",
           "$result_amount_text": "x1-36"
-        }
-      },
-      {
-        "certus_quartz_crystal_12_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "25.5%%",
-          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -7515,22 +7499,6 @@
         }
       },
       {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "34%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "2%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
@@ -8288,22 +8256,6 @@
           "$result_item_name": "Redstone",
           "$result_chance_text": "40%%",
           "$result_amount_text": "x1-36"
-        }
-      },
-      {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "34%%",
-          "$result_amount_text": "x1-9"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "2%%",
-          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -9445,22 +9397,6 @@
         }
       },
       {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "42.5%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "2.5%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
@@ -10266,22 +10202,6 @@
           "$result_item_name": "Redstone",
           "$result_chance_text": "50%%",
           "$result_amount_text": "x1-36"
-        }
-      },
-      {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "42.5%%",
-          "$result_amount_text": "x1-9"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "2.5%%",
-          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -11471,22 +11391,6 @@
         }
       },
       {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "51%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "3%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
@@ -12308,22 +12212,6 @@
           "$result_item_name": "Redstone",
           "$result_chance_text": "60%%",
           "$result_amount_text": "x1-36"
-        }
-      },
-      {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "51%%",
-          "$result_amount_text": "x1-9"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "3%%",
-          "$result_amount_text": "x1-9"
         }
       },
       {
@@ -13521,22 +13409,6 @@
         }
       },
       {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "68%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "4%%",
-          "$result_amount_text": "x1"
-        }
-      },
-      {
         "addon_recipe_rows": {
           "type": "stack_panel",
           "size": [
@@ -14350,22 +14222,6 @@
           "$result_item_name": "Redstone",
           "$result_chance_text": "80%%",
           "$result_amount_text": "x1-36"
-        }
-      },
-      {
-        "certus_quartz_crystal_13_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/certus_quartz_crystal",
-          "$result_item_name": "Certus Quartz Crystal",
-          "$result_chance_text": "68%%",
-          "$result_amount_text": "x1-9"
-        }
-      },
-      {
-        "charged_certus_quartz_crystal_14_strip@uc.sieve_result_strip": {
-          "$result_item_texture": "textures/items/charged_certus_quartz_crystal",
-          "$result_item_name": "Charged Certus Quartz Crystal",
-          "$result_chance_text": "4%%",
-          "$result_amount_text": "x1-9"
         }
       },
       {

@@ -2613,10 +2613,10 @@ tile.utilitycraft:water_ball.tooltip=§r§o§9@UtilityCraft
 ### [equipment.misc] Objetos decorativos y curiosidades
 
 item.utilitycraft:amogus.name=Amigos
-tile.utilitycraft:amogus.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:amogus.tooltip=
 
 item.utilitycraft:black_amogus.name=Amigos negro
-tile.utilitycraft:black_amogus.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:black_amogus.tooltip=
 
 ## ============================================================================
 ## [interfaces] Interfaces y mensajes
@@ -2625,16 +2625,16 @@ tile.utilitycraft:black_amogus.tooltip=§r§o§9@UtilityCraft
 ### [interfaces.controls] Controles e indicadores
 
 item.utilitycraft:arrow_indicator=Indicador de Flechas
-tile.utilitycraft:arrow_indicator.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:arrow_indicator.tooltip=
 
 item.utilitycraft:arrow_indicator_90=Indicador de Flechas
-tile.utilitycraft:arrow_indicator_90.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:arrow_indicator_90.tooltip=
 
 item.utilitycraft:empty_liquid_bar=Vacío
-tile.utilitycraft:empty_liquid_bar.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:empty_liquid_bar.tooltip=
 
 item.utilitycraft:info=Informaciones:
-tile.utilitycraft:info.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:info.tooltip=
 
 ui.utilitycraft:info_panel.name=Información
 

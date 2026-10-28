@@ -16,11 +16,17 @@ This update expands the Primitive Forge's smelting and output storage, refreshes
 
 ## UI/UX
 
+- Removed addon signatures from internal UI items so machine information panels and interface placeholders no longer display them.
+
 - Machine containers now switch between entity interaction while standing and block selection while sneaking, keeping their original hitbox sizes.
 - **Auto Sieve**
     - Added Lead Chunk and Deepslate Lead Chunk drops to the appropriate mesh and material tables.
+    - Removed Certus Quartz and Charged Certus Quartz from the recipe book while retaining their scripted drops for addon compatibility.
+- **Auto Fisher**
+    - Removed the Empty Liquid Capsule from the recipe book while retaining its scripted drop for addon compatibility.
 - **Crusher and Electro Press**
     - Added the missing Lead and Uranium processing recipes to their recipe books.
+    - Corrected Crusher recipe icons for Double, Triple and Quadruple Compressed Cobblestone.
 - **Infuser**
     - Separated the two Stabilized Obsidian Dust recipes to show their different Amethyst Dust requirements.
 - **Seed Synthesizer**

@@ -2613,10 +2613,10 @@ tile.utilitycraft:water_ball.tooltip=§r§o§9@UtilityCraft
 ### [equipment.misc] Dekoration und Spaßgegenstände
 
 item.utilitycraft:amogus.name=Amogus
-tile.utilitycraft:amogus.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:amogus.tooltip=
 
 item.utilitycraft:black_amogus.name=Schwarzer Amogus
-tile.utilitycraft:black_amogus.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:black_amogus.tooltip=
 
 ## ============================================================================
 ## [interfaces] Oberflächen und Meldungen
@@ -2625,16 +2625,16 @@ tile.utilitycraft:black_amogus.tooltip=§r§o§9@UtilityCraft
 ### [interfaces.controls] Bedienelemente und Anzeigen
 
 item.utilitycraft:arrow_indicator=Pfeilanzeige
-tile.utilitycraft:arrow_indicator.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:arrow_indicator.tooltip=
 
 item.utilitycraft:arrow_indicator_90=Pfeilanzeige
-tile.utilitycraft:arrow_indicator_90.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:arrow_indicator_90.tooltip=
 
 item.utilitycraft:empty_liquid_bar=Leer
-tile.utilitycraft:empty_liquid_bar.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:empty_liquid_bar.tooltip=
 
 item.utilitycraft:info=Informationen:
-tile.utilitycraft:info.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:info.tooltip=
 
 ui.utilitycraft:info_panel.name=Informationen
 

@@ -2613,10 +2613,10 @@ tile.utilitycraft:water_ball.tooltip=§r§o§9@UtilityCraft
 ### [equipment.misc] 装飾とユニークなアイテム
 
 item.utilitycraft:amogus.name=アモガス
-tile.utilitycraft:amogus.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:amogus.tooltip=
 
 item.utilitycraft:black_amogus.name=ブラックアモガス
-tile.utilitycraft:black_amogus.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:black_amogus.tooltip=
 
 ## ============================================================================
 ## [interfaces] インターフェースとメッセージ
@@ -2625,16 +2625,16 @@ tile.utilitycraft:black_amogus.tooltip=§r§o§9@UtilityCraft
 ### [interfaces.controls] 操作とインジケーター
 
 item.utilitycraft:arrow_indicator=矢印インジケーター
-tile.utilitycraft:arrow_indicator.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:arrow_indicator.tooltip=
 
 item.utilitycraft:arrow_indicator_90=矢印インジケーター
-tile.utilitycraft:arrow_indicator_90.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:arrow_indicator_90.tooltip=
 
 item.utilitycraft:empty_liquid_bar=空の
-tile.utilitycraft:empty_liquid_bar.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:empty_liquid_bar.tooltip=
 
 item.utilitycraft:info=情報:
-tile.utilitycraft:info.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:info.tooltip=
 
 ui.utilitycraft:info_panel.name=情報
 
