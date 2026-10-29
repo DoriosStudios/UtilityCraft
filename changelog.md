@@ -39,6 +39,10 @@ This update expands the Primitive Forge's smelting and output storage, refreshes
 
 ## BUG FIXES
 
+- **Hammers**
+    - Fixed crushing ores that drop raw materials or gems, including deepslate variants, Lead and Uranium.
+    - Recognize Silk Touch drops and replace only newly dropped quantities, preserving items already on the ground.
+    - Apply the Crusher recipe once per block without multiplying its output by Fortune.
 - Fixed UtilityCraft reporting an outdated version to other addons during dependency checks.
 - **Fluid Tanks**
     - Fixed normal tanks being unable to store and transfer Crude Oil, Petroleum and Diesel because their tank entities were missing.
