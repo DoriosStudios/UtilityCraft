@@ -994,6 +994,95 @@ export class ItemEnergyStorage {
   display(): boolean;
 }
 
+/** Fixed-temperature reservoir used for one thermal simulation step. */
+export interface ThermalContact {
+  /** Reservoir temperature in K, constant throughout this step. */
+  temperature: number;
+  /** Nonnegative conductance in HU/(tick K). */
+  conductance: number;
+  /** Optional label copied to the exchange result. */
+  id?: string;
+}
+
+/** Thermal inputs that remain constant throughout a simulation step. */
+export interface ThermalStepOptions {
+  /** Nonnegative elapsed ticks; defaults to 1. */
+  ticks?: number;
+  /** Internal heat generation in HU/t; defaults to 0 and may be negative. */
+  heatRate?: number;
+  /** Fixed-temperature reservoirs; defaults to an empty array. */
+  contacts?: ThermalContact[];
+}
+
+/** Initial thermal state and inputs for the side-effect-free solver. */
+export interface TemperatureStepOptions extends ThermalStepOptions {
+  /** Initial temperature in K, without machine-specific clamping. */
+  temperature: number;
+  /** Positive thermal capacity in HU/K. */
+  heatCapacity: number;
+}
+
+/** Temperature and heat accounting returned by a thermal step. */
+export interface TemperatureStepResult {
+  temperature: number;
+  temperatureChange: number;
+  generatedHeat: number;
+  netHeat: number;
+  /** Null when there is ongoing internal heating/cooling without conductance. */
+  equilibriumTemperature: number | null;
+  /** Positive heat enters the body; negative heat leaves it. */
+  contacts: { id: string | undefined; heat: number }[];
+}
+
+/** Defaults used only when the persistent thermal body does not exist yet. */
+export interface TemperatureStorageOptions {
+  /** Initial K; defaults to 300. */
+  initialTemperature?: number;
+  /** Positive thermal capacity in HU/K; defaults to 1. */
+  heatCapacity?: number;
+}
+
+/** Graphic-only range and refresh policy for the 32-frame temperature bar. */
+export interface TemperatureDisplayOptions {
+  /** Lower graphic bound in K; defaults to 0. */
+  minimum?: number;
+  /** Upper graphic bound in K; defaults to 4000 and must exceed minimum. */
+  maximum?: number;
+  /** Update even when the machine has no open UI; defaults to false. */
+  force?: boolean;
+}
+
+/** Exact constant-coefficient thermal solution; does not mutate entities or reservoirs. */
+export function advanceTemperature(options: TemperatureStepOptions): TemperatureStepResult;
+
+/** Persistent thermal body stored as one JSON dynamic property per entity/index. */
+export class TemperatureStorage {
+  constructor(entity: Entity, index?: number, options?: TemperatureStorageOptions);
+  entity: Entity;
+  index: number;
+  propertyId: string;
+  /** Creates or opens thermal storage at index 0. */
+  static initializeSingle(entity: Entity, options?: TemperatureStorageOptions): TemperatureStorage;
+  /** Returns the current temperature in K. */
+  get(): number;
+  /** Sets K directly without machine-specific limits; returns the resulting K. */
+  set(temperature: number): number;
+  /** Returns thermal capacity in HU/K, not a maximum temperature. */
+  getHeatCapacity(): number;
+  /** Changes capacity while preserving temperature; this is not energy-conserving mixing. */
+  setHeatCapacity(heatCapacity: number): number;
+  /** Adds signed HU and returns the resulting K. */
+  addHeat(heat: number): number;
+  /** Removes nonnegative HU and returns the resulting K. */
+  removeHeat(heat: number): number;
+  /** Advances and persists the thermal state, retaining fractional K. */
+  advance(options?: ThermalStepOptions): TemperatureStepResult;
+  /** Exchanges heat with one fixed-temperature reservoir; defaults to 1 tick and conductance 1. */
+  transfer(temperature: number, ticks?: number, conductance?: number): TemperatureStepResult;
+  /** Updates the bar and actual-K tooltip; defaults to slot 4. Returns whether an item was written. */
+  display(slot?: number, options?: TemperatureDisplayOptions): boolean;
+}
+
 /** Fluid item that inserts liquid into a tank or machine. */
 export interface FluidContainerData {
   /** Amount inserted in mB. */

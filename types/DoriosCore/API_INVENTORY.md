@@ -23,7 +23,7 @@ module such as `ADDONNAME_CORE` or `ExampleCore`.
 
 ## Runtime exports
 
-The following 106 names are resolvable from `DoriosCore/index.js`. The audit
+The following 108 names are resolvable from `DoriosCore/index.js`. The audit
 tool verifies that every name is declared by `index.d.ts` and appears exactly
 once in this section.
 
@@ -33,6 +33,7 @@ once in this section.
 | --- | --- | --- | --- |
 | Machinery foundation | Primary | `BasicMachine`, `Machine`, `Generator`, `EnergyStorage`, `FluidStorage`, `GasStorage`, `MachineUpgradeRegistry` | Normal machines, active/passive generators, liquid/gas machinery, and ExampleCore subclasses |
 | Item energy storage | Primary | `ItemEnergyStorage` | Durability-backed charge storage for tagged items; callers persist modified stacks |
+| Thermal storage and simulation | Primary | `TemperatureStorage`, `advanceTemperature` | Persistent temperature, thermal capacity, fixed-reservoir heat exchange, and the shared 32-frame temperature bar |
 | Runtime helpers | Primary / Advanced | `Rotation`, `TickScheduler`, `OutputTracker`, `resolveItemContainerAt` | Rotatable machines, scheduler-aware ticks, IO targets, and multiblock ports |
 | IO authoring | Primary | `registerIOInterface`, `registerIOInterfaceForBlockTag`, `ensureBlockIOInterface`, `hasRegisteredIOInterface`, `IOInterface`, `registerLinkNodeIO`, `getLinkNodeIODefinition`, `openLinkNodeIOForm` | Machine face controls and multiblock link-node routing |
 | Container UI interfaces | Advanced | `InterfaceManager`, `encodeInterfaceSlot`, `decodeInterfaceSlot`, `stripInterfaceSlotCode` | Shared IO buttons and custom entity-container buttons |
@@ -83,6 +84,9 @@ must be documented alongside the runtime member that accepts or returns them.
 - Scheduler, buttons, and sessions: `SchedulerProfileConfig`, `ContainerSession`,
   `ContainerSessionEntry`, `ButtonPressEvent`, `ButtonPressCallback`,
   `ButtonDefinition`, `ButtonWatcher`.
+- Thermal storage and simulation: `ThermalContact`, `ThermalStepOptions`,
+  `TemperatureStepOptions`, `TemperatureStepResult`, `TemperatureStorageOptions`,
+  `TemperatureDisplayOptions`.
 - Multiblocks: `DetectedStructure`, `ActivationContext`,
   `MachineActivationContext`, `InteractionHandlers`, `MachineStats`,
   `MultiblockStructureDetector`, `MultiblockActivationManager`,

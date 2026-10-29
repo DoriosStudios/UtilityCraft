@@ -42,3 +42,7 @@ This update expands the Primitive Forge's smelting and output storage, refreshes
 - Fixed UtilityCraft reporting an outdated version to other addons during dependency checks.
 - **Fluid Tanks**
     - Fixed normal tanks being unable to store and transfer Crude Oil, Petroleum and Diesel because their tank entities were missing.
+
+## THIRD-PARTY / INTEGRATION
+
+- Added `TemperatureStorage` and `advanceTemperature` to DoriosCore so extensions can use persistent thermal storage, heat exchange calculations, and the shared temperature bar.
