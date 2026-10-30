@@ -11,6 +11,7 @@ utilitycraft.identifier=§o§9@UtilityCraft
 
 ### [metadata.creative_inventory] Categorias do inventário criativo
 
+utilitycraft:itemGroup.components_modules=Componentes e Módulos
 dorios:itemGroup.name.aiots=AIOTs
 dorios:itemGroup.name.bags=Bolsas
 dorios:itemGroup.name.basics=Básicos
@@ -160,6 +161,26 @@ tile.utilitycraft:cobble_gen_4.tooltip=§r§7- Gera 4 por segundo\n§o§9@Utilit
 
 tile.utilitycraft:cobble_gen_5.name=Gerador de Pedregulho (§8Nível VI§r)
 tile.utilitycraft:cobble_gen_5.tooltip=§r§7- Gera 20 por segundo\n§o§9@UtilityCraft
+
+### [blocks.multiblock] Multiblock Components
+
+tile.utilitycraft:energy_cell.name=Célula de Energia
+tile.utilitycraft:energy_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:fluid_cell.name=Célula de Líquido
+tile.utilitycraft:fluid_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:gas_cell.name=Célula de gás
+tile.utilitycraft:gas_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:processing_module.name=Módulo de Processamento
+tile.utilitycraft:processing_module.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:efficiency_module.name=Módulo de Eficiência
+tile.utilitycraft:efficiency_module.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:speed_module.name=Módulo de Velocidade
+tile.utilitycraft:speed_module.tooltip=§r§o§9@UtilityCraft
 
 ### [blocks.hoppers] Transportação
 

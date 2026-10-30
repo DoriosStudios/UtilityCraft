@@ -11,6 +11,7 @@ utilitycraft.identifier=§o§9@UtilityCraft
 
 ### [metadata.creative_inventory] Категории творческого инвентаря
 
+utilitycraft:itemGroup.components_modules=Компоненты и модули
 dorios:itemGroup.name.aiots=AIOT
 dorios:itemGroup.name.bags=Сумки
 dorios:itemGroup.name.basics=Основы
@@ -160,6 +161,26 @@ tile.utilitycraft:cobble_gen_4.tooltip=§r§7 — производит 4 шту�
 
 tile.utilitycraft:cobble_gen_5.name=Генератор булыжника (§jУровень 6§r)
 tile.utilitycraft:cobble_gen_5.tooltip=§r§7 — производит 20 единиц в секунду.\n§o§9@UtilityCraft
+
+### [blocks.multiblock] Multiblock Components
+
+tile.utilitycraft:energy_cell.name=Энергетическая ячейка
+tile.utilitycraft:energy_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:fluid_cell.name=Жидкостная ячейка
+tile.utilitycraft:fluid_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:gas_cell.name=Газовая ячейка
+tile.utilitycraft:gas_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:processing_module.name=Модуль обработки
+tile.utilitycraft:processing_module.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:efficiency_module.name=Модуль эффективности
+tile.utilitycraft:efficiency_module.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:speed_module.name=Модуль скорости
+tile.utilitycraft:speed_module.tooltip=§r§o§9@UtilityCraft
 
 ### [blocks.hoppers] Транспортировка предметов
 

@@ -1343,5 +1343,23 @@
 	},
 	"utilitycraft:creative_methane_tank": {
 		"sound": "metal"
+	},
+	"utilitycraft:energy_cell": {
+		"sound": "metal"
+	},
+	"utilitycraft:fluid_cell": {
+		"sound": "metal"
+	},
+	"utilitycraft:gas_cell": {
+		"sound": "metal"
+	},
+	"utilitycraft:processing_module": {
+		"sound": "metal"
+	},
+	"utilitycraft:efficiency_module": {
+		"sound": "metal"
+	},
+	"utilitycraft:speed_module": {
+		"sound": "metal"
 	}
 }

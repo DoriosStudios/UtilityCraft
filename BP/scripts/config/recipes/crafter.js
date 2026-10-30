@@ -24,6 +24,33 @@ import { system } from "@minecraft/server";
 export const crafterRecipes = {};
 
 const crafterRecipeBatches = [
+// Shared multiblock cells and machine modules.
+{
+  "expert_chip,expert_battery,expert_chip,expert_battery,machine_case,expert_battery,expert_chip,expert_battery,expert_chip": {
+    "output": "utilitycraft:energy_cell",
+    "amount": 1
+  },
+  "iron_plate,fluid_pipe,iron_plate,expert_fluid_tank,fluid_pipe,expert_fluid_tank,iron_plate,fluid_pipe,iron_plate": {
+    "output": "utilitycraft:fluid_cell",
+    "amount": 1
+  },
+  "iron_plate,gas_pipe,iron_plate,expert_gas_tank,gas_pipe,expert_gas_tank,iron_plate,gas_pipe,iron_plate": {
+    "output": "utilitycraft:gas_cell",
+    "amount": 1
+  },
+  "iron_plate,expert_chip,iron_plate,expert_chip,machine_case,expert_chip,iron_plate,expert_chip,iron_plate": {
+    "output": "utilitycraft:processing_module",
+    "amount": 1
+  },
+  "iron_plate,emerald_dust,iron_plate,energy_upgrade,machine_case,energy_upgrade,iron_plate,expert_chip,iron_plate": {
+    "output": "utilitycraft:efficiency_module",
+    "amount": 1
+  },
+  "iron_plate,emerald_dust,iron_plate,speed_upgrade,machine_case,speed_upgrade,iron_plate,expert_chip,iron_plate": {
+    "output": "utilitycraft:speed_module",
+    "amount": 1
+  }
+},
 {
   "lead_plate,glass,lead_plate,basic_chip,bucket,basic_chip,lead_plate,gas_pipe,lead_plate": {
     "output": "utilitycraft:basic_gas_tank",

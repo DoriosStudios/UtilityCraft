@@ -3432,6 +3432,105 @@
 		},
 		"utilitycraft_methane_gas": {
 			"textures": "textures/entity/methane_gas"
+		},
+		"utilitycraft_efficiency_module": {
+			"textures": "textures/blocks/multiblock/efficiency_module"
+		},
+		"utilitycraft_energy_cell": {
+			"textures": "textures/blocks/multiblock/energy_cell"
+		},
+		"utilitycraft_processing_module": {
+			"textures": "textures/blocks/multiblock/processing_module"
+		},
+		"utilitycraft_speed_module": {
+			"textures": "textures/blocks/multiblock/speed_module"
+		},
+		"utilitycraft_fluid_cell": {
+			"textures": "textures/blocks/multiblock/fluid_cell"
+		},
+		"utilitycraft_efficiency_module_north": {
+			"textures": "textures/blocks/multiblock/efficiency_module_north"
+		},
+		"utilitycraft_efficiency_module_south": {
+			"textures": "textures/blocks/multiblock/efficiency_module_south"
+		},
+		"utilitycraft_efficiency_module_east": {
+			"textures": "textures/blocks/multiblock/efficiency_module_east"
+		},
+		"utilitycraft_efficiency_module_west": {
+			"textures": "textures/blocks/multiblock/efficiency_module_west"
+		},
+		"utilitycraft_efficiency_module_up": {
+			"textures": "textures/blocks/multiblock/efficiency_module_up"
+		},
+		"utilitycraft_efficiency_module_down": {
+			"textures": "textures/blocks/multiblock/efficiency_module_down"
+		},
+		"utilitycraft_energy_cell_north": {
+			"textures": "textures/blocks/multiblock/energy_cell_north"
+		},
+		"utilitycraft_energy_cell_south": {
+			"textures": "textures/blocks/multiblock/energy_cell_south"
+		},
+		"utilitycraft_energy_cell_east": {
+			"textures": "textures/blocks/multiblock/energy_cell_east"
+		},
+		"utilitycraft_energy_cell_west": {
+			"textures": "textures/blocks/multiblock/energy_cell_west"
+		},
+		"utilitycraft_energy_cell_up": {
+			"textures": "textures/blocks/multiblock/energy_cell_up"
+		},
+		"utilitycraft_energy_cell_down": {
+			"textures": "textures/blocks/multiblock/energy_cell_down"
+		},
+		"utilitycraft_fluid_cell_side": {
+			"textures": "textures/blocks/multiblock/fluid_cell_side"
+		},
+		"utilitycraft_fluid_cell_up": {
+			"textures": "textures/blocks/multiblock/fluid_cell_up"
+		},
+		"utilitycraft_processing_module_north": {
+			"textures": "textures/blocks/multiblock/processing_module_north"
+		},
+		"utilitycraft_processing_module_south": {
+			"textures": "textures/blocks/multiblock/processing_module_south"
+		},
+		"utilitycraft_processing_module_east": {
+			"textures": "textures/blocks/multiblock/processing_module_east"
+		},
+		"utilitycraft_processing_module_west": {
+			"textures": "textures/blocks/multiblock/processing_module_west"
+		},
+		"utilitycraft_processing_module_up": {
+			"textures": "textures/blocks/multiblock/processing_module_up"
+		},
+		"utilitycraft_processing_module_down": {
+			"textures": "textures/blocks/multiblock/processing_module_down"
+		},
+		"utilitycraft_speed_module_north": {
+			"textures": "textures/blocks/multiblock/speed_module_north"
+		},
+		"utilitycraft_speed_module_south": {
+			"textures": "textures/blocks/multiblock/speed_module_south"
+		},
+		"utilitycraft_speed_module_east": {
+			"textures": "textures/blocks/multiblock/speed_module_east"
+		},
+		"utilitycraft_speed_module_west": {
+			"textures": "textures/blocks/multiblock/speed_module_west"
+		},
+		"utilitycraft_speed_module_up": {
+			"textures": "textures/blocks/multiblock/speed_module_up"
+		},
+		"utilitycraft_speed_module_down": {
+			"textures": "textures/blocks/multiblock/speed_module_down"
+		},
+		"utilitycraft_gas_cell_side": {
+			"textures": "textures/blocks/multiblock/gas_cell_side"
+		},
+		"utilitycraft_gas_cell_up": {
+			"textures": "textures/blocks/multiblock/gas_cell_up"
 		}
 	}
 }

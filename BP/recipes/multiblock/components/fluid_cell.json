@@ -1,0 +1,38 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:fluid_cell"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "key": {
+            "P": {
+                "item": "utilitycraft:iron_plate"
+            },
+            "T": {
+                "item": "utilitycraft:expert_fluid_tank"
+            },
+            "S": {
+                "item": "utilitycraft:fluid_pipe"
+            },
+            "X": {
+                "item": "utilitycraft:fluid_pipe"
+            }
+        },
+        "pattern": [
+            "PXP",
+            "TST",
+            "PXP"
+        ],
+        "result": {
+            "item": "utilitycraft:fluid_cell"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:fluid_pipe"
+            }
+        ]
+    }
+}

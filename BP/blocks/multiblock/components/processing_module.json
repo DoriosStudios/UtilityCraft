@@ -1,0 +1,48 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "utilitycraft:processing_module",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "utilitycraft_processing_module_north",
+                    "render_method": "alpha_test"
+                },
+                "north": {
+                    "texture": "utilitycraft_processing_module_north",
+                    "render_method": "alpha_test"
+                },
+                "south": {
+                    "texture": "utilitycraft_processing_module_south",
+                    "render_method": "alpha_test"
+                },
+                "east": {
+                    "texture": "utilitycraft_processing_module_east",
+                    "render_method": "alpha_test"
+                },
+                "west": {
+                    "texture": "utilitycraft_processing_module_west",
+                    "render_method": "alpha_test"
+                },
+                "up": {
+                    "texture": "utilitycraft_processing_module_up",
+                    "render_method": "alpha_test"
+                },
+                "down": {
+                    "texture": "utilitycraft_processing_module_down",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+            "tag:dorios:multiblock_component": {}
+        }
+    }
+}

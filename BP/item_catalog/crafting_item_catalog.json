@@ -7,6 +7,20 @@
                 "groups": [
                     {
                         "group_identifier": {
+                            "icon": "utilitycraft:energy_cell",
+                            "name": "utilitycraft:itemGroup.components_modules"
+                        },
+                        "items": [
+                            "utilitycraft:energy_cell",
+                            "utilitycraft:fluid_cell",
+                            "utilitycraft:gas_cell",
+                            "utilitycraft:processing_module",
+                            "utilitycraft:efficiency_module",
+                            "utilitycraft:speed_module"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "icon": "utilitycraft:ultimate_furnator",
                             "name": "dorios:itemGroup.name.generators"
                         },

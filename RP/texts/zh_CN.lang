@@ -11,6 +11,7 @@ utilitycraft.identifier=§o§9@UtilityCraft
 
 ### [metadata.creative_inventory] 创造物品栏分类
 
+utilitycraft:itemGroup.components_modules=组件与模块
 dorios:itemGroup.name.aiots=全能工具
 dorios:itemGroup.name.bags=袋装物品
 dorios:itemGroup.name.basics=基础
@@ -160,6 +161,26 @@ tile.utilitycraft:cobble_gen_4.tooltip=§r§7- 产量：4/秒\n§o§9@UtilityCra
 
 tile.utilitycraft:cobble_gen_5.name=圆石生成器（§j等级6§r）
 tile.utilitycraft:cobble_gen_5.tooltip=§r§7- 产量：20/秒\n§o§9@UtilityCraft
+
+### [blocks.multiblock] Multiblock Components
+
+tile.utilitycraft:energy_cell.name=能量单元
+tile.utilitycraft:energy_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:fluid_cell.name=液体单元
+tile.utilitycraft:fluid_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:gas_cell.name=气体单元
+tile.utilitycraft:gas_cell.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:processing_module.name=处理模块
+tile.utilitycraft:processing_module.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:efficiency_module.name=效率模块
+tile.utilitycraft:efficiency_module.tooltip=§r§o§9@UtilityCraft
+
+tile.utilitycraft:speed_module.name=速度模块
+tile.utilitycraft:speed_module.tooltip=§r§o§9@UtilityCraft
 
 ### [blocks.hoppers] 物品运输
 

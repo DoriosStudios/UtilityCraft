@@ -1,0 +1,41 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "utilitycraft:speed_module"
+        },
+        "tags": [
+            "utilitycraft_workbench"
+        ],
+        "key": {
+            "P": {
+                "item": "utilitycraft:iron_plate"
+            },
+            "T": {
+                "item": "utilitycraft:speed_upgrade"
+            },
+            "S": {
+                "item": "utilitycraft:machine_case"
+            },
+            "X": {
+                "item": "utilitycraft:expert_chip"
+            },
+            "R": {
+                "item": "utilitycraft:emerald_dust"
+            }
+        },
+        "pattern": [
+            "PRP",
+            "TST",
+            "PXP"
+        ],
+        "result": {
+            "item": "utilitycraft:speed_module"
+        },
+        "unlock": [
+            {
+                "item": "utilitycraft:machine_case"
+            }
+        ]
+    }
+}
