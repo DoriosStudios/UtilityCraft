@@ -1,0 +1,4 @@
+{
+  "description": "This update makes multiblock cells and machine modules available to UtilityCraft extensions, refreshes recipe books, and fixes hammer drops.",
+  "highlights": "- Shared multiblock cells and machine modules are now available in UtilityCraft.\n- Hammers correctly crush ores that drop raw materials or gems.\n- Primitive Forge Bricks show the assembled forge and an Iron Dust hint.\n- Recipe books and machine UI labels are clearer."
+}
