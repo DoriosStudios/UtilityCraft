@@ -165,22 +165,22 @@ tile.utilitycraft:cobble_gen_5.tooltip=§r§7- 1 秒あたり 20 個を生成し
 ### [blocks.multiblock] Multiblock Components
 
 tile.utilitycraft:energy_cell.name=エネルギーセル
-tile.utilitycraft:energy_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:energy_cell.tooltip=§r§7- マルチブロック構造で使用\n§7- エネルギー容量を増加\n§o§9@UtilityCraft
 
 tile.utilitycraft:fluid_cell.name=液体セル
-tile.utilitycraft:fluid_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:fluid_cell.tooltip=§r§7- マルチブロック構造で使用\n§7- 液体容量を増加\n§o§9@UtilityCraft
 
 tile.utilitycraft:gas_cell.name=ガスセル
-tile.utilitycraft:gas_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:gas_cell.tooltip=§r§7- マルチブロック構造で使用\n§7- ガス容量を増加\n§o§9@UtilityCraft
 
 tile.utilitycraft:processing_module.name=処理モジュール
-tile.utilitycraft:processing_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:processing_module.tooltip=§r§7- マルチブロック構造で使用\n§7- 並列処理数を増加\n§o§9@UtilityCraft
 
 tile.utilitycraft:efficiency_module.name=効率モジュール
-tile.utilitycraft:efficiency_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:efficiency_module.tooltip=§r§7- マルチブロック構造で使用\n§7- エネルギー消費を削減\n§o§9@UtilityCraft
 
 tile.utilitycraft:speed_module.name=速度モジュール
-tile.utilitycraft:speed_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:speed_module.tooltip=§r§7- マルチブロック構造で使用\n§7- 処理速度を増加\n§o§9@UtilityCraft
 
 ### [blocks.hoppers] アイテムの輸送
 

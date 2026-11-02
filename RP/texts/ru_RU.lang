@@ -165,22 +165,22 @@ tile.utilitycraft:cobble_gen_5.tooltip=§r§7 — производит 20 еди
 ### [blocks.multiblock] Multiblock Components
 
 tile.utilitycraft:energy_cell.name=Энергетическая ячейка
-tile.utilitycraft:energy_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:energy_cell.tooltip=§r§7- Для мультиблочных структур\n§7- Увеличивает запас энергии\n§o§9@UtilityCraft
 
 tile.utilitycraft:fluid_cell.name=Жидкостная ячейка
-tile.utilitycraft:fluid_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:fluid_cell.tooltip=§r§7- Для мультиблочных структур\n§7- Увеличивает запас жидкости\n§o§9@UtilityCraft
 
 tile.utilitycraft:gas_cell.name=Газовая ячейка
-tile.utilitycraft:gas_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:gas_cell.tooltip=§r§7- Для мультиблочных структур\n§7- Увеличивает запас газа\n§o§9@UtilityCraft
 
 tile.utilitycraft:processing_module.name=Модуль обработки
-tile.utilitycraft:processing_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:processing_module.tooltip=§r§7- Для мультиблочных структур\n§7- Увеличивает параллельную обработку\n§o§9@UtilityCraft
 
 tile.utilitycraft:efficiency_module.name=Модуль эффективности
-tile.utilitycraft:efficiency_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:efficiency_module.tooltip=§r§7- Для мультиблочных структур\n§7- Снижает расход энергии\n§o§9@UtilityCraft
 
 tile.utilitycraft:speed_module.name=Модуль скорости
-tile.utilitycraft:speed_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:speed_module.tooltip=§r§7- Для мультиблочных структур\n§7- Ускоряет обработку\n§o§9@UtilityCraft
 
 ### [blocks.hoppers] Транспортировка предметов
 

@@ -74,7 +74,12 @@ test('every supported locale supplies component names and UC tooltips exactly on
             assert.equal(names.length, 1, `${locale}: ${id} name`);
             assert(names[0].split('=')[1].trim());
             assert(!names[0].includes('\\n'), `${locale}: tooltip embedded in name`);
-            assert.deepEqual(tips, [`tile.utilitycraft:${id}.tooltip=§r§o§9@UtilityCraft`]);
+            assert.equal(tips.length, 1, `${locale}: ${id} tooltip`);
+            const description = tips[0].split('=')[1].split('\\n');
+            assert.equal(description.length, 3, `${locale}: two description lines and attribution`);
+            assert(description[0].startsWith('§r§7- ') && description[0].length > 7);
+            assert(description[1].startsWith('§7- ') && description[1].length > 4);
+            assert.equal(description[2], '§o§9@UtilityCraft');
         }
         assert.equal(lines.filter(line => line.startsWith('utilitycraft:itemGroup.components_modules=')).length, 1);
     }

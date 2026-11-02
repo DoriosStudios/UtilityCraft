@@ -24,6 +24,7 @@ This update makes multiblock cells and machine modules available to UtilityCraft
     - Updated its inventory and held model to show the assembled forge as a complete 3D cube with 32x32 face textures and its front facing the inventory view.
     - Added a tooltip hint explaining how to obtain Iron Dust by using a hammer on Iron Ore.
 - Added the shared cells and modules to UtilityCraft's Creative inventory, with names and tooltips in all ten supported languages.
+- Added short tooltips explaining multiblock use and the function of each shared cell and machine module in all ten supported languages.
 - Removed addon signatures from internal UI items so machine information panels and interface placeholders no longer display them.
 - **Auto Sieve**
     - Removed Certus Quartz and Charged Certus Quartz from the recipe book while retaining their scripted drops for addon compatibility.

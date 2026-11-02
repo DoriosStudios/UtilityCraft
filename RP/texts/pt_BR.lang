@@ -165,22 +165,22 @@ tile.utilitycraft:cobble_gen_5.tooltip=§r§7- Gera 20 por segundo\n§o§9@Utili
 ### [blocks.multiblock] Multiblock Components
 
 tile.utilitycraft:energy_cell.name=Célula de Energia
-tile.utilitycraft:energy_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:energy_cell.tooltip=§r§7- Usado em estruturas multibloco\n§7- Aumenta a capacidade de energia\n§o§9@UtilityCraft
 
 tile.utilitycraft:fluid_cell.name=Célula de Líquido
-tile.utilitycraft:fluid_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:fluid_cell.tooltip=§r§7- Usado em estruturas multibloco\n§7- Aumenta a capacidade de líquidos\n§o§9@UtilityCraft
 
 tile.utilitycraft:gas_cell.name=Célula de gás
-tile.utilitycraft:gas_cell.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:gas_cell.tooltip=§r§7- Usado em estruturas multibloco\n§7- Aumenta a capacidade de gás\n§o§9@UtilityCraft
 
 tile.utilitycraft:processing_module.name=Módulo de Processamento
-tile.utilitycraft:processing_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:processing_module.tooltip=§r§7- Usado em estruturas multibloco\n§7- Aumenta o processamento paralelo\n§o§9@UtilityCraft
 
 tile.utilitycraft:efficiency_module.name=Módulo de Eficiência
-tile.utilitycraft:efficiency_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:efficiency_module.tooltip=§r§7- Usado em estruturas multibloco\n§7- Reduz o consumo de energia\n§o§9@UtilityCraft
 
 tile.utilitycraft:speed_module.name=Módulo de Velocidade
-tile.utilitycraft:speed_module.tooltip=§r§o§9@UtilityCraft
+tile.utilitycraft:speed_module.tooltip=§r§7- Usado em estruturas multibloco\n§7- Aumenta a velocidade de processamento\n§o§9@UtilityCraft
 
 ### [blocks.hoppers] Transportação
 
