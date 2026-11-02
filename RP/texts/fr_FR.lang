@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=Mortier
 tile.utilitycraft:mortar.tooltip=§r§7- Broie les feuilles pour obtenir de l’eau\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=Forge primitive
-tile.utilitycraft:primitive_forge.tooltip=§r§7- Construisez une structure de 2x2x2 pour l’activer\n§7- Permet de forger de l’acier brut\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=Briques de forge primitive
+tile.utilitycraft:primitive_forge.tooltip=§r§7- Construisez une structure de 2x2x2 pour l’activer\n§7- Permet de forger de l’acier brut\n§7- Frappez du minerai de fer au marteau pour obtenir de la poudre de fer\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=Forge primitive
 
 tile.utilitycraft:sieve.name=Tamis

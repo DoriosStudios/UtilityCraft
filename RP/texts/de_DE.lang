@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=Mörser
 tile.utilitycraft:mortar.tooltip=§r§7- Zerkleinert Blätter, um Wasser zu gewinnen\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=Primitive Schmiede
-tile.utilitycraft:primitive_forge.tooltip=§r§7- Baue zur Aktivierung eine 2x2x2-Struktur\n§7- Zum Schmieden von Rohstahl\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=Primitive Schmiedeziegel
+tile.utilitycraft:primitive_forge.tooltip=§r§7- Baue zur Aktivierung eine 2x2x2-Struktur\n§7- Zum Schmieden von Rohstahl\n§7- Zerschlage Eisenerz mit einem Hammer für Eisenstaub\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=Primitive Schmiede
 
 tile.utilitycraft:sieve.name=Sieb

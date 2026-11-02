@@ -36,6 +36,10 @@
 		"utilitycraft_uranium_block": {
 			"textures": "textures/blocks/block_of_uranium"
 		},
+        "utilitycraft_primitive_forge_item_front": {"textures": "textures/blocks/primitive_forge/item_front"},
+        "utilitycraft_primitive_forge_item_side": {"textures": "textures/blocks/primitive_forge/item_side"},
+        "utilitycraft_primitive_forge_item_top": {"textures": "textures/blocks/primitive_forge/item_top"},
+        "utilitycraft_primitive_forge_item_bottom": {"textures": "textures/blocks/primitive_forge/item_bottom"},
         "utilitycraft_primitive_forge": {"textures": "textures/blocks/primitive_forge/side_bricks"},
         "utilitycraft_primitive_forge_bottom": {"textures": "textures/blocks/primitive_forge/bottom"},
         "utilitycraft_primitive_forge_bottom_left": {"textures": "textures/blocks/primitive_forge/bottom_left"},

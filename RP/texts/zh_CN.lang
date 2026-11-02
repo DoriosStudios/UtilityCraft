@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=研钵
 tile.utilitycraft:mortar.tooltip=§r§7- 研磨树叶以获取水\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=原始锻炉
-tile.utilitycraft:primitive_forge.tooltip=§r§7- 建造2x2x2结构以激活\n§7- 用于锻造粗钢\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=原始锻炉砖
+tile.utilitycraft:primitive_forge.tooltip=§r§7- 建造2x2x2结构以激活\n§7- 用于锻造粗钢\n§7- 用锤子敲碎铁矿石以获取铁粉\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=原始锻炉
 
 tile.utilitycraft:sieve.name=筛子

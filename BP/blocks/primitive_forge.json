@@ -41,6 +41,27 @@
     },
     "components": {
       "utilitycraft:primitive_forge": {},
+      "minecraft:item_visual": {
+        "geometry": "minecraft:geometry.full_block",
+        "material_instances": {
+          "*": {
+            "texture": "utilitycraft_primitive_forge_item_side",
+            "render_method": "opaque"
+          },
+          "south": {
+            "texture": "utilitycraft_primitive_forge_item_front",
+            "render_method": "opaque"
+          },
+          "up": {
+            "texture": "utilitycraft_primitive_forge_item_top",
+            "render_method": "opaque"
+          },
+          "down": {
+            "texture": "utilitycraft_primitive_forge_item_bottom",
+            "render_method": "opaque"
+          }
+        }
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {

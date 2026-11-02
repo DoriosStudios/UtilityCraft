@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=Pilão
 tile.utilitycraft:mortar.tooltip=§r§7- Tritura folhas para obter água\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=Forja primitiva
-tile.utilitycraft:primitive_forge.tooltip=§r§7- Construa uma estrutura de 2x2x2 para ativar\n§7- Usada para forjar aço bruto\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=Tijolos de forja primitiva
+tile.utilitycraft:primitive_forge.tooltip=§r§7- Construa uma estrutura de 2x2x2 para ativar\n§7- Usada para forjar aço bruto\n§7- Use um martelo no minério de ferro para obter pó de ferro\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=Forja primitiva
 
 tile.utilitycraft:sieve.name=Peneira

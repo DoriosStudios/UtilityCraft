@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=Mortar
 tile.utilitycraft:mortar.tooltip=§r§7- Breaks down leaves into water\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=Primitive Forge
-tile.utilitycraft:primitive_forge.tooltip=§r§7- Build a 2x2x2 structure to activate\n§7- Used to forge Brute Steel\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=Primitive Forge Bricks
+tile.utilitycraft:primitive_forge.tooltip=§r§7- Build a 2x2x2 structure to activate\n§7- Used to forge Brute Steel\n§7- Hammer iron ore to get Iron Dust\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=Primitive Forge
 
 tile.utilitycraft:sieve.name=Sieve

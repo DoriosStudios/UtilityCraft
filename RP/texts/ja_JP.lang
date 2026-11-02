@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=すり鉢
 tile.utilitycraft:mortar.tooltip=§r§7- 葉をすりつぶして水を作ります\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=原始的な鍛冶炉
-tile.utilitycraft:primitive_forge.tooltip=§r§7- 2x2x2の構造を組み立てると起動します\n§7- 粗鋼を作るために使用します\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=原始的な鍛冶炉のレンガ
+tile.utilitycraft:primitive_forge.tooltip=§r§7- 2x2x2の構造を組み立てると起動します\n§7- 粗鋼を作るために使用します\n§7- 鉄鉱石をハンマーで砕くと鉄の粉を入手\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=原始的な鍛冶炉
 
 tile.utilitycraft:sieve.name=ふるい

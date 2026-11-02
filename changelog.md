@@ -19,6 +19,10 @@ This update makes multiblock cells and machine modules available to UtilityCraft
 
 ## UI/UX
 
+- **Primitive Forge Bricks**
+    - Renamed the building block from Primitive Forge to Primitive Forge Bricks.
+    - Updated its inventory and held model to show the assembled forge as a complete 3D cube with 32x32 face textures and its front facing the inventory view.
+    - Added a tooltip hint explaining how to obtain Iron Dust by using a hammer on Iron Ore.
 - Added the shared cells and modules to UtilityCraft's Creative inventory, with names and tooltips in all ten supported languages.
 - Removed addon signatures from internal UI items so machine information panels and interface placeholders no longer display them.
 - **Auto Sieve**

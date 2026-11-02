@@ -55,8 +55,8 @@ tile.utilitycraft:crucible.tooltip=§r§o§9@UtilityCraft
 tile.utilitycraft:mortar.name=Ступка
 tile.utilitycraft:mortar.tooltip=§r§7- Измельчает листья для получения воды\n§o§9@UtilityCraft
 
-tile.utilitycraft:primitive_forge.name=Примитивная кузница
-tile.utilitycraft:primitive_forge.tooltip=§r§7- Постройте конструкцию 2x2x2 для активации\n§7- Используется для ковки сырой стали\n§o§9@UtilityCraft
+tile.utilitycraft:primitive_forge.name=Кирпичи примитивной кузницы
+tile.utilitycraft:primitive_forge.tooltip=§r§7- Постройте конструкцию 2x2x2 для активации\n§7- Используется для ковки сырой стали\n§7- Разбейте железную руду молотом, чтобы получить железную пыль\n§o§9@UtilityCraft
 entity.utilitycraft:primitive_forge.name=Примитивная кузница
 
 tile.utilitycraft:sieve.name=Сито
