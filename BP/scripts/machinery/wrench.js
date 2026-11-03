@@ -1,5 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
+import { system } from "@minecraft/server";
 import { Rotation, Generator } from "DoriosCore/index.js"
 import { updateNetworksAt } from "../UtilityCore/networks/index.js";
 import { togglePipeFace } from "../UtilityCore/networks/pipeFaces.js";
@@ -29,6 +30,13 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
             if (block.hasTag("dorios:item")) updateNetworksAt(block, "item");
             if (block.hasTag("dorios:fluid")) updateNetworksAt(block, "fluid");
             if (block.hasTag("dorios:gas")) updateNetworksAt(block, "gas");
+
+            // Extensions can rebuild their own graphs after UC updates the
+            // physical connections, without sharing UC's network destinations.
+            system.sendScriptEvent("utilitycraft:pipe_face_update", JSON.stringify({
+                dimensionId: block.dimension.id,
+                location: block.location,
+            }));
 
             source.onScreenDisplay.setActionBar(
                 translate(result.disabled

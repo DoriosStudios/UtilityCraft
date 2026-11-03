@@ -108,6 +108,18 @@
 					]
 				}
 			},
+			"utilitycraft:energy_relay": {
+				"minecraft:type_family": {
+					"family": [
+						"utilitycraft:block_container",
+						"inanimate",
+						"dorios:machine",
+						"dorios:container",
+						"dorios:energy_container",
+						"dorios:energy_source"
+					]
+				}
+			},
 			"utilitycraft:generator": {
 				"minecraft:type_family": {
 					"family": [
@@ -591,6 +603,11 @@
 					"component_groups": [
 						"utilitycraft:generator"
 					]
+				}
+			},
+			"utilitycraft:energy_relay": {
+				"add": {
+					"component_groups": ["utilitycraft:energy_relay"]
 				}
 			},
 			"utilitycraft:fluid_generator": {

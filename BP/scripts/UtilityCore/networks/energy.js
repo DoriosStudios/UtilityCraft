@@ -121,7 +121,9 @@ async function searchEnergyStorages(startPositions, generator) {
     const block = safeGetBlock(dimension, position);
     if (!block?.hasTag("dorios:energy")) continue;
 
-    if (block.typeId === "utilitycraft:energy_cable") {
+    // Energy was checked above; extensions can supply conductors with the
+    // same tube tag and connection states without using UC's cable identifier.
+    if (block.hasTag("dorios:isTube")) {
       for (const { direction, offset } of PIPE_DIRECTIONS) {
         const neighborLocation = offsetLocation(position, offset);
         const neighbor = safeGetBlock(dimension, neighborLocation);
