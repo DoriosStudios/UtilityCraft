@@ -78,9 +78,9 @@ export function updateNetworksAt(changedBlock, type) {
 
   for (const block of blocks) {
     if (block.hasTag("dorios:isExporter") || block.hasTag("dorios:isImporter")) {
-      updateEndpointGeometry(block, networkTag);
+      updateEndpointGeometry(block);
     } else if (block.hasTag("dorios:isTube")) {
-      updateGeometry(block, networkTag);
+      updateGeometry(block);
     }
   }
   return true;

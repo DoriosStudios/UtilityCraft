@@ -9,7 +9,7 @@ import { world } from "@minecraft/server";
 
 const PIPE_FACE_PROPERTY_PREFIX = "utilitycraft:pf";
 const PIPE_FACE_DOCUMENT_VERSION = 1;
-const PIPE_NETWORK_TAGS = Object.freeze([
+export const PIPE_NETWORK_TAGS = Object.freeze([
   "dorios:energy",
   "dorios:item",
   "dorios:fluid",

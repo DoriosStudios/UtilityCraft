@@ -5,6 +5,7 @@ import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import {
   OPPOSITE_DIRECTIONS,
   PIPE_DIRECTION_OFFSETS,
+  PIPE_NETWORK_TAGS,
   getConnectionStateDirection,
   isPipeFaceDisabled,
 } from "./pipeFaces.js";
@@ -139,39 +140,43 @@ export function getNetworkColor(block) {
 }
 
 /**
- * Updates the six visual connection states of a normal cable/pipe.
+ * Whether any supported resource connects to this neighbor. The physical
+ * arms are shared by every resource, so a single-channel refresh must not
+ * erase connections used by another channel.
+ *
+ * @param {Block|undefined} neighbor
+ * @param {string[]} networkTags
+ * @param {string[]} colorTags
+ */
+function hasVisualConnection(neighbor, networkTags, colorTags) {
+  if (!neighbor) return false;
+  if (networkTags.some(tag => neighbor.hasTag(tag))) {
+    return !neighbor.hasTag("dorios:isTube")
+      || colorTags.some(tag => neighbor.hasTag(tag));
+  }
+  // Item pipes also connect to containers without network tags, such as chests.
+  return networkTags.includes("dorios:item") && Boolean(
+    DoriosContainer.resolve(neighbor)
+    ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
+  );
+}
+
+/**
+ * Updates the six physical arms using the union of supported resources.
  *
  * @param {Block} block
- * @param {string} tag Fully-qualified network tag.
  */
-export function updateGeometry(block, tag) {
+export function updateGeometry(block) {
   if (!block?.permutation || !block?.dimension) return;
 
   let permutation = block.permutation;
-  const isItemConduit = block.hasTag("dorios:item");
+  const networkTags = PIPE_NETWORK_TAGS.filter(tag => block.hasTag(tag));
+  const colorTags = block.getTags().filter(tag => tag.startsWith("dorios:color."));
 
   for (const [rawDirection, offset] of Object.entries(PIPE_DIRECTION_OFFSETS)) {
     const direction = /** @type {keyof typeof PIPE_DIRECTION_OFFSETS} */ (rawDirection);
     const neighbor = safeGetBlock(block.dimension, offsetLocation(block.location, offset));
-    let shouldConnect = false;
-
-    if (neighbor?.hasTag(tag)) {
-      if (!neighbor.hasTag("dorios:isTube")) {
-        shouldConnect = true;
-      } else {
-        for (const color of block.getTags()) {
-          if (color.startsWith("dorios:color.") && neighbor.hasTag(color)) {
-            shouldConnect = true;
-            break;
-          }
-        }
-      }
-    } else if (isItemConduit && neighbor) {
-      shouldConnect = Boolean(
-        DoriosContainer.resolve(neighbor)
-        ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
-      );
-    }
+    let shouldConnect = hasVisualConnection(neighbor, networkTags, colorTags);
 
     if (shouldConnect && neighbor && (
       isPipeFaceDisabled(block, direction)
@@ -190,40 +195,22 @@ export function updateGeometry(block, tag) {
 }
 
 /**
- * Updates exporter/importer geometry while preserving the established visual
- * rotation map used by their models.
+ * Combines supported resources for exporter/importer geometry while preserving
+ * the established visual rotation map used by their models.
  *
  * @param {Block} block
- * @param {string} tag Fully-qualified network tag.
  */
-export function updateEndpointGeometry(block, tag) {
+export function updateEndpointGeometry(block) {
   if (!block?.permutation || !block?.dimension) return;
-  const isItemEndpoint = block.hasTag("dorios:item");
+  const networkTags = PIPE_NETWORK_TAGS.filter(tag => block.hasTag(tag));
+  const colorTags = block.getTags().filter(tag => tag.startsWith("dorios:color."));
   let permutation = block.permutation;
 
   for (const [rawDirection, offset] of Object.entries(PIPE_DIRECTION_OFFSETS)) {
     const direction = /** @type {keyof typeof PIPE_DIRECTION_OFFSETS} */ (rawDirection);
     const visualDirection = getConnectionStateDirection(block, direction);
     const neighbor = safeGetBlock(block.dimension, offsetLocation(block.location, offset));
-    let shouldConnect = false;
-
-    if (neighbor?.hasTag(tag)) {
-      if (!neighbor.hasTag("dorios:isTube")) {
-        shouldConnect = true;
-      } else {
-        for (const color of block.getTags()) {
-          if (color.startsWith("dorios:color.") && neighbor.hasTag(color)) {
-            shouldConnect = true;
-            break;
-          }
-        }
-      }
-    } else if (isItemEndpoint && neighbor) {
-      shouldConnect = Boolean(
-        DoriosContainer.resolve(neighbor)
-        ?? DoriosContainer.resolveAt(neighbor.dimension, neighbor.location)
-      );
-    }
+    let shouldConnect = hasVisualConnection(neighbor, networkTags, colorTags);
     if (shouldConnect && neighbor && (
       isPipeFaceDisabled(block, direction)
       || isPipeFaceDisabled(neighbor, OPPOSITE_DIRECTIONS[direction])
