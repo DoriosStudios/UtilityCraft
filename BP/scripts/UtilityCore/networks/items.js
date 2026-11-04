@@ -1,5 +1,7 @@
 // @ts-check
 
+import { publishNetworkData } from "./networkData.js";
+
 import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
@@ -82,6 +84,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:item_exporter:v1";
 
 /**
  * @typedef {object} ExporterRuntime
+ * @property {Block} block
  * @property {string} key
  * @property {ExporterDocument} document
  * @property {Set<string>} filterItems
@@ -385,6 +388,7 @@ function getExporterRuntime(block) {
   const storedDocument = readExporterDocument(key);
   const document = normalizeExporterDocument(storedDocument);
   const runtime = {
+    block,
     key,
     document,
     filterItems: new Set(document.filter.items),
@@ -395,14 +399,16 @@ function getExporterRuntime(block) {
     targetAccesses: new Map(),
   };
   exporterCache.set(key, runtime);
-  if (storedDocument === undefined) runtime.persistenceReady = writeExporterDocument(key, document);
+  if (storedDocument === undefined) persistExporterRuntime(runtime);
   return runtime;
 }
 
 /** @param {ExporterRuntime} runtime @returns {boolean} */
 function persistExporterRuntime(runtime) {
   runtime.document.filter.items = [...runtime.filterItems];
-  runtime.persistenceReady = writeExporterDocument(runtime.key, runtime.document);
+  runtime.persistenceReady = runtime.block.hasTag("dorios:external_transport")
+    ? publishNetworkData(runtime.block, runtime.key, runtime.document)
+    : writeExporterDocument(runtime.key, runtime.document);
   return runtime.persistenceReady;
 }
 
@@ -415,7 +421,7 @@ function persistExporterRuntime(runtime) {
  * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",items:string[]}}|undefined}
  */
 export function getItemExporterCopyConfig(block, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:item")) return undefined;
+  if (!block?.hasTag("dorios:isExporter") || block.hasTag("dorios:external_transport") || !block.hasTag("dorios:item")) return undefined;
 
   const runtime = getExporterRuntime(block);
   const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
@@ -442,7 +448,7 @@ export function getItemExporterCopyConfig(block, options = {}) {
  * @returns {boolean}
  */
 export function applyItemExporterCopyConfig(block, value, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:item")) return false;
+  if (!block?.hasTag("dorios:isExporter") || block.hasTag("dorios:external_transport") || !block.hasTag("dorios:item")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
   const runtime = getExporterRuntime(block);
@@ -1069,6 +1075,7 @@ function tryTransferToNetwork(runtime, dimension, sourceAccess, sourceSlot, item
 function passesEndpointFilter(dimension, endpoint, itemTypeId) {
   if (!endpoint.importerLocation) return true;
   const importerBlock = safeGetBlock(dimension, endpoint.importerLocation);
+  if (importerBlock?.hasTag("dorios:external_transport")) return true;
   const runtime = getImporterRuntime(dimension, endpoint.importerLocation);
   if (!runtime.document.enabled) return false;
   if (!importerBlock || !hasFilterUpgrade(importerBlock)) return true;

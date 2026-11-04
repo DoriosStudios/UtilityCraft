@@ -1,5 +1,7 @@
 // @ts-check
 
+import { publishNetworkData } from "./networkData.js";
+
 import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { FluidStorage } from "../../DoriosCore/machinery/fluidStorage.js";
@@ -43,6 +45,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:fluid_exporter:v1";
  * @typedef {object} PersistedFluidEndpoint
  * @property {Vector3} location
  * @property {FluidFace} face
+ * @property {Vector3} [importerLocation]
  */
 
 /**
@@ -72,6 +75,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:fluid_exporter:v1";
 
 /**
  * @typedef {object} FluidExporterRuntime
+ * @property {Block} block
  * @property {string} key
  * @property {FluidExporterDocument} document
  * @property {Set<string>} filterFluids
@@ -170,7 +174,8 @@ function normalizeExporterDocument(value) {
     const targetRaw = /** @type {Record<string,unknown>} */ (entry);
     const location = normalizePersistedLocation(targetRaw.location);
     const face = normalizeFace(targetRaw.face);
-    if (location && face) targets.push({ location, face });
+    const importerLocation = normalizePersistedLocation(targetRaw.importerLocation);
+    if (location && face) targets.push({ location, face, ...(importerLocation ? { importerLocation } : {}) });
   }
 
   return {
@@ -313,6 +318,7 @@ function getExporterRuntime(block) {
   const storedDocument = readExporterDocument(key);
   const document = normalizeExporterDocument(storedDocument);
   const runtime = {
+    block,
     key,
     document,
     filterFluids: new Set(document.filter.fluids),
@@ -322,14 +328,16 @@ function getExporterRuntime(block) {
     targetAccesses: new Map(),
   };
   exporterCache.set(key, runtime);
-  if (storedDocument === undefined) runtime.persistenceReady = writeExporterDocument(key, document);
+  if (storedDocument === undefined) persistExporterRuntime(runtime);
   return runtime;
 }
 
 /** @param {FluidExporterRuntime} runtime */
 function persistExporterRuntime(runtime) {
   runtime.document.filter.fluids = [...runtime.filterFluids];
-  runtime.persistenceReady = writeExporterDocument(runtime.key, runtime.document);
+  runtime.persistenceReady = runtime.block.hasTag("dorios:external_transport")
+    ? publishNetworkData(runtime.block, runtime.key, runtime.document)
+    : writeExporterDocument(runtime.key, runtime.document);
   return runtime.persistenceReady;
 }
 
@@ -341,7 +349,7 @@ function persistExporterRuntime(runtime) {
  * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",fluids:string[]}}|undefined}
  */
 export function getFluidExtractorCopyConfig(block, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:fluid")) return undefined;
+  if (!block?.hasTag("dorios:isExporter") || block.hasTag("dorios:external_transport") || !block.hasTag("dorios:fluid")) return undefined;
 
   const runtime = getExporterRuntime(block);
   const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
@@ -367,7 +375,7 @@ export function getFluidExtractorCopyConfig(block, options = {}) {
  * @returns {boolean}
  */
 export function applyFluidExtractorCopyConfig(block, value, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:fluid")) return false;
+  if (!block?.hasTag("dorios:isExporter") || block.hasTag("dorios:external_transport") || !block.hasTag("dorios:fluid")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
   const runtime = getExporterRuntime(block);
@@ -467,7 +475,8 @@ function getFilteredSourceIndices(resolved, face) {
 
 /** @param {PersistedFluidEndpoint} endpoint */
 function endpointKey(endpoint) {
-  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}`;
+  const importer = endpoint.importerLocation ? `:${coordinateKey(endpoint.importerLocation)}` : "";
+  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}${importer}`;
 }
 
 /** @param {FluidExporterRuntime} runtime @param {Dimension} dimension @param {PersistedFluidEndpoint} endpoint */
@@ -995,15 +1004,22 @@ export async function rescanFluidNetwork(rootLocation, dimension) {
     visited.add(key);
 
     const isExporter = block.hasTag("dorios:isExporter");
-    const source = isExporter ? getAttachedFluidEndpoint(block) : undefined;
-    const sourceOffset = source
+    const isImporter = block.hasTag("dorios:isImporter");
+    const attachment = isExporter || isImporter ? getAttachedFluidEndpoint(block) : undefined;
+    const source = isExporter ? attachment : undefined;
+    const sourceOffset = attachment
       ? {
-          x: source.location.x - block.location.x,
-          y: source.location.y - block.location.y,
-          z: source.location.z - block.location.z,
+          x: attachment.location.x - block.location.x,
+          y: attachment.location.y - block.location.y,
+          z: attachment.location.z - block.location.z,
         }
       : undefined;
     if (isExporter) exporters.push({ location: normalizeLocation(block.location), source });
+    if (isImporter && attachment && DoriosFluid.resolveFluidContainerAt(dimension, attachment.location)) {
+      const route = { location: normalizeLocation(attachment.location), face: attachment.face,
+        importerLocation: normalizeLocation(block.location) };
+      routes.set(endpointKey(route), route);
+    }
 
     for (const { direction, offset } of PIPE_DIRECTIONS) {
       if (sourceOffset

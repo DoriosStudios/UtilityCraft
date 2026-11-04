@@ -1,5 +1,7 @@
 // @ts-check
 
+import { publishNetworkData } from "./networkData.js";
+
 import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { GasStorage } from "../../DoriosCore/machinery/gasStorage.js";
@@ -43,6 +45,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:gas_exporter:v1";
  * @typedef {object} PersistedGasEndpoint
  * @property {Vector3} location
  * @property {GasFace} face
+ * @property {Vector3} [importerLocation]
  */
 
 /**
@@ -72,6 +75,7 @@ const EXPORTER_STORAGE_FORMAT = "utilitycraft:gas_exporter:v1";
 
 /**
  * @typedef {object} GasExporterRuntime
+ * @property {Block} block
  * @property {string} key
  * @property {GasExporterDocument} document
  * @property {Set<string>} filterGases
@@ -170,7 +174,8 @@ function normalizeExporterDocument(value) {
     const targetRaw = /** @type {Record<string,unknown>} */ (entry);
     const location = normalizePersistedLocation(targetRaw.location);
     const face = normalizeFace(targetRaw.face);
-    if (location && face) targets.push({ location, face });
+    const importerLocation = normalizePersistedLocation(targetRaw.importerLocation);
+    if (location && face) targets.push({ location, face, ...(importerLocation ? { importerLocation } : {}) });
   }
 
   return {
@@ -313,6 +318,7 @@ function getExporterRuntime(block) {
   const storedDocument = readExporterDocument(key);
   const document = normalizeExporterDocument(storedDocument);
   const runtime = {
+    block,
     key,
     document,
     filterGases: new Set(document.filter.gases),
@@ -322,14 +328,16 @@ function getExporterRuntime(block) {
     targetAccesses: new Map(),
   };
   exporterCache.set(key, runtime);
-  if (storedDocument === undefined) runtime.persistenceReady = writeExporterDocument(key, document);
+  if (storedDocument === undefined) persistExporterRuntime(runtime);
   return runtime;
 }
 
 /** @param {GasExporterRuntime} runtime */
 function persistExporterRuntime(runtime) {
   runtime.document.filter.gases = [...runtime.filterGases];
-  runtime.persistenceReady = writeExporterDocument(runtime.key, runtime.document);
+  runtime.persistenceReady = runtime.block.hasTag("dorios:external_transport")
+    ? publishNetworkData(runtime.block, runtime.key, runtime.document)
+    : writeExporterDocument(runtime.key, runtime.document);
   return runtime.persistenceReady;
 }
 
@@ -341,7 +349,7 @@ function persistExporterRuntime(runtime) {
  * @returns {{version:number,enabled:boolean,mode:"nearest"|"farthest"|"round",filter?:{mode:"whitelist"|"blacklist",gases:string[]}}|undefined}
  */
 export function getGasExtractorCopyConfig(block, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:gas")) return undefined;
+  if (!block?.hasTag("dorios:isExporter") || block.hasTag("dorios:external_transport") || !block.hasTag("dorios:gas")) return undefined;
 
   const runtime = getExporterRuntime(block);
   const includeFilters = options.includeFilters !== false && hasFilterUpgrade(block);
@@ -367,7 +375,7 @@ export function getGasExtractorCopyConfig(block, options = {}) {
  * @returns {boolean}
  */
 export function applyGasExtractorCopyConfig(block, value, options = {}) {
-  if (!block?.hasTag("dorios:isExporter") || !block.hasTag("dorios:gas")) return false;
+  if (!block?.hasTag("dorios:isExporter") || block.hasTag("dorios:external_transport") || !block.hasTag("dorios:gas")) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
 
   const runtime = getExporterRuntime(block);
@@ -467,7 +475,8 @@ function getFilteredSourceIndices(resolved, face) {
 
 /** @param {PersistedGasEndpoint} endpoint */
 function endpointKey(endpoint) {
-  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}`;
+  const importer = endpoint.importerLocation ? `:${coordinateKey(endpoint.importerLocation)}` : "";
+  return `${endpoint.location.x},${endpoint.location.y},${endpoint.location.z}:${endpoint.face}${importer}`;
 }
 
 /** @param {GasExporterRuntime} runtime @param {Dimension} dimension @param {PersistedGasEndpoint} endpoint */
@@ -928,15 +937,22 @@ export async function rescanGasNetwork(rootLocation, dimension) {
     visited.add(key);
 
     const isExporter = block.hasTag("dorios:isExporter");
-    const source = isExporter ? getAttachedGasEndpoint(block) : undefined;
-    const sourceOffset = source
+    const isImporter = block.hasTag("dorios:isImporter");
+    const attachment = isExporter || isImporter ? getAttachedGasEndpoint(block) : undefined;
+    const source = isExporter ? attachment : undefined;
+    const sourceOffset = attachment
       ? {
-          x: source.location.x - block.location.x,
-          y: source.location.y - block.location.y,
-          z: source.location.z - block.location.z,
+          x: attachment.location.x - block.location.x,
+          y: attachment.location.y - block.location.y,
+          z: attachment.location.z - block.location.z,
         }
       : undefined;
     if (isExporter) exporters.push({ location: normalizeLocation(block.location), source });
+    if (isImporter && attachment && DoriosGas.resolveGasContainerAt(dimension, attachment.location)) {
+      const route = { location: normalizeLocation(attachment.location), face: attachment.face,
+        importerLocation: normalizeLocation(block.location) };
+      routes.set(endpointKey(route), route);
+    }
 
     for (const { direction, offset } of PIPE_DIRECTIONS) {
       if (sourceOffset
