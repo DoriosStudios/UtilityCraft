@@ -8,7 +8,8 @@ Its main features include:
 - Elevators — Blocks that help you go up and down on your base.
 - Machines, Generators and an Energy System — An entirely new system, focusing on mass production, complex setups and more objectives before reaching the end-game.
 And much more.
-- [Changelog](./changelog.md)  
+
+You can check the changelog [here](./changelog.md)  
 
 See also UtilityCraft Expansions:  
 - [Ascendant Technology](https://github.com/DoriosStudios/Ascendant-Technology)
