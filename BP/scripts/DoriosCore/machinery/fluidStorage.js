@@ -968,14 +968,15 @@ export class FluidStorage {
    * @returns {number} The actual amount transferred.
    */
   transferTo(other, amount) {
-    if (this.getType() !== other.getType() && other.getType() !== Constants.EMPTY_FLUID_TYPE) return 0;
+    const sourceType = this.getType();
+    if (sourceType !== other.getType() && other.getType() !== Constants.EMPTY_FLUID_TYPE) return 0;
 
     const transferable = Math.min(amount, this.get(), other.getFreeSpace());
     if (transferable <= 0) return 0;
 
+    if (other.getType() === Constants.EMPTY_FLUID_TYPE) other.setType(sourceType);
     this.consume(transferable);
     other.add(transferable);
-    if (other.getType() === Constants.EMPTY_FLUID_TYPE) other.setType(this.getType());
     return transferable;
   }
 
