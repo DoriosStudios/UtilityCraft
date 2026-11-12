@@ -8,22 +8,21 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:cardinal_direction"],
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ],
           "y_rotation_offset": 180
         }
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:wind_turbine": {
-        "entity": {
-          "name": "wind_turbine",
-          "type": "generator",
-          "inventory_size": 2
-        },
         "generator": {
           "energy_cap": 6400000,
           "rate_speed_base": 800
@@ -38,6 +37,12 @@
           "max_multiplier": 2.5
         }
       },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 2,
+          "title": "block.utilitycraft:wind_turbine.name"
+        }
+      },
       "minecraft:geometry": "geometry.utilitycraft_wind_turbine",
       "minecraft:material_instances": {
         "aspas": {
@@ -50,16 +55,35 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:selection_box": {
-        "origin": [-8, 0, -8],
-        "size": [16, 16, 16]
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          16,
+          16
+        ]
       },
       "minecraft:collision_box": [
         {
-          "origin": [-8, 0, -8],
-          "size": [16, 16, 16]
+          "origin": [
+            -8,
+            0,
+            -8
+          ],
+          "size": [
+            16,
+            16,
+            16
+          ]
         }
       ],
       "minecraft:destructible_by_mining": {
@@ -74,14 +98,14 @@
     },
     "permutations": [
       {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
-      {
         "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 0, 0]
+            "rotation": [
+              0,
+              0,
+              0
+            ]
           }
         }
       },
@@ -89,7 +113,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 180, 0]
+            "rotation": [
+              0,
+              180,
+              0
+            ]
           }
         }
       },
@@ -97,7 +125,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, -90, 0]
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
           }
         }
       },
@@ -105,7 +137,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 90, 0]
+            "rotation": [
+              0,
+              90,
+              0
+            ]
           }
         }
       },

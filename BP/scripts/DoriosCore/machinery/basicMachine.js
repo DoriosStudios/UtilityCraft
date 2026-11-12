@@ -55,11 +55,15 @@ export class BasicMachine {
       ? options.entityResolver(block)
       : Utils.tryGetEntityFromBlock(block);
     if (!this.entity) return;
-    this.shouldUpdateUI = Utils.hasOpenUI(this.entity);
+    this.shouldUpdateUI = this.entity.block ? true : Utils.hasOpenUI(this.entity);
     if (!options.ignoreTick && !TickScheduler.shouldProcessMachine(this.entity)) return;
     this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
+    if (this.entity.block && !this.entity.getDynamicProperty("utilitycraft:network_bootstrapped")) {
+      this.entity.setDynamicProperty("utilitycraft:network_bootstrapped", true);
+      Utils.updateAdjacentNetwork(block);
+    }
     const inventory = this.entity.getComponent("inventory");
     if (!inventory) return;
     this.container = inventory.container;

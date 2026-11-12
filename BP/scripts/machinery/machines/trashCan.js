@@ -8,6 +8,7 @@ import { initializeEntity } from "DoriosCore/utils/entity.js";
 import { ensureItemIOConfig } from "DoriosCore/interfaces/itemIO.js";
 import { ensureFluidIOConfig } from "DoriosCore/interfaces/fluidIO.js";
 import { ensureGasIOConfig } from "DoriosCore/interfaces/gasIO.js";
+import { getBlockOwner, clearBlockOwner } from "DoriosCore/utils/blockOwner.js";
 
 DoriosLib.registry.blockComponent("utilitycraft:trash_can", {
     /**
@@ -15,38 +16,15 @@ DoriosLib.registry.blockComponent("utilitycraft:trash_can", {
      * Spawns the machine entity manually without using the Machine class.
      */
     onPlace(e, { params }) {
-        const { block } = e;
-        const dim = block.dimension;
-        const entityInfo = params.entity;
-
-        // Spawn position (same style as your machines)
-        let { x, y, z } = block.center();
-        y -= 0.25;
-
-        // Spawn the entity
-        const entity = dim.spawnEntity("utilitycraft:machine", { x, y, z });
-
-        // Trigger correct inventory size event
-        const invSize = entityInfo.inventory_size ?? 27;
-        entity.triggerEvent(`utilitycraft:inventory_${invSize}`);
-        entity.triggerEvent(`utilitycraft:simple_container`);
-
-        // Set name
-        const name = entityInfo.name ?? "Trash Can";
-        entity.nameTag = name;
+        getBlockOwner(e.block);
     },
 
     /**
      * Every tick: clear the entity inventory completely.
      */
     onTick(e) {
-        if (!worldLoaded) return;
-
         const { block } = e;
-        const dim = block.dimension;
-        // Get the entity stored in this block location
-        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
-        if (!entity) return;
+        const entity = getBlockOwner(block);
 
         const inv = entity.getComponent("minecraft:inventory")?.container;
         if (!inv) return;
@@ -63,8 +41,7 @@ DoriosLib.registry.blockComponent("utilitycraft:trash_can", {
      */
     onPlayerBreak(e) {
         const { block, dimension } = e;
-        const entity = dimension.getEntitiesAtBlockLocation(block.location)[0];
-        if (entity) entity.remove();
+        clearBlockOwner(block);
     }
 });
 
@@ -95,18 +72,12 @@ for (const [variant, types] of Object.entries(trashTypes)) {
 
 DoriosLib.registry.blockComponent("utilitycraft:resource_trash_can", {
     onPlace({ block }, { params }) {
-        const location = block.center();
-        location.y -= 0.25;
-        const entity = block.dimension.spawnEntity(TRASH_ENTITY, location);
-        entity.triggerEvent("utilitycraft:" + params.variant);
+        const entity = getBlockOwner(block);
         initializeTrashEntity(entity, block, params);
     },
     onTick({ block }, { params }) {
-        if (!worldLoaded) return;
-        const entity = block.dimension.getEntitiesAtBlockLocation(block.location)
-            .find(entity => entity.typeId === TRASH_ENTITY);
-        if (!entity) return;
-        if (!entity.scoreboardIdentity) initializeTrashEntity(entity, block, params);
+        const entity = getBlockOwner(block);
+        initializeTrashEntity(entity, block, params);
         if (params.items) entity.getComponent("minecraft:inventory")?.container?.clearAll();
         if (params.liquids) for (const tank of FluidStorage.initializeMultiple(entity, 2)) {
             tank.set(0);
@@ -119,9 +90,7 @@ DoriosLib.registry.blockComponent("utilitycraft:resource_trash_can", {
         if (params.energy) new EnergyStorage(entity).set(0);
     },
     onPlayerBreak({ block, dimension }) {
-        const entity = dimension.getEntitiesAtBlockLocation(block.location)
-            .find(entity => entity.typeId === TRASH_ENTITY);
-        entity?.remove();
+        clearBlockOwner(block);
     },
 });
 

@@ -5,6 +5,7 @@ import { EnergyStorage } from "../machinery/energyStorage.js";
 import { FluidStorage } from "../machinery/fluidStorage.js";
 import { TickScheduler } from "../machinery/tickScheduler.js";
 import * as Constants from "./constants.js";
+import { getBlockOwner, isBlockOwner } from "./blockOwner.js";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
 
@@ -40,6 +41,7 @@ export function shouldProcess() {
  * @returns {void}
  */
 export function initializeEntity(entity) {
+  if (isBlockOwner(entity)) return;
   entity.runCommand(`scoreboard players set @s energy 0`);
 }
 
@@ -56,9 +58,7 @@ export function initializeEntity(entity) {
  * @returns {import("@minecraft/server").Entity | undefined} The first entity found at the block location, or undefined if none exist.
  */
 export function tryGetEntityFromBlock(block) {
-  return block.dimension
-    .getEntitiesAtBlockLocation(block.location)
-    .find((entity) => entity.typeId !== "utilitycraft:machine_area_outline");
+  return getBlockOwner(block);
 }
 
 /**
@@ -71,6 +71,7 @@ export function tryGetEntityFromBlock(block) {
  * @returns {import("@minecraft/server").Block | undefined} The block under the entity, if available.
  */
 export function tryGetBlockFromEntity(entity) {
+  if (isBlockOwner(entity)) return entity.block;
   if (!entity?.dimension || !entity.location) {
     return undefined;
   }
@@ -168,6 +169,14 @@ export function removeOpenUICount(entity) {
  * @returns {import("@minecraft/server").Entity} The spawned entity.
  */
 export function spawnEntity(block, config) {
+  // Native minecraft:block_entity containers own the inventory now. Keep the
+  // old entry point as a compatibility shim for machine registration code.
+  const owner = getBlockOwner(block);
+  const entityData = config?.entity ?? {};
+  if (entityData.fixed_fluid_types === true) owner.addTag(MachineryConstants.CONSTANT_FLUID_TYPE_TAG);
+  if (entityData.fixed_gas_types === true) owner.addTag(MachineryConstants.CONSTANT_GAS_TYPE_TAG);
+  return owner;
+  /*
   const { entity: entityData, spawn_offset = Constants.DEFAULT_MACHINE_SPAWN_OFFSET } = config;
   const dimension = block.dimension;
 
@@ -204,6 +213,7 @@ export function spawnEntity(block, config) {
   }
 
   return entity;
+  */
 }
 
 /**

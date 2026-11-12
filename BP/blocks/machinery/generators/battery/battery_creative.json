@@ -3,20 +3,21 @@
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:creative_battery",
-      "states": { "utilitycraft:has_selection": [true, false] },
+      "states": {},
       "menu_category": {
         "category": "construction"
       }
     },
-    "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      }
-    ],
+    "permutations": [],
     "components": {
       "utilitycraft:infinite_energy_source": {
         "rate_speed_base": 1000000000
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 2,
+          "title": "block.utilitycraft:battery.name"
+        }
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -34,7 +35,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1

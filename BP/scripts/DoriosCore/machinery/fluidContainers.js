@@ -15,6 +15,7 @@ import {
   getInputFluidIndices,
   getOutputFluidIndices,
 } from "../interfaces/fluidIO.js";
+import { getBlockOwner } from "../utils/blockOwner.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -94,6 +95,8 @@ export function resolveFluidContainerAt(dimension, location) {
 
     const entity = dimension.getEntitiesAtBlockLocation(location).find(isCompatibleFluidEntity);
     if (entity) return { kind: "entity", block, entity };
+    const blockOwner = getBlockOwner(block);
+    if (isCompatibleFluidEntity(blockOwner)) return { kind: "entity", block, entity: blockOwner };
     if (isFluidTankBlock(block)) return { kind: "tank", block, entity: undefined };
   } catch {
     return undefined;

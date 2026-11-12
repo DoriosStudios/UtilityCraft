@@ -15,6 +15,7 @@ import {
   getInputGasIndices,
   getOutputGasIndices,
 } from "../interfaces/gasIO.js";
+import { getBlockOwner } from "../utils/blockOwner.js";
 
 /** @typedef {import("@minecraft/server").Block} Block */
 /** @typedef {import("@minecraft/server").Dimension} Dimension */
@@ -94,6 +95,8 @@ export function resolveGasContainerAt(dimension, location) {
 
     const entity = dimension.getEntitiesAtBlockLocation(location).find(isCompatibleGasEntity);
     if (entity) return { kind: "entity", block, entity };
+    const blockOwner = getBlockOwner(block);
+    if (isCompatibleGasEntity(blockOwner)) return { kind: "entity", block, entity: blockOwner };
     if (isGasTankBlock(block)) return { kind: "tank", block, entity: undefined };
   } catch {
     return undefined;

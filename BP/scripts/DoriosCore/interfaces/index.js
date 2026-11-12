@@ -1,5 +1,6 @@
 import { ItemStack, system, world } from "@minecraft/server";
 import { ContainerSessionManager } from "../containerSessions/index.js";
+import { getBlockOwner } from "../utils/blockOwner.js";
 import { tryGetBlockFromEntity } from "../utils/entity.js";
 import {
   DEFAULT_INTERFACE_BUTTON_ITEM_ID,
@@ -507,6 +508,11 @@ export class InterfaceManager {
 
 world.afterEvents.entityContainerOpened.subscribe((event) => {
   InterfaceManager.ensureEntityInterfaces(event?.entity, event?.player ?? event?.source ?? event?.sourceEntity);
+});
+
+world.afterEvents.blockContainerOpened?.subscribe?.((event) => {
+  const owner = getBlockOwner(event?.block);
+  if (owner) InterfaceManager.ensureEntityInterfaces(owner, event?.player);
 });
 
 world.afterEvents.entityItemDrop.subscribe((event) => {

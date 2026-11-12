@@ -3,6 +3,7 @@ import { world, ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { loadObjectives } from "../utils/scoreboards.js";
 import { initializeEntity } from "../utils/entity.js";
+import { getBlockOwner, isBlockOwner } from "../utils/blockOwner.js";
 
 const ENERGY_NETWORK_NODES_PROPERTY_ID = "dorios:energy_nodes";
 
@@ -47,6 +48,13 @@ export class EnergyStorage {
     if (!this.scoreId) {
       initializeEntity(entity);
       this.scoreId = entity?.scoreboardIdentity;
+    }
+    if (isBlockOwner(entity)) {
+      for (const objective of Object.values(EnergyStorage.#objectives)) {
+        if (!objective) continue;
+        try { objective.getScore(this.scoreId); }
+        catch { objective.setScore(this.scoreId, 0); }
+      }
     }
     this.cap = this.getCap();
   }
@@ -668,7 +676,8 @@ export class EnergyStorage {
       for (const loc of orderedTargets) {
         const target = dim
           .getEntitiesAtBlockLocation(loc)
-          .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
+          .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline")
+          ?? getBlockOwner(dim.getBlock(loc));
         if (!target) {
           invalidKeys.add(getLocationKey(loc));
           continue;
@@ -720,7 +729,8 @@ export class EnergyStorage {
 
         const target = dim
           .getEntitiesAtBlockLocation(loc)
-          .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
+          .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline")
+          ?? getBlockOwner(dim.getBlock(loc));
         if (!target) {
           invalidKeys.add(getLocationKey(loc));
           continue;

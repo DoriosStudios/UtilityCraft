@@ -8,28 +8,33 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:cardinal_direction"],
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ],
           "y_rotation_offset": 180
         }
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:fluid_container": {},
       "utilitycraft:magmator": {
-        "entity": {
-          "name": "magmator",
-          "type": "fluid_generator",
-          "inventory_size": 9
-        },
         "generator": {
           "energy_cap": 8000000,
           "fluid_cap": 3200000,
           "fluid_types": 1,
           "rate_speed_base": 5000
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 10,
+          "title": "block.utilitycraft:magmator.name"
         }
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
@@ -64,7 +69,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1
@@ -72,23 +80,24 @@
       "minecraft:destructible_by_explosion": false,
       "minecraft:tags": [
         "dorios:energy",
+        "dorios:fluid",
         "dorios:generator",
         "minecraft:is_pickaxe_item_destructible",
-        "utilitycraft:io.furnator",
+        "utilitycraft:io.magmator",
         "dorios:io",
         "dorios:item"
       ]
     },
     "permutations": [
       {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
-      {
         "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 0, 0]
+            "rotation": [
+              0,
+              0,
+              0
+            ]
           }
         }
       },
@@ -96,7 +105,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 180, 0]
+            "rotation": [
+              0,
+              180,
+              0
+            ]
           }
         }
       },
@@ -104,7 +117,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, -90, 0]
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
           }
         }
       },
@@ -112,7 +129,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 90, 0]
+            "rotation": [
+              0,
+              90,
+              0
+            ]
           }
         }
       },

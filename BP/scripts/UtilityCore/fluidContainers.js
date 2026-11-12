@@ -7,6 +7,7 @@ import {
     Rotation,
 } from "DoriosCore/index.js"
 import { system, ItemStack } from '@minecraft/server'
+import { getBlockOwner } from "../DoriosCore/utils/blockOwner.js";
 
 DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
     onPlayerInteract({ block, player, face }) {
@@ -14,7 +15,8 @@ DoriosLib.registry.blockComponent("utilitycraft:fluid_container", {
         const mainHand = DoriosLib.entity.getEquipment(player, 'Mainhand');
 
         const dim = block.dimension;
-        const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+        const entity = dim.getEntitiesAtBlockLocation(block.location)[0]
+            ?? (!block.typeId.includes("fluid_tank") ? getBlockOwner(block) : undefined);
         if (mainHand?.typeId === 'utilitycraft:copy_paste_tool') return;
         if (mainHand?.typeId?.includes('wrench')) {
             if (!player.isSneaking) {

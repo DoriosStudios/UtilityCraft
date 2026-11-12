@@ -3,27 +3,23 @@
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:ehxibitor",
-      "states": { "utilitycraft:has_selection": [true, false] },
+      "states": {},
       "menu_category": {
         "category": "construction"
       }
     },
-    "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      }
-    ],
+    "permutations": [],
     "components": {
       "utilitycraft:ehxibitor": {
-        "entity": {
-          "type": "machine",
-          "name": "ehxibitor",
-          "inventory_size": 4
-        },
         "machine": {
           "energy_cap": 1,
           "rate_speed_base": 0
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 4,
+          "title": "block.utilitycraft:ehxibitor.name"
         }
       },
       "minecraft:geometry": "minecraft:geometry.full_block",

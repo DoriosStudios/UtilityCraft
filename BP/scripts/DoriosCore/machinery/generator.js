@@ -17,6 +17,8 @@ import { ensureItemIOConfig } from "../interfaces/itemIO.js";
 import { ensureFluidIOConfig } from "../interfaces/fluidIO.js";
 import { ensureGasIOConfig } from "../interfaces/gasIO.js";
 import { ensureBlockIOInterface } from "../interfaces/IOInterface.js";
+import { clearBlockOwner, whenBlockContainerReady } from "../utils/blockOwner.js";
+import { tryGetEntityFromBlock } from "../utils/entity.js";
 
 function translate(key) {
   return { translate: key };
@@ -36,6 +38,10 @@ export class Generator extends BasicMachine {
     super(block, { rate: baseRate, ignoreTick: settings.ignoreTick, entityResolver });
     if (!this.valid) return;
     this.settings = settings;
+    if (this.entity.block && Number.isFinite(settings?.generator?.energy_cap)
+      && this.energy.getCap() !== settings.generator.energy_cap) {
+      this.energy.setCap(settings.generator.energy_cap);
+    }
   }
 
   /**
@@ -55,7 +61,7 @@ export class Generator extends BasicMachine {
    */
   static onDestroy(e) {
     const { block, brokenBlockPermutation, player, dimension: dim } = e;
-    const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+    const entity = tryGetEntityFromBlock(block);
     if (!entity) return false;
 
     const blockItemId = brokenBlockPermutation.type.id;
@@ -80,7 +86,7 @@ export class Generator extends BasicMachine {
       }
       TickScheduler.releaseTickGroup(entity);
       Utils.dropAllItems(entity);
-      entity.remove();
+      clearBlockOwner(block);
       dim.spawnItem(blockItem, block.center());
     });
     return true;
@@ -115,9 +121,8 @@ export class Generator extends BasicMachine {
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand");
     const storedResources = getResourcesFromItem(mainHand);
 
-    system.run(() => {
+    whenBlockContainerReady(block, (entity) => {
       ensureBlockIOInterface(block);
-      const entity = Utils.spawnEntity(block, config);
       const energyManager = new EnergyStorage(entity);
       energyManager.setCap(config.generator.energy_cap);
       let fluidManagers = [];

@@ -198,6 +198,11 @@ export function ensureFluidIOConfig(entity, blockTypeId) {
 export function setFluidConfig(entity, config) {
   const count = requireCompatibleFluidEntity(entity);
   const normalized = normalizeFluidConfig(config, count);
+  if (entity?.block) {
+    applyFluidConfig(entity, normalized);
+    configCache.set(entity.id, createConfiguredEntry(normalized));
+    return true;
+  }
   entity.runCommand(`scriptevent ${SET_FLUID_CONFIG_EVENT_ID} ${JSON.stringify(normalized)}`);
   configCache.set(entity.id, createConfiguredEntry(normalized));
   return true;

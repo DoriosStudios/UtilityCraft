@@ -8,31 +8,45 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:facing_direction"]
+          "enabled_states": [
+            "minecraft:facing_direction"
+          ]
         }
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:block_placer": {
-        "entity": {
-          "identifier": "utilitycraft:machine_entity",
-          "type": "machine",
-          "inventory_size": 12
-        },
         "machine": {
           "energy_cap": 64000,
           "energy_cost": 200,
           "rate_speed_base": 5,
-          "upgrades": [4, 5]
+          "upgrades": [
+            4,
+            5
+          ]
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 12,
+          "title": "block.utilitycraft:block_placer.name"
         }
       },
       "utilitycraft:machine_upgrades": [
-        { "type": "speed", "slot": 4 },
-        { "type": "energy", "slot": 5 }
+        {
+          "type": "speed",
+          "slot": 4
+        },
+        {
+          "type": "energy",
+          "slot": 5
+        }
       ],
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -66,7 +80,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1
@@ -80,10 +97,6 @@
       ]
     },
     "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
       {
         "condition": "q.block_state('utilitycraft:on') == true ",
         "components": {
@@ -124,7 +137,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'up' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [90, 0, 0]
+            "rotation": [
+              90,
+              0,
+              0
+            ]
           }
         }
       },
@@ -132,7 +149,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'down' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [-90, 0, 0]
+            "rotation": [
+              -90,
+              0,
+              0
+            ]
           }
         }
       },
@@ -140,7 +161,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'north' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 0, 0]
+            "rotation": [
+              0,
+              0,
+              0
+            ]
           }
         }
       },
@@ -148,7 +173,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'south' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 180, 0]
+            "rotation": [
+              0,
+              180,
+              0
+            ]
           }
         }
       },
@@ -156,7 +185,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'east' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, -90, 0]
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
           }
         }
       },
@@ -164,7 +197,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'west' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 90, 0]
+            "rotation": [
+              0,
+              90,
+              0
+            ]
           }
         }
       }

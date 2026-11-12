@@ -7,14 +7,22 @@
         "category": "construction"
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:receiver": {
         "energy_cap": 6400000,
         "rate_speed_base": 100000
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 2,
+          "title": "block.utilitycraft:receiver.name"
+        }
       },
       "minecraft:geometry": "geometry.energy_transmitter",
       "minecraft:material_instances": {
@@ -24,7 +32,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1
@@ -38,10 +49,6 @@
       ]
     },
     "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
       {
         "condition": "q.block_state('utilitycraft:on') == true ",
         "components": {

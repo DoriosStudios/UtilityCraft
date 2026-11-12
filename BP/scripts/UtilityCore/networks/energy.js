@@ -8,6 +8,7 @@ import {
 } from "../../DoriosLib/linkNodes/index.js";
 import { NETWORK_OFFSETS, offsetLocation, safeGetBlock } from "./shared.js";
 import { PIPE_DIRECTIONS, isNetworkConnectionOpen } from "./pipeFaces.js";
+import { getBlockOwner } from "../../DoriosCore/utils/blockOwner.js";
 import {
   NETWORK_SCAN_BATCH_SIZE,
   createNetworkRescanScheduler,
@@ -61,7 +62,8 @@ export async function rescanEnergyNetwork(startPosition, dimension) {
 
     let entity = dimension
       .getEntitiesAtBlockLocation(position)
-      .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
+      .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline")
+      ?? getBlockOwner(block);
     if (isLinkNode(block)) {
       const linked = resolveLinkNode(block);
       if (!linked) continue;
@@ -136,7 +138,8 @@ async function searchEnergyStorages(startPositions, generator) {
 
     let entity = dimension
       .getEntitiesAtBlockLocation(position)
-      .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline");
+      .find((candidate) => candidate.typeId !== "utilitycraft:machine_area_outline")
+      ?? getBlockOwner(block);
     if (isLinkNode(block)) {
       entity = resolveLinkNode(block)?.entity;
       if (entity) machines.push(entity.location);

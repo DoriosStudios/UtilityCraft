@@ -4,6 +4,7 @@ import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import { resolveItemContainerAt } from "../../DoriosCore/machinery/itemContainers.js";
 import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../../DoriosCore/utils/directions.js";
+import { UI_ITEM_TAGS } from "../../DoriosCore/utils/constants.js";
 
 const MINECART_PULL_PROPERTY = "utilitycraft:minecartPullEnabled";
 const DEFAULT_HOPPER_SPAWN_OFFSET = { x: 0.5, y: 0.25, z: 0.5 };
@@ -139,7 +140,7 @@ function pullDroppedItems(items, target, entity, hasFilter, whiteList, moveCount
     if (!itemComp) continue;
 
     const stack = itemComp.itemStack;
-    if (options.skipUIElements && stack.hasTag("utilitycraft:ui_element")) continue;
+    if (options.skipUIElements && UI_ITEM_TAGS.some((tag) => stack.hasTag(tag))) continue;
     if (!passesFilter(entity, hasFilter, whiteList, stack)) continue;
     if (!canInsertItem(resolvedTarget.container, inputSlots, stack)) continue;
 

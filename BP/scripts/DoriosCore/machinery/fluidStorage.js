@@ -2,6 +2,7 @@ import * as DoriosLib from "DoriosLib/index.js";
 import { world, ItemStack, system } from "@minecraft/server";
 import * as Constants from "./constants.js";
 import { OutputTracker } from "./outputTracker.js";
+import { isBlockOwner } from "../utils/blockOwner.js";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
 
@@ -34,7 +35,7 @@ export class FluidStorage {
     this.entity = entity;
     this.index = index;
     this.scoreId = entity?.scoreboardIdentity;
-    this.shouldUpdateUI = FluidStorage.hasOpenUI(entity);
+    this.shouldUpdateUI = isBlockOwner(entity) || FluidStorage.hasOpenUI(entity);
 
     this.scores = {
       fluid: objectives.get(`fluid_${index}`),
@@ -42,6 +43,14 @@ export class FluidStorage {
       fluidCap: objectives.get(`fluidCap_${index}`),
       fluidCapExp: objectives.get(`fluidCapExp_${index}`),
     };
+
+    if (isBlockOwner(entity)) {
+      for (const objective of Object.values(this.scores)) {
+        if (!objective) continue;
+        try { objective.getScore(this.scoreId); }
+        catch { objective.setScore(this.scoreId, 0); }
+      }
+    }
 
     this.type = this.getType();
     this.cap = this.getCap();

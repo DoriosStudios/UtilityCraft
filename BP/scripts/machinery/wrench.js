@@ -1,5 +1,6 @@
 import * as DoriosLib from "DoriosLib/index.js";
 import { ModalFormData } from "@minecraft/server-ui";
+import { getBlockOwner } from "../DoriosCore/utils/blockOwner.js";
 import { system } from "@minecraft/server";
 import { Rotation, Generator } from "DoriosCore/index.js"
 import { updateNetworksAt } from "../UtilityCore/networks/index.js";
@@ -56,13 +57,13 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
                 return
             }
             if (!block.hasTag('dorios:energy')) return
-            const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
+            const entity = getBlockOwner(block)
             if (!entity || !entity.getComponent('type_family').hasTypeFamily('dorios:energy_source')) return
             Generator.openGeneratorTransferModeMenu(entity, source)
             return
         }
         if (block.typeId.includes("receiver") || block.typeId.includes("transmitter")) {
-            const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0]
+            const entity = getBlockOwner(block)
             if (entity) openBasicNetworkMenu(entity, source)
             // toggleEnergyMode(block, source)
             return
@@ -84,7 +85,7 @@ DoriosLib.registry.itemComponent("utilitycraft:wrench", {
 export function openEnergyNodeMenu(block, player) {
     if (!block || !player) return;
 
-    const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
+    const entity = getBlockOwner(block);
     if (!entity) return;
 
     const isReceiver = block.typeId.includes("receiver");
@@ -181,7 +182,7 @@ function toggleEnergyMode(block, player) {
     // Change block
     block.setType(newId);
 
-    const entity = dimension.getEntitiesAtBlockLocation(location)[0];
+    const entity = getBlockOwner(block);
     if (entity) {
 
         // Update name (no tier)

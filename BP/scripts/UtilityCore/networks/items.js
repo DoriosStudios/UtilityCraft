@@ -9,6 +9,7 @@ import { DIRECTIONS } from "../../DoriosLib/containers/constants.js";
 import { formatIdentifier } from "../../DoriosLib/text/index.js";
 import { isLinkedEntity } from "../../DoriosLib/linkNodes/index.js";
 import { getPersistentUpgradeLevel } from "../upgradeable.js";
+import { UI_ITEM_TAGS } from "../../DoriosCore/utils/constants.js";
 import {
   NETWORK_OFFSETS,
   getAttachedContainerEndpoint,
@@ -1011,7 +1012,7 @@ function tryTransferItemOperation(runtime, dimension, sourceAccess, filterEnable
       runtime.sourceAccess = undefined;
       return false;
     }
-    if (!item || item.hasTag("utilitycraft:ui_element")) continue;
+    if (!item || UI_ITEM_TAGS.some((tag) => item.hasTag(tag))) continue;
     if (filterEnabled && !passesFilter(runtime.document.filter.mode, runtime.filterItems, item.typeId, false)) continue;
 
     attempts++;

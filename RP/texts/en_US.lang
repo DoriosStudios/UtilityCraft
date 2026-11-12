@@ -57,7 +57,7 @@ tile.utilitycraft:mortar.tooltip=§r§7- Breaks down leaves into water\n§o§9@U
 
 tile.utilitycraft:primitive_forge.name=Primitive Forge Bricks
 tile.utilitycraft:primitive_forge.tooltip=§r§7- Build a 2x2x2 structure to activate\n§7- Used to forge Brute Steel\n§7- Hammer iron ore to get Iron Dust\n§o§9@UtilityCraft
-entity.utilitycraft:primitive_forge.name=Primitive Forge
+block.utilitycraft:primitive_forge.name=Primitive Forge
 
 tile.utilitycraft:sieve.name=Sieve
 tile.utilitycraft:sieve.tooltip=§r§7- Max multi-use: 5x5\n§o§9@UtilityCraft
@@ -69,78 +69,78 @@ tile.utilitycraft:workbench.tooltip=§r§7- Use to craft everything related to m
 
 tile.utilitycraft:assembler.name=Assembler
 tile.utilitycraft:assembler.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:assembler.name=Assembler
+block.utilitycraft:assembler.name=Assembler
 
 tile.utilitycraft:autofisher.name=Auto Fisher
 tile.utilitycraft:autofisher.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:autofisher.name=Auto Fisher
+block.utilitycraft:autofisher.name=Auto Fisher
 
 tile.utilitycraft:autosieve.name=Autosieve
 tile.utilitycraft:autosieve.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:autosieve.name=Autosieve
+block.utilitycraft:autosieve.name=Autosieve
 
 tile.utilitycraft:block_breaker.name=Block Breaker
 tile.utilitycraft:block_breaker.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:block_breaker.name=Block Breaker
+block.utilitycraft:block_breaker.name=Block Breaker
 
 tile.utilitycraft:block_placer.name=Block Placer
 tile.utilitycraft:block_placer.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:block_placer.name=Block Placer
+block.utilitycraft:block_placer.name=Block Placer
 
 tile.utilitycraft:chemical_converter.name=Chemical Converter
 tile.utilitycraft:chemical_converter.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:chemical_converter.name=Chemical Converter
+block.utilitycraft:chemical_converter.name=Chemical Converter
 
 tile.utilitycraft:crusher.name=Crusher
 tile.utilitycraft:crusher.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:crusher.name=Crusher
+block.utilitycraft:crusher.name=Crusher
 
 tile.utilitycraft:digitizer.name=Digitizer
 tile.utilitycraft:digitizer.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:digitizer.name=Digitizer
+block.utilitycraft:digitizer.name=Digitizer
 
 tile.utilitycraft:ehxibitor.name=Exhibitor
 tile.utilitycraft:ehxibitor.tooltip=§r§o§9@UtilityCraft
-entity.utilitycraft:ehxibitor.name=Exhibitor
+block.utilitycraft:ehxibitor.name=Exhibitor
 
 tile.utilitycraft:electro_press.name=Electro Press
 tile.utilitycraft:electro_press.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:electro_press.name=Electro Press
+block.utilitycraft:electro_press.name=Electro Press
 
 tile.utilitycraft:electrolyzer.name=Electrolyzer
 tile.utilitycraft:electrolyzer.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:electrolyzer.name=Electrolyzer
+block.utilitycraft:electrolyzer.name=Electrolyzer
 
 tile.utilitycraft:harvester.name=Harvester
 tile.utilitycraft:harvester.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7 §9§7\n§o§9@UtilityCraft
-entity.utilitycraft:harvester.name=Harvester
+block.utilitycraft:harvester.name=Harvester
 
 tile.utilitycraft:incinerator.name=Incinerator
 tile.utilitycraft:incinerator.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:incinerator.name=Incinerator
+block.utilitycraft:incinerator.name=Incinerator
 
 tile.utilitycraft:induction_anvil.name=Induction Anvil
 tile.utilitycraft:induction_anvil.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:induction_anvil.name=Induction Anvil
+block.utilitycraft:induction_anvil.name=Induction Anvil
 
 tile.utilitycraft:infuser.name=Infuser
 tile.utilitycraft:infuser.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:infuser.name=Infuser
+block.utilitycraft:infuser.name=Infuser
 
 tile.utilitycraft:machine_case.name=Machine Case
 tile.utilitycraft:machine_case.tooltip=§r§o§9@UtilityCraft
 
 tile.utilitycraft:magmatic_chamber.name=Magmatic Chamber
 tile.utilitycraft:magmatic_chamber.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:magmatic_chamber.name=Magmatic Chamber
+block.utilitycraft:magmatic_chamber.name=Magmatic Chamber
 
 tile.utilitycraft:seed_synthesizer.name=Seed Synthesizer
 tile.utilitycraft:seed_synthesizer.tooltip=§r§7- Accepted upgrades:\n   §a§7 §b§7\n§o§9@UtilityCraft
-entity.utilitycraft:seed_synthesizer.name=Seed Synthesizer
+block.utilitycraft:seed_synthesizer.name=Seed Synthesizer
 
 tile.utilitycraft:xp_condenser.name=XP Condenser
 tile.utilitycraft:xp_condenser.tooltip=§r§o§9@UtilityCraft
-entity.utilitycraft:xp_condenser.name=XP Condenser
+block.utilitycraft:xp_condenser.name=XP Condenser
 
 ### [blocks.cobble] Cobblestone generators
 
@@ -309,7 +309,7 @@ tile.utilitycraft:sink.tooltip=§r§o§9@UtilityCraft
 
 ### [energy.generators] Generators
 
-entity.utilitycraft:furnator.name=Furnator
+block.utilitycraft:furnator.name=Furnator
 
 tile.utilitycraft:basic_furnator.name=§eBasic Furnator
 tile.utilitycraft:basic_furnator.tooltip=§r §7 Rate: 40 DE/t\n§o§9@UtilityCraft
@@ -323,7 +323,7 @@ tile.utilitycraft:expert_furnator.tooltip=§r §7 Rate: 640 DE/t\n§o§9@Utility
 tile.utilitycraft:ultimate_furnator.name=§8Ultimate Furnator
 tile.utilitycraft:ultimate_furnator.tooltip=§r §7 Rate: 4 kDE/t\n§o§9@UtilityCraft
 
-entity.utilitycraft:gas_generator.name=Gas Generator
+block.utilitycraft:gas_generator.name=Gas Generator
 
 tile.utilitycraft:basic_gas_generator.name=Basic Gas Generator
 tile.utilitycraft:basic_gas_generator.tooltip=§r §7 Rate: 50 DE/t\n§o§9@UtilityCraft
@@ -337,7 +337,7 @@ tile.utilitycraft:expert_gas_generator.tooltip=§r §7 Rate: 800 DE/t\n§o§9@Ut
 tile.utilitycraft:ultimate_gas_generator.name=Ultimate Gas Generator
 tile.utilitycraft:ultimate_gas_generator.tooltip=§r §7 Rate: 5 kDE/t\n§o§9@UtilityCraft
 
-entity.utilitycraft:magmator.name=Magmator
+block.utilitycraft:magmator.name=Magmator
 
 tile.utilitycraft:basic_magmator.name=§eBasic Magmator
 tile.utilitycraft:basic_magmator.tooltip=§r §7 Rate: 50 DE/t\n§o§9@UtilityCraft
@@ -351,7 +351,7 @@ tile.utilitycraft:expert_magmator.tooltip=§r §7 Rate: 800 DE/t\n§o§9@Utility
 tile.utilitycraft:ultimate_magmator.name=§8Ultimate Magmator
 tile.utilitycraft:ultimate_magmator.tooltip=§r §7 Rate: 5 kDE/t\n§o§9@UtilityCraft
 
-entity.utilitycraft:solar_panel.name=Solar Panel
+block.utilitycraft:solar_panel.name=Solar Panel
 
 tile.utilitycraft:basic_solar_panel.name=§eBasic Solar Panel
 tile.utilitycraft:basic_solar_panel.tooltip=§r §7 Rate: 12 DE/t\n§o§9@UtilityCraft
@@ -365,7 +365,7 @@ tile.utilitycraft:expert_solar_panel.tooltip=§r §7 Rate: 192 DE/t\n§o§9@Util
 tile.utilitycraft:ultimate_solar_panel.name=§8Ultimate Solar Panel
 tile.utilitycraft:ultimate_solar_panel.tooltip=§r §7 Rate: 1200 DE/t\n§o§9@UtilityCraft
 
-entity.utilitycraft:thermo_generator.name=Thermo Generator
+block.utilitycraft:thermo_generator.name=Thermo Generator
 
 tile.utilitycraft:basic_thermo_generator.name=§eBasic Thermo Generator
 tile.utilitycraft:basic_thermo_generator.tooltip=§r §7 Rate: 20 DE/t\n§o§9@UtilityCraft
@@ -379,7 +379,7 @@ tile.utilitycraft:expert_thermo_generator.tooltip=§r §7 Rate: 320 DE/t\n§o§9
 tile.utilitycraft:ultimate_thermo_generator.name=§8Ultimate Thermo Generator
 tile.utilitycraft:ultimate_thermo_generator.tooltip=§r §7 Rate: 2 kDE/t\n§o§9@UtilityCraft
 
-entity.utilitycraft:wind_turbine.name=Wind Turbine
+block.utilitycraft:wind_turbine.name=Wind Turbine
 
 tile.utilitycraft:basic_wind_turbine.name=§eBasic Wind Turbine
 tile.utilitycraft:basic_wind_turbine.tooltip=§r §7 Base Rate: 8 DE/t\n §7 Max Height Multiplier: 200%\n §7 Does not work below y20\n§o§9@UtilityCraft
@@ -395,7 +395,7 @@ tile.utilitycraft:ultimate_wind_turbine.tooltip=§r §7 Base Rate: 800 DE/t\n §
 
 ### [energy.batteries] Batteries
 
-entity.utilitycraft:battery.name=Battery
+block.utilitycraft:battery.name=Battery
 
 tile.utilitycraft:basic_battery.name=§eBasic Battery
 tile.utilitycraft:basic_battery.tooltip=§r §7 Rate: 100 DE/t\n§o§9@UtilityCraft
@@ -412,9 +412,9 @@ tile.utilitycraft:ultimate_battery.tooltip=§r §7 Rate: 10 kDE/t\n§o§9@Utilit
 tile.utilitycraft:creative_battery.name=§dCreative Battery
 tile.utilitycraft:creative_battery.tooltip=§r §7 Infinite Energy\n §7 Rate: 1 GDE/t\n§o§9@UtilityCraft
 
-entity.utilitycraft:infinite_energy_source.name=Creative Battery
+block.utilitycraft:infinite_energy_source.name=Creative Battery
 
-entity.utilitycraft:power_condenser.name= Power Condenser Matrix
+block.utilitycraft:power_condenser.name= Power Condenser Matrix
 
 ### [energy.wireless] Wireless energy
 
@@ -442,9 +442,9 @@ tile.utilitycraft:expert_energy_transmitter.tooltip=§r §7 Rate: 16 kDE/t\n §7
 tile.utilitycraft:ultimate_energy_transmitter.name=§8Ultimate Energy Transmitter
 tile.utilitycraft:ultimate_energy_transmitter.tooltip=§r §7 Rate: 100 kDE/t\n §7 Capacity: 6.4 MDE\n §7 Range: 512 Blocks\n§o§9@UtilityCraft
 
-entity.utilitycraft:receiver.name=Receiver
+block.utilitycraft:receiver.name=Receiver
 
-entity.utilitycraft:transmitter.name=Transmitter
+block.utilitycraft:transmitter.name=Transmitter
 
 ### [energy.energy_transport] Energy transport
 

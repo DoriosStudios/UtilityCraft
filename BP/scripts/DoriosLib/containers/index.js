@@ -24,6 +24,7 @@ import {
   SCRIPT_EVENT_NAMESPACE,
   SET_CONFIG_EVENT_ID,
 } from "./constants.js";
+import { UI_ITEM_TAGS } from "../../DoriosCore/utils/constants.js";
 
 export {
   CONTAINER_FAMILY,
@@ -188,6 +189,10 @@ export function isInitialized() {
 export function setConfig(entity, config) {
   const container = requireCompatibleInventory(entity);
   const normalized = normalizeItemConfig(config, container.size);
+  if (entity?.block) {
+    applyConfig(entity, normalized);
+    return true;
+  }
   const message = JSON.stringify(normalized);
   entity.runCommand(`scriptevent ${SET_CONFIG_EVENT_ID} ${message}`);
 
@@ -405,6 +410,7 @@ export function insert(target, options) {
   if (!options || !(options.item instanceof ItemStack)) {
     throw new TypeError("insert options must include an ItemStack");
   }
+  if (isUIItem(options.item)) return 0;
 
   const resolved = resolve(target);
   if (!resolved) return 0;
@@ -457,6 +463,7 @@ export function transfer(source, options) {
     return 0;
   }
   if (!sourceItem) return 0;
+  if (isUIItem(sourceItem)) return 0;
 
   const amount = normalizeTransferAmount(options.maxAmount, sourceItem.amount);
   if (amount <= 0) return 0;
@@ -709,6 +716,23 @@ function addItemFast(container, item, amount) {
     return Math.max(0, Math.min(amount, amount - (remainder?.amount ?? 0)));
   } catch {
     return 0;
+  }
+}
+
+/**
+ * UI labels, bars, and controls are rendered through inventory slots but are
+ * not real transport items. Keep both the current and legacy tags blocked at
+ * the shared IO boundary so every machine, generator, and hopper path agrees.
+ *
+ * @param {ItemStack|undefined} item
+ * @returns {boolean}
+ */
+function isUIItem(item) {
+  if (!item) return false;
+  try {
+    return UI_ITEM_TAGS.some((tag) => item.hasTag(tag));
+  } catch {
+    return false;
   }
 }
 

@@ -4,6 +4,7 @@ import * as DoriosLib from "DoriosLib/index.js";
 import { EnergyStorage, Generator, TickScheduler } from "DoriosCore/index.js";
 import * as EntityUtils from "../DoriosCore/utils/entity.js";
 import * as Constants from "../DoriosCore/machinery/constants.js";
+import { clearBlockOwner, getBlockOwner } from "../DoriosCore/utils/blockOwner.js";
 
 const ENTITY_ID = "utilitycraft:machine_entity";
 const DEFAULT_RATE = Constants.INFINITE_STORAGE_CAPACITY;
@@ -24,8 +25,8 @@ function getRate(value) {
 
 /** @param {import("@minecraft/server").Block} block */
 function getSourceEntity(block) {
-  return block.dimension.getEntitiesAtBlockLocation(block.location)
-    .find((entity) => entity.typeId === ENTITY_ID && entity.hasTag(Constants.INFINITE_STORAGE_TAG));
+  const owner = getBlockOwner(block);
+  return owner.hasTag(Constants.INFINITE_STORAGE_TAG) ? owner : undefined;
 }
 
 /**
@@ -88,7 +89,7 @@ DoriosLib.registry.blockComponent("utilitycraft:infinite_energy_source", {
     const entity = getSourceEntity(block);
     if (entity) {
       TickScheduler.releaseTickGroup(entity);
-      entity.remove();
+      clearBlockOwner(block);
     }
     EntityUtils.updateAdjacentNetwork(block, brokenBlockPermutation);
   },

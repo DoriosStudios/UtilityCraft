@@ -4,8 +4,10 @@
     "description": {
       "identifier": "utilitycraft:advanced_solar_panel",
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       },
       "menu_category": {
         "category": "construction"
@@ -13,14 +15,15 @@
     },
     "components": {
       "utilitycraft:solar_panel": {
-        "entity": {
-          "name": "solar_panel",
-          "type": "generator",
-          "inventory_size": 2
-        },
         "generator": {
           "energy_cap": 128000,
           "rate_speed_base": 48
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 2,
+          "title": "block.utilitycraft:solar_panel.name"
         }
       },
       "minecraft:geometry": "geometry.utilitycraft_solar_panel",
@@ -31,16 +34,35 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:selection_box": {
-        "origin": [-8, 0, -8],
-        "size": [16, 5, 16]
+        "origin": [
+          -8,
+          0,
+          -8
+        ],
+        "size": [
+          16,
+          5,
+          16
+        ]
       },
       "minecraft:collision_box": [
         {
-          "origin": [-8, 0, -8],
-          "size": [16, 5, 16]
+          "origin": [
+            -8,
+            0,
+            -8
+          ],
+          "size": [
+            16,
+            5,
+            16
+          ]
         }
       ],
       "minecraft:destructible_by_mining": {
@@ -54,10 +76,6 @@
       ]
     },
     "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
       {
         "condition": "q.block_state('utilitycraft:on') == true ",
         "components": {

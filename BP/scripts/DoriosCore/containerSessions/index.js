@@ -1,7 +1,9 @@
 import { world } from "@minecraft/server";
+import { getBlockOwner } from "../utils/blockOwner.js";
 
 const playerSessions = new Map();
 const openEntityIds = new Set();
+const openHandles = new Map();
 
 /**
  * Normalizes Minecraft entity ids, which may be exposed as strings or numbers
@@ -65,6 +67,8 @@ function resolveEntity(entityId) {
   if (typeof entityId !== "string" || entityId.length === 0) return undefined;
 
   try {
+    const handle = openHandles.get(entityId);
+    if (isValidEntity(handle)) return handle;
     const entity = world.getEntity(entityId);
     return isValidEntity(entity) ? entity : undefined;
   } catch {
@@ -114,6 +118,7 @@ export class ContainerSessionManager {
     if (!isValidEntity(entity) || !entityId) return false;
 
     openEntityIds.add(entityId);
+    openHandles.set(entityId, entity);
     return true;
   }
 
@@ -128,6 +133,7 @@ export class ContainerSessionManager {
     if (!entityId) return false;
 
     const removed = openEntityIds.delete(entityId);
+    openHandles.delete(entityId);
     for (const [playerKey, session] of playerSessions.entries()) {
       if (session.entityId === entityId) playerSessions.delete(playerKey);
     }
@@ -276,4 +282,14 @@ world.afterEvents.entityContainerClosed?.subscribe?.((event) => {
   const entity = event?.entity;
   ContainerSessionManager.close(player, entity);
   ContainerSessionManager.untrackEntity(entity);
+});
+
+world.afterEvents.blockContainerOpened?.subscribe?.((event) => {
+  const owner = getBlockOwner(event?.block);
+  if (owner) ContainerSessionManager.trackEntity(owner);
+});
+
+world.afterEvents.blockContainerClosed?.subscribe?.((event) => {
+  const owner = getBlockOwner(event?.block);
+  if (owner) ContainerSessionManager.untrackEntity(owner);
 });

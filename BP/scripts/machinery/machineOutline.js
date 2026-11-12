@@ -7,10 +7,10 @@ import {
 } from "../UtilityCore/machineUpgrades.js"
 import { getOppositeFacingDirection } from "./machines/oppositeFacing.js"
 import { getHarvesterOutlineTransform } from "./machines/harvesterArea.js"
+import { getBlockOwner } from "../DoriosCore/utils/blockOwner.js"
 
 export const MACHINE_OUTLINE_ENTITY_ID = "utilitycraft:machine_area_outline"
 
-const MACHINE_ENTITY_ID = "utilitycraft:machine_entity"
 const WRENCH_ITEM_ID = "utilitycraft:wrench"
 const OUTLINE_ENABLED_PROPERTY = "utilitycraft:outline_enabled"
 const OUTLINE_COLOR_PROPERTY = "utilitycraft:outline_color"
@@ -57,10 +57,7 @@ export function findMachineOutlineEntity(block) {
 }
 
 function findMachineEntity(block) {
-    if (!block) return undefined
-    return block.dimension
-        .getEntitiesAtBlockLocation(block.location)
-        .find(entity => entity.typeId === MACHINE_ENTITY_ID)
+    return block ? getBlockOwner(block) : undefined
 }
 
 export function removeMachineOutline(block) {

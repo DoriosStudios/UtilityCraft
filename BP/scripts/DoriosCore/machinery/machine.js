@@ -23,6 +23,8 @@ import { ensureGasIOConfig } from "../interfaces/gasIO.js";
 import { ensureBlockIOInterface } from "../interfaces/IOInterface.js";
 import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../utils/directions.js";
 import * as DoriosContainer from "../../DoriosLib/containers/index.js";
+import { clearBlockOwner, whenBlockContainerReady } from "../utils/blockOwner.js";
+import { tryGetEntityFromBlock } from "../utils/entity.js";
 
 export class Machine extends BasicMachine {
   /**
@@ -39,6 +41,10 @@ export class Machine extends BasicMachine {
     this.settings = settings;
     const machineSettings = settings.machine;
     if (!machineSettings) return;
+    if (this.entity.block && Number.isFinite(machineSettings.energy_cap)
+      && this.energy.getCap() !== machineSettings.energy_cap) {
+      this.energy.setCap(machineSettings.energy_cap);
+    }
 
     this.boosts = MachineUpgradeRegistry.resolveBoosts(
       this.container,
@@ -85,7 +91,7 @@ export class Machine extends BasicMachine {
    */
   static onDestroy(e) {
     const { block, brokenBlockPermutation, player, dimension: dim } = e;
-    const entity = dim.getEntitiesAtBlockLocation(block.location)[0];
+    const entity = tryGetEntityFromBlock(block);
     if (!entity) return false;
 
     const blockItemId = brokenBlockPermutation.type.id;
@@ -110,7 +116,7 @@ export class Machine extends BasicMachine {
       }
       TickScheduler.releaseTickGroup(entity);
       Utils.dropAllItems(entity);
-      entity.remove();
+      clearBlockOwner(block);
       dim.spawnItem(blockItem, block.center());
     });
     return true;
@@ -154,9 +160,8 @@ export class Machine extends BasicMachine {
       Rotation.facing(player, block, permutationToPlace);
     }
 
-    system.run(() => {
+    whenBlockContainerReady(block, (entity) => {
       ensureBlockIOInterface(block);
-      const entity = Utils.spawnEntity(block, config);
       const energyManager = new EnergyStorage(entity);
       energyManager.setCap(config.machine.energy_cap);
       let fluidManagers = [];

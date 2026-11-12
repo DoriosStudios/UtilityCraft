@@ -8,33 +8,51 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:facing_direction"]
+          "enabled_states": [
+            "minecraft:facing_direction"
+          ]
         }
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:harvester": {
-        "entity": {
-          "identifier": "utilitycraft:machine_entity",
-          "type": "machine",
-          "inventory_size": 26,
-          "output_range": [5, 19]
-        },
         "machine": {
           "energy_cap": 128000,
           "energy_cost": 100,
           "rate_speed_base": 1,
-          "upgrades": [2, 3, 4]
+          "upgrades": [
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 26,
+          "title": "block.utilitycraft:harvester.name"
         }
       },
       "utilitycraft:machine_upgrades": [
-        { "type": "speed", "slot": 2 },
-        { "type": "energy", "slot": 3 },
-        { "type": "range", "slot": 4, "max": 4 }
+        {
+          "type": "speed",
+          "slot": 2
+        },
+        {
+          "type": "energy",
+          "slot": 3
+        },
+        {
+          "type": "range",
+          "slot": 4,
+          "max": 4
+        }
       ],
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -68,7 +86,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1
@@ -81,10 +102,6 @@
       ]
     },
     "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
       {
         "condition": "q.block_state('utilitycraft:on') == true ",
         "components": {
@@ -125,7 +142,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'up' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [90, 0, 0]
+            "rotation": [
+              90,
+              0,
+              0
+            ]
           }
         }
       },
@@ -133,7 +154,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'down' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [-90, 0, 0]
+            "rotation": [
+              -90,
+              0,
+              0
+            ]
           }
         }
       },
@@ -141,7 +166,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'north' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 0, 0]
+            "rotation": [
+              0,
+              0,
+              0
+            ]
           }
         }
       },
@@ -149,7 +178,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'south' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 180, 0]
+            "rotation": [
+              0,
+              180,
+              0
+            ]
           }
         }
       },
@@ -157,7 +190,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'east' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, -90, 0]
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
           }
         }
       },
@@ -165,7 +202,11 @@
         "condition": "q.block_state('minecraft:facing_direction') == 'west' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 90, 0]
+            "rotation": [
+              0,
+              90,
+              0
+            ]
           }
         }
       }

@@ -8,31 +8,46 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:cardinal_direction"],
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ],
           "y_rotation_offset": 180
         }
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:double_machine": {
-        "entity": {
-          "type": "machine",
-          "inventory_size": 14
-        },
         "machine": {
           "energy_cap": 128000,
           "energy_cost": 1600,
           "rate_speed_base": 40,
-          "upgrades": [5, 6]
+          "upgrades": [
+            5,
+            6
+          ]
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 14,
+          "title": "block.utilitycraft:infuser.name"
         }
       },
       "utilitycraft:machine_upgrades": [
-        { "type": "speed", "slot": 5 },
-        { "type": "energy", "slot": 6 }
+        {
+          "type": "speed",
+          "slot": 5
+        },
+        {
+          "type": "energy",
+          "slot": 6
+        }
       ],
       "utilitycraft:machine_recipes": {
         "type": "infuser"
@@ -69,7 +84,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1
@@ -83,10 +101,6 @@
       ]
     },
     "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
       {
         "condition": "q.block_state('utilitycraft:on') == true ",
         "components": {
@@ -127,7 +141,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 0, 0]
+            "rotation": [
+              0,
+              0,
+              0
+            ]
           }
         }
       },
@@ -135,7 +153,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 180, 0]
+            "rotation": [
+              0,
+              180,
+              0
+            ]
           }
         }
       },
@@ -143,7 +165,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, -90, 0]
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
           }
         }
       },
@@ -151,7 +177,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 90, 0]
+            "rotation": [
+              0,
+              90,
+              0
+            ]
           }
         }
       }

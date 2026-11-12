@@ -3,29 +3,25 @@
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:xp_condenser",
-      "states": { "utilitycraft:has_selection": [true, false] },
+      "states": {},
       "menu_category": {
         "category": "construction"
       }
     },
-    "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      }
-    ],
+    "permutations": [],
     "components": {
       "utilitycraft:fluid_container": {},
       "utilitycraft:xp_condenser": {
-        "entity": {
-          "type": "fluid_machine",
-          "inventory_size": 15,
-          "fixed_fluid_types": true
-        },
         "machine": {
           "energy_cap": 0,
           "fluid_cap": 256000,
           "fluid_types": 1
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 15,
+          "title": "block.utilitycraft:xp_condenser.name"
         }
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
@@ -60,10 +56,13 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 2.0
+        "seconds_to_destroy": 2
       },
       "minecraft:destructible_by_explosion": false,
       "minecraft:tags": [

@@ -1,4 +1,5 @@
 import { world } from "@minecraft/server";
+import { getBlockOwner } from "../DoriosCore/utils/blockOwner.js";
 import { addOpenUICount, removeOpenUICount } from "DoriosCore/index.js";
 
 const OPEN_UI_PLAYERS_PROPERTY_ID = "utilitycraft:players";
@@ -15,16 +16,16 @@ function hasMachineUIProperties(entity) {
   }
 }
 
-world.afterEvents.entityContainerOpened.subscribe((e) => {
-  const { entity } = e;
+world.afterEvents.blockContainerOpened?.subscribe?.((e) => {
+  const entity = getBlockOwner(e.block);
 
   if (!hasMachineUIProperties(entity)) return;
 
   addOpenUICount(entity);
 });
 
-world.afterEvents.entityContainerClosed.subscribe((e) => {
-  const { entity } = e;
+world.afterEvents.blockContainerClosed?.subscribe?.((e) => {
+  const entity = getBlockOwner(e.block);
 
   if (!hasMachineUIProperties(entity)) return;
 

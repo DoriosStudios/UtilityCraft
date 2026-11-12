@@ -4,8 +4,15 @@
     "description": {
       "identifier": "utilitycraft:basic_battery",
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:capacity": [0, 1, 2, 3, 4, 5, 6]
+        "utilitycraft:capacity": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
       },
       "menu_category": {
         "category": "construction"
@@ -15,6 +22,12 @@
       "utilitycraft:battery": {
         "energy_cap": 256000,
         "rate_speed_base": 100
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 2,
+          "title": "block.utilitycraft:battery.name"
+        }
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -32,7 +45,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [4, 4]
+        "interval_range": [
+          4,
+          4
+        ]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1
@@ -45,10 +61,6 @@
       ]
     },
     "permutations": [
-      {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
       {
         "condition": "q.block_state('utilitycraft:capacity') == 0",
         "components": {

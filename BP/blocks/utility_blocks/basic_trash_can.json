@@ -9,14 +9,16 @@
     },
     "components": {
       "utilitycraft:trash_can": {
-        "entity": {
-          "name": "Basic Trash Can",
-          "inventory_size": 27
-        },
         "machine": {
           "energy_cap": 0,
           "energy_cost": 0,
           "rate_speed_base": 0
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 27,
+          "title": "block.utilitycraft:basic_trash_can.name"
         }
       },
       "minecraft:geometry": "geometry.basic_trash_can",
@@ -27,7 +29,10 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [10, 10]
+        "interval_range": [
+          10,
+          10
+        ]
       },
       "minecraft:tags": [
         "dorios:item",

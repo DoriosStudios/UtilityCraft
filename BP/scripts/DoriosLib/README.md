@@ -233,20 +233,27 @@ the configured delay.
 
 ## Containers
 
-Container entities opt in with the `dorios:container` family. Importing the
-module is side-effect free, so each addon initializes the cross-addon event
-listener explicitly:
+UtilityCraft machines, generators, and trash cans use native block containers.
+Their block JSON declares `minecraft:block_entity` and `minecraft:inventory`;
+no helper inventory entity or block-selection entity is spawned. The container
+API accepts block targets directly and keeps the block as the owner of its
+inventory, IO configuration, energy, fluid, gas, and UI state. Entity
+containers remain supported by DoriosLib for compatibility with other addons.
+
+Importing the module is side-effect free, so each addon initializes the
+cross-addon event listener explicitly:
 
 ```js
 DoriosLib.container.initialize();
 ```
 
-Configurations are published from their owning entity. The script event lets
-every listening addon merge the same item rules into
+Configurations are published from the owning block (or entity for legacy
+containers). The script event lets every listening addon merge the same item
+rules into
 `utilitycraft:io_config.items` and refresh its local cache:
 
 ```js
-DoriosLib.container.setConfig(entity, {
+DoriosLib.container.setConfig(block, {
   version: 1,
   type: "complex",
   anyInputSlots: [3, 4],
@@ -263,17 +270,17 @@ DoriosLib.container.setConfig(entity, {
 
 `setConfig` always publishes the complete item document, not a partial patch.
 The root `utilitycraft:io_config` object is merged so other resource groups,
-such as `liquids`, remain untouched. Runtime reads are cached by `entity.id`;
+such as `liquids`, remain untouched. Runtime reads are cached by the owner's
+stable ID;
 the script-event listener replaces that cache entry whenever the config changes.
 
-The system that owns a configured entity republishes its complete document once
-when that entity initializes. This hydrates every active addon without a read
-request or a type-ID registry. Readers never rebroadcast cached copies: doing so
-would make a real Basic container indistinguishable from an addon that simply
-does not own a local DP yet, and stale listeners could race a newer config.
+The system that owns a configured block republishes its complete document once
+when that block container initializes. This hydrates every active addon without
+a read request or a type-ID registry. Readers never rebroadcast cached copies:
+doing so could race a newer configuration.
 
 Each configured cache entry also has a local revision token. Higher-level
-systems can use `getConfigRevision(entity)` to avoid cloning or validating the
+systems can use `getConfigRevision(owner)` to avoid cloning or validating the
 same document every tick; that revision is runtime-only and is not part of the
 persisted schema.
 
@@ -287,22 +294,24 @@ mode, uses `anyInputSlots` or `anyOutputSlots`. A `disabled` face exposes no
 slots. DoriosLib never derives fallback lists from configured faces.
 
 ```js
-const fallbackInputs = DoriosLib.container.getInputSlots(entity);
-const passiveNorthInputs = DoriosLib.container.getInputSlots(entity, {
+const fallbackInputs = DoriosLib.container.getInputSlots(block);
+const passiveNorthInputs = DoriosLib.container.getInputSlots(block, {
   face: "north",
 });
-const activeNorthInputs = DoriosLib.container.getInputSlots(entity, {
+const activeNorthInputs = DoriosLib.container.getInputSlots(block, {
   face: "north",
   automatic: true,
 });
 ```
 
-Simple containers use direct slot lists, while an entity with the family and no
+Simple containers use direct slot lists. A native block inventory without an
 item configuration is Basic and exposes every inventory slot for both access
-directions.
+directions. Block capability is detected from the block inventory; no entity
+identity is required.
 
-World targets are resolved by capability. Block inventories take priority;
-otherwise DoriosLib searches the cell for an entity with `dorios:container`:
+World targets are resolved by capability. Native block inventories are checked
+first. Legacy entity containers with the `dorios:container` family are still
+supported when no compatible block inventory exists:
 
 ```js
 const target = DoriosLib.container.resolveAt(dimension, location);
@@ -318,6 +327,18 @@ const moved = DoriosLib.container.insert(target, {
 `insert` returns the exact inserted amount and never mutates the supplied
 `ItemStack`. Existing stacks are compared with `isStackableWith`, so names,
 lore, durability and other metadata are not merged incorrectly.
+
+UI labels, progress bars, energy/fluid/gas bars, and other interface items are
+not transport items. The shared IO boundary rejects both reserved tags:
+
+```js
+"utilitycraft:ui_element" // current tag
+"utilitycraft:ui.element" // legacy tag
+```
+
+This applies to direct inserts, container transfers, item networks, and hopper
+pickup. UI items stay in their configured display slots and are not moved
+between machines or generators.
 
 Transfers use the direction from source toward target. DoriosLib applies that
 direction to the source output and its opposite to the target input:

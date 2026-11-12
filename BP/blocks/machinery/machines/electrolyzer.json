@@ -8,22 +8,22 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": ["minecraft:cardinal_direction"],
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ],
           "y_rotation_offset": 180
         }
       },
       "states": {
-        "utilitycraft:has_selection": [true, false],
-        "utilitycraft:on": [false, true]
+        "utilitycraft:on": [
+          false,
+          true
+        ]
       }
     },
     "components": {
       "utilitycraft:fluid_container": {},
       "utilitycraft:electrolyzer": {
-        "entity": {
-          "type": "fluid_gas_machine",
-          "inventory_size": 21
-        },
         "machine": {
           "energy_cap": 4096000,
           "energy_cost": 512000,
@@ -33,14 +33,34 @@
           "gas_types": 3,
           "rate_speed_base": 1280,
           "overclock": false,
-          "upgrades": [6, 7]
+          "upgrades": [
+            6,
+            7
+          ]
+        }
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 21,
+          "title": "block.utilitycraft:electrolyzer.name"
         }
       },
       "utilitycraft:machine_upgrades": [
-        { "type": "speed", "slot": 6 },
-        { "type": "energy", "slot": 7 }
+        {
+          "type": "speed",
+          "slot": 6
+        },
+        {
+          "type": "energy",
+          "slot": 7
+        }
       ],
-      "minecraft:tick": { "interval_range": [4, 4] },
+      "minecraft:tick": {
+        "interval_range": [
+          4,
+          4
+        ]
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
@@ -86,10 +106,6 @@
     },
     "permutations": [
       {
-        "condition": "!q.block_state('utilitycraft:has_selection')",
-        "components": { "minecraft:selection_box": false }
-      },
-      {
         "condition": "q.block_state('utilitycraft:on')",
         "components": {
           "minecraft:material_instances": {
@@ -129,7 +145,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 0, 0]
+            "rotation": [
+              0,
+              0,
+              0
+            ]
           }
         }
       },
@@ -137,7 +157,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 180, 0]
+            "rotation": [
+              0,
+              180,
+              0
+            ]
           }
         }
       },
@@ -145,7 +169,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, -90, 0]
+            "rotation": [
+              0,
+              -90,
+              0
+            ]
           }
         }
       },
@@ -153,7 +181,11 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [0, 90, 0]
+            "rotation": [
+              0,
+              90,
+              0
+            ]
           }
         }
       }

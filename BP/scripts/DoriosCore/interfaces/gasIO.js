@@ -198,6 +198,11 @@ export function ensureGasIOConfig(entity, blockTypeId) {
 export function setGasConfig(entity, config) {
   const count = requireCompatibleGasEntity(entity);
   const normalized = normalizeGasConfig(config, count);
+  if (entity?.block) {
+    applyGasConfig(entity, normalized);
+    configCache.set(entity.id, createConfiguredEntry(normalized));
+    return true;
+  }
   entity.runCommand(`scriptevent ${SET_GAS_CONFIG_EVENT_ID} ${JSON.stringify(normalized)}`);
   configCache.set(entity.id, createConfiguredEntry(normalized));
   return true;
