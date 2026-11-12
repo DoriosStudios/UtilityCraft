@@ -57,7 +57,7 @@ tile.utilitycraft:mortar.tooltip=§r§7- Breaks down leaves into water\n§o§9@U
 
 tile.utilitycraft:primitive_forge.name=Primitive Forge Bricks
 tile.utilitycraft:primitive_forge.tooltip=§r§7- Build a 2x2x2 structure to activate\n§7- Used to forge Brute Steel\n§7- Hammer iron ore to get Iron Dust\n§o§9@UtilityCraft
-block.utilitycraft:primitive_forge.name=Primitive Forge
+entity.utilitycraft:primitive_forge.name=Primitive Forge
 
 tile.utilitycraft:sieve.name=Sieve
 tile.utilitycraft:sieve.tooltip=§r§7- Max multi-use: 5x5\n§o§9@UtilityCraft
