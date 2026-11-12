@@ -1,5 +1,6 @@
 // @ts-check
 
+import { system, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import * as DoriosLib from "DoriosLib/index.js";
 import * as DoriosContainer from "../DoriosLib/containers/index.js";
@@ -49,6 +50,7 @@ import {
   getMechanicalHopperCopyConfig,
 } from "./hoppers/mechHoppers.js";
 import { getPersistentUpgradeLevel } from "../UtilityCore/upgradeable.js";
+import { BLOCK_CONTAINER_FAMILY, ownerLocation, SELECTION_REACH } from "../UtilityCore/blockContainerTarget.js";
 
 const TOOL_ITEM_ID = "utilitycraft:copy_paste_tool";
 const TOOL_COMPONENT_ID = "utilitycraft:copy_paste_tool";
@@ -56,6 +58,23 @@ const TOOL_DATA_PROPERTY = "utilitycraft:copy_paste_data";
 const TOOL_DATA_VERSION = 1;
 const SNAPSHOT_VERSION = 1;
 const DISABLED_MODE = "disabled";
+const MACHINE_FAMILIES = [
+  BLOCK_CONTAINER_FAMILY,
+  "dorios:machine",
+  "dorios:container",
+  "dorios:fluid_container",
+  "dorios:gas_container",
+  "dorios:energy_source",
+  "dorios:hopper",
+];
+
+/**
+ * @typedef {{ dimension: import("@minecraft/server").Dimension,
+ * location: import("@minecraft/server").Vector3, typeId: string }} ToolTarget
+ * @typedef {{ slot: number, dimensionId: string, target?: ToolTarget }} ToolAction
+ * @type {Map<string, { pending?: ToolAction, lastActionTick: number, menuOpen: boolean }>}
+ */
+const interactionStates = new Map();
 
 const DIRECTION_STATE_IDS = [
   "minecraft:facing_direction",
@@ -167,14 +186,7 @@ function getBlockEntity(block) {
   try {
     const entities = block.dimension.getEntitiesAtBlockLocation(block.location)
       .filter((entity) => entity?.isValid === true);
-    return entities.find((entity) => [
-      "dorios:machine",
-      "dorios:container",
-      "dorios:fluid_container",
-      "dorios:gas_container",
-      "dorios:energy_source",
-      "dorios:hopper",
-    ].some((family) => hasTypeFamily(entity, family))) ?? entities[0];
+    return entities.find((entity) => MACHINE_FAMILIES.some((family) => hasTypeFamily(entity, family))) ?? entities[0];
   } catch {
     return undefined;
   }
@@ -801,20 +813,103 @@ function useToolOnBlock(player, block, slot) {
   player.playSound("place.iron");
 }
 
+/** @param {import("@minecraft/server").Player} player */
+function getInteractionState(player) {
+  let state = interactionStates.get(player.id);
+  if (!state) {
+    state = { lastActionTick: -Infinity, menuOpen: false };
+    interactionStates.set(player.id, state);
+  }
+  return state;
+}
+
+/** @param {import("@minecraft/server").Player} player */
+function isAimingAtAir(player) {
+  return !player.getBlockFromViewDirection({ maxDistance: SELECTION_REACH, includePassableBlocks: true })
+    && player.getEntitiesFromViewDirection({ maxDistance: SELECTION_REACH }).length === 0;
+}
+
+/**
+ * Before-events cancel the native interaction; mutations run on the next tick.
+ * Block/entity events share one pending action. A target takes precedence over
+ * an air-use callback, regardless of which callback arrived first.
+ * @param {import("@minecraft/server").Player} player
+ * @param {import("@minecraft/server").Block} [block]
+ */
+function queueToolAction(player, block) {
+  const state = getInteractionState(player);
+  if (state.menuOpen || system.currentTick - state.lastActionTick < 2) return;
+  const action = {
+    slot: player.selectedSlotIndex,
+    dimensionId: player.dimension.id,
+    ...(block ? { target: { dimension: block.dimension, location: block.location, typeId: block.typeId } } : {}),
+  };
+  if (state.pending) {
+    if (block && !state.pending.target) state.pending = action;
+    return;
+  }
+  state.pending = action;
+  system.run(() => {
+    const pending = state.pending;
+    delete state.pending;
+    if (!pending || !player.isValid || player.selectedSlotIndex !== pending.slot
+      || player.dimension.id !== pending.dimensionId || !getToolAtSlot(player, pending.slot)) return;
+    try {
+      if (pending.target) {
+        const target = pending.target.dimension.getBlock(pending.target.location);
+        if (!target || target.typeId !== pending.target.typeId || target.isAir) return;
+        state.lastActionTick = system.currentTick;
+        useToolOnBlock(player, target, pending.slot);
+      } else if (player.isSneaking && isAimingAtAir(player)) {
+        state.lastActionTick = system.currentTick;
+        state.menuOpen = true;
+        void openToolMenu(player, pending.slot).finally(() => {
+          state.menuOpen = false;
+          state.lastActionTick = system.currentTick;
+        });
+      }
+    } catch (error) {
+      console.warn(`[CopyPasteTool] Interaction failed: ${error?.message ?? error}`);
+    }
+  });
+}
+
+world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+  if (event.cancel || event.itemStack?.typeId !== TOOL_ITEM_ID) return;
+  event.cancel = true;
+  if (event.isFirstEvent) queueToolAction(event.player, event.block);
+});
+
+world.beforeEvents.playerInteractWithEntity.subscribe((event) => {
+  if (event.cancel || event.itemStack?.typeId !== TOOL_ITEM_ID
+    || !MACHINE_FAMILIES.some((family) => hasTypeFamily(event.target, family))) return;
+  const block = event.target.dimension.getBlock(ownerLocation(event.target.location));
+  if (!block || block.isAir) return;
+  event.cancel = true;
+  queueToolAction(event.player, block);
+});
+
 DoriosLib.registry.itemComponent(TOOL_COMPONENT_ID, {
   onUse({ source }) {
-    if (!source?.isSneaking) return;
-    void openToolMenu(source, source.selectedSlotIndex);
-  },
-
-  onUseOn({ source, block }) {
-    if (source?.typeId !== "minecraft:player") return;
-    const player = /** @type {import("@minecraft/server").Player} */ (source);
-    const slot = player.selectedSlotIndex;
-    if (player.isSneaking) {
-      void openToolMenu(player, slot);
-      return;
-    }
-    useToolOnBlock(player, block, slot);
+    if (source?.isSneaking && isAimingAtAir(source)) queueToolAction(source);
   },
 });
+
+// Leave success/error feedback visible before restoring the held tool's mode.
+system.runInterval(() => {
+  for (const player of world.getAllPlayers()) {
+    const held = getToolAtSlot(player, player.selectedSlotIndex);
+    if (!held) continue;
+    const state = getInteractionState(player);
+    if (state.menuOpen || state.pending || system.currentTick - state.lastActionTick < 60) continue;
+    player.onScreenDisplay.setActionBar({
+      rawtext: [
+        translate("ui.utilitycraft:copy_paste_tool.current_mode"),
+        { text: " §f" },
+        translate(`ui.utilitycraft:copy_paste_tool.mode_${readToolDocument(held.item).mode}`),
+      ],
+    });
+  }
+}, 20);
+
+world.afterEvents.playerLeave.subscribe(({ playerId }) => interactionStates.delete(playerId));

@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] Spezialwerkzeuge
 
 item.utilitycraft:copy_paste_tool=Kopier-/Einfügewerkzeug §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interagieren: kompatible Blockeinstellungen kopieren/einfügen §r\n§7Schleichen + Interagieren: Einstellungen öffnen\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interagieren: kompatible Blockeinstellungen kopieren/einfügen §r\n§7Schleichen + in die Luft interagieren: Einstellungen öffnen\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=Bohrer
 tile.utilitycraft:drill.tooltip=§r§7- Minen in einem 3x3-Gebiet\n§o§9@UtilityCraft

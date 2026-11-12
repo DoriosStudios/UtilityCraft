@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] Herramientas especiales
 
 item.utilitycraft:copy_paste_tool=Herramienta de Copiar/Pegar §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interactuar: copia o pega configuraciones compatibles §r\n§7Agacharse + Interactuar: abre la configuración\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interactuar: copia o pega configuraciones compatibles §r\n§7Agacharse + Interactuar al aire: abre la configuración\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=Taladro de Mano
 tile.utilitycraft:drill.tooltip=§r§7Mina en un área de 3x3 enfrente de ti\n§o§9@UtilityCraft

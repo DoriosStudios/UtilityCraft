@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] 特殊な道具
 
 item.utilitycraft:copy_paste_tool=コピー＆ペーストツール §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7使用：対応するブロック設定をコピーまたは貼り付け §r\n§7スニーク + 使用：ツール設定を開く\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7使用：対応するブロック設定をコピーまたは貼り付け §r\n§7スニーク + 空中に向けて使用：ツール設定を開く\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=ドリル
 tile.utilitycraft:drill.tooltip=§r§7- 3x3 エリアで地雷を掘る\n§o§9@UtilityCraft

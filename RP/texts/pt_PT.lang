@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] Ferramentas especiais
 
 item.utilitycraft:copy_paste_tool=Ferramenta de Copiar/Colar §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interagir: copia ou cola definições compatíveis §r\n§7Agachar + Interagir: abre as definições\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interagir: copia ou cola definições compatíveis §r\n§7Agachar + Interagir no ar: abre as definições\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=Broca
 tile.utilitycraft:drill.tooltip=§r§7- Mina numa área 3x3\n§o§9@UtilityCraft

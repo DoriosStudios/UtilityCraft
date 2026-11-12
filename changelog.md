@@ -1,44 +1,16 @@
-This update makes multiblock cells and machine modules available to UtilityCraft extensions, refreshes recipe books, and fixes hammer drops.
+This update fixes Copy/Paste Tool interactions with machines and expands network support for UtilityCraft extensions.
 
-<!-- Upcoming release: v3.6.2. -->
-<!-- Previous release: extras/past_changelogs/changelog_v3.6.1.md -->
+<!-- Upcoming release: v3.6.3. -->
+<!-- Previous release: extras/past_changelogs/changelog_v3.6.2.md -->
 <!-- Deferred work: extras/future_changelogs/multi-resource-networks.md. Add release entries only after implementation and in-game validation. -->
 
-## BLOCKS
+## ITEMS
 
-- Moved **Energy Cell**, **Liquid Cell**, **Gas Cell**, **Processing Module**, **Speed Module**, and **Efficiency Module** from Heavy Machinery into UtilityCraft.
-    - Extensions can share these internal multiblock components without requiring Heavy Machinery.
-    - Preserved existing block identifiers, textures, and component behavior.
-
-## RECIPES
-
-- **Multiblock Cells and Modules**
-    - Workbench and Crafter recipes now use UtilityCraft materials without requiring Heavy Machinery.
-    - Replaced Tin Plates with Iron Plates, Steel and Controller Casings with Machine Cases, and Charged Darloonite Crystals with Expert Chips.
-    - Liquid and Gas Cells use their corresponding pipes instead of Steel Ports and retain their two Expert Tanks.
-
-## UI/UX
-
-- **Primitive Forge Bricks**
-    - Renamed the building block from Primitive Forge to Primitive Forge Bricks.
-    - Updated its inventory and held model to show the assembled forge as a complete 3D cube with 32x32 face textures and its front facing the inventory view.
-    - Added a tooltip hint explaining how to obtain Iron Dust by using a hammer on Iron Ore.
-- Added the shared cells and modules to UtilityCraft's Creative inventory, with names and tooltips in all ten supported languages.
-- Added short tooltips explaining multiblock use and the function of each shared cell and machine module in all ten supported languages.
-- Removed addon signatures from internal UI items so machine information panels and interface placeholders no longer display them.
-- **Auto Sieve**
-    - Removed Certus Quartz and Charged Certus Quartz from the recipe book while retaining their scripted drops for addon compatibility.
-- **Auto Fisher**
-    - Removed the Empty Liquid Capsule from the recipe book while retaining its scripted drop for addon compatibility.
-- **Crusher and Electro Press**
-    - Corrected Crusher recipe icons for Double, Triple and Quadruple Compressed Cobblestone.
-
-## BUG FIXES
-
-- **Hammers**
-    - Fixed crushing ores that drop raw materials or gems, including deepslate variants, Lead and Uranium.
-    - Recognize Silk Touch drops and replace only newly dropped quantities, preserving items already on the ground.
-    - Apply the Crusher recipe once per block without multiplying its output by Fortune.
+- **Copy/Paste Tool**
+    - Copies or pastes settings on compatible machines and blocks while standing or sneaking, without opening the machine inventory.
+    - Opens its settings menu only when sneaking and interacting in the air.
+    - Shows the selected Copy or Paste mode in the action bar while held, keeping result messages visible first.
+    - Prevents duplicate actions from overlapping block and entity interactions.
 
 ## THIRD-PARTY / INTEGRATION
 
@@ -46,4 +18,3 @@ This update makes multiblock cells and machine modules available to UtilityCraft
 - Pipes carrying multiple UC resource tags now combine their visible connections, so updating one resource no longer hides another resource's connection. Existing color matching and wrench face disconnections remain in effect.
 - Energy networks now traverse extension cables tagged `dorios:energy` and `dorios:isTube`, using the existing color and directional connection rules. Compatible cables can connect directly to UtilityCraft Energy Cables without sharing their block identifier.
 - Added the `utilitycraft:energy_relay` machine-entity role so extensions can receive and redistribute energy through UC-managed destinations. Wrench connection changes now notify extensions through `utilitycraft:pipe_face_update` without managing their custom networks.
-- Added `TemperatureStorage` and `advanceTemperature` to DoriosCore so extensions can use persistent thermal storage, heat exchange calculations, and the shared temperature bar.

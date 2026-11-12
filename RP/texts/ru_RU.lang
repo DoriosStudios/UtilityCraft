@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] Особые инструменты
 
 item.utilitycraft:copy_paste_tool=Инструмент копирования §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7Использовать: копировать или вставить совместимые настройки §r\n§7Красться + Использовать: открыть настройки\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7Использовать: копировать или вставить совместимые настройки §r\n§7Красться + Использовать в воздухе: открыть настройки\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=Бур
 tile.utilitycraft:drill.tooltip=§r§7- Мины на площади 3x3\n§o§9@UtilityCraft

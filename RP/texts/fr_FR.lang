@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] Outils spéciaux
 
 item.utilitycraft:copy_paste_tool=Outil Copier/Coller §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interagir : copier ou coller les réglages compatibles §r\n§7S'accroupir + Interagir : ouvrir les réglages\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7Interagir : copier ou coller les réglages compatibles §r\n§7S'accroupir + Interagir dans le vide : ouvrir les réglages\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=Forage
 tile.utilitycraft:drill.tooltip=§r§7- Mines dans une zone 3x3\n§o§9@UtilityCraft

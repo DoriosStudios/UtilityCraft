@@ -2527,7 +2527,7 @@ tile.utilitycraft:steel_sword.tooltip=§r§o§9@UtilityCraft
 ### [equipment.special] 特殊工具
 
 item.utilitycraft:copy_paste_tool=复制/粘贴工具 §r
-tile.utilitycraft:copy_paste_tool.tooltip=§r§7交互：复制或粘贴兼容的方块设置 §r\n§7潜行+交互：打开工具设置\n§o§9@UtilityCraft
+tile.utilitycraft:copy_paste_tool.tooltip=§r§7交互：复制或粘贴兼容的方块设置 §r\n§7潜行+对空气交互：打开工具设置\n§o§9@UtilityCraft
 
 item.utilitycraft:drill=钻头
 tile.utilitycraft:drill.tooltip=§r§7- 3x3范围挖掘\n§o§9@UtilityCraft
