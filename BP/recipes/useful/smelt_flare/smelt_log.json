@@ -12,7 +12,7 @@
 				"item": "utilitycraft:smeltflare"
 			},
 			{
-				"item": "log"
+				"tag": "minecraft:logs_that_burn"
 			}
 		],
 		"result": {

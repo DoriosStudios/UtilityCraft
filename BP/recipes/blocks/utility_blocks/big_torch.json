@@ -15,7 +15,7 @@
 				"item": "iron_ingot"
 			},
 			"W": {
-				"item": "log"
+				"tag": "minecraft:logs"
 			}
 		},
 		"pattern": [
@@ -34,7 +34,7 @@
 				"item": "minecraft:iron_ingot"
 			},
 			{
-				"item": "minecraft:log"
+				"tag": "minecraft:logs"
 			}
 		]
 	}

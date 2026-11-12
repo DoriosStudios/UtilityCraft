@@ -12,7 +12,7 @@
 				"item": "minecraft:hopper"
 			},
 			"P": {
-				"item": "minecraft:planks"
+				"tag": "minecraft:planks"
 			},
 			"S": {
 				"item": "minecraft:stone_block_slab"
@@ -27,7 +27,7 @@
 				"item": "minecraft:hopper"
 			},
 			{
-				"item": "minecraft:planks"
+				"tag": "minecraft:planks"
 			},
 			{
 				"item": "minecraft:stone_block_slab"

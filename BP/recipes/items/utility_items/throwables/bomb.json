@@ -12,7 +12,7 @@
 				"item": "minecraft:gunpowder"
 			},
 			"W": {
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			},
 			"C": {
 				"item": "minecraft:cobblestone"
@@ -32,7 +32,7 @@
 				"item": "minecraft:gunpowder"
 			},
 			{
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			},
 			{
 				"item": "minecraft:cobblestone"

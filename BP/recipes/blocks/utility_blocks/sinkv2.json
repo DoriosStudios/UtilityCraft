@@ -15,7 +15,7 @@
 				"item": "ender_eye"
 			},
 			"P": {
-				"item": "planks"
+				"tag": "minecraft:planks"
 			},
 			"C": {
 				"item": "utilitycraft:water_ball"
@@ -45,7 +45,7 @@
 				"item": "minecraft:ender_eye"
 			},
 			{
-				"item": "minecraft:planks"
+				"tag": "minecraft:planks"
 			},
 			{
 				"item": "minecraft:water_bucket"

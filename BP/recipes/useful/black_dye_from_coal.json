@@ -9,7 +9,7 @@
 		],
 		"ingredients": [
 			{
-				"item": "minecraft:coal"
+				"tag": "minecraft:coals"
 			}
 		],
 		"result": {
@@ -18,7 +18,7 @@
 		},
         "unlock": [
 			{
-				"item": "minecraft:coal"
+				"tag": "minecraft:coals"
 			}
 		]
 	}

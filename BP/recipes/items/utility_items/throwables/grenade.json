@@ -12,7 +12,7 @@
 				"item": "minecraft:gunpowder"
 			},
 			"W": {
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			}
 		},
 		"pattern": [
@@ -29,7 +29,7 @@
 				"item": "minecraft:gunpowder"
 			},
 			{
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			}
 		]
 	}

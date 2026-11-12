@@ -27,10 +27,10 @@
 				"item": "minecraft:stick"
 			},
 			"A": {
-				"item": "planks"
+				"tag": "minecraft:planks"
 			},
 			"S": {
-				"item": "log"
+				"tag": "minecraft:logs"
 			}
 		}
 	}

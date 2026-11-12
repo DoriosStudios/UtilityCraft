@@ -12,10 +12,10 @@
 				"item": "stick"
 			},
 			"P": {
-				"item": "planks"
+				"tag": "minecraft:planks"
 			},
 			"S": {
-				"item": "wooden_slab"
+				"tag": "minecraft:wooden_slabs"
 			}
 		},
 		"pattern": [
@@ -31,10 +31,10 @@
 				"item": "minecraft:stick"
 			},
 			{
-				"item": "minecraft:planks"
+				"tag": "minecraft:planks"
 			},
 			{
-				"item": "minecraft:wooden_slab"
+				"tag": "minecraft:wooden_slabs"
 			}
 		]
 	}

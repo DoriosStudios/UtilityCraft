@@ -9,7 +9,7 @@
 		],
 		"key": {
 			"O": {
-				"item": "wool"
+				"tag": "minecraft:wool"
 			},
 			"S": {
 				"item": "utilitycraft:base_seeds"
@@ -25,7 +25,7 @@
 		},
 		"unlock": [
 			{
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			},
 			{
 				"item": "utilitycraft:base_seeds"

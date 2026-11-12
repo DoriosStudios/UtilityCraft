@@ -14,7 +14,7 @@
 		],
 		"unlock": [
 			{
-				"item": "minecraft:cobblestone"
+				"tag": "minecraft:stone_tool_materials"
 			},
 			{
 				"item": "minecraft:stone"
@@ -30,7 +30,7 @@
 		],
 		"key": {
 			"A": {
-				"item": "minecraft:cobblestone"
+				"tag": "minecraft:stone_tool_materials"
 			},
 			"S": {
 				"item": "minecraft:stone"

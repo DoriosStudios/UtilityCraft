@@ -13,7 +13,7 @@
 		],
 		"key": {
 			"L": {
-				"item": "log"
+				"tag": "minecraft:logs"
 			}
 		},
 		"result": {
@@ -22,7 +22,7 @@
 		},
 		"unlock": [
 			{
-				"item": "minecraft:log"
+				"tag": "minecraft:logs"
 			}
 		]
 	}

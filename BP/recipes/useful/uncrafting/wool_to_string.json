@@ -9,7 +9,7 @@
 		],
 		"ingredients": [
 			{
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			}
 		],
 		"result": {
@@ -18,7 +18,7 @@
 		},
 		"unlock": [
 			{
-				"item": "minecraft:wool"
+				"tag": "minecraft:wool"
 			}
 		]
 	}

@@ -15,7 +15,7 @@
 				"item": "minecraft:gravel"
 			},
 			"S": {
-				"item": "minecraft:sand"
+				"tag": "minecraft:sand"
 			}
 		},
 		"pattern": [
@@ -35,7 +35,7 @@
 				"item": "minecraft:gravel"
 			},
 			{
-				"item": "minecraft:sand"
+				"tag": "minecraft:sand"
 			}
 		]
 	}
