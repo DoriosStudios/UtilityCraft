@@ -1,166 +1,130 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:basic_wind_turbine",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
-			},
-			"states": {
-				"utilitycraft:has_selection": [true, false],
-				"utilitycraft:on": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:wind_turbine": {
-				"entity": {
-					"name": "wind_turbine",
-					"type": "generator",
-					"inventory_size":2
-				},
-				"generator": {
-					"energy_cap": 64000,
-					"rate_speed_base": 8
-				},
-				"max_altitude_multiplier": 2,
-				"altitude": {
-					"min": 20,
-					"base": 63,
-					"bonus_step": 16,
-					"penalty_step": 8,
-					"step_ratio": 0.125,
-					"max_multiplier": 2
-				}
-			},
-			"minecraft:geometry": "geometry.utilitycraft_wind_turbine",
-			"minecraft:material_instances": {
-				"aspas": {
-					"texture": "utilitycraft_wind_turbine_still",
-					"render_method": "alpha_test"
-				},
-				"*": {
-					"texture": "utilitycraft_basic_wind_turbine_off",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					4,
-					4
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					16,
-					16
-				]
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					16,
-					16
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:generator": {},
-			"tag:dorios:energy": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "!q.block_state('utilitycraft:has_selection')",
-				"components": { "minecraft:selection_box": false }
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:on') == true ",
-				"components": {
-					"minecraft:material_instances": {
-						"aspas": {
-							"texture": "utilitycraft_wind_turbine",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_basic_wind_turbine_on",
-							"render_method": "alpha_test"
-						}
-					},
-					"minecraft:light_emission": 4
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:basic_wind_turbine",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      },
+      "states": {
+        "utilitycraft:has_selection": [true, false],
+        "utilitycraft:on": [false, true]
+      }
+    },
+    "components": {
+      "utilitycraft:wind_turbine": {
+        "entity": {
+          "name": "wind_turbine",
+          "type": "generator",
+          "inventory_size": 2
+        },
+        "generator": {
+          "energy_cap": 64000,
+          "rate_speed_base": 8
+        },
+        "max_altitude_multiplier": 2,
+        "altitude": {
+          "min": 20,
+          "base": 63,
+          "bonus_step": 16,
+          "penalty_step": 8,
+          "step_ratio": 0.125,
+          "max_multiplier": 2
+        }
+      },
+      "minecraft:geometry": "geometry.utilitycraft_wind_turbine",
+      "minecraft:material_instances": {
+        "aspas": {
+          "texture": "utilitycraft_wind_turbine_still",
+          "render_method": "alpha_test"
+        },
+        "*": {
+          "texture": "utilitycraft_basic_wind_turbine_off",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:tick": {
+        "interval_range": [4, 4]
+      },
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 16, 16]
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-8, 0, -8],
+          "size": [16, 16, 16]
+        }
+      ],
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": [
+        "dorios:energy",
+        "dorios:generator",
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "!q.block_state('utilitycraft:has_selection')",
+        "components": { "minecraft:selection_box": false }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:on') == true ",
+        "components": {
+          "minecraft:material_instances": {
+            "aspas": {
+              "texture": "utilitycraft_wind_turbine",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_basic_wind_turbine_on",
+              "render_method": "alpha_test"
+            }
+          },
+          "minecraft:light_emission": 4
+        }
+      }
+    ]
+  }
 }

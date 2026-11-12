@@ -1,119 +1,96 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:waycenter",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:range": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5
-				]
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
-			}
-		},
-		"components": {
-			"utilitycraft:computer": {},
-			"utilitycraft:upgradeable": {},
-			"minecraft:geometry": "minecraft:geometry.full_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_way_center_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_way_center_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
-					"texture": "utilitycraft_way_center_south",
-					"render_method": "alpha_test"
-				},
-				"east": {
-					"texture": "utilitycraft_way_center_east",
-					"render_method": "alpha_test"
-				},
-				"west": {
-					"texture": "utilitycraft_way_center_west",
-					"render_method": "alpha_test"
-				},
-				"up": {
-					"texture": "utilitycraft_way_center_up",
-					"render_method": "alpha_test"
-				},
-				"down": {
-					"texture": "utilitycraft_way_center_down",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2.0
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:upgradeable": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:waycenter",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:range": [0, 1, 2, 3, 4, 5]
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      }
+    },
+    "components": {
+      "utilitycraft:computer": {},
+      "utilitycraft:upgradeable": {},
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_way_center_north",
+          "render_method": "alpha_test"
+        },
+        "north": {
+          "texture": "utilitycraft_way_center_north",
+          "render_method": "alpha_test"
+        },
+        "south": {
+          "texture": "utilitycraft_way_center_south",
+          "render_method": "alpha_test"
+        },
+        "east": {
+          "texture": "utilitycraft_way_center_east",
+          "render_method": "alpha_test"
+        },
+        "west": {
+          "texture": "utilitycraft_way_center_west",
+          "render_method": "alpha_test"
+        },
+        "up": {
+          "texture": "utilitycraft_way_center_up",
+          "render_method": "alpha_test"
+        },
+        "down": {
+          "texture": "utilitycraft_way_center_down",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.0
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": [
+        "dorios:upgradeable"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      }
+    ]
+  }
 }

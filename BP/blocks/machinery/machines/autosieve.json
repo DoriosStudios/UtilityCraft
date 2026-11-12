@@ -1,182 +1,157 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:autosieve",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
-			},
-			"states": {
-				"utilitycraft:has_selection": [true, false],
-				"utilitycraft:on": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:autosieve": {
-				"entity": {
-					"type": "machine",
-					"inventory_size": 22
-				},
-				"machine": {
-					"energy_cap": 512000,
-					"energy_cost": 6400,
-					"rate_speed_base": 40,
-					"upgrades": [
-						4,
-						5
-					]
-				}
-			},
-			"utilitycraft:machine_upgrades": [
-				{ "type": "speed", "slot": 4 },
-				{ "type": "energy", "slot": 5 }
-			],
-			"minecraft:geometry": "minecraft:geometry.full_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_autosieve_off_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_autosieve_off_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
-					"texture": "utilitycraft_autosieve_off_south",
-					"render_method": "alpha_test"
-				},
-				"east": {
-					"texture": "utilitycraft_autosieve_off_east",
-					"render_method": "alpha_test"
-				},
-				"west": {
-					"texture": "utilitycraft_autosieve_off_west",
-					"render_method": "alpha_test"
-				},
-				"up": {
-					"texture": "utilitycraft_autosieve_off_up",
-					"render_method": "alpha_test"
-				},
-				"down": {
-					"texture": "utilitycraft_autosieve_off_down",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					4,
-					4
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:machine": {},
-			"tag:dorios:energy": {},
-			"tag:dorios:item": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "!q.block_state('utilitycraft:has_selection')",
-				"components": { "minecraft:selection_box": false }
-			},
-{
-				"condition": "q.block_state('utilitycraft:on') == true ",
-				"components": {
-					"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_autosieve_on_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_autosieve_on_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
-					"texture": "utilitycraft_autosieve_on_south",
-					"render_method": "alpha_test"
-				},
-				"east": {
-					"texture": "utilitycraft_autosieve_on_east",
-					"render_method": "alpha_test"
-				},
-				"west": {
-					"texture": "utilitycraft_autosieve_on_west",
-					"render_method": "alpha_test"
-				},
-				"up": {
-					"texture": "utilitycraft_autosieve_on_up",
-					"render_method": "alpha_test"
-				},
-				"down": {
-					"texture": "utilitycraft_autosieve_on_down",
-					"render_method": "alpha_test"
-				}
-			},
-					"minecraft:light_emission": 4
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:autosieve",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      },
+      "states": {
+        "utilitycraft:has_selection": [true, false],
+        "utilitycraft:on": [false, true]
+      }
+    },
+    "components": {
+      "utilitycraft:autosieve": {
+        "entity": {
+          "type": "machine",
+          "inventory_size": 22
+        },
+        "machine": {
+          "energy_cap": 512000,
+          "energy_cost": 6400,
+          "rate_speed_base": 40,
+          "upgrades": [4, 5]
+        }
+      },
+      "utilitycraft:machine_upgrades": [
+        { "type": "speed", "slot": 4 },
+        { "type": "energy", "slot": 5 }
+      ],
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_autosieve_off_north",
+          "render_method": "alpha_test"
+        },
+        "north": {
+          "texture": "utilitycraft_autosieve_off_north",
+          "render_method": "alpha_test"
+        },
+        "south": {
+          "texture": "utilitycraft_autosieve_off_south",
+          "render_method": "alpha_test"
+        },
+        "east": {
+          "texture": "utilitycraft_autosieve_off_east",
+          "render_method": "alpha_test"
+        },
+        "west": {
+          "texture": "utilitycraft_autosieve_off_west",
+          "render_method": "alpha_test"
+        },
+        "up": {
+          "texture": "utilitycraft_autosieve_off_up",
+          "render_method": "alpha_test"
+        },
+        "down": {
+          "texture": "utilitycraft_autosieve_off_down",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:tick": {
+        "interval_range": [4, 4]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": [
+        "dorios:machine",
+        "dorios:energy",
+        "dorios:item",
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "!q.block_state('utilitycraft:has_selection')",
+        "components": { "minecraft:selection_box": false }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:on') == true ",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_autosieve_on_north",
+              "render_method": "alpha_test"
+            },
+            "north": {
+              "texture": "utilitycraft_autosieve_on_north",
+              "render_method": "alpha_test"
+            },
+            "south": {
+              "texture": "utilitycraft_autosieve_on_south",
+              "render_method": "alpha_test"
+            },
+            "east": {
+              "texture": "utilitycraft_autosieve_on_east",
+              "render_method": "alpha_test"
+            },
+            "west": {
+              "texture": "utilitycraft_autosieve_on_west",
+              "render_method": "alpha_test"
+            },
+            "up": {
+              "texture": "utilitycraft_autosieve_on_up",
+              "render_method": "alpha_test"
+            },
+            "down": {
+              "texture": "utilitycraft_autosieve_on_down",
+              "render_method": "alpha_test"
+            }
+          },
+          "minecraft:light_emission": 4
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      }
+    ]
+  }
 }

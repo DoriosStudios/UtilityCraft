@@ -1,179 +1,157 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:expert_thermo_generator",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
-			},
-			"states": {
-				"utilitycraft:has_selection": [true, false],
-				"utilitycraft:on": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:fluid_container": {},
-			"utilitycraft:thermo_generator": {
-				"entity": {
-					"name": "thermo_generator",
-					"type": "fluid_generator",
-					"inventory_size": 9
-				},
-				"generator": {
-					"energy_cap": 512000,
-					"fluid_cap": 32000,
-					"fluid_types": 1,
-					"rate_speed_base": 320
-				}
-			},
-			"minecraft:geometry": "minecraft:geometry.full_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_expert_thermo_generator_off_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_expert_thermo_generator_off_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
-					"texture": "utilitycraft_expert_thermo_generator_off_south",
-					"render_method": "alpha_test"
-				},
-				"east": {
-					"texture": "utilitycraft_expert_thermo_generator_off_east",
-					"render_method": "alpha_test"
-				},
-				"west": {
-					"texture": "utilitycraft_expert_thermo_generator_off_west",
-					"render_method": "alpha_test"
-				},
-				"up": {
-					"texture": "utilitycraft_expert_thermo_generator_off_up",
-					"render_method": "alpha_test"
-				},
-				"down": {
-					"texture": "utilitycraft_expert_thermo_generator_off_down",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					4,
-					4
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:generator": {},
-			"tag:dorios:io": {},
-			"tag:utilitycraft:io.thermo_generator": {},
-			"tag:dorios:energy": {},
-			"tag:dorios:fluid": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "!q.block_state('utilitycraft:has_selection')",
-				"components": { "minecraft:selection_box": false }
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:on') == true ",
-				"components": {
-					"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_expert_thermo_generator_on_north",
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"texture": "utilitycraft_expert_thermo_generator_on_north",
-					"render_method": "alpha_test"
-				},
-				"south": {
-					"texture": "utilitycraft_expert_thermo_generator_on_south",
-					"render_method": "alpha_test"
-				},
-				"east": {
-					"texture": "utilitycraft_expert_thermo_generator_on_east",
-					"render_method": "alpha_test"
-				},
-				"west": {
-					"texture": "utilitycraft_expert_thermo_generator_on_west",
-					"render_method": "alpha_test"
-				},
-				"up": {
-					"texture": "utilitycraft_expert_thermo_generator_on_up",
-					"render_method": "alpha_test"
-				},
-				"down": {
-					"texture": "utilitycraft_expert_thermo_generator_on_down",
-					"render_method": "alpha_test"
-				}
-			},
-					"minecraft:light_emission": 4
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:expert_thermo_generator",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      },
+      "states": {
+        "utilitycraft:has_selection": [true, false],
+        "utilitycraft:on": [false, true]
+      }
+    },
+    "components": {
+      "utilitycraft:fluid_container": {},
+      "utilitycraft:thermo_generator": {
+        "entity": {
+          "name": "thermo_generator",
+          "type": "fluid_generator",
+          "inventory_size": 9
+        },
+        "generator": {
+          "energy_cap": 512000,
+          "fluid_cap": 32000,
+          "fluid_types": 1,
+          "rate_speed_base": 320
+        }
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_expert_thermo_generator_off_north",
+          "render_method": "alpha_test"
+        },
+        "north": {
+          "texture": "utilitycraft_expert_thermo_generator_off_north",
+          "render_method": "alpha_test"
+        },
+        "south": {
+          "texture": "utilitycraft_expert_thermo_generator_off_south",
+          "render_method": "alpha_test"
+        },
+        "east": {
+          "texture": "utilitycraft_expert_thermo_generator_off_east",
+          "render_method": "alpha_test"
+        },
+        "west": {
+          "texture": "utilitycraft_expert_thermo_generator_off_west",
+          "render_method": "alpha_test"
+        },
+        "up": {
+          "texture": "utilitycraft_expert_thermo_generator_off_up",
+          "render_method": "alpha_test"
+        },
+        "down": {
+          "texture": "utilitycraft_expert_thermo_generator_off_down",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:tick": {
+        "interval_range": [4, 4]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": [
+        "dorios:energy",
+        "dorios:generator",
+        "minecraft:is_pickaxe_item_destructible",
+        "utilitycraft:io.furnator",
+        "dorios:io",
+        "dorios:item"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "!q.block_state('utilitycraft:has_selection')",
+        "components": { "minecraft:selection_box": false }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:on') == true ",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_expert_thermo_generator_on_north",
+              "render_method": "alpha_test"
+            },
+            "north": {
+              "texture": "utilitycraft_expert_thermo_generator_on_north",
+              "render_method": "alpha_test"
+            },
+            "south": {
+              "texture": "utilitycraft_expert_thermo_generator_on_south",
+              "render_method": "alpha_test"
+            },
+            "east": {
+              "texture": "utilitycraft_expert_thermo_generator_on_east",
+              "render_method": "alpha_test"
+            },
+            "west": {
+              "texture": "utilitycraft_expert_thermo_generator_on_west",
+              "render_method": "alpha_test"
+            },
+            "up": {
+              "texture": "utilitycraft_expert_thermo_generator_on_up",
+              "render_method": "alpha_test"
+            },
+            "down": {
+              "texture": "utilitycraft_expert_thermo_generator_on_down",
+              "render_method": "alpha_test"
+            }
+          },
+          "minecraft:light_emission": 4
+        }
+      }
+    ]
+  }
 }
