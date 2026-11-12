@@ -55,7 +55,7 @@ export function initializeEntity(entity) {
  *
  * @function tryGetEntityFromBlock
  * @param {import("@minecraft/server").Block} block The block to inspect.
- * @returns {import("@minecraft/server").Entity | undefined} The first entity found at the block location, or undefined if none exist.
+ * @returns {import("@minecraft/server").Entity | undefined} The block-backed owner, or undefined when no block is supplied.
  */
 export function tryGetEntityFromBlock(block) {
   return getBlockOwner(block);
@@ -166,7 +166,7 @@ export function removeOpenUICount(entity) {
  * @param {string} [config.entity.type] Optional entity event suffix triggered after initialization.
  * @param {{x:number,y:number,z:number}} [config.spawn_offset] Optional spawn offset.
  *
- * @returns {import("@minecraft/server").Entity} The spawned entity.
+ * @returns {import("@minecraft/server").Entity} The block-backed owner used by legacy callers.
  */
 export function spawnEntity(block, config) {
   // Native minecraft:block_entity containers own the inventory now. Keep the

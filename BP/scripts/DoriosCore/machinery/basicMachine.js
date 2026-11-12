@@ -60,8 +60,8 @@ export class BasicMachine {
     this.energy = new EnergyStorage(this.entity);
     this.dimension = block.dimension;
     this.block = block;
-    if (this.entity.block && !this.entity.getDynamicProperty("utilitycraft:network_bootstrapped")) {
-      this.entity.setDynamicProperty("utilitycraft:network_bootstrapped", true);
+    if (this.entity.block && this.entity.getDynamicProperty("utilitycraft:network_bootstrapped") !== 2) {
+      this.entity.setDynamicProperty("utilitycraft:network_bootstrapped", 2);
       Utils.updateAdjacentNetwork(block);
     }
     const inventory = this.entity.getComponent("inventory");

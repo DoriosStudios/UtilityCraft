@@ -23,7 +23,12 @@ function getRate(value) {
   return Number.isFinite(rate) && rate > 0 ? rate : DEFAULT_RATE;
 }
 
-/** @param {import("@minecraft/server").Block} block */
+/**
+ * Resolves the persisted block owner for an infinite energy source.
+ *
+ * @param {import("@minecraft/server").Block} block Source block.
+ * @returns {object|undefined} Tagged block owner, or undefined when inactive.
+ */
 function getSourceEntity(block) {
   const owner = getBlockOwner(block);
   return owner.hasTag(Constants.INFINITE_STORAGE_TAG) ? owner : undefined;

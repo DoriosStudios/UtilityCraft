@@ -146,7 +146,9 @@ async function searchEnergyStorages(startPositions, generator) {
       continue;
     }
 
-    if (entity?.getComponent("minecraft:type_family")?.hasTypeFamily("dorios:energy_container")) {
+    const typeFamily = entity?.getComponent("minecraft:type_family");
+    if (typeFamily?.hasTypeFamily("dorios:energy_container")
+      && !typeFamily.hasTypeFamily("dorios:energy_source")) {
       machines.push(position);
     }
   }

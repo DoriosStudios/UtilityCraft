@@ -56,6 +56,12 @@ export function findMachineOutlineEntity(block) {
     return getOutlineEntities(block)[0]
 }
 
+/**
+ * Resolves the block-backed machine owner used by outline settings.
+ *
+ * @param {import("@minecraft/server").Block|undefined} block Machine block.
+ * @returns {object|undefined} Block owner, or undefined when no block exists.
+ */
 function findMachineEntity(block) {
     return block ? getBlockOwner(block) : undefined
 }

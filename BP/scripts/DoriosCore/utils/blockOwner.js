@@ -3,10 +3,21 @@ import { system, world } from "@minecraft/server";
 const DATA_PROPERTY = "utilitycraft:block_owner_data";
 const owners = new WeakMap();
 
+/**
+ * Builds the stable dynamic-property key for a block position.
+ *
+ * @param {import("@minecraft/server").Block} block Block to identify.
+ * @returns {string} Dimension-qualified block coordinate key.
+ */
 function key(block) {
   return `${block.dimension.id}:${block.location.x},${block.location.y},${block.location.z}`;
 }
 
+/**
+ * Reads all persisted state owned by block containers.
+ *
+ * @returns {Record<string, {properties: Record<string, unknown>, dynamic: Record<string, unknown>, tags: string[]}>} Persisted owner data.
+ */
 function readData() {
   try {
     const value = world.getDynamicProperty(DATA_PROPERTY);
@@ -16,10 +27,23 @@ function readData() {
   }
 }
 
+/**
+ * Persists all block-container owner state in the world dynamic property.
+ *
+ * @param {Record<string, unknown>} data Data to serialize.
+ * @returns {void}
+ */
 function writeData(data) {
   world.setDynamicProperty(DATA_PROPERTY, JSON.stringify(data));
 }
 
+/**
+ * Gets the persisted entry for one block.
+ *
+ * @param {import("@minecraft/server").Block} block Block owner to inspect.
+ * @param {boolean} [create=false] Whether to create a missing entry.
+ * @returns {{properties: Record<string, unknown>, dynamic: Record<string, unknown>, tags: string[]}|undefined} Persisted block state.
+ */
 function getEntry(block, create = false) {
   const data = readData();
   const id = key(block);
@@ -27,6 +51,13 @@ function getEntry(block, create = false) {
   return data[id];
 }
 
+/**
+ * Mutates and persists one block owner's state entry.
+ *
+ * @param {import("@minecraft/server").Block} block Block owner to mutate.
+ * @param {(entry: {properties: Record<string, unknown>, dynamic: Record<string, unknown>, tags: string[]}) => void} callback State mutation callback.
+ * @returns {void}
+ */
 function mutate(block, callback) {
   const data = readData();
   const id = key(block);
@@ -38,6 +69,9 @@ function mutate(block, callback) {
 /**
  * Entity-compatible state owner backed by a block and its native block
  * container. It deliberately exposes no entity lifecycle or spawn behavior.
+ *
+ * @param {import("@minecraft/server").Block|undefined} block Block to wrap.
+ * @returns {object|undefined} Entity-compatible block owner, or undefined when no block is supplied.
  */
 export function getBlockOwner(block) {
   if (!block) return undefined;
@@ -64,7 +98,10 @@ export function getBlockOwner(block) {
           if (family === "dorios:fluid_container") return block.permutation.hasTag("dorios:fluid");
           if (family === "dorios:gas_container") return block.permutation.hasTag("dorios:gas");
           if (family === "dorios:container") return block.permutation.hasTag("dorios:item");
-          if (family === "dorios:energy_container") return block.permutation.hasTag("dorios:energy");
+          if (family === "dorios:energy_container") {
+            return block.permutation.hasTag("dorios:energy")
+              && !block.permutation.hasTag("dorios:generator");
+          }
           if (family === "dorios:energy_source") return block.permutation.hasTag("dorios:generator");
           if (family === "dorios:battery") return block.typeId.includes("battery");
           return false;
@@ -106,10 +143,22 @@ export function getBlockOwner(block) {
   return owner;
 }
 
+/**
+ * Checks whether a value is one of the block-backed owner wrappers.
+ *
+ * @param {unknown} value Value to inspect.
+ * @returns {boolean} True when the value represents a block owner.
+ */
 export function isBlockOwner(value) {
   return Boolean(value?.block && value?.id?.startsWith("block:"));
 }
 
+/**
+ * Removes persisted state and the in-memory wrapper for a broken block.
+ *
+ * @param {import("@minecraft/server").Block|undefined} block Broken block.
+ * @returns {void}
+ */
 export function clearBlockOwner(block) {
   if (!block) return;
   const data = readData();
@@ -118,6 +167,14 @@ export function clearBlockOwner(block) {
   owners.delete(block);
 }
 
+/**
+ * Waits until a placed block exposes its native inventory container.
+ *
+ * @param {import("@minecraft/server").Block|undefined} block Placed block.
+ * @param {(owner: object) => void} callback Called with the block owner.
+ * @param {number} [attempts=20] Maximum retry count after the first tick.
+ * @returns {void}
+ */
 export function whenBlockContainerReady(block, callback, attempts = 20) {
   system.run(() => {
     if (!block?.isValid || block.isAir) return;

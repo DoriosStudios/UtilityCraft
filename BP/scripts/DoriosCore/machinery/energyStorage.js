@@ -684,7 +684,8 @@ export class EnergyStorage {
         }
 
         const tf = target.getComponent("minecraft:type_family");
-        if (!tf?.hasTypeFamily("dorios:energy_container")) {
+        if (!tf?.hasTypeFamily("dorios:energy_container")
+          || tf.hasTypeFamily("dorios:energy_source")) {
           invalidKeys.add(getLocationKey(loc));
           continue;
         }
@@ -737,7 +738,8 @@ export class EnergyStorage {
         }
 
         const tf = target.getComponent("minecraft:type_family");
-        if (!tf?.hasTypeFamily("dorios:energy_container")) {
+        if (!tf?.hasTypeFamily("dorios:energy_container")
+          || tf.hasTypeFamily("dorios:energy_source")) {
           invalidKeys.add(getLocationKey(loc));
           continue;
         }
