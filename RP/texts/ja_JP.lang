@@ -3203,7 +3203,7 @@ howtoplay.utilitycraft.first_steps_steel.h3=ワークベンチを作る
 howtoplay.utilitycraft.first_steps_steel.h4=機械の時代
 howtoplay.utilitycraft.first_steps_steel.p1=資源、水、溶岩、丸石を入手できるようになりました。
 howtoplay.utilitycraft.first_steps_steel.p2=次は鋼を作り、機械の時代へ進みましょう。
-howtoplay.utilitycraft.first_steps_steel.p3=四隅にレンガ4個、上段中央と中段の両端に粘土玉3個、下段中央に泥レンガのハーフブロック1個を置き、中央を空けます。鍛冶炉ブロックが4個できます。2回クラフトし、8個を隙間のない2x2x2の立方体に組み立てます。自動で完成し、最後に置いたブロックの向きが正面を決めます。
+howtoplay.utilitycraft.first_steps_steel.p3=上のレシピを2回クラフトして、§e原始的な鍛冶炉のレンガ8個§rを作ります（1回につき4個）。8個すべてを隙間のない§e2x2x2の立方体§rに組み立てると、§6原始的な鍛冶炉§rが自動で完成します。最後に置いたブロックの向きが正面を決めます。
 howtoplay.utilitycraft.first_steps_steel.p4=正面中央の容器を開きます。上の2スロットは材料、下のスロットは燃料用です。矢印は加工の進行、炎は残りの燃料を示します。燃料の石炭1個でレシピ8回分を加工できます。
 howtoplay.utilitycraft.first_steps_steel.p5=鉄の粉と石炭、木炭、石炭の粉、木炭の粉のいずれかを組み合わせます。1回につき各材料を1個消費し、粗鋼1個を作ります。燃料があれば8秒ごとに1回分を加工します。
 howtoplay.utilitycraft.first_steps_steel.p6=粗鋼を精錬すると鋼インゴットになります。かまど、SmeltFlare、または材料スロットを1つ空けた鍛冶炉を使えます。通常の精錬では両方の材料スロットを同時に使え、各スロットで2秒ごとに1回分を加工します。構造を壊すと中身が返されます。
@@ -3213,6 +3213,7 @@ howtoplay.utilitycraft.first_steps_steel.p9=機械の時代に到達しました
 howtoplay.utilitycraft.first_steps_steel.p10=最初の機械やアップグレードのために、鋼、鉄、銅、レッドストーン、石炭を確保しましょう。
 howtoplay.utilitycraft.first_steps_steel.p11=最初の機械を作り、エネルギー源につないで自動化を始めましょう。
 howtoplay.utilitycraft.first_steps_steel.forge_render=完成した原始的な鍛冶炉：2x2x2の構造。
+howtoplay.utilitycraft.first_steps_steel.iron_dust=上に示した§fストーンハンマー§rなどの§eハンマー§rで、§f鉄鉱石§rまたは§f鉄の原石ブロック§rを壊すと§f鉄粉§rが手に入ります。この鉄粉を使って§f粗鋼§rを作ります。
 
 ### [guide.machines] 機械
 

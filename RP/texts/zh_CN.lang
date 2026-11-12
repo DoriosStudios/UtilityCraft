@@ -3203,7 +3203,7 @@ howtoplay.utilitycraft.first_steps_steel.h3=合成工作台
 howtoplay.utilitycraft.first_steps_steel.h4=机械时代
 howtoplay.utilitycraft.first_steps_steel.p1=你已经掌握了 §b资源收集§r、§b水§r 和 §6熔岩§r 生产，以及 §f圆石§r 生成。
 howtoplay.utilitycraft.first_steps_steel.p2=现在是时候进入冶金领域了——通过制作 §f钢§r，标志着 §e机械时代§r 的开始。
-howtoplay.utilitycraft.first_steps_steel.p3=在四角放置4块红砖，上方中央及中间两侧放置3个黏土球，下方中央放置1个泥砖台阶，正中央留空。每次合成4个原始锻炉方块。合成两次，再将8个方块摆成实心的2x2x2立方体。锻炉自动成形，最后放置的方块决定正面朝向。
+howtoplay.utilitycraft.first_steps_steel.p3=按上方配方合成两次，获得§e8块原始锻炉砖§r（每次4块）。将全部8块摆成§e实心的2x2x2立方体§r，即可建成§6原始锻炉§r。锻炉自动成形，最后放置的方块决定正面朝向。
 howtoplay.utilitycraft.first_steps_steel.p4=打开锻炉正面中央的容器。上方两个槽位放原料，下方槽位放§6燃料§r。箭头显示配方进度，火焰显示剩余燃料。燃料与配方原料分开消耗：燃料槽中的§71个煤炭§r可供§e8次配方加工§r使用。
 howtoplay.utilitycraft.first_steps_steel.p5=在上方任意一个槽位放入§f铁粉§r，另一个放入§7煤炭、木炭、煤粉或木炭粉§r，并在下方加入燃料。每次配方消耗两种原料各1个，产出§f1个粗钢§r。锻炉每§e8秒加工1次配方§r。冶炼火花不再能将粗铁与煤炭合成为粗钢。
 howtoplay.utilitycraft.first_steps_steel.p6=将§f粗钢§r放入§e熔炉§r，或放入锻炉并留空另一个原料槽，也可使用§e冶炼火花§r，将其炼成§f钢锭§r。使用普通熔炉配方时，两个原料槽可以同时烧炼，§e每个槽位每2秒加工1次配方§r。也可以把§f9个粗钢§r合成粗钢块后烧炼。拆开结构时，会返还其中存放的物品。
@@ -3213,6 +3213,7 @@ howtoplay.utilitycraft.first_steps_steel.p9=恭喜你，你已经进入了 §e�
 howtoplay.utilitycraft.first_steps_steel.p10=在继续之前，请保持 §f钢§r、§f铁§r、§6铜§r、§c红石§r 和 §7煤炭§r 的供应。这些材料将支持你的第一批机器、发电机和升级。
 howtoplay.utilitycraft.first_steps_steel.p11=你的下一个目标是合成你的第一台动力 §b机器§r，将它们连接到 §e能源§r，并开始将你的基地转变为生产系统。
 howtoplay.utilitycraft.first_steps_steel.forge_render=组装完成的原始锻炉：2x2x2结构。
+howtoplay.utilitycraft.first_steps_steel.iron_dust=使用§e锤子§r（例如上方的§f石锤§r）破坏§f铁矿石§r或§f粗铁块§r，即可获得§f铁粉§r。你将用这些铁粉制作§f粗钢§r。
 
 ### [guide.machines] 机器
 

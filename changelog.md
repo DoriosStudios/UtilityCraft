@@ -12,6 +12,10 @@ This update fixes Copy/Paste Tool interactions with machines and expands network
     - Shows the selected Copy or Paste mode in the action bar while held, keeping result messages visible first.
     - Prevents duplicate actions from overlapping block and entity interactions.
 
+## UI/UX
+
+- Updated **First Steps to Steel** with a Primitive Forge Bricks recipe image, clearer instructions for assembling its eight blocks, and a Stone Hammer illustration explaining how to obtain Iron Dust.
+
 ## THIRD-PARTY / INTEGRATION
 
 - External exporters receive item, liquid, and gas network routes through direct script events and save them in their own addon's dynamic properties. Their addon owns settings, upgrades, menus, and transfers. Liquid and gas networks now support directional importers.

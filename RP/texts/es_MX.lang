@@ -3203,7 +3203,7 @@ howtoplay.utilitycraft.first_steps_steel.h3=Fabricar la Mesa de máquinas
 howtoplay.utilitycraft.first_steps_steel.h4=La era de las máquinas
 howtoplay.utilitycraft.first_steps_steel.p1=Ya dominas la §brecolección de recursos§r, la producción de §bagua§r y §6lava§r, y la generación de §fAdoquín§r.
 howtoplay.utilitycraft.first_steps_steel.p2=Ahora comienza la metalurgia: fabrica §fAcero§r para entrar en la §eera de las máquinas§r.
-howtoplay.utilitycraft.first_steps_steel.p3=Coloca 4 Ladrillos en las esquinas, 3 Bolas de arcilla en el centro superior y los dos laterales, y 1 Losa de ladrillos de barro en el centro inferior. Deja vacío el centro. Obtendrás 4 bloques de Forja primitiva. Fabrica la receta dos veces y coloca los 8 bloques formando un cubo sólido de 2x2x2. La estructura se forma automáticamente; el último bloque determina el frente.
+howtoplay.utilitycraft.first_steps_steel.p3=Fabrica la receta de arriba dos veces para obtener §e8 Ladrillos de forja primitiva§r (4 por fabricación). Coloca los 8 bloques formando un §ecubo sólido de 2x2x2§r para construir la §6Forja primitiva§r. Se forma automáticamente; el último bloque determina el frente.
 howtoplay.utilitycraft.first_steps_steel.p4=Abre el contenedor situado en el centro del frente. Las dos ranuras superiores reciben ingredientes y la inferior recibe §6combustible§r. La flecha indica el progreso y la llama muestra el combustible restante. El combustible es independiente de los ingredientes: §71 Carbón§r en su ranura proporciona calor para §e8 unidades de receta§r.
 howtoplay.utilitycraft.first_steps_steel.p5=Coloca §fPolvo de hierro§r en una ranura superior y §7Carbón, Carbón vegetal, Polvo de carbón o Polvo de carbón vegetal§r en la otra. Añade combustible en la ranura inferior. Cada receta consume una unidad de cada ingrediente y produce §f1 Acero bruto§r. La forja procesa §e1 receta cada 8 segundos§r. SmeltFlare ya no produce Acero bruto a partir de Hierro en bruto y Carbón.
 howtoplay.utilitycraft.first_steps_steel.p6=Funde §fAcero bruto§r en un §eHorno§r, en la forja con la segunda entrada vacía o con §eSmeltFlare§r para obtener §fLingotes de acero§r. Para las recetas normales de horno, ambas entradas pueden fundir a la vez, procesando §e1 receta por entrada cada 2 segundos§r. También puedes combinar §f9 unidades de Acero bruto§r en un bloque para fundirlo. Al romper la estructura recuperarás los objetos almacenados.
@@ -3213,6 +3213,7 @@ howtoplay.utilitycraft.first_steps_steel.p9=Has llegado a la §eera de las máqu
 howtoplay.utilitycraft.first_steps_steel.p10=Antes de continuar, reúne §fAcero§r, §fHierro§r, §6Cobre§r, §cRedstone§r y §7Carbón§r. Los necesitarás para tus primeras máquinas, generadores y mejoras.
 howtoplay.utilitycraft.first_steps_steel.p11=Tu siguiente objetivo es fabricar tus primeras §bMáquinas§r, conectarlas a una fuente de §eEnergía§r y comenzar a convertir tu base en un sistema de producción.
 howtoplay.utilitycraft.first_steps_steel.forge_render=Forja primitiva ensamblada: estructura de 2x2x2.
+howtoplay.utilitycraft.first_steps_steel.iron_dust=Usa un §eMartillo§r, como el §fMartillo de Piedra§r de arriba, para romper §fMineral de hierro§r o un §fBloque de hierro en bruto§r y obtener §fPolvo de Hierro§r. Usarás este polvo para crear §fAcero Bruto§r.
 
 ### [guide.machines] Máquinas
 

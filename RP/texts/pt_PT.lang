@@ -3203,7 +3203,7 @@ howtoplay.utilitycraft.first_steps_steel.h3=Fabricar o Bancada de Engenharia
 howtoplay.utilitycraft.first_steps_steel.h4=Era das máquinas
 howtoplay.utilitycraft.first_steps_steel.p1=Já sabes obter recursos, água, lava e pedregulho.
 howtoplay.utilitycraft.first_steps_steel.p2=Agora podes produzir aço e começar a era das máquinas.
-howtoplay.utilitycraft.first_steps_steel.p3=Coloca 4 tijolos nos cantos, 3 bolas de argila no centro superior e nas duas laterais, e 1 laje de tijolos de barro no centro inferior. Deixa o centro vazio. A receita produz 4 blocos de Forja primitiva. Faz a receita duas vezes e monta os 8 blocos num cubo sólido de 2x2x2. A forja forma-se automaticamente; o último bloco determina a frente.
+howtoplay.utilitycraft.first_steps_steel.p3=Faz a receita acima duas vezes para obter §e8 Tijolos de forja primitiva§r (4 por fabrico). Monta os 8 blocos num §ecubo sólido de 2x2x2§r para construir a §6Forja primitiva§r. Ela forma-se automaticamente; o último bloco determina a frente.
 howtoplay.utilitycraft.first_steps_steel.p4=Abre o recipiente no centro da frente. Os dois espaços superiores recebem ingredientes e o inferior recebe combustível. A seta indica o progresso e a chama mostra o combustível restante. Um carvão como combustível processa 8 unidades.
 howtoplay.utilitycraft.first_steps_steel.p5=Combina pó de ferro com carvão, carvão vegetal ou as suas versões em pó. Cada receita consome um de cada ingrediente e produz 1 aço bruto. Com combustível, a forja processa 1 receita a cada 8 segundos.
 howtoplay.utilitycraft.first_steps_steel.p6=Funde o aço bruto para obter lingotes de aço. Usa uma fornalha, SmeltFlare ou a forja com um espaço de ingrediente vazio. Nas receitas normais, as duas entradas podem fundir ao mesmo tempo, processando 1 receita por entrada a cada 2 segundos. Desmontar a forja devolve o seu conteúdo.
@@ -3213,6 +3213,7 @@ howtoplay.utilitycraft.first_steps_steel.p9=Chegaste à era das máquinas: produ
 howtoplay.utilitycraft.first_steps_steel.p10=Guarda aço, ferro, cobre, redstone e carvão para as tuas primeiras máquinas e melhorias.
 howtoplay.utilitycraft.first_steps_steel.p11=Agora fabrica as tuas primeiras máquinas, liga-as a uma fonte de energia e começa a automatizar.
 howtoplay.utilitycraft.first_steps_steel.forge_render=Forja primitiva montada: estrutura de 2x2x2.
+howtoplay.utilitycraft.first_steps_steel.iron_dust=Usa um §eMartelo§r, como o §fMartelo de Pedra§r acima, para partir §fMinério de ferro§r ou um §fBloco de ferro em bruto§r e obter §fPó de Ferro§r. Vais usar esse pó para fazer §fAço Bruto§r.
 
 ### [guide.machines] Máquinas
 

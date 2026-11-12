@@ -3203,7 +3203,7 @@ howtoplay.utilitycraft.first_steps_steel.h3=Die Werkbank herstellen
 howtoplay.utilitycraft.first_steps_steel.h4=Das Maschinenzeitalter
 howtoplay.utilitycraft.first_steps_steel.p1=Du kannst bereits Ressourcen, Wasser, Lava und Bruchstein gewinnen.
 howtoplay.utilitycraft.first_steps_steel.p2=Jetzt kannst du Stahl herstellen und das Maschinenzeitalter beginnen.
-howtoplay.utilitycraft.first_steps_steel.p3=Lege 4 Ziegel in die Ecken, 3 Tonklumpen oben in die Mitte und auf die beiden Seiten sowie 1 Schlammziegelstufe unten in die Mitte. Die Mitte bleibt leer. Das Rezept ergibt 4 Schmiedeblöcke. Stelle es zweimal her und baue aus den 8 Blöcken einen massiven 2x2x2-Würfel. Die Schmiede bildet sich automatisch; der letzte Block bestimmt die Vorderseite.
+howtoplay.utilitycraft.first_steps_steel.p3=Stelle das obige Rezept zweimal her, um §e8 Primitive Schmiedeziegel§r zu erhalten (4 pro Herstellung). Baue aus allen 8 Blöcken einen §emassiven 2x2x2-Würfel§r, um die §6Primitive Schmiede§r zu errichten. Sie bildet sich automatisch; der letzte Block bestimmt die Vorderseite.
 howtoplay.utilitycraft.first_steps_steel.p4=Öffne den Behälter mittig an der Vorderseite. Die beiden oberen Plätze sind für Zutaten, der untere für Brennstoff. Der Pfeil zeigt den Fortschritt und die Flamme den verbleibenden Brennstoff. Eine Kohle als Brennstoff reicht für 8 Einheiten.
 howtoplay.utilitycraft.first_steps_steel.p5=Kombiniere Eisenstaub mit Kohle, Holzkohle oder deren Staubformen. Jedes Rezept verbraucht je eine Zutat und ergibt 1 Rohstahl. Mit Brennstoff verarbeitet die Schmiede 1 Rezept alle 8 Sekunden.
 howtoplay.utilitycraft.first_steps_steel.p6=Schmilz Rohstahl zu Stahlbarren. Nutze einen Ofen, SmeltFlare oder die Schmiede mit einem leeren Zutatenplatz. Bei normalen Ofenrezepten können beide Zutatenplätze gleichzeitig schmelzen: 1 Rezept pro Platz alle 2 Sekunden. Beim Abbau erhältst du den Inhalt zurück.
@@ -3213,6 +3213,7 @@ howtoplay.utilitycraft.first_steps_steel.p9=Du hast das Maschinenzeitalter errei
 howtoplay.utilitycraft.first_steps_steel.p10=Bewahre Stahl, Eisen, Kupfer, Redstone und Kohle für deine ersten Maschinen und Verbesserungen auf.
 howtoplay.utilitycraft.first_steps_steel.p11=Stelle deine ersten Maschinen her, verbinde sie mit einer Energiequelle und beginne zu automatisieren.
 howtoplay.utilitycraft.first_steps_steel.forge_render=Zusammengebaute primitive Schmiede: 2x2x2-Struktur.
+howtoplay.utilitycraft.first_steps_steel.iron_dust=Baue mit einem §eHammer§r, zum Beispiel dem oben gezeigten §fSteinhammer§r, §fEisenerz§r oder einen §fRoheisenblock§r ab, um §fEisenstaub§r zu erhalten. Diesen Staub brauchst du zur Herstellung von §fRohstahl§r.
 
 ### [guide.machines] Maschinen
 

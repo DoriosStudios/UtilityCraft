@@ -437,6 +437,38 @@
             }
         ]
     },
+    "guide_primitive_forge_recipe": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": ["90%", 96],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/static/images/primitive_forge_recipe",
+                    "size": [150, 90]
+                }
+            }
+        ]
+    },
+    "guide_stone_hammer_render": {
+        "type": "panel",
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "size": ["90%", 56],
+        "controls": [
+            {
+                "image@how_to_play_common.image": {
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "texture": "textures/items/tools/stone_hammer",
+                    "size": [48, 48]
+                }
+            }
+        ]
+    },
     "guide_primitive_forge_render": {
     "type": "panel",
     "anchor_from": "top_middle",
@@ -2049,6 +2081,7 @@
                     "$text": "howtoplay.utilitycraft.first_steps_steel.h1"
                 }
             },
+            { "primitive_forge_recipe@how_to_play.guide_primitive_forge_recipe": {} },
             {
                 "paragraph_3@how_to_play.wide_paragraph": {
                     "$text": "howtoplay.utilitycraft.first_steps_steel.p3"
@@ -2072,6 +2105,9 @@
                     "$text": "howtoplay.utilitycraft.first_steps_steel.h2"
                 }
             },
+            { "stone_hammer_render@how_to_play.guide_stone_hammer_render": {} },
+            { "iron_dust_paragraph@how_to_play.wide_paragraph": { "$text": "howtoplay.utilitycraft.first_steps_steel.iron_dust" } },
+            { "hammer_padding@how_to_play_common.small_padding": {} },
             {
                 "paragraph_5@how_to_play.wide_paragraph": {
                     "$text": "howtoplay.utilitycraft.first_steps_steel.p5"
