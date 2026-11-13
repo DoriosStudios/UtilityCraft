@@ -1,43 +1,41 @@
-# UtilityCraft v3.6.2
+# UtilityCraft v3.6.3
 
-This update makes multiblock cells and machine modules available to UtilityCraft extensions, refreshes recipe books, and fixes hammer drops.
+This update fixes Copy/Paste Tool interactions and fluid transfers, expands network support for UtilityCraft extensions, and makes crafting recipes accept more material variants.
 
-## BLOCKS
+## ITEMS
 
-- Moved **Energy Cell**, **Liquid Cell**, **Gas Cell**, **Processing Module**, **Speed Module**, and **Efficiency Module** from Heavy Machinery into UtilityCraft.
-    - Extensions can share these internal multiblock components without requiring Heavy Machinery.
-    - Preserved existing block identifiers, textures, and component behavior.
+- **Copy/Paste Tool**
+    - Copies or pastes settings on compatible machines and blocks while standing or sneaking, without opening the machine inventory.
+    - Opens its settings menu only when sneaking and interacting in the air.
+    - Shows the selected Copy or Paste mode in the action bar while held, keeping result messages visible first.
+    - Prevents duplicate actions from overlapping block and entity interactions.
 
 ## RECIPES
 
-- **Multiblock Cells and Modules**
-    - Workbench and Crafter recipes now use UtilityCraft materials without requiring Heavy Machinery.
-    - Replaced Tin Plates with Iron Plates, Steel and Controller Casings with Machine Cases, and Charged Darloonite Crystals with Expert Chips.
-    - Liquid and Gas Cells use their corresponding pipes instead of Steel Ports and retain their two Expert Tanks.
+- **Bonsai**, **Sieve**, **Sink**, **Wooden AIOT**, and **Wooden Hammer** now accept planks through material tags. **Sieve** also accepts wooden slab variants.
+- **Big Torch**, **Wooden Hammer**, and the log-based **Hopper**, **Stick**, and **Chest** recipes now accept logs through material tags, replacing separate wood-specific recipes for sticks and chests.
+- **Smeltflare** charcoal production now accepts logs that can burn.
+- **Smeltflare** and **Black Dye** crafting now use a shared coal tag to accept both coal and charcoal in a single recipe for each output.
+- **Bomb**, **Dynamite**, **Grenade**, **Wool Seeds**, and the **Wool to String** recipe now accept any wool color.
+- **Asphalt** now accepts both regular and red sand.
+- **Stone AIOT** and **Stone Hammer** now accept vanilla stone tool materials in place of cobblestone.
+- Updated recipe unlocks to recognize the corresponding material tags.
 
 ## UI/UX
 
-- **Primitive Forge Bricks**
-    - Renamed the building block from Primitive Forge to Primitive Forge Bricks.
-    - Updated its inventory and held model to show the assembled forge as a complete 3D cube with 32x32 face textures and its front facing the inventory view.
-    - Added a tooltip hint explaining how to obtain Iron Dust by using a hammer on Iron Ore.
-- Added the shared cells and modules to UtilityCraft's Creative inventory, with names and tooltips in all ten supported languages.
-- Added short tooltips explaining multiblock use and the function of each shared cell and machine module in all ten supported languages.
-- Removed addon signatures from internal UI items so machine information panels and interface placeholders no longer display them.
-- **Auto Sieve**
-    - Removed Certus Quartz and Charged Certus Quartz from the recipe book while retaining their scripted drops for addon compatibility.
-- **Auto Fisher**
-    - Removed the Empty Liquid Capsule from the recipe book while retaining its scripted drop for addon compatibility.
-- **Crusher and Electro Press**
-    - Corrected Crusher recipe icons for Double, Triple and Quadruple Compressed Cobblestone.
+- Updated **First Steps to Steel** with a Primitive Forge Bricks recipe image, clearer instructions for assembling its eight blocks, and a Stone Hammer illustration explaining how to obtain Iron Dust. Updated the guide text in all ten supported languages.
+- Updated the **Copy/Paste Tool** tooltip in all ten supported languages to clarify that its settings menu opens when sneaking and interacting in the air.
 
 ## BUG FIXES
 
-- **Hammers**
-    - Fixed crushing ores that drop raw materials or gems, including deepslate variants, Lead and Uranium.
-    - Recognize Silk Touch drops and replace only newly dropped quantities, preserving items already on the ground.
-    - Apply the Crusher recipe once per block without multiplying its output by Fortune.
+- **Fluid Tanks**
+    - Fixed fluid type handling when transferring liquid into an empty tank, including transfers that completely empty the source tank.
 
 ## THIRD-PARTY / INTEGRATION
 
-- Added `TemperatureStorage` and `advanceTemperature` to DoriosCore so extensions can use persistent thermal storage, heat exchange calculations, and the shared temperature bar.
+- External exporters receive item, liquid, and gas network routes through direct script events and save them in their own addon's dynamic properties. Their addon owns settings, upgrades, menus, and transfers. Liquid and gas networks now support directional importers.
+- Pipes carrying multiple UC resource tags now combine their visible connections, so updating one resource no longer hides another resource's connection. Existing color matching and wrench face disconnections remain in effect.
+- Energy networks now traverse extension cables tagged `dorios:energy` and `dorios:isTube`, using the existing color and directional connection rules. Compatible cables can connect directly to UtilityCraft Energy Cables without sharing their block identifier.
+- Added the `utilitycraft:energy_relay` machine-entity role so extensions can receive and redistribute energy through UC-managed destinations. Wrench connection changes now notify extensions through `utilitycraft:pipe_face_update` without managing their custom networks.
+
+Contributors: @Kauziin, @Milo504

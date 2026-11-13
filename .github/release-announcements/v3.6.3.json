@@ -1,0 +1,4 @@
+{
+  "description": "This update fixes Copy/Paste Tool interactions and fluid transfers, expands network support for UtilityCraft extensions, and makes crafting recipes accept more material variants.",
+  "highlights": "- Copy/Paste Tool works while standing or sneaking without opening machine inventories.\n- Crafting recipes accept more wood, wool, sand, and stone material variants.\n- Fluid transfers correctly preserve the liquid type when filling empty tanks.\n- Steel progression has clearer forge assembly and Iron Dust instructions.\n- UtilityCraft extensions can use shared network routes and compatible energy cables."
+}
