@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:xp_drain"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"M": {
-				"item": "iron_bars"
-			},
-			"H": {
-				"item": "minecraft:hopper"
-			}
-		},
-		"pattern": [
-			"SMS",
-			"MHM",
-			"SMS"
-		],
-		"result": {
-			"item": "utilitycraft:xp_drain"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:xp_drain"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "M": {
+        "item": "iron_bars"
+      },
+      "H": {
+        "item": "minecraft:hopper"
+      }
+    },
+    "pattern": [
+      "SMS",
+      "MHM",
+      "SMS"
+    ],
+    "result": {
+      "item": "utilitycraft:xp_drain"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

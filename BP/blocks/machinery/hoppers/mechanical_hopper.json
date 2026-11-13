@@ -17,6 +17,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:upgradeable": {},
       "utilitycraft:mechanic_hopper": {
         "type": "hopper"

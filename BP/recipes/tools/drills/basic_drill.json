@@ -1,55 +1,55 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:drill"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			" ZX",
-			"ASZ",
-			"DA"
-		],
-		"key": {
-			"Z": {
-				"item": "minecraft:iron_ingot"
-			},
-			"X": {
-				"item": "minecraft:iron_block"
-			},
-			"A": {
-				"item": "minecraft:repeater"
-			},
-			"S": {
-				"item": "minecraft:amethyst_block"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			}
-		},
-		"unlock": [
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"item": "minecraft:iron_block"
-			},
-			{
-				"item": "minecraft:repeater"
-			},
-			{
-				"item": "minecraft:amethyst_block"
-			},
-			{
-				"item": "minecraft:redstone_block"
-			}
-		],
-		"result": [
-			{
-				"item": "utilitycraft:drill"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:drill"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " ZX",
+      "ASZ",
+      "DA"
+    ],
+    "key": {
+      "Z": {
+        "item": "minecraft:iron_ingot"
+      },
+      "X": {
+        "item": "minecraft:iron_block"
+      },
+      "A": {
+        "item": "minecraft:repeater"
+      },
+      "S": {
+        "item": "minecraft:amethyst_block"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "item": "minecraft:iron_block"
+      },
+      {
+        "item": "minecraft:repeater"
+      },
+      {
+        "item": "minecraft:amethyst_block"
+      },
+      {
+        "item": "minecraft:redstone_block"
+      }
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:drill"
+      }
+    ]
+  }
 }

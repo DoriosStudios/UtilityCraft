@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ultimate_battery"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:expert_battery"
-			},
-			"B": {
-				"item": "redstone_block"
-			},
-			"C": {
-				"item": "utilitycraft:ultimate_chip"
-			},
-			"D": {
-				"item": "utilitycraft:netherite_dust"
-			}
-		},
-		"pattern": [
-			"CAC",
-			"ABA",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:ultimate_battery"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:ultimate_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_battery"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:expert_battery"
+      },
+      "B": {
+        "item": "redstone_block"
+      },
+      "C": {
+        "item": "utilitycraft:ultimate_chip"
+      },
+      "D": {
+        "item": "utilitycraft:netherite_dust"
+      }
+    },
+    "pattern": [
+      "CAC",
+      "ABA",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:ultimate_battery"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:ultimate_chip"
+      }
+    ]
+  }
 }

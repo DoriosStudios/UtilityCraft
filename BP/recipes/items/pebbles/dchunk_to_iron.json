@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:dchunk_to_iron"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:deepslate_iron_chunk"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:deepslate_iron_ore"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:deepslate_iron_chunk"
-			},
-			{
-				"item": "minecraft:deepslate_iron_ore"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:dchunk_to_iron"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:deepslate_iron_chunk"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:deepslate_iron_ore"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:deepslate_iron_chunk"
+      },
+      {
+        "item": "minecraft:deepslate_iron_ore"
+      }
+    ]
+  }
 }

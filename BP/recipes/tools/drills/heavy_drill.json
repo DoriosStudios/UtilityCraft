@@ -1,55 +1,55 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:heavy_drill"
-		},
-		"pattern": [
-			" ZX",
-			"ASZ",
-			"DA"
-		],
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:heavy_drill"
-			}
-		],
-		"unlock": [
-			{
-				"item": "minecraft:diamond"
-			},
-			{
-				"item": "minecraft:diamond_block"
-			},
-			{
-				"item": "minecraft:repeater"
-			},
-			{
-				"item": "utilitycraft:drill"
-			},
-			{
-				"item": "minecraft:redstone_block"
-			}
-		],
-		"key": {
-			"Z": {
-				"item": "minecraft:diamond"
-			},
-			"X": {
-				"item": "minecraft:diamond_block"
-			},
-			"A": {
-				"item": "minecraft:repeater"
-			},
-			"S": {
-				"item": "utilitycraft:drill"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:heavy_drill"
+    },
+    "pattern": [
+      " ZX",
+      "ASZ",
+      "DA"
+    ],
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:heavy_drill"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      },
+      {
+        "item": "minecraft:diamond_block"
+      },
+      {
+        "item": "minecraft:repeater"
+      },
+      {
+        "item": "utilitycraft:drill"
+      },
+      {
+        "item": "minecraft:redstone_block"
+      }
+    ],
+    "key": {
+      "Z": {
+        "item": "minecraft:diamond"
+      },
+      "X": {
+        "item": "minecraft:diamond_block"
+      },
+      "A": {
+        "item": "minecraft:repeater"
+      },
+      "S": {
+        "item": "utilitycraft:drill"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      }
+    }
+  }
 }

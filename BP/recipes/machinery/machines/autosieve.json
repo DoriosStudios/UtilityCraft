@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:autosieve"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:sieve"
-			},
-			"R": {
-				"item": "minecraft:redstone"
-			},
-			"C": {
-				"item": "utilitycraft:chip"
-			},
-			"D": {
-				"item": "gold_block"
-			},
-			"M": {
-				"item": "utilitycraft:machine_case"
-			}
-		},
-		"pattern": [
-			"RSR",
-			"CMC",
-			"RDR"
-		],
-		"result": {
-			"item": "utilitycraft:autosieve"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:autosieve"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:sieve"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "C": {
+        "item": "utilitycraft:chip"
+      },
+      "D": {
+        "item": "gold_block"
+      },
+      "M": {
+        "item": "utilitycraft:machine_case"
+      }
+    },
+    "pattern": [
+      "RSR",
+      "CMC",
+      "RDR"
+    ],
+    "result": {
+      "item": "utilitycraft:autosieve"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      }
+    ]
+  }
 }

@@ -1,38 +1,38 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:base_upgrade"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "SLS",
-            "RGR",
-            "SRS"
-        ],
-        "key": {
-            "S": {
-                "item": "utilitycraft:steel_ingot"
-            },
-            "G": {
-                "item": "gold_ingot"
-            },
-            "R": {
-                "item": "redstone"
-            },
-            "L": {
-                "item": "iron_ingot"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:base_upgrade"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:steel_ingot"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:base_upgrade"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "SLS",
+      "RGR",
+      "SRS"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "G": {
+        "item": "gold_ingot"
+      },
+      "R": {
+        "item": "redstone"
+      },
+      "L": {
+        "item": "iron_ingot"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:base_upgrade"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

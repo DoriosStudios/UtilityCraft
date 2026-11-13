@@ -1,32 +1,32 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:gas_extractor"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "key": {
-            "H": {
-                "item": "hopper"
-            },
-            "S": {
-                "item": "utilitycraft:gas_pipe"
-            }
-        },
-        "pattern": [
-            " S",
-            "SHS",
-            " S"
-        ],
-        "result": {
-            "item": "utilitycraft:gas_extractor"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:lead_ingot"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:gas_extractor"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "H": {
+        "item": "hopper"
+      },
+      "S": {
+        "item": "utilitycraft:gas_pipe"
+      }
+    },
+    "pattern": [
+      " S",
+      "SHS",
+      " S"
+    ],
+    "result": {
+      "item": "utilitycraft:gas_extractor"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:lead_ingot"
+      }
+    ]
+  }
 }

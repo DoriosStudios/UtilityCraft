@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:golden_hammer"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:golden_hammer"
-			}
-		],
-		"pattern": [
-			"ASA",
-			"ADA",
-			" D "
-		],
-		"unlock": [
-			{
-				"item": "minecraft:gold_ingot"
-			},
-			{
-				"item": "minecraft:gold_block"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:gold_ingot"
-			},
-			"S": {
-				"item": "minecraft:gold_block"
-			},
-			"D": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:golden_hammer"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:golden_hammer"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      "ADA",
+      " D "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      },
+      {
+        "item": "minecraft:gold_block"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:gold_ingot"
+      },
+      "S": {
+        "item": "minecraft:gold_block"
+      },
+      "D": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

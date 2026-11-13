@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:advanced_thermo_generator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:copper_block"
-			},
-			"B": {
-				"item": "utilitycraft:basic_thermo_generator"
-			},
-			"C": {
-				"item": "utilitycraft:energized_iron_plate"
-			},
-			"D": {
-				"item": "utilitycraft:advanced_fluid_tank"
-			},
-			"E": {
-				"item": "utilitycraft:advanced_chip"
-			}
-		},
-		"pattern": [
-			"ADA",
-			"EBE",
-			"CAC"
-		],
-		"result": {
-			"item": "utilitycraft:advanced_thermo_generator"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:advanced_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:advanced_thermo_generator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:copper_block"
+      },
+      "B": {
+        "item": "utilitycraft:basic_thermo_generator"
+      },
+      "C": {
+        "item": "utilitycraft:energized_iron_plate"
+      },
+      "D": {
+        "item": "utilitycraft:advanced_fluid_tank"
+      },
+      "E": {
+        "item": "utilitycraft:advanced_chip"
+      }
+    },
+    "pattern": [
+      "ADA",
+      "EBE",
+      "CAC"
+    ],
+    "result": {
+      "item": "utilitycraft:advanced_thermo_generator"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:advanced_chip"
+      }
+    ]
+  }
 }

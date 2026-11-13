@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:handful_to_dirt"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:dirt_handful"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:dirt"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:dirt_handful"
-			},
-			{
-				"item": "minecraft:dirt"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:handful_to_dirt"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:dirt_handful"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:dirt"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:dirt_handful"
+      },
+      {
+        "item": "minecraft:dirt"
+      }
+    ]
+  }
 }

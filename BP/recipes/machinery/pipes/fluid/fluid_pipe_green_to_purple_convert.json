@@ -1,27 +1,27 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shapeless": {
-        "description": {
-            "identifier": "utilitycraft:fluid_pipe_green_to_purple_convert"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "ingredients": [
-            {
-                "item": "utilitycraft:fluid_pipe_green"
-            },
-            {
-                "item": "purple_dye"
-            }
-        ],
-        "result": {
-            "item": "utilitycraft:fluid_pipe_purple"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:fluid_pipe_green"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:fluid_pipe_green_to_purple_convert"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:fluid_pipe_green"
+      },
+      {
+        "item": "purple_dye"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:fluid_pipe_purple"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:fluid_pipe_green"
+      }
+    ]
+  }
 }

@@ -1,14 +1,19 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_furnace": {
-		"description": {
-			"identifier": "utilitycraft:steel_ingot_from_dust"
-		},
-		"tags": [
-			"furnace",
-			"blast_furnace"
-		],
-		"input": "utilitycraft:steel_dust",
-		"output": "utilitycraft:steel_ingot"
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "utilitycraft:steel_ingot_from_dust"
+    },
+    "tags": [
+      "furnace",
+      "blast_furnace"
+    ],
+    "input": "utilitycraft:steel_dust",
+    "output": "utilitycraft:steel_ingot",
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_dust"
+      }
+    ]
+  }
 }

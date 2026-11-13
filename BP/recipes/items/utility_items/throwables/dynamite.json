@@ -1,42 +1,42 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:dynamite"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"G": {
-				"item": "minecraft:gunpowder"
-			},
-			"W": {
-				"tag": "minecraft:wool"
-			},
-			"C": {
-				"item": "minecraft:cobbled_deepslate"
-			}
-		},
-		"pattern": [
-			"CGC",
-			"GWG",
-			"CGC"
-		],
-		"result": {
-			"item": "utilitycraft:dynamite",
-			"count": 8
-		},
-		"unlock": [
-			{
-				"item": "minecraft:gunpowder"
-			},
-			{
-				"tag": "minecraft:wool"
-			},
-			{
-				"item": "minecraft:cobbled_deepslate"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:dynamite"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:gunpowder"
+      },
+      "W": {
+        "tag": "minecraft:wool"
+      },
+      "C": {
+        "item": "minecraft:cobbled_deepslate"
+      }
+    },
+    "pattern": [
+      "CGC",
+      "GWG",
+      "CGC"
+    ],
+    "result": {
+      "item": "utilitycraft:dynamite",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      },
+      {
+        "tag": "minecraft:wool"
+      },
+      {
+        "item": "minecraft:cobbled_deepslate"
+      }
+    ]
+  }
 }

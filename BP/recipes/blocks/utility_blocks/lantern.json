@@ -1,47 +1,47 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:lantern"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"T": {
-				"item": "utilitycraft:big_torch"
-			},
-			"G": {
-				"item": "glowstone"
-			},
-			"I": {
-				"item": "iron_ingot"
-			},
-			"M": {
-				"item": "iron_bars"
-			}
-		},
-		"pattern": [
-			"MIM",
-			"TGT",
-			"MIM"
-		],
-		"result": {
-			"item": "utilitycraft:lantern"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:big_torch"
-			},
-			{
-				"item": "minecraft:glowstone"
-			},
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"item": "minecraft:iron_bars"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:lantern"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "T": {
+        "item": "utilitycraft:big_torch"
+      },
+      "G": {
+        "item": "glowstone"
+      },
+      "I": {
+        "item": "iron_ingot"
+      },
+      "M": {
+        "item": "iron_bars"
+      }
+    },
+    "pattern": [
+      "MIM",
+      "TGT",
+      "MIM"
+    ],
+    "result": {
+      "item": "utilitycraft:lantern"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:big_torch"
+      },
+      {
+        "item": "minecraft:glowstone"
+      },
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "item": "minecraft:iron_bars"
+      }
+    ]
+  }
 }

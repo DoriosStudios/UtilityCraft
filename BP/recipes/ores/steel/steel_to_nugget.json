@@ -1,26 +1,26 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:steel_to_nugget"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:steel_ingot",
-				"count": 1
-			}
-		],
-		"result": {
-			"item": "utilitycraft:steel_nugget",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:steel_to_nugget"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:steel_ingot",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:steel_nugget",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

@@ -1,28 +1,28 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ream_of_paper"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "minecraft:paper"
-			}
-		},
-		"pattern": [
-			"PPP",
-			"PPP"
-		],
-		"result": {
-			"item": "utilitycraft:ream_of_paper"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:paper"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ream_of_paper"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:paper"
+      }
+    },
+    "pattern": [
+      "PPP",
+      "PPP"
+    ],
+    "result": {
+      "item": "utilitycraft:ream_of_paper"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:paper"
+      }
+    ]
+  }
 }

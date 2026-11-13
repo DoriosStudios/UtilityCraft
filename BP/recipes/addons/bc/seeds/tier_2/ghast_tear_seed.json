@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ghast_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"H": {
-				"item": "minecraft:ghast_tear"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"HHH",
-			"HSH",
-			"HHH"
-		],
-		"result": {
-			"item": "utilitycraft:ghast_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:ghast_tear"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ghast_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "H": {
+        "item": "minecraft:ghast_tear"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "HHH",
+      "HSH",
+      "HHH"
+    ],
+    "result": {
+      "item": "utilitycraft:ghast_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:ghast_tear"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

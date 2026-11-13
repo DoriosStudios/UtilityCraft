@@ -1,50 +1,50 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:xp_condenser"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:emerald_dust"
-			},
-			"B": {
-				"item": "utilitycraft:machine_case"
-			},
-			"C": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"D": {
-				"item": "minecraft:lapis_block"
-			},
-			"E": {
-				"item": "utilitycraft:expert_chip"
-			}
-		},
-		"pattern": [
-			"CAC",
-			"EBE",
-			"ADA"
-		],
-		"result": {
-			"item": "utilitycraft:xp_condenser"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			},
-			{
-				"item": "utilitycraft:gold_plate"
-			},
-			{
-				"item": "minecraft:lapis_block"
-			},
-			{
-				"item": "utilitycraft:expert_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:xp_condenser"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:emerald_dust"
+      },
+      "B": {
+        "item": "utilitycraft:machine_case"
+      },
+      "C": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "D": {
+        "item": "minecraft:lapis_block"
+      },
+      "E": {
+        "item": "utilitycraft:expert_chip"
+      }
+    },
+    "pattern": [
+      "CAC",
+      "EBE",
+      "ADA"
+    ],
+    "result": {
+      "item": "utilitycraft:xp_condenser"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      },
+      {
+        "item": "utilitycraft:gold_plate"
+      },
+      {
+        "item": "minecraft:lapis_block"
+      },
+      {
+        "item": "utilitycraft:expert_chip"
+      }
+    ]
+  }
 }

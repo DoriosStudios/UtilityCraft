@@ -1,19 +1,19 @@
 {
-    "format_version": "1.21.110",
-    "minecraft:item": {
-        "description": {
-            "identifier": "utilitycraft:compressed_charcoal_block_4",
-            "menu_category": {
-                "category": "construction"
-            }
-        },
-        "components": {
-            "minecraft:block_placer": {
-                "block": "utilitycraft:compressed_charcoal_block_4"
-            },
-            "minecraft:fuel": {
-                "duration": 160000000
-            }
-        }
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:compressed_charcoal_block_4",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:block_placer": {
+        "block": "utilitycraft:compressed_charcoal_block_4"
+      },
+      "minecraft:fuel": {
+        "duration": 160000000
+      }
     }
+  }
 }

@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:compressed_gravel_to_gravel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:compressed_gravel"
-			}
-		],
-		"result": {
-			"item": "minecraft:gravel",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:compressed_gravel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:compressed_gravel_to_gravel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:compressed_gravel"
+      }
+    ],
+    "result": {
+      "item": "minecraft:gravel",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:compressed_gravel"
+      }
+    ]
+  }
 }

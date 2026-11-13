@@ -1,17 +1,28 @@
 {
-	"format_version": "1.20.10",
-	"minecraft:recipe_smithing_transform": {
-		"description": {
-			"identifier": "utilitycraft:netherite_mesh"
-		},
-		"tags": [
-			"smithing_table"
-		],
-		"template": "minecraft:netherite_upgrade_smithing_template",
-		"base": "utilitycraft:diamond_mesh",
-		"addition": "minecraft:netherite_ingot",
-		"result": {
-			"item": "utilitycraft:netherite_mesh"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "utilitycraft:netherite_mesh"
+    },
+    "tags": [
+      "smithing_table"
+    ],
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "base": "utilitycraft:diamond_mesh",
+    "addition": "minecraft:netherite_ingot",
+    "result": {
+      "item": "utilitycraft:netherite_mesh"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherite_upgrade_smithing_template"
+      },
+      {
+        "item": "utilitycraft:diamond_mesh"
+      },
+      {
+        "item": "minecraft:netherite_ingot"
+      }
+    ]
+  }
 }

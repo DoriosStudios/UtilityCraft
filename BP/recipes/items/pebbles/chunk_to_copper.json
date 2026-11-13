@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:chunk_to_copper"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:copper_chunk"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:copper_ore"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:copper_chunk"
-			},
-			{
-				"item": "minecraft:copper_ore"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:chunk_to_copper"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:copper_chunk"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:copper_ore"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:copper_chunk"
+      },
+      {
+        "item": "minecraft:copper_ore"
+      }
+    ]
+  }
 }

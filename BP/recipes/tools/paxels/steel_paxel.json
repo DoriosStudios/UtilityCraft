@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:steel_paxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_shovel"
-			},
-			{
-				"item": "utilitycraft:steel_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "utilitycraft:steel_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "utilitycraft:steel_shovel"
-			},
-			"Z": {
-				"item": "utilitycraft:steel_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "utilitycraft:steel_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"result": [
-			{
-				"item": "utilitycraft:steel_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:steel_paxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_shovel"
+      },
+      {
+        "item": "utilitycraft:steel_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "utilitycraft:steel_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "utilitycraft:steel_shovel"
+      },
+      "Z": {
+        "item": "utilitycraft:steel_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "utilitycraft:steel_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": [
+      {
+        "item": "utilitycraft:steel_paxel"
+      }
+    ]
+  }
 }

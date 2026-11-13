@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:compressed_sand"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "minecraft:sand"
-			}
-		},
-		"pattern": [
-			"BBB",
-			"BBB",
-			"BBB"
-		],
-		"result": {
-			"item": "utilitycraft:compressed_sand"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:sand"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:compressed_sand"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:sand"
+      }
+    },
+    "pattern": [
+      "BBB",
+      "BBB",
+      "BBB"
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_sand"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:sand"
+      }
+    ]
+  }
 }

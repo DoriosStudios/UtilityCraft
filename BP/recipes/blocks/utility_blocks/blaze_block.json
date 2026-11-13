@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:blaze_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "blaze_rod"
-			},
-			"G": {
-				"item": "gold_block"
-			},
-			"M": {
-				"item": "magma"
-			}
-		},
-		"pattern": [
-			"BMB",
-			"MGM",
-			"BMB"
-		],
-		"result": {
-			"item": "utilitycraft:blaze_block"
-		},
-		"unlock": [
-			{
-				"item": "blaze_rod"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:blaze_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "blaze_rod"
+      },
+      "G": {
+        "item": "gold_block"
+      },
+      "M": {
+        "item": "magma"
+      }
+    },
+    "pattern": [
+      "BMB",
+      "MGM",
+      "BMB"
+    ],
+    "result": {
+      "item": "utilitycraft:blaze_block"
+    },
+    "unlock": [
+      {
+        "item": "blaze_rod"
+      }
+    ]
+  }
 }

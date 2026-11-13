@@ -1,26 +1,26 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:flint_from_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:flint_block",
-				"count": 1
-			}
-		],
-		"result": {
-			"item": "flint",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "flint"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:flint_from_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:flint_block",
+        "count": 1
+      }
+    ],
+    "result": {
+      "item": "flint",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "flint"
+      }
+    ]
+  }
 }

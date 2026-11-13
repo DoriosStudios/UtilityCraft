@@ -1,47 +1,47 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:spawner"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"D": {
-				"item": "diamond"
-			},
-			"I": {
-				"item": "iron_bars"
-			},
-			"C": {
-				"item": "utilitycraft:spawner_core"
-			},
-			"O": {
-				"item": "crying_obsidian"
-			}
-		},
-		"pattern": [
-			"ODO",
-			"ICI",
-			"OIO"
-		],
-		"result": {
-			"item": "utilitycraft:mechanical_spawner"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:diamond"
-			},
-			{
-				"item": "minecraft:iron_bars"
-			},
-			{
-				"item": "utilitycraft:spawner_core"
-			},
-			{
-				"item": "minecraft:crying_obsidian"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:spawner"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "D": {
+        "item": "diamond"
+      },
+      "I": {
+        "item": "iron_bars"
+      },
+      "C": {
+        "item": "utilitycraft:spawner_core"
+      },
+      "O": {
+        "item": "crying_obsidian"
+      }
+    },
+    "pattern": [
+      "ODO",
+      "ICI",
+      "OIO"
+    ],
+    "result": {
+      "item": "utilitycraft:mechanical_spawner"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      },
+      {
+        "item": "minecraft:iron_bars"
+      },
+      {
+        "item": "utilitycraft:spawner_core"
+      },
+      {
+        "item": "minecraft:crying_obsidian"
+      }
+    ]
+  }
 }

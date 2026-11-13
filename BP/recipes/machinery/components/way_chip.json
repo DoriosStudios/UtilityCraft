@@ -1,35 +1,35 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:way_chip"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "SDS",
-            "DBD",
-            "SDS"
-        ],
-        "key": {
-            "B": {
-                "item": "utilitycraft:base_upgrade"
-            },
-            "D": {
-                "item": "utilitycraft:ender_pearl_dust"
-            },
-            "S": {
-                "item": "lapis_lazuli"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:way_chip"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:ender_pearl_dust"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:way_chip"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "SDS",
+      "DBD",
+      "SDS"
+    ],
+    "key": {
+      "B": {
+        "item": "utilitycraft:base_upgrade"
+      },
+      "D": {
+        "item": "utilitycraft:ender_pearl_dust"
+      },
+      "S": {
+        "item": "lapis_lazuli"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:way_chip"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:ender_pearl_dust"
+      }
+    ]
+  }
 }

@@ -1,22 +1,27 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:andesite_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "stone_block_slab3",
-				"count": 2,
-				"data": 3
-			}
-		],
-		"result": {
-			"item": "stone",
-			"data": 5
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:andesite_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "stone_block_slab3",
+        "count": 2,
+        "data": 3
+      }
+    ],
+    "result": {
+      "item": "stone",
+      "data": 5
+    },
+    "unlock": [
+      {
+        "item": "stone_block_slab3"
+      }
+    ]
+  }
 }

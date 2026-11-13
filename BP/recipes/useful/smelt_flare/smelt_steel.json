@@ -1,27 +1,27 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:smelt_steel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:smeltflare"
-			},
-			{
-				"item": "utilitycraft:raw_steel"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:steel_ingot"
-		}	,
-		"unlock": [
-			{
-				"item": "utilitycraft:smeltflare"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:smelt_steel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:smeltflare"
+      },
+      {
+        "item": "utilitycraft:raw_steel"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:steel_ingot"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:smeltflare"
+      }
+    ]
+  }
 }

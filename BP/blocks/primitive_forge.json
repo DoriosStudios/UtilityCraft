@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:primitive_forge",
@@ -8,38 +8,21 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": [
-            "minecraft:cardinal_direction"
-          ],
+          "enabled_states": ["minecraft:cardinal_direction"],
           "y_rotation_offset": 180
         }
       },
       "states": {
-        "utilitycraft:formed": [
-          false,
-          true
-        ],
-        "utilitycraft:on": [
-          false,
-          true
-        ],
-        "utilitycraft:forge_part": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-        ],
-        "utilitycraft:forge_owner": [
-          false,
-          true
-        ]
+        "utilitycraft:formed": [false, true],
+        "utilitycraft:on": [false, true],
+        "utilitycraft:forge_part": [0, 1, 2, 3, 4, 5, 6, 7],
+        "utilitycraft:forge_owner": [false, true]
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:primitive_forge": {},
       "minecraft:item_visual": {
         "geometry": "minecraft:geometry.full_block",
@@ -76,12 +59,9 @@
       "minecraft:movable": {
         "movement_type": "immovable"
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:tags": ["minecraft:is_pickaxe_item_destructible"],
       "minecraft:tick": {
-        "interval_range": [
-          1000000,
-          1000000
-        ],
+        "interval_range": [1000000, 1000000],
         "looping": true
       }
     },
@@ -96,10 +76,7 @@
         "condition": "q.block_state('utilitycraft:forge_owner')",
         "components": {
           "minecraft:tick": {
-            "interval_range": [
-              4,
-              4
-            ],
+            "interval_range": [4, 4],
             "looping": true
           }
         }

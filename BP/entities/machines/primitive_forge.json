@@ -1,5 +1,5 @@
 {
-  "format_version": "1.19.20",
+  "format_version": "1.26.60",
   "minecraft:entity": {
     "description": {
       "identifier": "utilitycraft:primitive_forge",
@@ -23,16 +23,12 @@
         "has_gravity": false,
         "has_collision": false
       },
-      "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": false
-      },
-      "minecraft:fire_immune": true,
+      "minecraft:fire_immune": {},
       "minecraft:damage_sensor": {
         "triggers": [
           {
             "cause": "all",
-            "deals_damage": false
+            "deals_damage": "no"
           }
         ]
       },

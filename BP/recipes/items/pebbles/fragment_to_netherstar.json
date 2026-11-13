@@ -1,32 +1,32 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:fragment_to_netherstar"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:nether_star_fragment"
-			}
-		},
-		"pattern": [
-			"PPP",
-			"PPP",
-			"PPP"
-		],
-		"result": {
-			"item": "minecraft:nether_star"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:nether_star_fragment"
-			},
-			{
-				"item": "minecraft:nether_star"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:fragment_to_netherstar"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:nether_star_fragment"
+      }
+    },
+    "pattern": [
+      "PPP",
+      "PPP",
+      "PPP"
+    ],
+    "result": {
+      "item": "minecraft:nether_star"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:nether_star_fragment"
+      },
+      {
+        "item": "minecraft:nether_star"
+      }
+    ]
+  }
 }

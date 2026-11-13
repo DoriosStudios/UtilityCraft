@@ -1,21 +1,26 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:mossy_cobblestone_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "stone_block_slab2",
-				"count": 2,
-				"data": 5
-			}
-		],
-		"result": {
-			"item": "mossy_cobblestone"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:mossy_cobblestone_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "stone_block_slab2",
+        "count": 2,
+        "data": 5
+      }
+    ],
+    "result": {
+      "item": "mossy_cobblestone"
+    },
+    "unlock": [
+      {
+        "item": "stone_block_slab2"
+      }
+    ]
+  }
 }

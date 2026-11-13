@@ -1,5 +1,5 @@
 {
-  "format_version": "1.26.20",
+  "format_version": "1.26.60",
   "minecraft:entity": {
     "description": {
       "identifier": "utilitycraft:block_container_outline",
@@ -29,7 +29,7 @@
         ]
       },
       "minecraft:timer": {
-        "time": 0.3,
+        "time": { "min": 0.3, "max": 0.3 },
         "looping": false,
         "time_down_event": {
           "event": "utilitycraft:outline_expire",
@@ -44,7 +44,9 @@
     "events": {
       "utilitycraft:outline_expire": {
         "add": {
-          "component_groups": ["despawn"]
+          "component_groups": [
+            "despawn"
+          ]
         }
       }
     }

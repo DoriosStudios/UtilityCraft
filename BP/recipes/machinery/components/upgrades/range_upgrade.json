@@ -1,41 +1,41 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:range_upgrade"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "SES",
-            "RBR",
-            "SGS"
-        ],
-        "key": {
-            "B": {
-                "item": "utilitycraft:base_upgrade"
-            },
-            "E": {
-                "item": "minecraft:blue_dye"
-            },
-            "G": {
-                "item": "minecraft:gold_ingot"
-            },
-            "R": {
-                "item": "minecraft:redstone"
-            },
-            "S": {
-                "item": "utilitycraft:steel_plate"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:range_upgrade"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:base_upgrade"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:range_upgrade"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "SES",
+      "RBR",
+      "SGS"
+    ],
+    "key": {
+      "B": {
+        "item": "utilitycraft:base_upgrade"
+      },
+      "E": {
+        "item": "minecraft:blue_dye"
+      },
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "S": {
+        "item": "utilitycraft:steel_plate"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:range_upgrade"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:base_upgrade"
+      }
+    ]
+  }
 }

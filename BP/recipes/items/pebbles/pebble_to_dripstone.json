@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:pebble_to_dripstone"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:dripstone_pebble"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:dripstone_block"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:dripstone_pebble"
-			},
-			{
-				"item": "minecraft:dripstone_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:pebble_to_dripstone"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:dripstone_pebble"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:dripstone_block"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:dripstone_pebble"
+      },
+      {
+        "item": "minecraft:dripstone_block"
+      }
+    ]
+  }
 }

@@ -21,6 +21,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
       "utilitycraft:harvester": {
         "machine": {
           "energy_cap": 128000,

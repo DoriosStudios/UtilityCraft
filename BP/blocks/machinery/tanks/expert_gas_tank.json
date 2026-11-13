@@ -1,86 +1,85 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:expert_gas_tank",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:cardinal_direction"
-					],
-					"y_rotation_offset": 180
-				}
-			},
-			"states": {
-				"utilitycraft:hasgas": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.gas_tank",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_expert_gas_tank",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-6,
-					0,
-					-6
-				],
-				"size": [
-					12,
-					16,
-					12
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-6,
-					0,
-					-6
-				],
-				"size": [
-					12,
-					16,
-					12
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.1
-			},
-			"minecraft:light_dampening": 0,
-			"tag:dorios:gas": {},
-			"tag:dorios:gas_tank": {},
-			"utilitycraft:gas_container": {
-				"type": "tank",
-				"capacity": 128000
-			}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
-				"components": { "minecraft:transformation": { "rotation": [0, 0, 0] } }
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
-				"components": { "minecraft:transformation": { "rotation": [0, 180, 0] } }
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
-				"components": { "minecraft:transformation": { "rotation": [0, -90, 0] } }
-			},
-			{
-				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
-				"components": { "minecraft:transformation": { "rotation": [0, 90, 0] } }
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:expert_gas_tank",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"],
+          "y_rotation_offset": 180
+        }
+      },
+      "states": {
+        "utilitycraft:hasgas": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
+      "minecraft:geometry": "geometry.gas_tank",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_expert_gas_tank",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-6, 0, -6],
+          "size": [12, 16, 12]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-6, 0, -6],
+        "size": [12, 16, 12]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.1
+      },
+      "minecraft:light_dampening": 0,
+      "utilitycraft:gas_container": {
+        "type": "tank",
+        "capacity": 128000
+      },
+      "minecraft:tags": ["dorios:gas", "dorios:gas_tank"]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      }
+    ]
+  }
 }

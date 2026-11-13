@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:workbench"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"I": {
-				"item": "iron_ingot"
-			},
-			"C": {
-				"item": "copper_ingot"
-			},
-			"B": {
-				"item": "utilitycraft:steel_block"
-			},
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			}
-		},
-		"pattern": [
-			"ICI",
-			" S ",
-			"IBI"
-		],
-		"result": {
-			"item": "utilitycraft:workbench"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:workbench"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "I": {
+        "item": "iron_ingot"
+      },
+      "C": {
+        "item": "copper_ingot"
+      },
+      "B": {
+        "item": "utilitycraft:steel_block"
+      },
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      }
+    },
+    "pattern": [
+      "ICI",
+      " S ",
+      "IBI"
+    ],
+    "result": {
+      "item": "utilitycraft:workbench"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

@@ -1,47 +1,47 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:basic_wind_turbine"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"B": {
-				"item": "utilitycraft:fan"
-			},
-			"C": {
-				"item": "utilitycraft:machine_case"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			},
-			"E": {
-				"item": "utilitycraft:basic_chip"
-			}
-		},
-		"pattern": [
-			"AEA",
-			"EBE",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:basic_wind_turbine"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:fan"
-			},
-			{
-				"item": "utilitycraft:basic_chip"
-			},
-			{
-				"item": "minecraft:redstone_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:basic_wind_turbine"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "B": {
+        "item": "utilitycraft:fan"
+      },
+      "C": {
+        "item": "utilitycraft:machine_case"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      },
+      "E": {
+        "item": "utilitycraft:basic_chip"
+      }
+    },
+    "pattern": [
+      "AEA",
+      "EBE",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:basic_wind_turbine"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:fan"
+      },
+      {
+        "item": "utilitycraft:basic_chip"
+      },
+      {
+        "item": "minecraft:redstone_block"
+      }
+    ]
+  }
 }

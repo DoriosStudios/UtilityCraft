@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:diamond_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"O": {
-				"item": "diamond"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OSO",
-			"OOO"
-		],
-		"result": {
-			"item": "utilitycraft:diamond_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:diamond"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:diamond_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "O": {
+        "item": "diamond"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OSO",
+      "OOO"
+    ],
+    "result": {
+      "item": "utilitycraft:diamond_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

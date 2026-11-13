@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:coal_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"O": {
-				"item": "coal"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OSO",
-			"OOO"
-		],
-		"result": {
-			"item": "utilitycraft:coal_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:coal"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:coal_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "O": {
+        "item": "coal"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OSO",
+      "OOO"
+    ],
+    "result": {
+      "item": "utilitycraft:coal_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

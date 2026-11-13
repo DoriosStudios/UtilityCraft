@@ -1,50 +1,50 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:seed_synthetizer"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:amethyst_shard"
-			},
-			"B": {
-				"item": "utilitycraft:machine_case"
-			},
-			"C": {
-				"item": "utilitycraft:gold_plate"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			},
-			"E": {
-				"item": "utilitycraft:expert_chip"
-			}
-		},
-		"pattern": [
-			"CAC",
-			"EBE",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:seed_synthesizer"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			},
-			{
-				"item": "utilitycraft:gold_plate"
-			},
-			{
-				"item": "minecraft:redstone_block"
-			},
-			{
-				"item": "utilitycraft:expert_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:seed_synthetizer"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "B": {
+        "item": "utilitycraft:machine_case"
+      },
+      "C": {
+        "item": "utilitycraft:gold_plate"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      },
+      "E": {
+        "item": "utilitycraft:expert_chip"
+      }
+    },
+    "pattern": [
+      "CAC",
+      "EBE",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:seed_synthesizer"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      },
+      {
+        "item": "utilitycraft:gold_plate"
+      },
+      {
+        "item": "minecraft:redstone_block"
+      },
+      {
+        "item": "utilitycraft:expert_chip"
+      }
+    ]
+  }
 }

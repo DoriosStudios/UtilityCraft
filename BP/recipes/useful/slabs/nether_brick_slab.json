@@ -1,21 +1,26 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:nether_brick_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "stone_block_slab",
-				"count": 2,
-				"data": 7
-			}
-		],
-		"result": {
-			"item": "nether_brick"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:nether_brick_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "stone_block_slab",
+        "count": 2,
+        "data": 7
+      }
+    ],
+    "result": {
+      "item": "nether_brick"
+    },
+    "unlock": [
+      {
+        "item": "stone_block_slab"
+      }
+    ]
+  }
 }

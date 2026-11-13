@@ -1,50 +1,50 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:black_soil"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "skull",
-				"data": 1
-			},
-			"D": {
-				"item": "utilitycraft:blue_soil"
-			},
-			"R": {
-				"item": "nether_star"
-			},
-			"N": {
-				"item": "crying_obsidian"
-			}
-		},
-		"pattern": [
-			"DND",
-			"BRB",
-			"DND"
-		],
-		"result": {
-			"item": "utilitycraft:black_soil",
-			"count": 4
-		},
-		"unlock": [
-			{
-				"item": "minecraft:skull",
-				"data": 1
-			},
-			{
-				"item": "utilitycraft:blue_soil"
-			},
-			{
-				"item": "minecraft:nether_star"
-			},
-			{
-				"item": "minecraft:crying_obsidian"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:black_soil"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "skull",
+        "data": 1
+      },
+      "D": {
+        "item": "utilitycraft:blue_soil"
+      },
+      "R": {
+        "item": "nether_star"
+      },
+      "N": {
+        "item": "crying_obsidian"
+      }
+    },
+    "pattern": [
+      "DND",
+      "BRB",
+      "DND"
+    ],
+    "result": {
+      "item": "utilitycraft:black_soil",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "minecraft:skull",
+        "data": 1
+      },
+      {
+        "item": "utilitycraft:blue_soil"
+      },
+      {
+        "item": "minecraft:nether_star"
+      },
+      {
+        "item": "minecraft:crying_obsidian"
+      }
+    ]
+  }
 }

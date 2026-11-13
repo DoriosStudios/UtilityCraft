@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:compressed_stone",
@@ -8,9 +8,12 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:redstone_conductivity": {
-          "redstone_conductor": true
+        "redstone_conductor": true
       },
       "minecraft:material_instances": {
         "*": {
@@ -22,7 +25,9 @@
         "seconds_to_destroy": 2.5
       },
       "minecraft:loot": "loot_tables/compressed/compressed_stone.json",
-      "tag:minecraft:is_pickaxe_item_destructible": {}
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible"
+      ]
     }
   }
 }

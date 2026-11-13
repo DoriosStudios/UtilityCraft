@@ -1,17 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:red_soil",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"tag:utilitycraft:soil_tier_2": {},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.5
-			}
-	}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:red_soil",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "grass"
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_red_soil_side",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "utilitycraft_red_soil",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:tags": ["utilitycraft:soil_tier_2"],
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      }
+    }
+  }
 }

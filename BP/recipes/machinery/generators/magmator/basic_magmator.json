@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:basic_magmator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"G": {
-				"item": "utilitycraft:gold_plate"
-			},
-			"B": {
-				"item": "furnace"
-			},
-			"S": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"D": {
-				"item": "utilitycraft:basic_fluid_tank"
-			},
-			"E": {
-				"item": "utilitycraft:basic_chip"
-			}
-		},
-		"pattern": [
-			"GDG",
-			"EBE",
-			"SES"
-		],
-		"result": {
-			"item": "utilitycraft:basic_magmator"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:basic_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:basic_magmator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "G": {
+        "item": "utilitycraft:gold_plate"
+      },
+      "B": {
+        "item": "furnace"
+      },
+      "S": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "D": {
+        "item": "utilitycraft:basic_fluid_tank"
+      },
+      "E": {
+        "item": "utilitycraft:basic_chip"
+      }
+    },
+    "pattern": [
+      "GDG",
+      "EBE",
+      "SES"
+    ],
+    "result": {
+      "item": "utilitycraft:basic_magmator"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:basic_chip"
+      }
+    ]
+  }
 }

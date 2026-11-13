@@ -1,38 +1,38 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:ultimate_chip"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "RNR",
-            "NCN",
-            "RNR"
-        ],
-        "key": {
-            "N": {
-                "item": "netherite_ingot"
-            },
-            "C": {
-                "item": "utilitycraft:expert_chip"
-            },
-            "R": {
-                "item": "minecraft:redstone"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:ultimate_chip"
-        },
-        "unlock": [
-            {
-                "item": "netherite_ingot"
-            },
-            {
-                "item": "minecraft:redstone"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_chip"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "RNR",
+      "NCN",
+      "RNR"
+    ],
+    "key": {
+      "N": {
+        "item": "netherite_ingot"
+      },
+      "C": {
+        "item": "utilitycraft:expert_chip"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:ultimate_chip"
+    },
+    "unlock": [
+      {
+        "item": "netherite_ingot"
+      },
+      {
+        "item": "minecraft:redstone"
+      }
+    ]
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.26.0",
+  "format_version": "1.26.60",
   "minecraft:item": {
     "description": {
       "identifier": "utilitycraft:silicon",

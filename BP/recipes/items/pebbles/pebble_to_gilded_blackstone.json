@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:pebble_to_gilded_blackstone"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:gilded_blackstone_pebble"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:gilded_blackstone"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:gilded_blackstone_pebble"
-			},
-			{
-				"item": "minecraft:gilded_blackstone"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:pebble_to_gilded_blackstone"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:gilded_blackstone_pebble"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:gilded_blackstone"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:gilded_blackstone_pebble"
+      },
+      {
+        "item": "minecraft:gilded_blackstone"
+      }
+    ]
+  }
 }

@@ -1,40 +1,40 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:bonsai"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"H": {
-				"item": "minecraft:hopper"
-			},
-			"P": {
-				"tag": "minecraft:planks"
-			},
-			"S": {
-				"item": "minecraft:stone_block_slab"
-			}
-		},
-		"pattern": [
-			"SHS",
-			"PSP"
-		],
-		"unlock": [
-			{
-				"item": "minecraft:hopper"
-			},
-			{
-				"tag": "minecraft:planks"
-			},
-			{
-				"item": "minecraft:stone_block_slab"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:bonsai"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:bonsai"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "H": {
+        "item": "minecraft:hopper"
+      },
+      "P": {
+        "tag": "minecraft:planks"
+      },
+      "S": {
+        "item": "minecraft:stone_block_slab"
+      }
+    },
+    "pattern": [
+      "SHS",
+      "PSP"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:hopper"
+      },
+      {
+        "tag": "minecraft:planks"
+      },
+      {
+        "item": "minecraft:stone_block_slab"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:bonsai"
+    }
+  }
 }

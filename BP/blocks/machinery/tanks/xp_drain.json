@@ -1,69 +1,53 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:xp_drain",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"utilitycraft:xp": {},
-			"minecraft:geometry": "geometry.utilitycraft_xp_drain",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_xp_drain",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-5,
-					0,
-					-5
-				],
-				"size": [
-					10,
-					1,
-					10
-				]
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-5,
-					0,
-					-5
-				],
-				"size": [
-					10,
-					1,
-					10
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.1
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					1,
-					1
-				]
-			},
-			"minecraft:placement_filter": {
-				"conditions": [
-					{
-						"block_filter": [
-							"utilitycraft:basic_fluid_tank",
-							"utilitycraft:expert_fluid_tank",
-							"utilitycraft:advanced_fluid_tank",
-							"utilitycraft:ultimate_fluid_tank"
-						],
-						"allowed_faces": [
-							"up"
-						]
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:xp_drain",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "utilitycraft:xp": {},
+      "minecraft:geometry": "geometry.utilitycraft_xp_drain",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_xp_drain",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:selection_box": {
+        "origin": [-5, 0, -5],
+        "size": [10, 1, 10]
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-5, 0, -5],
+          "size": [10, 1, 10]
+        }
+      ],
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.1
+      },
+      "minecraft:tick": {
+        "interval_range": [1, 1]
+      },
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "block_filter": [
+              "utilitycraft:basic_fluid_tank",
+              "utilitycraft:expert_fluid_tank",
+              "utilitycraft:advanced_fluid_tank",
+              "utilitycraft:ultimate_fluid_tank"
+            ],
+            "allowed_faces": ["up"]
+          }
+        ]
+      }
+    }
+  }
 }

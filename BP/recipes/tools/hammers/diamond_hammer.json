@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:diamond_hammer"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:diamond_hammer"
-			}
-		],
-		"pattern": [
-			"ASA",
-			"ADA",
-			" D "
-		],
-		"unlock": [
-			{
-				"item": "minecraft:diamond"
-			},
-			{
-				"item": "minecraft:diamond_block"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:diamond"
-			},
-			"S": {
-				"item": "minecraft:diamond_block"
-			},
-			"D": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:diamond_hammer"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:diamond_hammer"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      "ADA",
+      " D "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      },
+      {
+        "item": "minecraft:diamond_block"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:diamond"
+      },
+      "S": {
+        "item": "minecraft:diamond_block"
+      },
+      "D": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

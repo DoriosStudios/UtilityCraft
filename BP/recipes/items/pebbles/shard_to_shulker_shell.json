@@ -1,32 +1,32 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:shard_to_shulker_shell"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:shulker_shell_shard"
-			}
-		},
-		"pattern": [
-			"PPP",
-			"PPP",
-			"PPP"
-		],
-		"result": {
-			"item": "minecraft:shulker_shell"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:shulker_shell_shard"
-			},
-			{
-				"item": "minecraft:shulker_shell"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:shard_to_shulker_shell"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:shulker_shell_shard"
+      }
+    },
+    "pattern": [
+      "PPP",
+      "PPP",
+      "PPP"
+    ],
+    "result": {
+      "item": "minecraft:shulker_shell"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:shulker_shell_shard"
+      },
+      {
+        "item": "minecraft:shulker_shell"
+      }
+    ]
+  }
 }

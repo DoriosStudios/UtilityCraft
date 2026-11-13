@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:big_torch"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"F": {
-				"item": "utilitycraft:flint_block"
-			},
-			"I": {
-				"item": "iron_ingot"
-			},
-			"W": {
-				"tag": "minecraft:logs"
-			}
-		},
-		"pattern": [
-			" F",
-			" I",
-			" W"
-		],
-		"result": {
-			"item": "utilitycraft:big_torch"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:flint_block"
-			},
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"tag": "minecraft:logs"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:big_torch"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "F": {
+        "item": "utilitycraft:flint_block"
+      },
+      "I": {
+        "item": "iron_ingot"
+      },
+      "W": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "pattern": [
+      " F",
+      " I",
+      " W"
+    ],
+    "result": {
+      "item": "utilitycraft:big_torch"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:flint_block"
+      },
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "tag": "minecraft:logs"
+      }
+    ]
+  }
 }

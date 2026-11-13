@@ -1,19 +1,19 @@
 {
-    "format_version": "1.21.110",
-    "minecraft:item": {
-        "description": {
-            "identifier": "utilitycraft:compressed_coal_block",
-            "menu_category": {
-                "category": "construction"
-            }
-        },
-        "components": {
-            "minecraft:block_placer": {
-                "block": "utilitycraft:compressed_coal_block"
-            },
-            "minecraft:fuel": {
-                "duration": 160000
-            }
-        }
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:compressed_coal_block",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:block_placer": {
+        "block": "utilitycraft:compressed_coal_block"
+      },
+      "minecraft:fuel": {
+        "duration": 160000
+      }
     }
+  }
 }

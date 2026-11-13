@@ -1,27 +1,27 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shapeless": {
-        "description": {
-            "identifier": "utilitycraft:item_importer_red_to_yellow_convert"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "ingredients": [
-            {
-                "item": "utilitycraft:item_importer_red"
-            },
-            {
-                "item": "yellow_dye"
-            }
-        ],
-        "result": {
-            "item": "utilitycraft:item_importer_yellow"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:item_importer_red"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:item_importer_red_to_yellow_convert"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:item_importer_red"
+      },
+      {
+        "item": "yellow_dye"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:item_importer_yellow"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:item_importer_red"
+      }
+    ]
+  }
 }

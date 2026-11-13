@@ -1,21 +1,26 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:end_stone_brick_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "stone_block_slab3",
-				"count": 2,
-				"data": 0
-			}
-		],
-		"result": {
-			"item": "end_bricks"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:end_stone_brick_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "stone_block_slab3",
+        "count": 2,
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "end_bricks"
+    },
+    "unlock": [
+      {
+        "item": "stone_block_slab3"
+      }
+    ]
+  }
 }

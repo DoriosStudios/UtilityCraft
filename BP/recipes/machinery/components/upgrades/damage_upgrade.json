@@ -1,41 +1,41 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:damage_upgrade"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "SIS",
-            "DBD",
-            "SRS"
-        ],
-        "key": {
-            "B": {
-                "item": "utilitycraft:base_upgrade"
-            },
-            "D": {
-                "item": "utilitycraft:energized_iron_dust"
-            },
-            "R": {
-                "item": "minecraft:redstone_block"
-            },
-            "S": {
-                "item": "utilitycraft:steel_plate"
-            },
-            "I": {
-                "item": "minecraft:iron_sword"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:damage_upgrade"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:base_upgrade"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:damage_upgrade"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "SIS",
+      "DBD",
+      "SRS"
+    ],
+    "key": {
+      "B": {
+        "item": "utilitycraft:base_upgrade"
+      },
+      "D": {
+        "item": "utilitycraft:energized_iron_dust"
+      },
+      "R": {
+        "item": "minecraft:redstone_block"
+      },
+      "S": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "I": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:damage_upgrade"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:base_upgrade"
+      }
+    ]
+  }
 }

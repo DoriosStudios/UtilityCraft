@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:mortar",
@@ -8,43 +8,21 @@
       },
       "traits": {
         "minecraft:placement_direction": {
-          "enabled_states": [
-            "minecraft:cardinal_direction"
-          ],
+          "enabled_states": ["minecraft:cardinal_direction"],
           "y_rotation_offset": 180
         }
       },
       "states": {
-        "utilitycraft:pestle_frame": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-		],
-		"utilitycraft:content": [
-			0,
-			1,
-			2,
-			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
-			10,
-			11,
-			12,
-			13,
-			14
-		]
+        "utilitycraft:pestle_frame": [0, 1, 2, 3, 4, 5, 6, 7],
+        "utilitycraft:content": [
+          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+        ]
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "minecraft:geometry": {
         "identifier": "geometry.utilitycraft_mortar",
         "bone_visibility": {
@@ -72,29 +50,15 @@
           "render_method": "opaque"
         }
       },
-      "minecraft:collision_box": {
-        "origin": [
-          -7,
-          0,
-          -7
-        ],
-        "size": [
-          14,
-          7,
-          14
-        ]
-      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-7, 0, -7],
+          "size": [14, 7, 14]
+        }
+      ],
       "minecraft:selection_box": {
-        "origin": [
-          -7,
-          0,
-          -7
-        ],
-        "size": [
-          14,
-          7,
-          14
-        ]
+        "origin": [-7, 0, -7],
+        "size": [14, 7, 14]
       },
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1.5
@@ -102,19 +66,15 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 6
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {},
-      "utilitycraft:mortar": {}
+      "utilitycraft:mortar": {},
+      "minecraft:tags": ["minecraft:is_pickaxe_item_destructible"]
     },
     "permutations": [
       {
         "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [
-              0,
-              180,
-              0
-            ]
+            "rotation": [0, 180, 0]
           }
         }
       },
@@ -122,11 +82,7 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [
-              0,
-              -90,
-              0
-            ]
+            "rotation": [0, -90, 0]
           }
         }
       },
@@ -134,11 +90,7 @@
         "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
         "components": {
           "minecraft:transformation": {
-            "rotation": [
-              0,
-              90,
-              0
-            ]
+            "rotation": [0, 90, 0]
           }
         }
       },

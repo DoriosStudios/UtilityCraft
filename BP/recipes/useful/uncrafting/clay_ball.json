@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:clay_ball"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "clay"
-			}
-		],
-		"result": {
-			"item": "clay_ball",
-			"count": 4
-		},
-		"unlock": [
-			{
-				"item": "clay"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:clay_ball"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "clay"
+      }
+    ],
+    "result": {
+      "item": "clay_ball",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "clay"
+      }
+    ]
+  }
 }

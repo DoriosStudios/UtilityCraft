@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:smeltflare"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "minecraft:paper",
-				"count": 2
-			},
-			{
-				"tag": "minecraft:coals"
-			},
-			{
-				"item": "flint"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:smeltflare",
-			"count": 8
-		},
-		"unlock": [
-			{
-				"item": "minecraft:paper"
-			},
-			{
-				"tag": "minecraft:coals"
-			},
-			{
-				"item": "flint"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:smeltflare"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:paper",
+        "count": 2
+      },
+      {
+        "tag": "minecraft:coals"
+      },
+      {
+        "item": "flint"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:smeltflare",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "minecraft:paper"
+      },
+      {
+        "tag": "minecraft:coals"
+      },
+      {
+        "item": "flint"
+      }
+    ]
+  }
 }

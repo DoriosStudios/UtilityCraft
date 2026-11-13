@@ -1,54 +1,54 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:cobble_gen_0v2"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"C": {
-				"item": "glass"
-			},
-			"L": {
-				"item": "utilitycraft:lava_ball"
-			},
-			"M": {
-				"item": "copper_ingot"
-			},
-			"O": {
-				"item": "obsidian"
-			},
-			"W": {
-				"item": "utilitycraft:water_ball"
-			}
-		},
-		"pattern": [
-			"MOM",
-			"WCL",
-			"MOM"
-		],
-		"result": {
-			"item": "utilitycraft:cobble_gen_0"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:glass"
-			},
-			{
-				"item": "minecraft:lava_bucket"
-			},
-			{
-				"item": "minecraft:copper_ingot"
-			},
-			{
-				"item": "minecraft:obsidian"
-			},
-			{
-				"item": "minecraft:water_bucket"
-			}
-		],
-		"priority": 10
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:cobble_gen_0v2"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "C": {
+        "item": "glass"
+      },
+      "L": {
+        "item": "utilitycraft:lava_ball"
+      },
+      "M": {
+        "item": "copper_ingot"
+      },
+      "O": {
+        "item": "obsidian"
+      },
+      "W": {
+        "item": "utilitycraft:water_ball"
+      }
+    },
+    "pattern": [
+      "MOM",
+      "WCL",
+      "MOM"
+    ],
+    "result": {
+      "item": "utilitycraft:cobble_gen_0"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:glass"
+      },
+      {
+        "item": "minecraft:lava_bucket"
+      },
+      {
+        "item": "minecraft:copper_ingot"
+      },
+      {
+        "item": "minecraft:obsidian"
+      },
+      {
+        "item": "minecraft:water_bucket"
+      }
+    ],
+    "priority": 10
+  }
 }

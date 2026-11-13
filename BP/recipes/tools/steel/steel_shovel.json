@@ -1,37 +1,37 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:steel_shovel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			" I ",
-			" S ",
-			" S "
-		],
-		"result": [
-			{
-				"item": "utilitycraft:steel_shovel"
-			}
-		],
-		"unlock": [
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		],
-		"key": {
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"I": {
-				"item": "utilitycraft:steel_ingot"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:steel_shovel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " I ",
+      " S ",
+      " S "
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:steel_shovel"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "I": {
+        "item": "utilitycraft:steel_ingot"
+      }
+    }
+  }
 }

@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:chunk_to_coal"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:coal_chunk"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:coal_ore"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:coal_chunk"
-			},
-			{
-				"item": "minecraft:coal_ore"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:chunk_to_coal"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:coal_chunk"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:coal_ore"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:coal_chunk"
+      },
+      {
+        "item": "minecraft:coal_ore"
+      }
+    ]
+  }
 }

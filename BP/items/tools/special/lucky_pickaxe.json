@@ -1,57 +1,57 @@
 {
-	"format_version": "1.21.70",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:lucky_pickaxe",
-			"menu_category": {
-				"category": "none",
-				"group": "minecraft:itemGroup.name.pickaxe"
-			}
-		},
-		"components": {
-                        "minecraft:icon": "utilitycraft_lucky_pickaxe",
-                        "minecraft:tags": {
-                                "tags": [
-                                        "minecraft:diamond_tier"
-                                ]
-                        },
-			"minecraft:enchantable": {
-				"value": 15,
-				"slot": "pickaxe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:emerald"
-						],
-						"repair_amount": 550
-					},
-					{
-						"items": [
-							"utilitycraft:lucky_pickaxe"
-						],
-						"repair_amount": 1561
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 16,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
-						}
-					}
-				]
-			},
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 1561
-			},
-			"minecraft:damage": 6
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:lucky_pickaxe",
+      "menu_category": {
+        "category": "none",
+        "group": "minecraft:itemGroup.name.pickaxe"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_lucky_pickaxe",
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:diamond_tier"
+        ]
+      },
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "pickaxe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:emerald"
+            ],
+            "repair_amount": 550
+          },
+          {
+            "items": [
+              "utilitycraft:lucky_pickaxe"
+            ],
+            "repair_amount": 1561
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 16,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
+            }
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 1561
+      },
+      "minecraft:damage": 6
+    }
+  }
 }

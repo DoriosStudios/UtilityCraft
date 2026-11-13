@@ -10,6 +10,9 @@
     },
     "permutations": [],
     "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
       "utilitycraft:ehxibitor": {
         "machine": {
           "energy_cap": 1,

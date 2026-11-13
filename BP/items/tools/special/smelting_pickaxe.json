@@ -1,57 +1,57 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:smelting_pickaxe",
-			"menu_category": {
-				"category": "equipment"
-			}
-		},
-		"components": {
-			"utilitycraft:smelting": {},
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 3031
-			},
-                        "minecraft:damage": 7,
-                        "minecraft:icon": "utilitycraft_smelting_pickaxe",
-                        "minecraft:tags": {
-                                "tags": [
-                                        "minecraft:netherite_tier"
-                                ]
-                        },
-			"minecraft:enchantable": {
-				"value": 15,
-				"slot": "pickaxe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:iron_ingot"
-						],
-						"repair_amount": 301
-					},
-					{
-						"items": [
-							"utilitycraft:smelting_pickaxe"
-						],
-						"repair_amount": 3031
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 16,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
-						}
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:smelting_pickaxe",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:smelting": {},
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 3031
+      },
+      "minecraft:damage": 7,
+      "minecraft:icon": "utilitycraft_smelting_pickaxe",
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:netherite_tier"
+        ]
+      },
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "pickaxe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:iron_ingot"
+            ],
+            "repair_amount": 301
+          },
+          {
+            "items": [
+              "utilitycraft:smelting_pickaxe"
+            ],
+            "repair_amount": 3031
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 16,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible')"
+            }
+          }
+        ]
+      }
+    }
+  }
 }

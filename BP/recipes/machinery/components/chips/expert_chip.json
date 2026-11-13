@@ -1,38 +1,38 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:expert_chip"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "RDR",
-            "DCD",
-            "RDR"
-        ],
-        "key": {
-            "D": {
-                "item": "diamond"
-            },
-            "C": {
-                "item": "utilitycraft:advanced_chip"
-            },
-            "R": {
-                "item": "minecraft:redstone"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:expert_chip"
-        },
-        "unlock": [
-            {
-                "item": "diamond"
-            },
-            {
-                "item": "minecraft:redstone"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:expert_chip"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "RDR",
+      "DCD",
+      "RDR"
+    ],
+    "key": {
+      "D": {
+        "item": "diamond"
+      },
+      "C": {
+        "item": "utilitycraft:advanced_chip"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:expert_chip"
+    },
+    "unlock": [
+      {
+        "item": "diamond"
+      },
+      {
+        "item": "minecraft:redstone"
+      }
+    ]
+  }
 }

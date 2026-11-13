@@ -1,11 +1,14 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:geode"
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_geode"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:geode",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_geode"
+    }
+  }
 }

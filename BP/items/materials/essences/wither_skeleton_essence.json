@@ -1,16 +1,16 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:wither_skeleton_essence",
-			"menu_category": {
-				"category": "nature"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_wither_skeleton_essence",
-			"minecraft:max_stack_size": 16,
-			"minecraft:glint": true
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:wither_skeleton_essence",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_wither_skeleton_essence",
+      "minecraft:max_stack_size": 16,
+      "minecraft:glint": true
+    }
+  }
 }

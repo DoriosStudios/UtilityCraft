@@ -1,57 +1,57 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:drill",
-			"menu_category": {
-				"category": "equipment"
-			}
-		},
-                "components": {
-                        "utilitycraft:drill": {},
-                        "minecraft:tags": {
-                                "tags": [
-                                        "minecraft:iron_tier"
-                                ]
-                        },
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 2031
-			},
-			"minecraft:damage": 5,
-			"minecraft:icon": "utilitycraft_drill",
-			"minecraft:enchantable": {
-				"value": 15,
-				"slot": "pickaxe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:iron_block"
-						],
-						"repair_amount": 800
-					},
-					{
-						"items": [
-							"utilitycraft:drill"
-						],
-						"repair_amount": 2031
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 14,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible')"
-						}
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:drill",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:drill": {},
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:iron_tier"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 2031
+      },
+      "minecraft:damage": 5,
+      "minecraft:icon": "utilitycraft_drill",
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "pickaxe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:iron_block"
+            ],
+            "repair_amount": 800
+          },
+          {
+            "items": [
+              "utilitycraft:drill"
+            ],
+            "repair_amount": 2031
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 14,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible')"
+            }
+          }
+        ]
+      }
+    }
+  }
 }

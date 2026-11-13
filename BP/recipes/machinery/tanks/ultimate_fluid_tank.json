@@ -1,53 +1,53 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ultimate_fluid_tank"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"R": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"G": {
-				"item": "minecraft:glass"
-			},
-			"C": {
-				"item": "utilitycraft:ultimate_chip"
-			},
-			"T": {
-				"item": "utilitycraft:expert_fluid_tank"
-			},
-			"P": {
-				"item": "utilitycraft:fluid_pipe"
-			}
-		},
-		"pattern": [
-			"RGR",
-			"CTC",
-			"RPR"
-		],
-		"result": {
-			"item": "utilitycraft:ultimate_fluid_tank"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_plate"
-			},
-			{
-				"item": "minecraft:glass"
-			},
-			{
-				"item": "utilitycraft:ultimate_chip"
-			},
-			{
-				"item": "utilitycraft:expert_fluid_tank"
-			},
-			{
-				"item": "utilitycraft:fluid_pipe"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_fluid_tank"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "R": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "G": {
+        "item": "minecraft:glass"
+      },
+      "C": {
+        "item": "utilitycraft:ultimate_chip"
+      },
+      "T": {
+        "item": "utilitycraft:expert_fluid_tank"
+      },
+      "P": {
+        "item": "utilitycraft:fluid_pipe"
+      }
+    },
+    "pattern": [
+      "RGR",
+      "CTC",
+      "RPR"
+    ],
+    "result": {
+      "item": "utilitycraft:ultimate_fluid_tank"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_plate"
+      },
+      {
+        "item": "minecraft:glass"
+      },
+      {
+        "item": "utilitycraft:ultimate_chip"
+      },
+      {
+        "item": "utilitycraft:expert_fluid_tank"
+      },
+      {
+        "item": "utilitycraft:fluid_pipe"
+      }
+    ]
+  }
 }

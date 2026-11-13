@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:compressed_netherrack"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "minecraft:netherrack"
-			}
-		},
-		"pattern": [
-			"BBB",
-			"BBB",
-			"BBB"
-		],
-		"result": {
-			"item": "utilitycraft:compressed_netherrack"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:netherrack"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:compressed_netherrack"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:netherrack"
+      }
+    },
+    "pattern": [
+      "BBB",
+      "BBB",
+      "BBB"
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_netherrack"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherrack"
+      }
+    ]
+  }
 }

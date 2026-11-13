@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:iron_hammer"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:iron_hammer"
-			}
-		],
-		"pattern": [
-			"ASA",
-			"ADA",
-			" D "
-		],
-		"unlock": [
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"item": "minecraft:iron_block"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:iron_ingot"
-			},
-			"S": {
-				"item": "minecraft:iron_block"
-			},
-			"D": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:iron_hammer"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:iron_hammer"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      "ADA",
+      " D "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "item": "minecraft:iron_block"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:iron_ingot"
+      },
+      "S": {
+        "item": "minecraft:iron_block"
+      },
+      "D": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

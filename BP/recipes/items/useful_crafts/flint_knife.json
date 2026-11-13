@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:flint_knife"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"F": {
-				"item": "flint"
-			},
-			"S": {
-				"item": "stick"
-			}
-		},
-		"pattern": [
-			" F",
-			"S "
-		],
-		"result": {
-			"item": "utilitycraft:flint_knife"
-		},
-		"unlock": [
-			{
-				"item": "flint"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:flint_knife"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "F": {
+        "item": "flint"
+      },
+      "S": {
+        "item": "stick"
+      }
+    },
+    "pattern": [
+      " F",
+      "S "
+    ],
+    "result": {
+      "item": "utilitycraft:flint_knife"
+    },
+    "unlock": [
+      {
+        "item": "flint"
+      }
+    ]
+  }
 }

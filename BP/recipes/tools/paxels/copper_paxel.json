@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:copper_paxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "minecraft:copper_shovel"
-			},
-			"Z": {
-				"item": "minecraft:copper_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "minecraft:copper_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"unlock": [
-			{
-				"item": "minecraft:copper_shovel"
-			},
-			{
-				"item": "minecraft:copper_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:copper_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"result": [
-			{
-				"item": "utilitycraft:copper_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:copper_paxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "minecraft:copper_shovel"
+      },
+      "Z": {
+        "item": "minecraft:copper_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:copper_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:copper_shovel"
+      },
+      {
+        "item": "minecraft:copper_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:copper_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:copper_paxel"
+      }
+    ]
+  }
 }

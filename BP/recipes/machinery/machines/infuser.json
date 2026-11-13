@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:infuser"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"S": {
-				"item": "lapis_lazuli"
-			},
-			"R": {
-				"item": "minecraft:redstone"
-			},
-			"C": {
-				"item": "utilitycraft:basic_chip"
-			},
-			"D": {
-				"item": "redstone_block"
-			},
-			"M": {
-				"item": "utilitycraft:machine_case"
-			}
-		},
-		"pattern": [
-			"RSR",
-			"CMC",
-			"RDR"
-		],
-		"result": {
-			"item": "utilitycraft:infuser"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:infuser"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "S": {
+        "item": "lapis_lazuli"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "C": {
+        "item": "utilitycraft:basic_chip"
+      },
+      "D": {
+        "item": "redstone_block"
+      },
+      "M": {
+        "item": "utilitycraft:machine_case"
+      }
+    },
+    "pattern": [
+      "RSR",
+      "CMC",
+      "RDR"
+    ],
+    "result": {
+      "item": "utilitycraft:infuser"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      }
+    ]
+  }
 }

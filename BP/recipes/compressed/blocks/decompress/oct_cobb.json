@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:oct_cobb"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:nonuple_compressed_cobblestone"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:octuple_compressed_cobblestone",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:nonuple_compressed_cobblestone"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:oct_cobb"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:nonuple_compressed_cobblestone"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:octuple_compressed_cobblestone",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:nonuple_compressed_cobblestone"
+      }
+    ]
+  }
 }

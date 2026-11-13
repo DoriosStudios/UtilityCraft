@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:emerald_mesh"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"S": {
-				"item": "emerald"
-			},
-			"M": {
-				"item": "utilitycraft:golden_mesh"
-			}
-		},
-		"pattern": [
-			"SSS",
-			"SMS",
-			"SSS"
-		],
-		"result": {
-			"item": "utilitycraft:emerald_mesh"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:emerald"
-			},
-			{
-				"item": "utilitycraft:golden_mesh"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:emerald_mesh"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "S": {
+        "item": "emerald"
+      },
+      "M": {
+        "item": "utilitycraft:golden_mesh"
+      }
+    },
+    "pattern": [
+      "SSS",
+      "SMS",
+      "SSS"
+    ],
+    "result": {
+      "item": "utilitycraft:emerald_mesh"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:emerald"
+      },
+      {
+        "item": "utilitycraft:golden_mesh"
+      }
+    ]
+  }
 }

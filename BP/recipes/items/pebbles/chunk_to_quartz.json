@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:chunk_to_quartz"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:nether_quartz_chunk"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:quartz_ore"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:nether_quartz_chunk"
-			},
-			{
-				"item": "minecraft:quartz_ore"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:chunk_to_quartz"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:nether_quartz_chunk"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:quartz_ore"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:nether_quartz_chunk"
+      },
+      {
+        "item": "minecraft:quartz_ore"
+      }
+    ]
+  }
 }

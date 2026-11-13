@@ -1,110 +1,77 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:block": {
-        "description": {
-            "identifier": "utilitycraft:sink",
-            "menu_category": {
-                "category": "construction"
-            },
-            "traits": {
-                "minecraft:placement_direction": {
-                    "enabled_states": [
-                        "minecraft:facing_direction"
-                    ]
-                }
-            }
-        },
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:sink",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:facing_direction"]
+        }
+      }
+    },
+    "components": {
+      "utilitycraft:infinite_tank": {
+        "resource": "fluid",
+        "type": "water"
+      },
+      "minecraft:geometry": "geometry.utilitycraft_infinite_water_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_infinite_block_water",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-6, 0, -6],
+          "size": [12, 11, 12]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-6, 0, -6],
+        "size": [12, 11, 12]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.2
+      },
+      "minecraft:tags": ["minecraft:is_axe_item_destructible", "dorios:fluid"]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'north' ",
         "components": {
-            "utilitycraft:infinite_tank": {
-                "resource": "fluid",
-                "type": "water"
-            },
-            "minecraft:geometry": "geometry.utilitycraft_infinite_water_block",
-            "minecraft:material_instances": {
-                "*": {
-                    "texture": "utilitycraft_infinite_block_water",
-                    "render_method": "alpha_test"
-                }
-            },
-            "minecraft:collision_box": {
-                "origin": [
-                    -6,
-                    0,
-                    -6
-                ],
-                "size": [
-                    12,
-                    11,
-                    12
-                ]
-            },
-            "minecraft:selection_box": {
-                "origin": [
-                    -6,
-                    0,
-                    -6
-                ],
-                "size": [
-                    12,
-                    11,
-                    12
-                ]
-            },
-            "minecraft:destructible_by_mining": {
-                "seconds_to_destroy": 1.2
-            },
-            "tag:dorios:fluid": {},
-            "tag:minecraft:is_axe_item_destructible": {}
-        },
-        "permutations": [
-            {
-                "condition": "q.block_state('minecraft:facing_direction') == 'north' ",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [
-                            0,
-                            180,
-                            0
-                        ]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('minecraft:facing_direction') == 'south' ",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [
-                            0,
-                            0,
-                            0
-                        ]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('minecraft:facing_direction') == 'east' ",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [
-                            0,
-                            90,
-                            0
-                        ]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('minecraft:facing_direction') == 'west' ",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [
-                            0,
-                            -90,
-                            0
-                        ]
-                    }
-                }
-            }
-        ]
-    }
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      }
+    ]
+  }
 }

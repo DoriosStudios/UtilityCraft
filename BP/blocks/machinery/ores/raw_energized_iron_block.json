@@ -1,22 +1,32 @@
 {
-	"format_version": "1.26.0",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:raw_energized_iron_block",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 3.0
-			},
-			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true
-			},
-			"minecraft:redstone_producer": {
-				"power": 14
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:raw_energized_iron_block",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_raw_energized_iron_block",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.0
+      },
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      "minecraft:redstone_producer": {
+        "power": 14
+      }
+    }
+  }
 }

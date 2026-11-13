@@ -1,32 +1,32 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:fluid_extractor"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"H": {
-				"item": "hopper"
-			},
-			"S": {
-				"item": "utilitycraft:fluid_pipe"
-			}
-		},
-		"pattern": [
-			" S",
-			"SHS",
-			" S"
-		],
-		"result": {
-			"item": "utilitycraft:fluid_extractor"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:fluid_extractor"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "H": {
+        "item": "hopper"
+      },
+      "S": {
+        "item": "utilitycraft:fluid_pipe"
+      }
+    },
+    "pattern": [
+      " S",
+      "SHS",
+      " S"
+    ],
+    "result": {
+      "item": "utilitycraft:fluid_extractor"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

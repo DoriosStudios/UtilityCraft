@@ -1,57 +1,57 @@
 {
-	"format_version": "1.21.70",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:lucky_sword",
-			"menu_category": {
-				"category": "none",
-				"group": "minecraft:itemGroup.name.sword"
-			}
-		},
-		"components": {
-			"minecraft:can_destroy_in_creative": false,
-			"minecraft:durability": {
-				"max_durability": 1125
-			},
-			"minecraft:damage": 8,
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 16,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_sword_item_destructible')"
-						}
-					},
-					{
-						"speed": 60,
-						"block": "bamboo"
-					}
-				]
-			},
-			"minecraft:enchantable": {
-				"value": 14,
-				"slot": "sword"
-			},
-			"minecraft:hand_equipped": true,
-			"minecraft:icon": "utilitycraft_lucky_sword",
-			"minecraft:max_stack_size": 1,
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:emerald"
-						],
-						"repair_amount": "query.max_durability*0.25"
-					},
-					{
-						"items": [
-							"utilitycraft:lucky_sword"
-						],
-						"repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:lucky_sword",
+      "menu_category": {
+        "category": "none",
+        "group": "minecraft:itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:durability": {
+        "max_durability": 1125
+      },
+      "minecraft:damage": 8,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 16,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_sword_item_destructible')"
+            }
+          },
+          {
+            "speed": 60,
+            "block": "bamboo"
+          }
+        ]
+      },
+      "minecraft:enchantable": {
+        "value": 14,
+        "slot": "sword"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:icon": "utilitycraft_lucky_sword",
+      "minecraft:max_stack_size": 1,
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:emerald"
+            ],
+            "repair_amount": "query.max_durability*0.25"
+          },
+          {
+            "items": [
+              "utilitycraft:lucky_sword"
+            ],
+            "repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
+          }
+        ]
+      }
+    }
+  }
 }

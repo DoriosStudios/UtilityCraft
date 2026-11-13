@@ -1,20 +1,25 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:mangrove_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "mangrove_slab",
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "mangrove_planks"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:mangrove_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "mangrove_slab",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "mangrove_planks"
+    },
+    "unlock": [
+      {
+        "item": "mangrove_slab"
+      }
+    ]
+  }
 }

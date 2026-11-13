@@ -1,27 +1,27 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:charcoal_from_smelt"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:smeltflare"
-			},
-			{
-				"tag": "minecraft:logs_that_burn"
-			}
-		],
-		"result": {
-			"item": "minecraft:charcoal"
-		}	,
-		"unlock": [
-			{
-				"item": "utilitycraft:smeltflare"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:charcoal_from_smelt"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:smeltflare"
+      },
+      {
+        "tag": "minecraft:logs_that_burn"
+      }
+    ],
+    "result": {
+      "item": "minecraft:charcoal"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:smeltflare"
+      }
+    ]
+  }
 }

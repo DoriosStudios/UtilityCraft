@@ -1,28 +1,28 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:honey_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"H": {
-				"item": "utilitycraft:honey_ball"
-			}
-		},
-		"pattern": [
-			"HH",
-			"HH"
-		],
-		"result": {
-			"item": "minecraft:honey_block"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:honey_ball"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:honey_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "H": {
+        "item": "utilitycraft:honey_ball"
+      }
+    },
+    "pattern": [
+      "HH",
+      "HH"
+    ],
+    "result": {
+      "item": "minecraft:honey_block"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:honey_ball"
+      }
+    ]
+  }
 }

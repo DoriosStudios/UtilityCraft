@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:stone_hammer"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:stone_hammer"
-			}
-		],
-		"unlock": [
-			{
-				"tag": "minecraft:stone_tool_materials"
-			},
-			{
-				"item": "minecraft:stone"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"pattern": [
-			"ASA",
-			"ADA",
-			" D "
-		],
-		"key": {
-			"A": {
-				"tag": "minecraft:stone_tool_materials"
-			},
-			"S": {
-				"item": "minecraft:stone"
-			},
-			"D": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:stone_hammer"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:stone_hammer"
+      }
+    ],
+    "unlock": [
+      {
+        "tag": "minecraft:stone_tool_materials"
+      },
+      {
+        "item": "minecraft:stone"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      "ADA",
+      " D "
+    ],
+    "key": {
+      "A": {
+        "tag": "minecraft:stone_tool_materials"
+      },
+      "S": {
+        "item": "minecraft:stone"
+      },
+      "D": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

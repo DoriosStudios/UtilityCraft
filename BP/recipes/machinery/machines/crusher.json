@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:crusher"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"H": {
-				"item": "utilitycraft:iron_hammer"
-			},
-			"I": {
-				"item": "utilitycraft:chip"
-			},
-			"M": {
-				"item": "utilitycraft:machine_case"
-			},
-			"R": {
-				"item": "gold_ingot"
-			},
-			"S": {
-				"item": "minecraft:redstone"
-			}
-		},
-		"pattern": [
-			"SHS",
-			"IMI",
-			"SRS"
-		],
-		"result": {
-			"item": "utilitycraft:crusher"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:crusher"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "H": {
+        "item": "utilitycraft:iron_hammer"
+      },
+      "I": {
+        "item": "utilitycraft:chip"
+      },
+      "M": {
+        "item": "utilitycraft:machine_case"
+      },
+      "R": {
+        "item": "gold_ingot"
+      },
+      "S": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "pattern": [
+      "SHS",
+      "IMI",
+      "SRS"
+    ],
+    "result": {
+      "item": "utilitycraft:crusher"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      }
+    ]
+  }
 }

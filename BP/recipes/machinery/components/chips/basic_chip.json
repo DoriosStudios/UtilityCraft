@@ -1,38 +1,38 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:basic_chip"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "RGR",
-            "GCG",
-            "RGR"
-        ],
-        "key": {
-            "G": {
-                "item": "gold_ingot"
-            },
-            "C": {
-                "item": "utilitycraft:chip"
-            },
-            "R": {
-                "item": "minecraft:redstone"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:basic_chip"
-        },
-        "unlock": [
-            {
-                "item": "gold_ingot"
-            },
-            {
-                "item": "minecraft:redstone"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:basic_chip"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "RGR",
+      "GCG",
+      "RGR"
+    ],
+    "key": {
+      "G": {
+        "item": "gold_ingot"
+      },
+      "C": {
+        "item": "utilitycraft:chip"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:basic_chip"
+    },
+    "unlock": [
+      {
+        "item": "gold_ingot"
+      },
+      {
+        "item": "minecraft:redstone"
+      }
+    ]
+  }
 }

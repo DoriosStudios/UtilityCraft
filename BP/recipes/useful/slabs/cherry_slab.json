@@ -1,20 +1,25 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:cherry_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "cherry_slab",
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "cherry_planks"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:cherry_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "cherry_slab",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "cherry_planks"
+    },
+    "unlock": [
+      {
+        "item": "cherry_slab"
+      }
+    ]
+  }
 }

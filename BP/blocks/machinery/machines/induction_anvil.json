@@ -22,6 +22,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
       "utilitycraft:induction_anvil": {
         "machine": {
           "energy_cap": 64000,

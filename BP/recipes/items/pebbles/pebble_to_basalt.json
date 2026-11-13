@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:pebble_to_basalt"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:basalt_pebble"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:basalt"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:basalt_pebble"
-			},
-			{
-				"item": "minecraft:basalt"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:pebble_to_basalt"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:basalt_pebble"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:basalt"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:basalt_pebble"
+      },
+      {
+        "item": "minecraft:basalt"
+      }
+    ]
+  }
 }

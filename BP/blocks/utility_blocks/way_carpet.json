@@ -1,51 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:waycarpet",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.waycarpet",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_waycarpet",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					2,
-					16
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					2,
-					16
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.3
-			},
-			"minecraft:destructible_by_explosion": false,
-			"minecraft:custom_components": [
-				"utilitycraft:carpet"
-			]
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:waycarpet",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "minecraft:geometry": "geometry.waycarpet",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_waycarpet",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-8, 0, -8],
+          "size": [16, 2, 16]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 2, 16]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.3
+      },
+      "minecraft:destructible_by_explosion": false,
+      "utilitycraft:carpet": {}
+    }
+  }
 }

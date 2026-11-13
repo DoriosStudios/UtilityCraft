@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:diamond_paxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "minecraft:diamond_shovel"
-			},
-			"Z": {
-				"item": "minecraft:diamond_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "minecraft:diamond_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"unlock": [
-			{
-				"item": "minecraft:diamond_shovel"
-			},
-			{
-				"item": "minecraft:diamond_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:diamond_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"result": [
-			{
-				"item": "utilitycraft:diamond_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:diamond_paxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "minecraft:diamond_shovel"
+      },
+      "Z": {
+        "item": "minecraft:diamond_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diamond_shovel"
+      },
+      {
+        "item": "minecraft:diamond_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:diamond_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:diamond_paxel"
+      }
+    ]
+  }
 }

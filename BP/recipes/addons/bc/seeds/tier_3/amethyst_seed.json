@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:amethyst_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:amethyst_shard"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"AAA",
-			"ASA",
-			"AAA"
-		],
-		"result": {
-			"item": "utilitycraft:amethyst_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:amethyst_shard"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:amethyst_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "AAA",
+      "ASA",
+      "AAA"
+    ],
+    "result": {
+      "item": "utilitycraft:amethyst_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:amethyst_shard"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

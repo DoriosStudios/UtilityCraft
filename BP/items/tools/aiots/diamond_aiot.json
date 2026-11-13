@@ -1,71 +1,74 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:diamond_aiot"
-		},
-		"components": {
-			"utilitycraft:hoe": {
-				"size": 1,
-				"runAreaHarvest": true,
-				"sneakingMode": false
-			},
-			"utilitycraft:shovel": {
-				"size": 1,
-				"sneakingMode": true
-			},
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_axe",
-					"minecraft:is_pickaxe",
-					"minecraft:is_sword",
-                                        "utilitycraft:is_aiot",
-                                        "minecraft:transformable_items",
-                                        "minecraft:diamond_tier"
-				]
-			},
-			"minecraft:icon": "utilitycraft_diamond_aiot",
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 7805
-			},
-			"minecraft:damage": 8,
-			"minecraft:enchantable": {
-				"value": 13,
-				"slot": "axe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:diamond"
-						],
-						"repair_amount": 550
-					},
-					{
-						"items": [
-							"utilitycraft:diamond_aiot"
-						],
-						"repair_amount": 1561
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 20,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible', 'minecraft:is_hoe_item_destructible')"
-						}
-					},
-					{
-						"speed": 30,
-						"block": "minecraft:web"
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:diamond_aiot",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:hoe": {
+        "size": 1,
+        "runAreaHarvest": true,
+        "sneakingMode": false
+      },
+      "utilitycraft:shovel": {
+        "size": 1,
+        "sneakingMode": true
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_axe",
+          "minecraft:is_pickaxe",
+          "minecraft:is_sword",
+          "utilitycraft:is_aiot",
+          "minecraft:transformable_items",
+          "minecraft:diamond_tier"
+        ]
+      },
+      "minecraft:icon": "utilitycraft_diamond_aiot",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 7805
+      },
+      "minecraft:damage": 8,
+      "minecraft:enchantable": {
+        "value": 13,
+        "slot": "axe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:diamond"
+            ],
+            "repair_amount": 550
+          },
+          {
+            "items": [
+              "utilitycraft:diamond_aiot"
+            ],
+            "repair_amount": 1561
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 20,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible', 'minecraft:is_hoe_item_destructible')"
+            }
+          },
+          {
+            "speed": 30,
+            "block": "minecraft:web"
+          }
+        ]
+      }
+    }
+  }
 }

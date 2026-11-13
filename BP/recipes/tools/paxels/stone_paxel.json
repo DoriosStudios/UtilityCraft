@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:stone_paxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"unlock": [
-			{
-				"item": "minecraft:stone_shovel"
-			},
-			{
-				"item": "minecraft:stone_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:stone_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "minecraft:stone_shovel"
-			},
-			"Z": {
-				"item": "minecraft:stone_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "minecraft:stone_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"result": [
-			{
-				"item": "utilitycraft:stone_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:stone_paxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:stone_shovel"
+      },
+      {
+        "item": "minecraft:stone_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:stone_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "minecraft:stone_shovel"
+      },
+      "Z": {
+        "item": "minecraft:stone_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:stone_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": [
+      {
+        "item": "utilitycraft:stone_paxel"
+      }
+    ]
+  }
 }

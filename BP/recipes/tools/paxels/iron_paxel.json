@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:iron_paxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "minecraft:iron_shovel"
-			},
-			"Z": {
-				"item": "minecraft:iron_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "minecraft:iron_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"unlock": [
-			{
-				"item": "minecraft:iron_shovel"
-			},
-			{
-				"item": "minecraft:iron_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:iron_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"result": [
-			{
-				"item": "utilitycraft:iron_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:iron_paxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "minecraft:iron_shovel"
+      },
+      "Z": {
+        "item": "minecraft:iron_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:iron_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_shovel"
+      },
+      {
+        "item": "minecraft:iron_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:iron_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:iron_paxel"
+      }
+    ]
+  }
 }

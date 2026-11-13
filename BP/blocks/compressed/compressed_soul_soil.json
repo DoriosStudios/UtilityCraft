@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:compressed_soul_soil",
@@ -8,6 +8,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "soul_soil"
+      },
       "minecraft:redstone_conductivity": {
         "redstone_conductor": true
       },
@@ -21,7 +24,9 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 2.5
       },
-      "tag:minecraft:is_shovel_item_destructible": {}
+      "minecraft:tags": [
+        "minecraft:is_shovel_item_destructible"
+      ]
     }
   }
 }

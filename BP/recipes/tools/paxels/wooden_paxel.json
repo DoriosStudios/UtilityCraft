@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:WoodenPaxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"unlock": [
-			{
-				"item": "minecraft:wooden_shovel"
-			},
-			{
-				"item": "minecraft:wooden_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:wooden_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "minecraft:wooden_shovel"
-			},
-			"Z": {
-				"item": "minecraft:wooden_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "minecraft:wooden_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"result": [
-			{
-				"item": "utilitycraft:wooden_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:WoodenPaxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:wooden_shovel"
+      },
+      {
+        "item": "minecraft:wooden_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:wooden_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "minecraft:wooden_shovel"
+      },
+      "Z": {
+        "item": "minecraft:wooden_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:wooden_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": [
+      {
+        "item": "utilitycraft:wooden_paxel"
+      }
+    ]
+  }
 }

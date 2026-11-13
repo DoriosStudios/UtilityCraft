@@ -1,12 +1,16 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-            "identifier": "utilitycraft:raw_uranium_block",
-            "menu_category": {
-                "category": "items"
-            }
-        },
-        "components": {}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:raw_uranium_block",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      }
+    }
+}
 }

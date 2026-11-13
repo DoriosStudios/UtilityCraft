@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.26.60",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "utilitycraft:pedestal_area_outline",
@@ -27,24 +27,17 @@
 				"has_collision": false,
 				"has_gravity": false
 			},
-			"minecraft:pushable": {
-				"is_pushable": false,
-				"is_pushable_by_piston": false
-			},
 			"minecraft:damage_sensor": {
 				"triggers": [
 					{
 						"cause": "all",
-						"deals_damage": false
+						"deals_damage": "no"
 					}
 				]
 			},
 			"minecraft:timer": {
 				"looping": false,
-				"time": [
-					3,
-					3
-				],
+				"time": { "min": 3, "max": 3 },
 				"time_down_event": {
 					"event": "utilitycraft:despawn"
 				}

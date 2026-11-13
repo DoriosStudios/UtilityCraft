@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ultimate_thermo_generator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:copper_block"
-			},
-			"B": {
-				"item": "utilitycraft:expert_thermo_generator"
-			},
-			"C": {
-				"item": "utilitycraft:netherite_plate"
-			},
-			"D": {
-				"item": "utilitycraft:ultimate_fluid_tank"
-			},
-			"E": {
-				"item": "utilitycraft:ultimate_chip"
-			}
-		},
-		"pattern": [
-			"ADA",
-			"EBE",
-			"CAC"
-		],
-		"result": {
-			"item": "utilitycraft:ultimate_thermo_generator"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:ultimate_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_thermo_generator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:copper_block"
+      },
+      "B": {
+        "item": "utilitycraft:expert_thermo_generator"
+      },
+      "C": {
+        "item": "utilitycraft:netherite_plate"
+      },
+      "D": {
+        "item": "utilitycraft:ultimate_fluid_tank"
+      },
+      "E": {
+        "item": "utilitycraft:ultimate_chip"
+      }
+    },
+    "pattern": [
+      "ADA",
+      "EBE",
+      "CAC"
+    ],
+    "result": {
+      "item": "utilitycraft:ultimate_thermo_generator"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:ultimate_chip"
+      }
+    ]
+  }
 }

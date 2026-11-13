@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:flint_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"F": {
-				"item": "flint"
-			}
-		},
-		"pattern": [
-			"FFF",
-			"FFF",
-			"FFF"
-		],
-		"result": {
-			"item": "utilitycraft:flint_block"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:flint"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:flint_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "F": {
+        "item": "flint"
+      }
+    },
+    "pattern": [
+      "FFF",
+      "FFF",
+      "FFF"
+    ],
+    "result": {
+      "item": "utilitycraft:flint_block"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:flint"
+      }
+    ]
+  }
 }

@@ -1,27 +1,27 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shapeless": {
-        "description": {
-            "identifier": "utilitycraft:gas_pipe_yellow_to_blue_convert"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "ingredients": [
-            {
-                "item": "utilitycraft:gas_pipe_yellow"
-            },
-            {
-                "item": "blue_dye"
-            }
-        ],
-        "result": {
-            "item": "utilitycraft:gas_pipe_blue"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:gas_pipe_yellow"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:gas_pipe_yellow_to_blue_convert"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:gas_pipe_yellow"
+      },
+      {
+        "item": "blue_dye"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:gas_pipe_blue"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:gas_pipe_yellow"
+      }
+    ]
+  }
 }

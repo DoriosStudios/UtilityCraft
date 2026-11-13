@@ -1,30 +1,30 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:logs_to_chests_1"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"LLL",
-			"L L",
-			"LLL"
-		],
-		"key": {
-			"L": {
-				"tag": "minecraft:logs"
-			}
-		},
-		"result": {
-			"item": "chest",
-			"count": 4
-		},
-		"unlock": [
-			{
-				"tag": "minecraft:logs"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:logs_to_chests_1"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "LLL",
+      "L L",
+      "LLL"
+    ],
+    "key": {
+      "L": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "result": {
+      "item": "chest",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "tag": "minecraft:logs"
+      }
+    ]
+  }
 }

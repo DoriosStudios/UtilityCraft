@@ -1,13 +1,18 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_furnace": {
-		"description": {
-			"identifier": "utilitycraft:leather"
-		},
-		"tags": [
-			"furnace"
-		],
-		"input": "utilitycraft:raw_leather",
-		"output": "minecraft:leather"
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "utilitycraft:leather"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": "utilitycraft:raw_leather",
+    "output": "minecraft:leather",
+    "unlock": [
+      {
+        "item": "utilitycraft:raw_leather"
+      }
+    ]
+  }
 }

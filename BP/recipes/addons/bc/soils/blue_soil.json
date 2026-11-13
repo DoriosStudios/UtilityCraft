@@ -1,48 +1,48 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:blue_soil"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "warped_wart_block"
-			},
-			"D": {
-				"item": "utilitycraft:red_soil"
-			},
-			"R": {
-				"item": "diamond_block"
-			},
-			"N": {
-				"item": "soul_soil"
-			}
-		},
-		"pattern": [
-			"DND",
-			"BRB",
-			"DND"
-		],
-		"result": {
-			"item": "utilitycraft:blue_soil",
-			"count": 4
-		},
-		"unlock": [
-			{
-				"item": "minecraft:warped_wart_block"
-			},
-			{
-				"item": "utilitycraft:red_soil"
-			},
-			{
-				"item": "minecraft:diamond_block"
-			},
-			{
-				"item": "minecraft:soul_soil"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:blue_soil"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "warped_wart_block"
+      },
+      "D": {
+        "item": "utilitycraft:red_soil"
+      },
+      "R": {
+        "item": "diamond_block"
+      },
+      "N": {
+        "item": "soul_soil"
+      }
+    },
+    "pattern": [
+      "DND",
+      "BRB",
+      "DND"
+    ],
+    "result": {
+      "item": "utilitycraft:blue_soil",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "minecraft:warped_wart_block"
+      },
+      {
+        "item": "utilitycraft:red_soil"
+      },
+      {
+        "item": "minecraft:diamond_block"
+      },
+      {
+        "item": "minecraft:soul_soil"
+      }
+    ]
+  }
 }

@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:prismarine_shard_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "minecraft:prismarine_shard"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"PPP",
-			"PSP",
-			"PPP"
-		],
-		"result": {
-			"item": "utilitycraft:prismarine_shards_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:prismarine_shard"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:prismarine_shard_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:prismarine_shard"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "PPP",
+      "PSP",
+      "PPP"
+    ],
+    "result": {
+      "item": "utilitycraft:prismarine_shards_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:prismarine_shard"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

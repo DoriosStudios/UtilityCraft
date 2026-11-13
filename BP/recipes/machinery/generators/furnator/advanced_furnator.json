@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:advanced_furnator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"B": {
-				"item": "utilitycraft:basic_furnator"
-			},
-			"C": {
-				"item": "utilitycraft:energized_iron_plate"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			},
-			"E": {
-				"item": "utilitycraft:advanced_chip"
-			}
-		},
-		"pattern": [
-			"AEA",
-			"EBE",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:advanced_furnator"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:redstone_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:advanced_furnator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "B": {
+        "item": "utilitycraft:basic_furnator"
+      },
+      "C": {
+        "item": "utilitycraft:energized_iron_plate"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      },
+      "E": {
+        "item": "utilitycraft:advanced_chip"
+      }
+    },
+    "pattern": [
+      "AEA",
+      "EBE",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:advanced_furnator"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:redstone_block"
+      }
+    ]
+  }
 }

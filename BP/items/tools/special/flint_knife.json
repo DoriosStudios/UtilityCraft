@@ -1,87 +1,87 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:flint_knife",
-			"menu_category": {
-				"category": "equipment"
-			}
-		},
-		"components": {
-			"utilitycraft:block_loot": [
-				{
-					"blockEndsWith": "leaves",
-					"item": "utilitycraft:fiber",
-					"chance": 0.5,
-					"amount": [
-						1,
-						2
-					]
-				}
-			],
-			"minecraft:icon": "utilitycraft_flint_knife",
-			"minecraft:tags": {
-				"tags": [
-					"utilitycraft:flint_knife"
-				]
-			},
-			"minecraft:durability": {
-				"max_durability": 128
-			},
-			"minecraft:enchantable": {
-				"slot": "shears",
-				"value": 10
-			},
-			"minecraft:hand_equipped": true,
-			"minecraft:max_stack_size": 1,
-			"minecraft:digger": {
-				"destroy_speeds": [
-					{
-						"block": "oak_leaves",
-						"speed": 10
-					},
-					{
-						"block": "birch_leaves",
-						"speed": 10
-					},
-					{
-						"block": "acacia_leaves",
-						"speed": 10
-					},
-					{
-						"block": "azalea_leaves",
-						"speed": 10
-					},
-					{
-						"block": "azalea_leaves_flowered",
-						"speed": 10
-					},
-					{
-						"block": "cherry_leaves",
-						"speed": 10
-					},
-					{
-						"block": "jungle_leaves",
-						"speed": 10
-					},
-					{
-						"block": "spruce_leaves",
-						"speed": 10
-					},
-					{
-						"block": "dark_oak_leaves",
-						"speed": 10
-					},
-					{
-						"block": "mangrove_leaves",
-						"speed": 10
-					},
-					{
-						"block": "pale_oak_leaves",
-						"speed": 10
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:flint_knife",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:block_loot": [
+        {
+          "blockEndsWith": "leaves",
+          "item": "utilitycraft:fiber",
+          "chance": 0.5,
+          "amount": [
+            1,
+            2
+          ]
+        }
+      ],
+      "minecraft:icon": "utilitycraft_flint_knife",
+      "minecraft:tags": {
+        "tags": [
+          "utilitycraft:flint_knife"
+        ]
+      },
+      "minecraft:durability": {
+        "max_durability": 128
+      },
+      "minecraft:enchantable": {
+        "slot": "shears",
+        "value": 10
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:digger": {
+        "destroy_speeds": [
+          {
+            "block": "oak_leaves",
+            "speed": 10
+          },
+          {
+            "block": "birch_leaves",
+            "speed": 10
+          },
+          {
+            "block": "acacia_leaves",
+            "speed": 10
+          },
+          {
+            "block": "azalea_leaves",
+            "speed": 10
+          },
+          {
+            "block": "azalea_leaves_flowered",
+            "speed": 10
+          },
+          {
+            "block": "cherry_leaves",
+            "speed": 10
+          },
+          {
+            "block": "jungle_leaves",
+            "speed": 10
+          },
+          {
+            "block": "spruce_leaves",
+            "speed": 10
+          },
+          {
+            "block": "dark_oak_leaves",
+            "speed": 10
+          },
+          {
+            "block": "mangrove_leaves",
+            "speed": 10
+          },
+          {
+            "block": "pale_oak_leaves",
+            "speed": 10
+          }
+        ]
+      }
+    }
+  }
 }

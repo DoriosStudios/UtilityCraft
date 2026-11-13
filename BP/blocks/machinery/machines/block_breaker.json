@@ -21,6 +21,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:block_breaker": {
         "machine": {
           "energy_cap": 64000,

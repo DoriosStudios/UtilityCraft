@@ -1,17 +1,17 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:copy_paste_tool",
-			"menu_category": {
-				"category": "equipment"
-			}
-		},
-		"components": {
-			"utilitycraft:copy_paste_tool": {},
-			"minecraft:icon": "utilitycraft_copy_paste_tool",
-			"minecraft:hand_equipped": true,
-			"minecraft:max_stack_size": 1
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:copy_paste_tool",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:copy_paste_tool": {},
+      "minecraft:icon": "utilitycraft_copy_paste_tool",
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1
+    }
+  }
 }

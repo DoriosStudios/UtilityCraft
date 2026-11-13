@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:logs_to_sticks_1"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"L",
-			"L"
-		],
-		"key": {
-			"L": {
-				"tag": "minecraft:logs"
-			}
-		},
-		"result": {
-			"item": "stick",
-			"count": 16
-		},
-		"unlock": [
-			{
-				"tag": "minecraft:logs"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:logs_to_sticks_1"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "L",
+      "L"
+    ],
+    "key": {
+      "L": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "result": {
+      "item": "stick",
+      "count": 16
+    },
+    "unlock": [
+      {
+        "tag": "minecraft:logs"
+      }
+    ]
+  }
 }

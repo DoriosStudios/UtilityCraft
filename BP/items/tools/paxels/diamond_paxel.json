@@ -1,56 +1,59 @@
 {
-	"format_version": "1.21.70",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:diamond_paxel"
-		},
-		"components": {
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_axe",
-                                        "minecraft:is_pickaxe",
-                                        "minecraft:transformable_items",
-                                        "minecraft:diamond_tier"
-				]
-			},
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 4683
-			},
-			"minecraft:damage": 6,
-			"minecraft:icon": "utilitycraft_diamond_paxel",
-			"minecraft:enchantable": {
-				"value": 11,
-				"slot": "axe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:diamond"
-						],
-						"repair_amount": 550
-					},
-					{
-						"items": [
-							"utilitycraft:diamond_paxel"
-						],
-						"repair_amount": 1561
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 16,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible')"
-						}
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:diamond_paxel",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_axe",
+          "minecraft:is_pickaxe",
+          "minecraft:transformable_items",
+          "minecraft:diamond_tier"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 4683
+      },
+      "minecraft:damage": 6,
+      "minecraft:icon": "utilitycraft_diamond_paxel",
+      "minecraft:enchantable": {
+        "value": 11,
+        "slot": "axe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:diamond"
+            ],
+            "repair_amount": 550
+          },
+          {
+            "items": [
+              "utilitycraft:diamond_paxel"
+            ],
+            "repair_amount": 1561
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 16,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible')"
+            }
+          }
+        ]
+      }
+    }
+  }
 }

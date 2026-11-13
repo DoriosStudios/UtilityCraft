@@ -1,72 +1,68 @@
 {
-	"format_version": "1.19.20",
-	"minecraft:entity": {
-		"description": {
-			"identifier": "utilitycraft:xp_condenser",
-			"is_spawnable": false,
-			"is_summonable": true,
-			"is_experimental": false
-		},
-		"component_groups": {
-			"despawn": {
-				"minecraft:instant_despawn": {
-					"remove_child_entities": false
-				}
-			}
-		},
-		"components": {
-			"minecraft:collision_box": {
-				"height": 0,
-				"width": 0
-			},
-			"minecraft:physics": {
-				"has_collision": false,
-				"has_gravity": false
-			},
-			"minecraft:damage_sensor": {
-				"triggers": [
-					{
-						"cause": "all",
-						"deals_damage": false
-					}
-				]
-			},
-			"minecraft:knockback_resistance": {
-				"value": 10000
-			},
-			"minecraft:scale": {
-				"value": 0.25
-			},
-			"minecraft:inventory": {
-				"inventory_size": 4,
-				"container_type": "inventory"
-			},
-			"minecraft:inside_block_notifier": {
-				"block_list": [
-					{
-						"block": {
-							"name": "air"
-						},
-						"entered_block_event": {
-							"event": "despawn"
-						}
-					}
-				]
-			},
-			"minecraft:type_family": {
-				"family": [
-					"inanimate"
-				]
-			}
-		},
-		"events": {
-			"despawn": {
-				"add": {
-					"component_groups": [
-						"despawn"
-					]
-				}
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "utilitycraft:xp_condenser",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "height": 0,
+        "width": 0
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10000
+      },
+      "minecraft:scale": {
+        "value": 0.25
+      },
+      "minecraft:inventory": {
+        "inventory_size": 4,
+        "container_type": "inventory"
+      },
+      "minecraft:inside_block_notifier": {
+        "block_list": [
+          {
+            "block": {
+              "name": "air"
+            },
+            "entered_block_event": {
+              "event": "despawn"
+            }
+          }
+        ]
+      },
+      "minecraft:type_family": {
+        "family": ["inanimate"]
+      }
+    },
+    "events": {
+      "despawn": {
+        "add": {
+          "component_groups": ["despawn"]
+        }
+      }
+    }
+  }
 }

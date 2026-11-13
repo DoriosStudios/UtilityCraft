@@ -1,14 +1,17 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:nether_star_fragment"
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_nether_star_fragment",
-			"minecraft:fire_resistant": {
-				"value": true
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:nether_star_fragment",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_nether_star_fragment",
+      "minecraft:fire_resistant": {
+        "value": true
+      }
+    }
+  }
 }

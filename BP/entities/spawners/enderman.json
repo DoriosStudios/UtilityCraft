@@ -1,5 +1,5 @@
 {
-	"format_version": "1.19.20",
+	"format_version": "1.26.60",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "utilitycraft:mechanical_spawner_enderman",
@@ -23,12 +23,12 @@
 					"utilitycraft_container"
 				]
 			},
-			"minecraft:fire_immune": true,
+			"minecraft:fire_immune": {},
 			"minecraft:damage_sensor": {
 				"triggers": [
 					{
 						"cause": "all",
-						"deals_damage": true
+						"deals_damage": "yes"
 					}
 				]
 			},

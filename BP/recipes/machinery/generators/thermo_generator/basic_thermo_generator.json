@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:basic_thermo_generator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:copper_block"
-			},
-			"B": {
-				"item": "utilitycraft:basic_fluid_tank"
-			},
-			"C": {
-				"item": "utilitycraft:gold_plate"
-			},
-			"D": {
-				"item": "utilitycraft:copper_plate"
-			},
-			"E": {
-				"item": "utilitycraft:basic_chip"
-			}
-		},
-		"pattern": [
-			"ADA",
-			"EBE",
-			"CAC"
-		],
-		"result": {
-			"item": "utilitycraft:basic_thermo_generator"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:basic_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:basic_thermo_generator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:copper_block"
+      },
+      "B": {
+        "item": "utilitycraft:basic_fluid_tank"
+      },
+      "C": {
+        "item": "utilitycraft:gold_plate"
+      },
+      "D": {
+        "item": "utilitycraft:copper_plate"
+      },
+      "E": {
+        "item": "utilitycraft:basic_chip"
+      }
+    },
+    "pattern": [
+      "ADA",
+      "EBE",
+      "CAC"
+    ],
+    "result": {
+      "item": "utilitycraft:basic_thermo_generator"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:basic_chip"
+      }
+    ]
+  }
 }

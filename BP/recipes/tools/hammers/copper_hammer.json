@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:copper_hammer"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:copper_hammer"
-			}
-		],
-		"pattern": [
-			"ASA",
-			"ADA",
-			" D "
-		],
-		"unlock": [
-			{
-				"item": "minecraft:copper_ingot"
-			},
-			{
-				"item": "minecraft:copper_block"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:copper_ingot"
-			},
-			"S": {
-				"item": "minecraft:copper_block"
-			},
-			"D": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:copper_hammer"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:copper_hammer"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      "ADA",
+      " D "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      },
+      {
+        "item": "minecraft:copper_block"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:copper_ingot"
+      },
+      "S": {
+        "item": "minecraft:copper_block"
+      },
+      "D": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

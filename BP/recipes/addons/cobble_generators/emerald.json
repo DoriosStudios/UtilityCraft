@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:cobble_gen_3"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"M": {
-				"item": "emerald"
-			},
-			"G": {
-				"item": "utilitycraft:cobble_gen_2"
-			}
-		},
-		"pattern": [
-			"MMM",
-			"MGM",
-			"MMM"
-		],
-		"result": {
-			"item": "utilitycraft:cobble_gen_3"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:emerald"
-			},
-			{
-				"item": "utilitycraft:cobble_gen_2"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:cobble_gen_3"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "M": {
+        "item": "emerald"
+      },
+      "G": {
+        "item": "utilitycraft:cobble_gen_2"
+      }
+    },
+    "pattern": [
+      "MMM",
+      "MGM",
+      "MMM"
+    ],
+    "result": {
+      "item": "utilitycraft:cobble_gen_3"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:emerald"
+      },
+      {
+        "item": "utilitycraft:cobble_gen_2"
+      }
+    ]
+  }
 }

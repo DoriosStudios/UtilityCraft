@@ -1,11 +1,11 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.26.60",
   "minecraft:item": {
     "description": {
       "identifier": "utilitycraft:apple_sapling",
       "menu_category": {
         "category": "nature",
-        "group": "itemGroup.name.sapling"
+        "group": "minecraft:itemGroup.name.sapling"
       }
     },
     "components": {

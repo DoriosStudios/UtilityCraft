@@ -1,11 +1,14 @@
-	{
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:gravel_fragments"
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_gravel_fragments"
-		}
-	}
+{
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:gravel_fragments",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_gravel_fragments"
+    }
+  }
 }

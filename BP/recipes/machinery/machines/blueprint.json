@@ -1,32 +1,32 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:blueprint"
-		},
-		"tags": [
-			"utilitycraft_workbench",
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "paper"
-			},
-			"B": {
-				"item": "blue_dye"
-			}
-		},
-		"pattern": [
-			"PP",
-			"B"
-		],
-		"result": {
-			"item": "utilitycraft:blueprint_paper"
-		},
-		"unlock": [
-			{
-				"item": "paper"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:blueprint"
+    },
+    "tags": [
+      "utilitycraft_workbench",
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "paper"
+      },
+      "B": {
+        "item": "blue_dye"
+      }
+    },
+    "pattern": [
+      "PP",
+      "B"
+    ],
+    "result": {
+      "item": "utilitycraft:blueprint_paper"
+    },
+    "unlock": [
+      {
+        "item": "paper"
+      }
+    ]
+  }
 }

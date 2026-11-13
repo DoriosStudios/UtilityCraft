@@ -22,6 +22,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:autofisher": {
         "machine": {
           "energy_cap": 512000,

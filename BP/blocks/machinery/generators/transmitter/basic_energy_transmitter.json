@@ -14,6 +14,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:transmitter": {
         "energy_cap": 64000,
         "rate_speed_base": 1000,

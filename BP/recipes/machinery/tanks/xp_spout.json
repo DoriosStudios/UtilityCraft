@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:xp_spout"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"D": {
-				"item": "minecraft:dropper"
-			},
-			"L": {
-				"item": "minecraft:lever"
-			},
-			"I": {
-				"item": "minecraft:iron_ingot"
-			}
-		},
-		"pattern": [
-			"SL",
-			"SDI",
-			"S"
-		],
-		"result": {
-			"item": "utilitycraft:xp_spout"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:xp_spout"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "D": {
+        "item": "minecraft:dropper"
+      },
+      "L": {
+        "item": "minecraft:lever"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "pattern": [
+      "SL",
+      "SDI",
+      "S"
+    ],
+    "result": {
+      "item": "utilitycraft:xp_spout"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

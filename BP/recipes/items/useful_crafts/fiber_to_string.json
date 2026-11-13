@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:fiber_to_string"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"F": {
-				"item": "utilitycraft:fiber"
-			}
-		},
-		"pattern": [
-			"FF",
-			"FF"
-		],
-		"result": {
-			"item": "minecraft:string"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:fiber"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:fiber_to_string"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "F": {
+        "item": "utilitycraft:fiber"
+      }
+    },
+    "pattern": [
+      "FF",
+      "FF"
+    ],
+    "result": {
+      "item": "minecraft:string"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:fiber"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ]
+  }
 }

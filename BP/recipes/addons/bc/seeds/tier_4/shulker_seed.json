@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:shulker_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			},
-			"H": {
-				"item": "minecraft:shulker_shell"
-			}
-		},
-		"pattern": [
-			"HHH",
-			"HSH",
-			"HHH"
-		],
-		"result": {
-			"item": "utilitycraft:shulker_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:shulker_shell"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:shulker_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      },
+      "H": {
+        "item": "minecraft:shulker_shell"
+      }
+    },
+    "pattern": [
+      "HHH",
+      "HSH",
+      "HHH"
+    ],
+    "result": {
+      "item": "utilitycraft:shulker_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:shulker_shell"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

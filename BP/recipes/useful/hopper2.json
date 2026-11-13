@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:hopper2"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"I": {
-				"item": "minecraft:iron_ingot"
-			},
-			"L": {
-				"tag": "minecraft:logs"
-			}
-		},
-		"pattern": [
-			"ILI",
-			"ILI",
-			" I "
-		],
-		"result": {
-			"item": "minecraft:hopper"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"tag": "minecraft:logs"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:hopper2"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "L": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "pattern": [
+      "ILI",
+      "ILI",
+      " I "
+    ],
+    "result": {
+      "item": "minecraft:hopper"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "tag": "minecraft:logs"
+      }
+    ]
+  }
 }

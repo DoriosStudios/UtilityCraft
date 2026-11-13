@@ -1,53 +1,53 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:basic_fluid_tank"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"R": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"G": {
-				"item": "minecraft:glass"
-			},
-			"C": {
-				"item": "utilitycraft:basic_chip"
-			},
-			"T": {
-				"item": "minecraft:bucket"
-			},
-			"P": {
-				"item": "utilitycraft:fluid_pipe"
-			}
-		},
-		"pattern": [
-			"RGR",
-			"CTC",
-			"RPR"
-		],
-		"result": {
-			"item": "utilitycraft:basic_fluid_tank"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_plate"
-			},
-			{
-				"item": "minecraft:glass"
-			},
-			{
-				"item": "utilitycraft:basic_chip"
-			},
-			{
-				"item": "minecraft:bucket"
-			},
-			{
-				"item": "utilitycraft:fluid_pipe"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:basic_fluid_tank"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "R": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "G": {
+        "item": "minecraft:glass"
+      },
+      "C": {
+        "item": "utilitycraft:basic_chip"
+      },
+      "T": {
+        "item": "minecraft:bucket"
+      },
+      "P": {
+        "item": "utilitycraft:fluid_pipe"
+      }
+    },
+    "pattern": [
+      "RGR",
+      "CTC",
+      "RPR"
+    ],
+    "result": {
+      "item": "utilitycraft:basic_fluid_tank"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_plate"
+      },
+      {
+        "item": "minecraft:glass"
+      },
+      {
+        "item": "utilitycraft:basic_chip"
+      },
+      {
+        "item": "minecraft:bucket"
+      },
+      {
+        "item": "utilitycraft:fluid_pipe"
+      }
+    ]
+  }
 }

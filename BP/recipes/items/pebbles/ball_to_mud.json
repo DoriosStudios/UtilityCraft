@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ball_to_mud"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:mud_ball"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:mud"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:mud_ball"
-			},
-			{
-				"item": "minecraft:mud"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ball_to_mud"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:mud_ball"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:mud"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:mud_ball"
+      },
+      {
+        "item": "minecraft:mud"
+      }
+    ]
+  }
 }

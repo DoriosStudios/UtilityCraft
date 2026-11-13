@@ -1,36 +1,36 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:energy_cable"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"R": {
-				"item": "redstone"
-			},
-			"C": {
-				"item": "minecraft:copper_nugget"
-			},
-			"S": {
-				"item": "utilitycraft:steel_nugget"
-			}
-		},
-		"pattern": [
-			"SRS",
-			"CCC",
-			"SRS"
-		],
-		"result": {
-			"item": "utilitycraft:energy_cable",
-			"count": 8
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:energy_cable"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "R": {
+        "item": "redstone"
+      },
+      "C": {
+        "item": "minecraft:copper_nugget"
+      },
+      "S": {
+        "item": "utilitycraft:steel_nugget"
+      }
+    },
+    "pattern": [
+      "SRS",
+      "CCC",
+      "SRS"
+    ],
+    "result": {
+      "item": "utilitycraft:energy_cable",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

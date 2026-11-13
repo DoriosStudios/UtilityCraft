@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:lucky_sword_item"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"E": {
-				"item": "minecraft:emerald"
-			},
-			"G": {
-				"item": "minecraft:gold_block"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			}
-		},
-		"pattern": [
-			"  E",
-			"EG ",
-			"SE"
-		],
-		"unlock": [
-			{
-				"item": "minecraft:emerald"
-			},
-			{
-				"item": "minecraft:gold_block"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:lucky_sword_item"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:lucky_sword_item"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "E": {
+        "item": "minecraft:emerald"
+      },
+      "G": {
+        "item": "minecraft:gold_block"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      }
+    },
+    "pattern": [
+      "  E",
+      "EG ",
+      "SE"
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:emerald"
+      },
+      {
+        "item": "minecraft:gold_block"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:lucky_sword_item"
+    }
+  }
 }

@@ -1,18 +1,21 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:speed_upgrade"
-		},
-		"components": {
-			"utilitycraft:machine_upgrade": {},
-			"minecraft:icon": "utilitycraft_speed_upgrade",
-			"minecraft:tags": {
-				"tags": [
-					"utilitycraft:is_upgrade"
-				]
-			},
-			"minecraft:max_stack_size": 8
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:speed_upgrade",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "utilitycraft:machine_upgrade": {},
+      "minecraft:icon": "utilitycraft_speed_upgrade",
+      "minecraft:tags": {
+        "tags": [
+          "utilitycraft:is_upgrade"
+        ]
+      },
+      "minecraft:max_stack_size": 8
+    }
+  }
 }

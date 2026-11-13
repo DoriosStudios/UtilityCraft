@@ -1,190 +1,154 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:fan",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:facing_direction"
-					]
-				}
-			},
-			"states": {
-				"utilitycraft:range": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:state": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:upgradeable": {},
-			"utilitycraft:fan": {},
-			"minecraft:geometry": "geometry.utilitycraft_fan",
-			"minecraft:material_instances": {
-				"north": {
-					"texture": "utilitycraft_fan_front_still",
-					"render_method": "opaque"
-				},
-				"*": {
-					"texture": "utilitycraft_fan",
-					"render_method": "opaque"
-				}
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					1,
-					1
-				]
-			},			
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2.0
-			},
-			"tag:dorios:upgradeable": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'up'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							-90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'down' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 1",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_fan_range1",
-							"render_method": "opaque"
-						},
-						"north": {
-							"texture": "utilitycraft_fan_front_still",
-							"render_method": "opaque"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 2",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_fan_range2",
-							"render_method": "opaque"
-						},
-						"north": {
-							"texture": "utilitycraft_fan_front_still",
-							"render_method": "opaque"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 3",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_fan_range3",
-							"render_method": "opaque"
-						},
-						"north": {
-							"texture": "utilitycraft_fan_front_still",
-							"render_method": "opaque"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 4",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_fan_range4",
-							"render_method": "opaque"
-						},
-						"north": {
-							"texture": "utilitycraft_fan_front_still",
-							"render_method": "opaque"
-						}
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:fan",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:facing_direction"]
+        }
+      },
+      "states": {
+        "utilitycraft:range": [0, 1, 2, 3, 4],
+        "utilitycraft:state": [false, true]
+      }
+    },
+    "components": {
+      "utilitycraft:upgradeable": {},
+      "utilitycraft:fan": {},
+      "minecraft:geometry": "geometry.utilitycraft_fan",
+      "minecraft:material_instances": {
+        "north": {
+          "texture": "utilitycraft_fan_front_still",
+          "render_method": "opaque"
+        },
+        "*": {
+          "texture": "utilitycraft_fan",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:tick": {
+        "interval_range": [1, 1]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 2.0
+      },
+      "minecraft:tags": [
+        "dorios:upgradeable"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'up'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [-90, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'down' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [90, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_fan_range1",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_fan_front_still",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_fan_range2",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_fan_front_still",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_fan_range3",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_fan_front_still",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_fan_range4",
+              "render_method": "opaque"
+            },
+            "north": {
+              "texture": "utilitycraft_fan_front_still",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ]
+  }
 }

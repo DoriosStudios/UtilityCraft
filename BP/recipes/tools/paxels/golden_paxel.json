@@ -1,58 +1,58 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:golden_paxel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"AXA",
-			"ZSC",
-			"DSD"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:string"
-			},
-			"X": {
-				"item": "minecraft:golden_shovel"
-			},
-			"Z": {
-				"item": "minecraft:golden_axe"
-			},
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"C": {
-				"item": "minecraft:golden_pickaxe"
-			},
-			"D": {
-				"item": "minecraft:string"
-			}
-		},
-		"unlock": [
-			{
-				"item": "minecraft:golden_shovel"
-			},
-			{
-				"item": "minecraft:golden_axe"
-			},
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:golden_pickaxe"
-			},
-			{
-				"item": "minecraft:string"
-			}
-		],
-		"result": [
-			{
-				"item": "utilitycraft:golden_paxel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:golden_paxel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AXA",
+      "ZSC",
+      "DSD"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:string"
+      },
+      "X": {
+        "item": "minecraft:golden_shovel"
+      },
+      "Z": {
+        "item": "minecraft:golden_axe"
+      },
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "C": {
+        "item": "minecraft:golden_pickaxe"
+      },
+      "D": {
+        "item": "minecraft:string"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:golden_shovel"
+      },
+      {
+        "item": "minecraft:golden_axe"
+      },
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:golden_pickaxe"
+      },
+      {
+        "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:golden_paxel"
+      }
+    ]
+  }
 }

@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:lava_seedsv2"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"L": {
-				"item": "utilitycraft:lava_ball"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			" L ",
-			"LSL",
-			" L "
-		],
-		"result": [
-			{
-				"item": "utilitycraft:lava_seeds"
-			}
-		],
-		"unlock": [
-			{
-				"item": "minecraft:lava_bucket"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		],
-		"priority": 10
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:lava_seedsv2"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "L": {
+        "item": "utilitycraft:lava_ball"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      " L ",
+      "LSL",
+      " L "
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:lava_seeds"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:lava_bucket"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ],
+    "priority": 10
+  }
 }

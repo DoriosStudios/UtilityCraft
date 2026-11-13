@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:copy_paste_tool"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"pattern": [
-			"SCS",
-			" S ",
-			" S "
-		],
-		"key": {
-			"C": {
-				"item": "utilitycraft:chip"
-			},
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			}
-		},
-		"result": {
-			"item": "utilitycraft:copy_paste_tool"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:chip"
-			},
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:copy_paste_tool"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "SCS",
+      " S ",
+      " S "
+    ],
+    "key": {
+      "C": {
+        "item": "utilitycraft:chip"
+      },
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:copy_paste_tool"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:chip"
+      },
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

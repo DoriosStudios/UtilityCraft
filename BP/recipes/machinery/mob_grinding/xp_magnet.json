@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:xp_magnet"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"C": {
-				"item": "experience_bottle"
-			},
-			"R": {
-				"item": "ender_eye"
-			}
-		},
-		"pattern": [
-			"CCC",
-			"CRC",
-			"CCC"
-		],
-		"result": {
-			"item": "utilitycraft:xp_magnet"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:experience_bottle"
-			},
-			{
-				"item": "minecraft:ender_eye"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:xp_magnet"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "C": {
+        "item": "experience_bottle"
+      },
+      "R": {
+        "item": "ender_eye"
+      }
+    },
+    "pattern": [
+      "CCC",
+      "CRC",
+      "CCC"
+    ],
+    "result": {
+      "item": "utilitycraft:xp_magnet"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:experience_bottle"
+      },
+      {
+        "item": "minecraft:ender_eye"
+      }
+    ]
+  }
 }

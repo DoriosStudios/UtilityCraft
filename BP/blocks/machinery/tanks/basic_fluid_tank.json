@@ -1,62 +1,46 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:basic_fluid_tank",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:hasliquid": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:fluid_container": {
-				"type": "tank",
-				"capacity": 8000
-			},
-			"minecraft:geometry": "geometry.utilitycraft_fluid_tank",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_basic_fluid_tank",
-					"face_dimming": false,
-					"ambient_occlusion": false,
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-6,
-					0,
-					-6
-				],
-				"size": [
-					12,
-					16,
-					12
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-6,
-					0,
-					-6
-				],
-				"size": [
-					12,
-					16,
-					12
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.1
-			},
-			"minecraft:light_dampening": 0,
-			"tag:dorios:fluid": {},
-			"tag:dorios:fluid_tank": {}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:basic_fluid_tank",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:hasliquid": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
+      "utilitycraft:fluid_container": {
+        "type": "tank",
+        "capacity": 8000
+      },
+      "minecraft:geometry": "geometry.utilitycraft_fluid_tank",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_basic_fluid_tank",
+          "face_dimming": false,
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-6, 0, -6],
+          "size": [12, 16, 12]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-6, 0, -6],
+        "size": [12, 16, 12]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.1
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:tags": ["dorios:fluid", "dorios:fluid_tank"]
+    }
+  }
 }

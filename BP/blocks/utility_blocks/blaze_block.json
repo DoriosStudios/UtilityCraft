@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.80",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:blaze_block",
@@ -8,6 +8,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
         "*": {
@@ -26,7 +29,9 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 1.4
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {}
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible"
+      ]
     }
   }
 }

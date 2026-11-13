@@ -1,922 +1,922 @@
 {
-    "format_version": "1.21.60",
-    "minecraft:crafting_items_catalog": {
-        "categories": [
-            {
-                "category_name": "construction",
-                "groups": [
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:energy_cell",
-                            "name": "utilitycraft:itemGroup.components_modules"
-                        },
-                        "items": [
-                            "utilitycraft:energy_cell",
-                            "utilitycraft:fluid_cell",
-                            "utilitycraft:gas_cell",
-                            "utilitycraft:processing_module",
-                            "utilitycraft:efficiency_module",
-                            "utilitycraft:speed_module"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:ultimate_furnator",
-                            "name": "dorios:itemGroup.name.generators"
-                        },
-                        "items": [
-                            "utilitycraft:basic_furnator",
-                            "utilitycraft:advanced_furnator",
-                            "utilitycraft:expert_furnator",
-                            "utilitycraft:ultimate_furnator",
-                            "utilitycraft:basic_magmator",
-                            "utilitycraft:advanced_magmator",
-                            "utilitycraft:expert_magmator",
-                            "utilitycraft:ultimate_magmator",
-                            "utilitycraft:basic_thermo_generator",
-                            "utilitycraft:advanced_thermo_generator",
-                            "utilitycraft:expert_thermo_generator",
-                            "utilitycraft:ultimate_thermo_generator",
-                            "utilitycraft:basic_solar_panel",
-                            "utilitycraft:advanced_solar_panel",
-                            "utilitycraft:expert_solar_panel",
-                            "utilitycraft:ultimate_solar_panel",
-                            "utilitycraft:basic_wind_turbine",
-                            "utilitycraft:advanced_wind_turbine",
-                            "utilitycraft:expert_wind_turbine",
-                            "utilitycraft:ultimate_wind_turbine",
-                            "utilitycraft:basic_energy_transmitter",
-                            "utilitycraft:advanced_energy_transmitter",
-                            "utilitycraft:expert_energy_transmitter",
-                            "utilitycraft:ultimate_energy_transmitter",
-                            "utilitycraft:basic_energy_receiver",
-                            "utilitycraft:advanced_energy_receiver",
-                            "utilitycraft:expert_energy_receiver",
-                            "utilitycraft:ultimate_energy_receiver",
-                            "utilitycraft:basic_gas_generator",
-                            "utilitycraft:advanced_gas_generator",
-                            "utilitycraft:expert_gas_generator",
-                            "utilitycraft:ultimate_gas_generator"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:assembler",
-                            "name": "dorios:itemGroup.name.machines"
-                        },
-                        "items": [
-                            "utilitycraft:assembler",
-                            "utilitycraft:autosieve",
-                            "utilitycraft:autofisher",
-                            "utilitycraft:block_breaker",
-                            "utilitycraft:block_placer",
-                            "utilitycraft:crusher",
-                            "utilitycraft:digitizer",
-                            "utilitycraft:ehxibitor",
-                            "utilitycraft:electro_press",
-                            "utilitycraft:harvester",
-                            "utilitycraft:incinerator",
-                            "utilitycraft:induction_anvil",
-                            "utilitycraft:infuser",
-                            "utilitycraft:magmatic_chamber",
-                            "utilitycraft:seed_synthesizer",
-                            "utilitycraft:waycenter",
-                            "utilitycraft:xp_condenser",
-                            "utilitycraft:electrolyzer",
-                            "utilitycraft:chemical_converter"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:ultimate_battery",
-                            "name": "dorios:itemGroup.name.batteries"
-                        },
-                        "items": [
-                            "utilitycraft:basic_battery",
-                            "utilitycraft:advanced_battery",
-                            "utilitycraft:expert_battery",
-                            "utilitycraft:ultimate_battery",
-                            "utilitycraft:creative_battery"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:energy_cable",
-                            "name": "dorios:itemGroup.name.pipes"
-                        },
-                        "items": [
-                            "utilitycraft:energy_cable",
-                            "utilitycraft:item_importer",
-                            "utilitycraft:item_importer_blue",
-                            "utilitycraft:item_importer_red",
-                            "utilitycraft:item_importer_yellow",
-                            "utilitycraft:item_importer_purple",
-                            "utilitycraft:item_conduit",
-                            "utilitycraft:item_conduit_blue",
-                            "utilitycraft:item_conduit_red",
-                            "utilitycraft:item_conduit_yellow",
-                            "utilitycraft:item_conduit_purple",
-                            "utilitycraft:item_exporter",
-                            "utilitycraft:item_exporter_blue",
-                            "utilitycraft:item_exporter_red",
-                            "utilitycraft:item_exporter_yellow",
-                            "utilitycraft:item_exporter_purple",
-                            "utilitycraft:fluid_pipe",
-                            "utilitycraft:fluid_pipe_green",
-                            "utilitycraft:fluid_pipe_blue",
-                            "utilitycraft:fluid_pipe_red",
-                            "utilitycraft:fluid_pipe_purple",
-                            "utilitycraft:fluid_extractor",
-                            "utilitycraft:fluid_extractor_green",
-                            "utilitycraft:fluid_extractor_blue",
-                            "utilitycraft:fluid_extractor_red",
-                            "utilitycraft:fluid_extractor_purple",
-                            "utilitycraft:gas_pipe",
-                            "utilitycraft:gas_pipe_green",
-                            "utilitycraft:gas_pipe_blue",
-                            "utilitycraft:gas_pipe_red",
-                            "utilitycraft:gas_pipe_orange",
-                            "utilitycraft:gas_pipe_yellow",
-                            "utilitycraft:gas_extractor",
-                            "utilitycraft:gas_extractor_green",
-                            "utilitycraft:gas_extractor_blue",
-                            "utilitycraft:gas_extractor_red",
-                            "utilitycraft:gas_extractor_orange",
-                            "utilitycraft:gas_extractor_yellow"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:mechanic_hopper",
-                            "name": "dorios:itemGroup.name.transportation"
-                        },
-                        "items": [
-                            "utilitycraft:mechanic_hopper",
-                            "utilitycraft:mechanic_upper",
-                            "utilitycraft:mechanic_dropper",
-                            "utilitycraft:ender_hopper",
-                            "utilitycraft:basic_trash_can",
-                            "utilitycraft:liquid_trash_can",
-                            "utilitycraft:gas_trash_can",
-                            "utilitycraft:energy_trash_can",
-                            "utilitycraft:ultimate_trash_can"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:sieve",
-                            "name": "dorios:itemGroup.name.basics"
-                        },
-                        "items": [
-                            "utilitycraft:sieve",
-                            "utilitycraft:bonsai",
-                            "utilitycraft:crucible",
-                            "utilitycraft:mortar",
-                            "utilitycraft:primitive_forge",
-                            "utilitycraft:sink",
-                            "utilitycraft:big_torch",
-                            "utilitycraft:lantern",
-                            "utilitycraft:asphalt"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:netherite_mesh",
-                            "name": "dorios:itemGroup.name.meshes"
-                        },
-                        "items": [
-                            "utilitycraft:netherite_mesh",
-                            "utilitycraft:diamond_mesh",
-                            "utilitycraft:emerald_mesh",
-                            "utilitycraft:golden_mesh",
-                            "utilitycraft:iron_mesh",
-                            "utilitycraft:copper_mesh",
-                            "utilitycraft:flint_mesh",
-                            "utilitycraft:string_mesh"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:netherite_fishing_net",
-                            "name": "dorios:itemGroup.name.fishing_nets"
-                        },
-                        "items": [
-                            "utilitycraft:string_fishing_net",
-                            "utilitycraft:copper_fishing_net",
-                            "utilitycraft:iron_fishing_net",
-                            "utilitycraft:golden_fishing_net",
-                            "utilitycraft:emerald_fishing_net",
-                            "utilitycraft:diamond_fishing_net",
-                            "utilitycraft:netherite_fishing_net"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:ultimate_fluid_tank",
-                            "name": "dorios:itemGroup.name.tanks"
-                        },
-                        "items": [
-                            "utilitycraft:basic_fluid_tank",
-                            "utilitycraft:advanced_fluid_tank",
-                            "utilitycraft:expert_fluid_tank",
-                            "utilitycraft:ultimate_fluid_tank",
-                            "utilitycraft:basic_gas_tank",
-                            "utilitycraft:advanced_gas_tank",
-                            "utilitycraft:expert_gas_tank",
-                            "utilitycraft:ultimate_gas_tank",
-                            "utilitycraft:creative_water_tank",
-                            "utilitycraft:creative_lava_tank",
-                            "utilitycraft:creative_milk_tank",
-                            "utilitycraft:creative_xp_tank",
-                            "utilitycraft:creative_steam_tank",
-                            "utilitycraft:creative_sulfuric_acid_tank",
-                            "utilitycraft:creative_heavy_water_tank",
-                            "utilitycraft:creative_hydrogen_tank",
-                            "utilitycraft:creative_oxygen_tank",
-                            "utilitycraft:creative_methane_tank",
-                            "utilitycraft:creative_depleted_uranium_hexafluoride_tank",
-                            "utilitycraft:creative_enriched_uranium_hexafluoride_tank",
-                            "utilitycraft:creative_fluorine_tank",
-                            "utilitycraft:creative_hydrogen_fluoride_tank",
-                            "utilitycraft:creative_natural_uranium_hexafluoride_tank",
-                            "utilitycraft:creative_saline_coolant_tank",
-                            "utilitycraft:creative_crude_oil_tank",
-                            "utilitycraft:creative_petroleum_tank",
-                            "utilitycraft:creative_diesel_tank",
-                            "utilitycraft:creative_nuclear_waste_tank",
-                            "utilitycraft:creative_heated_saline_coolant_tank",
-                            "utilitycraft:xp_drain",
-                            "utilitycraft:xp_spout"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:mechanical_spawner",
-                            "name": "dorios:itemGroup.name.mob_grinding"
-                        },
-                        "items": [
-                            "utilitycraft:mechanical_spawner",
-                            "utilitycraft:spawner_core",
-                            "utilitycraft:fan",
-                            "utilitycraft:mob_grinder",
-                            "utilitycraft:xp_magnet"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:energized_iron_block",
-                            "name": "dorios:itemGroup.name.uc_materials"
-                        },
-                        "items": [
-                            "utilitycraft:energized_iron_block",
-                            "utilitycraft:raw_energized_iron_block",
-                            "utilitycraft:steel_block",
-                            "utilitycraft:raw_steel_block",
-                            "utilitycraft:silicon_block",
-                            "utilitycraft:nether_star_block",
-                            "utilitycraft:blaze_block",
-                            "utilitycraft:flint_block"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:crushed_netherrack",
-                            "name": "dorios:itemGroup.name.crushed_blocks"
-                        },
-                        "items": [
-                            "utilitycraft:crushed_netherrack",
-                            "utilitycraft:crushed_blackstone",
-                            "utilitycraft:crushed_endstone",
-                            "utilitycraft:crushed_cobbled_deepslate",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate_2",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate_3",
-                            "utilitycraft:compressed_crushed_cobbled_deepslate_4",
-                            "utilitycraft:compressed_crushed_endstone",
-                            "utilitycraft:compressed_crushed_endstone_2",
-                            "utilitycraft:compressed_crushed_endstone_3",
-                            "utilitycraft:compressed_crushed_endstone_4",
-                            "utilitycraft:compressed_crushed_netherrack",
-                            "utilitycraft:compressed_crushed_netherrack_2",
-                            "utilitycraft:compressed_crushed_netherrack_3",
-                            "utilitycraft:compressed_crushed_netherrack_4",
-                            "utilitycraft:compressed_crushed_blackstone",
-                            "utilitycraft:compressed_crushed_blackstone_2",
-                            "utilitycraft:compressed_crushed_blackstone_3",
-                            "utilitycraft:compressed_crushed_blackstone_4"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:compressed_cobblestone",
-                            "name": "dorios:itemGroup.name.compressed"
-                        },
-                        "items": [
-                            "utilitycraft:compressed_acacia_wood",
-                            "utilitycraft:compressed_acacia_wood_2",
-                            "utilitycraft:compressed_acacia_wood_3",
-                            "utilitycraft:compressed_acacia_wood_4",
-                            "utilitycraft:compressed_amethyst_block",
-                            "utilitycraft:compressed_amethyst_block_2",
-                            "utilitycraft:compressed_amethyst_block_3",
-                            "utilitycraft:compressed_amethyst_block_4",
-                            "utilitycraft:compressed_andesite",
-                            "utilitycraft:compressed_andesite_2",
-                            "utilitycraft:compressed_andesite_3",
-                            "utilitycraft:compressed_andesite_4",
-                            "utilitycraft:compressed_birch_wood",
-                            "utilitycraft:compressed_birch_wood_2",
-                            "utilitycraft:compressed_birch_wood_3",
-                            "utilitycraft:compressed_birch_wood_4",
-                            "utilitycraft:compressed_blackstone",
-                            "utilitycraft:compressed_blackstone_2",
-                            "utilitycraft:compressed_blackstone_3",
-                            "utilitycraft:compressed_blackstone_4",
-                            "utilitycraft:compressed_brute_steel_block",
-                            "utilitycraft:compressed_brute_steel_block_2",
-                            "utilitycraft:compressed_brute_steel_block_3",
-                            "utilitycraft:compressed_brute_steel_block_4",
-                            "utilitycraft:charcoal_block",
-                            "utilitycraft:compressed_charcoal_block",
-                            "utilitycraft:compressed_charcoal_block_2",
-                            "utilitycraft:compressed_charcoal_block_3",
-                            "utilitycraft:compressed_charcoal_block_4",
-                            "utilitycraft:compressed_cherry_wood",
-                            "utilitycraft:compressed_cherry_wood_2",
-                            "utilitycraft:compressed_cherry_wood_3",
-                            "utilitycraft:compressed_cherry_wood_4",
-                            "utilitycraft:compressed_coal_block",
-                            "utilitycraft:compressed_coal_block_2",
-                            "utilitycraft:compressed_coal_block_3",
-                            "utilitycraft:compressed_coal_block_4",
-                            "utilitycraft:compressed_cobblestone",
-                            "utilitycraft:double_compressed_cobblestone",
-                            "utilitycraft:triple_compressed_cobblestone",
-                            "utilitycraft:quadruple_compressed_cobblestone",
-                            "utilitycraft:quintuple_compressed_cobblestone",
-                            "utilitycraft:sextuple_compressed_cobblestone",
-                            "utilitycraft:septuple_compressed_cobblestone",
-                            "utilitycraft:octuple_compressed_cobblestone",
-                            "utilitycraft:nonuple_compressed_cobblestone",
-                            "utilitycraft:compressed_cobbled_deepslate",
-                            "utilitycraft:compressed_cobbled_deepslate_2",
-                            "utilitycraft:compressed_cobbled_deepslate_3",
-                            "utilitycraft:compressed_cobbled_deepslate_4",
-                            "utilitycraft:compressed_copper_block",
-                            "utilitycraft:compressed_copper_block_2",
-                            "utilitycraft:compressed_copper_block_3",
-                            "utilitycraft:compressed_copper_block_4",
-                            "utilitycraft:compressed_crimson_wood",
-                            "utilitycraft:compressed_crimson_wood_2",
-                            "utilitycraft:compressed_crimson_wood_3",
-                            "utilitycraft:compressed_crimson_wood_4",
-                            "utilitycraft:compressed_cry_obsidian",
-                            "utilitycraft:compressed_cry_obsidian_2",
-                            "utilitycraft:compressed_cry_obsidian_3",
-                            "utilitycraft:compressed_cry_obsidian_4",
-                            "utilitycraft:compressed_dark_oak_wood",
-                            "utilitycraft:compressed_dark_oak_wood_2",
-                            "utilitycraft:compressed_dark_oak_wood_3",
-                            "utilitycraft:compressed_dark_oak_wood_4",
-                            "utilitycraft:compressed_deepslate",
-                            "utilitycraft:compressed_deepslate_2",
-                            "utilitycraft:compressed_deepslate_3",
-                            "utilitycraft:compressed_deepslate_4",
-                            "utilitycraft:compressed_diamond_block",
-                            "utilitycraft:compressed_diamond_block_2",
-                            "utilitycraft:compressed_diamond_block_3",
-                            "utilitycraft:compressed_diamond_block_4",
-                            "utilitycraft:compressed_diorite",
-                            "utilitycraft:compressed_diorite_2",
-                            "utilitycraft:compressed_diorite_3",
-                            "utilitycraft:compressed_diorite_4",
-                            "utilitycraft:compressed_dirt",
-                            "utilitycraft:compressed_dirt_2",
-                            "utilitycraft:compressed_dirt_3",
-                            "utilitycraft:compressed_dirt_4",
-                            "utilitycraft:compressed_emerald_block",
-                            "utilitycraft:compressed_emerald_block_2",
-                            "utilitycraft:compressed_emerald_block_3",
-                            "utilitycraft:compressed_emerald_block_4",
-                            "utilitycraft:compressed_endstone",
-                            "utilitycraft:compressed_endstone_2",
-                            "utilitycraft:compressed_endstone_3",
-                            "utilitycraft:compressed_endstone_4",
-                            "utilitycraft:compressed_energized_iron_block",
-                            "utilitycraft:compressed_energized_iron_block_2",
-                            "utilitycraft:compressed_energized_iron_block_3",
-                            "utilitycraft:compressed_energized_iron_block_4",
-                            "utilitycraft:compressed_flint_block",
-                            "utilitycraft:compressed_flint_block_2",
-                            "utilitycraft:compressed_flint_block_3",
-                            "utilitycraft:compressed_flint_block_4",
-                            "utilitycraft:compressed_glass",
-                            "utilitycraft:compressed_glass_2",
-                            "utilitycraft:compressed_glass_3",
-                            "utilitycraft:compressed_glass_4",
-                            "utilitycraft:compressed_gold_block",
-                            "utilitycraft:compressed_gold_block_2",
-                            "utilitycraft:compressed_gold_block_3",
-                            "utilitycraft:compressed_gold_block_4",
-                            "utilitycraft:compressed_granite",
-                            "utilitycraft:compressed_granite_2",
-                            "utilitycraft:compressed_granite_3",
-                            "utilitycraft:compressed_granite_4",
-                            "utilitycraft:compressed_gravel",
-                            "utilitycraft:compressed_gravel_2",
-                            "utilitycraft:compressed_gravel_3",
-                            "utilitycraft:compressed_gravel_4",
-                            "utilitycraft:compressed_iron_block",
-                            "utilitycraft:compressed_iron_block_2",
-                            "utilitycraft:compressed_iron_block_3",
-                            "utilitycraft:compressed_iron_block_4",
-                            "utilitycraft:compressed_jungle_wood",
-                            "utilitycraft:compressed_jungle_wood_2",
-                            "utilitycraft:compressed_jungle_wood_3",
-                            "utilitycraft:compressed_jungle_wood_4",
-                            "utilitycraft:compressed_lapislazuli_block",
-                            "utilitycraft:compressed_lapislazuli_block_2",
-                            "utilitycraft:compressed_lapislazuli_block_3",
-                            "utilitycraft:compressed_lapislazuli_block_4",
-                            "utilitycraft:compressed_mangrove_wood",
-                            "utilitycraft:compressed_mangrove_wood_2",
-                            "utilitycraft:compressed_mangrove_wood_3",
-                            "utilitycraft:compressed_mangrove_wood_4",
-                            "utilitycraft:compressed_netherite_block",
-                            "utilitycraft:compressed_netherite_block_2",
-                            "utilitycraft:compressed_netherite_block_3",
-                            "utilitycraft:compressed_netherite_block_4",
-                            "utilitycraft:compressed_netherrack",
-                            "utilitycraft:compressed_netherrack_2",
-                            "utilitycraft:compressed_netherrack_3",
-                            "utilitycraft:compressed_netherrack_4",
-                            "utilitycraft:compressed_obsidian",
-                            "utilitycraft:compressed_obsidian_2",
-                            "utilitycraft:compressed_obsidian_3",
-                            "utilitycraft:compressed_obsidian_4",
-                            "utilitycraft:compressed_oak_wood",
-                            "utilitycraft:compressed_oak_wood_2",
-                            "utilitycraft:compressed_oak_wood_3",
-                            "utilitycraft:compressed_oak_wood_4",
-                            "utilitycraft:compressed_pale_oak_wood",
-                            "utilitycraft:compressed_pale_oak_wood_2",
-                            "utilitycraft:compressed_pale_oak_wood_3",
-                            "utilitycraft:compressed_pale_oak_wood_4",
-                            "utilitycraft:compressed_quartz_block",
-                            "utilitycraft:compressed_quartz_block_2",
-                            "utilitycraft:compressed_quartz_block_3",
-                            "utilitycraft:compressed_quartz_block_4",
-                            "utilitycraft:compressed_raw_copper_block",
-                            "utilitycraft:compressed_raw_copper_block_2",
-                            "utilitycraft:compressed_raw_copper_block_3",
-                            "utilitycraft:compressed_raw_copper_block_4",
-                            "utilitycraft:compressed_raw_gold_block",
-                            "utilitycraft:compressed_raw_gold_block_2",
-                            "utilitycraft:compressed_raw_gold_block_3",
-                            "utilitycraft:compressed_raw_gold_block_4",
-                            "utilitycraft:compressed_raw_iron_block",
-                            "utilitycraft:compressed_raw_iron_block_2",
-                            "utilitycraft:compressed_raw_iron_block_3",
-                            "utilitycraft:compressed_raw_iron_block_4",
-                            "utilitycraft:compressed_redstone_block",
-                            "utilitycraft:compressed_redstone_block_2",
-                            "utilitycraft:compressed_redstone_block_3",
-                            "utilitycraft:compressed_redstone_block_4",
-                            "utilitycraft:compressed_sand",
-                            "utilitycraft:compressed_sand_2",
-                            "utilitycraft:compressed_sand_3",
-                            "utilitycraft:compressed_sand_4",
-                            "utilitycraft:compressed_spruce_wood",
-                            "utilitycraft:compressed_spruce_wood_2",
-                            "utilitycraft:compressed_spruce_wood_3",
-                            "utilitycraft:compressed_spruce_wood_4",
-                            "utilitycraft:compressed_steel_block",
-                            "utilitycraft:compressed_steel_block_2",
-                            "utilitycraft:compressed_steel_block_3",
-                            "utilitycraft:compressed_steel_block_4",
-                            "utilitycraft:compressed_warped_wood",
-                            "utilitycraft:compressed_warped_wood_2",
-                            "utilitycraft:compressed_warped_wood_3",
-                            "utilitycraft:compressed_warped_wood_4",
-                            "utilitycraft:compressed_stone",
-                            "utilitycraft:compressed_stone_2",
-                            "utilitycraft:compressed_stone_3",
-                            "utilitycraft:compressed_stone_4",
-                            "utilitycraft:compressed_block",
-                            "utilitycraft:compressed_tuff",
-                            "utilitycraft:compressed_tuff_2",
-                            "utilitycraft:compressed_tuff_3",
-                            "utilitycraft:compressed_tuff_4",
-                            "utilitycraft:compressed_calcite",
-                            "utilitycraft:compressed_calcite_2",
-                            "utilitycraft:compressed_calcite_3",
-                            "utilitycraft:compressed_calcite_4",
-                            "utilitycraft:compressed_dripstone_block",
-                            "utilitycraft:compressed_dripstone_block_2",
-                            "utilitycraft:compressed_dripstone_block_3",
-                            "utilitycraft:compressed_dripstone_block_4",
-                            "utilitycraft:compressed_basalt",
-                            "utilitycraft:compressed_basalt_2",
-                            "utilitycraft:compressed_basalt_3",
-                            "utilitycraft:compressed_basalt_4",
-                            "utilitycraft:compressed_red_sand",
-                            "utilitycraft:compressed_red_sand_2",
-                            "utilitycraft:compressed_red_sand_3",
-                            "utilitycraft:compressed_red_sand_4",
-                            "utilitycraft:compressed_mud",
-                            "utilitycraft:compressed_mud_2",
-                            "utilitycraft:compressed_mud_3",
-                            "utilitycraft:compressed_mud_4",
-                            "utilitycraft:compressed_soul_sand",
-                            "utilitycraft:compressed_soul_sand_2",
-                            "utilitycraft:compressed_soul_sand_3",
-                            "utilitycraft:compressed_soul_sand_4",
-                            "utilitycraft:compressed_soul_soil",
-                            "utilitycraft:compressed_soul_soil_2",
-                            "utilitycraft:compressed_soul_soil_3",
-                            "utilitycraft:compressed_soul_soil_4",
-                            "utilitycraft:compressed_clay",
-                            "utilitycraft:compressed_clay_2",
-                            "utilitycraft:compressed_clay_3",
-                            "utilitycraft:compressed_clay_4",
-                            "utilitycraft:compressed_bamboo_block",
-                            "utilitycraft:compressed_bamboo_block_2",
-                            "utilitycraft:compressed_bamboo_block_3",
-                            "utilitycraft:compressed_bamboo_block_4",
-                            "utilitycraft:compressed_moss_block",
-                            "utilitycraft:compressed_moss_block_2",
-                            "utilitycraft:compressed_moss_block_3",
-                            "utilitycraft:compressed_moss_block_4",
-                            "utilitycraft:compressed_slime_block",
-                            "utilitycraft:compressed_slime_block_2",
-                            "utilitycraft:compressed_slime_block_3",
-                            "utilitycraft:compressed_slime_block_4",
-                            "utilitycraft:compressed_honey_block",
-                            "utilitycraft:compressed_honey_block_2",
-                            "utilitycraft:compressed_honey_block_3",
-                            "utilitycraft:compressed_honey_block_4",
-                            "utilitycraft:compressed_silicon_block",
-                            "utilitycraft:compressed_silicon_block_2",
-                            "utilitycraft:compressed_silicon_block_3",
-                            "utilitycraft:compressed_silicon_block_4",
-                            "utilitycraft:compressed_brute_energized_iron_block",
-                            "utilitycraft:compressed_brute_energized_iron_block_2",
-                            "utilitycraft:compressed_brute_energized_iron_block_3",
-                            "utilitycraft:compressed_brute_energized_iron_block_4",
-                            "utilitycraft:compressed_blaze_block",
-                            "utilitycraft:compressed_blaze_block_2",
-                            "utilitycraft:compressed_blaze_block_3",
-                            "utilitycraft:compressed_blaze_block_4",
-                            "utilitycraft:compressed_nether_star_block",
-                            "utilitycraft:compressed_nether_star_block_2",
-                            "utilitycraft:compressed_nether_star_block_3",
-                            "utilitycraft:compressed_nether_star_block_4"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:black_soil",
-                            "name": "dorios:itemGroup.name.soils"
-                        },
-                        "items": [
-                            "utilitycraft:yellow_soil",
-                            "utilitycraft:red_soil",
-                            "utilitycraft:blue_soil",
-                            "utilitycraft:black_soil"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:elevator",
-                            "name": "dorios:itemGroup.name.elevators"
-                        },
-                        "items": [
-                            "utilitycraft:black_elevator",
-                            "utilitycraft:gray_elevator",
-                            "utilitycraft:light_gray_elevator",
-                            "utilitycraft:elevator",
-                            "utilitycraft:yellow_elevator",
-                            "utilitycraft:orange_elevator",
-                            "utilitycraft:red_elevator",
-                            "utilitycraft:pink_elevator",
-                            "utilitycraft:magenta_elevator",
-                            "utilitycraft:purple_elevator",
-                            "utilitycraft:blue_elevator",
-                            "utilitycraft:light_blue_elevator",
-                            "utilitycraft:cyan_elevator",
-                            "utilitycraft:lime_elevator",
-                            "utilitycraft:green_elevator",
-                            "utilitycraft:brown_elevator"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:cobble_gen_5",
-                            "name": "dorios:itemGroup.name.cobble_gens"
-                        },
-                        "items": [
-                            "utilitycraft:cobble_gen_0",
-                            "utilitycraft:cobble_gen_1",
-                            "utilitycraft:cobble_gen_2",
-                            "utilitycraft:cobble_gen_3",
-                            "utilitycraft:cobble_gen_4",
-                            "utilitycraft:cobble_gen_5"
-                        ]
-                    }
-                ]
+  "format_version": "1.26.60",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:energy_cell",
+              "name": "utilitycraft:itemGroup.components_modules"
             },
-            {
-                "category_name": "items",
-                "groups": [
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:energized_iron_ingot",
-                            "name": "dorios:itemGroup.name.uc_materials"
-                        },
-                        "items": [
-                            "utilitycraft:heavy_water_bucket",
-                            "utilitycraft:sulfuric_acid_bucket",
-                            "utilitycraft:xp_bucket",
-                            "utilitycraft:crude_oil_bucket",
-                            "utilitycraft:petroleum_bucket",
-                            "utilitycraft:diesel_bucket",
-                            "utilitycraft:saline_coolant_bucket",
-                            "utilitycraft:raw_energized_iron",
-                            "utilitycraft:energized_iron_ingot",
-                            "utilitycraft:energized_iron_nugget",
-                            "utilitycraft:netherite_nugget",
-                            "utilitycraft:raw_steel",
-                            "utilitycraft:steel_ingot",
-                            "utilitycraft:steel_nugget",
-                            "utilitycraft:silicon",
-                            "utilitycraft:lead_ingot",
-                            "utilitycraft:lead_nugget",
-                            "utilitycraft:raw_lead",
-                            "utilitycraft:lead_block",
-                            "utilitycraft:raw_lead_block",
-                            "utilitycraft:raw_uranium",
-                            "utilitycraft:raw_uranium_block",
-                            "utilitycraft:uranium_ingot",
-                            "utilitycraft:uranium_pellet",
-                            "utilitycraft:uranium_block"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:speed_upgrade",
-                            "name": "dorios:itemGroup.name.upgrades"
-                        },
-                        "items": [
-                            "utilitycraft:speed_upgrade",
-                            "utilitycraft:quantity_upgrade",
-                            "utilitycraft:energy_upgrade",
-                            "utilitycraft:range_upgrade",
-                            "utilitycraft:base_upgrade",
-                            "utilitycraft:filter_upgrade",
-                            "utilitycraft:damage_upgrade"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:netherite_plate",
-                            "name": "dorios:itemGroup.name.plates"
-                        },
-                        "items": [
-                            "utilitycraft:netherite_plate",
-                            "utilitycraft:energized_iron_plate",
-                            "utilitycraft:gold_plate",
-                            "utilitycraft:steel_plate",
-                            "utilitycraft:iron_plate",
-                            "utilitycraft:copper_plate",
-                            "utilitycraft:lead_plate"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:diamond_dust",
-                            "name": "dorios:itemGroup.name.dusts"
-                        },
-                        "items": [
-                            "utilitycraft:amethyst_dust",
-                            "utilitycraft:charcoal_dust",
-                            "utilitycraft:coal_dust",
-                            "utilitycraft:copper_dust",
-                            "utilitycraft:crying_obsidian_dust",
-                            "utilitycraft:diamond_dust",
-                            "utilitycraft:emerald_dust",
-                            "utilitycraft:ender_pearl_dust",
-                            "utilitycraft:energized_iron_dust",
-                            "utilitycraft:gold_dust",
-                            "utilitycraft:iron_dust",
-                            "utilitycraft:netherite_dust",
-                            "utilitycraft:netherite_scrap_dust",
-                            "utilitycraft:obsidian_dust",
-                            "utilitycraft:quartz_dust",
-                            "utilitycraft:stabilized_obsidian_dust",
-                            "utilitycraft:steel_dust",
-                            "utilitycraft:lead_dust",
-                            "utilitycraft:uranium_dust"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:diamond_shard",
-                            "name": "dorios:itemGroup.name.pebbles"
-                        },
-                        "items": [
-                            "utilitycraft:ancient_debris_chunk",
-                            "utilitycraft:andesite_pebble",
-                            "utilitycraft:basalt_pebble",
-                            "utilitycraft:blackstone_pebble",
-                            "utilitycraft:calcite_pebble",
-                            "utilitycraft:coal_chunk",
-                            "utilitycraft:copper_chunk",
-                            "utilitycraft:deepslate_coal_chunk",
-                            "utilitycraft:deepslate_gold_chunk",
-                            "utilitycraft:deepslate_iron_chunk",
-                            "utilitycraft:diamond_shard",
-                            "utilitycraft:diorite_pebble",
-                            "utilitycraft:dirt_handful",
-                            "utilitycraft:dripstone_pebble",
-                            "utilitycraft:emerald_shard",
-                            "utilitycraft:geode",
-                            "utilitycraft:gilded_blackstone_pebble",
-                            "utilitycraft:gold_chunk",
-                            "utilitycraft:granite_pebble",
-                            "utilitycraft:gravel_fragments",
-                            "utilitycraft:iron_chunk",
-                            "utilitycraft:mud_ball",
-                            "utilitycraft:nether_gold_chunk",
-                            "utilitycraft:nether_quartz_chunk",
-                            "utilitycraft:nether_star_fragment",
-                            "utilitycraft:red_sand_handful",
-                            "utilitycraft:sand_handful",
-                            "utilitycraft:shulker_shell_shard",
-                            "utilitycraft:stone_pebble",
-                            "utilitycraft:totem_shard",
-                            "utilitycraft:tuff_pebble",
-                            "utilitycraft:wither_skull_shard",
-                            "utilitycraft:deepslate_lead_chunk",
-                            "utilitycraft:lead_chunk",
-                            "utilitycraft:deepslate_uranium_chunk"
-                        ]
-                    }
-                ]
+            "items": [
+              "utilitycraft:energy_cell",
+              "utilitycraft:fluid_cell",
+              "utilitycraft:gas_cell",
+              "utilitycraft:processing_module",
+              "utilitycraft:efficiency_module",
+              "utilitycraft:speed_module"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:ultimate_furnator",
+              "name": "dorios:itemGroup.name.generators"
             },
-            {
-                "category_name": "equipment",
-                "groups": [
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:diamond_aiot",
-                            "name": "dorios:itemGroup.name.aiots"
-                        },
-                        "items": [
-                            "utilitycraft:netherite_aiot",
-                            "utilitycraft:diamond_aiot",
-                            "utilitycraft:steel_aiot",
-                            "utilitycraft:iron_aiot",
-                            "utilitycraft:golden_aiot",
-                            "utilitycraft:copper_aiot",
-                            "utilitycraft:stone_aiot",
-                            "utilitycraft:wooden_aiot"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:diamond_paxel",
-                            "name": "dorios:itemGroup.name.paxels"
-                        },
-                        "items": [
-                            "utilitycraft:netherite_paxel",
-                            "utilitycraft:diamond_paxel",
-                            "utilitycraft:steel_paxel",
-                            "utilitycraft:iron_paxel",
-                            "utilitycraft:golden_paxel",
-                            "utilitycraft:copper_paxel",
-                            "utilitycraft:stone_paxel",
-                            "utilitycraft:wooden_paxel"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:diamond_hammer",
-                            "name": "dorios:itemGroup.name.hammers"
-                        },
-                        "items": [
-                            "utilitycraft:netherite_hammer",
-                            "utilitycraft:diamond_hammer",
-                            "utilitycraft:steel_hammer",
-                            "utilitycraft:golden_hammer",
-                            "utilitycraft:iron_hammer",
-                            "utilitycraft:copper_hammer",
-                            "utilitycraft:stone_hammer",
-                            "utilitycraft:wooden_hammer"
-                        ]
-                    }
-                ]
+            "items": [
+              "utilitycraft:basic_furnator",
+              "utilitycraft:advanced_furnator",
+              "utilitycraft:expert_furnator",
+              "utilitycraft:ultimate_furnator",
+              "utilitycraft:basic_magmator",
+              "utilitycraft:advanced_magmator",
+              "utilitycraft:expert_magmator",
+              "utilitycraft:ultimate_magmator",
+              "utilitycraft:basic_thermo_generator",
+              "utilitycraft:advanced_thermo_generator",
+              "utilitycraft:expert_thermo_generator",
+              "utilitycraft:ultimate_thermo_generator",
+              "utilitycraft:basic_solar_panel",
+              "utilitycraft:advanced_solar_panel",
+              "utilitycraft:expert_solar_panel",
+              "utilitycraft:ultimate_solar_panel",
+              "utilitycraft:basic_wind_turbine",
+              "utilitycraft:advanced_wind_turbine",
+              "utilitycraft:expert_wind_turbine",
+              "utilitycraft:ultimate_wind_turbine",
+              "utilitycraft:basic_energy_transmitter",
+              "utilitycraft:advanced_energy_transmitter",
+              "utilitycraft:expert_energy_transmitter",
+              "utilitycraft:ultimate_energy_transmitter",
+              "utilitycraft:basic_energy_receiver",
+              "utilitycraft:advanced_energy_receiver",
+              "utilitycraft:expert_energy_receiver",
+              "utilitycraft:ultimate_energy_receiver",
+              "utilitycraft:basic_gas_generator",
+              "utilitycraft:advanced_gas_generator",
+              "utilitycraft:expert_gas_generator",
+              "utilitycraft:ultimate_gas_generator"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:assembler",
+              "name": "dorios:itemGroup.name.machines"
             },
-            {
-                "category_name": "nature",
-                "groups": [
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:essence_vessel",
-                            "name": "dorios:itemGroup.name.essences"
-                        },
-                        "items": [
-                            "utilitycraft:essence_vessel",
-                            "utilitycraft:blaze_essence",
-                            "utilitycraft:chicken_essence",
-                            "utilitycraft:cow_essence",
-                            "utilitycraft:creeper_essence",
-                            "utilitycraft:guardian_essence",
-                            "utilitycraft:enderman_essence",
-                            "utilitycraft:hoglin_essence",
-                            "utilitycraft:illager_essence",
-                            "utilitycraft:magma_cube_essence",
-                            "utilitycraft:mooshroom_essence",
-                            "utilitycraft:pig_essence",
-                            "utilitycraft:piglin_essence",
-                            "utilitycraft:sheep_essence",
-                            "utilitycraft:skeleton_essence",
-                            "utilitycraft:slime_essence",
-                            "utilitycraft:spider_essence",
-                            "utilitycraft:wither_skeleton_essence",
-                            "utilitycraft:zombie_essence"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:bag_of_beetroot_seeds",
-                            "name": "dorios:itemGroup.name.bags"
-                        },
-                        "items": [
-                            "utilitycraft:bag_of_beetroot_seeds",
-                            "utilitycraft:bag_of_black_dye",
-                            "utilitycraft:bag_of_blaze_powder",
-                            "utilitycraft:bag_of_blue_dye",
-                            "utilitycraft:bag_of_brown_dye",
-                            "utilitycraft:bag_of_cocoa_beans",
-                            "utilitycraft:bag_of_cyan_dye",
-                            "utilitycraft:bag_of_feathers",
-                            "utilitycraft:bag_of_magenta_dye",
-                            "utilitycraft:bag_of_glowstone_dust",
-                            "utilitycraft:bag_of_gray_dye",
-                            "utilitycraft:bag_of_green_dye",
-                            "utilitycraft:bag_of_gunpowder",
-                            "utilitycraft:bag_of_light_blue_dye",
-                            "utilitycraft:bag_of_light_gray_dye",
-                            "utilitycraft:bag_of_lime_dye",
-                            "utilitycraft:bag_of_orange_dye",
-                            "utilitycraft:bag_of_pink_dye",
-                            "utilitycraft:bag_of_pitcher_pod",
-                            "utilitycraft:bag_of_pumpkin_seeds",
-                            "utilitycraft:bag_of_purple_dye",
-                            "utilitycraft:bag_of_red_dye",
-                            "utilitycraft:bag_of_sugar",
-                            "utilitycraft:bag_of_torchflower_seeds",
-                            "utilitycraft:bag_of_melon_seeds",
-                            "utilitycraft:bag_of_wheat_seeds",
-                            "utilitycraft:bag_of_white_dye",
-                            "utilitycraft:bag_of_yellow_dye"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:bundle_of_blaze_rods",
-                            "name": "dorios:itemGroup.name.bundles"
-                        },
-                        "items": [
-                            "utilitycraft:bundle_of_blaze_rods",
-                            "utilitycraft:bundle_of_breeze_rods",
-                            "utilitycraft:bundle_of_sticks"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:vase_of_fermented_spider_eyes",
-                            "name": "dorios:itemGroup.name.vases"
-                        },
-                        "items": [
-                            "utilitycraft:vase_of_fermented_spider_eyes",
-                            "utilitycraft:vase_of_spider_eye"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "utilitycraft:jar_of_cookies",
-                            "name": "dorios:itemGroup.name.jars"
-                        },
-                        "items": [
-                            "utilitycraft:jar_of_cookies",
-                            "utilitycraft:jar_of_ghast_tears",
-                            "utilitycraft:jar_of_glow_ink",
-                            "utilitycraft:jar_of_ink"
-                        ]
-                    }
-                ]
-            }
+            "items": [
+              "utilitycraft:assembler",
+              "utilitycraft:autosieve",
+              "utilitycraft:autofisher",
+              "utilitycraft:block_breaker",
+              "utilitycraft:block_placer",
+              "utilitycraft:crusher",
+              "utilitycraft:digitizer",
+              "utilitycraft:ehxibitor",
+              "utilitycraft:electro_press",
+              "utilitycraft:harvester",
+              "utilitycraft:incinerator",
+              "utilitycraft:induction_anvil",
+              "utilitycraft:infuser",
+              "utilitycraft:magmatic_chamber",
+              "utilitycraft:seed_synthesizer",
+              "utilitycraft:waycenter",
+              "utilitycraft:xp_condenser",
+              "utilitycraft:electrolyzer",
+              "utilitycraft:chemical_converter"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:ultimate_battery",
+              "name": "dorios:itemGroup.name.batteries"
+            },
+            "items": [
+              "utilitycraft:basic_battery",
+              "utilitycraft:advanced_battery",
+              "utilitycraft:expert_battery",
+              "utilitycraft:ultimate_battery",
+              "utilitycraft:creative_battery"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:energy_cable",
+              "name": "dorios:itemGroup.name.pipes"
+            },
+            "items": [
+              "utilitycraft:energy_cable",
+              "utilitycraft:item_importer",
+              "utilitycraft:item_importer_blue",
+              "utilitycraft:item_importer_red",
+              "utilitycraft:item_importer_yellow",
+              "utilitycraft:item_importer_purple",
+              "utilitycraft:item_conduit",
+              "utilitycraft:item_conduit_blue",
+              "utilitycraft:item_conduit_red",
+              "utilitycraft:item_conduit_yellow",
+              "utilitycraft:item_conduit_purple",
+              "utilitycraft:item_exporter",
+              "utilitycraft:item_exporter_blue",
+              "utilitycraft:item_exporter_red",
+              "utilitycraft:item_exporter_yellow",
+              "utilitycraft:item_exporter_purple",
+              "utilitycraft:fluid_pipe",
+              "utilitycraft:fluid_pipe_green",
+              "utilitycraft:fluid_pipe_blue",
+              "utilitycraft:fluid_pipe_red",
+              "utilitycraft:fluid_pipe_purple",
+              "utilitycraft:fluid_extractor",
+              "utilitycraft:fluid_extractor_green",
+              "utilitycraft:fluid_extractor_blue",
+              "utilitycraft:fluid_extractor_red",
+              "utilitycraft:fluid_extractor_purple",
+              "utilitycraft:gas_pipe",
+              "utilitycraft:gas_pipe_green",
+              "utilitycraft:gas_pipe_blue",
+              "utilitycraft:gas_pipe_red",
+              "utilitycraft:gas_pipe_orange",
+              "utilitycraft:gas_pipe_yellow",
+              "utilitycraft:gas_extractor",
+              "utilitycraft:gas_extractor_green",
+              "utilitycraft:gas_extractor_blue",
+              "utilitycraft:gas_extractor_red",
+              "utilitycraft:gas_extractor_orange",
+              "utilitycraft:gas_extractor_yellow"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:mechanic_hopper",
+              "name": "dorios:itemGroup.name.transportation"
+            },
+            "items": [
+              "utilitycraft:mechanic_hopper",
+              "utilitycraft:mechanic_upper",
+              "utilitycraft:mechanic_dropper",
+              "utilitycraft:ender_hopper",
+              "utilitycraft:basic_trash_can",
+              "utilitycraft:liquid_trash_can",
+              "utilitycraft:gas_trash_can",
+              "utilitycraft:energy_trash_can",
+              "utilitycraft:ultimate_trash_can"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:sieve",
+              "name": "dorios:itemGroup.name.basics"
+            },
+            "items": [
+              "utilitycraft:sieve",
+              "utilitycraft:bonsai",
+              "utilitycraft:crucible",
+              "utilitycraft:mortar",
+              "utilitycraft:primitive_forge",
+              "utilitycraft:sink",
+              "utilitycraft:big_torch",
+              "utilitycraft:lantern",
+              "utilitycraft:asphalt"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:netherite_mesh",
+              "name": "dorios:itemGroup.name.meshes"
+            },
+            "items": [
+              "utilitycraft:netherite_mesh",
+              "utilitycraft:diamond_mesh",
+              "utilitycraft:emerald_mesh",
+              "utilitycraft:golden_mesh",
+              "utilitycraft:iron_mesh",
+              "utilitycraft:copper_mesh",
+              "utilitycraft:flint_mesh",
+              "utilitycraft:string_mesh"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:netherite_fishing_net",
+              "name": "dorios:itemGroup.name.fishing_nets"
+            },
+            "items": [
+              "utilitycraft:string_fishing_net",
+              "utilitycraft:copper_fishing_net",
+              "utilitycraft:iron_fishing_net",
+              "utilitycraft:golden_fishing_net",
+              "utilitycraft:emerald_fishing_net",
+              "utilitycraft:diamond_fishing_net",
+              "utilitycraft:netherite_fishing_net"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:ultimate_fluid_tank",
+              "name": "dorios:itemGroup.name.tanks"
+            },
+            "items": [
+              "utilitycraft:basic_fluid_tank",
+              "utilitycraft:advanced_fluid_tank",
+              "utilitycraft:expert_fluid_tank",
+              "utilitycraft:ultimate_fluid_tank",
+              "utilitycraft:basic_gas_tank",
+              "utilitycraft:advanced_gas_tank",
+              "utilitycraft:expert_gas_tank",
+              "utilitycraft:ultimate_gas_tank",
+              "utilitycraft:creative_water_tank",
+              "utilitycraft:creative_lava_tank",
+              "utilitycraft:creative_milk_tank",
+              "utilitycraft:creative_xp_tank",
+              "utilitycraft:creative_steam_tank",
+              "utilitycraft:creative_sulfuric_acid_tank",
+              "utilitycraft:creative_heavy_water_tank",
+              "utilitycraft:creative_hydrogen_tank",
+              "utilitycraft:creative_oxygen_tank",
+              "utilitycraft:creative_methane_tank",
+              "utilitycraft:creative_depleted_uranium_hexafluoride_tank",
+              "utilitycraft:creative_enriched_uranium_hexafluoride_tank",
+              "utilitycraft:creative_fluorine_tank",
+              "utilitycraft:creative_hydrogen_fluoride_tank",
+              "utilitycraft:creative_natural_uranium_hexafluoride_tank",
+              "utilitycraft:creative_saline_coolant_tank",
+              "utilitycraft:creative_crude_oil_tank",
+              "utilitycraft:creative_petroleum_tank",
+              "utilitycraft:creative_diesel_tank",
+              "utilitycraft:creative_nuclear_waste_tank",
+              "utilitycraft:creative_heated_saline_coolant_tank",
+              "utilitycraft:xp_drain",
+              "utilitycraft:xp_spout"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:mechanical_spawner",
+              "name": "dorios:itemGroup.name.mob_grinding"
+            },
+            "items": [
+              "utilitycraft:mechanical_spawner",
+              "utilitycraft:spawner_core",
+              "utilitycraft:fan",
+              "utilitycraft:mob_grinder",
+              "utilitycraft:xp_magnet"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:energized_iron_block",
+              "name": "dorios:itemGroup.name.uc_materials"
+            },
+            "items": [
+              "utilitycraft:energized_iron_block",
+              "utilitycraft:raw_energized_iron_block",
+              "utilitycraft:steel_block",
+              "utilitycraft:raw_steel_block",
+              "utilitycraft:silicon_block",
+              "utilitycraft:nether_star_block",
+              "utilitycraft:blaze_block",
+              "utilitycraft:flint_block"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:crushed_netherrack",
+              "name": "dorios:itemGroup.name.crushed_blocks"
+            },
+            "items": [
+              "utilitycraft:crushed_netherrack",
+              "utilitycraft:crushed_blackstone",
+              "utilitycraft:crushed_endstone",
+              "utilitycraft:crushed_cobbled_deepslate",
+              "utilitycraft:compressed_crushed_cobbled_deepslate",
+              "utilitycraft:compressed_crushed_cobbled_deepslate_2",
+              "utilitycraft:compressed_crushed_cobbled_deepslate_3",
+              "utilitycraft:compressed_crushed_cobbled_deepslate_4",
+              "utilitycraft:compressed_crushed_endstone",
+              "utilitycraft:compressed_crushed_endstone_2",
+              "utilitycraft:compressed_crushed_endstone_3",
+              "utilitycraft:compressed_crushed_endstone_4",
+              "utilitycraft:compressed_crushed_netherrack",
+              "utilitycraft:compressed_crushed_netherrack_2",
+              "utilitycraft:compressed_crushed_netherrack_3",
+              "utilitycraft:compressed_crushed_netherrack_4",
+              "utilitycraft:compressed_crushed_blackstone",
+              "utilitycraft:compressed_crushed_blackstone_2",
+              "utilitycraft:compressed_crushed_blackstone_3",
+              "utilitycraft:compressed_crushed_blackstone_4"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:compressed_cobblestone",
+              "name": "dorios:itemGroup.name.compressed"
+            },
+            "items": [
+              "utilitycraft:compressed_acacia_wood",
+              "utilitycraft:compressed_acacia_wood_2",
+              "utilitycraft:compressed_acacia_wood_3",
+              "utilitycraft:compressed_acacia_wood_4",
+              "utilitycraft:compressed_amethyst_block",
+              "utilitycraft:compressed_amethyst_block_2",
+              "utilitycraft:compressed_amethyst_block_3",
+              "utilitycraft:compressed_amethyst_block_4",
+              "utilitycraft:compressed_andesite",
+              "utilitycraft:compressed_andesite_2",
+              "utilitycraft:compressed_andesite_3",
+              "utilitycraft:compressed_andesite_4",
+              "utilitycraft:compressed_birch_wood",
+              "utilitycraft:compressed_birch_wood_2",
+              "utilitycraft:compressed_birch_wood_3",
+              "utilitycraft:compressed_birch_wood_4",
+              "utilitycraft:compressed_blackstone",
+              "utilitycraft:compressed_blackstone_2",
+              "utilitycraft:compressed_blackstone_3",
+              "utilitycraft:compressed_blackstone_4",
+              "utilitycraft:compressed_brute_steel_block",
+              "utilitycraft:compressed_brute_steel_block_2",
+              "utilitycraft:compressed_brute_steel_block_3",
+              "utilitycraft:compressed_brute_steel_block_4",
+              "utilitycraft:charcoal_block",
+              "utilitycraft:compressed_charcoal_block",
+              "utilitycraft:compressed_charcoal_block_2",
+              "utilitycraft:compressed_charcoal_block_3",
+              "utilitycraft:compressed_charcoal_block_4",
+              "utilitycraft:compressed_cherry_wood",
+              "utilitycraft:compressed_cherry_wood_2",
+              "utilitycraft:compressed_cherry_wood_3",
+              "utilitycraft:compressed_cherry_wood_4",
+              "utilitycraft:compressed_coal_block",
+              "utilitycraft:compressed_coal_block_2",
+              "utilitycraft:compressed_coal_block_3",
+              "utilitycraft:compressed_coal_block_4",
+              "utilitycraft:compressed_cobblestone",
+              "utilitycraft:double_compressed_cobblestone",
+              "utilitycraft:triple_compressed_cobblestone",
+              "utilitycraft:quadruple_compressed_cobblestone",
+              "utilitycraft:quintuple_compressed_cobblestone",
+              "utilitycraft:sextuple_compressed_cobblestone",
+              "utilitycraft:septuple_compressed_cobblestone",
+              "utilitycraft:octuple_compressed_cobblestone",
+              "utilitycraft:nonuple_compressed_cobblestone",
+              "utilitycraft:compressed_cobbled_deepslate",
+              "utilitycraft:compressed_cobbled_deepslate_2",
+              "utilitycraft:compressed_cobbled_deepslate_3",
+              "utilitycraft:compressed_cobbled_deepslate_4",
+              "utilitycraft:compressed_copper_block",
+              "utilitycraft:compressed_copper_block_2",
+              "utilitycraft:compressed_copper_block_3",
+              "utilitycraft:compressed_copper_block_4",
+              "utilitycraft:compressed_crimson_wood",
+              "utilitycraft:compressed_crimson_wood_2",
+              "utilitycraft:compressed_crimson_wood_3",
+              "utilitycraft:compressed_crimson_wood_4",
+              "utilitycraft:compressed_cry_obsidian",
+              "utilitycraft:compressed_cry_obsidian_2",
+              "utilitycraft:compressed_cry_obsidian_3",
+              "utilitycraft:compressed_cry_obsidian_4",
+              "utilitycraft:compressed_dark_oak_wood",
+              "utilitycraft:compressed_dark_oak_wood_2",
+              "utilitycraft:compressed_dark_oak_wood_3",
+              "utilitycraft:compressed_dark_oak_wood_4",
+              "utilitycraft:compressed_deepslate",
+              "utilitycraft:compressed_deepslate_2",
+              "utilitycraft:compressed_deepslate_3",
+              "utilitycraft:compressed_deepslate_4",
+              "utilitycraft:compressed_diamond_block",
+              "utilitycraft:compressed_diamond_block_2",
+              "utilitycraft:compressed_diamond_block_3",
+              "utilitycraft:compressed_diamond_block_4",
+              "utilitycraft:compressed_diorite",
+              "utilitycraft:compressed_diorite_2",
+              "utilitycraft:compressed_diorite_3",
+              "utilitycraft:compressed_diorite_4",
+              "utilitycraft:compressed_dirt",
+              "utilitycraft:compressed_dirt_2",
+              "utilitycraft:compressed_dirt_3",
+              "utilitycraft:compressed_dirt_4",
+              "utilitycraft:compressed_emerald_block",
+              "utilitycraft:compressed_emerald_block_2",
+              "utilitycraft:compressed_emerald_block_3",
+              "utilitycraft:compressed_emerald_block_4",
+              "utilitycraft:compressed_endstone",
+              "utilitycraft:compressed_endstone_2",
+              "utilitycraft:compressed_endstone_3",
+              "utilitycraft:compressed_endstone_4",
+              "utilitycraft:compressed_energized_iron_block",
+              "utilitycraft:compressed_energized_iron_block_2",
+              "utilitycraft:compressed_energized_iron_block_3",
+              "utilitycraft:compressed_energized_iron_block_4",
+              "utilitycraft:compressed_flint_block",
+              "utilitycraft:compressed_flint_block_2",
+              "utilitycraft:compressed_flint_block_3",
+              "utilitycraft:compressed_flint_block_4",
+              "utilitycraft:compressed_glass",
+              "utilitycraft:compressed_glass_2",
+              "utilitycraft:compressed_glass_3",
+              "utilitycraft:compressed_glass_4",
+              "utilitycraft:compressed_gold_block",
+              "utilitycraft:compressed_gold_block_2",
+              "utilitycraft:compressed_gold_block_3",
+              "utilitycraft:compressed_gold_block_4",
+              "utilitycraft:compressed_granite",
+              "utilitycraft:compressed_granite_2",
+              "utilitycraft:compressed_granite_3",
+              "utilitycraft:compressed_granite_4",
+              "utilitycraft:compressed_gravel",
+              "utilitycraft:compressed_gravel_2",
+              "utilitycraft:compressed_gravel_3",
+              "utilitycraft:compressed_gravel_4",
+              "utilitycraft:compressed_iron_block",
+              "utilitycraft:compressed_iron_block_2",
+              "utilitycraft:compressed_iron_block_3",
+              "utilitycraft:compressed_iron_block_4",
+              "utilitycraft:compressed_jungle_wood",
+              "utilitycraft:compressed_jungle_wood_2",
+              "utilitycraft:compressed_jungle_wood_3",
+              "utilitycraft:compressed_jungle_wood_4",
+              "utilitycraft:compressed_lapislazuli_block",
+              "utilitycraft:compressed_lapislazuli_block_2",
+              "utilitycraft:compressed_lapislazuli_block_3",
+              "utilitycraft:compressed_lapislazuli_block_4",
+              "utilitycraft:compressed_mangrove_wood",
+              "utilitycraft:compressed_mangrove_wood_2",
+              "utilitycraft:compressed_mangrove_wood_3",
+              "utilitycraft:compressed_mangrove_wood_4",
+              "utilitycraft:compressed_netherite_block",
+              "utilitycraft:compressed_netherite_block_2",
+              "utilitycraft:compressed_netherite_block_3",
+              "utilitycraft:compressed_netherite_block_4",
+              "utilitycraft:compressed_netherrack",
+              "utilitycraft:compressed_netherrack_2",
+              "utilitycraft:compressed_netherrack_3",
+              "utilitycraft:compressed_netherrack_4",
+              "utilitycraft:compressed_obsidian",
+              "utilitycraft:compressed_obsidian_2",
+              "utilitycraft:compressed_obsidian_3",
+              "utilitycraft:compressed_obsidian_4",
+              "utilitycraft:compressed_oak_wood",
+              "utilitycraft:compressed_oak_wood_2",
+              "utilitycraft:compressed_oak_wood_3",
+              "utilitycraft:compressed_oak_wood_4",
+              "utilitycraft:compressed_pale_oak_wood",
+              "utilitycraft:compressed_pale_oak_wood_2",
+              "utilitycraft:compressed_pale_oak_wood_3",
+              "utilitycraft:compressed_pale_oak_wood_4",
+              "utilitycraft:compressed_quartz_block",
+              "utilitycraft:compressed_quartz_block_2",
+              "utilitycraft:compressed_quartz_block_3",
+              "utilitycraft:compressed_quartz_block_4",
+              "utilitycraft:compressed_raw_copper_block",
+              "utilitycraft:compressed_raw_copper_block_2",
+              "utilitycraft:compressed_raw_copper_block_3",
+              "utilitycraft:compressed_raw_copper_block_4",
+              "utilitycraft:compressed_raw_gold_block",
+              "utilitycraft:compressed_raw_gold_block_2",
+              "utilitycraft:compressed_raw_gold_block_3",
+              "utilitycraft:compressed_raw_gold_block_4",
+              "utilitycraft:compressed_raw_iron_block",
+              "utilitycraft:compressed_raw_iron_block_2",
+              "utilitycraft:compressed_raw_iron_block_3",
+              "utilitycraft:compressed_raw_iron_block_4",
+              "utilitycraft:compressed_redstone_block",
+              "utilitycraft:compressed_redstone_block_2",
+              "utilitycraft:compressed_redstone_block_3",
+              "utilitycraft:compressed_redstone_block_4",
+              "utilitycraft:compressed_sand",
+              "utilitycraft:compressed_sand_2",
+              "utilitycraft:compressed_sand_3",
+              "utilitycraft:compressed_sand_4",
+              "utilitycraft:compressed_spruce_wood",
+              "utilitycraft:compressed_spruce_wood_2",
+              "utilitycraft:compressed_spruce_wood_3",
+              "utilitycraft:compressed_spruce_wood_4",
+              "utilitycraft:compressed_steel_block",
+              "utilitycraft:compressed_steel_block_2",
+              "utilitycraft:compressed_steel_block_3",
+              "utilitycraft:compressed_steel_block_4",
+              "utilitycraft:compressed_warped_wood",
+              "utilitycraft:compressed_warped_wood_2",
+              "utilitycraft:compressed_warped_wood_3",
+              "utilitycraft:compressed_warped_wood_4",
+              "utilitycraft:compressed_stone",
+              "utilitycraft:compressed_stone_2",
+              "utilitycraft:compressed_stone_3",
+              "utilitycraft:compressed_stone_4",
+              "utilitycraft:compressed_block",
+              "utilitycraft:compressed_tuff",
+              "utilitycraft:compressed_tuff_2",
+              "utilitycraft:compressed_tuff_3",
+              "utilitycraft:compressed_tuff_4",
+              "utilitycraft:compressed_calcite",
+              "utilitycraft:compressed_calcite_2",
+              "utilitycraft:compressed_calcite_3",
+              "utilitycraft:compressed_calcite_4",
+              "utilitycraft:compressed_dripstone_block",
+              "utilitycraft:compressed_dripstone_block_2",
+              "utilitycraft:compressed_dripstone_block_3",
+              "utilitycraft:compressed_dripstone_block_4",
+              "utilitycraft:compressed_basalt",
+              "utilitycraft:compressed_basalt_2",
+              "utilitycraft:compressed_basalt_3",
+              "utilitycraft:compressed_basalt_4",
+              "utilitycraft:compressed_red_sand",
+              "utilitycraft:compressed_red_sand_2",
+              "utilitycraft:compressed_red_sand_3",
+              "utilitycraft:compressed_red_sand_4",
+              "utilitycraft:compressed_mud",
+              "utilitycraft:compressed_mud_2",
+              "utilitycraft:compressed_mud_3",
+              "utilitycraft:compressed_mud_4",
+              "utilitycraft:compressed_soul_sand",
+              "utilitycraft:compressed_soul_sand_2",
+              "utilitycraft:compressed_soul_sand_3",
+              "utilitycraft:compressed_soul_sand_4",
+              "utilitycraft:compressed_soul_soil",
+              "utilitycraft:compressed_soul_soil_2",
+              "utilitycraft:compressed_soul_soil_3",
+              "utilitycraft:compressed_soul_soil_4",
+              "utilitycraft:compressed_clay",
+              "utilitycraft:compressed_clay_2",
+              "utilitycraft:compressed_clay_3",
+              "utilitycraft:compressed_clay_4",
+              "utilitycraft:compressed_bamboo_block",
+              "utilitycraft:compressed_bamboo_block_2",
+              "utilitycraft:compressed_bamboo_block_3",
+              "utilitycraft:compressed_bamboo_block_4",
+              "utilitycraft:compressed_moss_block",
+              "utilitycraft:compressed_moss_block_2",
+              "utilitycraft:compressed_moss_block_3",
+              "utilitycraft:compressed_moss_block_4",
+              "utilitycraft:compressed_slime_block",
+              "utilitycraft:compressed_slime_block_2",
+              "utilitycraft:compressed_slime_block_3",
+              "utilitycraft:compressed_slime_block_4",
+              "utilitycraft:compressed_honey_block",
+              "utilitycraft:compressed_honey_block_2",
+              "utilitycraft:compressed_honey_block_3",
+              "utilitycraft:compressed_honey_block_4",
+              "utilitycraft:compressed_silicon_block",
+              "utilitycraft:compressed_silicon_block_2",
+              "utilitycraft:compressed_silicon_block_3",
+              "utilitycraft:compressed_silicon_block_4",
+              "utilitycraft:compressed_brute_energized_iron_block",
+              "utilitycraft:compressed_brute_energized_iron_block_2",
+              "utilitycraft:compressed_brute_energized_iron_block_3",
+              "utilitycraft:compressed_brute_energized_iron_block_4",
+              "utilitycraft:compressed_blaze_block",
+              "utilitycraft:compressed_blaze_block_2",
+              "utilitycraft:compressed_blaze_block_3",
+              "utilitycraft:compressed_blaze_block_4",
+              "utilitycraft:compressed_nether_star_block",
+              "utilitycraft:compressed_nether_star_block_2",
+              "utilitycraft:compressed_nether_star_block_3",
+              "utilitycraft:compressed_nether_star_block_4"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:black_soil",
+              "name": "dorios:itemGroup.name.soils"
+            },
+            "items": [
+              "utilitycraft:yellow_soil",
+              "utilitycraft:red_soil",
+              "utilitycraft:blue_soil",
+              "utilitycraft:black_soil"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:elevator",
+              "name": "dorios:itemGroup.name.elevators"
+            },
+            "items": [
+              "utilitycraft:black_elevator",
+              "utilitycraft:gray_elevator",
+              "utilitycraft:light_gray_elevator",
+              "utilitycraft:elevator",
+              "utilitycraft:yellow_elevator",
+              "utilitycraft:orange_elevator",
+              "utilitycraft:red_elevator",
+              "utilitycraft:pink_elevator",
+              "utilitycraft:magenta_elevator",
+              "utilitycraft:purple_elevator",
+              "utilitycraft:blue_elevator",
+              "utilitycraft:light_blue_elevator",
+              "utilitycraft:cyan_elevator",
+              "utilitycraft:lime_elevator",
+              "utilitycraft:green_elevator",
+              "utilitycraft:brown_elevator"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:cobble_gen_5",
+              "name": "dorios:itemGroup.name.cobble_gens"
+            },
+            "items": [
+              "utilitycraft:cobble_gen_0",
+              "utilitycraft:cobble_gen_1",
+              "utilitycraft:cobble_gen_2",
+              "utilitycraft:cobble_gen_3",
+              "utilitycraft:cobble_gen_4",
+              "utilitycraft:cobble_gen_5"
+            ]
+          }
         ]
-    }
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:energized_iron_ingot",
+              "name": "dorios:itemGroup.name.uc_materials"
+            },
+            "items": [
+              "utilitycraft:heavy_water_bucket",
+              "utilitycraft:sulfuric_acid_bucket",
+              "utilitycraft:xp_bucket",
+              "utilitycraft:crude_oil_bucket",
+              "utilitycraft:petroleum_bucket",
+              "utilitycraft:diesel_bucket",
+              "utilitycraft:saline_coolant_bucket",
+              "utilitycraft:raw_energized_iron",
+              "utilitycraft:energized_iron_ingot",
+              "utilitycraft:energized_iron_nugget",
+              "utilitycraft:netherite_nugget",
+              "utilitycraft:raw_steel",
+              "utilitycraft:steel_ingot",
+              "utilitycraft:steel_nugget",
+              "utilitycraft:silicon",
+              "utilitycraft:lead_ingot",
+              "utilitycraft:lead_nugget",
+              "utilitycraft:raw_lead",
+              "utilitycraft:lead_block",
+              "utilitycraft:raw_lead_block",
+              "utilitycraft:raw_uranium",
+              "utilitycraft:raw_uranium_block",
+              "utilitycraft:uranium_ingot",
+              "utilitycraft:uranium_pellet",
+              "utilitycraft:uranium_block"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:speed_upgrade",
+              "name": "dorios:itemGroup.name.upgrades"
+            },
+            "items": [
+              "utilitycraft:speed_upgrade",
+              "utilitycraft:quantity_upgrade",
+              "utilitycraft:energy_upgrade",
+              "utilitycraft:range_upgrade",
+              "utilitycraft:base_upgrade",
+              "utilitycraft:filter_upgrade",
+              "utilitycraft:damage_upgrade"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:netherite_plate",
+              "name": "dorios:itemGroup.name.plates"
+            },
+            "items": [
+              "utilitycraft:netherite_plate",
+              "utilitycraft:energized_iron_plate",
+              "utilitycraft:gold_plate",
+              "utilitycraft:steel_plate",
+              "utilitycraft:iron_plate",
+              "utilitycraft:copper_plate",
+              "utilitycraft:lead_plate"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:diamond_dust",
+              "name": "dorios:itemGroup.name.dusts"
+            },
+            "items": [
+              "utilitycraft:amethyst_dust",
+              "utilitycraft:charcoal_dust",
+              "utilitycraft:coal_dust",
+              "utilitycraft:copper_dust",
+              "utilitycraft:crying_obsidian_dust",
+              "utilitycraft:diamond_dust",
+              "utilitycraft:emerald_dust",
+              "utilitycraft:ender_pearl_dust",
+              "utilitycraft:energized_iron_dust",
+              "utilitycraft:gold_dust",
+              "utilitycraft:iron_dust",
+              "utilitycraft:netherite_dust",
+              "utilitycraft:netherite_scrap_dust",
+              "utilitycraft:obsidian_dust",
+              "utilitycraft:quartz_dust",
+              "utilitycraft:stabilized_obsidian_dust",
+              "utilitycraft:steel_dust",
+              "utilitycraft:lead_dust",
+              "utilitycraft:uranium_dust"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:diamond_shard",
+              "name": "dorios:itemGroup.name.pebbles"
+            },
+            "items": [
+              "utilitycraft:ancient_debris_chunk",
+              "utilitycraft:andesite_pebble",
+              "utilitycraft:basalt_pebble",
+              "utilitycraft:blackstone_pebble",
+              "utilitycraft:calcite_pebble",
+              "utilitycraft:coal_chunk",
+              "utilitycraft:copper_chunk",
+              "utilitycraft:deepslate_coal_chunk",
+              "utilitycraft:deepslate_gold_chunk",
+              "utilitycraft:deepslate_iron_chunk",
+              "utilitycraft:diamond_shard",
+              "utilitycraft:diorite_pebble",
+              "utilitycraft:dirt_handful",
+              "utilitycraft:dripstone_pebble",
+              "utilitycraft:emerald_shard",
+              "utilitycraft:geode",
+              "utilitycraft:gilded_blackstone_pebble",
+              "utilitycraft:gold_chunk",
+              "utilitycraft:granite_pebble",
+              "utilitycraft:gravel_fragments",
+              "utilitycraft:iron_chunk",
+              "utilitycraft:mud_ball",
+              "utilitycraft:nether_gold_chunk",
+              "utilitycraft:nether_quartz_chunk",
+              "utilitycraft:nether_star_fragment",
+              "utilitycraft:red_sand_handful",
+              "utilitycraft:sand_handful",
+              "utilitycraft:shulker_shell_shard",
+              "utilitycraft:stone_pebble",
+              "utilitycraft:totem_shard",
+              "utilitycraft:tuff_pebble",
+              "utilitycraft:wither_skull_shard",
+              "utilitycraft:deepslate_lead_chunk",
+              "utilitycraft:lead_chunk",
+              "utilitycraft:deepslate_uranium_chunk"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "equipment",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:diamond_aiot",
+              "name": "dorios:itemGroup.name.aiots"
+            },
+            "items": [
+              "utilitycraft:netherite_aiot",
+              "utilitycraft:diamond_aiot",
+              "utilitycraft:steel_aiot",
+              "utilitycraft:iron_aiot",
+              "utilitycraft:golden_aiot",
+              "utilitycraft:copper_aiot",
+              "utilitycraft:stone_aiot",
+              "utilitycraft:wooden_aiot"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:diamond_paxel",
+              "name": "dorios:itemGroup.name.paxels"
+            },
+            "items": [
+              "utilitycraft:netherite_paxel",
+              "utilitycraft:diamond_paxel",
+              "utilitycraft:steel_paxel",
+              "utilitycraft:iron_paxel",
+              "utilitycraft:golden_paxel",
+              "utilitycraft:copper_paxel",
+              "utilitycraft:stone_paxel",
+              "utilitycraft:wooden_paxel"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:diamond_hammer",
+              "name": "dorios:itemGroup.name.hammers"
+            },
+            "items": [
+              "utilitycraft:netherite_hammer",
+              "utilitycraft:diamond_hammer",
+              "utilitycraft:steel_hammer",
+              "utilitycraft:golden_hammer",
+              "utilitycraft:iron_hammer",
+              "utilitycraft:copper_hammer",
+              "utilitycraft:stone_hammer",
+              "utilitycraft:wooden_hammer"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:essence_vessel",
+              "name": "dorios:itemGroup.name.essences"
+            },
+            "items": [
+              "utilitycraft:essence_vessel",
+              "utilitycraft:blaze_essence",
+              "utilitycraft:chicken_essence",
+              "utilitycraft:cow_essence",
+              "utilitycraft:creeper_essence",
+              "utilitycraft:guardian_essence",
+              "utilitycraft:enderman_essence",
+              "utilitycraft:hoglin_essence",
+              "utilitycraft:illager_essence",
+              "utilitycraft:magma_cube_essence",
+              "utilitycraft:mooshroom_essence",
+              "utilitycraft:pig_essence",
+              "utilitycraft:piglin_essence",
+              "utilitycraft:sheep_essence",
+              "utilitycraft:skeleton_essence",
+              "utilitycraft:slime_essence",
+              "utilitycraft:spider_essence",
+              "utilitycraft:wither_skeleton_essence",
+              "utilitycraft:zombie_essence"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:bag_of_beetroot_seeds",
+              "name": "dorios:itemGroup.name.bags"
+            },
+            "items": [
+              "utilitycraft:bag_of_beetroot_seeds",
+              "utilitycraft:bag_of_black_dye",
+              "utilitycraft:bag_of_blaze_powder",
+              "utilitycraft:bag_of_blue_dye",
+              "utilitycraft:bag_of_brown_dye",
+              "utilitycraft:bag_of_cocoa_beans",
+              "utilitycraft:bag_of_cyan_dye",
+              "utilitycraft:bag_of_feathers",
+              "utilitycraft:bag_of_magenta_dye",
+              "utilitycraft:bag_of_glowstone_dust",
+              "utilitycraft:bag_of_gray_dye",
+              "utilitycraft:bag_of_green_dye",
+              "utilitycraft:bag_of_gunpowder",
+              "utilitycraft:bag_of_light_blue_dye",
+              "utilitycraft:bag_of_light_gray_dye",
+              "utilitycraft:bag_of_lime_dye",
+              "utilitycraft:bag_of_orange_dye",
+              "utilitycraft:bag_of_pink_dye",
+              "utilitycraft:bag_of_pitcher_pod",
+              "utilitycraft:bag_of_pumpkin_seeds",
+              "utilitycraft:bag_of_purple_dye",
+              "utilitycraft:bag_of_red_dye",
+              "utilitycraft:bag_of_sugar",
+              "utilitycraft:bag_of_torchflower_seeds",
+              "utilitycraft:bag_of_melon_seeds",
+              "utilitycraft:bag_of_wheat_seeds",
+              "utilitycraft:bag_of_white_dye",
+              "utilitycraft:bag_of_yellow_dye"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:bundle_of_blaze_rods",
+              "name": "dorios:itemGroup.name.bundles"
+            },
+            "items": [
+              "utilitycraft:bundle_of_blaze_rods",
+              "utilitycraft:bundle_of_breeze_rods",
+              "utilitycraft:bundle_of_sticks"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:vase_of_fermented_spider_eyes",
+              "name": "dorios:itemGroup.name.vases"
+            },
+            "items": [
+              "utilitycraft:vase_of_fermented_spider_eyes",
+              "utilitycraft:vase_of_spider_eye"
+            ]
+          },
+          {
+            "group_identifier": {
+              "icon": "utilitycraft:jar_of_cookies",
+              "name": "dorios:itemGroup.name.jars"
+            },
+            "items": [
+              "utilitycraft:jar_of_cookies",
+              "utilitycraft:jar_of_ghast_tears",
+              "utilitycraft:jar_of_glow_ink",
+              "utilitycraft:jar_of_ink"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

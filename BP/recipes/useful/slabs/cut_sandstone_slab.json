@@ -1,22 +1,27 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:cut_sandstone_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "stone_block_slab4",
-				"count": 2,
-				"data": 3
-			}
-		],
-		"result": {
-			"item": "sandstone",
-			"data": 2
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:cut_sandstone_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "stone_block_slab4",
+        "count": 2,
+        "data": 3
+      }
+    ],
+    "result": {
+      "item": "sandstone",
+      "data": 2
+    },
+    "unlock": [
+      {
+        "item": "stone_block_slab4"
+      }
+    ]
+  }
 }

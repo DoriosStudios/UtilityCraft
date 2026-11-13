@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:silicon_from_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:silicon_block"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:silicon",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:silicon_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:silicon_from_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:silicon_block"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:silicon",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:silicon_block"
+      }
+    ]
+  }
 }

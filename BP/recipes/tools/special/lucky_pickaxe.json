@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:lucky_pickaxe_item"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"EEO",
-			" SE",
-			"S E"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:lucky_pickaxe_item"
-			}
-		],
-		"unlock": [
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"item": "minecraft:emerald"
-			},
-			{
-				"item": "minecraft:gold_block"
-			}
-		],
-		"key": {
-			"S": {
-				"item": "minecraft:stick"
-			},
-			"E": {
-				"item": "minecraft:emerald"
-			},
-			"O": {
-				"item": "minecraft:gold_block"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:lucky_pickaxe_item"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "EEO",
+      " SE",
+      "S E"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:lucky_pickaxe_item"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "item": "minecraft:emerald"
+      },
+      {
+        "item": "minecraft:gold_block"
+      }
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:stick"
+      },
+      "E": {
+        "item": "minecraft:emerald"
+      },
+      "O": {
+        "item": "minecraft:gold_block"
+      }
+    }
+  }
 }

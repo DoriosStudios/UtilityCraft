@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:compressed_iron_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "minecraft:iron_block"
-			}
-		},
-		"pattern": [
-			"BBB",
-			"BBB",
-			"BBB"
-		],
-		"result": {
-			"item": "utilitycraft:compressed_iron_block"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:iron_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:compressed_iron_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:iron_block"
+      }
+    },
+    "pattern": [
+      "BBB",
+      "BBB",
+      "BBB"
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_iron_block"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_block"
+      }
+    ]
+  }
 }

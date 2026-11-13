@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:diamond_mesh"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"S": {
-				"item": "diamond"
-			},
-			"M": {
-				"item": "utilitycraft:emerald_mesh"
-			}
-		},
-		"pattern": [
-			"SSS",
-			"SMS",
-			"SSS"
-		],
-		"result": {
-			"item": "utilitycraft:diamond_mesh"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:emerald_mesh"
-			},
-			{
-				"item": "minecraft:diamond"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:diamond_mesh"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "S": {
+        "item": "diamond"
+      },
+      "M": {
+        "item": "utilitycraft:emerald_mesh"
+      }
+    },
+    "pattern": [
+      "SSS",
+      "SMS",
+      "SSS"
+    ],
+    "result": {
+      "item": "utilitycraft:diamond_mesh"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:emerald_mesh"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ]
+  }
 }

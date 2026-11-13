@@ -10,6 +10,9 @@
     },
     "permutations": [],
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:infinite_energy_source": {
         "rate_speed_base": 1000000000
       },

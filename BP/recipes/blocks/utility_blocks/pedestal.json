@@ -1,28 +1,28 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:pedestal"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "minecraft:end_bricks"
-			}
-		},
-		"pattern": [
-			" B ",
-			"BBB"
-		],
-		"result": {
-			"item": "utilitycraft:pedestal"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:end_bricks"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:pedestal"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:end_bricks"
+      }
+    },
+    "pattern": [
+      " B ",
+      "BBB"
+    ],
+    "result": {
+      "item": "utilitycraft:pedestal"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:end_bricks"
+      }
+    ]
+  }
 }

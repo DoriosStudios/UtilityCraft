@@ -1,22 +1,27 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:oak_wood_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "wooden_slab",
-				"data": 0,
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "planks",
-			"data": 0
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:oak_wood_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "wooden_slab",
+        "data": 0,
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "planks",
+      "data": 0
+    },
+    "unlock": [
+      {
+        "item": "wooden_slab"
+      }
+    ]
+  }
 }

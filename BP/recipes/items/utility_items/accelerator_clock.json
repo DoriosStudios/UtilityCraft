@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:accelerator_clock"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"C": {
-				"item": "minecraft:clock"
-			},
-			"S": {
-				"item": "minecraft:sugar"
-			},
-			"G": {
-				"item": "minecraft:gold_block"
-			}
-		},
-		"pattern": [
-			"SGS",
-			"GCG",
-			"SGS"
-		],
-		"result": {
-			"item": "utilitycraft:accelerator_clock"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:clock"
-			},
-			{
-				"item": "minecraft:sugar"
-			},
-			{
-				"item": "minecraft:gold_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:accelerator_clock"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "C": {
+        "item": "minecraft:clock"
+      },
+      "S": {
+        "item": "minecraft:sugar"
+      },
+      "G": {
+        "item": "minecraft:gold_block"
+      }
+    },
+    "pattern": [
+      "SGS",
+      "GCG",
+      "SGS"
+    ],
+    "result": {
+      "item": "utilitycraft:accelerator_clock"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:clock"
+      },
+      {
+        "item": "minecraft:sugar"
+      },
+      {
+        "item": "minecraft:gold_block"
+      }
+    ]
+  }
 }

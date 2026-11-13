@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:machine_case"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"G": {
-				"item": "gold_ingot"
-			},
-			"R": {
-				"item": "minecraft:redstone_block"
-			},
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"I": {
-				"item": "minecraft:iron_ingot"
-			}
-		},
-		"pattern": [
-			"SIS",
-			"GRG",
-			"SIS"
-		],
-		"result": {
-			"item": "utilitycraft:machine_case"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:machine_case"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "G": {
+        "item": "gold_ingot"
+      },
+      "R": {
+        "item": "minecraft:redstone_block"
+      },
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "I": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "pattern": [
+      "SIS",
+      "GRG",
+      "SIS"
+    ],
+    "result": {
+      "item": "utilitycraft:machine_case"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

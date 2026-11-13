@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ender_hopper"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"C": {
-				"item": "minecraft:chest"
-			},
-			"E": {
-				"item": "minecraft:ender_eye"
-			},
-			"O": {
-				"item": "minecraft:obsidian"
-			}
-		},
-		"pattern": [
-			"OEO",
-			"OCO",
-			" O "
-		],
-		"result": {
-			"item": "utilitycraft:ender_hopper"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:chest"
-			},
-			{
-				"item": "minecraft:ender_eye"
-			},
-			{
-				"item": "minecraft:obsidian"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ender_hopper"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "C": {
+        "item": "minecraft:chest"
+      },
+      "E": {
+        "item": "minecraft:ender_eye"
+      },
+      "O": {
+        "item": "minecraft:obsidian"
+      }
+    },
+    "pattern": [
+      "OEO",
+      "OCO",
+      " O "
+    ],
+    "result": {
+      "item": "utilitycraft:ender_hopper"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:chest"
+      },
+      {
+        "item": "minecraft:ender_eye"
+      },
+      {
+        "item": "minecraft:obsidian"
+      }
+    ]
+  }
 }

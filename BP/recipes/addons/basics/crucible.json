@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:crucible"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "brick"
-			},
-			"M": {
-				"item": "mud_bricks"
-			}
-		},
-		"pattern": [
-			"B B",
-			"BMB",
-			"M M"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:crucible"
-			}
-		],
-		"unlock": [
-			{
-				"item": "minecraft:brick"
-			},
-			{
-				"item": "minecraft:mud_bricks"
-			}
-		],
-		"priority": 0
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:crucible"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "brick"
+      },
+      "M": {
+        "item": "mud_bricks"
+      }
+    },
+    "pattern": [
+      "B B",
+      "BMB",
+      "M M"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:crucible"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:brick"
+      },
+      {
+        "item": "minecraft:mud_bricks"
+      }
+    ],
+    "priority": 0
+  }
 }

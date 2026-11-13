@@ -1,21 +1,26 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:bamboo_mosaic_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "bamboo_mosaic_slab",
-				"count": 2,
-				"data": 0
-			}
-		],
-		"result": {
-			"item": "bamboo_mosaic"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:bamboo_mosaic_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "bamboo_mosaic_slab",
+        "count": 2,
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "bamboo_mosaic"
+    },
+    "unlock": [
+      {
+        "item": "bamboo_mosaic_slab"
+      }
+    ]
+  }
 }

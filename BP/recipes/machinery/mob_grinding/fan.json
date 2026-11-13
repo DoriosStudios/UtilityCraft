@@ -1,47 +1,47 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:fan"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "iron_ingot"
-			},
-			"C": {
-				"item": "redstone"
-			},
-			"M": {
-				"item": "utilitycraft:machine_case"
-			},
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			}
-		},
-		"pattern": [
-			"ACA",
-			"SMS",
-			"ACA"
-		],
-		"result": {
-			"item": "utilitycraft:fan"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:iron_ingot"
-			},
-			{
-				"item": "minecraft:redstone"
-			},
-			{
-				"item": "utilitycraft:machine_case"
-			},
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:fan"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "iron_ingot"
+      },
+      "C": {
+        "item": "redstone"
+      },
+      "M": {
+        "item": "utilitycraft:machine_case"
+      },
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      }
+    },
+    "pattern": [
+      "ACA",
+      "SMS",
+      "ACA"
+    ],
+    "result": {
+      "item": "utilitycraft:fan"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      },
+      {
+        "item": "minecraft:redstone"
+      },
+      {
+        "item": "utilitycraft:machine_case"
+      },
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

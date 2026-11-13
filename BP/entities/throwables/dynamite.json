@@ -1,5 +1,5 @@
 {
-	"format_version": "1.16.0",
+	"format_version": "1.26.60",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "utilitycraft:dynamite",
@@ -30,8 +30,11 @@
 				"on_hit": {
 					"impact_damage": {
 						"knockback": false,
-						"semi_random_diff_damage": false,
-						"damage": 5
+						"difficulty_randomization": "none",
+						"damage": {
+							"min": 5,
+							"max": 5
+						}
 					},
 					"definition_event": {
 						"affect_projectile": true,
@@ -41,7 +44,7 @@
 						}
 					}
 				},
-				"anchor": 1,
+				"anchor": "eye_height",
 				"power": 1.5,
 				"gravity": 0.03,
 				"angle_offset": 0,
@@ -56,13 +59,9 @@
 				"triggers": [
 					{
 						"cause": "all",
-						"deals_damage": false
+						"deals_damage": "no"
 					}
 				]
-			},
-			"minecraft:pushable": {
-				"is_pushable": true,
-				"is_pushable_by_piston": true
 			},
 			"minecraft:type_family": {
 				"family": [

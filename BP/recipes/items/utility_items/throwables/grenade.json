@@ -1,36 +1,36 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:grenade"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"G": {
-				"item": "minecraft:gunpowder"
-			},
-			"W": {
-				"tag": "minecraft:wool"
-			}
-		},
-		"pattern": [
-			" W ",
-			"WGW",
-			" W"
-		],
-		"result": {
-			"item": "utilitycraft:grenade",
-			"count": 8
-		},
-		"unlock": [
-			{
-				"item": "minecraft:gunpowder"
-			},
-			{
-				"tag": "minecraft:wool"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:grenade"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:gunpowder"
+      },
+      "W": {
+        "tag": "minecraft:wool"
+      }
+    },
+    "pattern": [
+      " W ",
+      "WGW",
+      " W"
+    ],
+    "result": {
+      "item": "utilitycraft:grenade",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      },
+      {
+        "tag": "minecraft:wool"
+      }
+    ]
+  }
 }

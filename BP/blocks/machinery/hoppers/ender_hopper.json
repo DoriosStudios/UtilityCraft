@@ -1,148 +1,121 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:ender_hopper",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:range": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:filter": [
-					0,
-					1
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:upgradeable": {},
-			"utilitycraft:mechanic_hopper": {
-				"type": "ender"
-			},
-			"minecraft:geometry": "geometry.utilitycraft_ender_hopper",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_ender_hopper",
-					"render_method": "opaque"
-				},
-				"up": {
-					"texture": "utilitycraft_ender_hopper_animated",
-					"render_method": "opaque"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					5,
-					16
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					5,
-					16
-				]
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					8,
-					8
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:upgradeable": {},
-			"tag:dorios:container": {},
-			"tag:dorios:item": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:range') == 1",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_ender_hopper_range1",
-							"render_method": "opaque"
-						},
-						"up": {
-							"texture": "utilitycraft_ender_hopper_animated",
-							"render_method": "opaque"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 2",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_ender_hopper_range2",
-							"render_method": "opaque"
-						},
-						"up": {
-							"texture": "utilitycraft_ender_hopper_animated",
-							"render_method": "opaque"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 3",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_ender_hopper_range3",
-							"render_method": "opaque"
-						},
-						"up": {
-							"texture": "utilitycraft_ender_hopper_animated",
-							"render_method": "opaque"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:range') == 4",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_ender_hopper_range4",
-							"render_method": "opaque"
-						},
-						"up": {
-							"texture": "utilitycraft_ender_hopper_animated",
-							"render_method": "opaque"
-						}
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:ender_hopper",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:speed": [0, 1, 2, 3, 4],
+        "utilitycraft:range": [0, 1, 2, 3, 4],
+        "utilitycraft:filter": [0, 1]
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "utilitycraft:upgradeable": {},
+      "utilitycraft:mechanic_hopper": {
+        "type": "ender"
+      },
+      "minecraft:geometry": "geometry.utilitycraft_ender_hopper",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_ender_hopper",
+          "render_method": "opaque"
+        },
+        "up": {
+          "texture": "utilitycraft_ender_hopper_animated",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-8, 0, -8],
+          "size": [16, 5, 16]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 5, 16]
+      },
+      "minecraft:tick": {
+        "interval_range": [8, 8]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": [
+        "dorios:upgradeable",
+        "dorios:container",
+        "dorios:item",
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('utilitycraft:range') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_ender_hopper_range1",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_ender_hopper_animated",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_ender_hopper_range2",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_ender_hopper_animated",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_ender_hopper_range3",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_ender_hopper_animated",
+              "render_method": "opaque"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:range') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_ender_hopper_range4",
+              "render_method": "opaque"
+            },
+            "up": {
+              "texture": "utilitycraft_ender_hopper_animated",
+              "render_method": "opaque"
+            }
+          }
+        }
+      }
+    ]
+  }
 }

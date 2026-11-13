@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:sextuple_compressed_cobblestone"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"C": {
-				"item": "utilitycraft:quintuple_compressed_cobblestone"
-			}
-		},
-		"pattern": [
-			"CCC",
-			"CCC",
-			"CCC"
-		],
-		"result": {
-			"item": "utilitycraft:sextuple_compressed_cobblestone"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:quintuple_compressed_cobblestone"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:sextuple_compressed_cobblestone"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "C": {
+        "item": "utilitycraft:quintuple_compressed_cobblestone"
+      }
+    },
+    "pattern": [
+      "CCC",
+      "CCC",
+      "CCC"
+    ],
+    "result": {
+      "item": "utilitycraft:sextuple_compressed_cobblestone"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:quintuple_compressed_cobblestone"
+      }
+    ]
+  }
 }

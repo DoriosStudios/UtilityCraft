@@ -1,5 +1,5 @@
 {
-	"format_version": "1.26.0",
+	"format_version": "1.26.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "utilitycraft:steel_block",
@@ -8,6 +8,16 @@
 			}
 		},
 		"components": {
+"minecraft:sound": {
+  "sound": "metal"
+},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "utilitycraft_steel_block",
+					"render_method": "opaque"
+				}
+			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 3.0
 			},

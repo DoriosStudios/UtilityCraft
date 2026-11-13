@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:compressed_diamond_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"B": {
-				"item": "minecraft:diamond_block"
-			}
-		},
-		"pattern": [
-			"BBB",
-			"BBB",
-			"BBB"
-		],
-		"result": {
-			"item": "utilitycraft:compressed_diamond_block"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:diamond_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:compressed_diamond_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:diamond_block"
+      }
+    },
+    "pattern": [
+      "BBB",
+      "BBB",
+      "BBB"
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_diamond_block"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diamond_block"
+      }
+    ]
+  }
 }

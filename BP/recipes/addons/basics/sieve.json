@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:sieve"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"A": {
-				"item": "stick"
-			},
-			"P": {
-				"tag": "minecraft:planks"
-			},
-			"S": {
-				"tag": "minecraft:wooden_slabs"
-			}
-		},
-		"pattern": [
-			"P P",
-			"PSP",
-			"A A"
-		],
-		"result": {
-			"item": "utilitycraft:sieve"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:stick"
-			},
-			{
-				"tag": "minecraft:planks"
-			},
-			{
-				"tag": "minecraft:wooden_slabs"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:sieve"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "A": {
+        "item": "stick"
+      },
+      "P": {
+        "tag": "minecraft:planks"
+      },
+      "S": {
+        "tag": "minecraft:wooden_slabs"
+      }
+    },
+    "pattern": [
+      "P P",
+      "PSP",
+      "A A"
+    ],
+    "result": {
+      "item": "utilitycraft:sieve"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      },
+      {
+        "tag": "minecraft:planks"
+      },
+      {
+        "tag": "minecraft:wooden_slabs"
+      }
+    ]
+  }
 }

@@ -1,17 +1,17 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:amogus",
-			"menu_category": {
-				"category": "none"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_amogus",
-			"minecraft:display_name": {
-				"value": "Amogus"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:amogus",
+      "menu_category": {
+        "category": "none"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_amogus",
+      "minecraft:display_name": {
+        "value": "Amogus"
+      }
+    }
+  }
 }

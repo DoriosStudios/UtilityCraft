@@ -1,17 +1,17 @@
 {
-	"format_version": "1.21.110",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:ultimate_chip",
-			"menu_category": {
-				"category": "items"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_ultimate_chip",
-			"minecraft:fire_resistant": {
-				"value": true
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_chip",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_ultimate_chip",
+      "minecraft:fire_resistant": {
+        "value": true
+      }
+    }
+  }
 }

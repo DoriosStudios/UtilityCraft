@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:advanced_magmator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"G": {
-				"item": "utilitycraft:energized_iron_plate"
-			},
-			"B": {
-				"item": "utilitycraft:basic_magmator"
-			},
-			"S": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"D": {
-				"item": "utilitycraft:advanced_fluid_tank"
-			},
-			"E": {
-				"item": "utilitycraft:advanced_chip"
-			}
-		},
-		"pattern": [
-			"GDG",
-			"EBE",
-			"SES"
-		],
-		"result": {
-			"item": "utilitycraft:advanced_magmator"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:advanced_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:advanced_magmator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "G": {
+        "item": "utilitycraft:energized_iron_plate"
+      },
+      "B": {
+        "item": "utilitycraft:basic_magmator"
+      },
+      "S": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "D": {
+        "item": "utilitycraft:advanced_fluid_tank"
+      },
+      "E": {
+        "item": "utilitycraft:advanced_chip"
+      }
+    },
+    "pattern": [
+      "GDG",
+      "EBE",
+      "SES"
+    ],
+    "result": {
+      "item": "utilitycraft:advanced_magmator"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:advanced_chip"
+      }
+    ]
+  }
 }

@@ -1,19 +1,19 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:quartz_seeds",
-			"menu_category": {
-				"category": "nature",
-				"group": "minecraft:itemGroup.name.seed"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_quartz_seeds",
-			"minecraft:block_placer": {
-				"block": "utilitycraft:quartz_seeds",
-				"replace_block_item": true
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:quartz_seeds",
+      "menu_category": {
+        "category": "nature",
+        "group": "minecraft:itemGroup.name.seed"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_quartz_seeds",
+      "minecraft:block_placer": {
+        "block": "utilitycraft:quartz_seeds",
+        "replace_block_item": true
+      }
+    }
+  }
 }

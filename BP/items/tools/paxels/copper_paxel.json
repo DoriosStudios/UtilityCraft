@@ -1,55 +1,58 @@
 {
-	"format_version": "1.21.70",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:copper_paxel"
-		},
-		"components": {
-                        "minecraft:tags": {
-                                "tags": [
-                                        "minecraft:is_axe",
-                                        "minecraft:is_pickaxe",
-                                        "minecraft:copper_tier"
-                                ]
-                        },
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 573
-			},
-			"minecraft:damage": 4,
-			"minecraft:icon": "utilitycraft_copper_paxel",
-			"minecraft:enchantable": {
-				"value": 14,
-				"slot": "axe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": [
-							"minecraft:copper_ingot"
-						],
-						"repair_amount": 89
-					},
-					{
-						"items": [
-							"utilitycraft:copper_paxel"
-						],
-						"repair_amount": 191
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 13,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible') && !q.any_tag('minecraft:iron_tier_destructible', 'minecraft:diamond_tier_destructible')"
-						}
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:copper_paxel",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_axe",
+          "minecraft:is_pickaxe",
+          "minecraft:copper_tier"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 573
+      },
+      "minecraft:damage": 4,
+      "minecraft:icon": "utilitycraft_copper_paxel",
+      "minecraft:enchantable": {
+        "value": 14,
+        "slot": "axe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:copper_ingot"
+            ],
+            "repair_amount": 89
+          },
+          {
+            "items": [
+              "utilitycraft:copper_paxel"
+            ],
+            "repair_amount": 191
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 13,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'minecraft:is_axe_item_destructible') && !q.any_tag('minecraft:iron_tier_destructible', 'minecraft:diamond_tier_destructible')"
+            }
+          }
+        ]
+      }
+    }
+  }
 }

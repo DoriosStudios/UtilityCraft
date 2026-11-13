@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:autofisher"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"R": {
-				"item": "minecraft:redstone"
-			},
-			"M": {
-				"item": "utilitycraft:machine_case"
-			},
-			"B": {
-				"item": "utilitycraft:basic_chip"
-			},
-			"F": {
-				"item": "minecraft:fishing_rod"
-			},
-			"S": {
-				"item": "utilitycraft:steel_block"
-			}
-		},
-		"pattern": [
-			"RFR",
-			"BMB",
-			"RSR"
-		],
-		"result": {
-			"item": "utilitycraft:autofisher"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:autofisher"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "M": {
+        "item": "utilitycraft:machine_case"
+      },
+      "B": {
+        "item": "utilitycraft:basic_chip"
+      },
+      "F": {
+        "item": "minecraft:fishing_rod"
+      },
+      "S": {
+        "item": "utilitycraft:steel_block"
+      }
+    },
+    "pattern": [
+      "RFR",
+      "BMB",
+      "RSR"
+    ],
+    "result": {
+      "item": "utilitycraft:autofisher"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      }
+    ]
+  }
 }

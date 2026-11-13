@@ -1,27 +1,27 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shapeless": {
-        "description": {
-            "identifier": "utilitycraft:item_conduit_blue_to_purple_convert"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "ingredients": [
-            {
-                "item": "utilitycraft:item_conduit_blue"
-            },
-            {
-                "item": "purple_dye"
-            }
-        ],
-        "result": {
-            "item": "utilitycraft:item_conduit_purple"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:item_conduit_blue"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:item_conduit_blue_to_purple_convert"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:item_conduit_blue"
+      },
+      {
+        "item": "purple_dye"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:item_conduit_purple"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:item_conduit_blue"
+      }
+    ]
+  }
 }

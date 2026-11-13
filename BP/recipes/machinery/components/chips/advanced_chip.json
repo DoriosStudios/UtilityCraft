@@ -1,38 +1,38 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:advanced_chip"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "RER",
-            "ECE",
-            "RER"
-        ],
-        "key": {
-            "E": {
-                "item": "utilitycraft:energized_iron_ingot"
-            },
-            "C": {
-                "item": "utilitycraft:basic_chip"
-            },
-            "R": {
-                "item": "minecraft:redstone"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:advanced_chip"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:energized_iron_ingot"
-            },
-            {
-                "item": "minecraft:redstone"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:advanced_chip"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "RER",
+      "ECE",
+      "RER"
+    ],
+    "key": {
+      "E": {
+        "item": "utilitycraft:energized_iron_ingot"
+      },
+      "C": {
+        "item": "utilitycraft:basic_chip"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:advanced_chip"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:energized_iron_ingot"
+      },
+      {
+        "item": "minecraft:redstone"
+      }
+    ]
+  }
 }

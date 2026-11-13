@@ -1,72 +1,78 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:netherite_hammer"
-		},
-		"components": {
-			"utilitycraft:hammer": {
-				"tier": 3
-			},
-			"utilitycraft:dig_pebble": {},
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_pickaxe",
-					"minecraft:is_tool",
-					"utilitycraft:is_hammer",
-					"minecraft:netherite_tier"
-				]
-			},
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 2031
-			},
-			"minecraft:fire_resistant": {
-				"value": true
-			},
-			"minecraft:damage": 7,
-			"minecraft:icon": "utilitycraft_netherite_hammer",
-			"minecraft:enchantable": {
-				"value": 17,
-				"slot": "pickaxe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": ["minecraft:netherite_ingot"],
-						"repair_amount": 800
-					},
-					{
-						"items": ["utilitycraft:netherite_hammer"],
-						"repair_amount": 2031
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 20,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'stone' )"
-						}
-					},
-
-					{
-						"speed": 12,
-						"block": "minecraft:dirt"
-					},
-					{
-						"speed": 12,
-						"block": "minecraft:gravel"
-					},
-					{
-						"speed": 12,
-						"block": "minecraft:sand"
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:netherite_hammer",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:hammer": {
+        "tier": 3
+      },
+      "utilitycraft:dig_pebble": {},
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_pickaxe",
+          "minecraft:is_tool",
+          "utilitycraft:is_hammer",
+          "minecraft:netherite_tier"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 2031
+      },
+      "minecraft:fire_resistant": {
+        "value": true
+      },
+      "minecraft:damage": 7,
+      "minecraft:icon": "utilitycraft_netherite_hammer",
+      "minecraft:enchantable": {
+        "value": 17,
+        "slot": "pickaxe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:netherite_ingot"
+            ],
+            "repair_amount": 800
+          },
+          {
+            "items": [
+              "utilitycraft:netherite_hammer"
+            ],
+            "repair_amount": 2031
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 20,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible', 'stone' )"
+            }
+          },
+          {
+            "speed": 12,
+            "block": "minecraft:dirt"
+          },
+          {
+            "speed": 12,
+            "block": "minecraft:gravel"
+          },
+          {
+            "speed": 12,
+            "block": "minecraft:sand"
+          }
+        ]
+      }
+    }
+  }
 }

@@ -1,14 +1,14 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:energized_iron_nugget",
-			"menu_category": {
-				"category": "items"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_energized_iron_nugget"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:energized_iron_nugget",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_energized_iron_nugget"
+    }
+  }
 }

@@ -1,22 +1,27 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:darkoak_wood_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "wooden_slab",
-				"data": 5,
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "planks",
-			"data": 5
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:darkoak_wood_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "wooden_slab",
+        "data": 5,
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "planks",
+      "data": 5
+    },
+    "unlock": [
+      {
+        "item": "wooden_slab"
+      }
+    ]
+  }
 }

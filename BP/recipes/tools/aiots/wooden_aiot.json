@@ -1,61 +1,61 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:wooden_aiot"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"DSD",
-			"HPA",
-			"ZHD"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:wooden_aiot"
-			}
-		],
-		"unlock": [
-			{
-				"tag": "minecraft:planks"
-			},
-			{
-				"item": "minecraft:wooden_sword"
-			},
-			{
-				"item": "minecraft:string"
-			},
-			{
-				"item": "utilitycraft:wooden_paxel"
-			},
-			{
-				"item": "minecraft:wooden_hoe"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"key": {
-			"D": {
-				"tag": "minecraft:planks"
-			},
-			"S": {
-				"item": "minecraft:wooden_sword"
-			},
-			"H": {
-				"item": "minecraft:string"
-			},
-			"P": {
-				"item": "utilitycraft:wooden_paxel"
-			},
-			"A": {
-				"item": "minecraft:wooden_hoe"
-			},
-			"Z": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:wooden_aiot"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "DSD",
+      "HPA",
+      "ZHD"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:wooden_aiot"
+      }
+    ],
+    "unlock": [
+      {
+        "tag": "minecraft:planks"
+      },
+      {
+        "item": "minecraft:wooden_sword"
+      },
+      {
+        "item": "minecraft:string"
+      },
+      {
+        "item": "utilitycraft:wooden_paxel"
+      },
+      {
+        "item": "minecraft:wooden_hoe"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "D": {
+        "tag": "minecraft:planks"
+      },
+      "S": {
+        "item": "minecraft:wooden_sword"
+      },
+      "H": {
+        "item": "minecraft:string"
+      },
+      "P": {
+        "item": "utilitycraft:wooden_paxel"
+      },
+      "A": {
+        "item": "minecraft:wooden_hoe"
+      },
+      "Z": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

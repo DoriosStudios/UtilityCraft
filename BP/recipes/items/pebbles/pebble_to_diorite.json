@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:pebble_to_diorite"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:diorite_pebble"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:diorite"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:diorite_pebble"
-			},
-			{
-				"item": "minecraft:diorite"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:pebble_to_diorite"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:diorite_pebble"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:diorite"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:diorite_pebble"
+      },
+      {
+        "item": "minecraft:diorite"
+      }
+    ]
+  }
 }

@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:totem_seed"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			},
-			"E": {
-				"item": "minecraft:emerald_block"
-			},
-			"T": {
-				"item": "minecraft:totem_of_undying"
-			}
-		},
-		"pattern": [
-			"ETE",
-			"TST",
-			"ETE"
-		],
-		"result": {
-			"item": "utilitycraft:totem_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:totem_of_undying"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:totem_seed"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      },
+      "E": {
+        "item": "minecraft:emerald_block"
+      },
+      "T": {
+        "item": "minecraft:totem_of_undying"
+      }
+    },
+    "pattern": [
+      "ETE",
+      "TST",
+      "ETE"
+    ],
+    "result": {
+      "item": "utilitycraft:totem_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:totem_of_undying"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

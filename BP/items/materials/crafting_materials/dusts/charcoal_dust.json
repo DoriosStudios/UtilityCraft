@@ -1,11 +1,14 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:charcoal_dust"
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_charcoal_dust"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:charcoal_dust",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_charcoal_dust"
+    }
+  }
 }

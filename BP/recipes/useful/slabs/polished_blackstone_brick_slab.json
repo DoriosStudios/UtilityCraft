@@ -1,20 +1,25 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:polished_blackstone_brick_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "polished_blackstone_brick_slab",
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "polished_blackstone_bricks"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:polished_blackstone_brick_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "polished_blackstone_brick_slab",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "polished_blackstone_bricks"
+    },
+    "unlock": [
+      {
+        "item": "polished_blackstone_brick_slab"
+      }
+    ]
+  }
 }

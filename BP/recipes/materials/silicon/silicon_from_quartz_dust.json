@@ -1,13 +1,18 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_furnace": {
-		"description": {
-			"identifier": "utilitycraft:silicon_from_quartz_dust"
-		},
-		"tags": [
-			"furnace"
-		],
-		"input": "utilitycraft:quartz_dust",
-		"output": "utilitycraft:silicon"
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "utilitycraft:silicon_from_quartz_dust"
+    },
+    "tags": [
+      "furnace"
+    ],
+    "input": "utilitycraft:quartz_dust",
+    "output": "utilitycraft:silicon",
+    "unlock": [
+      {
+        "item": "utilitycraft:quartz_dust"
+      }
+    ]
+  }
 }

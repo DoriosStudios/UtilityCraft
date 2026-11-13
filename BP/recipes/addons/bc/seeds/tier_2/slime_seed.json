@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:slime_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"L": {
-				"item": "minecraft:slime_ball"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"LLL",
-			"LSL",
-			"LLL"
-		],
-		"result": {
-			"item": "utilitycraft:slime_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:slime_ball"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:slime_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "L": {
+        "item": "minecraft:slime_ball"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "LLL",
+      "LSL",
+      "LLL"
+    ],
+    "result": {
+      "item": "utilitycraft:slime_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:slime_ball"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

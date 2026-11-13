@@ -1,14 +1,19 @@
 {
-	"format_version": "1.16.100",
-	"minecraft:recipe_furnace": {
-		"description": {
-			"identifier": "utilitycraft:raw_iron_block"
-		},
-		"input": "raw_iron_block",
-		"tags": [
-			"blast_furnace",
-			"furnace"
-		],
-		"output": "iron_block"
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "utilitycraft:raw_iron_block"
+    },
+    "input": "raw_iron_block",
+    "tags": [
+      "blast_furnace",
+      "furnace"
+    ],
+    "output": "iron_block",
+    "unlock": [
+      {
+        "item": "raw_iron_block"
+      }
+    ]
+  }
 }

@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:dyes_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"O": {
-				"item": "minecraft:dye"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OSO",
-			"OOO"
-		],
-		"result": {
-			"item": "utilitycraft:dyes_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:dye"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:dyes_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "O": {
+        "item": "minecraft:dye"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OSO",
+      "OOO"
+    ],
+    "result": {
+      "item": "utilitycraft:dyes_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:dye"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

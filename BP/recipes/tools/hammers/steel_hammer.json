@@ -1,43 +1,43 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:steel_hammer"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:steel_hammer"
-			}
-		],
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			},
-			{
-				"item": "utilitycraft:steel_block"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"pattern": [
-			"ASA",
-			"ADA",
-			" D "
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"S": {
-				"item": "utilitycraft:steel_block"
-			},
-			"D": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:steel_hammer"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:steel_hammer"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      },
+      {
+        "item": "utilitycraft:steel_block"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      "ADA",
+      " D "
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "S": {
+        "item": "utilitycraft:steel_block"
+      },
+      "D": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

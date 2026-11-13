@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:compressed_coal_block_to_coal_block"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "utilitycraft:compressed_coal_block"
-			}
-		],
-		"result": {
-			"item": "minecraft:coal_block",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:compressed_coal_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:compressed_coal_block_to_coal_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:compressed_coal_block"
+      }
+    ],
+    "result": {
+      "item": "minecraft:coal_block",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:compressed_coal_block"
+      }
+    ]
+  }
 }

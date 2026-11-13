@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:nether_wart"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "minecraft:nether_wart_block"
-			}
-		],
-		"result": {
-			"item": "nether_wart",
-			"count": 9
-		},
-		"unlock": [
-			{
-				"item": "minecraft:nether_wart_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:nether_wart"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:nether_wart_block"
+      }
+    ],
+    "result": {
+      "item": "nether_wart",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "minecraft:nether_wart_block"
+      }
+    ]
+  }
 }

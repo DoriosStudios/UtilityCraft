@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:glowstone_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"G": {
-				"item": "minecraft:glowstone_dust"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"GGG",
-			"GSG",
-			"GGG"
-		],
-		"result": {
-			"item": "utilitycraft:glowstone_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:glowstone_dust"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:glowstone_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:glowstone_dust"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "GGG",
+      "GSG",
+      "GGG"
+    ],
+    "result": {
+      "item": "utilitycraft:glowstone_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:glowstone_dust"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

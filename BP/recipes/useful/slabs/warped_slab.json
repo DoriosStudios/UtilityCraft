@@ -1,21 +1,26 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:warped_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "warped_slab",
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "warped_planks",
-			"data": 2
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:warped_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "warped_slab",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "warped_planks",
+      "data": 2
+    },
+    "unlock": [
+      {
+        "item": "warped_slab"
+      }
+    ]
+  }
 }

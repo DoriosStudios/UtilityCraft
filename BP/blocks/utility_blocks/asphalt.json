@@ -1,122 +1,117 @@
 {
-	"format_version": "1.26.30",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:asphalt",
-			"states": {
-				"utilitycraft:texture": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6
-				]
-			},
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_asphalt",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true
-			},
-			"utilitycraft:asphalt": {},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.5
-			},
-			"minecraft:tags": [
-				"minecraft:is_pickaxe_item_destructible",
-				"minecraft:is_shovel_item_destructible",
-				"utilitycraft:is_aiot_item_destructible"
-			]
-		},
-		"permutations": [
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 0",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_asphalt",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 1",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "grass_path_top",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 2",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "grass_carried_top",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 3",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "dirt",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 4",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "cobblestone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 5",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "stone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:texture') == 6",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "gravel",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:asphalt",
+      "states": {
+        "utilitycraft:texture": [0, 1, 2, 3, 4, 5, 6]
+      },
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "minecraft:geometry": "geometry.utilitycraft_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_asphalt",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:redstone_conductivity": {
+        "redstone_conductor": true
+      },
+      "utilitycraft:asphalt": {},
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible",
+        "minecraft:is_shovel_item_destructible",
+        "utilitycraft:is_aiot_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_asphalt",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grass_path_top",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "grass_carried_top",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "dirt",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "cobblestone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "stone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:texture') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "gravel",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      }
+    ]
+  }
 }

@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:gunpowder_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"O": {
-				"item": "gunpowder"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OSO",
-			"OOO"
-		],
-		"result": {
-			"item": "utilitycraft:gunpowder_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:gunpowder"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:gunpowder_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "O": {
+        "item": "gunpowder"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OSO",
+      "OOO"
+    ],
+    "result": {
+      "item": "utilitycraft:gunpowder_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

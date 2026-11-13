@@ -1,11 +1,14 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:quantity_upgrade"
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_quantity_upgrade"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:quantity_upgrade",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_quantity_upgrade"
+    }
+  }
 }

@@ -1,23 +1,23 @@
 {
-	"format_version": "1.20.0",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:spawner_core",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_spawner_core",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 3.0
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:spawner_core",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:geometry": "geometry.utilitycraft_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_spawner_core",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.0
+      }
+    }
+  }
 }

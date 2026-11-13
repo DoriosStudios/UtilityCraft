@@ -1,147 +1,144 @@
 {
-	"format_version": "1.19.20",
-	"minecraft:entity": {
-		"description": {
-			"identifier": "utilitycraft:honey_bonsai",
-			"is_spawnable": false,
-			"is_summonable": true,
-			"is_experimental": false,
-			"properties": {
-				"dorios:is_slimed": {
-					"type": "bool",
-					"default": false,
-					"client_sync": true
-				},
-				"utilitycraft:growth_duration": {
-					"type": "float",
-					"default": 60.0,
-					"client_sync": true,
-					"range": [
-						10.0,
-						600.0
-					]
-				},
-				"utilitycraft:animation_reset": {
-					"type": "bool",
-					"default": false,
-					"client_sync": true
-				}
-			}
-		},
-		"component_groups": {
-			"despawn": {
-				"minecraft:instant_despawn": {
-					"remove_child_entities": false
-				}
-			},
-			"normal": {
-				"minecraft:scale": {
-					"value": 1.42069
-				}
-			},
-			"small": {
-				"minecraft:scale": {
-					"value": 0.25
-				}
-			}
-		},
-		"components": {
-			"minecraft:timer": {
-				"looping": true,
-				"time": [
-					10,
-					10
-				],
-				"time_down_event": {
-					"event": "utilitycraft:bonsai_heartbeat"
-				}
-			},
-			"minecraft:collision_box": {
-				"height": 0.8,
-				"width": 0
-			},
-			"minecraft:physics": {
-				"has_collision": false,
-				"has_gravity": false
-			},
-			"minecraft:damage_sensor": {
-				"triggers": [
-					{
-						"cause": "all",
-						"deals_damage": false
-					}
-				]
-			},
-			"minecraft:inside_block_notifier": {
-				"block_list": [
-					{
-						"exited_block_event": {
-							"event": "despawn"
-						},
-						"block": {
-							"name": "utilitycraft:bonsai"
-						}
-					}
-				]
-			},
-			"minecraft:environment_sensor": {
-				"triggers": [
-					{
-						"filters": {
-							"test": "has_tag",
-							"value": "despawn",
-							"operator": "==",
-							"subject": "self"
-						},
-						"event": "despawn"
-					}
-				]
-			},
-			"minecraft:knockback_resistance": {
-				"value": 10000
-			},
-			"minecraft:scale": {
-				"value": 0.25
-			},
-			"minecraft:type_family": {
-				"family": [
-					"inanimate"
-				]
-			}
-		},
-		"events": {
-			"despawn": {
-				"add": {
-					"component_groups": [
-						"despawn"
-					]
-				}
-			},
-			"normal": {
-				"remove": {
-					"component_groups": [
-						"small"
-					]
-				},
-				"add": {
-					"component_groups": [
-						"normal"
-					]
-				}
-			},
-			"small": {
-				"remove": {
-					"component_groups": [
-						"normal"
-					]
-				},
-				"add": {
-					"component_groups": [
-						"small"
-					]
-				}
-			},
-			"utilitycraft:bonsai_heartbeat": {}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "utilitycraft:honey_bonsai",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "dorios:is_slimed": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "utilitycraft:growth_duration": {
+          "type": "float",
+          "default": 60.0,
+          "client_sync": true,
+          "range": [
+            10.0,
+            600.0
+          ]
+        },
+        "utilitycraft:animation_reset": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {
+          "remove_child_entities": false
+        }
+      },
+      "normal": {
+        "minecraft:scale": {
+          "value": 1.42069
+        }
+      },
+      "small": {
+        "minecraft:scale": {
+          "value": 0.25
+        }
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "looping": true,
+        "time": { "min": 10, "max": 10 },
+        "time_down_event": {
+          "event": "utilitycraft:bonsai_heartbeat"
+        }
+      },
+      "minecraft:collision_box": {
+        "height": 0.8,
+        "width": 0
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:inside_block_notifier": {
+        "block_list": [
+          {
+            "exited_block_event": {
+              "event": "despawn"
+            },
+            "block": {
+              "name": "utilitycraft:bonsai"
+            }
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "test": "has_tag",
+              "value": "despawn",
+              "operator": "==",
+              "subject": "self"
+            },
+            "event": "despawn"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10000
+      },
+      "minecraft:scale": {
+        "value": 0.25
+      },
+      "minecraft:type_family": {
+        "family": [
+          "inanimate"
+        ]
+      }
+    },
+    "events": {
+      "despawn": {
+        "add": {
+          "component_groups": [
+            "despawn"
+          ]
+        }
+      },
+      "normal": {
+        "remove": {
+          "component_groups": [
+            "small"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "normal"
+          ]
+        }
+      },
+      "small": {
+        "remove": {
+          "component_groups": [
+            "normal"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "small"
+          ]
+        }
+      },
+      "utilitycraft:bonsai_heartbeat": {}
+    }
+  }
 }

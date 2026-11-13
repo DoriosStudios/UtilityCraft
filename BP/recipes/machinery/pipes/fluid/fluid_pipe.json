@@ -1,36 +1,36 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:fluid_pipe"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"G": {
-				"item": "glass"
-			},
-			"C": {
-				"item": "bucket"
-			},
-			"S": {
-				"item": "utilitycraft:steel_nugget"
-			}
-		},
-		"pattern": [
-			"SSS",
-			"GCG",
-			"SSS"
-		],
-		"result": {
-			"item": "utilitycraft:fluid_pipe",
-			"count": 8
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:fluid_pipe"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "G": {
+        "item": "glass"
+      },
+      "C": {
+        "item": "bucket"
+      },
+      "S": {
+        "item": "utilitycraft:steel_nugget"
+      }
+    },
+    "pattern": [
+      "SSS",
+      "GCG",
+      "SSS"
+    ],
+    "result": {
+      "item": "utilitycraft:fluid_pipe",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

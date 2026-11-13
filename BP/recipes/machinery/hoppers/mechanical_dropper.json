@@ -1,36 +1,36 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:mechanical_dropper"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"H": {
-				"item": "dropper"
-			}
-		},
-		"pattern": [
-			"S S",
-			"SHS",
-			" S"
-		],
-		"result": {
-			"item": "utilitycraft:mechanic_dropper"
-		},
-		"unlock": [
-			{
-				"item": "dropper"
-			},
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		],
-		"priority": 0
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:mechanical_dropper"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "H": {
+        "item": "dropper"
+      }
+    },
+    "pattern": [
+      "S S",
+      "SHS",
+      " S"
+    ],
+    "result": {
+      "item": "utilitycraft:mechanic_dropper"
+    },
+    "unlock": [
+      {
+        "item": "dropper"
+      },
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ],
+    "priority": 0
+  }
 }

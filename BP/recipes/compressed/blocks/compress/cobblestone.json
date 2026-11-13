@@ -1,29 +1,29 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:compressed_cobblestone"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"C": {
-				"item": "minecraft:cobblestone"
-			}
-		},
-		"pattern": [
-			"CCC",
-			"CCC",
-			"CCC"
-		],
-		"result": {
-			"item": "utilitycraft:compressed_cobblestone"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:cobblestone"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:compressed_cobblestone"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "C": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "pattern": [
+      "CCC",
+      "CCC",
+      "CCC"
+    ],
+    "result": {
+      "item": "utilitycraft:compressed_cobblestone"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:cobblestone"
+      }
+    ]
+  }
 }

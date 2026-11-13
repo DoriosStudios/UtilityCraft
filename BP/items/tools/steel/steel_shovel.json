@@ -1,45 +1,45 @@
 {
-    "format_version": "1.21.90",
-    "minecraft:item": {
-        "description": {
-            "identifier": "utilitycraft:steel_shovel",
-            "menu_category": {
-                "category": "equipment",
-                "group": "minecraft:itemGroup.name.shovel"
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:steel_shovel",
+      "menu_category": {
+        "category": "equipment",
+        "group": "minecraft:itemGroup.name.shovel"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_steel_shovel",
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:iron_tier",
+          "minecraft:is_shovel",
+          "minecraft:is_tool"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 750
+      },
+      "minecraft:damage": {
+        "value": 3
+      },
+      "minecraft:enchantable": {
+        "slot": "shovel",
+        "value": 10
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 7,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_shovel_item_destructible')"
             }
-        },
-        "components": {
-            "minecraft:icon": "utilitycraft_steel_shovel",
-            "minecraft:tags": {
-                "tags": [
-                    "minecraft:iron_tier",
-                    "minecraft:is_shovel",
-                    "minecraft:is_tool"
-                ]
-            },
-            "minecraft:max_stack_size": 1,
-            "minecraft:hand_equipped": true,
-            "minecraft:durability": {
-                "max_durability": 750
-            },
-            "minecraft:damage": {
-                "value": 3
-            },
-            "minecraft:enchantable": {
-                "slot": "shovel",
-                "value": 10
-            },
-            "minecraft:digger": {
-                "use_efficiency": true,
-                "destroy_speeds": [
-                    {
-                        "speed": 7,
-                        "block": {
-                            "tags": "q.any_tag('minecraft:is_shovel_item_destructible')"
-                        }
-                    }
-                ]
-            }
-        }
+          }
+        ]
+      }
     }
+  }
 }

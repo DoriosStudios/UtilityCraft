@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:basic_solar_panel"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"C": {
-				"item": "gold_ingot"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			},
-			"E": {
-				"item": "utilitycraft:basic_chip"
-			}
-		},
-		"pattern": [
-			"AEA",
-			"ECE",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:basic_solar_panel"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:basic_solar_panel"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "C": {
+        "item": "gold_ingot"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      },
+      "E": {
+        "item": "utilitycraft:basic_chip"
+      }
+    },
+    "pattern": [
+      "AEA",
+      "ECE",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:basic_solar_panel"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ]
+  }
 }

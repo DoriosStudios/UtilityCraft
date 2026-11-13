@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:coal_to_black_dye"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"tag": "minecraft:coals"
-			}
-		],
-		"result": {
-			"item": "minecraft:black_dye",
-			"count": 1
-		},
-        "unlock": [
-			{
-				"tag": "minecraft:coals"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:coal_to_black_dye"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "tag": "minecraft:coals"
+      }
+    ],
+    "result": {
+      "item": "minecraft:black_dye",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "tag": "minecraft:coals"
+      }
+    ]
+  }
 }

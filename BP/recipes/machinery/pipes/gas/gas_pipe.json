@@ -1,36 +1,36 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:gas_pipe"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "key": {
-            "G": {
-                "item": "glass"
-            },
-            "C": {
-                "item": "glass_bottle"
-            },
-            "S": {
-                "item": "utilitycraft:lead_nugget"
-            }
-        },
-        "pattern": [
-            "SSS",
-            "GCG",
-            "SSS"
-        ],
-        "result": {
-            "item": "utilitycraft:gas_pipe",
-            "count": 8
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:lead_ingot"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:gas_pipe"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "G": {
+        "item": "glass"
+      },
+      "C": {
+        "item": "glass_bottle"
+      },
+      "S": {
+        "item": "utilitycraft:lead_nugget"
+      }
+    },
+    "pattern": [
+      "SSS",
+      "GCG",
+      "SSS"
+    ],
+    "result": {
+      "item": "utilitycraft:gas_pipe",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:lead_ingot"
+      }
+    ]
+  }
 }

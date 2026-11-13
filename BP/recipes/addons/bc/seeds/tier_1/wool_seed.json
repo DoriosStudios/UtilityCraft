@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:wool_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"O": {
-				"tag": "minecraft:wool"
-			},
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OSO",
-			"OOO"
-		],
-		"result": {
-			"item": "utilitycraft:wool_seeds"
-		},
-		"unlock": [
-			{
-				"tag": "minecraft:wool"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:wool_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "O": {
+        "tag": "minecraft:wool"
+      },
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OSO",
+      "OOO"
+    ],
+    "result": {
+      "item": "utilitycraft:wool_seeds"
+    },
+    "unlock": [
+      {
+        "tag": "minecraft:wool"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

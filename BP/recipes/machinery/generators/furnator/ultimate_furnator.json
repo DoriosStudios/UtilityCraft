@@ -1,44 +1,44 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ultimate_furnator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"B": {
-				"item": "utilitycraft:expert_furnator"
-			},
-			"C": {
-				"item": "utilitycraft:netherite_plate"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			},
-			"E": {
-				"item": "utilitycraft:ultimate_chip"
-			}
-		},
-		"pattern": [
-			"AEA",
-			"EBE",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:ultimate_furnator"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:redstone_block"
-			},
-			{
-				"item": "utilitycraft:ultimate_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_furnator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "B": {
+        "item": "utilitycraft:expert_furnator"
+      },
+      "C": {
+        "item": "utilitycraft:netherite_plate"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      },
+      "E": {
+        "item": "utilitycraft:ultimate_chip"
+      }
+    },
+    "pattern": [
+      "AEA",
+      "EBE",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:ultimate_furnator"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:redstone_block"
+      },
+      {
+        "item": "utilitycraft:ultimate_chip"
+      }
+    ]
+  }
 }

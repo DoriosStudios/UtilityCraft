@@ -1,50 +1,39 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:big_torch",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_big_torch",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_big_torch",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					0,
-					0,
-					0
-				],
-				"size": [
-					0,
-					0,
-					0
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-2,
-					0,
-					-2
-				],
-				"size": [
-					4,
-					16,
-					4
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.2
-			},
-			"minecraft:light_emission": 15,
-			"minecraft:destructible_by_explosion": false,
-			"tag:minecraft:is_axe_item_destructible": {}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:big_torch",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "wood"
+      },
+      "minecraft:geometry": "geometry.utilitycraft_big_torch",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_big_torch",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [0, 0, 0],
+          "size": [0, 0, 0]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-2, 0, -2],
+        "size": [4, 16, 4]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.2
+      },
+      "minecraft:light_emission": 15,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": ["minecraft:is_axe_item_destructible"]
+    }
+  }
 }

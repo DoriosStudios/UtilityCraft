@@ -1,14 +1,19 @@
 {
-	"format_version": "1.16.100",
-	"minecraft:recipe_furnace": {
-		"description": {
-			"identifier": "utilitycraft:raw_copper_block"
-		},
-		"input": "raw_copper_block",
-		"tags": [
-			"blast_furnace",
-			"furnace"
-		],
-		"output": "copper_block"
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "utilitycraft:raw_copper_block"
+    },
+    "input": "raw_copper_block",
+    "tags": [
+      "blast_furnace",
+      "furnace"
+    ],
+    "output": "copper_block",
+    "unlock": [
+      {
+        "item": "raw_copper_block"
+      }
+    ]
+  }
 }

@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:fragment_to_gravel"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:gravel_fragments"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:gravel"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:gravel_fragments"
-			},
-			{
-				"item": "minecraft:gravel"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:fragment_to_gravel"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:gravel_fragments"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:gravel"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:gravel_fragments"
+      },
+      {
+        "item": "minecraft:gravel"
+      }
+    ]
+  }
 }

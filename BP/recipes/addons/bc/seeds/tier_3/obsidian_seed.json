@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:obsidian_seeds"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"S": {
-				"item": "utilitycraft:base_seeds"
-			},
-			"O": {
-				"item": "minecraft:obsidian"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OSO",
-			"OOO"
-		],
-		"result": {
-			"item": "utilitycraft:obsidian_seeds"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:obsidian"
-			},
-			{
-				"item": "utilitycraft:base_seeds"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:obsidian_seeds"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "S": {
+        "item": "utilitycraft:base_seeds"
+      },
+      "O": {
+        "item": "minecraft:obsidian"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OSO",
+      "OOO"
+    ],
+    "result": {
+      "item": "utilitycraft:obsidian_seeds"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:obsidian"
+      },
+      {
+        "item": "utilitycraft:base_seeds"
+      }
+    ]
+  }
 }

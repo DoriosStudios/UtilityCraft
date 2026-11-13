@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:expert_thermo_generator"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:copper_block"
-			},
-			"B": {
-				"item": "utilitycraft:advanced_thermo_generator"
-			},
-			"C": {
-				"item": "utilitycraft:diamond_dust"
-			},
-			"D": {
-				"item": "utilitycraft:expert_fluid_tank"
-			},
-			"E": {
-				"item": "utilitycraft:expert_chip"
-			}
-		},
-		"pattern": [
-			"ADA",
-			"EBE",
-			"CAC"
-		],
-		"result": {
-			"item": "utilitycraft:expert_thermo_generator"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:expert_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:expert_thermo_generator"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:copper_block"
+      },
+      "B": {
+        "item": "utilitycraft:advanced_thermo_generator"
+      },
+      "C": {
+        "item": "utilitycraft:diamond_dust"
+      },
+      "D": {
+        "item": "utilitycraft:expert_fluid_tank"
+      },
+      "E": {
+        "item": "utilitycraft:expert_chip"
+      }
+    },
+    "pattern": [
+      "ADA",
+      "EBE",
+      "CAC"
+    ],
+    "result": {
+      "item": "utilitycraft:expert_thermo_generator"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:expert_chip"
+      }
+    ]
+  }
 }

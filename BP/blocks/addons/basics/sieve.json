@@ -1,494 +1,1081 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:sieve",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:mesh": [
-					"empty",
-					"string_mesh",
-					"flint_mesh",
-					"copper_mesh",
-					"iron_mesh",
-					"golden_mesh",
-					"emerald_mesh",
-					"diamond_mesh",
-					"netherite_mesh"
-				],
-				"utilitycraft:state": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:block_e0": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8,
-					9
-				],
-				"utilitycraft:block_e1": [
-					0,
-					1
-				]
-			}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 1",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "gravel",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 4",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "sand",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 2",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "dirt",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 3",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_wood_sieve_grass",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 5",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "soul_sand",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 6",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_gravel",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 7",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_dirt",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 8",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_sand",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 9",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_crushed_netherrack",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 0",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_crushed_blackstone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 1",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_crushed_endstone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 2",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_crushed_cobbled_deepslate",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 3",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_crushed_netherrack",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 4",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_crushed_blackstone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 5",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_crushed_endstone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 6",
-				"components": {
-					"minecraft:material_instances": {
-						"mesh": {
-							"texture": "utilitycraft_wood_sieve_meshes",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_wood_sieve",
-							"render_method": "alpha_test"
-						},
-						"block": {
-							"texture": "utilitycraft_compressed_crushed_cobbled_deepslate",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:state') == 0",
-				"components": {
-					"minecraft:collision_box": [
-						{ "origin": [-7, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [5, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [-7, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [5, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [-7, 10, -7], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, 6], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [6, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [-6, 12, -6], "size": [12, 1, 12] }
-					]
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:state') == 1",
-				"components": {
-					"minecraft:collision_box": [
-						{ "origin": [-7, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [5, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [-7, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [5, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [-7, 10, -7], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, 6], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [6, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [-6, 11, -6], "size": [12, 2, 12] }
-					]
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:state') == 2",
-				"components": {
-					"minecraft:collision_box": [
-						{ "origin": [-7, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [5, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [-7, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [5, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [-7, 10, -7], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, 6], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [6, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [-6, 10, -6], "size": [12, 4, 12] }
-					]
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:state') == 3",
-				"components": {
-					"minecraft:collision_box": [
-						{ "origin": [-7, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [5, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [-7, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [5, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [-7, 10, -7], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, 6], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [6, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [-6, 11, -6], "size": [12, 4, 12] }
-					]
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:state') == 4",
-				"components": {
-					"minecraft:collision_box": [
-						{ "origin": [-7, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [5, 0, -7], "size": [2, 15, 2] },
-						{ "origin": [-7, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [5, 0, 5], "size": [2, 15, 2] },
-						{ "origin": [-7, 10, -7], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, 6], "size": [14, 5, 1] },
-						{ "origin": [-7, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [6, 10, -6], "size": [1, 5, 12] },
-						{ "origin": [-6, 12, -6], "size": [12, 4, 12] }
-					]
-				}
-			}
-		],
-		"components": {
-			"utilitycraft:sieve": {},
-			"minecraft:geometry": {
-				"identifier": "geometry.utilitycraft_wood_sieve",
-				"bone_visibility": {
-					"block4": "q.block_state('utilitycraft:state') == 4",
-					"block3": "q.block_state('utilitycraft:state') == 3",
-					"block2": "q.block_state('utilitycraft:state') == 2",
-					"block1": "q.block_state('utilitycraft:state') == 1",
-					"string_mesh": "q.block_state('utilitycraft:mesh') == 'string_mesh'",
-					"flint_mesh": "q.block_state('utilitycraft:mesh') == 'flint_mesh'",
-					"copper_mesh": "q.block_state('utilitycraft:mesh') == 'copper_mesh'",
-					"iron_mesh": "q.block_state('utilitycraft:mesh') == 'iron_mesh'",
-					"golden_mesh": "q.block_state('utilitycraft:mesh') == 'golden_mesh'",
-					"emerald_mesh": "q.block_state('utilitycraft:mesh') == 'emerald_mesh'",
-					"diamond_mesh": "q.block_state('utilitycraft:mesh') == 'diamond_mesh'",
-					"netherite_mesh": "q.block_state('utilitycraft:mesh') == 'netherite_mesh'"
-				}
-			},
-			"minecraft:material_instances": {
-				"mesh": {
-					"texture": "utilitycraft_wood_sieve_meshes",
-					"render_method": "alpha_test"
-				},
-				"*": {
-					"texture": "utilitycraft_wood_sieve",
-					"render_method": "alpha_test"
-				},
-				"block": {
-					"texture": "utilitycraft_empty",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": [
-				// Sieve frame (state 0 / default)
-				{ "origin": [-7, 0, -7], "size": [2, 15, 2] },
-				{ "origin": [5, 0, -7], "size": [2, 15, 2] },
-				{ "origin": [-7, 0, 5], "size": [2, 15, 2] },
-				{ "origin": [5, 0, 5], "size": [2, 15, 2] },
-				{ "origin": [-7, 10, -7], "size": [14, 5, 1] },
-				{ "origin": [-7, 10, 6], "size": [14, 5, 1] },
-				{ "origin": [-7, 10, -6], "size": [1, 5, 12] },
-				{ "origin": [6, 10, -6], "size": [1, 5, 12] }
-			],
-			"minecraft:selection_box": {
-				"size": [
-					14,
-					15,
-					14
-				],
-				"origin": [
-					-7,
-					0,
-					-7
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.0
-			},
-			"tag:minecraft:is_axe_item_destructible": {}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:sieve",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:mesh": [
+          "empty",
+          "string_mesh",
+          "flint_mesh",
+          "copper_mesh",
+          "iron_mesh",
+          "golden_mesh",
+          "emerald_mesh",
+          "diamond_mesh",
+          "netherite_mesh"
+        ],
+        "utilitycraft:state": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "utilitycraft:block_e0": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "utilitycraft:block_e1": [
+          0,
+          1
+        ]
+      }
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "gravel",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "sand",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "dirt",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_wood_sieve_grass",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "soul_sand",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_gravel",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 7",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_dirt",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 8",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_sand",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 0 && q.block_state('utilitycraft:block_e0') == 9",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_crushed_netherrack",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 0",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_crushed_blackstone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 1",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_crushed_endstone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 2",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_crushed_cobbled_deepslate",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 3",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_crushed_netherrack",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 4",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_crushed_blackstone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 5",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_crushed_endstone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:block_e1') == 1 && q.block_state('utilitycraft:block_e0') == 6",
+        "components": {
+          "minecraft:material_instances": {
+            "mesh": {
+              "texture": "utilitycraft_wood_sieve_meshes",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_wood_sieve",
+              "render_method": "alpha_test"
+            },
+            "block": {
+              "texture": "utilitycraft_compressed_crushed_cobbled_deepslate",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:state') == 0",
+        "components": {
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -7,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -7
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                6
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                6,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                -6,
+                12,
+                -6
+              ],
+              "size": [
+                12,
+                1,
+                12
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:state') == 1",
+        "components": {
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -7,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -7
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                6
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                6,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                -6,
+                11,
+                -6
+              ],
+              "size": [
+                12,
+                2,
+                12
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:state') == 2",
+        "components": {
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -7,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -7
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                6
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                6,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                -6,
+                10,
+                -6
+              ],
+              "size": [
+                12,
+                4,
+                12
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:state') == 3",
+        "components": {
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -7,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -7
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                6
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                6,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                -6,
+                11,
+                -6
+              ],
+              "size": [
+                12,
+                4,
+                12
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:state') == 4",
+        "components": {
+          "minecraft:collision_box": [
+            {
+              "origin": [
+                -7,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                -7
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                5,
+                0,
+                5
+              ],
+              "size": [
+                2,
+                15,
+                2
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -7
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                6
+              ],
+              "size": [
+                14,
+                5,
+                1
+              ]
+            },
+            {
+              "origin": [
+                -7,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                6,
+                10,
+                -6
+              ],
+              "size": [
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "origin": [
+                -6,
+                12,
+                -6
+              ],
+              "size": [
+                12,
+                4,
+                12
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "components": {
+      "utilitycraft:sieve": {},
+      "minecraft:geometry": {
+        "identifier": "geometry.utilitycraft_wood_sieve",
+        "bone_visibility": {
+          "block4": "q.block_state('utilitycraft:state') == 4",
+          "block3": "q.block_state('utilitycraft:state') == 3",
+          "block2": "q.block_state('utilitycraft:state') == 2",
+          "block1": "q.block_state('utilitycraft:state') == 1",
+          "string_mesh": "q.block_state('utilitycraft:mesh') == 'string_mesh'",
+          "flint_mesh": "q.block_state('utilitycraft:mesh') == 'flint_mesh'",
+          "copper_mesh": "q.block_state('utilitycraft:mesh') == 'copper_mesh'",
+          "iron_mesh": "q.block_state('utilitycraft:mesh') == 'iron_mesh'",
+          "golden_mesh": "q.block_state('utilitycraft:mesh') == 'golden_mesh'",
+          "emerald_mesh": "q.block_state('utilitycraft:mesh') == 'emerald_mesh'",
+          "diamond_mesh": "q.block_state('utilitycraft:mesh') == 'diamond_mesh'",
+          "netherite_mesh": "q.block_state('utilitycraft:mesh') == 'netherite_mesh'"
+        }
+      },
+      "minecraft:material_instances": {
+        "mesh": {
+          "texture": "utilitycraft_wood_sieve_meshes",
+          "render_method": "alpha_test"
+        },
+        "*": {
+          "texture": "utilitycraft_wood_sieve",
+          "render_method": "alpha_test"
+        },
+        "block": {
+          "texture": "utilitycraft_empty",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [
+            -7,
+            0,
+            -7
+          ],
+          "size": [
+            2,
+            15,
+            2
+          ]
+        },
+        {
+          "origin": [
+            5,
+            0,
+            -7
+          ],
+          "size": [
+            2,
+            15,
+            2
+          ]
+        },
+        {
+          "origin": [
+            -7,
+            0,
+            5
+          ],
+          "size": [
+            2,
+            15,
+            2
+          ]
+        },
+        {
+          "origin": [
+            5,
+            0,
+            5
+          ],
+          "size": [
+            2,
+            15,
+            2
+          ]
+        },
+        {
+          "origin": [
+            -7,
+            10,
+            -7
+          ],
+          "size": [
+            14,
+            5,
+            1
+          ]
+        },
+        {
+          "origin": [
+            -7,
+            10,
+            6
+          ],
+          "size": [
+            14,
+            5,
+            1
+          ]
+        },
+        {
+          "origin": [
+            -7,
+            10,
+            -6
+          ],
+          "size": [
+            1,
+            5,
+            12
+          ]
+        },
+        {
+          "origin": [
+            6,
+            10,
+            -6
+          ],
+          "size": [
+            1,
+            5,
+            12
+          ]
+        }
+      ],
+      "minecraft:selection_box": {
+        "size": [
+          14,
+          15,
+          14
+        ],
+        "origin": [
+          -7,
+          0,
+          -7
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:tags": [
+        "tag:minecraft:is_axe_item_destructible"
+      ],
+      "minecraft:sound": {
+        "sound": "stone"
+      }
+    }
+  }
 }

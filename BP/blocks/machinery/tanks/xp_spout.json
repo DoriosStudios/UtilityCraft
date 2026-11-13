@@ -1,138 +1,106 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:xp_spout",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_position": {
-					"enabled_states": [
-						"minecraft:block_face"
-					]
-				}
-			},
-			"states": {
-				"utilitycraft:isOpen": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:xp": {},
-			"minecraft:geometry": "geometry.utilitycraft_xp_spout",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_xp_spout",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-1,
-					10,
-					4
-				],
-				"size": [
-					2,
-					4,
-					4
-				]
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-1,
-					10,
-					4
-				],
-				"size": [
-					2,
-					4,
-					4
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.1
-			},
-			"minecraft:placement_filter": {
-				"conditions": [
-					{
-						"block_filter": [
-							"utilitycraft:basic_fluid_tank",
-							"utilitycraft:expert_fluid_tank",
-							"utilitycraft:advanced_fluid_tank",
-							"utilitycraft:ultimate_fluid_tank"
-						],
-						"allowed_faces": [
-							"side"
-						]
-					}
-				]
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					1,
-					1
-				]
-			}
-		},
-		"permutations": [
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('utilitycraft:isOpen') == true",
-				"components": {
-					"minecraft:geometry": "geometry.utilitycraft_xp_spout_open"
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:xp_spout",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:block_face"]
+        }
+      },
+      "states": {
+        "utilitycraft:isOpen": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "utilitycraft:xp": {},
+      "minecraft:geometry": "geometry.utilitycraft_xp_spout",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_xp_spout",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:selection_box": {
+        "origin": [-1, 10, 4],
+        "size": [2, 4, 4]
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-1, 10, 4],
+          "size": [2, 4, 4]
+        }
+      ],
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.1
+      },
+      "minecraft:placement_filter": {
+        "conditions": [
+          {
+            "block_filter": [
+              "utilitycraft:basic_fluid_tank",
+              "utilitycraft:expert_fluid_tank",
+              "utilitycraft:advanced_fluid_tank",
+              "utilitycraft:ultimate_fluid_tank"
+            ],
+            "allowed_faces": [
+              "north",
+              "south",
+              "east",
+              "west"
+            ]
+          }
+        ]
+      },
+      "minecraft:tick": {
+        "interval_range": [1, 1]
+      }
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('utilitycraft:isOpen') == true",
+        "components": {
+          "minecraft:geometry": "geometry.utilitycraft_xp_spout_open"
+        }
+      }
+    ]
+  }
 }

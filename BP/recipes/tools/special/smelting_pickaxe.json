@@ -1,49 +1,49 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:smelting_pickaxe"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:smelting_pickaxe"
-			}
-		],
-		"pattern": [
-			"ASA",
-			" Z ",
-			" X "
-		],
-		"unlock": [
-			{
-				"item": "minecraft:magma"
-			},
-			{
-				"item": "minecraft:lava_bucket"
-			},
-			{
-				"item": "minecraft:iron_pickaxe"
-			},
-			{
-				"item": "minecraft:blaze_rod"
-			}
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:magma"
-			},
-			"S": {
-				"item": "minecraft:lava_bucket"
-			},
-			"Z": {
-				"item": "minecraft:iron_pickaxe"
-			},
-			"X": {
-				"item": "minecraft:blaze_rod"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:smelting_pickaxe"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:smelting_pickaxe"
+      }
+    ],
+    "pattern": [
+      "ASA",
+      " Z ",
+      " X "
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:magma"
+      },
+      {
+        "item": "minecraft:lava_bucket"
+      },
+      {
+        "item": "minecraft:iron_pickaxe"
+      },
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:magma"
+      },
+      "S": {
+        "item": "minecraft:lava_bucket"
+      },
+      "Z": {
+        "item": "minecraft:iron_pickaxe"
+      },
+      "X": {
+        "item": "minecraft:blaze_rod"
+      }
+    }
+  }
 }

@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:handful_to_redsand"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:red_sand_handful"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:red_sand"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:red_sand_handful"
-			},
-			{
-				"item": "minecraft:red_sand"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:handful_to_redsand"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:red_sand_handful"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:red_sand"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:red_sand_handful"
+      },
+      {
+        "item": "minecraft:red_sand"
+      }
+    ]
+  }
 }

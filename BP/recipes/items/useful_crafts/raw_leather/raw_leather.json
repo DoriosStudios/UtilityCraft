@@ -1,28 +1,28 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:raw_leather"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"R": {
-				"item": "minecraft:rotten_flesh"
-			}
-		},
-		"pattern": [
-			"RR",
-			"RR"
-		],
-		"result": {
-			"item": "utilitycraft:raw_leather"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:rotten_flesh"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:raw_leather"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "R": {
+        "item": "minecraft:rotten_flesh"
+      }
+    },
+    "pattern": [
+      "RR",
+      "RR"
+    ],
+    "result": {
+      "item": "utilitycraft:raw_leather"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:rotten_flesh"
+      }
+    ]
+  }
 }

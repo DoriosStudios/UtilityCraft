@@ -1,50 +1,39 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:lantern",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_lantern",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_lantern",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-5,
-					0,
-					-5
-				],
-				"size": [
-					10,
-					16,
-					10
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-5,
-					0,
-					-5
-				],
-				"size": [
-					10,
-					16,
-					10
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.8
-			},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
-			"minecraft:light_emission": 15,
-			"minecraft:destructible_by_explosion": false
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:lantern",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "minecraft:geometry": "geometry.utilitycraft_lantern",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_lantern",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-5, 0, -5],
+          "size": [10, 16, 10]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-5, 0, -5],
+        "size": [10, 16, 10]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.8
+      },
+      "minecraft:light_emission": 15,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": ["minecraft:is_pickaxe_item_destructible"]
+    }
+  }
 }

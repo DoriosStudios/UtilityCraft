@@ -1,53 +1,53 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:electro_press"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:piston"
-			},
-			"B": {
-				"item": "utilitycraft:machine_case"
-			},
-			"P": {
-				"item": "redstone"
-			},
-			"R": {
-				"item": "utilitycraft:compressed_cobblestone"
-			},
-			"C": {
-				"item": "utilitycraft:chip"
-			}
-		},
-		"pattern": [
-			"PAP",
-			"CBC",
-			"PRP"
-		],
-		"result": {
-			"item": "utilitycraft:electro_press"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:piston"
-			},
-			{
-				"item": "utilitycraft:machine_case"
-			},
-			{
-				"item": "redstone"
-			},
-			{
-				"item": "utilitycraft:compressed_cobblestone"
-			},
-			{
-				"item": "utilitycraft:chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:electro_press"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:piston"
+      },
+      "B": {
+        "item": "utilitycraft:machine_case"
+      },
+      "P": {
+        "item": "redstone"
+      },
+      "R": {
+        "item": "utilitycraft:compressed_cobblestone"
+      },
+      "C": {
+        "item": "utilitycraft:chip"
+      }
+    },
+    "pattern": [
+      "PAP",
+      "CBC",
+      "PRP"
+    ],
+    "result": {
+      "item": "utilitycraft:electro_press"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:piston"
+      },
+      {
+        "item": "utilitycraft:machine_case"
+      },
+      {
+        "item": "redstone"
+      },
+      {
+        "item": "utilitycraft:compressed_cobblestone"
+      },
+      {
+        "item": "utilitycraft:chip"
+      }
+    ]
+  }
 }

@@ -1,36 +1,36 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:crying_obsidian"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"O": {
-				"item": "minecraft:obsidian"
-			},
-			"G": {
-				"item": "minecraft:ghast_tear"
-			}
-		},
-		"pattern": [
-			"OOO",
-			"OGO",
-			"OOO"
-		],
-		"result": {
-			"item": "minecraft:crying_obsidian",
-			"count": 8
-		},
-		"unlock": [
-			{
-				"item": "minecraft:obsidian"
-			},
-			{
-				"item": "minecraft:ghast_tear"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:crying_obsidian"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "O": {
+        "item": "minecraft:obsidian"
+      },
+      "G": {
+        "item": "minecraft:ghast_tear"
+      }
+    },
+    "pattern": [
+      "OOO",
+      "OGO",
+      "OOO"
+    ],
+    "result": {
+      "item": "minecraft:crying_obsidian",
+      "count": 8
+    },
+    "unlock": [
+      {
+        "item": "minecraft:obsidian"
+      },
+      {
+        "item": "minecraft:ghast_tear"
+      }
+    ]
+  }
 }

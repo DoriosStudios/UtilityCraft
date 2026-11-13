@@ -1,44 +1,44 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:expert_wind_turbine"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"B": {
-				"item": "utilitycraft:advanced_wind_turbine"
-			},
-			"C": {
-				"item": "utilitycraft:diamond_dust"
-			},
-			"D": {
-				"item": "minecraft:redstone_block"
-			},
-			"E": {
-				"item": "utilitycraft:expert_chip"
-			}
-		},
-		"pattern": [
-			"AEA",
-			"EBE",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:expert_wind_turbine"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:redstone_block"
-			},
-			{
-				"item": "utilitycraft:advanced_wind_turbine"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:expert_wind_turbine"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "B": {
+        "item": "utilitycraft:advanced_wind_turbine"
+      },
+      "C": {
+        "item": "utilitycraft:diamond_dust"
+      },
+      "D": {
+        "item": "minecraft:redstone_block"
+      },
+      "E": {
+        "item": "utilitycraft:expert_chip"
+      }
+    },
+    "pattern": [
+      "AEA",
+      "EBE",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:expert_wind_turbine"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:redstone_block"
+      },
+      {
+        "item": "utilitycraft:advanced_wind_turbine"
+      }
+    ]
+  }
 }

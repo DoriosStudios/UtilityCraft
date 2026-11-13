@@ -21,6 +21,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
       "utilitycraft:block_placer": {
         "machine": {
           "energy_cap": 64000,

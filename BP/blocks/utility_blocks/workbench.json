@@ -1,114 +1,82 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:workbench",
-			"menu_category": {
-				"category": "construction"
-			},
-			"traits": {
-				"minecraft:placement_direction": {
-					"enabled_states": [
-						"minecraft:facing_direction"
-					]
-				}
-			}
-		},
-		"components": {
-			"minecraft:geometry": "geometry.utilitycraft_workbench",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_workbench",
-					"render_method": "opaque"
-				}
-			},
-			"minecraft:crafting_table": {
-				"crafting_tags": [
-					"utilitycraft_workbench"
-				],
-				"grid_size": 3,
-				"table_name": "Workbench"
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-8,
-					0,
-					-5
-				],
-				"size": [
-					16,
-					14,
-					10
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-8,
-					0,
-					-5
-				],
-				"size": [
-					16,
-					14,
-					10
-				]
-			},
-			"minecraft:light_dampening": 0,
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'north' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'south' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'east' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('minecraft:facing_direction') == 'west' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:workbench",
+      "menu_category": {
+        "category": "construction"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:facing_direction"]
+        }
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "minecraft:geometry": "geometry.utilitycraft_workbench",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_workbench",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:crafting_table": {
+        "crafting_tags": ["utilitycraft_workbench"],
+        "table_name": "Workbench"
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-8, 0, -5],
+          "size": [16, 14, 10]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -5],
+        "size": [16, 14, 10]
+      },
+      "minecraft:light_dampening": 0,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": ["minecraft:is_pickaxe_item_destructible"]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'north' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 180, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'south' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'east' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 90, 0]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:facing_direction') == 'west' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, -90, 0]
+          }
+        }
+      }
+    ]
+  }
 }

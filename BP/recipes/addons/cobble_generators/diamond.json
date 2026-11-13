@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:cobble_gen_4"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"M": {
-				"item": "diamond"
-			},
-			"G": {
-				"item": "utilitycraft:cobble_gen_3"
-			}
-		},
-		"pattern": [
-			"MMM",
-			"MGM",
-			"MMM"
-		],
-		"result": {
-			"item": "utilitycraft:cobble_gen_4"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:diamond"
-			},
-			{
-				"item": "utilitycraft:cobble_gen_3"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:cobble_gen_4"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "M": {
+        "item": "diamond"
+      },
+      "G": {
+        "item": "utilitycraft:cobble_gen_3"
+      }
+    },
+    "pattern": [
+      "MMM",
+      "MGM",
+      "MMM"
+    ],
+    "result": {
+      "item": "utilitycraft:cobble_gen_4"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      },
+      {
+        "item": "utilitycraft:cobble_gen_3"
+      }
+    ]
+  }
 }

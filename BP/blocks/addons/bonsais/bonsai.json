@@ -1,301 +1,281 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:bonsai",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:soil": [
-					"empty",
-					"minecraft:dirt",
-					"minecraft:grass_block",
-					"minecraft:sand",
-					"minecraft:red_sand",
-					"minecraft:warped_nylium",
-					"minecraft:crimson_nylium",
-					"minecraft:soul_sand",
-					"minecraft:end_stone",
-					"utilitycraft:yellow_soil",
-					"utilitycraft:red_soil",
-					"utilitycraft:blue_soil",
-					"utilitycraft:black_soil"
-				],
-				"utilitycraft:hasBonsai": [
-					false,
-					true
-				],
-				"utilitycraft:isFarm": [
-					false,
-					true
-				],
-				"utilitycraft:isSlimed": [
-					false,
-					true
-				]
-			}
-		},
-		"components": {
-			"utilitycraft:bonsai": {},
-			"minecraft:geometry": "geometry.utilitycraft_bonsai",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_bonsai",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:collision_box": {
-				"origin": [
-					-7,
-					0,
-					-7
-				],
-				"size": [
-					14,
-					6,
-					14
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-7,
-					0,
-					-7
-				],
-				"size": [
-					14,
-					4,
-					14
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:grass_block' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_grass",
-							"render_method": "alpha_test"
-						}
-					},
-					"tag:minecraft:is_pickaxe_item_destructible": {}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:dirt' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_dirt",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:sand' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_sand",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:red_sand' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_redsand",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:warped_nylium' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_warped",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:crimson_nylium' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_crimson",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:soul_sand' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_soulsand",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:end_stone' && !q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_endstone",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:grass_block' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_grass_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:dirt' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_dirt_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:sand' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_sand_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:red_sand' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_redsand_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:warped_nylium' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_warped_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:crimson_nylium' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_crimson_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:soul_sand' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_soulsand_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'minecraft:end_stone' && q.block_state('utilitycraft:isFarm')",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_endstone_farm",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:yellow_soil'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_soil_1",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:red_soil'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_soil_2",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:blue_soil'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_soil_3",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:black_soil'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_bonsai_soil_4",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:bonsai",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:soil": [
+          "empty",
+          "minecraft:dirt",
+          "minecraft:grass_block",
+          "minecraft:sand",
+          "minecraft:red_sand",
+          "minecraft:warped_nylium",
+          "minecraft:crimson_nylium",
+          "minecraft:soul_sand",
+          "minecraft:end_stone",
+          "utilitycraft:yellow_soil",
+          "utilitycraft:red_soil",
+          "utilitycraft:blue_soil",
+          "utilitycraft:black_soil"
+        ],
+        "utilitycraft:hasBonsai": [false, true],
+        "utilitycraft:isFarm": [false, true],
+        "utilitycraft:isSlimed": [false, true]
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "utilitycraft:bonsai": {},
+      "minecraft:geometry": "geometry.utilitycraft_bonsai",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_bonsai",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:collision_box": [
+        {
+          "origin": [-7, 0, -7],
+          "size": [14, 6, 14]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-7, 0, -7],
+        "size": [14, 4, 14]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:grass_block' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_grass",
+              "render_method": "alpha_test"
+            }
+          },
+          "minecraft:tags": ["minecraft:is_pickaxe_item_destructible"]
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:dirt' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_dirt",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:sand' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_sand",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:red_sand' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_redsand",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:warped_nylium' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_warped",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:crimson_nylium' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_crimson",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:soul_sand' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_soulsand",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:end_stone' && !q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_endstone",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:grass_block' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_grass_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:dirt' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_dirt_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:sand' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_sand_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:red_sand' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_redsand_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:warped_nylium' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_warped_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:crimson_nylium' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_crimson_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:soul_sand' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_soulsand_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'minecraft:end_stone' && q.block_state('utilitycraft:isFarm')",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_endstone_farm",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:yellow_soil'",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_soil_1",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:red_soil'",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_soil_2",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:blue_soil'",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_soil_3",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('utilitycraft:soil') == 'utilitycraft:black_soil'",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_bonsai_soil_4",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      }
+    ]
+  }
 }

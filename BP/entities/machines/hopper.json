@@ -1,110 +1,110 @@
 {
-	"format_version": "1.19.20",
-	"minecraft:entity": {
-		"description": {
-			"identifier": "utilitycraft:hopper",
-			"is_spawnable": false,
-			"is_summonable": true,
-			"is_experimental": false
-		},
-		"component_groups": {
-			"ender_hopper": {
-				"minecraft:collision_box": {
-					"height": 0.5,
-					"width": 0.5
-				},
-				"minecraft:scale": {
-					"value": 0.25
-				}
-			},
-			"despawn": {
-				"minecraft:instant_despawn": {}
-			}
-		},
-		"components": {
-			"minecraft:nameable": {
-				"always_show": false,
-				"allow_name_tag_renaming": false
-			},
-			"minecraft:type_family": {
-				"family": [
-					"inanimate",
-					"dorios:hopper",
-					"dorios:container"
-				]
-			},
-			"minecraft:fire_immune": true,
-			"minecraft:damage_sensor": {
-				"triggers": [
-					{
-						"cause": "all",
-						"deals_damage": true
-					}
-				]
-			},
-			"minecraft:health": {
-				"max": 0,
-				"min": 1,
-				"value": 1
-			},
-			"minecraft:knockback_resistance": {
-				"value": 1,
-				"max": 1
-			},
-			"minecraft:collision_box": {
-				"height": 0.5,
-				"width": 1
-			},
-			"minecraft:inventory": {
-				"inventory_size": 5,
-				"container_type": "hopper",
-				"can_be_siphoned_from": true
-			},
-			"minecraft:environment_sensor": {
-				"triggers": [
-					{
-						"filters": [
-							{
-								"test": "has_tag",
-								"value": "despawn"
-							}
-						],
-						"event": "despawn"
-					}
-				]
-			},
-			"minecraft:inside_block_notifier": {
-				"block_list": [
-					{
-						"block": {
-							"name": "air"
-						},
-						"entered_block_event": {
-							"event": "despawn"
-						}
-					}
-				]
-			}
-		},
-		"events": {
-			"utilitycraft:ender_hopper": {
-				"add": {
-					"component_groups": [
-						"ender_hopper"
-					]
-				}
-			},
-			"despawn": {
-				"sequence": [
-					{
-						"add": {
-							"component_groups": [
-								"despawn"
-							]
-						}
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "utilitycraft:hopper",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "ender_hopper": {
+        "minecraft:collision_box": {
+          "height": 0.5,
+          "width": 0.5
+        },
+        "minecraft:scale": {
+          "value": 0.25
+        }
+      },
+      "despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:nameable": {
+        "always_show": false,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:type_family": {
+        "family": [
+          "inanimate",
+          "dorios:hopper",
+          "dorios:container"
+        ]
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "yes"
+          }
+        ]
+      },
+      "minecraft:health": {
+        "max": 0,
+        "min": 1,
+        "value": 1
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:collision_box": {
+        "height": 0.5,
+        "width": 1
+      },
+      "minecraft:inventory": {
+        "inventory_size": 5,
+        "container_type": "hopper",
+        "can_be_siphoned_from": true
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": [
+              {
+                "test": "has_tag",
+                "value": "despawn"
+              }
+            ],
+            "event": "despawn"
+          }
+        ]
+      },
+      "minecraft:inside_block_notifier": {
+        "block_list": [
+          {
+            "block": {
+              "name": "air"
+            },
+            "entered_block_event": {
+              "event": "despawn"
+            }
+          }
+        ]
+      }
+    },
+    "events": {
+      "utilitycraft:ender_hopper": {
+        "add": {
+          "component_groups": [
+            "ender_hopper"
+          ]
+        }
+      },
+      "despawn": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "despawn"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
 }

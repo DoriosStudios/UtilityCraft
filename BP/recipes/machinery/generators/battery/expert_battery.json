@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:expert_battery"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"A": {
-				"item": "utilitycraft:advanced_battery"
-			},
-			"B": {
-				"item": "redstone_block"
-			},
-			"C": {
-				"item": "utilitycraft:expert_chip"
-			},
-			"D": {
-				"item": "utilitycraft:diamond_dust"
-			}
-		},
-		"pattern": [
-			"CAC",
-			"ABA",
-			"CDC"
-		],
-		"result": {
-			"item": "utilitycraft:expert_battery"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:expert_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:expert_battery"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "A": {
+        "item": "utilitycraft:advanced_battery"
+      },
+      "B": {
+        "item": "redstone_block"
+      },
+      "C": {
+        "item": "utilitycraft:expert_chip"
+      },
+      "D": {
+        "item": "utilitycraft:diamond_dust"
+      }
+    },
+    "pattern": [
+      "CAC",
+      "ABA",
+      "CDC"
+    ],
+    "result": {
+      "item": "utilitycraft:expert_battery"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:expert_chip"
+      }
+    ]
+  }
 }

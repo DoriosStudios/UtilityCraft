@@ -1,61 +1,61 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:steel_aiot"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"pattern": [
-			"DSD",
-			"HPA",
-			"ZHD"
-		],
-		"result": [
-			{
-				"item": "utilitycraft:steel_aiot"
-			}
-		],
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			},
-			{
-				"item": "utilitycraft:steel_sword"
-			},
-			{
-				"item": "minecraft:string"
-			},
-			{
-				"item": "utilitycraft:steel_paxel"
-			},
-			{
-				"item": "utilitycraft:steel_hoe"
-			},
-			{
-				"item": "minecraft:stick"
-			}
-		],
-		"key": {
-			"D": {
-				"item": "utilitycraft:steel_ingot"
-			},
-			"S": {
-				"item": "utilitycraft:steel_sword"
-			},
-			"H": {
-				"item": "minecraft:string"
-			},
-			"P": {
-				"item": "utilitycraft:steel_paxel"
-			},
-			"A": {
-				"item": "utilitycraft:steel_hoe"
-			},
-			"Z": {
-				"item": "minecraft:stick"
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:steel_aiot"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "DSD",
+      "HPA",
+      "ZHD"
+    ],
+    "result": [
+      {
+        "item": "utilitycraft:steel_aiot"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      },
+      {
+        "item": "utilitycraft:steel_sword"
+      },
+      {
+        "item": "minecraft:string"
+      },
+      {
+        "item": "utilitycraft:steel_paxel"
+      },
+      {
+        "item": "utilitycraft:steel_hoe"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "key": {
+      "D": {
+        "item": "utilitycraft:steel_ingot"
+      },
+      "S": {
+        "item": "utilitycraft:steel_sword"
+      },
+      "H": {
+        "item": "minecraft:string"
+      },
+      "P": {
+        "item": "utilitycraft:steel_paxel"
+      },
+      "A": {
+        "item": "utilitycraft:steel_hoe"
+      },
+      "Z": {
+        "item": "minecraft:stick"
+      }
+    }
+  }
 }

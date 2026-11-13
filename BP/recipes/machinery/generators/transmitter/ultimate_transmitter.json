@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:ultimate_energy_transmitter"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"E": {
-				"item": "utilitycraft:ender_pearl_dust"
-			},
-			"C": {
-				"item": "utilitycraft:ultimate_chip"
-			},
-			"B": {
-				"item": "utilitycraft:expert_energy_transmitter"
-			},
-			"R": {
-				"item": "redstone_block"
-			}
-		},
-		"pattern": [
-			"ECE",
-			"CBC",
-			"ERE"
-		],
-		"result": {
-			"item": "utilitycraft:ultimate_energy_transmitter"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:ultimate_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:ultimate_energy_transmitter"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "E": {
+        "item": "utilitycraft:ender_pearl_dust"
+      },
+      "C": {
+        "item": "utilitycraft:ultimate_chip"
+      },
+      "B": {
+        "item": "utilitycraft:expert_energy_transmitter"
+      },
+      "R": {
+        "item": "redstone_block"
+      }
+    },
+    "pattern": [
+      "ECE",
+      "CBC",
+      "ERE"
+    ],
+    "result": {
+      "item": "utilitycraft:ultimate_energy_transmitter"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:ultimate_chip"
+      }
+    ]
+  }
 }

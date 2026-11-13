@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:compressed_obsidian_2",
@@ -8,8 +8,11 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "minecraft:redstone_conductivity": {
-          "redstone_conductor": true
+        "redstone_conductor": true
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -24,7 +27,9 @@
       "minecraft:destructible_by_explosion": {
         "explosion_resistance": 2000
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {}
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible"
+      ]
     }
   }
 }

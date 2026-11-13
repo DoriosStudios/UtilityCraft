@@ -1,104 +1,70 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:mob_grinder",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:isOn": [
-					false,
-					true
-				],
-				"utilitycraft:range": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:damage": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8
-				]
-			}
-		},
-		"components": {
-			"minecraft:geometry": {
-				"identifier": "geometry.utilitycraft_mob_grinder"
-			},
-			"minecraft:material_instances": {
-				"aspas": {
-					"texture": "utilitycraft_mob_grinder_aspas_still",
-					"render_method": "alpha_test"
-				},
-				"*": {
-					"texture": "utilitycraft_mob_grinder",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.5
-			},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
-			"utilitycraft:mob_grinder": {},
-			"utilitycraft:upgradeable": {},
-			"minecraft:collision_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					4,
-					16
-				]
-			},
-			"minecraft:selection_box": {
-				"origin": [
-					-8,
-					0,
-					-8
-				],
-				"size": [
-					16,
-					4,
-					16
-				]
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					5,
-					5
-				]
-			},			
-			"tag:dorios:upgradeable": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:isOn') == true",
-				"components": {
-					"minecraft:material_instances": {
-						"aspas": {
-							"texture": "utilitycraft_mob_grinder_aspas",
-							"render_method": "alpha_test"
-						},
-						"*": {
-							"texture": "utilitycraft_mob_grinder",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:mob_grinder",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:isOn": [false, true],
+        "utilitycraft:range": [0, 1, 2, 3, 4],
+        "utilitycraft:damage": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+      }
+    },
+    "components": {
+      "minecraft:geometry": {
+        "identifier": "geometry.utilitycraft_mob_grinder"
+      },
+      "minecraft:material_instances": {
+        "aspas": {
+          "texture": "utilitycraft_mob_grinder_aspas_still",
+          "render_method": "alpha_test"
+        },
+        "*": {
+          "texture": "utilitycraft_mob_grinder",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "utilitycraft:mob_grinder": {},
+      "utilitycraft:upgradeable": {},
+      "minecraft:collision_box": [
+        {
+          "origin": [-8, 0, -8],
+          "size": [16, 4, 16]
+        }
+      ],
+      "minecraft:selection_box": {
+        "origin": [-8, 0, -8],
+        "size": [16, 4, 16]
+      },
+      "minecraft:tick": {
+        "interval_range": [5, 5]
+      },
+      "minecraft:tags": [
+        "dorios:upgradeable",
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('utilitycraft:isOn') == true",
+        "components": {
+          "minecraft:material_instances": {
+            "aspas": {
+              "texture": "utilitycraft_mob_grinder_aspas",
+              "render_method": "alpha_test"
+            },
+            "*": {
+              "texture": "utilitycraft_mob_grinder",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      }
+    ]
+  }
 }

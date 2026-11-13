@@ -1,20 +1,25 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:blackstone_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "blackstone_slab",
-				"count": 2
-			}
-		],
-		"result": {
-			"item": "blackstone"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:blackstone_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "blackstone_slab",
+        "count": 2
+      }
+    ],
+    "result": {
+      "item": "blackstone"
+    },
+    "unlock": [
+      {
+        "item": "blackstone_slab"
+      }
+    ]
+  }
 }

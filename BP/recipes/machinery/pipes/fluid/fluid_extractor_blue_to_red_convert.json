@@ -1,27 +1,27 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shapeless": {
-        "description": {
-            "identifier": "utilitycraft:fluid_extractor_blue_to_red_convert"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "ingredients": [
-            {
-                "item": "utilitycraft:fluid_extractor_blue"
-            },
-            {
-                "item": "red_dye"
-            }
-        ],
-        "result": {
-            "item": "utilitycraft:fluid_extractor_red"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:fluid_extractor_blue"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:fluid_extractor_blue_to_red_convert"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:fluid_extractor_blue"
+      },
+      {
+        "item": "red_dye"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:fluid_extractor_red"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:fluid_extractor_blue"
+      }
+    ]
+  }
 }

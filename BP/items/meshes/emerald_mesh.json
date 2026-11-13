@@ -1,18 +1,18 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:emerald_mesh",
-			"menu_category": {
-				"category": "construction"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_emerald_mesh",
-			"utilitycraft:mesh": {
-				"tier": 5,
-				"multiplier": 2.5
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:emerald_mesh",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_emerald_mesh",
+      "utilitycraft:mesh": {
+        "tier": 5,
+        "multiplier": 2.5
+      }
+    }
+  }
 }

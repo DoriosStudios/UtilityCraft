@@ -1,25 +1,25 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:quartz"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "minecraft:quartz_block"
-			}
-		],
-		"result": {
-			"item": "minecraft:quartz",
-			"count": 4
-		},
-		"unlock": [
-			{
-				"item": "minecraft:quartz_block"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:quartz"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:quartz_block"
+      }
+    ],
+    "result": {
+      "item": "minecraft:quartz",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "minecraft:quartz_block"
+      }
+    ]
+  }
 }

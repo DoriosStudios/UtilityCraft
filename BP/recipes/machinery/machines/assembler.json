@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:assembler"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"I": {
-				"item": "utilitycraft:expert_chip"
-			},
-			"M": {
-				"item": "utilitycraft:machine_case"
-			},
-			"R": {
-				"item": "crafter"
-			},
-			"S": {
-				"item": "utilitycraft:steel_plate"
-			},
-			"P": {
-				"item": "utilitycraft:iron_plate"
-			}
-		},
-		"pattern": [
-			"PIP",
-			"IMI",
-			"SRS"
-		],
-		"result": {
-			"item": "utilitycraft:assembler"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:machine_case"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:assembler"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "I": {
+        "item": "utilitycraft:expert_chip"
+      },
+      "M": {
+        "item": "utilitycraft:machine_case"
+      },
+      "R": {
+        "item": "crafter"
+      },
+      "S": {
+        "item": "utilitycraft:steel_plate"
+      },
+      "P": {
+        "item": "utilitycraft:iron_plate"
+      }
+    },
+    "pattern": [
+      "PIP",
+      "IMI",
+      "SRS"
+    ],
+    "result": {
+      "item": "utilitycraft:assembler"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:machine_case"
+      }
+    ]
+  }
 }

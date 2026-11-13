@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:golden_mesh"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"S": {
-				"item": "gold_ingot"
-			},
-			"M": {
-				"item": "utilitycraft:iron_mesh"
-			}
-		},
-		"pattern": [
-			"SSS",
-			"SMS",
-			"SSS"
-		],
-		"result": {
-			"item": "utilitycraft:golden_mesh"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:gold_ingot"
-			},
-			{
-				"item": "utilitycraft:iron_mesh"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:golden_mesh"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "S": {
+        "item": "gold_ingot"
+      },
+      "M": {
+        "item": "utilitycraft:iron_mesh"
+      }
+    },
+    "pattern": [
+      "SSS",
+      "SMS",
+      "SSS"
+    ],
+    "result": {
+      "item": "utilitycraft:golden_mesh"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      },
+      {
+        "item": "utilitycraft:iron_mesh"
+      }
+    ]
+  }
 }

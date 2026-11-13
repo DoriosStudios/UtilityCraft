@@ -1,15 +1,15 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:base_seeds",
-			"menu_category": {
-				"category": "nature",
-				"group": "itemGroup.name.seed"
-			}
-		},
-		"components": {
-			"minecraft:icon": "utilitycraft_base_seeds"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:base_seeds",
+      "menu_category": {
+        "category": "nature",
+        "group": "minecraft:itemGroup.name.seed"
+      }
+    },
+    "components": {
+      "minecraft:icon": "utilitycraft_base_seeds"
+    }
+  }
 }

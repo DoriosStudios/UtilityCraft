@@ -1,35 +1,35 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:wrench"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "key": {
-            "I": {
-                "item": "iron_ingot"
-            },
-            "R": {
-                "item": "redstone"
-            }
-        },
-        "pattern": [
-            " R",
-            " IR",
-            "I"
-        ],
-        "result": {
-            "item": "utilitycraft:wrench"
-        },
-        "unlock": [
-            {
-                "item": "redstone"
-            },
-            {
-                "item": "iron_ingot"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:wrench"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "I": {
+        "item": "iron_ingot"
+      },
+      "R": {
+        "item": "redstone"
+      }
+    },
+    "pattern": [
+      " R",
+      " IR",
+      "I"
+    ],
+    "result": {
+      "item": "utilitycraft:wrench"
+    },
+    "unlock": [
+      {
+        "item": "redstone"
+      },
+      {
+        "item": "iron_ingot"
+      }
+    ]
+  }
 }

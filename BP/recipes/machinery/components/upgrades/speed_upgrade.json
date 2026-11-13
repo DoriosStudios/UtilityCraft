@@ -1,41 +1,41 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "utilitycraft:speed_upgrade"
-        },
-        "tags": [
-            "utilitycraft_workbench"
-        ],
-        "pattern": [
-            "SDS",
-            "RBR",
-            "SIS"
-        ],
-        "key": {
-            "B": {
-                "item": "utilitycraft:base_upgrade"
-            },
-            "D": {
-                "item": "utilitycraft:emerald_dust"
-            },
-            "I": {
-                "item": "emerald_block"
-            },
-            "R": {
-                "item": "minecraft:redstone_block"
-            },
-            "S": {
-                "item": "utilitycraft:steel_plate"
-            }
-        },
-        "result": {
-            "item": "utilitycraft:speed_upgrade"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:base_upgrade"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:speed_upgrade"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "pattern": [
+      "SDS",
+      "RBR",
+      "SIS"
+    ],
+    "key": {
+      "B": {
+        "item": "utilitycraft:base_upgrade"
+      },
+      "D": {
+        "item": "utilitycraft:emerald_dust"
+      },
+      "I": {
+        "item": "emerald_block"
+      },
+      "R": {
+        "item": "minecraft:redstone_block"
+      },
+      "S": {
+        "item": "utilitycraft:steel_plate"
+      }
+    },
+    "result": {
+      "item": "utilitycraft:speed_upgrade"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:base_upgrade"
+      }
+    ]
+  }
 }

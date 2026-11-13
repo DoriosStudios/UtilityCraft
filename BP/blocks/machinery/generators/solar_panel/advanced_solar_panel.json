@@ -4,10 +4,7 @@
     "description": {
       "identifier": "utilitycraft:advanced_solar_panel",
       "states": {
-        "utilitycraft:on": [
-          false,
-          true
-        ]
+        "utilitycraft:on": [false, true]
       },
       "menu_category": {
         "category": "construction"
@@ -34,35 +31,20 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [
-          4,
-          4
-        ]
+        "interval_range": [4, 4]
       },
       "minecraft:selection_box": {
-        "origin": [
-          -8,
-          0,
-          -8
-        ],
-        "size": [
-          16,
-          5,
-          16
-        ]
+        "origin": [-8, 0, -8],
+        "size": [16, 5, 16]
       },
       "minecraft:collision_box": [
         {
-          "origin": [
-            -8,
-            0,
-            -8
-          ],
-          "size": [
-            16,
-            5,
-            16
-          ]
+          "origin": [-7, 0, -7],
+          "size": [14, 3, 14]
+        },
+        {
+          "origin": [-8, 3, -8],
+          "size": [16, 2, 16]
         }
       ],
       "minecraft:destructible_by_mining": {

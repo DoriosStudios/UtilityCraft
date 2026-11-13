@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:chunk_to_ancientdebris"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:ancient_debris_chunk"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:ancient_debris"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:ancient_debris_chunk"
-			},
-			{
-				"item": "minecraft:ancient_debris"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:chunk_to_ancientdebris"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:ancient_debris_chunk"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:ancient_debris"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:ancient_debris_chunk"
+      },
+      {
+        "item": "minecraft:ancient_debris"
+      }
+    ]
+  }
 }

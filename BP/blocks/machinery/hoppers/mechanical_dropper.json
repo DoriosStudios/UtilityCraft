@@ -1,72 +1,59 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:mechanic_dropper",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:speed": [
-					0,
-					1,
-					2,
-					3,
-					4
-				],
-				"utilitycraft:filter": [
-					0,
-					1
-				]
-			},
-			"traits": {
-				"minecraft:placement_position": {
-					"enabled_states": [
-						"minecraft:block_face"
-					]
-				}
-			}
-		},
-		"components": {
-			"utilitycraft:upgradeable": {},
-			"utilitycraft:mechanic_hopper": {
-				"type": "dropper"
-			},
-			"minecraft:geometry": "geometry.mechanic_dropper",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_mechanic_dropper",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					8,
-					8
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1
-			},
-			"minecraft:destructible_by_explosion": false,
-			"tag:dorios:upgradeable": {},
-			"tag:dorios:container": {},
-			"tag:dorios:item": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('minecraft:block_face') == 'down' ",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							180,
-							0,
-							0
-						]
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:mechanic_dropper",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:speed": [0, 1, 2, 3, 4],
+        "utilitycraft:filter": [0, 1]
+      },
+      "traits": {
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:block_face"]
+        }
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
+      "utilitycraft:upgradeable": {},
+      "utilitycraft:mechanic_hopper": {
+        "type": "dropper"
+      },
+      "minecraft:geometry": "geometry.mechanic_dropper",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_mechanic_dropper",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:tick": {
+        "interval_range": [8, 8]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1
+      },
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:tags": [
+        "dorios:upgradeable",
+        "dorios:container",
+        "dorios:item",
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:block_face') == 'down' ",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [180, 0, 0]
+          }
+        }
+      }
+    ]
+  }
 }

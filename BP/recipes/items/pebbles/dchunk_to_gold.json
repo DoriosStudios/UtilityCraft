@@ -1,31 +1,31 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:dchunk_to_gold"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"P": {
-				"item": "utilitycraft:deepslate_gold_chunk"
-			}
-		},
-		"pattern": [
-			"PP",
-			"PP"
-		],
-		"result": {
-			"item": "minecraft:deepslate_gold_ore"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:deepslate_gold_chunk"
-			},
-			{
-				"item": "minecraft:deepslate_gold_ore"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:dchunk_to_gold"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "P": {
+        "item": "utilitycraft:deepslate_gold_chunk"
+      }
+    },
+    "pattern": [
+      "PP",
+      "PP"
+    ],
+    "result": {
+      "item": "minecraft:deepslate_gold_ore"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:deepslate_gold_chunk"
+      },
+      {
+        "item": "minecraft:deepslate_gold_ore"
+      }
+    ]
+  }
 }

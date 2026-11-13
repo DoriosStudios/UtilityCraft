@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.120",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:compressed_redstone_block_4",
@@ -8,8 +8,11 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "metal"
+      },
       "minecraft:redstone_conductivity": {
-          "redstone_conductor": true
+        "redstone_conductor": true
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -21,11 +24,13 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 4.6
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {},
       "minecraft:redstone_producer": {
         "power": 15,
         "strongly_powered_face": "north"
-      }
+      },
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible"
+      ]
     }
   }
 }

@@ -8,6 +8,9 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
       "utilitycraft:trash_can": {
         "machine": {
           "energy_cap": 0,
@@ -29,10 +32,7 @@
         }
       },
       "minecraft:tick": {
-        "interval_range": [
-          10,
-          10
-        ]
+        "interval_range": [10, 10]
       },
       "minecraft:tags": [
         "dorios:item",

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.100",
+  "format_version": "1.26.60",
   "minecraft:block": {
     "description": {
       "identifier": "utilitycraft:compressed_cobbled_deepslate_3",
@@ -8,8 +8,11 @@
       }
     },
     "components": {
+      "minecraft:sound": {
+        "sound": "deepslate"
+      },
       "minecraft:redstone_conductivity": {
-          "redstone_conductor": true
+        "redstone_conductor": true
       },
       "minecraft:geometry": "minecraft:geometry.full_block",
       "minecraft:material_instances": {
@@ -21,8 +24,10 @@
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 3.8
       },
-      "tag:minecraft:is_pickaxe_item_destructible": {},
-      "tag:stone": {}
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible",
+        "stone"
+      ]
     }
   }
 }

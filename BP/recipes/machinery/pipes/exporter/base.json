@@ -1,33 +1,33 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:item_exporter"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"H": {
-				"item": "hopper"
-			},
-			"S": {
-				"item": "utilitycraft:item_conduit"
-			}
-		},
-		"pattern": [
-			" S",
-			"SHS",
-			" S"
-		],
-		"result": {
-			"item": "utilitycraft:item_exporter"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:steel_ingot"
-			}
-		],
-		"priority": 0
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:item_exporter"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "H": {
+        "item": "hopper"
+      },
+      "S": {
+        "item": "utilitycraft:item_conduit"
+      }
+    },
+    "pattern": [
+      " S",
+      "SHS",
+      " S"
+    ],
+    "result": {
+      "item": "utilitycraft:item_exporter"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:steel_ingot"
+      }
+    ],
+    "priority": 0
+  }
 }

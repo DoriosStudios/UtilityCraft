@@ -1,38 +1,38 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:advanced_energy_receiver"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"E": {
-				"item": "utilitycraft:ender_pearl_dust"
-			},
-			"C": {
-				"item": "utilitycraft:advanced_chip"
-			},
-			"B": {
-				"item": "utilitycraft:basic_energy_receiver"
-			},
-			"R": {
-				"item": "redstone_block"
-			}
-		},
-		"pattern": [
-			"ECE",
-			"CBC",
-			"ERE"
-		],
-		"result": {
-			"item": "utilitycraft:advanced_energy_receiver"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:advanced_chip"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:advanced_energy_receiver"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "E": {
+        "item": "utilitycraft:ender_pearl_dust"
+      },
+      "C": {
+        "item": "utilitycraft:advanced_chip"
+      },
+      "B": {
+        "item": "utilitycraft:basic_energy_receiver"
+      },
+      "R": {
+        "item": "redstone_block"
+      }
+    },
+    "pattern": [
+      "ECE",
+      "CBC",
+      "ERE"
+    ],
+    "result": {
+      "item": "utilitycraft:advanced_energy_receiver"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:advanced_chip"
+      }
+    ]
+  }
 }

@@ -1,41 +1,41 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:filter_upgrade"
-		},
-		"tags": [
-			"utilitycraft_workbench"
-		],
-		"key": {
-			"B": {
-				"item": "utilitycraft:base_upgrade"
-			},
-			"C": {
-				"item": "comparator"
-			},
-			"H": {
-				"item": "hopper"
-			},
-			"R": {
-				"item": "redstone"
-			},
-			"S": {
-				"item": "utilitycraft:steel_ingot"
-			}
-		},
-		"pattern": [
-			"RCR",
-			"SBS",
-			"RHR"
-		],
-		"result": {
-			"item": "utilitycraft:filter_upgrade"
-		},
-		"unlock": [
-			{
-				"item": "utilitycraft:base_upgrade"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:filter_upgrade"
+    },
+    "tags": [
+      "utilitycraft_workbench"
+    ],
+    "key": {
+      "B": {
+        "item": "utilitycraft:base_upgrade"
+      },
+      "C": {
+        "item": "comparator"
+      },
+      "H": {
+        "item": "hopper"
+      },
+      "R": {
+        "item": "redstone"
+      },
+      "S": {
+        "item": "utilitycraft:steel_ingot"
+      }
+    },
+    "pattern": [
+      "RCR",
+      "SBS",
+      "RHR"
+    ],
+    "result": {
+      "item": "utilitycraft:filter_upgrade"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:base_upgrade"
+      }
+    ]
+  }
 }

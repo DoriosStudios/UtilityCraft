@@ -1,67 +1,74 @@
 {
-	"format_version": "1.21.90",
-	"minecraft:item": {
-		"description": {
-			"identifier": "utilitycraft:golden_hammer"
-		},
-		"components": {
-			"utilitycraft:hammer": {
-				"tier": 1
-			},
-			"utilitycraft:dig_pebble": {},
-			"minecraft:tags": {
-				"tags": [
-					"minecraft:is_pickaxe",
-					"minecraft:is_tool",
-					"utilitycraft:is_hammer"
-				]
-			},
-			"minecraft:max_stack_size": 1,
-			"minecraft:hand_equipped": true,
-			"minecraft:durability": {
-				"max_durability": 102
-			},
-			"minecraft:damage": 3,
-			"minecraft:icon": "utilitycraft_golden_hammer",
-			"minecraft:enchantable": {
-				"value": 16,
-				"slot": "pickaxe"
-			},
-			"minecraft:repairable": {
-				"repair_items": [
-					{
-						"items": ["minecraft:gold_ingot"],
-						"repair_amount": 26
-					},
-					{
-						"items": ["utilitycraft:golden_hammer"],
-						"repair_amount": 102
-					}
-				]
-			},
-			"minecraft:digger": {
-				"use_efficiency": true,
-				"destroy_speeds": [
-					{
-						"speed": 40,
-						"block": {
-							"tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible', 'minecraft:stone_tier_destructible')"
-						}
-					},
-					{
-						"speed": 24,
-						"block": "minecraft:dirt"
-					},
-					{
-						"speed": 24,
-						"block": "minecraft:gravel"
-					},
-					{
-						"speed": 24,
-						"block": "minecraft:sand"
-					}
-				]
-			}
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "utilitycraft:golden_hammer",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "utilitycraft:hammer": {
+        "tier": 1
+      },
+      "utilitycraft:dig_pebble": {},
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_pickaxe",
+          "minecraft:is_tool",
+          "utilitycraft:is_hammer"
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 102
+      },
+      "minecraft:damage": 3,
+      "minecraft:icon": "utilitycraft_golden_hammer",
+      "minecraft:enchantable": {
+        "value": 16,
+        "slot": "pickaxe"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "minecraft:gold_ingot"
+            ],
+            "repair_amount": 26
+          },
+          {
+            "items": [
+              "utilitycraft:golden_hammer"
+            ],
+            "repair_amount": 102
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "speed": 40,
+            "block": {
+              "tags": "q.any_tag('minecraft:is_pickaxe_item_destructible', 'minecraft:is_shovel_item_destructible') && !q.any_tag('minecraft:diamond_tier_destructible', 'minecraft:iron_tier_destructible', 'minecraft:stone_tier_destructible')"
+            }
+          },
+          {
+            "speed": 24,
+            "block": "minecraft:dirt"
+          },
+          {
+            "speed": 24,
+            "block": "minecraft:gravel"
+          },
+          {
+            "speed": 24,
+            "block": "minecraft:sand"
+          }
+        ]
+      }
+    }
+  }
 }

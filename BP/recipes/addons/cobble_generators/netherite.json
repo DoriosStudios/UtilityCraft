@@ -1,35 +1,35 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:cobble_gen_5"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"M": {
-				"item": "netherite_scrap"
-			},
-			"G": {
-				"item": "utilitycraft:cobble_gen_4"
-			}
-		},
-		"pattern": [
-			"MMM",
-			"MGM",
-			"MMM"
-		],
-		"result": {
-			"item": "utilitycraft:cobble_gen_5"
-		},
-		"unlock": [
-			{
-				"item": "minecraft:netherite_scrap"
-			},
-			{
-				"item": "utilitycraft:cobble_gen_4"
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:cobble_gen_5"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "M": {
+        "item": "netherite_scrap"
+      },
+      "G": {
+        "item": "utilitycraft:cobble_gen_4"
+      }
+    },
+    "pattern": [
+      "MMM",
+      "MGM",
+      "MMM"
+    ],
+    "result": {
+      "item": "utilitycraft:cobble_gen_5"
+    },
+    "unlock": [
+      {
+        "item": "minecraft:netherite_scrap"
+      },
+      {
+        "item": "utilitycraft:cobble_gen_4"
+      }
+    ]
+  }
 }

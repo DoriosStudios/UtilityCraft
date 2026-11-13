@@ -1,30 +1,30 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:recipe_shaped": {
-		"description": {
-			"identifier": "utilitycraft:apple_sapling"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"key": {
-			"A": {
-				"item": "minecraft:apple"
-			},
-			"S": {
-				"item": "oak_sapling"
-			}
-		},
-		"pattern": [
-			"ASA"
-		],
-		"unlock": [
-			{
-				"item": "apple"
-			}
-		],
-		"result": {
-			"item": "utilitycraft:apple_sapling"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "utilitycraft:apple_sapling"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:apple"
+      },
+      "S": {
+        "item": "oak_sapling"
+      }
+    },
+    "pattern": [
+      "ASA"
+    ],
+    "unlock": [
+      {
+        "item": "apple"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:apple_sapling"
+    }
+  }
 }

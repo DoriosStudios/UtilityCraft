@@ -1,133 +1,93 @@
 {
-	"format_version": "1.20.80",
-	"minecraft:block": {
-		"description": {
-			"identifier": "utilitycraft:xp_magnet",
-			"menu_category": {
-				"category": "construction"
-			},
-			"states": {
-				"utilitycraft:isOn": [
-					true,
-					false
-				],
-				"utilitycraft:rangeSelected": [
-					0,
-					1,
-					2,
-					3,
-					4,
-					5,
-					6,
-					7,
-					8,
-					9,
-					10,
-					11
-				]
-			},
-			"traits": {
-				"minecraft:placement_position": {
-					"enabled_states": [
-						"minecraft:block_face"
-					]
-				}
-			}
-		},
-		"components": {
-			"utilitycraft:xp_magnet": {},
-			"minecraft:geometry": "geometry.utilitycraft_xp_magnet",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "utilitycraft_xp_magnet",
-					"render_method": "alpha_test"
-				}
-			},
-			"minecraft:tick": {
-				"interval_range": [
-					5,
-					5
-				]
-			},
-			"minecraft:collision_box": {
-				"size": [
-					16,
-					1,
-					16
-				]
-			},
-			"minecraft:selection_box": {
-				"size": [
-					16,
-					1,
-					16
-				]
-			},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.1
-			},
-			"tag:dorios:upgradeable": {}
-		},
-		"permutations": [
-			{
-				"condition": "q.block_state('utilitycraft:isOn') == false",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"texture": "utilitycraft_xp_magnet_off",
-							"render_method": "alpha_test"
-						}
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							-90,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							90
-						]
-					}
-				}
-			},
-			{
-				"condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
-				"components": {
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							-90
-						]
-					}
-				}
-			}
-		]
-	}
+  "format_version": "1.26.60",
+  "minecraft:block": {
+    "description": {
+      "identifier": "utilitycraft:xp_magnet",
+      "menu_category": {
+        "category": "construction"
+      },
+      "states": {
+        "utilitycraft:isOn": [true, false],
+        "utilitycraft:rangeSelected": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+      },
+      "traits": {
+        "minecraft:placement_position": {
+          "enabled_states": ["minecraft:block_face"]
+        }
+      }
+    },
+    "components": {
+      "minecraft:sound": {
+        "sound": "stone"
+      },
+      "utilitycraft:xp_magnet": {},
+      "minecraft:geometry": "geometry.utilitycraft_xp_magnet",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "utilitycraft_xp_magnet",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:tick": {
+        "interval_range": [5, 5]
+      },
+      "minecraft:collision_box": [
+        {
+          "size": [16, 1, 16]
+        }
+      ],
+      "minecraft:selection_box": {
+        "size": [16, 1, 16]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.1
+      },
+      "minecraft:tags": ["dorios:upgradeable"]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('utilitycraft:isOn') == false",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "utilitycraft_xp_magnet_off",
+              "render_method": "alpha_test"
+            }
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'south' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [90, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'north' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [-90, 0, 0]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'west' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, 90]
+          }
+        }
+      },
+      {
+        "condition": "query.block_state('minecraft:block_face') == 'east' && query.block_state('minecraft:block_face') != 'up' && query.block_state('minecraft:block_face') != 'down'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [0, 0, -90]
+          }
+        }
+      }
+    ]
+  }
 }

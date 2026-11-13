@@ -1,27 +1,27 @@
 {
-    "format_version": "1.20.80",
-    "minecraft:recipe_shapeless": {
-        "description": {
-            "identifier": "utilitycraft:gas_extractor_yellow_to_red_convert"
-        },
-        "tags": [
-            "crafting_table"
-        ],
-        "ingredients": [
-            {
-                "item": "utilitycraft:gas_extractor_yellow"
-            },
-            {
-                "item": "red_dye"
-            }
-        ],
-        "result": {
-            "item": "utilitycraft:gas_extractor_red"
-        },
-        "unlock": [
-            {
-                "item": "utilitycraft:gas_extractor_yellow"
-            }
-        ]
-    }
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:gas_extractor_yellow_to_red_convert"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "utilitycraft:gas_extractor_yellow"
+      },
+      {
+        "item": "red_dye"
+      }
+    ],
+    "result": {
+      "item": "utilitycraft:gas_extractor_red"
+    },
+    "unlock": [
+      {
+        "item": "utilitycraft:gas_extractor_yellow"
+      }
+    ]
+  }
 }

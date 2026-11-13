@@ -1,21 +1,26 @@
 {
-	"format_version": "1.12",
-	"minecraft:recipe_shapeless": {
-		"description": {
-			"identifier": "utilitycraft:smooth_stone_slab"
-		},
-		"tags": [
-			"crafting_table"
-		],
-		"ingredients": [
-			{
-				"item": "stone_block_slab",
-				"count": 2,
-				"data": 0
-			}
-		],
-		"result": {
-			"item": "smooth_stone"
-		}
-	}
+  "format_version": "1.26.60",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "utilitycraft:smooth_stone_slab"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "stone_block_slab",
+        "count": 2,
+        "data": 0
+      }
+    ],
+    "result": {
+      "item": "smooth_stone"
+    },
+    "unlock": [
+      {
+        "item": "stone_block_slab"
+      }
+    ]
+  }
 }
