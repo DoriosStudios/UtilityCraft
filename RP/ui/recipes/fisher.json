@@ -6,10 +6,7 @@
   },
   "fisher_net_row": {
     "type": "panel",
-    "size": [
-      126,
-      18
-    ],
+    "size": [126, 18],
     "controls": [
       {
         "string_fishing_net_toggle@uc.fisher_net_toggle": {
@@ -20,10 +17,7 @@
           "$toggle_hover_text": "item.utilitycraft:string_fishing_net",
           "$toggle_control_name": "string_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/string_net",
-          "offset": [
-            0,
-            0
-          ]
+          "offset": [0, 0]
         }
       },
       {
@@ -35,10 +29,7 @@
           "$toggle_hover_text": "item.utilitycraft:copper_fishing_net",
           "$toggle_control_name": "copper_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/copper_net",
-          "offset": [
-            18,
-            0
-          ]
+          "offset": [18, 0]
         }
       },
       {
@@ -50,10 +41,7 @@
           "$toggle_hover_text": "item.utilitycraft:iron_fishing_net",
           "$toggle_control_name": "iron_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/iron_net",
-          "offset": [
-            36,
-            0
-          ]
+          "offset": [36, 0]
         }
       },
       {
@@ -65,10 +53,7 @@
           "$toggle_hover_text": "item.utilitycraft:golden_fishing_net",
           "$toggle_control_name": "golden_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/golden_net",
-          "offset": [
-            54,
-            0
-          ]
+          "offset": [54, 0]
         }
       },
       {
@@ -80,10 +65,7 @@
           "$toggle_hover_text": "item.utilitycraft:emerald_fishing_net",
           "$toggle_control_name": "emerald_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/emerald_net",
-          "offset": [
-            72,
-            0
-          ]
+          "offset": [72, 0]
         }
       },
       {
@@ -95,10 +77,7 @@
           "$toggle_hover_text": "item.utilitycraft:diamond_fishing_net",
           "$toggle_control_name": "diamond_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/diamond_net",
-          "offset": [
-            90,
-            0
-          ]
+          "offset": [90, 0]
         }
       },
       {
@@ -110,10 +89,7 @@
           "$toggle_hover_text": "item.utilitycraft:netherite_fishing_net",
           "$toggle_control_name": "netherite_fishing_net_recipe",
           "$recipe_icon": "textures/items/nets/netherite_net",
-          "offset": [
-            108,
-            0
-          ]
+          "offset": [108, 0]
         }
       }
     ]
@@ -122,10 +98,7 @@
     "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -149,10 +122,7 @@
       {
         "net_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "string_results@uc.fisher_string_results": {}
@@ -181,10 +151,7 @@
       {
         "bottom_padding": {
           "type": "panel",
-          "size": [
-            126,
-            8
-          ]
+          "size": [126, 8]
         }
       }
     ]
@@ -193,14 +160,8 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      154,
-      166
-    ],
-    "offset": [
-      -91,
-      0
-    ],
+    "size": [154, 166],
+    "offset": [-91, 0],
     "layer": 10,
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
@@ -218,14 +179,8 @@
         "panel_bg": {
           "type": "image",
           "texture": "textures/ui/background/background_panel",
-          "size": [
-            140,
-            145
-          ],
-          "offset": [
-            7,
-            10.5
-          ],
+          "size": [140, 145],
+          "offset": [7, 10.5],
           "layer": -5
         }
       },
@@ -235,14 +190,8 @@
           "texture": "textures/ui/background/dark_top_tab",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "size": [
-            140,
-            24
-          ],
-          "offset": [
-            7,
-            0
-          ],
+          "size": [140, 24],
+          "offset": [7, 0],
           "layer": -6
         }
       },
@@ -252,15 +201,8 @@
           "text": "Drop Tables",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [
-            7,
-            7
-          ],
-          "color": [
-            0.9,
-            0.9,
-            0.9
-          ],
+          "offset": [7, 7],
+          "color": [0.9, 0.9, 0.9],
           "layer": -3,
           "font_scale_factor": 1
         }
@@ -271,14 +213,8 @@
           "texture": "textures/ui/recipe_grid_bg",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": -4
         }
       },
@@ -288,14 +224,8 @@
           "texture": "textures/ui/background_border",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": 4
         }
       },
@@ -303,64 +233,22 @@
         "recipes_scroll@common.scrolling_panel": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            142,
-            130
-          ],
-          "offset": [
-            13,
-            -2
-          ],
+          "size": [142, 130],
+          "offset": [13, -2],
           "$show_background": false,
           "layer": -2,
-          "$scroll_size": [
-            4,
-            "100% - 4px"
-          ],
-          "$scrolling_pane_size": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset": [
-            -2,
-            30
-          ],
-          "$scroll_view_port_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset": [
-            -44,
-            0
-          ],
-          "$scrolling_pane_size_touch": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset_touch": [
-            0,
-            30
-          ],
-          "$scroll_view_port_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset_touch": [
-            -46,
-            0
-          ],
-          "$scroll_size_touch": [
-            4,
-            "100% - 4px"
-          ],
+          "$scroll_size": [4, "100% - 4px"],
+          "$scrolling_pane_size": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset": [-2, 30],
+          "$scroll_view_port_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset": [-44, 0],
+          "$scrolling_pane_size_touch": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset_touch": [0, 30],
+          "$scroll_view_port_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset_touch": [-46, 0],
+          "$scroll_size_touch": [4, "100% - 4px"],
           "$scroll_box_visible_touch": true,
           "$use_touch_mode": false,
           "$scrolling_content": "uc.fisher_recipe_content",
@@ -373,14 +261,8 @@
     "type": "panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      12,
-      160
-    ],
-    "offset": [
-      -14,
-      0
-    ],
+    "size": [12, 160],
+    "offset": [-14, 0],
     "layer": -20,
     "bindings": [
       {
@@ -396,10 +278,7 @@
         "connector_bg": {
           "type": "image",
           "texture": "textures/ui/recipe_book_side_toggle_dark",
-          "size": [
-            12,
-            160
-          ],
+          "size": [12, 160],
           "layer": 0
         }
       }
@@ -407,10 +286,7 @@
   },
   "fisher_string_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -481,10 +357,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -493,10 +366,7 @@
   },
   "fisher_copper_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -591,10 +461,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -603,10 +470,7 @@
   },
   "fisher_iron_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -749,10 +613,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -761,10 +622,7 @@
   },
   "fisher_golden_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -923,10 +781,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -935,10 +790,7 @@
   },
   "fisher_emerald_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -1129,10 +981,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -1141,10 +990,7 @@
   },
   "fisher_diamond_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -1351,10 +1197,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -1363,10 +1206,7 @@
   },
   "fisher_netherite_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -1581,10 +1421,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }

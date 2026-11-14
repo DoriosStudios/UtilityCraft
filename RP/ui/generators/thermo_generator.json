@@ -70,7 +70,7 @@
       {
         "info_tab@uc.info_tab": {
           "offset": [0, -26],
-          "$info_panel_size": [80,134],
+          "$info_panel_size": [80, 134],
           "$info_description": "ui.utilitycraft:info.thermo_generator"
         }
       }

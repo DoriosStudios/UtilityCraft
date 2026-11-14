@@ -1,132 +1,101 @@
 {
-    "namespace": "common_machines",
-    "machinery": {
-        "type": "input_panel",
-        "size": [
-            18,
-            18
-        ],
-        "layer": 1,
-        "$cell_image_size|default": [
-            18,
-            18
-        ],
-        "$cell_overlay_ref|default": "common.cell_overlay",
-        "$button_ref|default": "common.container_slot_button_prototype",
-        "$stack_count_required|default": true,
-        "$durability_bar_required|default": true,
-        "$storage_bar_required|default": true,
-        "$item_renderer|default": "common.item_renderer",
-        "$item_renderer_panel_size|default": [
-            18,
-            18
-        ],
-        "$item_renderer_size|default": [
-            16,
-            16
-        ],
-        "$item_renderer_offset|default": [
-            0,
-            0
-        ],
-        "$background_images|default": "common.cell_image",
-        "$background_image_control_name|default": "bg",
-        "$focus_id|default": "",
-        "$focus_override_down|default": "",
-        "$focus_override_up|default": "",
-        "$focus_override_left|default": "",
-        "$focus_override_right|default": "",
-        "focus_identifier": "$focus_id",
-        "focus_change_down": "$focus_override_down",
-        "focus_change_up": "$focus_override_up",
-        "focus_change_left": "$focus_override_left",
-        "focus_change_right": "$focus_override_right",
-        "focus_enabled": true,
-        "focus_wrap_enabled": false,
-        "focus_magnet_enabled": true,
-        "controls": [
+  "namespace": "common_machines",
+  "machinery": {
+    "type": "input_panel",
+    "size": [18, 18],
+    "layer": 1,
+    "$cell_image_size|default": [18, 18],
+    "$cell_overlay_ref|default": "common.cell_overlay",
+    "$button_ref|default": "common.container_slot_button_prototype",
+    "$stack_count_required|default": true,
+    "$durability_bar_required|default": true,
+    "$storage_bar_required|default": true,
+    "$item_renderer|default": "common.item_renderer",
+    "$item_renderer_panel_size|default": [18, 18],
+    "$item_renderer_size|default": [16, 16],
+    "$item_renderer_offset|default": [0, 0],
+    "$background_images|default": "common.cell_image",
+    "$background_image_control_name|default": "bg",
+    "$focus_id|default": "",
+    "$focus_override_down|default": "",
+    "$focus_override_up|default": "",
+    "$focus_override_left|default": "",
+    "$focus_override_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_override_down",
+    "focus_change_up": "$focus_override_up",
+    "focus_change_left": "$focus_override_left",
+    "focus_change_right": "$focus_override_right",
+    "focus_enabled": true,
+    "focus_wrap_enabled": false,
+    "focus_magnet_enabled": true,
+    "controls": [
+      {
+        "item_cell": {
+          "type": "panel",
+          "size": "$cell_image_size",
+          "layer": 0,
+          "controls": [
             {
-                "item_cell": {
-                    "type": "panel",
-                    "size": "$cell_image_size",
-                    "layer": 0,
-                    "controls": [
-                        // {
-                        //     "$background_image_control_name@$background_images": {
-                        //         "layer": 1
-                        //     }
-                        // },
-                        {
-                            "item": {
-                                "type": "panel",
-                                "size": "$item_renderer_panel_size",
-                                "layer": 0,
-                                "controls": [
-                                    {
-                                        "stack_count_label@common.stack_count_label": {
-                                            "layer": 9
-                                        }
-                                    },
-                                    {
-                                        "$item_renderer@$item_renderer": {
-                                            "size": "$item_renderer_size",
-                                            "offset": "$item_renderer_offset",
-                                            "anchor_to": "center",
-                                            "anchor_from": "center",
-                                            "layer": 7
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "durability_bar@common.durability_bar": {
-                                "layer": 8
-                            }
-                        },
-                        {
-                            "storage_bar@common.storage_bar": {
-                                "layer": 8
-                            }
-                        }
-                    ]
-                }
+              "item": {
+                "type": "panel",
+                "size": "$item_renderer_panel_size",
+                "layer": 0,
+                "controls": [
+                  {
+                    "stack_count_label@common.stack_count_label": {
+                      "layer": 9
+                    }
+                  },
+                  {
+                    "$item_renderer@$item_renderer": {
+                      "size": "$item_renderer_size",
+                      "offset": "$item_renderer_offset",
+                      "anchor_to": "center",
+                      "anchor_from": "center",
+                      "layer": 7
+                    }
+                  }
+                ]
+              }
             },
             {
-                "item_cell_overlay_ref@$cell_overlay_ref": {
-                    "layer": 3
-                }
+              "durability_bar@common.durability_bar": {
+                "layer": 8
+              }
             },
             {
-                "item_selected_image@common.slot_selected": {
-                    "layer": 4
-                }
-            },
-            // {
-            //     "item_button_ref@$button_ref": {
-            //         "tts_ignore_count": true,
-            //         "tts_skip_message": true,
-            //         "tts_inherit_siblings": true,
-            //         "layer": 5
-            //     }
-            // },
-            {
-                "container_item_lock_overlay@common.container_item_lock_overlay": {
-                    "size": "$item_renderer_size",
-                    "offset": [
-                        1,
-                        1
-                    ],
-                    "anchor_to": "top_left",
-                    "anchor_from": "top_left",
-                    "layer": 6
-                }
-            },
-            {
-                "item_lock_cell_image@common.item_lock_cell_image": {
-                    "layer": 2
-                }
+              "storage_bar@common.storage_bar": {
+                "layer": 8
+              }
             }
-        ]
-    }
+          ]
+        }
+      },
+      {
+        "item_cell_overlay_ref@$cell_overlay_ref": {
+          "layer": 3
+        }
+      },
+      {
+        "item_selected_image@common.slot_selected": {
+          "layer": 4
+        }
+      },
+      {
+        "container_item_lock_overlay@common.container_item_lock_overlay": {
+          "size": "$item_renderer_size",
+          "offset": [1, 1],
+          "anchor_to": "top_left",
+          "anchor_from": "top_left",
+          "layer": 6
+        }
+      },
+      {
+        "item_lock_cell_image@common.item_lock_cell_image": {
+          "layer": 2
+        }
+      }
+    ]
+  }
 }

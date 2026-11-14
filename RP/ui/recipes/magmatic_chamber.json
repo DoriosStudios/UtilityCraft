@@ -6,10 +6,7 @@
     "frame_step": 0,
     "fps": 1.25,
     "easing": "linear",
-    "initial_uv": [
-      0,
-      0
-    ]
+    "initial_uv": [0, 0]
   },
   "magmatic_recipe_strip@uc.liquid_recipe_strip": {
     "$liquid_texture": "textures/static/images/lava_still_flipbook",
@@ -19,10 +16,7 @@
     "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -103,10 +97,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -114,10 +105,7 @@
       {
         "bottom_padding": {
           "type": "panel",
-          "size": [
-            126,
-            8
-          ]
+          "size": [126, 8]
         }
       }
     ]
@@ -126,14 +114,8 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      154,
-      166
-    ],
-    "offset": [
-      -91,
-      0
-    ],
+    "size": [154, 166],
+    "offset": [-91, 0],
     "layer": 10,
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
@@ -151,14 +133,8 @@
         "panel_bg": {
           "type": "image",
           "texture": "textures/ui/background/background_panel",
-          "size": [
-            140,
-            145
-          ],
-          "offset": [
-            7,
-            10.5
-          ],
+          "size": [140, 145],
+          "offset": [7, 10.5],
           "layer": -5
         }
       },
@@ -168,14 +144,8 @@
           "texture": "textures/ui/background/dark_top_tab",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "size": [
-            140,
-            24
-          ],
-          "offset": [
-            7,
-            0
-          ],
+          "size": [140, 24],
+          "offset": [7, 0],
           "layer": -6
         }
       },
@@ -185,15 +155,8 @@
           "text": "Recipes",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [
-            7,
-            7
-          ],
-          "color": [
-            0.9,
-            0.9,
-            0.9
-          ],
+          "offset": [7, 7],
+          "color": [0.9, 0.9, 0.9],
           "layer": -3,
           "font_scale_factor": 1
         }
@@ -204,14 +167,8 @@
           "texture": "textures/ui/recipe_grid_bg",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": -4
         }
       },
@@ -221,14 +178,8 @@
           "texture": "textures/ui/background_border",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": 4
         }
       },
@@ -236,64 +187,22 @@
         "recipes_scroll@common.scrolling_panel": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            142,
-            130
-          ],
-          "offset": [
-            13,
-            -2
-          ],
+          "size": [142, 130],
+          "offset": [13, -2],
           "$show_background": false,
           "layer": -2,
-          "$scroll_size": [
-            4,
-            "100% - 4px"
-          ],
-          "$scrolling_pane_size": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset": [
-            -2,
-            30
-          ],
-          "$scroll_view_port_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset": [
-            -44,
-            0
-          ],
-          "$scrolling_pane_size_touch": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset_touch": [
-            0,
-            30
-          ],
-          "$scroll_view_port_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset_touch": [
-            -46,
-            0
-          ],
-          "$scroll_size_touch": [
-            4,
-            "100% - 4px"
-          ],
+          "$scroll_size": [4, "100% - 4px"],
+          "$scrolling_pane_size": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset": [-2, 30],
+          "$scroll_view_port_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset": [-44, 0],
+          "$scrolling_pane_size_touch": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset_touch": [0, 30],
+          "$scroll_view_port_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset_touch": [-46, 0],
+          "$scroll_size_touch": [4, "100% - 4px"],
           "$scroll_box_visible_touch": true,
           "$use_touch_mode": false,
           "$scrolling_content": "uc.magmatic_recipe_content",
@@ -306,14 +215,8 @@
     "type": "panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      12,
-      160
-    ],
-    "offset": [
-      -14,
-      0
-    ],
+    "size": [12, 160],
+    "offset": [-14, 0],
     "layer": -20,
     "bindings": [
       {
@@ -329,10 +232,7 @@
         "connector_bg": {
           "type": "image",
           "texture": "textures/ui/recipe_book_side_toggle_dark",
-          "size": [
-            12,
-            160
-          ],
+          "size": [12, 160],
           "layer": 0
         }
       }

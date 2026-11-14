@@ -5,14 +5,26 @@ import * as DoriosContainer from "../../DoriosLib/containers/index.js";
 import { resolveItemContainerAt } from "../../DoriosCore/machinery/itemContainers.js";
 import { getDirectionBetween, OPPOSITE_DIRECTIONS } from "../../DoriosCore/utils/directions.js";
 import { UI_ITEM_TAGS } from "../../DoriosCore/utils/constants.js";
+import { clearBlockOwner, getBlockOwner } from "../../DoriosCore/utils/blockOwner.js";
 
 const MINECART_PULL_PROPERTY = "utilitycraft:minecartPullEnabled";
-const DEFAULT_HOPPER_SPAWN_OFFSET = { x: 0.5, y: 0.25, z: 0.5 };
-const ENDER_HOPPER_SPAWN_OFFSET = { x: 0.5, y: 0.375, z: 0.5 };
-
-function isMinecartPullEnabled(entity) {
-  const value = entity?.getDynamicProperty?.(MINECART_PULL_PROPERTY);
+function isMinecartPullEnabled(owner) {
+  const value = owner?.getDynamicProperty?.(MINECART_PULL_PROPERTY);
   return typeof value === "boolean" ? value : true;
+}
+
+/**
+ * Returns only user-configured item filter tags from a block owner.
+ *
+ * Block owners expose their capability tags through `getTags()` as well as
+ * persisted custom tags, while the former entity implementation exposed only
+ * custom entity tags. Keep the hopper filter UI and copy data equivalent.
+ *
+ * @param {object} owner Block-backed hopper owner.
+ * @returns {string[]} Configured item identifiers.
+ */
+function getFilterTags(owner) {
+  return owner.getTags().filter((tag) => !tag.startsWith("dorios:"));
 }
 
 function findChestMinecartForHopper(dimension, blockLocation, pullFromAbove) {
@@ -252,8 +264,8 @@ function isMechanicalHopperBlock(block) {
  */
 export function getMechanicalHopperCopyConfig(block, options = {}) {
   if (!isMechanicalHopperBlock(block)) return undefined;
-  const entity = DoriosLib.block.getEntity(block);
-  if (!entity) return undefined;
+  const owner = getBlockOwner(block);
+  if (!owner) return undefined;
 
   const supportsMinecartPull = block.typeId === "utilitycraft:mechanic_hopper"
     || block.typeId === "utilitycraft:mechanic_upper";
@@ -263,20 +275,20 @@ export function getMechanicalHopperCopyConfig(block, options = {}) {
   const config = {
     version: 1,
     ...(includeFilters ? {
-      whitelist: entity.getDynamicProperty("utilitycraft:whitelistOn") === true,
-      items: [...entity.getTags()],
+      whitelist: owner.getDynamicProperty("utilitycraft:whitelistOn") === true,
+      items: getFilterTags(owner),
     } : {}),
-    ...(supportsMinecartPull ? { minecartPullEnabled: isMinecartPullEnabled(entity) } : {}),
+    ...(supportsMinecartPull ? { minecartPullEnabled: isMinecartPullEnabled(owner) } : {}),
     ...(isEnder ? {
-      enabled: entity.getDynamicProperty("isOff") !== true,
-      range: Number(entity.getDynamicProperty("range_selected") ?? 0),
+      enabled: owner.getDynamicProperty("isOff") !== true,
+      range: Number(owner.getDynamicProperty("range_selected") ?? 0),
     } : {}),
   };
   return Object.keys(config).length > 1 ? config : undefined;
 }
 
 /**
- * Applies compatible mechanical-hopper settings to the target entity.
+ * Applies compatible mechanical-hopper settings to the target block owner.
  *
  * @param {import("@minecraft/server").Block} block
  * @param {unknown} value
@@ -286,8 +298,8 @@ export function getMechanicalHopperCopyConfig(block, options = {}) {
 export function applyMechanicalHopperCopyConfig(block, value, options = {}) {
   if (!isMechanicalHopperBlock(block)) return false;
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
-  const entity = DoriosLib.block.getEntity(block);
-  if (!entity) return false;
+  const owner = getBlockOwner(block);
+  if (!owner) return false;
 
   const raw = /** @type {Record<string,unknown>} */ (value);
   const includesFilters = options.includeFilters !== false
@@ -295,34 +307,34 @@ export function applyMechanicalHopperCopyConfig(block, value, options = {}) {
   if (includesFilters && block.permutation.getState("utilitycraft:filter") !== 1) return false;
   let changed = false;
   if (typeof raw.whitelist === "boolean") {
-    entity.setDynamicProperty("utilitycraft:whitelistOn", raw.whitelist);
+    owner.setDynamicProperty("utilitycraft:whitelistOn", raw.whitelist);
     changed = true;
   }
 
   const supportsMinecartPull = block.typeId === "utilitycraft:mechanic_hopper"
     || block.typeId === "utilitycraft:mechanic_upper";
   if (supportsMinecartPull && typeof raw.minecartPullEnabled === "boolean") {
-    entity.setDynamicProperty(MINECART_PULL_PROPERTY, raw.minecartPullEnabled);
+    owner.setDynamicProperty(MINECART_PULL_PROPERTY, raw.minecartPullEnabled);
     changed = true;
   }
 
   if (block.typeId === "utilitycraft:ender_hopper") {
     if (typeof raw.enabled === "boolean") {
-      entity.setDynamicProperty("isOff", !raw.enabled);
+      owner.setDynamicProperty("isOff", !raw.enabled);
       changed = true;
     }
     if (Number.isFinite(raw.range)) {
       const rangeUpgrade = Number(DoriosLib.block.getState(block, "utilitycraft:range") ?? 0);
       const maxRange = 3 + 2 * Math.max(0, Math.min(4, Math.floor(rangeUpgrade)));
-      entity.setDynamicProperty("range_selected", Math.max(0, Math.min(maxRange, Number(raw.range))));
+      owner.setDynamicProperty("range_selected", Math.max(0, Math.min(maxRange, Number(raw.range))));
       changed = true;
     }
   }
 
   if (options.includeFilters !== false && Array.isArray(raw.items)) {
-    for (const tag of entity.getTags()) entity.removeTag(tag);
+    for (const tag of getFilterTags(owner)) owner.removeTag(tag);
     for (const itemId of raw.items) {
-      if (typeof itemId === "string" && itemId.length > 0) entity.addTag(itemId);
+      if (typeof itemId === "string" && itemId.length > 0) owner.addTag(itemId);
     }
     changed = true;
   }
@@ -331,7 +343,7 @@ export function applyMechanicalHopperCopyConfig(block, value, options = {}) {
 
 DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
   onTick({ block, dimension }, { params }) {
-    if (!worldLoaded) return;
+    if (!globalThis.worldLoaded) return;
     if (!block.isValid || block.isAir) return;
 
     const dir = block.permutation.getState("minecraft:block_face");
@@ -342,17 +354,16 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
     const isUpper = params.type === "upper";
     const isDropper = params.type === "dropper";
 
-    /** @type {Entity} */
-    const entity = DoriosLib.block.getEntity(block);
-    if (!entity) return;
-    if (entity.getDynamicProperty("isOff")) return;
+    const owner = getBlockOwner(block);
+    if (!owner) return;
+    if (owner.getDynamicProperty("isOff")) return;
 
-    const hopperContainer = DoriosContainer.resolve(entity);
+    const hopperContainer = DoriosContainer.resolve(block);
     if (!hopperContainer) return;
 
     const hasFilter = DoriosLib.block.getState(block, "utilitycraft:filter") == 1;
-    const whiteList = entity.getDynamicProperty("utilitycraft:whitelistOn");
-    const minecartPullEnabled = isMinecartPullEnabled(entity);
+    const whiteList = owner.getDynamicProperty("utilitycraft:whitelistOn") ?? true;
+    const minecartPullEnabled = isMinecartPullEnabled(owner);
     const moveCount = getMoveCount(block);
 
     // Define source and target positions depending on block type and direction
@@ -395,7 +406,7 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
       if (source) {
         const direction = getDirectionBetween(sourceLoc, block.location);
         if (direction) {
-          pullFromContainer(source, hopperContainer, direction, entity, hasFilter, whiteList, moveCount);
+          pullFromContainer(source, hopperContainer, direction, owner, hasFilter, whiteList, moveCount);
         }
       } else {
         let pulledFromMinecart = 0;
@@ -404,7 +415,7 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
           const minecart = findChestMinecartForHopper(dimension, block.location, isHopper);
           const minecartInv = minecart?.getComponent("minecraft:inventory")?.container;
           if (minecartInv) {
-            pulledFromMinecart = pullFromMinecart(minecartInv, hopperContainer, entity, hasFilter, whiteList, moveCount);
+            pulledFromMinecart = pullFromMinecart(minecartInv, hopperContainer, owner, hasFilter, whiteList, moveCount);
           }
         }
 
@@ -415,53 +426,46 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
             maxDistance: 0.8,
           });
 
-          pullDroppedItems(items, hopperContainer, entity, hasFilter, whiteList, moveCount);
+          pullDroppedItems(items, hopperContainer, owner, hasFilter, whiteList, moveCount);
         }
       }
     } else {
-      const range = entity.getDynamicProperty("range_selected") ?? 3;
+      const range = owner.getDynamicProperty("range_selected") ?? 3;
       const items = dimension.getEntities({
         type: "item",
         location: block.location,
         maxDistance: range,
       });
 
-      pullDroppedItems(items, hopperContainer, entity, hasFilter, whiteList, moveCount, { skipUIElements: true });
+      pullDroppedItems(items, hopperContainer, owner, hasFilter, whiteList, moveCount, { skipUIElements: true });
     }
 
     if (isDropper) {
-      dropFromHopper(hopperContainer, dimension, dir, block.location, entity, hasFilter, whiteList, moveCount);
+      dropFromHopper(hopperContainer, dimension, dir, block.location, owner, hasFilter, whiteList, moveCount);
     } else {
-      outputFromHopper(hopperContainer, dimension, block.location, targetLoc, entity, hasFilter, whiteList, moveCount);
+      outputFromHopper(hopperContainer, dimension, block.location, targetLoc, owner, hasFilter, whiteList, moveCount);
     }
   },
 
-  onPlace(e, { params }) {
-    const { block } = e;
-    const offset = params.type === "ender" ? ENDER_HOPPER_SPAWN_OFFSET : DEFAULT_HOPPER_SPAWN_OFFSET;
-    const { x, y, z } = block.location;
-    const entity = block.dimension.spawnEntity("utilitycraft:hopper", { x: x + offset.x, y: y + offset.y, z: z + offset.z });
-    if (params.type === "ender") {
-      entity.triggerEvent("utilitycraft:ender_hopper");
-    }
-    entity.setDynamicProperty("utilitycraft:whitelistOn", true);
-    entity.setDynamicProperty(MINECART_PULL_PROPERTY, true);
-    entity.nameTag = "Hopper";
+  onPlace({ block }) {
+    const owner = getBlockOwner(block);
+    owner?.setDynamicProperty("utilitycraft:whitelistOn", true);
+    owner?.setDynamicProperty(MINECART_PULL_PROPERTY, true);
   },
   onPlayerBreak(e) {
     const { block } = e;
     let { x, y, z } = block.location;
     ((x += 0.5), (z += 0.5), (y += 0.375));
-    const entity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
-    if (!entity) return;
-    const inv = entity.getComponent("minecraft:inventory").container;
+    const owner = getBlockOwner(block);
+    const inv = owner?.getComponent("minecraft:inventory")?.container;
+    if (!inv) return;
     for (let j = 0; j < inv.size; j++) {
       if (inv.getItem(j) != undefined) {
         let item = inv.getItem(j);
         block.dimension.spawnItem(item, { x, y, z });
       }
     }
-    entity.remove();
+    clearBlockOwner(block);
   },
   onPlayerInteract(e, { params }) {
     const { block, player } = e;
@@ -470,6 +474,9 @@ DoriosLib.registry.blockComponent("utilitycraft:mechanic_hopper", {
     const hasFilter = block.permutation.getState("utilitycraft:filter");
 
     const mainHand = player.getComponent("equippable").getEquipment("Mainhand");
+    // Let the shared upgradeable component handle upgrade items exclusively.
+    // This prevents hopper settings forms from competing with shift-click use.
+    if (mainHand?.typeId?.endsWith("_upgrade")) return;
     if (mainHand?.typeId.includes("wrench") || mainHand?.typeId === "utilitycraft:copy_paste_tool") return;
     if (player.isSneaking && params.type === "ender") {
       openEnderHopperMenu(block, player);
@@ -517,7 +524,7 @@ function getHeldItemType(player) {
 }
 
 function openMenu(block, player, hopperType) {
-  const hopper = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
+  const hopper = getBlockOwner(block);
   if (!hopper) return;
 
   const menu = new ActionFormData()
@@ -596,7 +603,7 @@ function openQuickSettings(hopper, player, hopperType) {
 }
 
 function openRemoveItemMenu(block, hopper, player, hopperType) {
-  const items = hopper.getTags();
+  const items = getFilterTags(hopper);
   if (items.length === 0) {
     player.onScreenDisplay.setActionBar(translate("message.utilitycraft.mechanical_hopper.no_items"));
     return;
@@ -628,16 +635,14 @@ function openRemoveItemMenu(block, hopper, player, hopperType) {
  * @param {Player} player The player interacting with it.
  */
 function openEnderHopperMenu(block, player) {
-  const hopperEntity = block.dimension.getEntitiesAtBlockLocation(block.location)[0];
-  if (!hopperEntity) return;
+  const hopperOwner = getBlockOwner(block);
+  if (!hopperOwner) return;
 
-  const equipment = player.getComponent("equippable");
-  const mainHand = equipment.getEquipment("Mainhand");
   const range = DoriosLib.block.getState(block, "utilitycraft:range") ?? 0;
 
   // Read stored dynamic properties
-  const isOff = hopperEntity.getDynamicProperty("isOff") ?? false;
-  const rangeSelected = hopperEntity.getDynamicProperty("range_selected") ?? 0;
+  const isOff = hopperOwner.getDynamicProperty("isOff") ?? false;
+  const rangeSelected = hopperOwner.getDynamicProperty("range_selected") ?? 0;
 
   // Create modal form
   const modal = new ModalFormData()
@@ -653,7 +658,7 @@ function openEnderHopperMenu(block, player) {
     const [enabled, newRange] = values;
 
     // Update dynamic properties
-    hopperEntity.setDynamicProperty("isOff", !enabled);
-    hopperEntity.setDynamicProperty("range_selected", newRange);
+    hopperOwner.setDynamicProperty("isOff", !enabled);
+    hopperOwner.setDynamicProperty("range_selected", newRange);
   });
 }

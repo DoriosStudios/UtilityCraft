@@ -1,5 +1,6 @@
 {
   "ui_defs": [
+    "ui/hopper_ui.json",
     "ui/machines/primitive_forge.json",
     "ui/ui_core.json",
     "ui/panels.json",

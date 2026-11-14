@@ -4,14 +4,8 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      162,
-      72
-    ],
-    "offset": [
-      -10,
-      -40
-    ],
+    "size": [162, 72],
+    "offset": [-10, -40],
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
     "$right_machine_tabs_name|default": "right_machine_tabs",
@@ -22,14 +16,8 @@
       },
       {
         "machine_screen@uc.machine_small_screen": {
-          "size": [
-            52,
-            52
-          ],
-          "offset": [
-            10,
-            14
-          ],
+          "size": [52, 52],
+          "offset": [10, 14],
           "layer": 1
         }
       },
@@ -39,10 +27,7 @@
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "$text_scale": 0.55,
-          "offset": [
-            13,
-            12
-          ],
+          "offset": [13, 12],
           "layer": 2
         }
       },
@@ -50,30 +35,21 @@
         "input@uc.liquid_input_1_bar": {
           "$collection_index": 3,
           "$has_bg": false,
-          "offset": [
-            -20.1,
-            0
-          ]
+          "offset": [-20.1, 0]
         }
       },
       {
         "gas_input@uc.liquid_input_2_bar": {
           "$collection_index": 20,
           "$has_bg": false,
-          "offset": [
-            -0.1,
-            0
-          ]
+          "offset": [-0.1, 0]
         }
       },
       {
         "progress@uc.progress_display": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [
-            36,
-            23
-          ],
+          "offset": [36, 23],
           "collection_index": 2
         }
       },
@@ -81,20 +57,14 @@
         "output1@uc.liquid_output_1_bar": {
           "$collection_index": 4,
           "$has_bg": false,
-          "offset": [
-            47.9,
-            0
-          ]
+          "offset": [47.9, 0]
         }
       },
       {
         "output2@uc.liquid_output_2_bar": {
           "$collection_index": 5,
           "$has_bg": false,
-          "offset": [
-            67.9,
-            0
-          ]
+          "offset": [67.9, 0]
         }
       },
       {
@@ -113,10 +83,7 @@
       },
       {
         "io_tab@uc.io_tab": {
-          "$io_panel_size": [
-            144,
-            148
-          ],
+          "$io_panel_size": [144, 148],
           "$right_machine_tabs_name": "$right_machine_tabs_name",
           "$io_toggle_control_name": "$io_toggle_control_name",
           "$io_config_tabs_name": "$io_config_tabs_name",
@@ -170,10 +137,7 @@
     "$io_items_toggle_control_name|default": "io_items_toggle_button",
     "$io_fluids_toggle_control_name|default": "io_fluids_toggle_button",
     "$io_gases_toggle_control_name|default": "io_gases_toggle_button",
-    "$energy_bar_offset|default": [
-      -101,
-      -13
-    ],
+    "$energy_bar_offset|default": [-101, -13],
     "$energy_bar_bg_texture|default": "textures/ui/toggle_button/left_bg"
   },
   "utilitycraft_panel": {
@@ -254,10 +218,7 @@
                   {
                     "recipes_content": {
                       "type": "panel",
-                      "offset": [
-                        76,
-                        0
-                      ],
+                      "offset": [76, 0],
                       "bindings": [
                         {
                           "binding_type": "view",
@@ -287,10 +248,7 @@
                         },
                         {
                           "electrolyzer_top@electrolyzer.electrolyzer_top": {
-                            "$energy_bar_offset": [
-                              97,
-                              64
-                            ],
+                            "$energy_bar_offset": [97, 64],
                             "$energy_bar_bg_texture": "textures/ui/toggle_button/right_bg",
                             "$right_machine_tabs_name": "right_machine_tabs_recipes",
                             "$upgrade_toggle_control_name": "upgrade_toggle_button_recipes",

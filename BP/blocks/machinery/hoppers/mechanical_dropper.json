@@ -17,8 +17,17 @@
       }
     },
     "components": {
+      "minecraft:chest_obstruction": {
+        "obstruction_rule": "never"
+      },
       "minecraft:sound": {
         "sound": "metal"
+      },
+      "minecraft:block_entity": {
+        "container": {
+          "slot_count": 5,
+          "title": "block.utilitycraft:mechanic_dropper.name"
+        }
       },
       "utilitycraft:upgradeable": {},
       "utilitycraft:mechanic_hopper": {

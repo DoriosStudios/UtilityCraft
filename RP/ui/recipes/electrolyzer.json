@@ -4,10 +4,7 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      162,
-      72
-    ],
+    "size": [162, 72],
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
     "bindings": [
@@ -23,10 +20,7 @@
       {
         "electrolyzer_0_preview": {
           "type": "collection_panel",
-          "size": [
-            162,
-            72
-          ],
+          "size": [162, 72],
           "collection_name": "container_items",
           "$item_collection_name": "container_items",
           "bindings": [
@@ -43,10 +37,7 @@
               "fluid_0@uc.fluid_recipe_ingredient": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [
-                  65,
-                  49
-                ],
+                "offset": [65, 49],
                 "$recipe_icon": "textures/static/images/water",
                 "$toggle_control_name": "electrolyzer_0_ingredient_0",
                 "$toggle_name": "electrolyzer_0_ingredient_0",
@@ -57,10 +48,7 @@
               "fluid_1@uc.fluid_recipe_ingredient": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [
-                  133,
-                  49
-                ],
+                "offset": [133, 49],
                 "$recipe_icon": "textures/static/images/hydrogen_gas",
                 "$toggle_control_name": "electrolyzer_0_ingredient_1",
                 "$toggle_name": "electrolyzer_0_ingredient_1",
@@ -71,10 +59,7 @@
               "fluid_2@uc.fluid_recipe_ingredient": {
                 "anchor_from": "top_left",
                 "anchor_to": "top_left",
-                "offset": [
-                  153,
-                  49
-                ],
+                "offset": [153, 49],
                 "$recipe_icon": "textures/static/images/oxygen_gas",
                 "$toggle_control_name": "electrolyzer_0_ingredient_2",
                 "$toggle_name": "electrolyzer_0_ingredient_2",
@@ -90,23 +75,14 @@
     "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [
-      126,
-      "100%c"
-    ],
-    "offset": [
-      0,
-      -1
-    ],
+    "size": [126, "100%c"],
+    "offset": [0, -1],
     "orientation": "vertical",
     "controls": [
       {
         "row_0": {
           "type": "panel",
-          "size": [
-            126,
-            20
-          ],
+          "size": [126, 20],
           "controls": [
             {
               "electrolyzer_0_toggle@uc.fluid_pair_recipe_toggle": {
@@ -117,10 +93,7 @@
                 "$recipe_icon": "textures/static/images/hydrogen_gas",
                 "anchor_from": "center",
                 "anchor_to": "left_middle",
-                "offset": [
-                  -9,
-                  0
-                ],
+                "offset": [-9, 0],
                 "$recipe_icon_2": "textures/static/images/oxygen_gas",
                 "$pair_default_state": true
               }
@@ -134,14 +107,8 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      154,
-      166
-    ],
-    "offset": [
-      -91,
-      0
-    ],
+    "size": [154, 166],
+    "offset": [-91, 0],
     "layer": 10,
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
@@ -159,14 +126,8 @@
         "panel_bg": {
           "type": "image",
           "texture": "textures/ui/background/background_panel",
-          "size": [
-            140,
-            145
-          ],
-          "offset": [
-            7,
-            10.5
-          ],
+          "size": [140, 145],
+          "offset": [7, 10.5],
           "layer": -5
         }
       },
@@ -176,14 +137,8 @@
           "texture": "textures/ui/background/dark_top_tab",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "size": [
-            140,
-            24
-          ],
-          "offset": [
-            7,
-            0
-          ],
+          "size": [140, 24],
+          "offset": [7, 0],
           "layer": -6
         }
       },
@@ -193,15 +148,8 @@
           "text": "ui.utilitycraft:recipes_panel.name",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [
-            7,
-            7
-          ],
-          "color": [
-            0.9,
-            0.9,
-            0.9
-          ],
+          "offset": [7, 7],
+          "color": [0.9, 0.9, 0.9],
           "layer": -3,
           "font_scale_factor": 1
         }
@@ -212,14 +160,8 @@
           "texture": "textures/ui/recipe_grid_bg",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": -4
         }
       },
@@ -229,14 +171,8 @@
           "texture": "textures/ui/background_border",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": 4
         }
       },
@@ -244,64 +180,22 @@
         "recipes_scroll@common.scrolling_panel": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            142,
-            130
-          ],
-          "offset": [
-            13,
-            -2
-          ],
+          "size": [142, 130],
+          "offset": [13, -2],
           "$show_background": false,
           "layer": -2,
-          "$scroll_size": [
-            4,
-            "100% - 4px"
-          ],
-          "$scrolling_pane_size": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset": [
-            -2,
-            30
-          ],
-          "$scroll_view_port_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset": [
-            -44,
-            0
-          ],
-          "$scrolling_pane_size_touch": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset_touch": [
-            0,
-            30
-          ],
-          "$scroll_view_port_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset_touch": [
-            -46,
-            0
-          ],
-          "$scroll_size_touch": [
-            4,
-            "100% - 4px"
-          ],
+          "$scroll_size": [4, "100% - 4px"],
+          "$scrolling_pane_size": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset": [-2, 30],
+          "$scroll_view_port_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset": [-44, 0],
+          "$scrolling_pane_size_touch": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset_touch": [0, 30],
+          "$scroll_view_port_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset_touch": [-46, 0],
+          "$scroll_size_touch": [4, "100% - 4px"],
           "$scroll_box_visible_touch": true,
           "$use_touch_mode": false,
           "$scrolling_content": "uc.electrolyzer_recipes_buttons",
@@ -314,14 +208,8 @@
     "type": "panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      12,
-      160
-    ],
-    "offset": [
-      -14,
-      0
-    ],
+    "size": [12, 160],
+    "offset": [-14, 0],
     "layer": -20,
     "bindings": [
       {
@@ -337,10 +225,7 @@
         "connector_bg": {
           "type": "image",
           "texture": "textures/ui/recipe_book_side_toggle_dark",
-          "size": [
-            12,
-            160
-          ],
+          "size": [12, 160],
           "layer": 0
         }
       }

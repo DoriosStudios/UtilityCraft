@@ -13,10 +13,7 @@
   },
   "seed_drop_result_header": {
     "type": "panel",
-    "size": [
-      126,
-      18
-    ],
+    "size": [126, 18],
     "controls": [
       {
         "background": {
@@ -24,14 +21,8 @@
           "texture": "textures/ui/gray_bg_border",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            126,
-            18
-          ],
-          "offset": [
-            54,
-            0
-          ],
+          "size": [126, 18],
+          "offset": [54, 0],
           "layer": -2
         }
       },
@@ -41,20 +32,10 @@
           "text": "Item",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            72,
-            "default"
-          ],
-          "offset": [
-            28,
-            0
-          ],
+          "size": [72, "default"],
+          "offset": [28, 0],
           "text_alignment": "left",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.65,
           "layer": 2
         }
@@ -65,20 +46,10 @@
           "text": "Chance",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            26,
-            "default"
-          ],
-          "offset": [
-            78,
-            0
-          ],
+          "size": [26, "default"],
+          "offset": [78, 0],
           "text_alignment": "center",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.65,
           "layer": 2
         }
@@ -87,10 +58,7 @@
   },
   "seed_drop_result_strip": {
     "type": "panel",
-    "size": [
-      126,
-      18
-    ],
+    "size": [126, 18],
     "$result_item_texture|default": "",
     "$result_item_name|default": "",
     "$result_chance_text|default": "0%%",
@@ -102,14 +70,8 @@
           "texture": "textures/ui/gray_bg_border",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            126,
-            18
-          ],
-          "offset": [
-            54,
-            0
-          ],
+          "size": [126, 18],
+          "offset": [54, 0],
           "layer": -2
         }
       },
@@ -119,14 +81,8 @@
           "texture": "$result_item_texture",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            14,
-            14
-          ],
-          "offset": [
-            56,
-            2
-          ],
+          "size": [14, 14],
+          "offset": [56, 2],
           "layer": 1
         }
       },
@@ -136,20 +92,10 @@
           "text": "$result_item_name",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            56,
-            "default"
-          ],
-          "offset": [
-            37,
-            0
-          ],
+          "size": [56, "default"],
+          "offset": [37, 0],
           "text_alignment": "left",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.65,
           "layer": 2
         }
@@ -160,20 +106,10 @@
           "text": "$result_chance_text",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            26,
-            "default"
-          ],
-          "offset": [
-            78,
-            0
-          ],
+          "size": [26, "default"],
+          "offset": [78, 0],
           "text_alignment": "center",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.65,
           "layer": 2
         }
@@ -184,20 +120,10 @@
           "text": "$result_amount_text",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            24,
-            "default"
-          ],
-          "offset": [
-            103,
-            0
-          ],
+          "size": [24, "default"],
+          "offset": [103, 0],
           "text_alignment": "right",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.55,
           "layer": 2
         }
@@ -206,10 +132,7 @@
   },
   "seed_soil_header": {
     "type": "panel",
-    "size": [
-      126,
-      18
-    ],
+    "size": [126, 18],
     "controls": [
       {
         "background": {
@@ -217,14 +140,8 @@
           "texture": "textures/ui/gray_bg_border",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            126,
-            18
-          ],
-          "offset": [
-            54,
-            0
-          ],
+          "size": [126, 18],
+          "offset": [54, 0],
           "layer": -2
         }
       },
@@ -234,20 +151,10 @@
           "text": "Soil Block",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            66,
-            "default"
-          ],
-          "offset": [
-            25,
-            0
-          ],
+          "size": [66, "default"],
+          "offset": [25, 0],
           "text_alignment": "left",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.6,
           "layer": 2
         }
@@ -258,20 +165,10 @@
           "text": "Speed",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            30,
-            "default"
-          ],
-          "offset": [
-            74,
-            0
-          ],
+          "size": [30, "default"],
+          "offset": [74, 0],
           "text_alignment": "center",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.5,
           "layer": 2
         }
@@ -282,20 +179,10 @@
           "text": "Energy",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            28,
-            "default"
-          ],
-          "offset": [
-            103,
-            0
-          ],
+          "size": [28, "default"],
+          "offset": [103, 0],
           "text_alignment": "center",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.5,
           "layer": 2
         }
@@ -304,10 +191,7 @@
   },
   "seed_soil_strip": {
     "type": "panel",
-    "size": [
-      126,
-      18
-    ],
+    "size": [126, 18],
     "$soil_texture|default": "",
     "$soil_name|default": "",
     "$soil_speed_text|default": "x1",
@@ -319,14 +203,8 @@
           "texture": "textures/ui/gray_bg_border",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            126,
-            18
-          ],
-          "offset": [
-            54,
-            0
-          ],
+          "size": [126, 18],
+          "offset": [54, 0],
           "layer": -2
         }
       },
@@ -336,14 +214,8 @@
           "texture": "$soil_texture",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            14,
-            14
-          ],
-          "offset": [
-            56,
-            2
-          ],
+          "size": [14, 14],
+          "offset": [56, 2],
           "layer": 1
         }
       },
@@ -353,20 +225,10 @@
           "text": "$soil_name",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            50,
-            "default"
-          ],
-          "offset": [
-            34,
-            0
-          ],
+          "size": [50, "default"],
+          "offset": [34, 0],
           "text_alignment": "left",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.6,
           "layer": 2
         }
@@ -377,20 +239,10 @@
           "text": "$soil_speed_text",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            30,
-            "default"
-          ],
-          "offset": [
-            74,
-            0
-          ],
+          "size": [30, "default"],
+          "offset": [74, 0],
           "text_alignment": "center",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.6,
           "layer": 2
         }
@@ -401,20 +253,10 @@
           "text": "$soil_efficiency_text",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [
-            28,
-            "default"
-          ],
-          "offset": [
-            103,
-            0
-          ],
+          "size": [28, "default"],
+          "offset": [103, 0],
           "text_alignment": "center",
-          "color": [
-            0.3,
-            0.3,
-            0.3
-          ],
+          "color": [0.3, 0.3, 0.3],
           "font_scale_factor": 0.55,
           "layer": 2
         }
@@ -423,10 +265,7 @@
   },
   "seed_category_row": {
     "type": "panel",
-    "size": [
-      126,
-      18
-    ],
+    "size": [126, 18],
     "controls": [
       {
         "trees_category_toggle@uc.seed_category_toggle": {
@@ -437,10 +276,7 @@
           "$toggle_hover_text": "Trees",
           "$toggle_control_name": "seed_trees_category",
           "$recipe_icon": "textures/blocks/sapling_oak",
-          "offset": [
-            0,
-            0
-          ]
+          "offset": [0, 0]
         }
       },
       {
@@ -452,10 +288,7 @@
           "$toggle_hover_text": "Plants",
           "$toggle_control_name": "seed_plants_category",
           "$recipe_icon": "textures/items/seeds_wheat",
-          "offset": [
-            18,
-            0
-          ]
+          "offset": [18, 0]
         }
       },
       {
@@ -467,10 +300,7 @@
           "$toggle_hover_text": "Tier I",
           "$toggle_control_name": "seed_resources_tier_1_category",
           "$recipe_icon": "textures/items/seeds/coal_seeds",
-          "offset": [
-            36,
-            0
-          ]
+          "offset": [36, 0]
         }
       },
       {
@@ -482,10 +312,7 @@
           "$toggle_hover_text": "Tier II",
           "$toggle_control_name": "seed_resources_tier_2_category",
           "$recipe_icon": "textures/items/seeds/redstone_seeds",
-          "offset": [
-            54,
-            0
-          ]
+          "offset": [54, 0]
         }
       },
       {
@@ -497,10 +324,7 @@
           "$toggle_hover_text": "Tier III",
           "$toggle_control_name": "seed_resources_tier_3_category",
           "$recipe_icon": "textures/items/seeds/diamond_seeds",
-          "offset": [
-            72,
-            0
-          ]
+          "offset": [72, 0]
         }
       },
       {
@@ -512,10 +336,7 @@
           "$toggle_hover_text": "Tier IV",
           "$toggle_control_name": "seed_resources_tier_4_category",
           "$recipe_icon": "textures/items/seeds/netherite_seeds",
-          "offset": [
-            90,
-            0
-          ]
+          "offset": [90, 0]
         }
       },
       {
@@ -527,29 +348,20 @@
           "$toggle_hover_text": "Soils",
           "$toggle_control_name": "seed_soils_category",
           "$recipe_icon": "textures/blocks/crops/soil_1",
-          "offset": [
-            108,
-            0
-          ]
+          "offset": [108, 0]
         }
       }
     ]
   },
   "seed_trees_plant_rows": {
     "type": "stack_panel",
-    "size": [
-      126,
-      36
-    ],
+    "size": [126, 36],
     "orientation": "vertical",
     "controls": [
       {
         "input_row_0": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "acacia_sapling_toggle@uc.seed_input_toggle": {
@@ -561,10 +373,7 @@
                 "$toggle_hover_text": "Acacia Sapling",
                 "$toggle_control_name": "seed_acacia_sapling_recipe",
                 "$recipe_icon": "textures/blocks/sapling_acacia",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -577,10 +386,7 @@
                 "$toggle_hover_text": "Azalea",
                 "$toggle_control_name": "seed_azalea_recipe",
                 "$recipe_icon": "textures/blocks/azalea_plant",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -593,10 +399,7 @@
                 "$toggle_hover_text": "Flowering Azalea",
                 "$toggle_control_name": "seed_flowering_azalea_recipe",
                 "$recipe_icon": "textures/blocks/flowering_azalea_side",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -609,10 +412,7 @@
                 "$toggle_hover_text": "Apple Sapling",
                 "$toggle_control_name": "seed_apple_sapling_recipe",
                 "$recipe_icon": "textures/items/misc/apple_tree",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -625,10 +425,7 @@
                 "$toggle_hover_text": "Birch Sapling",
                 "$toggle_control_name": "seed_birch_sapling_recipe",
                 "$recipe_icon": "textures/blocks/sapling_birch",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -641,10 +438,7 @@
                 "$toggle_hover_text": "Cherry Sapling",
                 "$toggle_control_name": "seed_cherry_sapling_recipe",
                 "$recipe_icon": "textures/blocks/cherry_sapling",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             },
             {
@@ -657,10 +451,7 @@
                 "$toggle_hover_text": "Dark Oak Sapling",
                 "$toggle_control_name": "seed_dark_oak_sapling_recipe",
                 "$recipe_icon": "textures/blocks/sapling_roofed_oak",
-                "offset": [
-                  108,
-                  0
-                ]
+                "offset": [108, 0]
               }
             }
           ]
@@ -669,10 +460,7 @@
       {
         "input_row_1": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "jungle_sapling_toggle@uc.seed_input_toggle": {
@@ -684,10 +472,7 @@
                 "$toggle_hover_text": "Jungle Sapling",
                 "$toggle_control_name": "seed_jungle_sapling_recipe",
                 "$recipe_icon": "textures/blocks/sapling_jungle",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -700,10 +485,7 @@
                 "$toggle_hover_text": "Mangrove Propagule",
                 "$toggle_control_name": "seed_mangrove_propagule_recipe",
                 "$recipe_icon": "textures/blocks/mangrove_propagule",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -716,10 +498,7 @@
                 "$toggle_hover_text": "Oak Sapling",
                 "$toggle_control_name": "seed_oak_sapling_recipe",
                 "$recipe_icon": "textures/blocks/sapling_oak",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -732,10 +511,7 @@
                 "$toggle_hover_text": "Pale Oak Sapling",
                 "$toggle_control_name": "seed_pale_oak_sapling_recipe",
                 "$recipe_icon": "textures/blocks/pale_oak_sapling",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -748,10 +524,7 @@
                 "$toggle_hover_text": "Spruce Sapling",
                 "$toggle_control_name": "seed_spruce_sapling_recipe",
                 "$recipe_icon": "textures/blocks/sapling_spruce",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -764,10 +537,7 @@
                 "$toggle_hover_text": "Crimson Fungus",
                 "$toggle_control_name": "seed_crimson_fungus_recipe",
                 "$recipe_icon": "textures/blocks/crimson_fungus",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             },
             {
@@ -780,10 +550,7 @@
                 "$toggle_hover_text": "Warped Fungus",
                 "$toggle_control_name": "seed_warped_fungus_recipe",
                 "$recipe_icon": "textures/blocks/warped_fungus",
-                "offset": [
-                  108,
-                  0
-                ]
+                "offset": [108, 0]
               }
             }
           ]
@@ -793,10 +560,7 @@
   },
   "seed_trees_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -820,10 +584,7 @@
       {
         "plant_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "acacia_sapling_results@uc.seed_acacia_sapling_results": {}
@@ -874,19 +635,13 @@
   },
   "seed_plants_plant_rows": {
     "type": "stack_panel",
-    "size": [
-      126,
-      54
-    ],
+    "size": [126, 54],
     "orientation": "vertical",
     "controls": [
       {
         "input_row_0": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "bamboo_toggle@uc.seed_input_toggle": {
@@ -898,10 +653,7 @@
                 "$toggle_hover_text": "Bamboo",
                 "$toggle_control_name": "seed_bamboo_recipe",
                 "$recipe_icon": "textures/items/bamboo",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -914,10 +666,7 @@
                 "$toggle_hover_text": "Beetroot Seeds",
                 "$toggle_control_name": "seed_beetroot_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds_beetroot",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -930,10 +679,7 @@
                 "$toggle_hover_text": "Cactus",
                 "$toggle_control_name": "seed_cactus_recipe",
                 "$recipe_icon": "textures/blocks/cactus_side",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -946,10 +692,7 @@
                 "$toggle_hover_text": "Carrot",
                 "$toggle_control_name": "seed_carrot_recipe",
                 "$recipe_icon": "textures/items/carrot",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -962,10 +705,7 @@
                 "$toggle_hover_text": "Chorus Fruit",
                 "$toggle_control_name": "seed_chorus_fruit_recipe",
                 "$recipe_icon": "textures/items/chorus_fruit",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -978,10 +718,7 @@
                 "$toggle_hover_text": "Chorus Flower",
                 "$toggle_control_name": "seed_chorus_flower_recipe",
                 "$recipe_icon": "textures/blocks/chorus_flower",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             },
             {
@@ -994,10 +731,7 @@
                 "$toggle_hover_text": "Kelp",
                 "$toggle_control_name": "seed_kelp_recipe",
                 "$recipe_icon": "textures/items/kelp",
-                "offset": [
-                  108,
-                  0
-                ]
+                "offset": [108, 0]
               }
             }
           ]
@@ -1006,10 +740,7 @@
       {
         "input_row_1": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "melon_seeds_toggle@uc.seed_input_toggle": {
@@ -1021,10 +752,7 @@
                 "$toggle_hover_text": "Melon Seeds",
                 "$toggle_control_name": "seed_melon_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds_melon",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1037,10 +765,7 @@
                 "$toggle_hover_text": "Red Mushroom",
                 "$toggle_control_name": "seed_red_mushroom_recipe",
                 "$recipe_icon": "textures/blocks/mushroom_red",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1053,10 +778,7 @@
                 "$toggle_hover_text": "Brown Mushroom",
                 "$toggle_control_name": "seed_brown_mushroom_recipe",
                 "$recipe_icon": "textures/blocks/mushroom_brown",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -1069,10 +791,7 @@
                 "$toggle_hover_text": "Nether Wart",
                 "$toggle_control_name": "seed_nether_wart_recipe",
                 "$recipe_icon": "textures/items/nether_wart",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -1085,10 +804,7 @@
                 "$toggle_hover_text": "Potato",
                 "$toggle_control_name": "seed_potato_recipe",
                 "$recipe_icon": "textures/items/potato",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -1101,10 +817,7 @@
                 "$toggle_hover_text": "Pumpkin Seeds",
                 "$toggle_control_name": "seed_pumpkin_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds_pumpkin",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             },
             {
@@ -1117,10 +830,7 @@
                 "$toggle_hover_text": "Sugar Cane",
                 "$toggle_control_name": "seed_sugar_cane_recipe",
                 "$recipe_icon": "textures/items/reeds",
-                "offset": [
-                  108,
-                  0
-                ]
+                "offset": [108, 0]
               }
             }
           ]
@@ -1129,10 +839,7 @@
       {
         "input_row_2": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "sweet_berries_toggle@uc.seed_input_toggle": {
@@ -1144,10 +851,7 @@
                 "$toggle_hover_text": "Sweet Berries",
                 "$toggle_control_name": "seed_sweet_berries_recipe",
                 "$recipe_icon": "textures/items/sweet_berries",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1160,10 +864,7 @@
                 "$toggle_hover_text": "Wheat Seeds",
                 "$toggle_control_name": "seed_wheat_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds_wheat",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1176,10 +877,7 @@
                 "$toggle_hover_text": "Poppy",
                 "$toggle_control_name": "seed_poppy_recipe",
                 "$recipe_icon": "textures/blocks/flower_rose",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -1192,10 +890,7 @@
                 "$toggle_hover_text": "Glow Berries",
                 "$toggle_control_name": "seed_glow_berries_recipe",
                 "$recipe_icon": "textures/items/glow_berries",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -1208,10 +903,7 @@
                 "$toggle_hover_text": "",
                 "$toggle_control_name": "seed_sea_pickle_recipe",
                 "$recipe_icon": "textures/items/sea_pickle",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             }
           ]
@@ -1221,10 +913,7 @@
   },
   "seed_plants_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -1248,10 +937,7 @@
       {
         "plant_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "bamboo_results@uc.seed_bamboo_results": {}
@@ -1317,19 +1003,13 @@
   },
   "seed_resources_tier_1_plant_rows": {
     "type": "stack_panel",
-    "size": [
-      126,
-      36
-    ],
+    "size": [126, 36],
     "orientation": "vertical",
     "controls": [
       {
         "input_row_0": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "coal_seeds_toggle@uc.seed_input_toggle": {
@@ -1341,10 +1021,7 @@
                 "$toggle_hover_text": "Coal Seeds",
                 "$toggle_control_name": "seed_coal_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/coal_seeds",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1357,10 +1034,7 @@
                 "$toggle_hover_text": "Copper Seeds",
                 "$toggle_control_name": "seed_copper_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/copper_seeds",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1373,10 +1047,7 @@
                 "$toggle_hover_text": "Dyes Seeds",
                 "$toggle_control_name": "seed_dyes_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/dye_seeds",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -1389,10 +1060,7 @@
                 "$toggle_hover_text": "Glass Seeds",
                 "$toggle_control_name": "seed_glass_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/glass_seeds",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -1405,10 +1073,7 @@
                 "$toggle_hover_text": "Gunpowder Seeds",
                 "$toggle_control_name": "seed_gunpowder_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/gunpowder_seeds",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -1421,10 +1086,7 @@
                 "$toggle_hover_text": "Iron Seeds",
                 "$toggle_control_name": "seed_iron_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/iron_seeds",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             },
             {
@@ -1437,10 +1099,7 @@
                 "$toggle_hover_text": "Leather Seeds",
                 "$toggle_control_name": "seed_leather_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/leather_seeds",
-                "offset": [
-                  108,
-                  0
-                ]
+                "offset": [108, 0]
               }
             }
           ]
@@ -1449,10 +1108,7 @@
       {
         "input_row_1": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "prismarine_crystals_seeds_toggle@uc.seed_input_toggle": {
@@ -1464,10 +1120,7 @@
                 "$toggle_hover_text": "Prismarine Crystals Seeds",
                 "$toggle_control_name": "seed_prismarine_crystals_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/prismarine_crystals_seeds",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1480,10 +1133,7 @@
                 "$toggle_hover_text": "Prismarine Shards Seeds",
                 "$toggle_control_name": "seed_prismarine_shards_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/prismarine_shards_seeds",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1496,10 +1146,7 @@
                 "$toggle_hover_text": "Water Seeds",
                 "$toggle_control_name": "seed_water_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/water_seeds",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -1512,10 +1159,7 @@
                 "$toggle_hover_text": "Wool Seeds",
                 "$toggle_control_name": "seed_wool_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/wool_seeds",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             }
           ]
@@ -1525,10 +1169,7 @@
   },
   "seed_resources_tier_1_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -1552,10 +1193,7 @@
       {
         "plant_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "coal_seeds_results@uc.seed_coal_seeds_results": {}
@@ -1597,19 +1235,13 @@
   },
   "seed_resources_tier_2_plant_rows": {
     "type": "stack_panel",
-    "size": [
-      126,
-      36
-    ],
+    "size": [126, 36],
     "orientation": "vertical",
     "controls": [
       {
         "input_row_0": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "ghast_seeds_toggle@uc.seed_input_toggle": {
@@ -1621,10 +1253,7 @@
                 "$toggle_hover_text": "Ghast Seeds",
                 "$toggle_control_name": "seed_ghast_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/ghast_seeds",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1637,10 +1266,7 @@
                 "$toggle_hover_text": "Glowstone Seeds",
                 "$toggle_control_name": "seed_glowstone_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/glowstone_seeds",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1653,10 +1279,7 @@
                 "$toggle_hover_text": "Gold Seeds",
                 "$toggle_control_name": "seed_gold_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/gold_seeds",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -1669,10 +1292,7 @@
                 "$toggle_hover_text": "Honey Seeds",
                 "$toggle_control_name": "seed_honey_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/honey_seeds",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -1685,10 +1305,7 @@
                 "$toggle_hover_text": "Lapis Seeds",
                 "$toggle_control_name": "seed_lapis_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/lapis_seeds",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -1701,10 +1318,7 @@
                 "$toggle_hover_text": "Lava Seeds",
                 "$toggle_control_name": "seed_lava_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/lava_seeds",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             },
             {
@@ -1717,10 +1331,7 @@
                 "$toggle_hover_text": "Quartz Seeds",
                 "$toggle_control_name": "seed_quartz_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/quartz_seeds",
-                "offset": [
-                  108,
-                  0
-                ]
+                "offset": [108, 0]
               }
             }
           ]
@@ -1729,10 +1340,7 @@
       {
         "input_row_1": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "redstone_seeds_toggle@uc.seed_input_toggle": {
@@ -1744,10 +1352,7 @@
                 "$toggle_hover_text": "Redstone Seeds",
                 "$toggle_control_name": "seed_redstone_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/redstone_seeds",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1760,10 +1365,7 @@
                 "$toggle_hover_text": "Resin Seeds",
                 "$toggle_control_name": "seed_resin_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/base_seeds",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1776,10 +1378,7 @@
                 "$toggle_hover_text": "Slime Seeds",
                 "$toggle_control_name": "seed_slime_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/slime_seeds",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             }
           ]
@@ -1789,10 +1388,7 @@
   },
   "seed_resources_tier_2_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -1816,10 +1412,7 @@
       {
         "plant_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "ghast_seeds_results@uc.seed_ghast_seeds_results": {}
@@ -1858,19 +1451,13 @@
   },
   "seed_resources_tier_3_plant_rows": {
     "type": "stack_panel",
-    "size": [
-      126,
-      36
-    ],
+    "size": [126, 36],
     "orientation": "vertical",
     "controls": [
       {
         "input_row_0": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "amethyst_seeds_toggle@uc.seed_input_toggle": {
@@ -1882,10 +1469,7 @@
                 "$toggle_hover_text": "Amethyst Seeds",
                 "$toggle_control_name": "seed_amethyst_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/amethyst_seeds",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -1898,10 +1482,7 @@
                 "$toggle_hover_text": "Blaze Seeds",
                 "$toggle_control_name": "seed_blaze_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/blaze_seeds",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -1914,10 +1495,7 @@
                 "$toggle_hover_text": "Diamond Seeds",
                 "$toggle_control_name": "seed_diamond_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/diamond_seeds",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -1930,10 +1508,7 @@
                 "$toggle_hover_text": "Emerald Seeds",
                 "$toggle_control_name": "seed_emerald_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/emerald_seeds",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -1946,10 +1521,7 @@
                 "$toggle_hover_text": "Enderpearl Seeds",
                 "$toggle_control_name": "seed_enderpearl_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/ender_pearl_seeds",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             },
             {
@@ -1962,10 +1534,7 @@
                 "$toggle_hover_text": "Obsidian Seeds",
                 "$toggle_control_name": "seed_obsidian_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/obsidian_seeds",
-                "offset": [
-                  90,
-                  0
-                ]
+                "offset": [90, 0]
               }
             }
           ]
@@ -1974,10 +1543,7 @@
       {
         "input_row_1": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": []
         }
       }
@@ -1985,10 +1551,7 @@
   },
   "seed_resources_tier_3_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2012,10 +1575,7 @@
       {
         "plant_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "amethyst_seeds_results@uc.seed_amethyst_seeds_results": {}
@@ -2042,19 +1602,13 @@
   },
   "seed_resources_tier_4_plant_rows": {
     "type": "stack_panel",
-    "size": [
-      126,
-      36
-    ],
+    "size": [126, 36],
     "orientation": "vertical",
     "controls": [
       {
         "input_row_0": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": [
             {
               "nether_star_seeds_toggle@uc.seed_input_toggle": {
@@ -2066,10 +1620,7 @@
                 "$toggle_hover_text": "Nether Star Seeds",
                 "$toggle_control_name": "seed_nether_star_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/nether_star_seeds",
-                "offset": [
-                  0,
-                  0
-                ]
+                "offset": [0, 0]
               }
             },
             {
@@ -2082,10 +1633,7 @@
                 "$toggle_hover_text": "Netherite Seeds",
                 "$toggle_control_name": "seed_netherite_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/netherite_seeds",
-                "offset": [
-                  18,
-                  0
-                ]
+                "offset": [18, 0]
               }
             },
             {
@@ -2098,10 +1646,7 @@
                 "$toggle_hover_text": "Shulker Seeds",
                 "$toggle_control_name": "seed_shulker_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/shulker_seeds",
-                "offset": [
-                  36,
-                  0
-                ]
+                "offset": [36, 0]
               }
             },
             {
@@ -2114,10 +1659,7 @@
                 "$toggle_hover_text": "Totem Seeds",
                 "$toggle_control_name": "seed_totem_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/totem_seeds",
-                "offset": [
-                  54,
-                  0
-                ]
+                "offset": [54, 0]
               }
             },
             {
@@ -2130,10 +1672,7 @@
                 "$toggle_hover_text": "Wither Seeds",
                 "$toggle_control_name": "seed_wither_seeds_recipe",
                 "$recipe_icon": "textures/items/seeds/wither_seeds",
-                "offset": [
-                  72,
-                  0
-                ]
+                "offset": [72, 0]
               }
             }
           ]
@@ -2142,10 +1681,7 @@
       {
         "input_row_1": {
           "type": "panel",
-          "size": [
-            126,
-            18
-          ],
+          "size": [126, 18],
           "controls": []
         }
       }
@@ -2153,10 +1689,7 @@
   },
   "seed_resources_tier_4_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2180,10 +1713,7 @@
       {
         "plant_result_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "nether_star_seeds_results@uc.seed_nether_star_seeds_results": {}
@@ -2207,10 +1737,7 @@
   },
   "seed_soils_category_content": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2276,10 +1803,7 @@
       {
         "addon_soil_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2290,10 +1814,7 @@
     "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2319,10 +1840,7 @@
       {
         "category_views": {
           "type": "panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "controls": [
             {
               "trees_content@uc.seed_trees_category_content": {}
@@ -2351,20 +1869,14 @@
       {
         "bottom_padding": {
           "type": "panel",
-          "size": [
-            126,
-            8
-          ]
+          "size": [126, 8]
         }
       }
     ]
   },
   "seed_acacia_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2411,10 +1923,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2423,10 +1932,7 @@
   },
   "seed_azalea_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2481,10 +1987,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2493,10 +1996,7 @@
   },
   "seed_flowering_azalea_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2551,10 +2051,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2563,10 +2060,7 @@
   },
   "seed_apple_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2637,10 +2131,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2649,10 +2140,7 @@
   },
   "seed_birch_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2699,10 +2187,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2711,10 +2196,7 @@
   },
   "seed_cherry_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2761,10 +2243,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2773,10 +2252,7 @@
   },
   "seed_dark_oak_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2823,10 +2299,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2835,10 +2308,7 @@
   },
   "seed_jungle_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2893,10 +2363,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2905,10 +2372,7 @@
   },
   "seed_mangrove_propagule_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -2955,10 +2419,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -2967,10 +2428,7 @@
   },
   "seed_oak_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3017,10 +2475,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3029,10 +2484,7 @@
   },
   "seed_pale_oak_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3087,10 +2539,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3099,10 +2548,7 @@
   },
   "seed_spruce_sapling_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3149,10 +2595,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3161,10 +2604,7 @@
   },
   "seed_bamboo_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3187,10 +2627,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3199,10 +2636,7 @@
   },
   "seed_beetroot_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3233,10 +2667,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3245,10 +2676,7 @@
   },
   "seed_cactus_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3271,10 +2699,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3283,10 +2708,7 @@
   },
   "seed_carrot_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3317,10 +2739,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3329,10 +2748,7 @@
   },
   "seed_chorus_fruit_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3363,10 +2779,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3375,10 +2788,7 @@
   },
   "seed_chorus_flower_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3409,10 +2819,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3421,10 +2828,7 @@
   },
   "seed_crimson_fungus_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3479,10 +2883,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3491,10 +2892,7 @@
   },
   "seed_kelp_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3517,10 +2915,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3529,10 +2924,7 @@
   },
   "seed_melon_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3563,10 +2955,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3575,10 +2964,7 @@
   },
   "seed_red_mushroom_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3601,10 +2987,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3613,10 +2996,7 @@
   },
   "seed_brown_mushroom_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3639,10 +3019,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3651,10 +3028,7 @@
   },
   "seed_nether_wart_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3677,10 +3051,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3689,10 +3060,7 @@
   },
   "seed_potato_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3723,10 +3091,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3735,10 +3100,7 @@
   },
   "seed_pumpkin_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3769,10 +3131,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3781,10 +3140,7 @@
   },
   "seed_sugar_cane_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3807,10 +3163,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3819,10 +3172,7 @@
   },
   "seed_sweet_berries_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3845,10 +3195,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3857,10 +3204,7 @@
   },
   "seed_warped_fungus_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3915,10 +3259,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3927,10 +3268,7 @@
   },
   "seed_wheat_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -3969,10 +3307,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -3981,10 +3316,7 @@
   },
   "seed_poppy_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4151,10 +3483,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4163,10 +3492,7 @@
   },
   "seed_glow_berries_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4189,10 +3515,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4201,10 +3524,7 @@
   },
   "seed_coal_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4235,10 +3555,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4247,10 +3564,7 @@
   },
   "seed_copper_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4281,10 +3595,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4293,10 +3604,7 @@
   },
   "seed_dyes_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4447,10 +3755,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4459,10 +3764,7 @@
   },
   "seed_glass_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4493,10 +3795,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4505,10 +3804,7 @@
   },
   "seed_gunpowder_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4539,10 +3835,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4551,10 +3844,7 @@
   },
   "seed_iron_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4585,10 +3875,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4597,10 +3884,7 @@
   },
   "seed_leather_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4631,10 +3915,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4643,10 +3924,7 @@
   },
   "seed_prismarine_crystals_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4677,10 +3955,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4689,10 +3964,7 @@
   },
   "seed_prismarine_shards_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4723,10 +3995,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4735,10 +4004,7 @@
   },
   "seed_water_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4769,10 +4035,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4781,10 +4044,7 @@
   },
   "seed_wool_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4815,10 +4075,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4827,10 +4084,7 @@
   },
   "seed_ghast_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4861,10 +4115,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4873,10 +4124,7 @@
   },
   "seed_glowstone_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4907,10 +4155,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4919,10 +4164,7 @@
   },
   "seed_gold_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4953,10 +4195,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -4965,10 +4204,7 @@
   },
   "seed_honey_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -4999,10 +4235,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5011,10 +4244,7 @@
   },
   "seed_lapis_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5045,10 +4275,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5057,10 +4284,7 @@
   },
   "seed_lava_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5091,10 +4315,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5103,10 +4324,7 @@
   },
   "seed_quartz_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5137,10 +4355,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5149,10 +4364,7 @@
   },
   "seed_redstone_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5183,10 +4395,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5195,10 +4404,7 @@
   },
   "seed_resin_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5229,10 +4435,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5241,10 +4444,7 @@
   },
   "seed_slime_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5275,10 +4475,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5287,10 +4484,7 @@
   },
   "seed_amethyst_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5321,10 +4515,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5333,10 +4524,7 @@
   },
   "seed_blaze_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5367,10 +4555,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5379,10 +4564,7 @@
   },
   "seed_diamond_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5413,10 +4595,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5425,10 +4604,7 @@
   },
   "seed_emerald_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5459,10 +4635,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5471,10 +4644,7 @@
   },
   "seed_enderpearl_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5505,10 +4675,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5517,10 +4684,7 @@
   },
   "seed_obsidian_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5551,10 +4715,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5563,10 +4724,7 @@
   },
   "seed_nether_star_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5597,10 +4755,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5609,10 +4764,7 @@
   },
   "seed_netherite_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5643,10 +4795,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5655,10 +4804,7 @@
   },
   "seed_shulker_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5689,10 +4835,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5701,10 +4844,7 @@
   },
   "seed_totem_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5735,10 +4875,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5747,10 +4884,7 @@
   },
   "seed_wither_seeds_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -5781,10 +4915,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }
@@ -5795,14 +4926,8 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      154,
-      166
-    ],
-    "offset": [
-      -91,
-      0
-    ],
+    "size": [154, 166],
+    "offset": [-91, 0],
     "layer": 10,
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
@@ -5820,14 +4945,8 @@
         "panel_bg": {
           "type": "image",
           "texture": "textures/ui/background/background_panel",
-          "size": [
-            140,
-            145
-          ],
-          "offset": [
-            7,
-            10.5
-          ],
+          "size": [140, 145],
+          "offset": [7, 10.5],
           "layer": -5
         }
       },
@@ -5837,14 +4956,8 @@
           "texture": "textures/ui/background/dark_top_tab",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "size": [
-            140,
-            24
-          ],
-          "offset": [
-            7,
-            0
-          ],
+          "size": [140, 24],
+          "offset": [7, 0],
           "layer": -6
         }
       },
@@ -5854,15 +4967,8 @@
           "text": "Drop Tables",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [
-            7,
-            7
-          ],
-          "color": [
-            0.9,
-            0.9,
-            0.9
-          ],
+          "offset": [7, 7],
+          "color": [0.9, 0.9, 0.9],
           "layer": -3,
           "font_scale_factor": 1
         }
@@ -5873,14 +4979,8 @@
           "texture": "textures/ui/recipe_grid_bg",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": -4
         }
       },
@@ -5890,14 +4990,8 @@
           "texture": "textures/ui/background_border",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            128,
-            134
-          ],
-          "offset": [
-            20,
-            27
-          ],
+          "size": [128, 134],
+          "offset": [20, 27],
           "layer": 4
         }
       },
@@ -5905,64 +4999,22 @@
         "recipes_scroll@common.scrolling_panel": {
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "size": [
-            142,
-            130
-          ],
-          "offset": [
-            13,
-            -2
-          ],
+          "size": [142, 130],
+          "offset": [13, -2],
           "$show_background": false,
           "layer": -2,
-          "$scroll_size": [
-            4,
-            "100% - 4px"
-          ],
-          "$scrolling_pane_size": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset": [
-            -2,
-            30
-          ],
-          "$scroll_view_port_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset": [
-            -44,
-            0
-          ],
-          "$scrolling_pane_size_touch": [
-            "100% + 6px",
-            "100% + 3px"
-          ],
-          "$scrolling_pane_offset_touch": [
-            0,
-            30
-          ],
-          "$scroll_view_port_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_max_size_touch": [
-            "100% + 80px",
-            "100% + 3px"
-          ],
-          "$scroll_view_port_offset_touch": [
-            -46,
-            0
-          ],
-          "$scroll_size_touch": [
-            4,
-            "100% - 4px"
-          ],
+          "$scroll_size": [4, "100% - 4px"],
+          "$scrolling_pane_size": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset": [-2, 30],
+          "$scroll_view_port_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset": [-44, 0],
+          "$scrolling_pane_size_touch": ["100% + 6px", "100% + 3px"],
+          "$scrolling_pane_offset_touch": [0, 30],
+          "$scroll_view_port_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_max_size_touch": ["100% + 80px", "100% + 3px"],
+          "$scroll_view_port_offset_touch": [-46, 0],
+          "$scroll_size_touch": [4, "100% - 4px"],
           "$scroll_box_visible_touch": true,
           "$use_touch_mode": false,
           "$scrolling_content": "uc.seed_synthesizer_recipe_content",
@@ -5975,14 +5027,8 @@
     "type": "panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      12,
-      160
-    ],
-    "offset": [
-      -14,
-      0
-    ],
+    "size": [12, 160],
+    "offset": [-14, 0],
     "layer": -20,
     "bindings": [
       {
@@ -5998,10 +5044,7 @@
         "connector_bg": {
           "type": "image",
           "texture": "textures/ui/recipe_book_side_toggle_dark",
-          "size": [
-            12,
-            160
-          ],
+          "size": [12, 160],
           "layer": 0
         }
       }
@@ -6009,10 +5052,7 @@
   },
   "seed_sea_pickle_results": {
     "type": "stack_panel",
-    "size": [
-      126,
-      "100%c"
-    ],
+    "size": [126, "100%c"],
     "orientation": "vertical",
     "bindings": [
       {
@@ -6035,10 +5075,7 @@
       {
         "addon_recipe_rows": {
           "type": "stack_panel",
-          "size": [
-            126,
-            "100%c"
-          ],
+          "size": [126, "100%c"],
           "orientation": "vertical",
           "controls": []
         }

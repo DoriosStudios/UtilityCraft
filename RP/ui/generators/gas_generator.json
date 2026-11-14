@@ -4,14 +4,8 @@
     "type": "collection_panel",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [
-      162,
-      72
-    ],
-    "offset": [
-      -10,
-      -40
-    ],
+    "size": [162, 72],
+    "offset": [-10, -40],
     "collection_name": "container_items",
     "$item_collection_name": "container_items",
     "controls": [
@@ -20,10 +14,7 @@
       },
       {
         "energy_bar@uc.energy_bar": {
-          "offset": [
-            54,
-            0
-          ],
+          "offset": [54, 0],
           "$has_bg": false
         }
       },
@@ -36,30 +27,21 @@
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "$text_scale": 0.55,
-          "offset": [
-            14,
-            12
-          ]
+          "offset": [14, 12]
         }
       },
       {
         "machinery@uc.progress_display": {
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [
-            37,
-            23
-          ],
+          "offset": [37, 23],
           "collection_index": 1
         }
       },
       {
         "gas_bar@uc.liquid_fuel_bar": {
           "$collection_index": 2,
-          "offset": [
-            0,
-            0
-          ]
+          "offset": [0, 0]
         }
       },
       {
@@ -90,7 +72,7 @@
       {
         "info_tab@uc.info_tab": {
           "offset": [0, -26],
-          "$info_panel_size": [80,134],
+          "$info_panel_size": [80, 134],
           "$info_description": "ui.utilitycraft:info.gas_generator"
         }
       }
